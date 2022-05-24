@@ -33,7 +33,7 @@ namespace Example
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Signals.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -117,7 +117,7 @@ namespace Example
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Signals.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -201,7 +201,7 @@ namespace Example
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Signals.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
@@ -290,7 +290,7 @@ namespace Example
     {
         public static async Task Main()
         {
-            var config = new FactSet.SDK.PAEngine.Client.Configuration();
+            var config = new FactSet.SDK.Signals.Client.Configuration();
 
             // Examples for each supported authentication method are below,
             // choose one that satisfies your use case.
