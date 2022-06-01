@@ -12,12 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import UniverseMeta from './UniverseMeta';
+import Universe from './Universe';
 
 /**
  * The UniverseMetaResponse model module.
  * @module model/UniverseMetaResponse
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UniverseMetaResponse {
     /**
@@ -49,7 +49,7 @@ class UniverseMetaResponse {
             obj = obj || new UniverseMetaResponse();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = UniverseMeta.constructFromObject(data['data']);
+                obj['data'] = Universe.constructFromObject(data['data']);
             }
         }
         return obj;
@@ -59,7 +59,7 @@ class UniverseMetaResponse {
 }
 
 /**
- * @member {module:model/UniverseMeta} data
+ * @member {module:model/Universe} data
  */
 UniverseMetaResponse.prototype['data'] = undefined;
 

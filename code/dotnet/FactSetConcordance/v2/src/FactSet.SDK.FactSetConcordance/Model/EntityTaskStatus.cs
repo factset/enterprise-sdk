@@ -82,7 +82,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results.
         /// </summary>
         /// <value>Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results.</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTaskStatus" /> class.
@@ -118,7 +118,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="userFullName">Full name of the person associated with the &#x60;userSerial&#x60;. .</param>
         /// <param name="universeId">The universe id this task was submitted to. .</param>
         /// <param name="universeName">The name of the universe this task was submitted to. .</param>
-        public EntityTaskStatus(int taskId = default(int), string taskName = default(string), string taskAction = default(string), StatusEnum? status = default(StatusEnum?), string inputFile = default(string), string clientIdColumn = default(string), string nameColumn = default(string), string countryColumn = default(string), string stateColumn = default(string), string urlColumn = default(string), bool hasResult = default(bool), DateTime taskSubmitTime = default(DateTime), string message = default(string), int inputCount = default(int), int mappedCount = default(int), int unmappedCount = default(int), int indeterminateCount = default(int), DateTime processStartTime = default(DateTime), double processDuration = default(double), int tryCount = default(int), double decisionRate = default(double), string error = default(string), string errorTitle = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), string userSerial = default(string), string userFullName = default(string), int universeId = default(int), string universeName = default(string))
+        public EntityTaskStatus(int? taskId = default(int?), string taskName = default(string), string taskAction = default(string), StatusEnum? status = default(StatusEnum?), string inputFile = default(string), string clientIdColumn = default(string), string nameColumn = default(string), string countryColumn = default(string), string stateColumn = default(string), string urlColumn = default(string), bool? hasResult = default(bool?), DateTime? taskSubmitTime = default(DateTime?), string message = default(string), int? inputCount = default(int?), int? mappedCount = default(int?), int? unmappedCount = default(int?), int? indeterminateCount = default(int?), DateTime? processStartTime = default(DateTime?), double? processDuration = default(double?), int? tryCount = default(int?), double? decisionRate = default(double?), string error = default(string), string errorTitle = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), string userSerial = default(string), string userFullName = default(string), int? universeId = default(int?), string universeName = default(string))
         {
             this.TaskId = taskId;
             this.TaskName = taskName;
@@ -157,63 +157,63 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Identifier denoting a specific Concordance task submitted by the user.
         /// </summary>
         /// <value>Identifier denoting a specific Concordance task submitted by the user.</value>
-        [DataMember(Name = "taskId", EmitDefaultValue = false)]
-        public int TaskId { get; set; }
+        [DataMember(Name = "taskId", EmitDefaultValue = true)]
+        public int? TaskId { get; set; }
 
         /// <summary>
         /// User-defined name for the task used to name the output file.
         /// </summary>
         /// <value>User-defined name for the task used to name the output file.</value>
-        [DataMember(Name = "taskName", EmitDefaultValue = false)]
+        [DataMember(Name = "taskName", EmitDefaultValue = true)]
         public string TaskName { get; set; }
 
         /// <summary>
         /// Action status for the Concordance Task process.
         /// </summary>
         /// <value>Action status for the Concordance Task process.</value>
-        [DataMember(Name = "taskAction", EmitDefaultValue = false)]
+        [DataMember(Name = "taskAction", EmitDefaultValue = true)]
         public string TaskAction { get; set; }
 
         /// <summary>
         /// The input file is posted as a file object in the form. 
         /// </summary>
         /// <value>The input file is posted as a file object in the form. </value>
-        [DataMember(Name = "inputFile", EmitDefaultValue = false)]
+        [DataMember(Name = "inputFile", EmitDefaultValue = true)]
         public string InputFile { get; set; }
 
         /// <summary>
         /// Name of the column in the input file that contains a unique identifier supplied by the user.
         /// </summary>
         /// <value>Name of the column in the input file that contains a unique identifier supplied by the user.</value>
-        [DataMember(Name = "clientIdColumn", EmitDefaultValue = false)]
+        [DataMember(Name = "clientIdColumn", EmitDefaultValue = true)]
         public string ClientIdColumn { get; set; }
 
         /// <summary>
         /// Name of the column in the input file that contains the entity name to be matched.
         /// </summary>
         /// <value>Name of the column in the input file that contains the entity name to be matched.</value>
-        [DataMember(Name = "nameColumn", EmitDefaultValue = false)]
+        [DataMember(Name = "nameColumn", EmitDefaultValue = true)]
         public string NameColumn { get; set; }
 
         /// <summary>
         /// Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. 
         /// </summary>
         /// <value>Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. </value>
-        [DataMember(Name = "countryColumn", EmitDefaultValue = false)]
+        [DataMember(Name = "countryColumn", EmitDefaultValue = true)]
         public string CountryColumn { get; set; }
 
         /// <summary>
         /// Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. 
         /// </summary>
         /// <value>Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. </value>
-        [DataMember(Name = "stateColumn", EmitDefaultValue = false)]
+        [DataMember(Name = "stateColumn", EmitDefaultValue = true)]
         public string StateColumn { get; set; }
 
         /// <summary>
         /// Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. 
         /// </summary>
         /// <value>Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. </value>
-        [DataMember(Name = "urlColumn", EmitDefaultValue = false)]
+        [DataMember(Name = "urlColumn", EmitDefaultValue = true)]
         public string UrlColumn { get; set; }
 
         /// <summary>
@@ -221,88 +221,88 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// </summary>
         /// <value>Flag denoting the taskId has a result.</value>
         [DataMember(Name = "hasResult", EmitDefaultValue = true)]
-        public bool HasResult { get; set; }
+        public bool? HasResult { get; set; }
 
         /// <summary>
         /// Time the Task was submitted in UTC.
         /// </summary>
         /// <value>Time the Task was submitted in UTC.</value>
-        [DataMember(Name = "taskSubmitTime", EmitDefaultValue = false)]
-        public DateTime TaskSubmitTime { get; set; }
+        [DataMember(Name = "taskSubmitTime", EmitDefaultValue = true)]
+        public DateTime? TaskSubmitTime { get; set; }
 
         /// <summary>
         /// Textual message for the status.
         /// </summary>
         /// <value>Textual message for the status.</value>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// Number of records in the Input File.
         /// </summary>
         /// <value>Number of records in the Input File.</value>
-        [DataMember(Name = "inputCount", EmitDefaultValue = false)]
-        public int InputCount { get; set; }
+        [DataMember(Name = "inputCount", EmitDefaultValue = true)]
+        public int? InputCount { get; set; }
 
         /// <summary>
         /// Number of records with status of MAPPED the Input File.
         /// </summary>
         /// <value>Number of records with status of MAPPED the Input File.</value>
-        [DataMember(Name = "mappedCount", EmitDefaultValue = false)]
-        public int MappedCount { get; set; }
+        [DataMember(Name = "mappedCount", EmitDefaultValue = true)]
+        public int? MappedCount { get; set; }
 
         /// <summary>
         /// Number of records with status of UNMAPPED the Input File.
         /// </summary>
         /// <value>Number of records with status of UNMAPPED the Input File.</value>
-        [DataMember(Name = "unmappedCount", EmitDefaultValue = false)]
-        public int UnmappedCount { get; set; }
+        [DataMember(Name = "unmappedCount", EmitDefaultValue = true)]
+        public int? UnmappedCount { get; set; }
 
         /// <summary>
         /// Number of records with status of INDETERMINATE the Input File.
         /// </summary>
         /// <value>Number of records with status of INDETERMINATE the Input File.</value>
-        [DataMember(Name = "indeterminateCount", EmitDefaultValue = false)]
-        public int IndeterminateCount { get; set; }
+        [DataMember(Name = "indeterminateCount", EmitDefaultValue = true)]
+        public int? IndeterminateCount { get; set; }
 
         /// <summary>
         /// Process start time in UTC.
         /// </summary>
         /// <value>Process start time in UTC.</value>
-        [DataMember(Name = "processStartTime", EmitDefaultValue = false)]
-        public DateTime ProcessStartTime { get; set; }
+        [DataMember(Name = "processStartTime", EmitDefaultValue = true)]
+        public DateTime? ProcessStartTime { get; set; }
 
         /// <summary>
         /// Process duration in seconds.
         /// </summary>
         /// <value>Process duration in seconds.</value>
-        [DataMember(Name = "processDuration", EmitDefaultValue = false)]
-        public double ProcessDuration { get; set; }
+        [DataMember(Name = "processDuration", EmitDefaultValue = true)]
+        public double? ProcessDuration { get; set; }
 
         /// <summary>
         /// Number of tries made so far for the request.
         /// </summary>
         /// <value>Number of tries made so far for the request.</value>
-        [DataMember(Name = "tryCount", EmitDefaultValue = false)]
-        public int TryCount { get; set; }
+        [DataMember(Name = "tryCount", EmitDefaultValue = true)]
+        public int? TryCount { get; set; }
 
         /// <summary>
         /// Percentage of mapped entities in the Input File.
         /// </summary>
         /// <value>Percentage of mapped entities in the Input File.</value>
-        [DataMember(Name = "decisionRate", EmitDefaultValue = false)]
-        public double DecisionRate { get; set; }
+        [DataMember(Name = "decisionRate", EmitDefaultValue = true)]
+        public double? DecisionRate { get; set; }
 
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name = "error", EmitDefaultValue = false)]
+        [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
         /// Gets or Sets ErrorTitle
         /// </summary>
-        [DataMember(Name = "errorTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "errorTitle", EmitDefaultValue = true)]
         public string ErrorTitle { get; set; }
 
         /// <summary>
@@ -337,28 +337,28 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// user-serial of the person who initiated the entity task.
         /// </summary>
         /// <value>user-serial of the person who initiated the entity task.</value>
-        [DataMember(Name = "userSerial", EmitDefaultValue = false)]
+        [DataMember(Name = "userSerial", EmitDefaultValue = true)]
         public string UserSerial { get; set; }
 
         /// <summary>
         /// Full name of the person associated with the &#x60;userSerial&#x60;. 
         /// </summary>
         /// <value>Full name of the person associated with the &#x60;userSerial&#x60;. </value>
-        [DataMember(Name = "userFullName", EmitDefaultValue = false)]
+        [DataMember(Name = "userFullName", EmitDefaultValue = true)]
         public string UserFullName { get; set; }
 
         /// <summary>
         /// The universe id this task was submitted to. 
         /// </summary>
         /// <value>The universe id this task was submitted to. </value>
-        [DataMember(Name = "universeId", EmitDefaultValue = false)]
-        public int UniverseId { get; set; }
+        [DataMember(Name = "universeId", EmitDefaultValue = true)]
+        public int? UniverseId { get; set; }
 
         /// <summary>
         /// The name of the universe this task was submitted to. 
         /// </summary>
         /// <value>The name of the universe this task was submitted to. </value>
-        [DataMember(Name = "universeName", EmitDefaultValue = false)]
+        [DataMember(Name = "universeName", EmitDefaultValue = true)]
         public string UniverseName { get; set; }
 
         /// <summary>
@@ -437,7 +437,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
             return 
                 (
                     this.TaskId == input.TaskId ||
-                    this.TaskId.Equals(input.TaskId)
+                    (this.TaskId != null &&
+                    this.TaskId.Equals(input.TaskId))
                 ) && 
                 (
                     this.TaskName == input.TaskName ||
@@ -485,7 +486,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.HasResult == input.HasResult ||
-                    this.HasResult.Equals(input.HasResult)
+                    (this.HasResult != null &&
+                    this.HasResult.Equals(input.HasResult))
                 ) && 
                 (
                     this.TaskSubmitTime == input.TaskSubmitTime ||
@@ -499,19 +501,23 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.InputCount == input.InputCount ||
-                    this.InputCount.Equals(input.InputCount)
+                    (this.InputCount != null &&
+                    this.InputCount.Equals(input.InputCount))
                 ) && 
                 (
                     this.MappedCount == input.MappedCount ||
-                    this.MappedCount.Equals(input.MappedCount)
+                    (this.MappedCount != null &&
+                    this.MappedCount.Equals(input.MappedCount))
                 ) && 
                 (
                     this.UnmappedCount == input.UnmappedCount ||
-                    this.UnmappedCount.Equals(input.UnmappedCount)
+                    (this.UnmappedCount != null &&
+                    this.UnmappedCount.Equals(input.UnmappedCount))
                 ) && 
                 (
                     this.IndeterminateCount == input.IndeterminateCount ||
-                    this.IndeterminateCount.Equals(input.IndeterminateCount)
+                    (this.IndeterminateCount != null &&
+                    this.IndeterminateCount.Equals(input.IndeterminateCount))
                 ) && 
                 (
                     this.ProcessStartTime == input.ProcessStartTime ||
@@ -520,15 +526,18 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.ProcessDuration == input.ProcessDuration ||
-                    this.ProcessDuration.Equals(input.ProcessDuration)
+                    (this.ProcessDuration != null &&
+                    this.ProcessDuration.Equals(input.ProcessDuration))
                 ) && 
                 (
                     this.TryCount == input.TryCount ||
-                    this.TryCount.Equals(input.TryCount)
+                    (this.TryCount != null &&
+                    this.TryCount.Equals(input.TryCount))
                 ) && 
                 (
                     this.DecisionRate == input.DecisionRate ||
-                    this.DecisionRate.Equals(input.DecisionRate)
+                    (this.DecisionRate != null &&
+                    this.DecisionRate.Equals(input.DecisionRate))
                 ) && 
                 (
                     this.Error == input.Error ||
@@ -576,7 +585,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.UniverseId == input.UniverseId ||
-                    this.UniverseId.Equals(input.UniverseId)
+                    (this.UniverseId != null &&
+                    this.UniverseId.Equals(input.UniverseId))
                 ) && 
                 (
                     this.UniverseName == input.UniverseName ||
@@ -594,7 +604,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
+                if (this.TaskId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
+                }
                 if (this.TaskName != null)
                 {
                     hashCode = (hashCode * 59) + this.TaskName.GetHashCode();
@@ -628,7 +641,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 {
                     hashCode = (hashCode * 59) + this.UrlColumn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.HasResult.GetHashCode();
+                if (this.HasResult != null)
+                {
+                    hashCode = (hashCode * 59) + this.HasResult.GetHashCode();
+                }
                 if (this.TaskSubmitTime != null)
                 {
                     hashCode = (hashCode * 59) + this.TaskSubmitTime.GetHashCode();
@@ -637,17 +653,38 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.InputCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
+                if (this.InputCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.InputCount.GetHashCode();
+                }
+                if (this.MappedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
+                }
+                if (this.UnmappedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
+                }
+                if (this.IndeterminateCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
+                }
                 if (this.ProcessStartTime != null)
                 {
                     hashCode = (hashCode * 59) + this.ProcessStartTime.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ProcessDuration.GetHashCode();
-                hashCode = (hashCode * 59) + this.TryCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.DecisionRate.GetHashCode();
+                if (this.ProcessDuration != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProcessDuration.GetHashCode();
+                }
+                if (this.TryCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TryCount.GetHashCode();
+                }
+                if (this.DecisionRate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DecisionRate.GetHashCode();
+                }
                 if (this.Error != null)
                 {
                     hashCode = (hashCode * 59) + this.Error.GetHashCode();
@@ -680,7 +717,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 {
                     hashCode = (hashCode * 59) + this.UserFullName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                if (this.UniverseId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                }
                 if (this.UniverseName != null)
                 {
                     hashCode = (hashCode * 59) + this.UniverseName.GetHashCode();

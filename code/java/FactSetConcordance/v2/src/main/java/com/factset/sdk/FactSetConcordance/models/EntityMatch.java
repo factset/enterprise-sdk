@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetConcordance.JSON;
@@ -73,25 +77,25 @@ public class EntityMatch implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
-  private Integer universeId;
+  private JsonNullable<Integer> universeId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_TASK_ID = "taskId";
-  private Integer taskId;
+  private JsonNullable<Integer> taskId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_ROW_INDEX = "rowIndex";
-  private Integer rowIndex;
+  private JsonNullable<Integer> rowIndex = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_MATCH_FLAG = "matchFlag";
-  private Boolean matchFlag;
+  private JsonNullable<Boolean> matchFlag = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
-  private String entityId;
+  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_NAME = "entityName";
-  private String entityName;
+  private JsonNullable<String> entityName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL = "url";
-  private String url;
+  private JsonNullable<String> url = JsonNullable.<String>undefined();
 
   /**
    * Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. 
@@ -126,93 +130,93 @@ public class EntityMatch implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_MAP_STATUS = "mapStatus";
-  private MapStatusEnum mapStatus;
+  private JsonNullable<MapStatusEnum> mapStatus = JsonNullable.<MapStatusEnum>undefined();
 
   public static final String JSON_PROPERTY_SIMILARITY_SCORE = "similarityScore";
-  private Double similarityScore;
+  private JsonNullable<Double> similarityScore = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_CONFIDENCE_SCORE = "confidenceScore";
-  private Double confidenceScore;
+  private JsonNullable<Double> confidenceScore = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
-  private String countryCode;
+  private JsonNullable<String> countryCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY_NAME = "countryName";
-  private String countryName;
+  private JsonNullable<String> countryName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATE_CODE = "stateCode";
-  private String stateCode;
+  private JsonNullable<String> stateCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATE_NAME = "stateName";
-  private String stateName;
+  private JsonNullable<String> stateName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SIC_CODE = "sicCode";
-  private String sicCode;
+  private JsonNullable<String> sicCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_CODE = "entityTypeCode";
-  private String entityTypeCode;
+  private JsonNullable<String> entityTypeCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_TYPE_DESCRIPTION = "entityTypeDescription";
-  private String entityTypeDescription;
+  private JsonNullable<String> entityTypeDescription = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_SUB_TYPE_CODE = "entitySubTypeCode";
-  private String entitySubTypeCode;
+  private JsonNullable<String> entitySubTypeCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOCATION_CITY = "locationCity";
-  private String locationCity;
+  private JsonNullable<String> locationCity = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REGION_NAME = "regionName";
-  private String regionName;
+  private JsonNullable<String> regionName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FACTSET_INDUSTRY_CODE = "factsetIndustryCode";
-  private String factsetIndustryCode;
+  private JsonNullable<String> factsetIndustryCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FACTSET_INDUSTRY_NAME = "factsetIndustryName";
-  private String factsetIndustryName;
+  private JsonNullable<String> factsetIndustryName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FACTSET_SECTOR_CODE = "factsetSectorCode";
-  private String factsetSectorCode;
+  private JsonNullable<String> factsetSectorCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FACTSET_SECTOR_NAME = "factsetSectorName";
-  private String factsetSectorName;
+  private JsonNullable<String> factsetSectorName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARENT_NAME = "parentName";
-  private String parentName;
+  private JsonNullable<String> parentName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARENT_MATCH_FLAG = "parentMatchFlag";
-  private Boolean parentMatchFlag;
+  private JsonNullable<Boolean> parentMatchFlag = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
-  private String clientId;
+  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_NAME = "clientName";
-  private String clientName;
+  private JsonNullable<String> clientName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_COUNTRY = "clientCountry";
-  private String clientCountry;
+  private JsonNullable<String> clientCountry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_STATE = "clientState";
-  private String clientState;
+  private JsonNullable<String> clientState = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_URL = "clientUrl";
-  private String clientUrl;
+  private JsonNullable<String> clientUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME_MATCH_STRING = "nameMatchString";
-  private String nameMatchString;
+  private JsonNullable<String> nameMatchString = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME_MATCH_SOURCE = "nameMatchSource";
-  private String nameMatchSource;
+  private JsonNullable<String> nameMatchSource = JsonNullable.<String>undefined();
 
   public EntityMatch() { 
   }
 
   public EntityMatch universeId(Integer universeId) {
-    this.universeId = universeId;
+    this.universeId = JsonNullable.<Integer>of(universeId);
     return this;
   }
 
@@ -222,23 +226,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The id of the universe that entities should be mapped to")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUniverseId() {
-    return universeId;
+        return universeId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseId(Integer universeId) {
+
+  public JsonNullable<Integer> getUniverseId_JsonNullable() {
+    return universeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
+  public void setUniverseId_JsonNullable(JsonNullable<Integer> universeId) {
     this.universeId = universeId;
+  }
+
+  public void setUniverseId(Integer universeId) {
+    this.universeId = JsonNullable.<Integer>of(universeId);
   }
 
 
   public EntityMatch taskId(Integer taskId) {
-    this.taskId = taskId;
+    this.taskId = JsonNullable.<Integer>of(taskId);
     return this;
   }
 
@@ -248,23 +260,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "31", value = "Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the \"Bulk\" workflow. ")
-  @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getTaskId() {
-    return taskId;
+        return taskId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TASK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskId(Integer taskId) {
+
+  public JsonNullable<Integer> getTaskId_JsonNullable() {
+    return taskId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_ID)
+  public void setTaskId_JsonNullable(JsonNullable<Integer> taskId) {
     this.taskId = taskId;
+  }
+
+  public void setTaskId(Integer taskId) {
+    this.taskId = JsonNullable.<Integer>of(taskId);
   }
 
 
   public EntityMatch rowIndex(Integer rowIndex) {
-    this.rowIndex = rowIndex;
+    this.rowIndex = JsonNullable.<Integer>of(rowIndex);
     return this;
   }
 
@@ -274,23 +294,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Row number for match in the request or input file.")
-  @JsonProperty(JSON_PROPERTY_ROW_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getRowIndex() {
-    return rowIndex;
+        return rowIndex.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ROW_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRowIndex(Integer rowIndex) {
+
+  public JsonNullable<Integer> getRowIndex_JsonNullable() {
+    return rowIndex;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ROW_INDEX)
+  public void setRowIndex_JsonNullable(JsonNullable<Integer> rowIndex) {
     this.rowIndex = rowIndex;
+  }
+
+  public void setRowIndex(Integer rowIndex) {
+    this.rowIndex = JsonNullable.<Integer>of(rowIndex);
   }
 
 
   public EntityMatch matchFlag(Boolean matchFlag) {
-    this.matchFlag = matchFlag;
+    this.matchFlag = JsonNullable.<Boolean>of(matchFlag);
     return this;
   }
 
@@ -300,23 +328,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Flag denoting if the row is a match.")
-  @JsonProperty(JSON_PROPERTY_MATCH_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getMatchFlag() {
-    return matchFlag;
+        return matchFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MATCH_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMatchFlag(Boolean matchFlag) {
+
+  public JsonNullable<Boolean> getMatchFlag_JsonNullable() {
+    return matchFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MATCH_FLAG)
+  public void setMatchFlag_JsonNullable(JsonNullable<Boolean> matchFlag) {
     this.matchFlag = matchFlag;
+  }
+
+  public void setMatchFlag(Boolean matchFlag) {
+    this.matchFlag = JsonNullable.<Boolean>of(matchFlag);
   }
 
 
   public EntityMatch entityId(String entityId) {
-    this.entityId = entityId;
+    this.entityId = JsonNullable.<String>of(entityId);
     return this;
   }
 
@@ -326,23 +362,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) ")
-  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityId() {
-    return entityId;
+        return entityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityId(String entityId) {
+
+  public JsonNullable<String> getEntityId_JsonNullable() {
+    return entityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  public void setEntityId_JsonNullable(JsonNullable<String> entityId) {
     this.entityId = entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = JsonNullable.<String>of(entityId);
   }
 
 
   public EntityMatch entityName(String entityName) {
-    this.entityName = entityName;
+    this.entityName = JsonNullable.<String>of(entityName);
     return this;
   }
 
@@ -352,23 +396,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FactSet Research Systems, Inc.", value = "Full name corresponding to the matched entity.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityName() {
-    return entityName;
+        return entityName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityName(String entityName) {
+
+  public JsonNullable<String> getEntityName_JsonNullable() {
+    return entityName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
+  public void setEntityName_JsonNullable(JsonNullable<String> entityName) {
     this.entityName = entityName;
+  }
+
+  public void setEntityName(String entityName) {
+    this.entityName = JsonNullable.<String>of(entityName);
   }
 
 
   public EntityMatch url(String url) {
-    this.url = url;
+    this.url = JsonNullable.<String>of(url);
     return this;
   }
 
@@ -378,23 +430,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUrl() {
-    return url;
+        return url.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUrl(String url) {
+
+  public JsonNullable<String> getUrl_JsonNullable() {
+    return url;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_URL)
+  public void setUrl_JsonNullable(JsonNullable<String> url) {
     this.url = url;
+  }
+
+  public void setUrl(String url) {
+    this.url = JsonNullable.<String>of(url);
   }
 
 
   public EntityMatch mapStatus(MapStatusEnum mapStatus) {
-    this.mapStatus = mapStatus;
+    this.mapStatus = JsonNullable.<MapStatusEnum>of(mapStatus);
     return this;
   }
 
@@ -404,23 +464,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "MAPPED", value = "Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. ")
-  @JsonProperty(JSON_PROPERTY_MAP_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public MapStatusEnum getMapStatus() {
-    return mapStatus;
+        return mapStatus.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAP_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMapStatus(MapStatusEnum mapStatus) {
+
+  public JsonNullable<MapStatusEnum> getMapStatus_JsonNullable() {
+    return mapStatus;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAP_STATUS)
+  public void setMapStatus_JsonNullable(JsonNullable<MapStatusEnum> mapStatus) {
     this.mapStatus = mapStatus;
+  }
+
+  public void setMapStatus(MapStatusEnum mapStatus) {
+    this.mapStatus = JsonNullable.<MapStatusEnum>of(mapStatus);
   }
 
 
   public EntityMatch similarityScore(Double similarityScore) {
-    this.similarityScore = similarityScore;
+    this.similarityScore = JsonNullable.<Double>of(similarityScore);
     return this;
   }
 
@@ -430,23 +498,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. ")
-  @JsonProperty(JSON_PROPERTY_SIMILARITY_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getSimilarityScore() {
-    return similarityScore;
+        return similarityScore.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SIMILARITY_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSimilarityScore(Double similarityScore) {
+
+  public JsonNullable<Double> getSimilarityScore_JsonNullable() {
+    return similarityScore;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SIMILARITY_SCORE)
+  public void setSimilarityScore_JsonNullable(JsonNullable<Double> similarityScore) {
     this.similarityScore = similarityScore;
+  }
+
+  public void setSimilarityScore(Double similarityScore) {
+    this.similarityScore = JsonNullable.<Double>of(similarityScore);
   }
 
 
   public EntityMatch confidenceScore(Double confidenceScore) {
-    this.confidenceScore = confidenceScore;
+    this.confidenceScore = JsonNullable.<Double>of(confidenceScore);
     return this;
   }
 
@@ -456,23 +532,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence. ")
-  @JsonProperty(JSON_PROPERTY_CONFIDENCE_SCORE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getConfidenceScore() {
-    return confidenceScore;
+        return confidenceScore.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CONFIDENCE_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfidenceScore(Double confidenceScore) {
+
+  public JsonNullable<Double> getConfidenceScore_JsonNullable() {
+    return confidenceScore;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONFIDENCE_SCORE)
+  public void setConfidenceScore_JsonNullable(JsonNullable<Double> confidenceScore) {
     this.confidenceScore = confidenceScore;
+  }
+
+  public void setConfidenceScore(Double confidenceScore) {
+    this.confidenceScore = JsonNullable.<Double>of(confidenceScore);
   }
 
 
   public EntityMatch countryCode(String countryCode) {
-    this.countryCode = countryCode;
+    this.countryCode = JsonNullable.<String>of(countryCode);
     return this;
   }
 
@@ -482,23 +566,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code corresponding to the location of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCountryCode() {
-    return countryCode;
+        return countryCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountryCode(String countryCode) {
+
+  public JsonNullable<String> getCountryCode_JsonNullable() {
+    return countryCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
+  public void setCountryCode_JsonNullable(JsonNullable<String> countryCode) {
     this.countryCode = countryCode;
+  }
+
+  public void setCountryCode(String countryCode) {
+    this.countryCode = JsonNullable.<String>of(countryCode);
   }
 
 
   public EntityMatch countryName(String countryName) {
-    this.countryName = countryName;
+    this.countryName = JsonNullable.<String>of(countryName);
     return this;
   }
 
@@ -508,23 +600,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "United States", value = "Country name corresponding to the location of the matched entity")
-  @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCountryName() {
-    return countryName;
+        return countryName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountryName(String countryName) {
+
+  public JsonNullable<String> getCountryName_JsonNullable() {
+    return countryName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNTRY_NAME)
+  public void setCountryName_JsonNullable(JsonNullable<String> countryName) {
     this.countryName = countryName;
+  }
+
+  public void setCountryName(String countryName) {
+    this.countryName = JsonNullable.<String>of(countryName);
   }
 
 
   public EntityMatch stateCode(String stateCode) {
-    this.stateCode = stateCode;
+    this.stateCode = JsonNullable.<String>of(stateCode);
     return this;
   }
 
@@ -534,23 +634,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "CT", value = "Two character state code corresponding to the location of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_STATE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getStateCode() {
-    return stateCode;
+        return stateCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STATE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateCode(String stateCode) {
+
+  public JsonNullable<String> getStateCode_JsonNullable() {
+    return stateCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATE_CODE)
+  public void setStateCode_JsonNullable(JsonNullable<String> stateCode) {
     this.stateCode = stateCode;
+  }
+
+  public void setStateCode(String stateCode) {
+    this.stateCode = JsonNullable.<String>of(stateCode);
   }
 
 
   public EntityMatch stateName(String stateName) {
-    this.stateName = stateName;
+    this.stateName = JsonNullable.<String>of(stateName);
     return this;
   }
 
@@ -560,23 +668,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Connecticut", value = "State name corresponding to the location of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_STATE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getStateName() {
-    return stateName;
+        return stateName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STATE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateName(String stateName) {
+
+  public JsonNullable<String> getStateName_JsonNullable() {
+    return stateName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATE_NAME)
+  public void setStateName_JsonNullable(JsonNullable<String> stateName) {
     this.stateName = stateName;
+  }
+
+  public void setStateName(String stateName) {
+    this.stateName = JsonNullable.<String>of(stateName);
   }
 
 
   public EntityMatch sicCode(String sicCode) {
-    this.sicCode = sicCode;
+    this.sicCode = JsonNullable.<String>of(sicCode);
     return this;
   }
 
@@ -586,23 +702,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "7374", value = "Standard Industrial Classification (SIC) Code of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_SIC_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSicCode() {
-    return sicCode;
+        return sicCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SIC_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSicCode(String sicCode) {
+
+  public JsonNullable<String> getSicCode_JsonNullable() {
+    return sicCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SIC_CODE)
+  public void setSicCode_JsonNullable(JsonNullable<String> sicCode) {
     this.sicCode = sicCode;
+  }
+
+  public void setSicCode(String sicCode) {
+    this.sicCode = JsonNullable.<String>of(sicCode);
   }
 
 
   public EntityMatch entityTypeCode(String entityTypeCode) {
-    this.entityTypeCode = entityTypeCode;
+    this.entityTypeCode = JsonNullable.<String>of(entityTypeCode);
     return this;
   }
 
@@ -612,23 +736,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "PUB", value = "Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityTypeCode() {
-    return entityTypeCode;
+        return entityTypeCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityTypeCode(String entityTypeCode) {
+
+  public JsonNullable<String> getEntityTypeCode_JsonNullable() {
+    return entityTypeCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_CODE)
+  public void setEntityTypeCode_JsonNullable(JsonNullable<String> entityTypeCode) {
     this.entityTypeCode = entityTypeCode;
+  }
+
+  public void setEntityTypeCode(String entityTypeCode) {
+    this.entityTypeCode = JsonNullable.<String>of(entityTypeCode);
   }
 
 
   public EntityMatch entityTypeDescription(String entityTypeDescription) {
-    this.entityTypeDescription = entityTypeDescription;
+    this.entityTypeDescription = JsonNullable.<String>of(entityTypeDescription);
     return this;
   }
 
@@ -638,23 +770,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Public Company", value = "Description of of the matched entity's type.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityTypeDescription() {
-    return entityTypeDescription;
+        return entityTypeDescription.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityTypeDescription(String entityTypeDescription) {
+
+  public JsonNullable<String> getEntityTypeDescription_JsonNullable() {
+    return entityTypeDescription;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_TYPE_DESCRIPTION)
+  public void setEntityTypeDescription_JsonNullable(JsonNullable<String> entityTypeDescription) {
     this.entityTypeDescription = entityTypeDescription;
+  }
+
+  public void setEntityTypeDescription(String entityTypeDescription) {
+    this.entityTypeDescription = JsonNullable.<String>of(entityTypeDescription);
   }
 
 
   public EntityMatch entitySubTypeCode(String entitySubTypeCode) {
-    this.entitySubTypeCode = entitySubTypeCode;
+    this.entitySubTypeCode = JsonNullable.<String>of(entitySubTypeCode);
     return this;
   }
 
@@ -664,23 +804,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "PR", value = "Code representing the entity subtype of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_SUB_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntitySubTypeCode() {
-    return entitySubTypeCode;
+        return entitySubTypeCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_SUB_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntitySubTypeCode(String entitySubTypeCode) {
+
+  public JsonNullable<String> getEntitySubTypeCode_JsonNullable() {
+    return entitySubTypeCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_SUB_TYPE_CODE)
+  public void setEntitySubTypeCode_JsonNullable(JsonNullable<String> entitySubTypeCode) {
     this.entitySubTypeCode = entitySubTypeCode;
+  }
+
+  public void setEntitySubTypeCode(String entitySubTypeCode) {
+    this.entitySubTypeCode = JsonNullable.<String>of(entitySubTypeCode);
   }
 
 
   public EntityMatch locationCity(String locationCity) {
-    this.locationCity = locationCity;
+    this.locationCity = JsonNullable.<String>of(locationCity);
     return this;
   }
 
@@ -690,23 +838,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Norwalk", value = "City where the matched entity is located.")
-  @JsonProperty(JSON_PROPERTY_LOCATION_CITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getLocationCity() {
-    return locationCity;
+        return locationCity.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LOCATION_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocationCity(String locationCity) {
+
+  public JsonNullable<String> getLocationCity_JsonNullable() {
+    return locationCity;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOCATION_CITY)
+  public void setLocationCity_JsonNullable(JsonNullable<String> locationCity) {
     this.locationCity = locationCity;
+  }
+
+  public void setLocationCity(String locationCity) {
+    this.locationCity = JsonNullable.<String>of(locationCity);
   }
 
 
   public EntityMatch regionName(String regionName) {
-    this.regionName = regionName;
+    this.regionName = JsonNullable.<String>of(regionName);
     return this;
   }
 
@@ -716,23 +872,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "North America", value = "Region where the matched entity is located.")
-  @JsonProperty(JSON_PROPERTY_REGION_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRegionName() {
-    return regionName;
+        return regionName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REGION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRegionName(String regionName) {
+
+  public JsonNullable<String> getRegionName_JsonNullable() {
+    return regionName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REGION_NAME)
+  public void setRegionName_JsonNullable(JsonNullable<String> regionName) {
     this.regionName = regionName;
+  }
+
+  public void setRegionName(String regionName) {
+    this.regionName = JsonNullable.<String>of(regionName);
   }
 
 
   public EntityMatch factsetIndustryCode(String factsetIndustryCode) {
-    this.factsetIndustryCode = factsetIndustryCode;
+    this.factsetIndustryCode = JsonNullable.<String>of(factsetIndustryCode);
     return this;
   }
 
@@ -742,23 +906,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3305", value = "FactSet Industry Classification Code of the matched entity.")
-  @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFactsetIndustryCode() {
-    return factsetIndustryCode;
+        return factsetIndustryCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFactsetIndustryCode(String factsetIndustryCode) {
+
+  public JsonNullable<String> getFactsetIndustryCode_JsonNullable() {
+    return factsetIndustryCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_CODE)
+  public void setFactsetIndustryCode_JsonNullable(JsonNullable<String> factsetIndustryCode) {
     this.factsetIndustryCode = factsetIndustryCode;
+  }
+
+  public void setFactsetIndustryCode(String factsetIndustryCode) {
+    this.factsetIndustryCode = JsonNullable.<String>of(factsetIndustryCode);
   }
 
 
   public EntityMatch factsetIndustryName(String factsetIndustryName) {
-    this.factsetIndustryName = factsetIndustryName;
+    this.factsetIndustryName = JsonNullable.<String>of(factsetIndustryName);
     return this;
   }
 
@@ -768,23 +940,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Data Processing Services", value = "Name of the matched entity's FactSet Industry Classification.")
-  @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFactsetIndustryName() {
-    return factsetIndustryName;
+        return factsetIndustryName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFactsetIndustryName(String factsetIndustryName) {
+
+  public JsonNullable<String> getFactsetIndustryName_JsonNullable() {
+    return factsetIndustryName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTSET_INDUSTRY_NAME)
+  public void setFactsetIndustryName_JsonNullable(JsonNullable<String> factsetIndustryName) {
     this.factsetIndustryName = factsetIndustryName;
+  }
+
+  public void setFactsetIndustryName(String factsetIndustryName) {
+    this.factsetIndustryName = JsonNullable.<String>of(factsetIndustryName);
   }
 
 
   public EntityMatch factsetSectorCode(String factsetSectorCode) {
-    this.factsetSectorCode = factsetSectorCode;
+    this.factsetSectorCode = JsonNullable.<String>of(factsetSectorCode);
     return this;
   }
 
@@ -794,23 +974,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3300", value = "Name of the matched entity's FactSet Sector Classification Code.")
-  @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFactsetSectorCode() {
-    return factsetSectorCode;
+        return factsetSectorCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFactsetSectorCode(String factsetSectorCode) {
+
+  public JsonNullable<String> getFactsetSectorCode_JsonNullable() {
+    return factsetSectorCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_CODE)
+  public void setFactsetSectorCode_JsonNullable(JsonNullable<String> factsetSectorCode) {
     this.factsetSectorCode = factsetSectorCode;
+  }
+
+  public void setFactsetSectorCode(String factsetSectorCode) {
+    this.factsetSectorCode = JsonNullable.<String>of(factsetSectorCode);
   }
 
 
   public EntityMatch factsetSectorName(String factsetSectorName) {
-    this.factsetSectorName = factsetSectorName;
+    this.factsetSectorName = JsonNullable.<String>of(factsetSectorName);
     return this;
   }
 
@@ -820,23 +1008,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Technology Services", value = "Name of the matched entity's FactSet Sector Classification.")
-  @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFactsetSectorName() {
-    return factsetSectorName;
+        return factsetSectorName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFactsetSectorName(String factsetSectorName) {
+
+  public JsonNullable<String> getFactsetSectorName_JsonNullable() {
+    return factsetSectorName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FACTSET_SECTOR_NAME)
+  public void setFactsetSectorName_JsonNullable(JsonNullable<String> factsetSectorName) {
     this.factsetSectorName = factsetSectorName;
+  }
+
+  public void setFactsetSectorName(String factsetSectorName) {
+    this.factsetSectorName = JsonNullable.<String>of(factsetSectorName);
   }
 
 
   public EntityMatch parentName(String parentName) {
-    this.parentName = parentName;
+    this.parentName = JsonNullable.<String>of(parentName);
     return this;
   }
 
@@ -846,23 +1042,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the matched entity's parent entity.")
-  @JsonProperty(JSON_PROPERTY_PARENT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getParentName() {
-    return parentName;
+        return parentName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PARENT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentName(String parentName) {
+
+  public JsonNullable<String> getParentName_JsonNullable() {
+    return parentName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_NAME)
+  public void setParentName_JsonNullable(JsonNullable<String> parentName) {
     this.parentName = parentName;
+  }
+
+  public void setParentName(String parentName) {
+    this.parentName = JsonNullable.<String>of(parentName);
   }
 
 
   public EntityMatch parentMatchFlag(Boolean parentMatchFlag) {
-    this.parentMatchFlag = parentMatchFlag;
+    this.parentMatchFlag = JsonNullable.<Boolean>of(parentMatchFlag);
     return this;
   }
 
@@ -872,23 +1076,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Flag denoting that the matched entity is the parent of another match.")
-  @JsonProperty(JSON_PROPERTY_PARENT_MATCH_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getParentMatchFlag() {
-    return parentMatchFlag;
+        return parentMatchFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PARENT_MATCH_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentMatchFlag(Boolean parentMatchFlag) {
+
+  public JsonNullable<Boolean> getParentMatchFlag_JsonNullable() {
+    return parentMatchFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_MATCH_FLAG)
+  public void setParentMatchFlag_JsonNullable(JsonNullable<Boolean> parentMatchFlag) {
     this.parentMatchFlag = parentMatchFlag;
+  }
+
+  public void setParentMatchFlag(Boolean parentMatchFlag) {
+    this.parentMatchFlag = JsonNullable.<Boolean>of(parentMatchFlag);
   }
 
 
   public EntityMatch clientId(String clientId) {
-    this.clientId = clientId;
+    this.clientId = JsonNullable.<String>of(clientId);
     return this;
   }
 
@@ -898,23 +1110,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "abc-123", value = "Unique Identifer provided by the user in the request to represent the entity Name being requested.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientId() {
-    return clientId;
+        return clientId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+
+  public JsonNullable<String> getClientId_JsonNullable() {
+    return clientId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  public void setClientId_JsonNullable(JsonNullable<String> clientId) {
     this.clientId = clientId;
+  }
+
+  public void setClientId(String clientId) {
+    this.clientId = JsonNullable.<String>of(clientId);
   }
 
 
   public EntityMatch clientName(String clientName) {
-    this.clientName = clientName;
+    this.clientName = JsonNullable.<String>of(clientName);
     return this;
   }
 
@@ -924,23 +1144,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "Name of the entity to match as specified in the request")
-  @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientName() {
-    return clientName;
+        return clientName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientName(String clientName) {
+
+  public JsonNullable<String> getClientName_JsonNullable() {
+    return clientName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
+  public void setClientName_JsonNullable(JsonNullable<String> clientName) {
     this.clientName = clientName;
+  }
+
+  public void setClientName(String clientName) {
+    this.clientName = JsonNullable.<String>of(clientName);
   }
 
 
   public EntityMatch clientCountry(String clientCountry) {
-    this.clientCountry = clientCountry;
+    this.clientCountry = JsonNullable.<String>of(clientCountry);
     return this;
   }
 
@@ -950,23 +1178,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO2 country code specified in the request.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientCountry() {
-    return clientCountry;
+        return clientCountry.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientCountry(String clientCountry) {
+
+  public JsonNullable<String> getClientCountry_JsonNullable() {
+    return clientCountry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
+  public void setClientCountry_JsonNullable(JsonNullable<String> clientCountry) {
     this.clientCountry = clientCountry;
+  }
+
+  public void setClientCountry(String clientCountry) {
+    this.clientCountry = JsonNullable.<String>of(clientCountry);
   }
 
 
   public EntityMatch clientState(String clientState) {
-    this.clientState = clientState;
+    this.clientState = JsonNullable.<String>of(clientState);
     return this;
   }
 
@@ -976,23 +1212,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "CT", value = "State code specified in the request.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientState() {
-    return clientState;
+        return clientState.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientState(String clientState) {
+
+  public JsonNullable<String> getClientState_JsonNullable() {
+    return clientState;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
+  public void setClientState_JsonNullable(JsonNullable<String> clientState) {
     this.clientState = clientState;
+  }
+
+  public void setClientState(String clientState) {
+    this.clientState = JsonNullable.<String>of(clientState);
   }
 
 
   public EntityMatch clientUrl(String clientUrl) {
-    this.clientUrl = clientUrl;
+    this.clientUrl = JsonNullable.<String>of(clientUrl);
     return this;
   }
 
@@ -1002,23 +1246,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL specified in the request.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientUrl() {
-    return clientUrl;
+        return clientUrl.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientUrl(String clientUrl) {
+
+  public JsonNullable<String> getClientUrl_JsonNullable() {
+    return clientUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_URL)
+  public void setClientUrl_JsonNullable(JsonNullable<String> clientUrl) {
     this.clientUrl = clientUrl;
+  }
+
+  public void setClientUrl(String clientUrl) {
+    this.clientUrl = JsonNullable.<String>of(clientUrl);
   }
 
 
   public EntityMatch nameMatchString(String nameMatchString) {
-    this.nameMatchString = nameMatchString;
+    this.nameMatchString = JsonNullable.<String>of(nameMatchString);
     return this;
   }
 
@@ -1028,23 +1280,31 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "String on which the Concordance algorithm mapped the submitted entity.")
-  @JsonProperty(JSON_PROPERTY_NAME_MATCH_STRING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getNameMatchString() {
-    return nameMatchString;
+        return nameMatchString.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME_MATCH_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNameMatchString(String nameMatchString) {
+
+  public JsonNullable<String> getNameMatchString_JsonNullable() {
+    return nameMatchString;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME_MATCH_STRING)
+  public void setNameMatchString_JsonNullable(JsonNullable<String> nameMatchString) {
     this.nameMatchString = nameMatchString;
+  }
+
+  public void setNameMatchString(String nameMatchString) {
+    this.nameMatchString = JsonNullable.<String>of(nameMatchString);
   }
 
 
   public EntityMatch nameMatchSource(String nameMatchSource) {
-    this.nameMatchSource = nameMatchSource;
+    this.nameMatchSource = JsonNullable.<String>of(nameMatchSource);
     return this;
   }
 
@@ -1054,18 +1314,26 @@ public class EntityMatch implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Domain Name", value = "Type of name that the nameMatchString matched.")
-  @JsonProperty(JSON_PROPERTY_NAME_MATCH_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getNameMatchSource() {
-    return nameMatchSource;
+        return nameMatchSource.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME_MATCH_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNameMatchSource(String nameMatchSource) {
+
+  public JsonNullable<String> getNameMatchSource_JsonNullable() {
+    return nameMatchSource;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME_MATCH_SOURCE)
+  public void setNameMatchSource_JsonNullable(JsonNullable<String> nameMatchSource) {
     this.nameMatchSource = nameMatchSource;
+  }
+
+  public void setNameMatchSource(String nameMatchSource) {
+    this.nameMatchSource = JsonNullable.<String>of(nameMatchSource);
   }
 
 
@@ -1081,44 +1349,55 @@ public class EntityMatch implements Serializable {
       return false;
     }
     EntityMatch entityMatch = (EntityMatch) o;
-    return Objects.equals(this.universeId, entityMatch.universeId) &&
-        Objects.equals(this.taskId, entityMatch.taskId) &&
-        Objects.equals(this.rowIndex, entityMatch.rowIndex) &&
-        Objects.equals(this.matchFlag, entityMatch.matchFlag) &&
-        Objects.equals(this.entityId, entityMatch.entityId) &&
-        Objects.equals(this.entityName, entityMatch.entityName) &&
-        Objects.equals(this.url, entityMatch.url) &&
-        Objects.equals(this.mapStatus, entityMatch.mapStatus) &&
-        Objects.equals(this.similarityScore, entityMatch.similarityScore) &&
-        Objects.equals(this.confidenceScore, entityMatch.confidenceScore) &&
-        Objects.equals(this.countryCode, entityMatch.countryCode) &&
-        Objects.equals(this.countryName, entityMatch.countryName) &&
-        Objects.equals(this.stateCode, entityMatch.stateCode) &&
-        Objects.equals(this.stateName, entityMatch.stateName) &&
-        Objects.equals(this.sicCode, entityMatch.sicCode) &&
-        Objects.equals(this.entityTypeCode, entityMatch.entityTypeCode) &&
-        Objects.equals(this.entityTypeDescription, entityMatch.entityTypeDescription) &&
-        Objects.equals(this.entitySubTypeCode, entityMatch.entitySubTypeCode) &&
-        Objects.equals(this.locationCity, entityMatch.locationCity) &&
-        Objects.equals(this.regionName, entityMatch.regionName) &&
-        Objects.equals(this.factsetIndustryCode, entityMatch.factsetIndustryCode) &&
-        Objects.equals(this.factsetIndustryName, entityMatch.factsetIndustryName) &&
-        Objects.equals(this.factsetSectorCode, entityMatch.factsetSectorCode) &&
-        Objects.equals(this.factsetSectorName, entityMatch.factsetSectorName) &&
-        Objects.equals(this.parentName, entityMatch.parentName) &&
-        Objects.equals(this.parentMatchFlag, entityMatch.parentMatchFlag) &&
-        Objects.equals(this.clientId, entityMatch.clientId) &&
-        Objects.equals(this.clientName, entityMatch.clientName) &&
-        Objects.equals(this.clientCountry, entityMatch.clientCountry) &&
-        Objects.equals(this.clientState, entityMatch.clientState) &&
-        Objects.equals(this.clientUrl, entityMatch.clientUrl) &&
-        Objects.equals(this.nameMatchString, entityMatch.nameMatchString) &&
-        Objects.equals(this.nameMatchSource, entityMatch.nameMatchSource);
+    return equalsNullable(this.universeId, entityMatch.universeId) &&
+        equalsNullable(this.taskId, entityMatch.taskId) &&
+        equalsNullable(this.rowIndex, entityMatch.rowIndex) &&
+        equalsNullable(this.matchFlag, entityMatch.matchFlag) &&
+        equalsNullable(this.entityId, entityMatch.entityId) &&
+        equalsNullable(this.entityName, entityMatch.entityName) &&
+        equalsNullable(this.url, entityMatch.url) &&
+        equalsNullable(this.mapStatus, entityMatch.mapStatus) &&
+        equalsNullable(this.similarityScore, entityMatch.similarityScore) &&
+        equalsNullable(this.confidenceScore, entityMatch.confidenceScore) &&
+        equalsNullable(this.countryCode, entityMatch.countryCode) &&
+        equalsNullable(this.countryName, entityMatch.countryName) &&
+        equalsNullable(this.stateCode, entityMatch.stateCode) &&
+        equalsNullable(this.stateName, entityMatch.stateName) &&
+        equalsNullable(this.sicCode, entityMatch.sicCode) &&
+        equalsNullable(this.entityTypeCode, entityMatch.entityTypeCode) &&
+        equalsNullable(this.entityTypeDescription, entityMatch.entityTypeDescription) &&
+        equalsNullable(this.entitySubTypeCode, entityMatch.entitySubTypeCode) &&
+        equalsNullable(this.locationCity, entityMatch.locationCity) &&
+        equalsNullable(this.regionName, entityMatch.regionName) &&
+        equalsNullable(this.factsetIndustryCode, entityMatch.factsetIndustryCode) &&
+        equalsNullable(this.factsetIndustryName, entityMatch.factsetIndustryName) &&
+        equalsNullable(this.factsetSectorCode, entityMatch.factsetSectorCode) &&
+        equalsNullable(this.factsetSectorName, entityMatch.factsetSectorName) &&
+        equalsNullable(this.parentName, entityMatch.parentName) &&
+        equalsNullable(this.parentMatchFlag, entityMatch.parentMatchFlag) &&
+        equalsNullable(this.clientId, entityMatch.clientId) &&
+        equalsNullable(this.clientName, entityMatch.clientName) &&
+        equalsNullable(this.clientCountry, entityMatch.clientCountry) &&
+        equalsNullable(this.clientState, entityMatch.clientState) &&
+        equalsNullable(this.clientUrl, entityMatch.clientUrl) &&
+        equalsNullable(this.nameMatchString, entityMatch.nameMatchString) &&
+        equalsNullable(this.nameMatchSource, entityMatch.nameMatchSource);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(universeId, taskId, rowIndex, matchFlag, entityId, entityName, url, mapStatus, similarityScore, confidenceScore, countryCode, countryName, stateCode, stateName, sicCode, entityTypeCode, entityTypeDescription, entitySubTypeCode, locationCity, regionName, factsetIndustryCode, factsetIndustryName, factsetSectorCode, factsetSectorName, parentName, parentMatchFlag, clientId, clientName, clientCountry, clientState, clientUrl, nameMatchString, nameMatchSource);
+    return Objects.hash(hashCodeNullable(universeId), hashCodeNullable(taskId), hashCodeNullable(rowIndex), hashCodeNullable(matchFlag), hashCodeNullable(entityId), hashCodeNullable(entityName), hashCodeNullable(url), hashCodeNullable(mapStatus), hashCodeNullable(similarityScore), hashCodeNullable(confidenceScore), hashCodeNullable(countryCode), hashCodeNullable(countryName), hashCodeNullable(stateCode), hashCodeNullable(stateName), hashCodeNullable(sicCode), hashCodeNullable(entityTypeCode), hashCodeNullable(entityTypeDescription), hashCodeNullable(entitySubTypeCode), hashCodeNullable(locationCity), hashCodeNullable(regionName), hashCodeNullable(factsetIndustryCode), hashCodeNullable(factsetIndustryName), hashCodeNullable(factsetSectorCode), hashCodeNullable(factsetSectorName), hashCodeNullable(parentName), hashCodeNullable(parentMatchFlag), hashCodeNullable(clientId), hashCodeNullable(clientName), hashCodeNullable(clientCountry), hashCodeNullable(clientState), hashCodeNullable(clientUrl), hashCodeNullable(nameMatchString), hashCodeNullable(nameMatchSource));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

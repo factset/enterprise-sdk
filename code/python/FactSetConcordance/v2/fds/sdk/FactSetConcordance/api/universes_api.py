@@ -29,6 +29,7 @@ from fds.sdk.FactSetConcordance.model.create_universe_request import CreateUnive
 from fds.sdk.FactSetConcordance.model.entity_universe_statistics_response import EntityUniverseStatisticsResponse
 from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
 from fds.sdk.FactSetConcordance.model.universe_meta_response import UniverseMetaResponse
+from fds.sdk.FactSetConcordance.model.universe_statistics_response import UniverseStatisticsResponse
 from fds.sdk.FactSetConcordance.model.universes_response import UniversesResponse
 from fds.sdk.FactSetConcordance.model.update_universe_request import UpdateUniverseRequest
 
@@ -158,18 +159,18 @@ class UniversesApi(object):
             },
             api_client=api_client
         )
-        self.get_universes_endpoint = _Endpoint(
+        self.get_universe_statistics_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (UniversesResponse,), 0: (ErrorResponse,),  },
+                  { 200: (UniverseStatisticsResponse,), 0: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/factset-concordance/v2/universes',
-                'operation_id': 'get_universes',
+                'endpoint_path': '/factset-concordance/v2/universe-statistics',
+                'operation_id': 'get_universe_statistics',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -177,7 +178,9 @@ class UniversesApi(object):
                 'all': [
                     'universe_id',
                 ],
-                'required': [],
+                'required': [
+                    'universe_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -199,6 +202,70 @@ class UniversesApi(object):
                 },
                 'location_map': {
                     'universe_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_universes_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (UniversesResponse,), 0: (ErrorResponse,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset-concordance/v2/universes',
+                'operation_id': 'get_universes',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'universe_id',
+                    'universe_type',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'universe_type',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('universe_type',): {
+
+                        "ENTITY": "ENTITY",
+                        "PEOPLE": "PEOPLE"
+                    },
+                },
+                'openapi_types': {
+                    'universe_id':
+                        (int,),
+                    'universe_type':
+                        (str,),
+                },
+                'attribute_map': {
+                    'universe_id': 'universeId',
+                    'universe_type': 'universeType',
+                },
+                'location_map': {
+                    'universe_id': 'query',
+                    'universe_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -652,6 +719,192 @@ class UniversesApi(object):
             create_universe_request
         return self.get_universe_for_list_endpoint.call_with_http_info(**kwargs)
 
+    def get_universe_statistics(
+        self,
+        universe_id,
+        **kwargs
+    ) -> UniverseStatisticsResponse:
+        """Get statistics on a given universe  # noqa: E501
+
+        Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings   # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            UniverseStatisticsResponse
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_universe_statistics_endpoint.call_with_http_info(**kwargs)
+
+    def get_universe_statistics_with_http_info(
+        self,
+        universe_id,
+        **kwargs
+    ) -> typing.Tuple[UniverseStatisticsResponse, int, typing.MutableMapping]:
+        """Get statistics on a given universe  # noqa: E501
+
+        Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            UniverseStatisticsResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_universe_statistics_endpoint.call_with_http_info(**kwargs)
+
+    def get_universe_statistics_async(
+        self,
+        universe_id,
+        **kwargs
+    ) -> "ApplyResult[UniverseStatisticsResponse]":
+        """Get statistics on a given universe  # noqa: E501
+
+        Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[UniverseStatisticsResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_universe_statistics_endpoint.call_with_http_info(**kwargs)
+
+    def get_universe_statistics_with_http_info_async(
+        self,
+        universe_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[UniverseStatisticsResponse, int, typing.MutableMapping]]":
+        """Get statistics on a given universe  # noqa: E501
+
+        Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(UniverseStatisticsResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_universe_statistics_endpoint.call_with_http_info(**kwargs)
+
     def get_universes(
         self,
         **kwargs
@@ -664,6 +917,7 @@ class UniversesApi(object):
 
         Keyword Args:
             universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*. [optional]
+            universe_type (str): Universe Type.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -706,6 +960,7 @@ class UniversesApi(object):
 
         Keyword Args:
             universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*. [optional]
+            universe_type (str): Universe Type.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -752,6 +1007,7 @@ class UniversesApi(object):
 
         Keyword Args:
             universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*. [optional]
+            universe_type (str): Universe Type.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -793,6 +1049,7 @@ class UniversesApi(object):
 
         Keyword Args:
             universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*. [optional]
+            universe_type (str): Universe Type.. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.

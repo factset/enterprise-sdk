@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetConcordance.JSON;
@@ -72,13 +76,13 @@ public class EntityTaskStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_TASK_ID = "taskId";
-  private Integer taskId;
+  private JsonNullable<Integer> taskId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_TASK_NAME = "taskName";
-  private String taskName;
+  private JsonNullable<String> taskName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TASK_ACTION = "taskAction";
-  private String taskAction;
+  private JsonNullable<String> taskAction = JsonNullable.<String>undefined();
 
   /**
    * Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results.
@@ -119,69 +123,69 @@ public class EntityTaskStatus implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private StatusEnum status;
+  private JsonNullable<StatusEnum> status = JsonNullable.<StatusEnum>undefined();
 
   public static final String JSON_PROPERTY_INPUT_FILE = "inputFile";
-  private String inputFile;
+  private JsonNullable<String> inputFile = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_ID_COLUMN = "clientIdColumn";
-  private String clientIdColumn;
+  private JsonNullable<String> clientIdColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME_COLUMN = "nameColumn";
-  private String nameColumn;
+  private JsonNullable<String> nameColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY_COLUMN = "countryColumn";
-  private String countryColumn;
+  private JsonNullable<String> countryColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATE_COLUMN = "stateColumn";
-  private String stateColumn;
+  private JsonNullable<String> stateColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_URL_COLUMN = "urlColumn";
-  private String urlColumn;
+  private JsonNullable<String> urlColumn = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HAS_RESULT = "hasResult";
-  private Boolean hasResult;
+  private JsonNullable<Boolean> hasResult = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_TASK_SUBMIT_TIME = "taskSubmitTime";
-  private OffsetDateTime taskSubmitTime;
+  private JsonNullable<OffsetDateTime> taskSubmitTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INPUT_COUNT = "inputCount";
-  private Integer inputCount;
+  private JsonNullable<Integer> inputCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_MAPPED_COUNT = "mappedCount";
-  private Integer mappedCount;
+  private JsonNullable<Integer> mappedCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNMAPPED_COUNT = "unmappedCount";
-  private Integer unmappedCount;
+  private JsonNullable<Integer> unmappedCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_INDETERMINATE_COUNT = "indeterminateCount";
-  private Integer indeterminateCount;
+  private JsonNullable<Integer> indeterminateCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_PROCESS_START_TIME = "processStartTime";
-  private OffsetDateTime processStartTime;
+  private JsonNullable<OffsetDateTime> processStartTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_PROCESS_DURATION = "processDuration";
-  private Double processDuration;
+  private JsonNullable<Double> processDuration = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TRY_COUNT = "tryCount";
-  private Integer tryCount;
+  private JsonNullable<Integer> tryCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_DECISION_RATE = "decisionRate";
-  private Double decisionRate;
+  private JsonNullable<Double> decisionRate = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+  private JsonNullable<String> error = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ERROR_TITLE = "errorTitle";
-  private String errorTitle;
+  private JsonNullable<String> errorTitle = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INCLUDE_ENTITY_TYPE = "includeEntityType";
   private java.util.List<String> includeEntityType = null;
@@ -196,22 +200,22 @@ public class EntityTaskStatus implements Serializable {
   private java.util.List<String> excludeEntitySubType = null;
 
   public static final String JSON_PROPERTY_USER_SERIAL = "userSerial";
-  private String userSerial;
+  private JsonNullable<String> userSerial = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_USER_FULL_NAME = "userFullName";
-  private String userFullName;
+  private JsonNullable<String> userFullName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
-  private Integer universeId;
+  private JsonNullable<Integer> universeId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_NAME = "universeName";
-  private String universeName;
+  private JsonNullable<String> universeName = JsonNullable.<String>undefined();
 
   public EntityTaskStatus() { 
   }
 
   public EntityTaskStatus taskId(Integer taskId) {
-    this.taskId = taskId;
+    this.taskId = JsonNullable.<Integer>of(taskId);
     return this;
   }
 
@@ -221,23 +225,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "31", value = "Identifier denoting a specific Concordance task submitted by the user.")
-  @JsonProperty(JSON_PROPERTY_TASK_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getTaskId() {
-    return taskId;
+        return taskId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TASK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskId(Integer taskId) {
+
+  public JsonNullable<Integer> getTaskId_JsonNullable() {
+    return taskId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_ID)
+  public void setTaskId_JsonNullable(JsonNullable<Integer> taskId) {
     this.taskId = taskId;
+  }
+
+  public void setTaskId(Integer taskId) {
+    this.taskId = JsonNullable.<Integer>of(taskId);
   }
 
 
   public EntityTaskStatus taskName(String taskName) {
-    this.taskName = taskName;
+    this.taskName = JsonNullable.<String>of(taskName);
     return this;
   }
 
@@ -247,23 +259,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test31", value = "User-defined name for the task used to name the output file.")
-  @JsonProperty(JSON_PROPERTY_TASK_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getTaskName() {
-    return taskName;
+        return taskName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TASK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskName(String taskName) {
+
+  public JsonNullable<String> getTaskName_JsonNullable() {
+    return taskName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_NAME)
+  public void setTaskName_JsonNullable(JsonNullable<String> taskName) {
     this.taskName = taskName;
+  }
+
+  public void setTaskName(String taskName) {
+    this.taskName = JsonNullable.<String>of(taskName);
   }
 
 
   public EntityTaskStatus taskAction(String taskAction) {
-    this.taskAction = taskAction;
+    this.taskAction = JsonNullable.<String>of(taskAction);
     return this;
   }
 
@@ -273,23 +293,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "processfile", value = "Action status for the Concordance Task process.")
-  @JsonProperty(JSON_PROPERTY_TASK_ACTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getTaskAction() {
-    return taskAction;
+        return taskAction.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TASK_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskAction(String taskAction) {
+
+  public JsonNullable<String> getTaskAction_JsonNullable() {
+    return taskAction;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_ACTION)
+  public void setTaskAction_JsonNullable(JsonNullable<String> taskAction) {
     this.taskAction = taskAction;
+  }
+
+  public void setTaskAction(String taskAction) {
+    this.taskAction = JsonNullable.<String>of(taskAction);
   }
 
 
   public EntityTaskStatus status(StatusEnum status) {
-    this.status = status;
+    this.status = JsonNullable.<StatusEnum>of(status);
     return this;
   }
 
@@ -299,23 +327,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public StatusEnum getStatus() {
-    return status;
+        return status.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
+
+  public JsonNullable<StatusEnum> getStatus_JsonNullable() {
+    return status;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  public void setStatus_JsonNullable(JsonNullable<StatusEnum> status) {
     this.status = status;
+  }
+
+  public void setStatus(StatusEnum status) {
+    this.status = JsonNullable.<StatusEnum>of(status);
   }
 
 
   public EntityTaskStatus inputFile(String inputFile) {
-    this.inputFile = inputFile;
+    this.inputFile = JsonNullable.<String>of(inputFile);
     return this;
   }
 
@@ -325,23 +361,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test31.csv", value = "The input file is posted as a file object in the form. ")
-  @JsonProperty(JSON_PROPERTY_INPUT_FILE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getInputFile() {
-    return inputFile;
+        return inputFile.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INPUT_FILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInputFile(String inputFile) {
+
+  public JsonNullable<String> getInputFile_JsonNullable() {
+    return inputFile;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INPUT_FILE)
+  public void setInputFile_JsonNullable(JsonNullable<String> inputFile) {
     this.inputFile = inputFile;
+  }
+
+  public void setInputFile(String inputFile) {
+    this.inputFile = JsonNullable.<String>of(inputFile);
   }
 
 
   public EntityTaskStatus clientIdColumn(String clientIdColumn) {
-    this.clientIdColumn = clientIdColumn;
+    this.clientIdColumn = JsonNullable.<String>of(clientIdColumn);
     return this;
   }
 
@@ -351,23 +395,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "ClientId", value = "Name of the column in the input file that contains a unique identifier supplied by the user.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientIdColumn() {
-    return clientIdColumn;
+        return clientIdColumn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientIdColumn(String clientIdColumn) {
+
+  public JsonNullable<String> getClientIdColumn_JsonNullable() {
+    return clientIdColumn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID_COLUMN)
+  public void setClientIdColumn_JsonNullable(JsonNullable<String> clientIdColumn) {
     this.clientIdColumn = clientIdColumn;
+  }
+
+  public void setClientIdColumn(String clientIdColumn) {
+    this.clientIdColumn = JsonNullable.<String>of(clientIdColumn);
   }
 
 
   public EntityTaskStatus nameColumn(String nameColumn) {
-    this.nameColumn = nameColumn;
+    this.nameColumn = JsonNullable.<String>of(nameColumn);
     return this;
   }
 
@@ -377,23 +429,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Name", value = "Name of the column in the input file that contains the entity name to be matched.")
-  @JsonProperty(JSON_PROPERTY_NAME_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getNameColumn() {
-    return nameColumn;
+        return nameColumn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNameColumn(String nameColumn) {
+
+  public JsonNullable<String> getNameColumn_JsonNullable() {
+    return nameColumn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME_COLUMN)
+  public void setNameColumn_JsonNullable(JsonNullable<String> nameColumn) {
     this.nameColumn = nameColumn;
+  }
+
+  public void setNameColumn(String nameColumn) {
+    this.nameColumn = JsonNullable.<String>of(nameColumn);
   }
 
 
   public EntityTaskStatus countryColumn(String countryColumn) {
-    this.countryColumn = countryColumn;
+    this.countryColumn = JsonNullable.<String>of(countryColumn);
     return this;
   }
 
@@ -403,23 +463,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Country", value = "Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. ")
-  @JsonProperty(JSON_PROPERTY_COUNTRY_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCountryColumn() {
-    return countryColumn;
+        return countryColumn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COUNTRY_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountryColumn(String countryColumn) {
+
+  public JsonNullable<String> getCountryColumn_JsonNullable() {
+    return countryColumn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNTRY_COLUMN)
+  public void setCountryColumn_JsonNullable(JsonNullable<String> countryColumn) {
     this.countryColumn = countryColumn;
+  }
+
+  public void setCountryColumn(String countryColumn) {
+    this.countryColumn = JsonNullable.<String>of(countryColumn);
   }
 
 
   public EntityTaskStatus stateColumn(String stateColumn) {
-    this.stateColumn = stateColumn;
+    this.stateColumn = JsonNullable.<String>of(stateColumn);
     return this;
   }
 
@@ -429,23 +497,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "State", value = "Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. ")
-  @JsonProperty(JSON_PROPERTY_STATE_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getStateColumn() {
-    return stateColumn;
+        return stateColumn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STATE_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStateColumn(String stateColumn) {
+
+  public JsonNullable<String> getStateColumn_JsonNullable() {
+    return stateColumn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATE_COLUMN)
+  public void setStateColumn_JsonNullable(JsonNullable<String> stateColumn) {
     this.stateColumn = stateColumn;
+  }
+
+  public void setStateColumn(String stateColumn) {
+    this.stateColumn = JsonNullable.<String>of(stateColumn);
   }
 
 
   public EntityTaskStatus urlColumn(String urlColumn) {
-    this.urlColumn = urlColumn;
+    this.urlColumn = JsonNullable.<String>of(urlColumn);
     return this;
   }
 
@@ -455,23 +531,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "URL", value = "Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. ")
-  @JsonProperty(JSON_PROPERTY_URL_COLUMN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUrlColumn() {
-    return urlColumn;
+        return urlColumn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_URL_COLUMN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUrlColumn(String urlColumn) {
+
+  public JsonNullable<String> getUrlColumn_JsonNullable() {
+    return urlColumn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_URL_COLUMN)
+  public void setUrlColumn_JsonNullable(JsonNullable<String> urlColumn) {
     this.urlColumn = urlColumn;
+  }
+
+  public void setUrlColumn(String urlColumn) {
+    this.urlColumn = JsonNullable.<String>of(urlColumn);
   }
 
 
   public EntityTaskStatus hasResult(Boolean hasResult) {
-    this.hasResult = hasResult;
+    this.hasResult = JsonNullable.<Boolean>of(hasResult);
     return this;
   }
 
@@ -481,23 +565,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Flag denoting the taskId has a result.")
-  @JsonProperty(JSON_PROPERTY_HAS_RESULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getHasResult() {
-    return hasResult;
+        return hasResult.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HAS_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHasResult(Boolean hasResult) {
+
+  public JsonNullable<Boolean> getHasResult_JsonNullable() {
+    return hasResult;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HAS_RESULT)
+  public void setHasResult_JsonNullable(JsonNullable<Boolean> hasResult) {
     this.hasResult = hasResult;
+  }
+
+  public void setHasResult(Boolean hasResult) {
+    this.hasResult = JsonNullable.<Boolean>of(hasResult);
   }
 
 
   public EntityTaskStatus taskSubmitTime(OffsetDateTime taskSubmitTime) {
-    this.taskSubmitTime = taskSubmitTime;
+    this.taskSubmitTime = JsonNullable.<OffsetDateTime>of(taskSubmitTime);
     return this;
   }
 
@@ -507,23 +599,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time the Task was submitted in UTC.")
-  @JsonProperty(JSON_PROPERTY_TASK_SUBMIT_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getTaskSubmitTime() {
-    return taskSubmitTime;
+        return taskSubmitTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TASK_SUBMIT_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskSubmitTime(OffsetDateTime taskSubmitTime) {
+
+  public JsonNullable<OffsetDateTime> getTaskSubmitTime_JsonNullable() {
+    return taskSubmitTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TASK_SUBMIT_TIME)
+  public void setTaskSubmitTime_JsonNullable(JsonNullable<OffsetDateTime> taskSubmitTime) {
     this.taskSubmitTime = taskSubmitTime;
+  }
+
+  public void setTaskSubmitTime(OffsetDateTime taskSubmitTime) {
+    this.taskSubmitTime = JsonNullable.<OffsetDateTime>of(taskSubmitTime);
   }
 
 
   public EntityTaskStatus message(String message) {
-    this.message = message;
+    this.message = JsonNullable.<String>of(message);
     return this;
   }
 
@@ -533,23 +633,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Waiting for the input file", value = "Textual message for the status.")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getMessage() {
-    return message;
+        return message.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
+
+  public JsonNullable<String> getMessage_JsonNullable() {
+    return message;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  public void setMessage_JsonNullable(JsonNullable<String> message) {
     this.message = message;
+  }
+
+  public void setMessage(String message) {
+    this.message = JsonNullable.<String>of(message);
   }
 
 
   public EntityTaskStatus inputCount(Integer inputCount) {
-    this.inputCount = inputCount;
+    this.inputCount = JsonNullable.<Integer>of(inputCount);
     return this;
   }
 
@@ -559,23 +667,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "11", value = "Number of records in the Input File.")
-  @JsonProperty(JSON_PROPERTY_INPUT_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getInputCount() {
-    return inputCount;
+        return inputCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INPUT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInputCount(Integer inputCount) {
+
+  public JsonNullable<Integer> getInputCount_JsonNullable() {
+    return inputCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INPUT_COUNT)
+  public void setInputCount_JsonNullable(JsonNullable<Integer> inputCount) {
     this.inputCount = inputCount;
+  }
+
+  public void setInputCount(Integer inputCount) {
+    this.inputCount = JsonNullable.<Integer>of(inputCount);
   }
 
 
   public EntityTaskStatus mappedCount(Integer mappedCount) {
-    this.mappedCount = mappedCount;
+    this.mappedCount = JsonNullable.<Integer>of(mappedCount);
     return this;
   }
 
@@ -585,23 +701,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "8", value = "Number of records with status of MAPPED the Input File.")
-  @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getMappedCount() {
-    return mappedCount;
+        return mappedCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMappedCount(Integer mappedCount) {
+
+  public JsonNullable<Integer> getMappedCount_JsonNullable() {
+    return mappedCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
+  public void setMappedCount_JsonNullable(JsonNullable<Integer> mappedCount) {
     this.mappedCount = mappedCount;
+  }
+
+  public void setMappedCount(Integer mappedCount) {
+    this.mappedCount = JsonNullable.<Integer>of(mappedCount);
   }
 
 
   public EntityTaskStatus unmappedCount(Integer unmappedCount) {
-    this.unmappedCount = unmappedCount;
+    this.unmappedCount = JsonNullable.<Integer>of(unmappedCount);
     return this;
   }
 
@@ -611,23 +735,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Number of records with status of UNMAPPED the Input File.")
-  @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUnmappedCount() {
-    return unmappedCount;
+        return unmappedCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnmappedCount(Integer unmappedCount) {
+
+  public JsonNullable<Integer> getUnmappedCount_JsonNullable() {
+    return unmappedCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
+  public void setUnmappedCount_JsonNullable(JsonNullable<Integer> unmappedCount) {
     this.unmappedCount = unmappedCount;
+  }
+
+  public void setUnmappedCount(Integer unmappedCount) {
+    this.unmappedCount = JsonNullable.<Integer>of(unmappedCount);
   }
 
 
   public EntityTaskStatus indeterminateCount(Integer indeterminateCount) {
-    this.indeterminateCount = indeterminateCount;
+    this.indeterminateCount = JsonNullable.<Integer>of(indeterminateCount);
     return this;
   }
 
@@ -637,23 +769,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Number of records with status of INDETERMINATE the Input File.")
-  @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getIndeterminateCount() {
-    return indeterminateCount;
+        return indeterminateCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndeterminateCount(Integer indeterminateCount) {
+
+  public JsonNullable<Integer> getIndeterminateCount_JsonNullable() {
+    return indeterminateCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
+  public void setIndeterminateCount_JsonNullable(JsonNullable<Integer> indeterminateCount) {
     this.indeterminateCount = indeterminateCount;
+  }
+
+  public void setIndeterminateCount(Integer indeterminateCount) {
+    this.indeterminateCount = JsonNullable.<Integer>of(indeterminateCount);
   }
 
 
   public EntityTaskStatus processStartTime(OffsetDateTime processStartTime) {
-    this.processStartTime = processStartTime;
+    this.processStartTime = JsonNullable.<OffsetDateTime>of(processStartTime);
     return this;
   }
 
@@ -663,23 +803,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2020-07-03T15:12:06.722Z", value = "Process start time in UTC.")
-  @JsonProperty(JSON_PROPERTY_PROCESS_START_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getProcessStartTime() {
-    return processStartTime;
+        return processStartTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PROCESS_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessStartTime(OffsetDateTime processStartTime) {
+
+  public JsonNullable<OffsetDateTime> getProcessStartTime_JsonNullable() {
+    return processStartTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROCESS_START_TIME)
+  public void setProcessStartTime_JsonNullable(JsonNullable<OffsetDateTime> processStartTime) {
     this.processStartTime = processStartTime;
+  }
+
+  public void setProcessStartTime(OffsetDateTime processStartTime) {
+    this.processStartTime = JsonNullable.<OffsetDateTime>of(processStartTime);
   }
 
 
   public EntityTaskStatus processDuration(Double processDuration) {
-    this.processDuration = processDuration;
+    this.processDuration = JsonNullable.<Double>of(processDuration);
     return this;
   }
 
@@ -689,23 +837,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.51603", value = "Process duration in seconds.")
-  @JsonProperty(JSON_PROPERTY_PROCESS_DURATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getProcessDuration() {
-    return processDuration;
+        return processDuration.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PROCESS_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessDuration(Double processDuration) {
+
+  public JsonNullable<Double> getProcessDuration_JsonNullable() {
+    return processDuration;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROCESS_DURATION)
+  public void setProcessDuration_JsonNullable(JsonNullable<Double> processDuration) {
     this.processDuration = processDuration;
+  }
+
+  public void setProcessDuration(Double processDuration) {
+    this.processDuration = JsonNullable.<Double>of(processDuration);
   }
 
 
   public EntityTaskStatus tryCount(Integer tryCount) {
-    this.tryCount = tryCount;
+    this.tryCount = JsonNullable.<Integer>of(tryCount);
     return this;
   }
 
@@ -715,23 +871,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Number of tries made so far for the request.")
-  @JsonProperty(JSON_PROPERTY_TRY_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getTryCount() {
-    return tryCount;
+        return tryCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TRY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTryCount(Integer tryCount) {
+
+  public JsonNullable<Integer> getTryCount_JsonNullable() {
+    return tryCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TRY_COUNT)
+  public void setTryCount_JsonNullable(JsonNullable<Integer> tryCount) {
     this.tryCount = tryCount;
+  }
+
+  public void setTryCount(Integer tryCount) {
+    this.tryCount = JsonNullable.<Integer>of(tryCount);
   }
 
 
   public EntityTaskStatus decisionRate(Double decisionRate) {
-    this.decisionRate = decisionRate;
+    this.decisionRate = JsonNullable.<Double>of(decisionRate);
     return this;
   }
 
@@ -741,23 +905,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.7272727272727273", value = "Percentage of mapped entities in the Input File.")
-  @JsonProperty(JSON_PROPERTY_DECISION_RATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getDecisionRate() {
-    return decisionRate;
+        return decisionRate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DECISION_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDecisionRate(Double decisionRate) {
+
+  public JsonNullable<Double> getDecisionRate_JsonNullable() {
+    return decisionRate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DECISION_RATE)
+  public void setDecisionRate_JsonNullable(JsonNullable<Double> decisionRate) {
     this.decisionRate = decisionRate;
+  }
+
+  public void setDecisionRate(Double decisionRate) {
+    this.decisionRate = JsonNullable.<Double>of(decisionRate);
   }
 
 
   public EntityTaskStatus error(String error) {
-    this.error = error;
+    this.error = JsonNullable.<String>of(error);
     return this;
   }
 
@@ -767,23 +939,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getError() {
-    return error;
+        return error.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(String error) {
+
+  public JsonNullable<String> getError_JsonNullable() {
+    return error;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  public void setError_JsonNullable(JsonNullable<String> error) {
     this.error = error;
+  }
+
+  public void setError(String error) {
+    this.error = JsonNullable.<String>of(error);
   }
 
 
   public EntityTaskStatus errorTitle(String errorTitle) {
-    this.errorTitle = errorTitle;
+    this.errorTitle = JsonNullable.<String>of(errorTitle);
     return this;
   }
 
@@ -793,18 +973,26 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getErrorTitle() {
-    return errorTitle;
+        return errorTitle.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ERROR_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorTitle(String errorTitle) {
+
+  public JsonNullable<String> getErrorTitle_JsonNullable() {
+    return errorTitle;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ERROR_TITLE)
+  public void setErrorTitle_JsonNullable(JsonNullable<String> errorTitle) {
     this.errorTitle = errorTitle;
+  }
+
+  public void setErrorTitle(String errorTitle) {
+    this.errorTitle = JsonNullable.<String>of(errorTitle);
   }
 
 
@@ -945,7 +1133,7 @@ public class EntityTaskStatus implements Serializable {
 
 
   public EntityTaskStatus userSerial(String userSerial) {
-    this.userSerial = userSerial;
+    this.userSerial = JsonNullable.<String>of(userSerial);
     return this;
   }
 
@@ -955,23 +1143,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "user-serial of the person who initiated the entity task.")
-  @JsonProperty(JSON_PROPERTY_USER_SERIAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUserSerial() {
-    return userSerial;
+        return userSerial.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_USER_SERIAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserSerial(String userSerial) {
+
+  public JsonNullable<String> getUserSerial_JsonNullable() {
+    return userSerial;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_SERIAL)
+  public void setUserSerial_JsonNullable(JsonNullable<String> userSerial) {
     this.userSerial = userSerial;
+  }
+
+  public void setUserSerial(String userSerial) {
+    this.userSerial = JsonNullable.<String>of(userSerial);
   }
 
 
   public EntityTaskStatus userFullName(String userFullName) {
-    this.userFullName = userFullName;
+    this.userFullName = JsonNullable.<String>of(userFullName);
     return this;
   }
 
@@ -981,23 +1177,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Jane Smith", value = "Full name of the person associated with the `userSerial`. ")
-  @JsonProperty(JSON_PROPERTY_USER_FULL_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUserFullName() {
-    return userFullName;
+        return userFullName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_USER_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserFullName(String userFullName) {
+
+  public JsonNullable<String> getUserFullName_JsonNullable() {
+    return userFullName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_USER_FULL_NAME)
+  public void setUserFullName_JsonNullable(JsonNullable<String> userFullName) {
     this.userFullName = userFullName;
+  }
+
+  public void setUserFullName(String userFullName) {
+    this.userFullName = JsonNullable.<String>of(userFullName);
   }
 
 
   public EntityTaskStatus universeId(Integer universeId) {
-    this.universeId = universeId;
+    this.universeId = JsonNullable.<Integer>of(universeId);
     return this;
   }
 
@@ -1007,23 +1211,31 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe id this task was submitted to. ")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUniverseId() {
-    return universeId;
+        return universeId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseId(Integer universeId) {
+
+  public JsonNullable<Integer> getUniverseId_JsonNullable() {
+    return universeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
+  public void setUniverseId_JsonNullable(JsonNullable<Integer> universeId) {
     this.universeId = universeId;
+  }
+
+  public void setUniverseId(Integer universeId) {
+    this.universeId = JsonNullable.<Integer>of(universeId);
   }
 
 
   public EntityTaskStatus universeName(String universeName) {
-    this.universeName = universeName;
+    this.universeName = JsonNullable.<String>of(universeName);
     return this;
   }
 
@@ -1033,18 +1245,26 @@ public class EntityTaskStatus implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "My Universe", value = "The name of the universe this task was submitted to. ")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUniverseName() {
-    return universeName;
+        return universeName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseName(String universeName) {
+
+  public JsonNullable<String> getUniverseName_JsonNullable() {
+    return universeName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
+  public void setUniverseName_JsonNullable(JsonNullable<String> universeName) {
     this.universeName = universeName;
+  }
+
+  public void setUniverseName(String universeName) {
+    this.universeName = JsonNullable.<String>of(universeName);
   }
 
 
@@ -1060,42 +1280,53 @@ public class EntityTaskStatus implements Serializable {
       return false;
     }
     EntityTaskStatus entityTaskStatus = (EntityTaskStatus) o;
-    return Objects.equals(this.taskId, entityTaskStatus.taskId) &&
-        Objects.equals(this.taskName, entityTaskStatus.taskName) &&
-        Objects.equals(this.taskAction, entityTaskStatus.taskAction) &&
-        Objects.equals(this.status, entityTaskStatus.status) &&
-        Objects.equals(this.inputFile, entityTaskStatus.inputFile) &&
-        Objects.equals(this.clientIdColumn, entityTaskStatus.clientIdColumn) &&
-        Objects.equals(this.nameColumn, entityTaskStatus.nameColumn) &&
-        Objects.equals(this.countryColumn, entityTaskStatus.countryColumn) &&
-        Objects.equals(this.stateColumn, entityTaskStatus.stateColumn) &&
-        Objects.equals(this.urlColumn, entityTaskStatus.urlColumn) &&
-        Objects.equals(this.hasResult, entityTaskStatus.hasResult) &&
-        Objects.equals(this.taskSubmitTime, entityTaskStatus.taskSubmitTime) &&
-        Objects.equals(this.message, entityTaskStatus.message) &&
-        Objects.equals(this.inputCount, entityTaskStatus.inputCount) &&
-        Objects.equals(this.mappedCount, entityTaskStatus.mappedCount) &&
-        Objects.equals(this.unmappedCount, entityTaskStatus.unmappedCount) &&
-        Objects.equals(this.indeterminateCount, entityTaskStatus.indeterminateCount) &&
-        Objects.equals(this.processStartTime, entityTaskStatus.processStartTime) &&
-        Objects.equals(this.processDuration, entityTaskStatus.processDuration) &&
-        Objects.equals(this.tryCount, entityTaskStatus.tryCount) &&
-        Objects.equals(this.decisionRate, entityTaskStatus.decisionRate) &&
-        Objects.equals(this.error, entityTaskStatus.error) &&
-        Objects.equals(this.errorTitle, entityTaskStatus.errorTitle) &&
+    return equalsNullable(this.taskId, entityTaskStatus.taskId) &&
+        equalsNullable(this.taskName, entityTaskStatus.taskName) &&
+        equalsNullable(this.taskAction, entityTaskStatus.taskAction) &&
+        equalsNullable(this.status, entityTaskStatus.status) &&
+        equalsNullable(this.inputFile, entityTaskStatus.inputFile) &&
+        equalsNullable(this.clientIdColumn, entityTaskStatus.clientIdColumn) &&
+        equalsNullable(this.nameColumn, entityTaskStatus.nameColumn) &&
+        equalsNullable(this.countryColumn, entityTaskStatus.countryColumn) &&
+        equalsNullable(this.stateColumn, entityTaskStatus.stateColumn) &&
+        equalsNullable(this.urlColumn, entityTaskStatus.urlColumn) &&
+        equalsNullable(this.hasResult, entityTaskStatus.hasResult) &&
+        equalsNullable(this.taskSubmitTime, entityTaskStatus.taskSubmitTime) &&
+        equalsNullable(this.message, entityTaskStatus.message) &&
+        equalsNullable(this.inputCount, entityTaskStatus.inputCount) &&
+        equalsNullable(this.mappedCount, entityTaskStatus.mappedCount) &&
+        equalsNullable(this.unmappedCount, entityTaskStatus.unmappedCount) &&
+        equalsNullable(this.indeterminateCount, entityTaskStatus.indeterminateCount) &&
+        equalsNullable(this.processStartTime, entityTaskStatus.processStartTime) &&
+        equalsNullable(this.processDuration, entityTaskStatus.processDuration) &&
+        equalsNullable(this.tryCount, entityTaskStatus.tryCount) &&
+        equalsNullable(this.decisionRate, entityTaskStatus.decisionRate) &&
+        equalsNullable(this.error, entityTaskStatus.error) &&
+        equalsNullable(this.errorTitle, entityTaskStatus.errorTitle) &&
         Objects.equals(this.includeEntityType, entityTaskStatus.includeEntityType) &&
         Objects.equals(this.excludeEntityType, entityTaskStatus.excludeEntityType) &&
         Objects.equals(this.includeEntitySubType, entityTaskStatus.includeEntitySubType) &&
         Objects.equals(this.excludeEntitySubType, entityTaskStatus.excludeEntitySubType) &&
-        Objects.equals(this.userSerial, entityTaskStatus.userSerial) &&
-        Objects.equals(this.userFullName, entityTaskStatus.userFullName) &&
-        Objects.equals(this.universeId, entityTaskStatus.universeId) &&
-        Objects.equals(this.universeName, entityTaskStatus.universeName);
+        equalsNullable(this.userSerial, entityTaskStatus.userSerial) &&
+        equalsNullable(this.userFullName, entityTaskStatus.userFullName) &&
+        equalsNullable(this.universeId, entityTaskStatus.universeId) &&
+        equalsNullable(this.universeName, entityTaskStatus.universeName);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(taskId, taskName, taskAction, status, inputFile, clientIdColumn, nameColumn, countryColumn, stateColumn, urlColumn, hasResult, taskSubmitTime, message, inputCount, mappedCount, unmappedCount, indeterminateCount, processStartTime, processDuration, tryCount, decisionRate, error, errorTitle, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, userSerial, userFullName, universeId, universeName);
+    return Objects.hash(hashCodeNullable(taskId), hashCodeNullable(taskName), hashCodeNullable(taskAction), hashCodeNullable(status), hashCodeNullable(inputFile), hashCodeNullable(clientIdColumn), hashCodeNullable(nameColumn), hashCodeNullable(countryColumn), hashCodeNullable(stateColumn), hashCodeNullable(urlColumn), hashCodeNullable(hasResult), hashCodeNullable(taskSubmitTime), hashCodeNullable(message), hashCodeNullable(inputCount), hashCodeNullable(mappedCount), hashCodeNullable(unmappedCount), hashCodeNullable(indeterminateCount), hashCodeNullable(processStartTime), hashCodeNullable(processDuration), hashCodeNullable(tryCount), hashCodeNullable(decisionRate), hashCodeNullable(error), hashCodeNullable(errorTitle), includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, hashCodeNullable(userSerial), hashCodeNullable(userFullName), hashCodeNullable(universeId), hashCodeNullable(universeName));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

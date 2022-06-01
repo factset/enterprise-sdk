@@ -21,7 +21,7 @@ import SuccessResponse from '../model/SuccessResponse';
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.20.0
+* @version 0.20.1
 */
 export default class DefaultApi {
 
@@ -69,7 +69,7 @@ export default class DefaultApi {
       let returnType = SuccessResponse;
 
       return this.apiClient.callApi(
-        '/v1/result/{result_id}', 'GET',
+        '/result/{result_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -119,7 +119,7 @@ export default class DefaultApi {
       let returnType = 'String';
 
       return this.apiClient.callApi(
-        '/v1/headline-and-summary', 'POST',
+        '/headline-and-summary', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -169,7 +169,7 @@ export default class DefaultApi {
       let returnType = 'String';
 
       return this.apiClient.callApi(
-        '/v1/headline', 'POST',
+        '/headline', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -219,7 +219,7 @@ export default class DefaultApi {
       let returnType = 'String';
 
       return this.apiClient.callApi(
-        '/v1/summary', 'POST',
+        '/summary', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

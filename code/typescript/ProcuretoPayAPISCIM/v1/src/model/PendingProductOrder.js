@@ -17,7 +17,7 @@ import ProductResourceReference from './ProductResourceReference';
 /**
  * The PendingProductOrder model module.
  * @module model/PendingProductOrder
- * @version 0.20.0
+ * @version 0.20.1
  */
 class PendingProductOrder {
     /**

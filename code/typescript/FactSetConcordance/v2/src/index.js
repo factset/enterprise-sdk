@@ -33,17 +33,38 @@ import EntityUniverseStatisticsResponse from './model/EntityUniverseStatisticsRe
 import ErrorResponse from './model/ErrorResponse';
 import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
 import MapStatus from './model/MapStatus';
+import PeopleDecisions from './model/PeopleDecisions';
+import PeopleDecisionsResponse from './model/PeopleDecisionsResponse';
+import PeopleMapping from './model/PeopleMapping';
+import PeopleMappingDeleteResponse from './model/PeopleMappingDeleteResponse';
+import PeopleMappingRequest from './model/PeopleMappingRequest';
+import PeopleMappingResponse from './model/PeopleMappingResponse';
+import PeopleMatch from './model/PeopleMatch';
+import PeopleMatchRequest from './model/PeopleMatchRequest';
+import PeopleMatchRequestInput from './model/PeopleMatchRequestInput';
+import PeopleMatchesResponse from './model/PeopleMatchesResponse';
+import PeopleTask from './model/PeopleTask';
+import PeopleTaskResponse from './model/PeopleTaskResponse';
+import PeopleTaskStatus from './model/PeopleTaskStatus';
+import PeopleTaskStatusResponse from './model/PeopleTaskStatusResponse';
+import PeopleUniverseRequest from './model/PeopleUniverseRequest';
+import PeopleUniverseResponse from './model/PeopleUniverseResponse';
 import SnowflakeEntityMatchRequest from './model/SnowflakeEntityMatchRequest';
 import SnowflakeEntityMatchResponse from './model/SnowflakeEntityMatchResponse';
+import Universe from './model/Universe';
 import UniverseMeta from './model/UniverseMeta';
 import UniverseMetaResponse from './model/UniverseMetaResponse';
 import UniverseStatistics from './model/UniverseStatistics';
+import UniverseStatisticsResponse from './model/UniverseStatisticsResponse';
 import UniversesResponse from './model/UniversesResponse';
 import UpdateUniverseRequest from './model/UpdateUniverseRequest';
 
 import EntityMatchApi from './api/EntityMatchApi';
 import EntityMatchBulkApi from './api/EntityMatchBulkApi';
 import MappingsApi from './api/MappingsApi';
+import PeopleMappingApi from './api/PeopleMappingApi';
+import PeopleMatchApi from './api/PeopleMatchApi';
+import PeopleMatchBulkApi from './api/PeopleMatchBulkApi';
 import SnowflakeApi from './api/SnowflakeApi';
 import UniversesApi from './api/UniversesApi';
 
@@ -77,7 +98,7 @@ import UniversesApi from './api/UniversesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
+* @version 0.20.1
 */
 export {
     /**
@@ -213,6 +234,102 @@ export {
     MapStatus,
 
     /**
+     * The PeopleDecisions model constructor.
+     * @property {module:model/PeopleDecisions}
+     */
+    PeopleDecisions,
+
+    /**
+     * The PeopleDecisionsResponse model constructor.
+     * @property {module:model/PeopleDecisionsResponse}
+     */
+    PeopleDecisionsResponse,
+
+    /**
+     * The PeopleMapping model constructor.
+     * @property {module:model/PeopleMapping}
+     */
+    PeopleMapping,
+
+    /**
+     * The PeopleMappingDeleteResponse model constructor.
+     * @property {module:model/PeopleMappingDeleteResponse}
+     */
+    PeopleMappingDeleteResponse,
+
+    /**
+     * The PeopleMappingRequest model constructor.
+     * @property {module:model/PeopleMappingRequest}
+     */
+    PeopleMappingRequest,
+
+    /**
+     * The PeopleMappingResponse model constructor.
+     * @property {module:model/PeopleMappingResponse}
+     */
+    PeopleMappingResponse,
+
+    /**
+     * The PeopleMatch model constructor.
+     * @property {module:model/PeopleMatch}
+     */
+    PeopleMatch,
+
+    /**
+     * The PeopleMatchRequest model constructor.
+     * @property {module:model/PeopleMatchRequest}
+     */
+    PeopleMatchRequest,
+
+    /**
+     * The PeopleMatchRequestInput model constructor.
+     * @property {module:model/PeopleMatchRequestInput}
+     */
+    PeopleMatchRequestInput,
+
+    /**
+     * The PeopleMatchesResponse model constructor.
+     * @property {module:model/PeopleMatchesResponse}
+     */
+    PeopleMatchesResponse,
+
+    /**
+     * The PeopleTask model constructor.
+     * @property {module:model/PeopleTask}
+     */
+    PeopleTask,
+
+    /**
+     * The PeopleTaskResponse model constructor.
+     * @property {module:model/PeopleTaskResponse}
+     */
+    PeopleTaskResponse,
+
+    /**
+     * The PeopleTaskStatus model constructor.
+     * @property {module:model/PeopleTaskStatus}
+     */
+    PeopleTaskStatus,
+
+    /**
+     * The PeopleTaskStatusResponse model constructor.
+     * @property {module:model/PeopleTaskStatusResponse}
+     */
+    PeopleTaskStatusResponse,
+
+    /**
+     * The PeopleUniverseRequest model constructor.
+     * @property {module:model/PeopleUniverseRequest}
+     */
+    PeopleUniverseRequest,
+
+    /**
+     * The PeopleUniverseResponse model constructor.
+     * @property {module:model/PeopleUniverseResponse}
+     */
+    PeopleUniverseResponse,
+
+    /**
      * The SnowflakeEntityMatchRequest model constructor.
      * @property {module:model/SnowflakeEntityMatchRequest}
      */
@@ -223,6 +340,12 @@ export {
      * @property {module:model/SnowflakeEntityMatchResponse}
      */
     SnowflakeEntityMatchResponse,
+
+    /**
+     * The Universe model constructor.
+     * @property {module:model/Universe}
+     */
+    Universe,
 
     /**
      * The UniverseMeta model constructor.
@@ -241,6 +364,12 @@ export {
      * @property {module:model/UniverseStatistics}
      */
     UniverseStatistics,
+
+    /**
+     * The UniverseStatisticsResponse model constructor.
+     * @property {module:model/UniverseStatisticsResponse}
+     */
+    UniverseStatisticsResponse,
 
     /**
      * The UniversesResponse model constructor.
@@ -271,6 +400,24 @@ export {
     * @property {module:api/MappingsApi}
     */
     MappingsApi,
+
+    /**
+    * The PeopleMappingApi service constructor.
+    * @property {module:api/PeopleMappingApi}
+    */
+    PeopleMappingApi,
+
+    /**
+    * The PeopleMatchApi service constructor.
+    * @property {module:api/PeopleMatchApi}
+    */
+    PeopleMatchApi,
+
+    /**
+    * The PeopleMatchBulkApi service constructor.
+    * @property {module:api/PeopleMatchBulkApi}
+    */
+    PeopleMatchBulkApi,
 
     /**
     * The SnowflakeApi service constructor.

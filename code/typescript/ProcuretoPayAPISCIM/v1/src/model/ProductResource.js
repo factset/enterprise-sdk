@@ -17,7 +17,7 @@ import ProductResourceMeta from './ProductResourceMeta';
 /**
  * The ProductResource model module.
  * @module model/ProductResource
- * @version 0.20.0
+ * @version 0.20.1
  */
 class ProductResource {
     /**

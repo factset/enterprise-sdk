@@ -24,7 +24,7 @@ import VermilionUserResourceRoles from './VermilionUserResourceRoles';
 /**
  * The VermilionUserResource model module.
  * @module model/VermilionUserResource
- * @version 0.20.0
+ * @version 0.20.1
  */
 class VermilionUserResource {
     /**

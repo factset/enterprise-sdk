@@ -57,6 +57,7 @@ class EntityTaskStatus(ModelNormal):
 
     allowed_values = {
         ('status',): {
+            'None': None,
             'PENDING': "PENDING",
             'IN_PROGRESS': "IN_PROGRESS",
             'SUCCESS': "SUCCESS",
@@ -90,37 +91,37 @@ class EntityTaskStatus(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'task_id': (int,),  # noqa: E501
-            'task_name': (str,),  # noqa: E501
-            'task_action': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
-            'input_file': (str,),  # noqa: E501
-            'client_id_column': (str,),  # noqa: E501
-            'name_column': (str,),  # noqa: E501
-            'country_column': (str,),  # noqa: E501
-            'state_column': (str,),  # noqa: E501
-            'url_column': (str,),  # noqa: E501
-            'has_result': (bool,),  # noqa: E501
-            'task_submit_time': (datetime,),  # noqa: E501
-            'message': (str,),  # noqa: E501
-            'input_count': (int,),  # noqa: E501
-            'mapped_count': (int,),  # noqa: E501
-            'unmapped_count': (int,),  # noqa: E501
-            'indeterminate_count': (int,),  # noqa: E501
-            'process_start_time': (datetime,),  # noqa: E501
-            'process_duration': (float,),  # noqa: E501
-            'try_count': (int,),  # noqa: E501
-            'decision_rate': (float,),  # noqa: E501
-            'error': (str,),  # noqa: E501
-            'error_title': (str,),  # noqa: E501
-            'include_entity_type': ([str],),  # noqa: E501
-            'exclude_entity_type': ([str],),  # noqa: E501
-            'include_entity_sub_type': ([str],),  # noqa: E501
-            'exclude_entity_sub_type': ([str],),  # noqa: E501
-            'user_serial': (str,),  # noqa: E501
-            'user_full_name': (str,),  # noqa: E501
-            'universe_id': (int,),  # noqa: E501
-            'universe_name': (str,),  # noqa: E501
+            'task_id': (int, none_type,),  # noqa: E501
+            'task_name': (str, none_type,),  # noqa: E501
+            'task_action': (str, none_type,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
+            'input_file': (str, none_type,),  # noqa: E501
+            'client_id_column': (str, none_type,),  # noqa: E501
+            'name_column': (str, none_type,),  # noqa: E501
+            'country_column': (str, none_type,),  # noqa: E501
+            'state_column': (str, none_type,),  # noqa: E501
+            'url_column': (str, none_type,),  # noqa: E501
+            'has_result': (bool, none_type,),  # noqa: E501
+            'task_submit_time': (datetime, none_type,),  # noqa: E501
+            'message': (str, none_type,),  # noqa: E501
+            'input_count': (int, none_type,),  # noqa: E501
+            'mapped_count': (int, none_type,),  # noqa: E501
+            'unmapped_count': (int, none_type,),  # noqa: E501
+            'indeterminate_count': (int, none_type,),  # noqa: E501
+            'process_start_time': (datetime, none_type,),  # noqa: E501
+            'process_duration': (float, none_type,),  # noqa: E501
+            'try_count': (int, none_type,),  # noqa: E501
+            'decision_rate': (float, none_type,),  # noqa: E501
+            'error': (str, none_type,),  # noqa: E501
+            'error_title': (str, none_type,),  # noqa: E501
+            'include_entity_type': ([str, none_type],),  # noqa: E501
+            'exclude_entity_type': ([str, none_type],),  # noqa: E501
+            'include_entity_sub_type': ([str, none_type],),  # noqa: E501
+            'exclude_entity_sub_type': ([str, none_type],),  # noqa: E501
+            'user_serial': (str, none_type,),  # noqa: E501
+            'user_full_name': (str, none_type,),  # noqa: E501
+            'universe_id': (int, none_type,),  # noqa: E501
+            'universe_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -203,37 +204,37 @@ class EntityTaskStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_id (int): Identifier denoting a specific Concordance task submitted by the user.. [optional]  # noqa: E501
-            task_name (str): User-defined name for the task used to name the output file.. [optional]  # noqa: E501
-            task_action (str): Action status for the Concordance Task process.. [optional]  # noqa: E501
-            status (str): Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.. [optional]  # noqa: E501
-            input_file (str): The input file is posted as a file object in the form. . [optional]  # noqa: E501
-            client_id_column (str): Name of the column in the input file that contains a unique identifier supplied by the user.. [optional]  # noqa: E501
-            name_column (str): Name of the column in the input file that contains the entity name to be matched.. [optional]  # noqa: E501
-            country_column (str): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            state_column (str): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            url_column (str): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            has_result (bool): Flag denoting the taskId has a result.. [optional]  # noqa: E501
-            task_submit_time (datetime): Time the Task was submitted in UTC.. [optional]  # noqa: E501
-            message (str): Textual message for the status.. [optional]  # noqa: E501
-            input_count (int): Number of records in the Input File.. [optional]  # noqa: E501
-            mapped_count (int): Number of records with status of MAPPED the Input File.. [optional]  # noqa: E501
-            unmapped_count (int): Number of records with status of UNMAPPED the Input File.. [optional]  # noqa: E501
-            indeterminate_count (int): Number of records with status of INDETERMINATE the Input File.. [optional]  # noqa: E501
-            process_start_time (datetime): Process start time in UTC.. [optional]  # noqa: E501
-            process_duration (float): Process duration in seconds.. [optional]  # noqa: E501
-            try_count (int): Number of tries made so far for the request.. [optional]  # noqa: E501
-            decision_rate (float): Percentage of mapped entities in the Input File.. [optional]  # noqa: E501
-            error (str): [optional]  # noqa: E501
-            error_title (str): [optional]  # noqa: E501
-            include_entity_type ([str]): Requested Entity types to include. . [optional]  # noqa: E501
-            exclude_entity_type ([str]): Requested Entity types to exclude. . [optional]  # noqa: E501
-            include_entity_sub_type ([str]): Requested Entity subtypes to include. . [optional]  # noqa: E501
-            exclude_entity_sub_type ([str]): Requested Entity subtypes to exclude. . [optional]  # noqa: E501
-            user_serial (str): user-serial of the person who initiated the entity task.. [optional]  # noqa: E501
-            user_full_name (str): Full name of the person associated with the `userSerial`. . [optional]  # noqa: E501
-            universe_id (int): The universe id this task was submitted to. . [optional]  # noqa: E501
-            universe_name (str): The name of the universe this task was submitted to. . [optional]  # noqa: E501
+            task_id (int, none_type): Identifier denoting a specific Concordance task submitted by the user.. [optional]  # noqa: E501
+            task_name (str, none_type): User-defined name for the task used to name the output file.. [optional]  # noqa: E501
+            task_action (str, none_type): Action status for the Concordance Task process.. [optional]  # noqa: E501
+            status (str, none_type): Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.. [optional]  # noqa: E501
+            input_file (str, none_type): The input file is posted as a file object in the form. . [optional]  # noqa: E501
+            client_id_column (str, none_type): Name of the column in the input file that contains a unique identifier supplied by the user.. [optional]  # noqa: E501
+            name_column (str, none_type): Name of the column in the input file that contains the entity name to be matched.. [optional]  # noqa: E501
+            country_column (str, none_type): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            state_column (str, none_type): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            url_column (str, none_type): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            has_result (bool, none_type): Flag denoting the taskId has a result.. [optional]  # noqa: E501
+            task_submit_time (datetime, none_type): Time the Task was submitted in UTC.. [optional]  # noqa: E501
+            message (str, none_type): Textual message for the status.. [optional]  # noqa: E501
+            input_count (int, none_type): Number of records in the Input File.. [optional]  # noqa: E501
+            mapped_count (int, none_type): Number of records with status of MAPPED the Input File.. [optional]  # noqa: E501
+            unmapped_count (int, none_type): Number of records with status of UNMAPPED the Input File.. [optional]  # noqa: E501
+            indeterminate_count (int, none_type): Number of records with status of INDETERMINATE the Input File.. [optional]  # noqa: E501
+            process_start_time (datetime, none_type): Process start time in UTC.. [optional]  # noqa: E501
+            process_duration (float, none_type): Process duration in seconds.. [optional]  # noqa: E501
+            try_count (int, none_type): Number of tries made so far for the request.. [optional]  # noqa: E501
+            decision_rate (float, none_type): Percentage of mapped entities in the Input File.. [optional]  # noqa: E501
+            error (str, none_type): [optional]  # noqa: E501
+            error_title (str, none_type): [optional]  # noqa: E501
+            include_entity_type ([str, none_type]): Requested Entity types to include. . [optional]  # noqa: E501
+            exclude_entity_type ([str, none_type]): Requested Entity types to exclude. . [optional]  # noqa: E501
+            include_entity_sub_type ([str, none_type]): Requested Entity subtypes to include. . [optional]  # noqa: E501
+            exclude_entity_sub_type ([str, none_type]): Requested Entity subtypes to exclude. . [optional]  # noqa: E501
+            user_serial (str, none_type): user-serial of the person who initiated the entity task.. [optional]  # noqa: E501
+            user_full_name (str, none_type): Full name of the person associated with the `userSerial`. . [optional]  # noqa: E501
+            universe_id (int, none_type): The universe id this task was submitted to. . [optional]  # noqa: E501
+            universe_name (str, none_type): The name of the universe this task was submitted to. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -315,37 +316,37 @@ class EntityTaskStatus(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            task_id (int): Identifier denoting a specific Concordance task submitted by the user.. [optional]  # noqa: E501
-            task_name (str): User-defined name for the task used to name the output file.. [optional]  # noqa: E501
-            task_action (str): Action status for the Concordance Task process.. [optional]  # noqa: E501
-            status (str): Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.. [optional]  # noqa: E501
-            input_file (str): The input file is posted as a file object in the form. . [optional]  # noqa: E501
-            client_id_column (str): Name of the column in the input file that contains a unique identifier supplied by the user.. [optional]  # noqa: E501
-            name_column (str): Name of the column in the input file that contains the entity name to be matched.. [optional]  # noqa: E501
-            country_column (str): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            state_column (str): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            url_column (str): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
-            has_result (bool): Flag denoting the taskId has a result.. [optional]  # noqa: E501
-            task_submit_time (datetime): Time the Task was submitted in UTC.. [optional]  # noqa: E501
-            message (str): Textual message for the status.. [optional]  # noqa: E501
-            input_count (int): Number of records in the Input File.. [optional]  # noqa: E501
-            mapped_count (int): Number of records with status of MAPPED the Input File.. [optional]  # noqa: E501
-            unmapped_count (int): Number of records with status of UNMAPPED the Input File.. [optional]  # noqa: E501
-            indeterminate_count (int): Number of records with status of INDETERMINATE the Input File.. [optional]  # noqa: E501
-            process_start_time (datetime): Process start time in UTC.. [optional]  # noqa: E501
-            process_duration (float): Process duration in seconds.. [optional]  # noqa: E501
-            try_count (int): Number of tries made so far for the request.. [optional]  # noqa: E501
-            decision_rate (float): Percentage of mapped entities in the Input File.. [optional]  # noqa: E501
-            error (str): [optional]  # noqa: E501
-            error_title (str): [optional]  # noqa: E501
-            include_entity_type ([str]): Requested Entity types to include. . [optional]  # noqa: E501
-            exclude_entity_type ([str]): Requested Entity types to exclude. . [optional]  # noqa: E501
-            include_entity_sub_type ([str]): Requested Entity subtypes to include. . [optional]  # noqa: E501
-            exclude_entity_sub_type ([str]): Requested Entity subtypes to exclude. . [optional]  # noqa: E501
-            user_serial (str): user-serial of the person who initiated the entity task.. [optional]  # noqa: E501
-            user_full_name (str): Full name of the person associated with the `userSerial`. . [optional]  # noqa: E501
-            universe_id (int): The universe id this task was submitted to. . [optional]  # noqa: E501
-            universe_name (str): The name of the universe this task was submitted to. . [optional]  # noqa: E501
+            task_id (int, none_type): Identifier denoting a specific Concordance task submitted by the user.. [optional]  # noqa: E501
+            task_name (str, none_type): User-defined name for the task used to name the output file.. [optional]  # noqa: E501
+            task_action (str, none_type): Action status for the Concordance Task process.. [optional]  # noqa: E501
+            status (str, none_type): Status of the Concordance Task. If the value is \"SUCCESS\", you can move to the subsequent /entity-decisions endpoint to retrieve the results.. [optional]  # noqa: E501
+            input_file (str, none_type): The input file is posted as a file object in the form. . [optional]  # noqa: E501
+            client_id_column (str, none_type): Name of the column in the input file that contains a unique identifier supplied by the user.. [optional]  # noqa: E501
+            name_column (str, none_type): Name of the column in the input file that contains the entity name to be matched.. [optional]  # noqa: E501
+            country_column (str, none_type): Name of the column in the input file that contains the ISO2 country code corresponding to the entity name.  The country code is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            state_column (str, none_type): Name of the column in the input file that contains the Two-character state code corresponding to the entity name. The state code is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            url_column (str, none_type): Name of the column in the input file that contains the URL corresponding to the entity name. The URL is used when evaluating candidates for a match. . [optional]  # noqa: E501
+            has_result (bool, none_type): Flag denoting the taskId has a result.. [optional]  # noqa: E501
+            task_submit_time (datetime, none_type): Time the Task was submitted in UTC.. [optional]  # noqa: E501
+            message (str, none_type): Textual message for the status.. [optional]  # noqa: E501
+            input_count (int, none_type): Number of records in the Input File.. [optional]  # noqa: E501
+            mapped_count (int, none_type): Number of records with status of MAPPED the Input File.. [optional]  # noqa: E501
+            unmapped_count (int, none_type): Number of records with status of UNMAPPED the Input File.. [optional]  # noqa: E501
+            indeterminate_count (int, none_type): Number of records with status of INDETERMINATE the Input File.. [optional]  # noqa: E501
+            process_start_time (datetime, none_type): Process start time in UTC.. [optional]  # noqa: E501
+            process_duration (float, none_type): Process duration in seconds.. [optional]  # noqa: E501
+            try_count (int, none_type): Number of tries made so far for the request.. [optional]  # noqa: E501
+            decision_rate (float, none_type): Percentage of mapped entities in the Input File.. [optional]  # noqa: E501
+            error (str, none_type): [optional]  # noqa: E501
+            error_title (str, none_type): [optional]  # noqa: E501
+            include_entity_type ([str, none_type]): Requested Entity types to include. . [optional]  # noqa: E501
+            exclude_entity_type ([str, none_type]): Requested Entity types to exclude. . [optional]  # noqa: E501
+            include_entity_sub_type ([str, none_type]): Requested Entity subtypes to include. . [optional]  # noqa: E501
+            exclude_entity_sub_type ([str, none_type]): Requested Entity subtypes to exclude. . [optional]  # noqa: E501
+            user_serial (str, none_type): user-serial of the person who initiated the entity task.. [optional]  # noqa: E501
+            user_full_name (str, none_type): Full name of the person associated with the `userSerial`. . [optional]  # noqa: E501
+            universe_id (int, none_type): The universe id this task was submitted to. . [optional]  # noqa: E501
+            universe_name (str, none_type): The name of the universe this task was submitted to. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourceRoles model module.
  * @module model/VermilionUserResourceRoles
- * @version 0.20.0
+ * @version 0.20.1
  */
 class VermilionUserResourceRoles {
     /**

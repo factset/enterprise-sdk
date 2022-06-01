@@ -6,10 +6,9 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
-docs/CheckstatusResponse.md
+docs/Checkstatus.md
 docs/FilingsFiles.md
-docs/GetResponse.md
-docs/GetfilesResponse.md
+docs/Getfiles.md
 docs/GlobalFilingsApiApi.md
 docs/RequestfilesResponse.md
 docs/Status.md
@@ -45,10 +44,9 @@ src/main/java/com/factset/sdk/DocumentsDistributorDocuments/auth/HttpBearerAuth.
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/auth/OAuth.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/AbstractOpenApiSchema.java
-src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/CheckstatusResponse.java
+src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/Checkstatus.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/FilingsFiles.java
-src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/GetResponse.java
-src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/GetfilesResponse.java
+src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/Getfiles.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/RequestfilesResponse.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/Status.java
 src/main/java/com/factset/sdk/DocumentsDistributorDocuments/models/StreetAccountStatus.java

@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.FactSetConcordance.models.UniverseMeta;
+import com.factset.sdk.FactSetConcordance.models.Universe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,12 +41,12 @@ public class UniverseMetaResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private UniverseMeta data;
+  private Universe data;
 
   public UniverseMetaResponse() { 
   }
 
-  public UniverseMetaResponse data(UniverseMeta data) {
+  public UniverseMetaResponse data(Universe data) {
     this.data = data;
     return this;
   }
@@ -60,14 +60,14 @@ public class UniverseMetaResponse implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UniverseMeta getData() {
+  public Universe getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(UniverseMeta data) {
+  public void setData(Universe data) {
     this.data = data;
   }
 

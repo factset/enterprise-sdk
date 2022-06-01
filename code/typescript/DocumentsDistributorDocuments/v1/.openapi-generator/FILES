@@ -4,10 +4,9 @@
 .travis.yml
 LICENSE
 README.md
-docs/CheckstatusResponse.md
+docs/Checkstatus.md
 docs/FilingsFiles.md
-docs/GetResponse.md
-docs/GetfilesResponse.md
+docs/Getfiles.md
 docs/GlobalFilingsAPIApi.md
 docs/RequestfilesResponse.md
 docs/Status.md
@@ -20,10 +19,9 @@ src/ApiClient.js
 src/api/GlobalFilingsAPIApi.js
 src/api/StreetAccountXMLAPIApi.js
 src/index.js
-src/model/CheckstatusResponse.js
+src/model/Checkstatus.js
 src/model/FilingsFiles.js
-src/model/GetResponse.js
-src/model/GetfilesResponse.js
+src/model/Getfiles.js
 src/model/RequestfilesResponse.js
 src/model/Status.js
 src/model/StreetAccountStatus.js

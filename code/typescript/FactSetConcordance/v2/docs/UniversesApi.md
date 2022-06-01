@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getEntityUniverseStatistics**](UniversesApi.md#getEntityUniverseStatistics) | **GET** /factset-concordance/v2/entity-universe-statistics | Get statistics on a given universe
 [**getUniverseForList**](UniversesApi.md#getUniverseForList) | **POST** /factset-concordance/v2/universe | Create a new universe
+[**getUniverseStatistics**](UniversesApi.md#getUniverseStatistics) | **GET** /factset-concordance/v2/universe-statistics | Get statistics on a given universe
 [**getUniverses**](UniversesApi.md#getUniverses) | **GET** /factset-concordance/v2/universes | Fetch metadata for universes
 [**getUpdateUniverseForList**](UniversesApi.md#getUpdateUniverseForList) | **POST** /factset-concordance/v2/update-universe | Update metadata for an existing universe
 
@@ -155,6 +156,78 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getUniverseStatistics
+
+> UniverseStatisticsResponse getUniverseStatistics(universeId)
+
+Get statistics on a given universe
+
+Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+
+### Example
+
+```javascript
+const { ApiClient, UniversesApi } = require('@factset/sdk-factsetconcordance');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new UniversesApi();
+const universeId = 1; // Number | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+// Call api endpoint
+apiInstance.getUniverseStatistics(universeId).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **universeId** | **Number**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | 
+
+### Return type
+
+[**UniverseStatisticsResponse**](UniverseStatisticsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getUniverses
 
 > UniversesResponse getUniverses(opts)
@@ -190,7 +263,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new UniversesApi();
 const opts = {
-  'universeId': 1 // Number | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+  'universeId': 1, // Number | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+  'universeType': ENTITY // String | Universe Type.
 };
 
 // Call api endpoint
@@ -214,6 +288,7 @@ apiInstance.getUniverses(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **universeId** | **Number**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | [optional] 
+ **universeType** | **String**| Universe Type. | [optional] 
 
 ### Return type
 

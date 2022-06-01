@@ -17,13 +17,14 @@ import CreateUniverseRequest from '../model/CreateUniverseRequest';
 import EntityUniverseStatisticsResponse from '../model/EntityUniverseStatisticsResponse';
 import ErrorResponse from '../model/ErrorResponse';
 import UniverseMetaResponse from '../model/UniverseMetaResponse';
+import UniverseStatisticsResponse from '../model/UniverseStatisticsResponse';
 import UniversesResponse from '../model/UniversesResponse';
 import UpdateUniverseRequest from '../model/UpdateUniverseRequest';
 
 /**
 * Universes service.
 * @module api/UniversesApi
-* @version 0.20.0
+* @version 0.20.1
 */
 export default class UniversesApi {
 
@@ -142,10 +143,62 @@ export default class UniversesApi {
 
 
     /**
+     * Get statistics on a given universe
+     * Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+     * @param {Number} universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UniverseStatisticsResponse} and HTTP response
+     */
+    getUniverseStatisticsWithHttpInfo(universeId) {
+      let postBody = null;
+      // verify the required parameter 'universeId' is set
+      if (universeId === undefined || universeId === null) {
+        throw new Error("Missing the required parameter 'universeId' when calling getUniverseStatistics");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'universeId': universeId
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = UniverseStatisticsResponse;
+
+      return this.apiClient.callApi(
+        '/factset-concordance/v2/universe-statistics', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get statistics on a given universe
+     * Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+     * @param {Number} universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
+     * @return { Promise.< module:model/UniverseStatisticsResponse > } a Promise, with data of type {@link module:model/UniverseStatisticsResponse }
+     */
+    getUniverseStatistics(universeId) {
+      return this.getUniverseStatisticsWithHttpInfo(universeId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Fetch metadata for universes
      * Fetch information on active universes for the current user. Optionally filter for a specific universe given a `universeId` 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
+     * @param {module:model/String} opts.universeType Universe Type.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UniversesResponse} and HTTP response
      */
     getUniversesWithHttpInfo(opts) {
@@ -155,7 +208,8 @@ export default class UniversesApi {
       let pathParams = {
       };
       let queryParams = {
-        'universeId': opts['universeId']
+        'universeId': opts['universeId'],
+        'universeType': opts['universeType']
       };
       let headerParams = {
       };
@@ -181,6 +235,7 @@ export default class UniversesApi {
      * Fetch information on active universes for the current user. Optionally filter for a specific universe given a `universeId` 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
+     * @param {module:model/String} opts.universeType Universe Type.
      * @return { Promise.< module:model/UniversesResponse > } a Promise, with data of type {@link module:model/UniversesResponse }
      */
     getUniverses(opts) {

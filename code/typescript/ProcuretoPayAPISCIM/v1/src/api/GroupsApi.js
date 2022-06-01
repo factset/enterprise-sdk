@@ -21,7 +21,7 @@ import Patch from '../model/Patch';
 /**
 * Groups service.
 * @module api/GroupsApi
-* @version 0.20.0
+* @version 0.20.1
 */
 export default class GroupsApi {
 

@@ -1,0 +1,24 @@
+{
+  "packageName": "FactSet.SDK.DirectStreamingofTransactionMessages",
+  "packageVersion": "0.20.0",
+  "packageGuid": "{567a8c99-84b9-5617-a1e6-fc0a122040a8}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Direct Streaming of Transaction Messages client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Direct Streaming of Transaction Messages",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/DirectStreamingofTransactionMessages/0.20.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

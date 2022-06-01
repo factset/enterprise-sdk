@@ -1,0 +1,24 @@
+{
+  "packageName": "FactSet.SDK.FactSetTrading",
+  "packageVersion": "0.20.0",
+  "packageGuid": "{bda92720-460a-5e1b-8abf-aaf43bb055ab}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "FactSet Trading client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - FactSet Trading",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetTrading/0.20.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

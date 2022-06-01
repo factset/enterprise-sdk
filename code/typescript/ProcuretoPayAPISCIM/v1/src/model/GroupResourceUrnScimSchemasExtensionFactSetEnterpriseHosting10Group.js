@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group model module.
  * @module model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group
- * @version 0.20.0
+ * @version 0.20.1
  */
 class GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group {
     /**

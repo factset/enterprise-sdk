@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import MapStatus from './MapStatus';
 
 /**
  * The EntityUniverseRequest model module.
  * @module model/EntityUniverseRequest
- * @version 0.20.0
+ * @version 0.20.1
  */
 class EntityUniverseRequest {
     /**
@@ -60,7 +59,7 @@ class EntityUniverseRequest {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
             if (data.hasOwnProperty('mapStatus')) {
-                obj['mapStatus'] = ApiClient.convertToType(data['mapStatus'], [MapStatus]);
+                obj['mapStatus'] = ApiClient.convertToType(data['mapStatus'], ['String']);
             }
             if (data.hasOwnProperty('clientId')) {
                 obj['clientId'] = ApiClient.convertToType(data['clientId'], ['String']);
@@ -91,8 +90,8 @@ EntityUniverseRequest.prototype['offset'] = undefined;
 EntityUniverseRequest.prototype['limit'] = undefined;
 
 /**
- * entity statuses to be filtered
- * @member {Array.<module:model/MapStatus>} mapStatus
+ * Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
+ * @member {Array.<module:model/EntityUniverseRequest.MapStatusEnum>} mapStatus
  */
 EntityUniverseRequest.prototype['mapStatus'] = undefined;
 
@@ -104,6 +103,33 @@ EntityUniverseRequest.prototype['clientId'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>mapStatus</code> property.
+ * @enum {String}
+ * @readonly
+ */
+EntityUniverseRequest['MapStatusEnum'] = {
+
+    /**
+     * value: "MAPPED"
+     * @const
+     */
+    "MAPPED": "MAPPED",
+
+    /**
+     * value: "UNMAPPED"
+     * @const
+     */
+    "UNMAPPED": "UNMAPPED",
+
+    /**
+     * value: "INDETERMINATE"
+     * @const
+     */
+    "INDETERMINATE": "INDETERMINATE"
+};
 
 
 

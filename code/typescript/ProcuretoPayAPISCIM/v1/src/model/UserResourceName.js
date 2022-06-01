@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserResourceName model module.
  * @module model/UserResourceName
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UserResourceName {
     /**

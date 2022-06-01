@@ -35,8 +35,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
-        /// <returns>CheckstatusResponse</returns>
-        CheckstatusResponse AsynchStreetaccountV1CheckStatusGet(string jobID);
+        /// <returns>List<Checkstatus></returns>
+        List<Checkstatus> AsynchStreetaccountV1CheckStatusGet(string jobID);
 
         /// <summary>
         /// Returns the status and percentDone of the requested jobID
@@ -46,8 +46,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
-        /// <returns>ApiResponse of CheckstatusResponse</returns>
-        ApiResponse<CheckstatusResponse> AsynchStreetaccountV1CheckStatusGetWithHttpInfo(string jobID);
+        /// <returns>ApiResponse of List<Checkstatus></returns>
+        ApiResponse<List<Checkstatus>> AsynchStreetaccountV1CheckStatusGetWithHttpInfo(string jobID);
         /// <summary>
         /// Returns the SA XML files for the specified daterange
         /// </summary>
@@ -56,8 +56,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
-        /// <returns>GetfilesResponse</returns>
-        GetfilesResponse AsynchStreetaccountV1GetFilesGet(string jobID);
+        /// <returns>List<Getfiles></returns>
+        List<Getfiles> AsynchStreetaccountV1GetFilesGet(string jobID);
 
         /// <summary>
         /// Returns the SA XML files for the specified daterange
@@ -67,8 +67,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
-        /// <returns>ApiResponse of GetfilesResponse</returns>
-        ApiResponse<GetfilesResponse> AsynchStreetaccountV1GetFilesGetWithHttpInfo(string jobID);
+        /// <returns>ApiResponse of List<Getfiles></returns>
+        ApiResponse<List<Getfiles>> AsynchStreetaccountV1GetFilesGetWithHttpInfo(string jobID);
         /// <summary>
         /// Returns the jobID
         /// </summary>
@@ -110,8 +110,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CheckstatusResponse</returns>
-        System.Threading.Tasks.Task<CheckstatusResponse> AsynchStreetaccountV1CheckStatusGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;Checkstatus&gt;</returns>
+        System.Threading.Tasks.Task<List<Checkstatus>> AsynchStreetaccountV1CheckStatusGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the status and percentDone of the requested jobID
@@ -122,8 +122,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CheckstatusResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CheckstatusResponse>> AsynchStreetaccountV1CheckStatusGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List<Checkstatus>)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Checkstatus>>> AsynchStreetaccountV1CheckStatusGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the SA XML files for the specified daterange
         /// </summary>
@@ -133,8 +133,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetfilesResponse</returns>
-        System.Threading.Tasks.Task<GetfilesResponse> AsynchStreetaccountV1GetFilesGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;Getfiles&gt;</returns>
+        System.Threading.Tasks.Task<List<Getfiles>> AsynchStreetaccountV1GetFilesGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the SA XML files for the specified daterange
@@ -145,8 +145,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetfilesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetfilesResponse>> AsynchStreetaccountV1GetFilesGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List<Getfiles>)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Getfiles>>> AsynchStreetaccountV1GetFilesGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the jobID
         /// </summary>
@@ -193,12 +193,12 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         # region Response Type Disctionaries
                 private static readonly Dictionary<HttpStatusCode, System.Type> AsynchStreetaccountV1CheckStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(CheckstatusResponse) },
+            { (HttpStatusCode)200, typeof(List<Checkstatus>) },
             { (HttpStatusCode)400, typeof(StreetAccountStatus) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> AsynchStreetaccountV1GetFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(GetfilesResponse) },
+            { (HttpStatusCode)200, typeof(List<Getfiles>) },
             { (HttpStatusCode)400, typeof(StreetAccountStatus) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> AsynchStreetaccountV1RequestFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -321,8 +321,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
-        /// <returns>CheckstatusResponse</returns>
-        public CheckstatusResponse AsynchStreetaccountV1CheckStatusGet(string jobID)
+        /// <returns>List<Checkstatus></returns>
+        public List<Checkstatus> AsynchStreetaccountV1CheckStatusGet(string jobID)
         {
             var localVarResponse = AsynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID);
             return localVarResponse.Data;
@@ -333,8 +333,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
-        /// <returns>ApiResponse of CheckstatusResponse</returns>
-        public ApiResponse<CheckstatusResponse> AsynchStreetaccountV1CheckStatusGetWithHttpInfo(string jobID)
+        /// <returns>ApiResponse of List&lt;Checkstatus&gt;</returns>
+        public ApiResponse<List<Checkstatus>> AsynchStreetaccountV1CheckStatusGetWithHttpInfo(string jobID)
         {
             // verify the required parameter 'jobID' is set
             if (jobID == null)
@@ -390,7 +390,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            CheckstatusResponse>("/asynch/streetaccount/v1/check-status", localVarRequestOptions, this.Configuration);
+            List<Checkstatus>>("/asynch/streetaccount/v1/check-status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AsynchStreetaccountV1CheckStatusGet", localVarResponse);
@@ -408,8 +408,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CheckstatusResponse</returns>
-        public async System.Threading.Tasks.Task<CheckstatusResponse>AsynchStreetaccountV1CheckStatusGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;Checkstatus&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Checkstatus>>AsynchStreetaccountV1CheckStatusGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await AsynchStreetaccountV1CheckStatusGetWithHttpInfoAsync(jobID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -421,9 +421,9 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to know the status and percentDone</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CheckstatusResponse)</returns>
+        /// <returns>Task of ApiResponse (List&lt;Checkstatus&gt;)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<CheckstatusResponse>> AsynchStreetaccountV1CheckStatusGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<List<Checkstatus>>> AsynchStreetaccountV1CheckStatusGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'jobID' is set
             if (jobID == null)
@@ -479,7 +479,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
             localVarRequestOptions.ResponseTypeDictionary = AsynchStreetaccountV1CheckStatusGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CheckstatusResponse>("/asynch/streetaccount/v1/check-status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Checkstatus>>("/asynch/streetaccount/v1/check-status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -498,8 +498,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
-        /// <returns>GetfilesResponse</returns>
-        public GetfilesResponse AsynchStreetaccountV1GetFilesGet(string jobID)
+        /// <returns>List<Getfiles></returns>
+        public List<Getfiles> AsynchStreetaccountV1GetFilesGet(string jobID)
         {
             var localVarResponse = AsynchStreetaccountV1GetFilesGetWithHttpInfo(jobID);
             return localVarResponse.Data;
@@ -510,8 +510,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
-        /// <returns>ApiResponse of GetfilesResponse</returns>
-        public ApiResponse<GetfilesResponse> AsynchStreetaccountV1GetFilesGetWithHttpInfo(string jobID)
+        /// <returns>ApiResponse of List&lt;Getfiles&gt;</returns>
+        public ApiResponse<List<Getfiles>> AsynchStreetaccountV1GetFilesGetWithHttpInfo(string jobID)
         {
             // verify the required parameter 'jobID' is set
             if (jobID == null)
@@ -567,7 +567,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            GetfilesResponse>("/asynch/streetaccount/v1/get-files", localVarRequestOptions, this.Configuration);
+            List<Getfiles>>("/asynch/streetaccount/v1/get-files", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AsynchStreetaccountV1GetFilesGet", localVarResponse);
@@ -585,8 +585,8 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetfilesResponse</returns>
-        public async System.Threading.Tasks.Task<GetfilesResponse>AsynchStreetaccountV1GetFilesGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;Getfiles&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Getfiles>>AsynchStreetaccountV1GetFilesGetAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await AsynchStreetaccountV1GetFilesGetWithHttpInfoAsync(jobID, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -598,9 +598,9 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
         /// <exception cref="FactSet.SDK.DocumentsDistributorDocuments.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jobID">jobID returned by the request-files endpoint to collect the results of the query</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetfilesResponse)</returns>
+        /// <returns>Task of ApiResponse (List&lt;Getfiles&gt;)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<GetfilesResponse>> AsynchStreetaccountV1GetFilesGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<List<Getfiles>>> AsynchStreetaccountV1GetFilesGetWithHttpInfoAsync(string jobID, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'jobID' is set
             if (jobID == null)
@@ -656,7 +656,7 @@ namespace FactSet.SDK.DocumentsDistributorDocuments.Api
             localVarRequestOptions.ResponseTypeDictionary = AsynchStreetaccountV1GetFilesGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetfilesResponse>("/asynch/streetaccount/v1/get-files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Getfiles>>("/asynch/streetaccount/v1/get-files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

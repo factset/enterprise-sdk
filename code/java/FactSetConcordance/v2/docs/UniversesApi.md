@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getEntityUniverseStatistics**](UniversesApi.md#getEntityUniverseStatistics) | **GET** /factset-concordance/v2/entity-universe-statistics | Get statistics on a given universe
 [**getUniverseForList**](UniversesApi.md#getUniverseForList) | **POST** /factset-concordance/v2/universe | Create a new universe
+[**getUniverseStatistics**](UniversesApi.md#getUniverseStatistics) | **GET** /factset-concordance/v2/universe-statistics | Get statistics on a given universe
 [**getUniverses**](UniversesApi.md#getUniverses) | **GET** /factset-concordance/v2/universes | Fetch metadata for universes
 [**getUpdateUniverseForList**](UniversesApi.md#getUpdateUniverseForList) | **POST** /factset-concordance/v2/update-universe | Update metadata for an existing universe
 
@@ -188,9 +189,95 @@ Name | Type | Description  | Notes
 | **0** | Error Response |  -  |
 
 
+## getUniverseStatistics
+
+> UniverseStatisticsResponse getUniverseStatistics(universeId)
+
+Get statistics on a given universe
+
+Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings
+
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.FactSetConcordance.ApiClient;
+import com.factset.sdk.FactSetConcordance.ApiException;
+import com.factset.sdk.FactSetConcordance.Configuration;
+import com.factset.sdk.FactSetConcordance.auth.*;
+import com.factset.sdk.FactSetConcordance.models.*;
+import com.factset.sdk.FactSetConcordance.api.UniversesApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        UniversesApi apiInstance = new UniversesApi(defaultClient);
+        Integer universeId = 1; // Integer | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+        try {
+            UniverseStatisticsResponse result = apiInstance.getUniverseStatistics(universeId);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UniversesApi#getUniverseStatistics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **universeId** | **Integer**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* |
+
+### Return type
+
+[**UniverseStatisticsResponse**](UniverseStatisticsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Response object for mapping statistics for a universe |  -  |
+| **0** | Error Response |  -  |
+
+
 ## getUniverses
 
-> UniversesResponse getUniverses(universeId)
+> UniversesResponse getUniverses(universeId, universeType)
 
 Fetch metadata for universes
 
@@ -232,8 +319,9 @@ public class Example {
 
         UniversesApi apiInstance = new UniversesApi(defaultClient);
         Integer universeId = 1; // Integer | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+        String universeType = "ENTITY"; // String | Universe Type.
         try {
-            UniversesResponse result = apiInstance.getUniverses(universeId);
+            UniversesResponse result = apiInstance.getUniverses(universeId, universeType);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -253,6 +341,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **universeId** | **Integer**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | [optional]
+ **universeType** | **String**| Universe Type. | [optional] [enum: ENTITY, PEOPLE]
 
 ### Return type
 

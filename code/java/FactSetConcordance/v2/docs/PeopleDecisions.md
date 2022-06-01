@@ -1,0 +1,51 @@
+
+
+# PeopleDecisions
+
+Concordance Entity Task Status object. Shows the settings and status of a taskId and some statistics on the matches. 
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**activeRole** | **Boolean** | If the role is active or not of the person. |  [optional]
+**clientEntity** | **String** | Name of the entity of the client.  |  [optional]
+**clientId** | **String** | Name of the column in the input file that contains a unique identifier supplied by the user. |  [optional]
+**clientFirstName** | **String** | First Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientLastName** | **String** | Last Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientMiddleName** | **String** | Middle Name provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientSalutation** | **String** | Salutation provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientSuffix** | **String** | Suffix provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientPriority** | **String** | Priority provided in the input file which is used in the &#x60;people-task&#x60; endpoint |  [optional]
+**clientPersonName** | **String** | The name provided by the client. |  [optional]
+**email** | **String** | The email address of the client. |  [optional]
+**entity** | **String** | Full name corresponding to the matched entity. |  [optional]
+**mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  |  [optional]
+**firstName** | **String** | Name of the column in the input file that contains the first name. |  [optional]
+**lastName** | **String** | Name of the column in the input file that contains the first name.  |  [optional]
+**middleName** | **String** | Name of the column in the input file that contains the middle name.  |  [optional]
+**personId** | **String** | The id of the person. |  [optional]
+**nameMatchString** | **String** | String on which the Concordance algorithm mapped the submitted entity. |  [optional]
+**personName** | **String** | Name of the column in the input file that contains the person name.  |  [optional]
+**suffix** | **String** | Name of the column in the input file that contains the person&#39;s suffix.  |  [optional]
+**similarityScore** | **Double** | Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity.  |  [optional]
+**rowIndex** | **Integer** | Row number for match in the request or input file. |  [optional]
+**taskId** | **Integer** | Identifier denoting a specific Concordance task submitted by the user. |  [optional]
+**title** | **String** | The title of the person. |  [optional]
+
+
+
+## Enum: MapStatusEnum
+
+Name | Value
+---- | -----
+MAPPED | &quot;MAPPED&quot;
+UNMAPPED | &quot;UNMAPPED&quot;
+INDETERMINATE | &quot;INDETERMINATE&quot;
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

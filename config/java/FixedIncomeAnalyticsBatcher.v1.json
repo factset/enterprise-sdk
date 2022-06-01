@@ -1,0 +1,39 @@
+{
+  "modelPackage": "com.factset.sdk.FixedIncomeAnalyticsBatcher.models",
+  "apiPackage": "com.factset.sdk.FixedIncomeAnalyticsBatcher.api",
+  "invokerPackage": "com.factset.sdk.FixedIncomeAnalyticsBatcher",
+  "java8": true,
+  "groupId": "com.factset.sdk",
+  "artifactId": "fixedincomeanalyticsbatcher",
+  "artifactVersion": "0.20.0",
+  "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
+  "artifactDescription": "Fixed Income Analytics Batcher client library for Java",
+  "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmDeveloperConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
+  "scmUrl": "http://github.com/FactSet/enterprise-sdk",
+  "developerName": "FactSet Research Systems",
+  "developerEmail": "api@factset.com",
+  "developerOrganization": "FactSet Research Systems",
+  "developerOrganizationUrl": "https://developer.factset.com/",
+  "licenseName": "The Apache Software License, Version 2.0",
+  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+  "serializableModel": true,
+  "fullJavaUtil": true,
+  "withXml": false,
+  "useGzipFeature": false,
+  "hideGenerationTimestamp": true,
+  "caseInsensitiveResponseHeaders": true,
+  "library": "jersey2",
+  "dateLibrary": "java8",
+  "servers":  false,
+  "httpUserAgent": "fds-sdk/java/FixedIncomeAnalyticsBatcher/0.20.0",
+  "files": {
+    "LICENSE": {},
+    "auth/FactSetOAuth2ClientAuth.mustache": {
+      "templateType": "SupportingFiles",
+      "folder": "src/main/java/com/factset/sdk/FixedIncomeAnalyticsBatcher/auth",
+      "destinationFilename": "FactSetOAuth2ClientAuth.java"
+    }
+  },
+  "useOneOfDiscriminatorLookup": true
+}

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**UniverseMeta**](UniverseMeta.md) |  | [optional] 
+**data** | [**Universe**](Universe.md) |  | [optional] 
 
 

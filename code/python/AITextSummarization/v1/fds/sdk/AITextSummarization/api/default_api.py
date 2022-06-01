@@ -54,7 +54,7 @@ class DefaultApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/v1/result/{result_id}',
+                'endpoint_path': '/result/{result_id}',
                 'operation_id': 'get_result_v1_result_result_id',
                 'http_method': 'GET',
                 'servers': None,
@@ -109,7 +109,7 @@ class DefaultApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/v1/headline-and-summary',
+                'endpoint_path': '/headline-and-summary',
                 'operation_id': 'post_headline_and_summary_v1_headline_and_summary',
                 'http_method': 'POST',
                 'servers': None,
@@ -165,7 +165,7 @@ class DefaultApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/v1/headline',
+                'endpoint_path': '/headline',
                 'operation_id': 'post_headline_v1_headline',
                 'http_method': 'POST',
                 'servers': None,
@@ -221,7 +221,7 @@ class DefaultApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/v1/summary',
+                'endpoint_path': '/summary',
                 'operation_id': 'post_summary_v1_summary',
                 'http_method': 'POST',
                 'servers': None,

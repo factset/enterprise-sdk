@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourcePhoneNumbers model module.
  * @module model/VermilionUserResourcePhoneNumbers
- * @version 0.20.0
+ * @version 0.20.1
  */
 class VermilionUserResourcePhoneNumbers {
     /**

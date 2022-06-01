@@ -21,7 +21,7 @@ import UserResourceList from '../model/UserResourceList';
 /**
 * Users service.
 * @module api/UsersApi
-* @version 0.20.0
+* @version 0.20.1
 */
 export default class UsersApi {
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **universeName** | **String** | Universe name | 
 **universeDescription** | **String** | Universe description |  [optional]
+**universeType** | **String** | Universe type |  [optional]
 
 
 ## Implemented Interfaces

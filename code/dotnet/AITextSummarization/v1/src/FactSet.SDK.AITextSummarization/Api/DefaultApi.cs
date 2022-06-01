@@ -439,7 +439,7 @@ namespace FactSet.SDK.AITextSummarization.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            SuccessResponse>("/v1/result/{result_id}", localVarRequestOptions, this.Configuration);
+            SuccessResponse>("/result/{result_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetResultV1ResultResultId", localVarResponse);
@@ -528,7 +528,7 @@ namespace FactSet.SDK.AITextSummarization.Api
             localVarRequestOptions.ResponseTypeDictionary = GetResultV1ResultResultIdResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessResponse>("/v1/result/{result_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessResponse>("/result/{result_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -617,7 +617,7 @@ namespace FactSet.SDK.AITextSummarization.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            string>("/v1/headline-and-summary", localVarRequestOptions, this.Configuration);
+            string>("/headline-and-summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostHeadlineAndSummaryV1HeadlineAndSummary", localVarResponse);
@@ -707,7 +707,7 @@ namespace FactSet.SDK.AITextSummarization.Api
             localVarRequestOptions.ResponseTypeDictionary = PostHeadlineAndSummaryV1HeadlineAndSummaryResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/v1/headline-and-summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/headline-and-summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -796,7 +796,7 @@ namespace FactSet.SDK.AITextSummarization.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            string>("/v1/headline", localVarRequestOptions, this.Configuration);
+            string>("/headline", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostHeadlineV1Headline", localVarResponse);
@@ -886,7 +886,7 @@ namespace FactSet.SDK.AITextSummarization.Api
             localVarRequestOptions.ResponseTypeDictionary = PostHeadlineV1HeadlineResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/v1/headline", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/headline", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -975,7 +975,7 @@ namespace FactSet.SDK.AITextSummarization.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            string>("/v1/summary", localVarRequestOptions, this.Configuration);
+            string>("/summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSummaryV1Summary", localVarResponse);
@@ -1065,7 +1065,7 @@ namespace FactSet.SDK.AITextSummarization.Api
             localVarRequestOptions.ResponseTypeDictionary = PostSummaryV1SummaryResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/v1/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<string>("/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

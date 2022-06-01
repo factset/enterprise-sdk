@@ -36,7 +36,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Initializes a new instance of the <see cref="UniverseMetaResponse" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public UniverseMetaResponse(UniverseMeta data = default(UniverseMeta))
+        public UniverseMetaResponse(Universe data = default(Universe))
         {
             this.Data = data;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public UniverseMeta Data { get; set; }
+        public Universe Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

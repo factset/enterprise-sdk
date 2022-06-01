@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.DocumentsDistributorDocuments.models.CheckstatusResponse;
-import com.factset.sdk.DocumentsDistributorDocuments.models.GetfilesResponse;
+import com.factset.sdk.DocumentsDistributorDocuments.models.Checkstatus;
+import com.factset.sdk.DocumentsDistributorDocuments.models.Getfiles;
 import java.time.LocalDate;
 import com.factset.sdk.DocumentsDistributorDocuments.models.RequestfilesResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.models.StreetAccountStatus;
@@ -31,12 +31,12 @@ public class StreetAccountXmlApiApi {
 
     private static final Map<Integer, GenericType> asynchStreetaccountV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(200, new GenericType<CheckstatusResponse>(){});
+    asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(200, new GenericType<java.util.List<Checkstatus>>(){});
     asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
   }
   private static final Map<Integer, GenericType> asynchStreetaccountV1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    asynchStreetaccountV1GetFilesGetResponseTypeMap.put(200, new GenericType<GetfilesResponse>(){});
+    asynchStreetaccountV1GetFilesGetResponseTypeMap.put(200, new GenericType<java.util.List<Getfiles>>(){});
     asynchStreetaccountV1GetFilesGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
   }
   private static final Map<Integer, GenericType> asynchStreetaccountV1RequestFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -70,7 +70,7 @@ public class StreetAccountXmlApiApi {
    * Returns the status and percentDone of the requested jobID
    * Need to plug-in the jobID got from /request-files into /check-status endpoint
    * @param jobID jobID returned by the request-files endpoint to know the status and percentDone (required)
-   * @return CheckstatusResponse
+   * @return java.util.List<Checkstatus>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -79,7 +79,7 @@ public class StreetAccountXmlApiApi {
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
    */
-  public CheckstatusResponse asynchStreetaccountV1CheckStatusGet(String jobID) throws ApiException {
+  public java.util.List<Checkstatus> asynchStreetaccountV1CheckStatusGet(String jobID) throws ApiException {
     return asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID).getData();
   }
 
@@ -87,7 +87,7 @@ public class StreetAccountXmlApiApi {
    * Returns the status and percentDone of the requested jobID
    * Need to plug-in the jobID got from /request-files into /check-status endpoint
    * @param jobID jobID returned by the request-files endpoint to know the status and percentDone (required)
-   * @return ApiResponse&lt;CheckstatusResponse&gt;
+   * @return ApiResponse&lt;java.util.List<Checkstatus>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -96,7 +96,7 @@ public class StreetAccountXmlApiApi {
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CheckstatusResponse> asynchStreetaccountV1CheckStatusGetWithHttpInfo(String jobID) throws ApiException {
+  public ApiResponse<java.util.List<Checkstatus>> asynchStreetaccountV1CheckStatusGetWithHttpInfo(String jobID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'jobID' is set
@@ -133,7 +133,7 @@ public class StreetAccountXmlApiApi {
 
     ApiResponse<
         
-        CheckstatusResponse
+        java.util.List<Checkstatus>
       
     > apiResponse = apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1CheckStatusGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -146,7 +146,7 @@ public class StreetAccountXmlApiApi {
    * Returns the SA XML files for the specified daterange
    * Need to plug-in the jobID got from /request-files into /check-status endpoint
    * @param jobID jobID returned by the request-files endpoint to collect the results of the query (required)
-   * @return GetfilesResponse
+   * @return java.util.List<Getfiles>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -155,7 +155,7 @@ public class StreetAccountXmlApiApi {
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
    */
-  public GetfilesResponse asynchStreetaccountV1GetFilesGet(String jobID) throws ApiException {
+  public java.util.List<Getfiles> asynchStreetaccountV1GetFilesGet(String jobID) throws ApiException {
     return asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID).getData();
   }
 
@@ -163,7 +163,7 @@ public class StreetAccountXmlApiApi {
    * Returns the SA XML files for the specified daterange
    * Need to plug-in the jobID got from /request-files into /check-status endpoint
    * @param jobID jobID returned by the request-files endpoint to collect the results of the query (required)
-   * @return ApiResponse&lt;GetfilesResponse&gt;
+   * @return ApiResponse&lt;java.util.List<Getfiles>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -172,7 +172,7 @@ public class StreetAccountXmlApiApi {
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetfilesResponse> asynchStreetaccountV1GetFilesGetWithHttpInfo(String jobID) throws ApiException {
+  public ApiResponse<java.util.List<Getfiles>> asynchStreetaccountV1GetFilesGetWithHttpInfo(String jobID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'jobID' is set
@@ -209,7 +209,7 @@ public class StreetAccountXmlApiApi {
 
     ApiResponse<
         
-        GetfilesResponse
+        java.util.List<Getfiles>
       
     > apiResponse = apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1GetFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

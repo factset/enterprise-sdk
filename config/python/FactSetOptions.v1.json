@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetOptions",
+  "projectName": "fds.sdk.FactSetOptions",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet Options client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetOptions/v1",
+  "httpUserAgent": "fds-sdk/python/FactSetOptions/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserResourceGroups model module.
  * @module model/UserResourceGroups
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UserResourceGroups {
     /**

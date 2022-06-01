@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.20.0
+* @version 0.20.1
 */
 
 /**
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/ProcuretoPayAPISCIM/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/ProcuretoPayAPISCIM/0.20.1'
         };
 
         /**
@@ -616,7 +616,11 @@ class ApiClient {
         return [
             {
               'url': "https://api.factset.com/scim/v2",
-              'description': "No description provided",
+              'description': "Production environment",
+            },
+            {
+              'url': "https://api.uat.factset.com/scim/v2",
+              'description': "UAT environment",
             }
       ];
     }

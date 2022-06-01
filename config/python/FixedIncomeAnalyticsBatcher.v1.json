@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FixedIncomeAnalyticsBatcher",
+  "projectName": "fds.sdk.FixedIncomeAnalyticsBatcher",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "Fixed Income Analytics Batcher client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FixedIncomeAnalyticsBatcher/v1",
+  "httpUserAgent": "fds-sdk/python/FixedIncomeAnalyticsBatcher/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

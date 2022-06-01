@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InternalServerErrorResponse model module.
  * @module model/InternalServerErrorResponse
- * @version 0.20.0
+ * @version 0.20.1
  */
 class InternalServerErrorResponse {
     /**

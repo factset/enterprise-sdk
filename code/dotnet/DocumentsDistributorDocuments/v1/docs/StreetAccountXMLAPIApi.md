@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="asynchstreetaccountv1checkstatusget"></a>
 # **AsynchStreetaccountV1CheckStatusGet**
-> CheckstatusResponse AsynchStreetaccountV1CheckStatusGet (string jobID)
+> List&lt;Checkstatus&gt; AsynchStreetaccountV1CheckStatusGet (string jobID)
 
 Returns the status and percentDone of the requested jobID
 
@@ -57,7 +57,7 @@ namespace Example
             try
             {
                 // Returns the status and percentDone of the requested jobID
-                CheckstatusResponse result = apiInstance.AsynchStreetaccountV1CheckStatusGet(jobID);
+                List<Checkstatus> result = apiInstance.AsynchStreetaccountV1CheckStatusGet(jobID);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
  **jobID** | **string**| jobID returned by the request-files endpoint to know the status and percentDone | 
 
 ### Return type
-[**CheckstatusResponse**](CheckstatusResponse.md)
+[**List&lt;Checkstatus&gt;**](Checkstatus.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 <a name="asynchstreetaccountv1getfilesget"></a>
 # **AsynchStreetaccountV1GetFilesGet**
-> GetfilesResponse AsynchStreetaccountV1GetFilesGet (string jobID)
+> List&lt;Getfiles&gt; AsynchStreetaccountV1GetFilesGet (string jobID)
 
 Returns the SA XML files for the specified daterange
 
@@ -146,7 +146,7 @@ namespace Example
             try
             {
                 // Returns the SA XML files for the specified daterange
-                GetfilesResponse result = apiInstance.AsynchStreetaccountV1GetFilesGet(jobID);
+                List<Getfiles> result = apiInstance.AsynchStreetaccountV1GetFilesGet(jobID);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
  **jobID** | **string**| jobID returned by the request-files endpoint to collect the results of the query | 
 
 ### Return type
-[**GetfilesResponse**](GetfilesResponse.md)
+[**List&lt;Getfiles&gt;**](Getfiles.md)
 
 ### Authorization
 

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetConcordance.JSON;
@@ -38,6 +42,7 @@ import com.factset.sdk.FactSetConcordance.JSON;
   UniverseMeta.JSON_PROPERTY_UNIVERSE_ID,
   UniverseMeta.JSON_PROPERTY_UNIVERSE_NAME,
   UniverseMeta.JSON_PROPERTY_UNIVERSE_DESCRIPTION,
+  UniverseMeta.JSON_PROPERTY_UNIVERSE_TYPE,
   UniverseMeta.JSON_PROPERTY_SELF_MANAGED,
   UniverseMeta.JSON_PROPERTY_CREATED_BY,
   UniverseMeta.JSON_PROPERTY_CREATED_ON,
@@ -49,34 +54,37 @@ public class UniverseMeta implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
-  private Integer universeId;
+  private JsonNullable<Integer> universeId = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_NAME = "universeName";
-  private String universeName;
+  private JsonNullable<String> universeName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_DESCRIPTION = "universeDescription";
-  private String universeDescription;
+  private JsonNullable<String> universeDescription = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_UNIVERSE_TYPE = "universeType";
+  private JsonNullable<String> universeType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SELF_MANAGED = "selfManaged";
-  private Boolean selfManaged;
+  private JsonNullable<Boolean> selfManaged = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
-  private String createdBy;
+  private JsonNullable<String> createdBy = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
-  private OffsetDateTime createdOn;
+  private JsonNullable<OffsetDateTime> createdOn = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_BY = "updatedBy";
-  private String updatedBy;
+  private JsonNullable<String> updatedBy = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_ON = "updatedOn";
-  private OffsetDateTime updatedOn;
+  private JsonNullable<OffsetDateTime> updatedOn = JsonNullable.<OffsetDateTime>undefined();
 
   public UniverseMeta() { 
   }
 
   public UniverseMeta universeId(Integer universeId) {
-    this.universeId = universeId;
+    this.universeId = JsonNullable.<Integer>of(universeId);
     return this;
   }
 
@@ -86,23 +94,31 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe identifier")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUniverseId() {
-    return universeId;
+        return universeId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseId(Integer universeId) {
+
+  public JsonNullable<Integer> getUniverseId_JsonNullable() {
+    return universeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
+  public void setUniverseId_JsonNullable(JsonNullable<Integer> universeId) {
     this.universeId = universeId;
+  }
+
+  public void setUniverseId(Integer universeId) {
+    this.universeId = JsonNullable.<Integer>of(universeId);
   }
 
 
   public UniverseMeta universeName(String universeName) {
-    this.universeName = universeName;
+    this.universeName = JsonNullable.<String>of(universeName);
     return this;
   }
 
@@ -112,23 +128,31 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "My Universe", value = "The user specified universe name")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUniverseName() {
-    return universeName;
+        return universeName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseName(String universeName) {
+
+  public JsonNullable<String> getUniverseName_JsonNullable() {
+    return universeName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_NAME)
+  public void setUniverseName_JsonNullable(JsonNullable<String> universeName) {
     this.universeName = universeName;
+  }
+
+  public void setUniverseName(String universeName) {
+    this.universeName = JsonNullable.<String>of(universeName);
   }
 
 
   public UniverseMeta universeDescription(String universeDescription) {
-    this.universeDescription = universeDescription;
+    this.universeDescription = JsonNullable.<String>of(universeDescription);
     return this;
   }
 
@@ -138,23 +162,65 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "This is a universe", value = "The user specified universe description")
+  @JsonIgnore
+
+  public String getUniverseDescription() {
+        return universeDescription.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNIVERSE_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getUniverseDescription() {
+  public JsonNullable<String> getUniverseDescription_JsonNullable() {
     return universeDescription;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_DESCRIPTION)
+  public void setUniverseDescription_JsonNullable(JsonNullable<String> universeDescription) {
+    this.universeDescription = universeDescription;
+  }
+
+  public void setUniverseDescription(String universeDescription) {
+    this.universeDescription = JsonNullable.<String>of(universeDescription);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_DESCRIPTION)
+  public UniverseMeta universeType(String universeType) {
+    this.universeType = JsonNullable.<String>of(universeType);
+    return this;
+  }
+
+   /**
+   * The user specified universe type.
+   * @return universeType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "ENTITY", value = "The user specified universe type.")
+  @JsonIgnore
+
+  public String getUniverseType() {
+        return universeType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseDescription(String universeDescription) {
-    this.universeDescription = universeDescription;
+
+  public JsonNullable<String> getUniverseType_JsonNullable() {
+    return universeType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
+  public void setUniverseType_JsonNullable(JsonNullable<String> universeType) {
+    this.universeType = universeType;
+  }
+
+  public void setUniverseType(String universeType) {
+    this.universeType = JsonNullable.<String>of(universeType);
   }
 
 
   public UniverseMeta selfManaged(Boolean selfManaged) {
-    this.selfManaged = selfManaged;
+    this.selfManaged = JsonNullable.<Boolean>of(selfManaged);
     return this;
   }
 
@@ -164,23 +230,31 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "False if the universe is managed by FactSet Managed Service, True otherwise")
-  @JsonProperty(JSON_PROPERTY_SELF_MANAGED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Boolean getSelfManaged() {
-    return selfManaged;
+        return selfManaged.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SELF_MANAGED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSelfManaged(Boolean selfManaged) {
+
+  public JsonNullable<Boolean> getSelfManaged_JsonNullable() {
+    return selfManaged;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SELF_MANAGED)
+  public void setSelfManaged_JsonNullable(JsonNullable<Boolean> selfManaged) {
     this.selfManaged = selfManaged;
+  }
+
+  public void setSelfManaged(Boolean selfManaged) {
+    this.selfManaged = JsonNullable.<Boolean>of(selfManaged);
   }
 
 
   public UniverseMeta createdBy(String createdBy) {
-    this.createdBy = createdBy;
+    this.createdBy = JsonNullable.<String>of(createdBy);
     return this;
   }
 
@@ -190,23 +264,31 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "The user who created the universe")
-  @JsonProperty(JSON_PROPERTY_CREATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCreatedBy() {
-    return createdBy;
+        return createdBy.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedBy(String createdBy) {
+
+  public JsonNullable<String> getCreatedBy_JsonNullable() {
+    return createdBy;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  public void setCreatedBy_JsonNullable(JsonNullable<String> createdBy) {
     this.createdBy = createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = JsonNullable.<String>of(createdBy);
   }
 
 
   public UniverseMeta createdOn(OffsetDateTime createdOn) {
-    this.createdOn = createdOn;
+    this.createdOn = JsonNullable.<OffsetDateTime>of(createdOn);
     return this;
   }
 
@@ -215,24 +297,32 @@ public class UniverseMeta implements Serializable {
    * @return createdOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-01-01T00:00Z", value = "When the universe was created")
-  @JsonProperty(JSON_PROPERTY_CREATED_ON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "When the universe was created")
+  @JsonIgnore
 
   public OffsetDateTime getCreatedOn() {
-    return createdOn;
+        return createdOn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedOn(OffsetDateTime createdOn) {
+
+  public JsonNullable<OffsetDateTime> getCreatedOn_JsonNullable() {
+    return createdOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  public void setCreatedOn_JsonNullable(JsonNullable<OffsetDateTime> createdOn) {
     this.createdOn = createdOn;
+  }
+
+  public void setCreatedOn(OffsetDateTime createdOn) {
+    this.createdOn = JsonNullable.<OffsetDateTime>of(createdOn);
   }
 
 
   public UniverseMeta updatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
+    this.updatedBy = JsonNullable.<String>of(updatedBy);
     return this;
   }
 
@@ -242,23 +332,31 @@ public class UniverseMeta implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FDSQAR_C-000000", value = "The user who most recently updated the universe metadata")
-  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUpdatedBy() {
-    return updatedBy;
+        return updatedBy.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedBy(String updatedBy) {
+
+  public JsonNullable<String> getUpdatedBy_JsonNullable() {
+    return updatedBy;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UPDATED_BY)
+  public void setUpdatedBy_JsonNullable(JsonNullable<String> updatedBy) {
     this.updatedBy = updatedBy;
+  }
+
+  public void setUpdatedBy(String updatedBy) {
+    this.updatedBy = JsonNullable.<String>of(updatedBy);
   }
 
 
   public UniverseMeta updatedOn(OffsetDateTime updatedOn) {
-    this.updatedOn = updatedOn;
+    this.updatedOn = JsonNullable.<OffsetDateTime>of(updatedOn);
     return this;
   }
 
@@ -267,19 +365,27 @@ public class UniverseMeta implements Serializable {
    * @return updatedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-01-01T00:00Z", value = "When the universe metadata was most recently updated")
-  @JsonProperty(JSON_PROPERTY_UPDATED_ON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @ApiModelProperty(value = "When the universe metadata was most recently updated")
+  @JsonIgnore
 
   public OffsetDateTime getUpdatedOn() {
-    return updatedOn;
+        return updatedOn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UPDATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedOn(OffsetDateTime updatedOn) {
+
+  public JsonNullable<OffsetDateTime> getUpdatedOn_JsonNullable() {
+    return updatedOn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UPDATED_ON)
+  public void setUpdatedOn_JsonNullable(JsonNullable<OffsetDateTime> updatedOn) {
     this.updatedOn = updatedOn;
+  }
+
+  public void setUpdatedOn(OffsetDateTime updatedOn) {
+    this.updatedOn = JsonNullable.<OffsetDateTime>of(updatedOn);
   }
 
 
@@ -295,19 +401,31 @@ public class UniverseMeta implements Serializable {
       return false;
     }
     UniverseMeta universeMeta = (UniverseMeta) o;
-    return Objects.equals(this.universeId, universeMeta.universeId) &&
-        Objects.equals(this.universeName, universeMeta.universeName) &&
-        Objects.equals(this.universeDescription, universeMeta.universeDescription) &&
-        Objects.equals(this.selfManaged, universeMeta.selfManaged) &&
-        Objects.equals(this.createdBy, universeMeta.createdBy) &&
-        Objects.equals(this.createdOn, universeMeta.createdOn) &&
-        Objects.equals(this.updatedBy, universeMeta.updatedBy) &&
-        Objects.equals(this.updatedOn, universeMeta.updatedOn);
+    return equalsNullable(this.universeId, universeMeta.universeId) &&
+        equalsNullable(this.universeName, universeMeta.universeName) &&
+        equalsNullable(this.universeDescription, universeMeta.universeDescription) &&
+        equalsNullable(this.universeType, universeMeta.universeType) &&
+        equalsNullable(this.selfManaged, universeMeta.selfManaged) &&
+        equalsNullable(this.createdBy, universeMeta.createdBy) &&
+        equalsNullable(this.createdOn, universeMeta.createdOn) &&
+        equalsNullable(this.updatedBy, universeMeta.updatedBy) &&
+        equalsNullable(this.updatedOn, universeMeta.updatedOn);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(universeId, universeName, universeDescription, selfManaged, createdBy, createdOn, updatedBy, updatedOn);
+    return Objects.hash(hashCodeNullable(universeId), hashCodeNullable(universeName), hashCodeNullable(universeDescription), hashCodeNullable(universeType), hashCodeNullable(selfManaged), hashCodeNullable(createdBy), hashCodeNullable(createdOn), hashCodeNullable(updatedBy), hashCodeNullable(updatedOn));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -317,6 +435,7 @@ public class UniverseMeta implements Serializable {
     sb.append("    universeId: ").append(toIndentedString(universeId)).append("\n");
     sb.append("    universeName: ").append(toIndentedString(universeName)).append("\n");
     sb.append("    universeDescription: ").append(toIndentedString(universeDescription)).append("\n");
+    sb.append("    universeType: ").append(toIndentedString(universeType)).append("\n");
     sb.append("    selfManaged: ").append(toIndentedString(selfManaged)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");

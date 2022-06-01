@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## asynchStreetaccountV1CheckStatusGet
 
-> CheckstatusResponse asynchStreetaccountV1CheckStatusGet(jobID)
+> java.util.List<Checkstatus> asynchStreetaccountV1CheckStatusGet(jobID)
 
 Returns the status and percentDone of the requested jobID
 
@@ -54,7 +54,7 @@ public class Example {
         StreetAccountXmlApiApi apiInstance = new StreetAccountXmlApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to know the status and percentDone
         try {
-            CheckstatusResponse result = apiInstance.asynchStreetaccountV1CheckStatusGet(jobID);
+            java.util.List<Checkstatus> result = apiInstance.asynchStreetaccountV1CheckStatusGet(jobID);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckstatusResponse**](CheckstatusResponse.md)
+[**java.util.List&lt;Checkstatus&gt;**](Checkstatus.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ## asynchStreetaccountV1GetFilesGet
 
-> GetfilesResponse asynchStreetaccountV1GetFilesGet(jobID)
+> java.util.List<Getfiles> asynchStreetaccountV1GetFilesGet(jobID)
 
 Returns the SA XML files for the specified daterange
 
@@ -139,7 +139,7 @@ public class Example {
         StreetAccountXmlApiApi apiInstance = new StreetAccountXmlApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to collect the results of the query
         try {
-            GetfilesResponse result = apiInstance.asynchStreetaccountV1GetFilesGet(jobID);
+            java.util.List<Getfiles> result = apiInstance.asynchStreetaccountV1GetFilesGet(jobID);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetfilesResponse**](GetfilesResponse.md)
+[**java.util.List&lt;Getfiles&gt;**](Getfiles.md)
 
 ### Authorization
 

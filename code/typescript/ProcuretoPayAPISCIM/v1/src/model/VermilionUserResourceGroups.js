@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourceGroups model module.
  * @module model/VermilionUserResourceGroups
- * @version 0.20.0
+ * @version 0.20.1
  */
 class VermilionUserResourceGroups {
     /**

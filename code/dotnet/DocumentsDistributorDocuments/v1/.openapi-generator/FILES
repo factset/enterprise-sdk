@@ -4,10 +4,9 @@ FactSet.SDK.DocumentsDistributorDocuments.sln
 LICENSE
 README.md
 appveyor.yml
-docs/CheckstatusResponse.md
+docs/Checkstatus.md
 docs/FilingsFiles.md
-docs/GetResponse.md
-docs/GetfilesResponse.md
+docs/Getfiles.md
 docs/GlobalFilingsAPIApi.md
 docs/RequestfilesResponse.md
 docs/Status.md
@@ -34,10 +33,9 @@ src/FactSet.SDK.DocumentsDistributorDocuments/Client/RequestOptions.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/Client/RetryConfiguration.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/FactSet.SDK.DocumentsDistributorDocuments.csproj
 src/FactSet.SDK.DocumentsDistributorDocuments/Model/AbstractOpenAPISchema.cs
-src/FactSet.SDK.DocumentsDistributorDocuments/Model/CheckstatusResponse.cs
+src/FactSet.SDK.DocumentsDistributorDocuments/Model/Checkstatus.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/Model/FilingsFiles.cs
-src/FactSet.SDK.DocumentsDistributorDocuments/Model/GetResponse.cs
-src/FactSet.SDK.DocumentsDistributorDocuments/Model/GetfilesResponse.cs
+src/FactSet.SDK.DocumentsDistributorDocuments/Model/Getfiles.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/Model/RequestfilesResponse.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/Model/Status.cs
 src/FactSet.SDK.DocumentsDistributorDocuments/Model/StreetAccountStatus.cs

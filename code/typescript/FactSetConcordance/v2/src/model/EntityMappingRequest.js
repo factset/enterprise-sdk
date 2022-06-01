@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityMappingRequest model module.
  * @module model/EntityMappingRequest
- * @version 0.20.0
+ * @version 0.20.1
  */
 class EntityMappingRequest {
     /**

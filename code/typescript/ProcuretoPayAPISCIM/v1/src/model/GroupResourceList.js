@@ -17,7 +17,7 @@ import GroupResource from './GroupResource';
 /**
  * The GroupResourceList model module.
  * @module model/GroupResourceList
- * @version 0.20.0
+ * @version 0.20.1
  */
 class GroupResourceList {
     /**

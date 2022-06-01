@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.20.0
+* @version 0.20.1
 */
 
 /**
@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://ai-text-summarization-staging.factset.io') {
+    constructor(basePath = 'http://api.factset.com/cognitive/summarization/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://ai-text-summarization-staging.factset.io
+         * @default http://api.factset.com/cognitive/summarization/v1
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/AITextSummarization/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/AITextSummarization/0.20.1'
         };
 
         /**
@@ -615,7 +615,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "//ai-text-summarization-staging.factset.io",
+              'url': "//api.factset.com/cognitive/summarization/v1",
               'description': "No description provided",
             }
       ];

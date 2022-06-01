@@ -12,10 +12,9 @@
  */
 
 import ApiClient from './ApiClient';
-import CheckstatusResponse from './model/CheckstatusResponse';
+import Checkstatus from './model/Checkstatus';
 import FilingsFiles from './model/FilingsFiles';
-import GetResponse from './model/GetResponse';
-import GetfilesResponse from './model/GetfilesResponse';
+import Getfiles from './model/Getfiles';
 import RequestfilesResponse from './model/RequestfilesResponse';
 import Status from './model/Status';
 import StreetAccountStatus from './model/StreetAccountStatus';
@@ -53,7 +52,7 @@ import StreetAccountXMLAPIApi from './api/StreetAccountXMLAPIApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
+* @version 0.20.1
 */
 export {
     /**
@@ -63,10 +62,10 @@ export {
     ApiClient,
 
     /**
-     * The CheckstatusResponse model constructor.
-     * @property {module:model/CheckstatusResponse}
+     * The Checkstatus model constructor.
+     * @property {module:model/Checkstatus}
      */
-    CheckstatusResponse,
+    Checkstatus,
 
     /**
      * The FilingsFiles model constructor.
@@ -75,16 +74,10 @@ export {
     FilingsFiles,
 
     /**
-     * The GetResponse model constructor.
-     * @property {module:model/GetResponse}
+     * The Getfiles model constructor.
+     * @property {module:model/Getfiles}
      */
-    GetResponse,
-
-    /**
-     * The GetfilesResponse model constructor.
-     * @property {module:model/GetfilesResponse}
-     */
-    GetfilesResponse,
+    Getfiles,
 
     /**
      * The RequestfilesResponse model constructor.

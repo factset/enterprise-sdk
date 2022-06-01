@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## asynchStreetaccountV1CheckStatusGet
 
-> CheckstatusResponse asynchStreetaccountV1CheckStatusGet(jobID)
+> [Checkstatus] asynchStreetaccountV1CheckStatusGet(jobID)
 
 Returns the status and percentDone of the requested jobID
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckstatusResponse**](CheckstatusResponse.md)
+[**[Checkstatus]**](Checkstatus.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## asynchStreetaccountV1GetFilesGet
 
-> GetfilesResponse asynchStreetaccountV1GetFilesGet(jobID)
+> [Getfiles] asynchStreetaccountV1GetFilesGet(jobID)
 
 Returns the SA XML files for the specified daterange
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetfilesResponse**](GetfilesResponse.md)
+[**[Getfiles]**](Getfiles.md)
 
 ### Authorization
 

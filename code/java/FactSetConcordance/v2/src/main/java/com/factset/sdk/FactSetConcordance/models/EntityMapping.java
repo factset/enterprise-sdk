@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetConcordance.JSON;
@@ -52,31 +56,31 @@ public class EntityMapping implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
-  private String entityId;
+  private JsonNullable<String> entityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_NAME = "entityName";
-  private String entityName;
+  private JsonNullable<String> entityName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
-  private String clientId;
+  private JsonNullable<String> clientId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_NAME = "clientName";
-  private String clientName;
+  private JsonNullable<String> clientName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_COUNTRY = "clientCountry";
-  private String clientCountry;
+  private JsonNullable<String> clientCountry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_STATE = "clientState";
-  private String clientState;
+  private JsonNullable<String> clientState = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLIENT_URL = "clientUrl";
-  private String clientUrl;
+  private JsonNullable<String> clientUrl = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATED_TIME = "createdTime";
-  private OffsetDateTime createdTime;
+  private JsonNullable<OffsetDateTime> createdTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_TIME = "updatedTime";
-  private OffsetDateTime updatedTime;
+  private JsonNullable<OffsetDateTime> updatedTime = JsonNullable.<OffsetDateTime>undefined();
 
   /**
    * Current status of the entity mapping.
@@ -111,21 +115,21 @@ public class EntityMapping implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_MAP_STATUS = "mapStatus";
-  private MapStatusEnum mapStatus;
+  private JsonNullable<MapStatusEnum> mapStatus = JsonNullable.<MapStatusEnum>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
-  private Integer universeId;
+  private JsonNullable<Integer> universeId = JsonNullable.<Integer>undefined();
 
   public EntityMapping() { 
   }
 
   public EntityMapping entityId(String entityId) {
-    this.entityId = entityId;
+    this.entityId = JsonNullable.<String>of(entityId);
     return this;
   }
 
@@ -135,23 +139,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "00456-E", value = "FactSet Entity Identifier of the entity matched to the submitted entity")
-  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityId() {
-    return entityId;
+        return entityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityId(String entityId) {
+
+  public JsonNullable<String> getEntityId_JsonNullable() {
+    return entityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_ID)
+  public void setEntityId_JsonNullable(JsonNullable<String> entityId) {
     this.entityId = entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = JsonNullable.<String>of(entityId);
   }
 
 
   public EntityMapping entityName(String entityName) {
-    this.entityName = entityName;
+    this.entityName = JsonNullable.<String>of(entityName);
     return this;
   }
 
@@ -161,23 +173,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FactSet Inc.", value = "Full name corresponding to the matched entity.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityName() {
-    return entityName;
+        return entityName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityName(String entityName) {
+
+  public JsonNullable<String> getEntityName_JsonNullable() {
+    return entityName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_NAME)
+  public void setEntityName_JsonNullable(JsonNullable<String> entityName) {
     this.entityName = entityName;
+  }
+
+  public void setEntityName(String entityName) {
+    this.entityName = JsonNullable.<String>of(entityName);
   }
 
 
   public EntityMapping clientId(String clientId) {
-    this.clientId = clientId;
+    this.clientId = JsonNullable.<String>of(clientId);
     return this;
   }
 
@@ -187,23 +207,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "abc-1234", value = "User-defined unique identifier provided by the user in the request")
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientId() {
-    return clientId;
+        return clientId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
+
+  public JsonNullable<String> getClientId_JsonNullable() {
+    return clientId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  public void setClientId_JsonNullable(JsonNullable<String> clientId) {
     this.clientId = clientId;
+  }
+
+  public void setClientId(String clientId) {
+    this.clientId = JsonNullable.<String>of(clientId);
   }
 
 
   public EntityMapping clientName(String clientName) {
-    this.clientName = clientName;
+    this.clientName = JsonNullable.<String>of(clientName);
     return this;
   }
 
@@ -213,23 +241,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "factset", value = "Name of the entity to match as specified in the request.")
-  @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientName() {
-    return clientName;
+        return clientName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientName(String clientName) {
+
+  public JsonNullable<String> getClientName_JsonNullable() {
+    return clientName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_NAME)
+  public void setClientName_JsonNullable(JsonNullable<String> clientName) {
     this.clientName = clientName;
+  }
+
+  public void setClientName(String clientName) {
+    this.clientName = JsonNullable.<String>of(clientName);
   }
 
 
   public EntityMapping clientCountry(String clientCountry) {
-    this.clientCountry = clientCountry;
+    this.clientCountry = JsonNullable.<String>of(clientCountry);
     return this;
   }
 
@@ -239,23 +275,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "us", value = "ISO2 country code specified in the request")
-  @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientCountry() {
-    return clientCountry;
+        return clientCountry.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientCountry(String clientCountry) {
+
+  public JsonNullable<String> getClientCountry_JsonNullable() {
+    return clientCountry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_COUNTRY)
+  public void setClientCountry_JsonNullable(JsonNullable<String> clientCountry) {
     this.clientCountry = clientCountry;
+  }
+
+  public void setClientCountry(String clientCountry) {
+    this.clientCountry = JsonNullable.<String>of(clientCountry);
   }
 
 
   public EntityMapping clientState(String clientState) {
-    this.clientState = clientState;
+    this.clientState = JsonNullable.<String>of(clientState);
     return this;
   }
 
@@ -265,23 +309,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "ct", value = "State code specified in the request")
-  @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientState() {
-    return clientState;
+        return clientState.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientState(String clientState) {
+
+  public JsonNullable<String> getClientState_JsonNullable() {
+    return clientState;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_STATE)
+  public void setClientState_JsonNullable(JsonNullable<String> clientState) {
     this.clientState = clientState;
+  }
+
+  public void setClientState(String clientState) {
+    this.clientState = JsonNullable.<String>of(clientState);
   }
 
 
   public EntityMapping clientUrl(String clientUrl) {
-    this.clientUrl = clientUrl;
+    this.clientUrl = JsonNullable.<String>of(clientUrl);
     return this;
   }
 
@@ -291,23 +343,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "www.factset.com", value = "URL specified in the request")
-  @JsonProperty(JSON_PROPERTY_CLIENT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getClientUrl() {
-    return clientUrl;
+        return clientUrl.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CLIENT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientUrl(String clientUrl) {
+
+  public JsonNullable<String> getClientUrl_JsonNullable() {
+    return clientUrl;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CLIENT_URL)
+  public void setClientUrl_JsonNullable(JsonNullable<String> clientUrl) {
     this.clientUrl = clientUrl;
+  }
+
+  public void setClientUrl(String clientUrl) {
+    this.clientUrl = JsonNullable.<String>of(clientUrl);
   }
 
 
   public EntityMapping createdTime(OffsetDateTime createdTime) {
-    this.createdTime = createdTime;
+    this.createdTime = JsonNullable.<OffsetDateTime>of(createdTime);
     return this;
   }
 
@@ -317,23 +377,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time when entity was created in UTC.")
-  @JsonProperty(JSON_PROPERTY_CREATED_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getCreatedTime() {
-    return createdTime;
+        return createdTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CREATED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedTime(OffsetDateTime createdTime) {
+
+  public JsonNullable<OffsetDateTime> getCreatedTime_JsonNullable() {
+    return createdTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_TIME)
+  public void setCreatedTime_JsonNullable(JsonNullable<OffsetDateTime> createdTime) {
     this.createdTime = createdTime;
+  }
+
+  public void setCreatedTime(OffsetDateTime createdTime) {
+    this.createdTime = JsonNullable.<OffsetDateTime>of(createdTime);
   }
 
 
   public EntityMapping updatedTime(OffsetDateTime updatedTime) {
-    this.updatedTime = updatedTime;
+    this.updatedTime = JsonNullable.<OffsetDateTime>of(updatedTime);
     return this;
   }
 
@@ -343,23 +411,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2020-06-24T22:02:21Z", value = "Time when the submitted entity was last updated in UTC.")
-  @JsonProperty(JSON_PROPERTY_UPDATED_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getUpdatedTime() {
-    return updatedTime;
+        return updatedTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UPDATED_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedTime(OffsetDateTime updatedTime) {
+
+  public JsonNullable<OffsetDateTime> getUpdatedTime_JsonNullable() {
+    return updatedTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UPDATED_TIME)
+  public void setUpdatedTime_JsonNullable(JsonNullable<OffsetDateTime> updatedTime) {
     this.updatedTime = updatedTime;
+  }
+
+  public void setUpdatedTime(OffsetDateTime updatedTime) {
+    this.updatedTime = JsonNullable.<OffsetDateTime>of(updatedTime);
   }
 
 
   public EntityMapping mapStatus(MapStatusEnum mapStatus) {
-    this.mapStatus = mapStatus;
+    this.mapStatus = JsonNullable.<MapStatusEnum>of(mapStatus);
     return this;
   }
 
@@ -369,23 +445,31 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Current status of the entity mapping.")
-  @JsonProperty(JSON_PROPERTY_MAP_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public MapStatusEnum getMapStatus() {
-    return mapStatus;
+        return mapStatus.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAP_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMapStatus(MapStatusEnum mapStatus) {
+
+  public JsonNullable<MapStatusEnum> getMapStatus_JsonNullable() {
+    return mapStatus;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAP_STATUS)
+  public void setMapStatus_JsonNullable(JsonNullable<MapStatusEnum> mapStatus) {
     this.mapStatus = mapStatus;
+  }
+
+  public void setMapStatus(MapStatusEnum mapStatus) {
+    this.mapStatus = JsonNullable.<MapStatusEnum>of(mapStatus);
   }
 
 
   public EntityMapping universeId(Integer universeId) {
-    this.universeId = universeId;
+    this.universeId = JsonNullable.<Integer>of(universeId);
     return this;
   }
 
@@ -395,18 +479,26 @@ public class EntityMapping implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The universe this mapping belongs to. Only set in v2 endpoints ")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUniverseId() {
-    return universeId;
+        return universeId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseId(Integer universeId) {
+
+  public JsonNullable<Integer> getUniverseId_JsonNullable() {
+    return universeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
+  public void setUniverseId_JsonNullable(JsonNullable<Integer> universeId) {
     this.universeId = universeId;
+  }
+
+  public void setUniverseId(Integer universeId) {
+    this.universeId = JsonNullable.<Integer>of(universeId);
   }
 
 
@@ -422,22 +514,33 @@ public class EntityMapping implements Serializable {
       return false;
     }
     EntityMapping entityMapping = (EntityMapping) o;
-    return Objects.equals(this.entityId, entityMapping.entityId) &&
-        Objects.equals(this.entityName, entityMapping.entityName) &&
-        Objects.equals(this.clientId, entityMapping.clientId) &&
-        Objects.equals(this.clientName, entityMapping.clientName) &&
-        Objects.equals(this.clientCountry, entityMapping.clientCountry) &&
-        Objects.equals(this.clientState, entityMapping.clientState) &&
-        Objects.equals(this.clientUrl, entityMapping.clientUrl) &&
-        Objects.equals(this.createdTime, entityMapping.createdTime) &&
-        Objects.equals(this.updatedTime, entityMapping.updatedTime) &&
-        Objects.equals(this.mapStatus, entityMapping.mapStatus) &&
-        Objects.equals(this.universeId, entityMapping.universeId);
+    return equalsNullable(this.entityId, entityMapping.entityId) &&
+        equalsNullable(this.entityName, entityMapping.entityName) &&
+        equalsNullable(this.clientId, entityMapping.clientId) &&
+        equalsNullable(this.clientName, entityMapping.clientName) &&
+        equalsNullable(this.clientCountry, entityMapping.clientCountry) &&
+        equalsNullable(this.clientState, entityMapping.clientState) &&
+        equalsNullable(this.clientUrl, entityMapping.clientUrl) &&
+        equalsNullable(this.createdTime, entityMapping.createdTime) &&
+        equalsNullable(this.updatedTime, entityMapping.updatedTime) &&
+        equalsNullable(this.mapStatus, entityMapping.mapStatus) &&
+        equalsNullable(this.universeId, entityMapping.universeId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityId, entityName, clientId, clientName, clientCountry, clientState, clientUrl, createdTime, updatedTime, mapStatus, universeId);
+    return Objects.hash(hashCodeNullable(entityId), hashCodeNullable(entityName), hashCodeNullable(clientId), hashCodeNullable(clientName), hashCodeNullable(clientCountry), hashCodeNullable(clientState), hashCodeNullable(clientUrl), hashCodeNullable(createdTime), hashCodeNullable(updatedTime), hashCodeNullable(mapStatus), hashCodeNullable(universeId));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

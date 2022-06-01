@@ -1,0 +1,950 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: http://www.factset.com/api
+  description: FactSet Content APIs - Batching Endpoint
+  license:
+    name: License Information
+    url: http://www.factset.com/api/license.html
+  termsOfService: http://www.factset.com/api/terms.html
+  title: FactSet Batch API Service
+  version: 1.0.0
+servers:
+- description: Production Server
+  url: https://api.factset.com/content
+- description: Test Server
+  url: http://cts-content-proxy-ts-poc.factset.io
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /batch/v1/result:
+    get:
+      deprecated: false
+      description: Returns the response data for the underlying batch request that
+        is specified by the id.
+      operationId: getBatchData
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Price of AAPL as of March 29 2019:
+                  $ref: '#/components/examples/singleSecurityPrices'
+                Prices for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/twoSecuritiesPrices'
+                One Month of Daily Prices for AAPL in March 2019:
+                  $ref: '#/components/examples/oneMonthSecurityPrices'
+              schema:
+                $ref: '#/components/schemas/BatchDataResponse'
+          description: Request Response Object when batch request has completed and
+            response is created
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the response for a Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+    post:
+      deprecated: false
+      description: 'Return the response data for the underlying batch request that
+        is specified by the id. '
+      operationId: getBatchDataWithPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Batch Data Request:
+                $ref: '#/components/examples/BatchDataRequest'
+            schema:
+              $ref: '#/components/schemas/BatchDataRequest'
+        description: Batch Data Request Post Body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Price of AAPL as of March 29 2019:
+                  $ref: '#/components/examples/singleSecurityPrices'
+                Prices for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/twoSecuritiesPrices'
+                One Month of Daily Prices for AAPL in March 2019:
+                  $ref: '#/components/examples/oneMonthSecurityPrices'
+              schema:
+                $ref: '#/components/schemas/BatchDataResponse'
+          description: Request Response Object when batch request has completed and
+            response is created.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the response for a Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
+      x-contentType: application/json
+      x-accepts: application/json
+  /batch/v1/status:
+    get:
+      deprecated: false
+      description: Return the status for the underlying batch request that is specified
+        by the id.
+      operationId: getBatchStatus
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the status for a Batch Request
+      tags:
+      - Batch Processing
+      x-accepts: application/json
+    post:
+      deprecated: false
+      description: 'Return the status for the underlying batch request that is specified
+        by the id. '
+      operationId: getBatchStatusWithPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Batch Status Request:
+                $ref: '#/components/examples/BatchStatusRequest'
+            schema:
+              $ref: '#/components/schemas/BatchStatusRequest'
+        description: Batch Status Request Post Body
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the status for a Batch Request
+      tags:
+      - Batch Processing
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  examples:
+    BatchPricesRequestPost:
+      description: Batch Request for Prices for APPL and Tesla.
+      summary: Batch Request for Prices for APPL and Tesla.
+      value:
+        ids:
+        - AAPL-US
+        - TSLA-US
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: D
+        calendar: FIVEDAY
+        currency: LOCAL
+        adjust: SPLIT
+        batch: "Y"
+    BatchDataRequest:
+      description: Batch Data Request
+      value:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+    BatchStatusRequest:
+      description: Batch Status Request
+      value:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+    BatchStatusAcceptedResponse:
+      description: Batch Status Accepted Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: QUEUED
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusQueuedResponse:
+      description: Batch Status Queued Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: QUEUED
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusExecutingResponse:
+      description: Batch Status Executing Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: EXECUTING
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusDoneResponse:
+      description: Batch Status Done Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: DONE
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error: null
+    BatchStatusFailedResponse:
+      description: Batch Status Failed Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: FAILED
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error: Invalid format for startDate
+    singleSecurityPrices:
+      description: Single Price Record for AAPL
+      summary: Single Price Record for AAPL as of March 29 2019
+      value:
+        data:
+        - fsymId: MH33D6-R
+          date: 2019-03-29
+          adjDate: 2014-06-09
+          currency: USD
+          price: 189.95
+          priceOpen: 189.83
+          priceHigh: 190.08
+          priceLow: 188.54
+          volume: 23563.96
+          requestId: AAPL
+    twoSecuritiesPrices:
+      description: Price Records for AAPL and TSLA as of March 29 2019
+      summary: Price Records for AAPL and TSLA as of March 29 2019
+      value:
+        data:
+        - fsymId: MH33D6-R
+          date: 2019-03-29
+          adjDate: 2014-06-09
+          currency: USD
+          price: 189.95
+          priceOpen: 189.83
+          priceHigh: 190.08
+          priceLow: 188.54
+          volume: 23563.96
+          requestId: AAPL
+        - fsymId: Q2YN1N-R
+          date: 2019-03-29
+          adjDate: null
+          currency: USD
+          price: 279.86
+          priceOpen: 278.7
+          priceHigh: 280.16
+          priceLow: 274.5
+          volume: 5991.338
+          requestId: TSLA
+    oneMonthSecurityPrices:
+      description: One month of daily open, high, low, and close end-of-day prices
+        and volume for AAPL for March 2019.
+      summary: One month of daily prices for AAPL for March 2019
+      value:
+        data:
+        - fsymId: MH33D6-R
+          date: 2019-03-01
+          adjDate: 2014-06-09
+          currency: USD
+          price: 174.97
+          priceOpen: 174.28
+          priceHigh: 175.15
+          priceLow: 172.89
+          volume: 25886.17
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-04
+          adjDate: 2014-06-09
+          currency: USD
+          price: 175.85
+          priceOpen: 175.69
+          priceHigh: 177.75
+          priceLow: 173.97
+          volume: 27436.2
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-05
+          adjDate: 2014-06-09
+          currency: USD
+          price: 175.53
+          priceOpen: 175.94
+          priceHigh: 176
+          priceLow: 174.54
+          volume: 19737.42
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-06
+          adjDate: 2014-06-09
+          currency: USD
+          price: 174.52
+          priceOpen: 174.67
+          priceHigh: 175.49
+          priceLow: 173.94
+          volume: 20810.38
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-07
+          adjDate: 2014-06-09
+          currency: USD
+          price: 172.5
+          priceOpen: 173.87
+          priceHigh: 174.44
+          priceLow: 172.02
+          volume: 24796.37
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-08
+          adjDate: 2014-06-09
+          currency: USD
+          price: 172.91
+          priceOpen: 170.32
+          priceHigh: 173.07
+          priceLow: 169.5
+          volume: 23999.36
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-11
+          adjDate: 2014-06-09
+          currency: USD
+          price: 178.9
+          priceOpen: 175.49
+          priceHigh: 179.12
+          priceLow: 175.35
+          volume: 32011.03
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-12
+          adjDate: 2014-06-09
+          currency: USD
+          price: 180.91
+          priceOpen: 180
+          priceHigh: 182.67
+          priceLow: 179.37
+          volume: 32467.58
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-13
+          adjDate: 2014-06-09
+          currency: USD
+          price: 181.71
+          priceOpen: 182.25
+          priceHigh: 183.3
+          priceLow: 180.92
+          volume: 31032.52
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-14
+          adjDate: 2014-06-09
+          currency: USD
+          price: 183.73
+          priceOpen: 183.9
+          priceHigh: 184.1
+          priceLow: 182.56
+          volume: 23579.51
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-15
+          adjDate: 2014-06-09
+          currency: USD
+          price: 186.12
+          priceOpen: 184.85
+          priceHigh: 187.33
+          priceLow: 183.74
+          volume: 39042.91
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-18
+          adjDate: 2014-06-09
+          currency: USD
+          price: 188.02
+          priceOpen: 185.8
+          priceHigh: 188.39
+          priceLow: 185.79
+          volume: 26219.83
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-19
+          adjDate: 2014-06-09
+          currency: USD
+          price: 186.53
+          priceOpen: 188.35
+          priceHigh: 188.99
+          priceLow: 185.92
+          volume: 31646.37
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-20
+          adjDate: 2014-06-09
+          currency: USD
+          price: 188.16
+          priceOpen: 186.23
+          priceHigh: 189.49
+          priceLow: 184.73
+          volume: 31035.23
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-21
+          adjDate: 2014-06-09
+          currency: USD
+          price: 195.09
+          priceOpen: 190.02
+          priceHigh: 196.33
+          priceLow: 189.81
+          volume: 51034.24
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-22
+          adjDate: 2014-06-09
+          currency: USD
+          price: 191.05
+          priceOpen: 195.34
+          priceHigh: 197.69
+          priceLow: 190.78
+          volume: 42407.67
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-25
+          adjDate: 2014-06-09
+          currency: USD
+          price: 188.74
+          priceOpen: 191.51
+          priceHigh: 191.98
+          priceLow: 186.6
+          volume: 43845.29
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-26
+          adjDate: 2014-06-09
+          currency: USD
+          price: 186.79
+          priceOpen: 191.664
+          priceHigh: 192.88
+          priceLow: 184.58
+          volume: 49800.54
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-27
+          adjDate: 2014-06-09
+          currency: USD
+          price: 188.47
+          priceOpen: 188.75
+          priceHigh: 189.76
+          priceLow: 186.55
+          volume: 29848.43
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-28
+          adjDate: 2014-06-09
+          currency: USD
+          price: 188.72
+          priceOpen: 188.95
+          priceHigh: 189.559
+          priceLow: 187.53
+          volume: 20780.36
+          requestId: AAPL
+        - fsymId: MH33D6-R
+          date: 2019-03-29
+          adjDate: 2014-06-09
+          currency: USD
+          price: 189.95
+          priceOpen: 189.83
+          priceHigh: 190.08
+          priceLow: 188.54
+          volume: 23563.96
+          requestId: AAPL
+    multipleIdsOneYearPost:
+      description: One Year of Daily Prices for APPL and Tesla in Calendar 2019 Year
+      summary: One Year of Daily Prices for APPL and Tesla in Calendar 2019 Year
+      value:
+        ids:
+        - AAPL-US
+        - TSLA-US
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: D
+        calendar: FIVEDAY
+        currency: LOCAL
+        adjust: SPLIT
+    singleIdsOneYearMonthlyPost:
+      description: One Year of Monthly Prices for AAPL-US in Calendar 2019 Year
+      summary: One Year of Monthly Prices for AAPL-US in Calendar 2019 Year
+      value:
+        ids:
+        - AAPL-US
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        calendar: FIVEDAY
+        currency: LOCAL
+        adjust: SPLIT
+    priceAdjustedForDividendsMonthlyPost:
+      summary: Price adjusted for splits, spinoffs and dividends.
+      value:
+        ids:
+        - AAPL-US
+        startDate: 2019-01-01
+        endDate: 2019-12-31
+        frequency: M
+        calendar: FIVEDAY
+        currency: LOCAL
+        adjust: DIVADJ
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:48:42.016
+        path: /factset-prices/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      description: This error message occurs when a request parameter is used in which
+        is not recognized by the service. Please revise your request to include only
+        the parameters listed in the specification. Typical causes are spelling mistakes
+        and use of improper casing.
+      summary: Bad Request - Invalid Parameters
+      value:
+        status: Bad Request
+        timestamp: 2020-06-12 15:58:54.068
+        path: /factset-prices/v1/{endpoint}
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
+          modify your request to use parameters outlined in the specification for
+          this endpoint.'
+        subErrors: null
+    badRequestReadTimeout:
+      description: This error may be returned if it takes more than 29 seconds to
+        hear back from the data fetch service.
+      summary: Bad Request - Read Timeout
+      value:
+        status: Bad Request
+        timestamp: 2019-11-04 16:18:38.949
+        path: /factset-prices/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key. Report
+        Issue under 401 error for help with troubleshooting.
+      summary: User Authentication Failed
+      value:
+        status: User Authentication Failed
+        timestamp: 2019-10-31 16:08:07.945
+        path: /factset-prices/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        status: Forbidden
+        timestamp: 2020-06-12 16:08:51.731
+        path: /factset-prices/v1/{endpoint}
+        message: USERNAME-SERIAL does not have permission to use /factset-prices/v1/{endpoint}
+        subErrors: null
+    notFound:
+      description: The requested item was not found.
+      summary: Not Found
+      value:
+        status: Not Found
+        timestamp: 2020-06-12T16:08:51.731Z
+        path: /batch/v1/status
+        message: The Batch Request was not found. It has probably expired.
+        subErrors: null
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        status: Unsupported Media Type
+        timestamp: 2019-11-05 09:42:27.237
+        path: /factset-prices/v1/{endpoint}
+        message: text/html media type is not supported. Supported media types are
+          application/json
+        subErrors: null
+    notWritable:
+      description: This error may be returned when the server encounters an error
+        writing the JSON response.
+      summary: Internal Server Error - Not Writable
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-05 09:48:29.18
+        path: /factset-prices/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      description: This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        status: Internal Server Error
+        timestamp: 2019-11-01 10:36:01.944
+        path: /factset-prices/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null
+  parameters:
+    batchId:
+      allowEmptyValue: false
+      description: Batch Request identifier.
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Batch Request Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Resource not found.
+    "415":
+      content:
+        application/json:
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Internal Server Error.
+  schemas:
+    BatchDataRequest:
+      example:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+      properties:
+        id:
+          description: Batch Request identifier.
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          format: uuid
+          type: string
+      required:
+      - id
+      title: Batch Data Request
+      type: object
+    BatchDataResponse:
+      example:
+        data: '{}'
+      properties:
+        data:
+          description: |
+            The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
+            Please see the schema for that endpoint for the definition.
+          title: Batch Data
+          type: object
+      title: Batch Data Response
+      type: object
+    BatchData:
+      description: |
+        The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
+        Please see the schema for that endpoint for the definition.
+      title: Batch Data
+      type: object
+    BatchStatusRequest:
+      example:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+      properties:
+        id:
+          description: Batch Request identifier.
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          format: uuid
+          type: string
+      title: Batch Status Request
+      type: object
+    BatchStatusResponse:
+      example:
+        data:
+          startTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          endTime: 2000-01-23T04:56:07.000+00:00
+          error: Invalid Parameter (s)- curr. Please modify your request to use parameters
+            outlined in the specification for this endpoint.
+          status: QUEUED
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+      title: Batch Status Response
+      type: object
+    BatchStatus:
+      example:
+        startTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endTime: 2000-01-23T04:56:07.000+00:00
+        error: Invalid Parameter (s)- curr. Please modify your request to use parameters
+          outlined in the specification for this endpoint.
+        status: QUEUED
+      properties:
+        id:
+          description: the id of batch request.
+          format: uuid
+          type: string
+        startTime:
+          description: Time when the batch request is started. This is in Eastern
+            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+          format: date-time
+          type: string
+        endTime:
+          description: Time when the batch request is ended. This is in Eastern Time
+            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following
+            ISO 8601.
+          format: date-time
+          type: string
+        status:
+          enum:
+          - QUEUED
+          - EXECUTING
+          - DONE
+          - FAILED
+          type: string
+        error:
+          description: Error message.
+          example: Invalid Parameter (s)- curr. Please modify your request to use
+            parameters outlined in the specification for this endpoint.
+          type: string
+      title: Batch Status
+      type: object
+    errorResponse:
+      properties:
+        status:
+          description: status
+          example: Bad Request
+          type: string
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          format: date-time
+          type: string
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          example: /factset-prices/v1/prices
+          type: string
+        message:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        subErrors:
+          $ref: '#/components/schemas/errorResponse_subErrors'
+      title: Error Response
+      type: object
+    errorResponse_subErrors:
+      description: subErrors related to the error message. Null if not applicable.
+      properties:
+        object:
+          description: the operation ID
+          type: string
+        field:
+          description: Parameter Field Name
+          type: string
+        message:
+          description: Error message
+          type: string
+        rejectedValue:
+          description: Rejected Values in an Array
+          items:
+            type: string
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

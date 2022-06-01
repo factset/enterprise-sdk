@@ -21,7 +21,7 @@ import UserResourceUrnScimSchemasExtensionCoreFactset10 from './UserResourceUrnS
 /**
  * The UserResource model module.
  * @module model/UserResource
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UserResource {
     /**

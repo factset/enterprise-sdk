@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UniverseMeta model module.
  * @module model/UniverseMeta
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UniverseMeta {
     /**
@@ -57,6 +57,9 @@ class UniverseMeta {
             if (data.hasOwnProperty('universeDescription')) {
                 obj['universeDescription'] = ApiClient.convertToType(data['universeDescription'], 'String');
             }
+            if (data.hasOwnProperty('universeType')) {
+                obj['universeType'] = ApiClient.convertToType(data['universeType'], 'String');
+            }
             if (data.hasOwnProperty('selfManaged')) {
                 obj['selfManaged'] = ApiClient.convertToType(data['selfManaged'], 'Boolean');
             }
@@ -96,6 +99,12 @@ UniverseMeta.prototype['universeName'] = undefined;
  * @member {String} universeDescription
  */
 UniverseMeta.prototype['universeDescription'] = undefined;
+
+/**
+ * The user specified universe type.
+ * @member {String} universeType
+ */
+UniverseMeta.prototype['universeType'] = undefined;
 
 /**
  * False if the universe is managed by FactSet Managed Service, True otherwise

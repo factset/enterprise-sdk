@@ -244,6 +244,10 @@ components:
           description: Returns the value as submitted. Tells the request has been submitted
           type: string
     checkstatusResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/checkstatus'
+    checkstatus:
       type: object
       properties:
         jobID:
@@ -275,13 +279,10 @@ components:
           description: Returns the part number of the jobID
           type: integer
     getfilesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/getResponse'
-    getResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/getfiles'
+    getfiles:
       type: object
       properties:
         product:

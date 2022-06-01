@@ -4,10 +4,11 @@
 .travis.yml
 LICENSE
 README.md
+docs/Checkstatus.md
 docs/CheckstatusResponse.md
 docs/FilingsFiles.md
 docs/FilingsResponse.md
-docs/GetResponse.md
+docs/Getfiles.md
 docs/GetfilesResponse.md
 docs/GlobalFilingsAPIApi.md
 docs/RequestfilesResponse.md
@@ -24,10 +25,11 @@ fds/sdk/DocumentsDistributorDocuments/apis/__init__.py
 fds/sdk/DocumentsDistributorDocuments/configuration.py
 fds/sdk/DocumentsDistributorDocuments/exceptions.py
 fds/sdk/DocumentsDistributorDocuments/model/__init__.py
+fds/sdk/DocumentsDistributorDocuments/model/checkstatus.py
 fds/sdk/DocumentsDistributorDocuments/model/checkstatus_response.py
 fds/sdk/DocumentsDistributorDocuments/model/filings_files.py
 fds/sdk/DocumentsDistributorDocuments/model/filings_response.py
-fds/sdk/DocumentsDistributorDocuments/model/get_response.py
+fds/sdk/DocumentsDistributorDocuments/model/getfiles.py
 fds/sdk/DocumentsDistributorDocuments/model/getfiles_response.py
 fds/sdk/DocumentsDistributorDocuments/model/requestfiles_response.py
 fds/sdk/DocumentsDistributorDocuments/model/status.py

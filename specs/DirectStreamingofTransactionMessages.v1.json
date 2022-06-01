@@ -1,0 +1,462 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DSOTM API",
+    "description": "Allow clients to send transactions data to FactSet",
+    "contact": {
+      "name": "Analytics API Support",
+      "url": "https://developer.factset.com/contact",
+      "email": "analytics.api.support@factset.com"
+    },
+    "license": {
+      "name": "Apache License 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    },
+    "version": "1"
+  },
+  "paths": {
+    "/analytics/dsotm/v1/transactions": {
+      "post": {
+        "tags": [
+          "DSOTM"
+        ],
+        "summary": "Push transactions data into FactSet's systems.",
+        "description": "This endpoint takes the transactions data and pushes them into FactSet's systems.",
+        "operationId": "sendTransactions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transactions"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Expected response.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid POST body.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Retry the requests after waiting the time specified in the retry-after header.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirectRequest-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExecutionParameters": {
+        "required": [
+          "amount",
+          "currencyiso",
+          "gross",
+          "net",
+          "portfolio",
+          "settlementdate",
+          "settlementvalue",
+          "status",
+          "symbol",
+          "tradedate",
+          "tradetype",
+          "transactionid"
+        ],
+        "type": "object",
+        "properties": {
+          "net": {
+            "type": "number",
+            "description": "Cash value of the transaction, net of brokerage costs.",
+            "format": "float"
+          },
+          "gross": {
+            "type": "number",
+            "description": "Cash value of the transaction, including brokerage costs",
+            "format": "float"
+          },
+          "settlementvalue": {
+            "type": "number",
+            "description": "Cash value of the transaction, a value that has been multiplied by an applicable FX rates to convert the a transacti",
+            "format": "float"
+          },
+          "settlementdate": {
+            "type": "string",
+            "description": "Settlement date in YYYYMMDD format"
+          },
+          "settlementcurrencyiso": {
+            "type": "string",
+            "description": "Currency code for Settlement Value"
+          },
+          "portfolio": {
+            "type": "string",
+            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
+          },
+          "transactionid": {
+            "type": "string",
+            "description": "Unique id for the transaction"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol corresponding to the traded instrument."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "tradetype": {
+            "type": "string",
+            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
+          },
+          "tradedate": {
+            "type": "string",
+            "description": "Transaction date which is in the format YYYYMMDD"
+          },
+          "transactionleaves": {
+            "type": "number",
+            "description": "Shares that have been ordered and not executed",
+            "format": "float"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantity of the instrument traded.",
+            "format": "float"
+          },
+          "currencyiso": {
+            "type": "string",
+            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
+          },
+          "foreignexchangerate": {
+            "type": "number",
+            "description": "FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency.",
+            "format": "float"
+          }
+        }
+      },
+      "PlacementParameters": {
+        "required": [
+          "amount",
+          "currencyiso",
+          "portfolio",
+          "status",
+          "symbol",
+          "tradedate",
+          "tradetype",
+          "transactionid"
+        ],
+        "type": "object",
+        "properties": {
+          "settlementcurrencyiso": {
+            "type": "string",
+            "description": "Currency code for Settlement Value"
+          },
+          "portfolio": {
+            "type": "string",
+            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
+          },
+          "transactionid": {
+            "type": "string",
+            "description": "Unique id for the transaction"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol corresponding to the traded instrument."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "tradetype": {
+            "type": "string",
+            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
+          },
+          "tradedate": {
+            "type": "string",
+            "description": "Transaction date which is in the format YYYYMMDD"
+          },
+          "transactionleaves": {
+            "type": "number",
+            "description": "Shares that have been ordered and not executed",
+            "format": "float"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantity of the instrument traded.",
+            "format": "float"
+          },
+          "currencyiso": {
+            "type": "string",
+            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
+          },
+          "foreignexchangerate": {
+            "type": "number",
+            "description": "FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency.",
+            "format": "float"
+          }
+        }
+      },
+      "OrderParameters": {
+        "required": [
+          "amount",
+          "currencyiso",
+          "portfolio",
+          "status",
+          "symbol",
+          "tradedate",
+          "tradetype",
+          "transactionid"
+        ],
+        "type": "object",
+        "properties": {
+          "portfolio": {
+            "type": "string",
+            "description": "Path of the portfolio (Ex: Client:/folder1/testing.ofdb)"
+          },
+          "transactionid": {
+            "type": "string",
+            "description": "Unique id for the transaction"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol corresponding to the traded instrument."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description"
+          },
+          "tradetype": {
+            "type": "string",
+            "description": "Trade type could be any of the following values BL, BC, SL, SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short respectively."
+          },
+          "status": {
+            "type": "string",
+            "description": "Status could be any of the following value: ACCT or CNCL.\r\nwhich stands for Accounted and Cancelled respectively."
+          },
+          "tradedate": {
+            "type": "string",
+            "description": "Transaction date which is in the format YYYYMMDD"
+          },
+          "transactionleaves": {
+            "type": "number",
+            "description": "Shares that have been ordered and not executed",
+            "format": "float"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantity of the instrument traded.",
+            "format": "float"
+          },
+          "currencyiso": {
+            "type": "string",
+            "description": "The currency code of cash valued fields, Net Amount and Gross Amount."
+          },
+          "foreignexchangerate": {
+            "type": "number",
+            "description": "FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency.",
+            "format": "float"
+          }
+        }
+      },
+      "Transactions": {
+        "type": "object",
+        "properties": {
+          "executions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExecutionParameters"
+            },
+            "description": "List of executions"
+          },
+          "placements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlacementParameters"
+            },
+            "description": "List of placements"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderParameters"
+            },
+            "description": "List of orders"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

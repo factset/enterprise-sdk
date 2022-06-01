@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BadRequestResponse model module.
  * @module model/BadRequestResponse
- * @version 0.20.0
+ * @version 0.20.1
  */
 class BadRequestResponse {
     /**

@@ -15,6 +15,7 @@ import com.factset.sdk.FactSetConcordance.models.CreateUniverseRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityUniverseStatisticsResponse;
 import com.factset.sdk.FactSetConcordance.models.ErrorResponse;
 import com.factset.sdk.FactSetConcordance.models.UniverseMetaResponse;
+import com.factset.sdk.FactSetConcordance.models.UniverseStatisticsResponse;
 import com.factset.sdk.FactSetConcordance.models.UniversesResponse;
 import com.factset.sdk.FactSetConcordance.models.UpdateUniverseRequest;
 
@@ -44,6 +45,11 @@ public class UniversesApi {
     getUniverseForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
     getUniverseForListResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUniverseStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUniverseStatisticsResponseTypeMap.put(200, new GenericType<UniverseStatisticsResponse>(){});
+    getUniverseStatisticsResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
   }
   private static final Map<Integer, GenericType> getUniversesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
@@ -244,9 +250,86 @@ public class UniversesApi {
 
   }
   /**
+   * Get statistics on a given universe
+   * Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+   * @param universeId Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (required)
+   * @return UniverseStatisticsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Response object for mapping statistics for a universe </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public UniverseStatisticsResponse getUniverseStatistics(Integer universeId) throws ApiException {
+    return getUniverseStatisticsWithHttpInfo(universeId).getData();
+  }
+
+  /**
+   * Get statistics on a given universe
+   * Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+   * @param universeId Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (required)
+   * @return ApiResponse&lt;UniverseStatisticsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Response object for mapping statistics for a universe </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error Response </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<UniverseStatisticsResponse> getUniverseStatisticsWithHttpInfo(Integer universeId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'universeId' is set
+    if (universeId == null) {
+      throw new ApiException(400, "Missing the required parameter 'universeId' when calling getUniverseStatistics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-concordance/v2/universe-statistics";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "universeId", universeId));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        UniverseStatisticsResponse
+      
+    > apiResponse = apiClient.invokeAPI("UniversesApi.getUniverseStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getUniverseStatisticsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
    * Fetch metadata for universes
    * Fetch information on active universes for the current user. Optionally filter for a specific universe given a &#x60;universeId&#x60; 
    * @param universeId Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)
+   * @param universeType Universe Type. (optional)
    * @return UniversesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -256,14 +339,15 @@ public class UniversesApi {
        <tr><td> 0 </td><td> Error Response </td><td>  -  </td></tr>
      </table>
    */
-  public UniversesResponse getUniverses(Integer universeId) throws ApiException {
-    return getUniversesWithHttpInfo(universeId).getData();
+  public UniversesResponse getUniverses(Integer universeId, String universeType) throws ApiException {
+    return getUniversesWithHttpInfo(universeId, universeType).getData();
   }
 
   /**
    * Fetch metadata for universes
    * Fetch information on active universes for the current user. Optionally filter for a specific universe given a &#x60;universeId&#x60; 
    * @param universeId Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)
+   * @param universeType Universe Type. (optional)
    * @return ApiResponse&lt;UniversesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -273,7 +357,7 @@ public class UniversesApi {
        <tr><td> 0 </td><td> Error Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UniversesResponse> getUniversesWithHttpInfo(Integer universeId) throws ApiException {
+  public ApiResponse<UniversesResponse> getUniversesWithHttpInfo(Integer universeId, String universeType) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -286,6 +370,7 @@ public class UniversesApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "universeId", universeId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "universeType", universeType));
 
     
     

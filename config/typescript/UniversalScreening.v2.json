@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-universalscreening",
+  "projectVersion": "0.20.1",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Universal Screening client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "universalscreening",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/UniversalScreening/0.20.1",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

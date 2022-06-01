@@ -57,6 +57,7 @@ class EntityMapping(ModelNormal):
 
     allowed_values = {
         ('map_status',): {
+            'None': None,
             'MAPPED': "MAPPED",
             'UNMAPPED': "UNMAPPED",
             'INDETERMINATE': "INDETERMINATE",
@@ -87,17 +88,17 @@ class EntityMapping(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'entity_id': (str,),  # noqa: E501
-            'entity_name': (str,),  # noqa: E501
-            'client_id': (str,),  # noqa: E501
-            'client_name': (str,),  # noqa: E501
-            'client_country': (str,),  # noqa: E501
-            'client_state': (str,),  # noqa: E501
-            'client_url': (str,),  # noqa: E501
-            'created_time': (datetime,),  # noqa: E501
-            'updated_time': (datetime,),  # noqa: E501
-            'map_status': (str,),  # noqa: E501
-            'universe_id': (int,),  # noqa: E501
+            'entity_id': (str, none_type,),  # noqa: E501
+            'entity_name': (str, none_type,),  # noqa: E501
+            'client_id': (str, none_type,),  # noqa: E501
+            'client_name': (str, none_type,),  # noqa: E501
+            'client_country': (str, none_type,),  # noqa: E501
+            'client_state': (str, none_type,),  # noqa: E501
+            'client_url': (str, none_type,),  # noqa: E501
+            'created_time': (datetime, none_type,),  # noqa: E501
+            'updated_time': (datetime, none_type,),  # noqa: E501
+            'map_status': (str, none_type,),  # noqa: E501
+            'universe_id': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -160,17 +161,17 @@ class EntityMapping(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            entity_id (str): FactSet Entity Identifier of the entity matched to the submitted entity. [optional]  # noqa: E501
-            entity_name (str): Full name corresponding to the matched entity.. [optional]  # noqa: E501
-            client_id (str): User-defined unique identifier provided by the user in the request. [optional]  # noqa: E501
-            client_name (str): Name of the entity to match as specified in the request.. [optional]  # noqa: E501
-            client_country (str): ISO2 country code specified in the request. [optional]  # noqa: E501
-            client_state (str): State code specified in the request. [optional]  # noqa: E501
-            client_url (str): URL specified in the request. [optional]  # noqa: E501
-            created_time (datetime): Time when entity was created in UTC.. [optional]  # noqa: E501
-            updated_time (datetime): Time when the submitted entity was last updated in UTC.. [optional]  # noqa: E501
-            map_status (str): Current status of the entity mapping.. [optional]  # noqa: E501
-            universe_id (int): The universe this mapping belongs to. Only set in v2 endpoints . [optional]  # noqa: E501
+            entity_id (str, none_type): FactSet Entity Identifier of the entity matched to the submitted entity. [optional]  # noqa: E501
+            entity_name (str, none_type): Full name corresponding to the matched entity.. [optional]  # noqa: E501
+            client_id (str, none_type): User-defined unique identifier provided by the user in the request. [optional]  # noqa: E501
+            client_name (str, none_type): Name of the entity to match as specified in the request.. [optional]  # noqa: E501
+            client_country (str, none_type): ISO2 country code specified in the request. [optional]  # noqa: E501
+            client_state (str, none_type): State code specified in the request. [optional]  # noqa: E501
+            client_url (str, none_type): URL specified in the request. [optional]  # noqa: E501
+            created_time (datetime, none_type): Time when entity was created in UTC.. [optional]  # noqa: E501
+            updated_time (datetime, none_type): Time when the submitted entity was last updated in UTC.. [optional]  # noqa: E501
+            map_status (str, none_type): Current status of the entity mapping.. [optional]  # noqa: E501
+            universe_id (int, none_type): The universe this mapping belongs to. Only set in v2 endpoints . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,17 +253,17 @@ class EntityMapping(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            entity_id (str): FactSet Entity Identifier of the entity matched to the submitted entity. [optional]  # noqa: E501
-            entity_name (str): Full name corresponding to the matched entity.. [optional]  # noqa: E501
-            client_id (str): User-defined unique identifier provided by the user in the request. [optional]  # noqa: E501
-            client_name (str): Name of the entity to match as specified in the request.. [optional]  # noqa: E501
-            client_country (str): ISO2 country code specified in the request. [optional]  # noqa: E501
-            client_state (str): State code specified in the request. [optional]  # noqa: E501
-            client_url (str): URL specified in the request. [optional]  # noqa: E501
-            created_time (datetime): Time when entity was created in UTC.. [optional]  # noqa: E501
-            updated_time (datetime): Time when the submitted entity was last updated in UTC.. [optional]  # noqa: E501
-            map_status (str): Current status of the entity mapping.. [optional]  # noqa: E501
-            universe_id (int): The universe this mapping belongs to. Only set in v2 endpoints . [optional]  # noqa: E501
+            entity_id (str, none_type): FactSet Entity Identifier of the entity matched to the submitted entity. [optional]  # noqa: E501
+            entity_name (str, none_type): Full name corresponding to the matched entity.. [optional]  # noqa: E501
+            client_id (str, none_type): User-defined unique identifier provided by the user in the request. [optional]  # noqa: E501
+            client_name (str, none_type): Name of the entity to match as specified in the request.. [optional]  # noqa: E501
+            client_country (str, none_type): ISO2 country code specified in the request. [optional]  # noqa: E501
+            client_state (str, none_type): State code specified in the request. [optional]  # noqa: E501
+            client_url (str, none_type): URL specified in the request. [optional]  # noqa: E501
+            created_time (datetime, none_type): Time when entity was created in UTC.. [optional]  # noqa: E501
+            updated_time (datetime, none_type): Time when the submitted entity was last updated in UTC.. [optional]  # noqa: E501
+            map_status (str, none_type): Current status of the entity mapping.. [optional]  # noqa: E501
+            universe_id (int, none_type): The universe this mapping belongs to. Only set in v2 endpoints . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

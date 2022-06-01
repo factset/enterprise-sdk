@@ -34,7 +34,8 @@ import com.factset.sdk.FactSetConcordance.JSON;
  */
 @JsonPropertyOrder({
   CreateUniverseRequest.JSON_PROPERTY_UNIVERSE_NAME,
-  CreateUniverseRequest.JSON_PROPERTY_UNIVERSE_DESCRIPTION
+  CreateUniverseRequest.JSON_PROPERTY_UNIVERSE_DESCRIPTION,
+  CreateUniverseRequest.JSON_PROPERTY_UNIVERSE_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateUniverseRequest implements Serializable {
@@ -45,6 +46,9 @@ public class CreateUniverseRequest implements Serializable {
 
   public static final String JSON_PROPERTY_UNIVERSE_DESCRIPTION = "universeDescription";
   private String universeDescription;
+
+  public static final String JSON_PROPERTY_UNIVERSE_TYPE = "universeType";
+  private String universeType;
 
   public CreateUniverseRequest() { 
   }
@@ -109,6 +113,32 @@ public class CreateUniverseRequest implements Serializable {
   }
 
 
+  public CreateUniverseRequest universeType(String universeType) {
+    this.universeType = universeType;
+    return this;
+  }
+
+   /**
+   * Universe type
+   * @return universeType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "ENTITY", value = "Universe type")
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUniverseType() {
+    return universeType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUniverseType(String universeType) {
+    this.universeType = universeType;
+  }
+
+
   /**
    * Return true if this CreateUniverseRequest object is equal to o.
    */
@@ -122,12 +152,13 @@ public class CreateUniverseRequest implements Serializable {
     }
     CreateUniverseRequest createUniverseRequest = (CreateUniverseRequest) o;
     return Objects.equals(this.universeName, createUniverseRequest.universeName) &&
-        Objects.equals(this.universeDescription, createUniverseRequest.universeDescription);
+        Objects.equals(this.universeDescription, createUniverseRequest.universeDescription) &&
+        Objects.equals(this.universeType, createUniverseRequest.universeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(universeName, universeDescription);
+    return Objects.hash(universeName, universeDescription, universeType);
   }
 
   @Override
@@ -136,6 +167,7 @@ public class CreateUniverseRequest implements Serializable {
     sb.append("class CreateUniverseRequest {\n");
     sb.append("    universeName: ").append(toIndentedString(universeName)).append("\n");
     sb.append("    universeDescription: ").append(toIndentedString(universeDescription)).append("\n");
+    sb.append("    universeType: ").append(toIndentedString(universeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

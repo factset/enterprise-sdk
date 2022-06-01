@@ -5,6 +5,9 @@ info:
   description: FactSet's SCIM API implementation.
 servers:
   - url: https://api.factset.com/scim/v2/
+    description: Production environment
+  - url: https://api.uat.factset.com/scim/v2/
+    description: UAT environment
 paths:
   /ServiceProviderConfig:
     get:

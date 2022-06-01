@@ -1,0 +1,1340 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FIAB API",
+    "description": "Allow clients to fetch FIAB Analytics through APIs.",
+    "contact": {
+      "name": "Analytics API Support",
+      "url": "https://developer.factset.com/contact",
+      "email": "analytics.api.support@factset.com"
+    },
+    "license": {
+      "name": "Apache License 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    },
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.factset.com"
+    }
+  ],
+  "paths": {
+    "/analytics/engines/fiab/v1/calculations": {
+      "post": {
+        "tags": [
+          "FIAB Calculations"
+        ],
+        "summary": "Run FIAB calculation",
+        "description": "This endpoint creates a new FIAB calculation.\r\nThis must be used first before get status or cancelling endpoints with a calculation id.\r\nA successful response will contain the URL to check the status of the calculation request.\r\n\r\nRemarks:\r\n*\tAny settings in POST body will act as a one-time override over the settings saved in the FIAB template.",
+        "operationId": "runFIABCalculation",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FIABCalculationParameters"
+              },
+              "example": {
+                "account": {
+                  "id": "CLIENT:TEST.ACCT"
+                },
+                "dates": {
+                  "startdate": "20200501",
+                  "enddate": "20200515"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Expected response, contains the URL in the Location header to check the status of the calculation.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid POST body.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Cancel older requests using Cancel FIAB Calculation endpoint or wait for older requests to finish / expire.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "Location": {
+                "description": "URL to check status of the request.",
+                "schema": {
+                  "type": "string",
+                  "description": "URL to check status of the request."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-Calculations-Limit": {
+                "description": "Maximum FIAB request limit.",
+                "schema": {
+                  "type": "string",
+                  "description": "Maximum FIAB request limit."
+                }
+              },
+              "X-FactSet-Api-Calculations-Remaining": {
+                "description": "Number of FIAB requests remaining till request limit reached.",
+                "schema": {
+                  "type": "string",
+                  "description": "Number of FIAB requests remaining till request limit reached."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "FIAB Calculations"
+        ],
+        "summary": "Get all FIAB calculation summaries",
+        "description": "This endpoints returns all FIAB calculation requests.",
+        "operationId": "getFIABCalculationStatusSummaries",
+        "responses": {
+          "200": {
+            "description": "List of active FIAB calculation requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/FIABCalculationStatusSummary"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/engines/fiab/v1/calculations/{id}": {
+      "get": {
+        "tags": [
+          "FIAB Calculations"
+        ],
+        "summary": "Get FIAB calculation by id",
+        "description": "This is the endpoint to check on the progress of a previously requested calculation.",
+        "operationId": "getFIABCalculationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "from url, provided from the location header in the Run FIAB Calculation endpoint",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "from url, provided from the location header in the Run FIAB Calculation endpoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns status information of the entire calculation if it is complete.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FIABCalculationStatus"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response, returns status information of the entire calculation if it is not complete.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FIABCalculationStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier provided.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Calculation was already returned, provided id was not a requested calculation, or the calculation was cancelled",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify max-age in seconds. Polling can be adjusted based on the max-age value."
+                }
+              },
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet’s request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet’s request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FIABIdentifier": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's FactSet account path."
+          }
+        }
+      },
+      "FIABDateParameters": {
+        "required": [
+          "enddate",
+          "startdate"
+        ],
+        "type": "object",
+        "properties": {
+          "startdate": {
+            "type": "string",
+            "description": "Calculation's start date."
+          },
+          "enddate": {
+            "type": "string",
+            "description": "Calculation's end date."
+          }
+        },
+        "description": "The date parameters for FIAB calculations."
+      },
+      "FIABCalculationParameters": {
+        "required": [
+          "account",
+          "dates"
+        ],
+        "type": "object",
+        "properties": {
+          "fiabdocument": {
+            "type": "string",
+            "description": "FiabDocument (optional) - FIAB document to use as a template. Should\r\nbe a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar)"
+          },
+          "account": {
+            "$ref": "#/components/schemas/FIABIdentifier"
+          },
+          "dates": {
+            "$ref": "#/components/schemas/FIABDateParameters"
+          },
+          "msl": {
+            "type": "string",
+            "description": "Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)"
+          },
+          "fisettingsdocument": {
+            "type": "string",
+            "description": "FISettingsDocument (optional) - The given @FIS document will be used to\r\nconfigure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar)"
+          }
+        }
+      },
+      "FIABCalculationStatusSummary": {
+        "type": "object",
+        "properties": {
+          "requesttime": {
+            "type": "string",
+            "description": "Request time of calculation.",
+            "format": "date-time"
+          },
+          "lastpolltime": {
+            "type": "string",
+            "description": "Last poll time of calculation.",
+            "format": "date-time"
+          }
+        }
+      },
+      "EventSummary": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "submissiondatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "FIABCalculationStatus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "Pending",
+              "InProgress",
+              "Done",
+              "Paused",
+              "Cancelled",
+              "Error"
+            ],
+            "type": "string",
+            "description": "FIAB service batch status integer definitions.  See https://pages.github.factset.com/FactSet/fipa-inf-docs/service/fiab_batch_api.html#lt-uuid-gt."
+          },
+          "startdatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completiondatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "progress": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchevents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventSummary"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

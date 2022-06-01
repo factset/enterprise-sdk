@@ -29,7 +29,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
     /// <summary>
     /// Mapping statistics for a given universe
     /// </summary>
-    [DataContract(Name = "UniverseStatistics")]
+    [DataContract(Name = "universeStatistics")]
     public partial class UniverseStatistics : IEquatable<UniverseStatistics>, IValidatableObject
     {
         /// <summary>
@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="unmappedCount">unmappedCount.</param>
         /// <param name="indeterminateCount">indeterminateCount.</param>
         /// <param name="universeId">universeId.</param>
-        public UniverseStatistics(int totalCount = default(int), int mappedCount = default(int), int unmappedCount = default(int), int indeterminateCount = default(int), int universeId = default(int))
+        public UniverseStatistics(int? totalCount = default(int?), int? mappedCount = default(int?), int? unmappedCount = default(int?), int? indeterminateCount = default(int?), int? universeId = default(int?))
         {
             this.TotalCount = totalCount;
             this.MappedCount = mappedCount;
@@ -52,32 +52,32 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <summary>
         /// Gets or Sets TotalCount
         /// </summary>
-        [DataMember(Name = "totalCount", EmitDefaultValue = false)]
-        public int TotalCount { get; set; }
+        [DataMember(Name = "totalCount", EmitDefaultValue = true)]
+        public int? TotalCount { get; set; }
 
         /// <summary>
         /// Gets or Sets MappedCount
         /// </summary>
-        [DataMember(Name = "mappedCount", EmitDefaultValue = false)]
-        public int MappedCount { get; set; }
+        [DataMember(Name = "mappedCount", EmitDefaultValue = true)]
+        public int? MappedCount { get; set; }
 
         /// <summary>
         /// Gets or Sets UnmappedCount
         /// </summary>
-        [DataMember(Name = "unmappedCount", EmitDefaultValue = false)]
-        public int UnmappedCount { get; set; }
+        [DataMember(Name = "unmappedCount", EmitDefaultValue = true)]
+        public int? UnmappedCount { get; set; }
 
         /// <summary>
         /// Gets or Sets IndeterminateCount
         /// </summary>
-        [DataMember(Name = "indeterminateCount", EmitDefaultValue = false)]
-        public int IndeterminateCount { get; set; }
+        [DataMember(Name = "indeterminateCount", EmitDefaultValue = true)]
+        public int? IndeterminateCount { get; set; }
 
         /// <summary>
         /// Gets or Sets UniverseId
         /// </summary>
-        [DataMember(Name = "universeId", EmitDefaultValue = false)]
-        public int UniverseId { get; set; }
+        [DataMember(Name = "universeId", EmitDefaultValue = true)]
+        public int? UniverseId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,23 +129,28 @@ namespace FactSet.SDK.FactSetConcordance.Model
             return 
                 (
                     this.TotalCount == input.TotalCount ||
-                    this.TotalCount.Equals(input.TotalCount)
+                    (this.TotalCount != null &&
+                    this.TotalCount.Equals(input.TotalCount))
                 ) && 
                 (
                     this.MappedCount == input.MappedCount ||
-                    this.MappedCount.Equals(input.MappedCount)
+                    (this.MappedCount != null &&
+                    this.MappedCount.Equals(input.MappedCount))
                 ) && 
                 (
                     this.UnmappedCount == input.UnmappedCount ||
-                    this.UnmappedCount.Equals(input.UnmappedCount)
+                    (this.UnmappedCount != null &&
+                    this.UnmappedCount.Equals(input.UnmappedCount))
                 ) && 
                 (
                     this.IndeterminateCount == input.IndeterminateCount ||
-                    this.IndeterminateCount.Equals(input.IndeterminateCount)
+                    (this.IndeterminateCount != null &&
+                    this.IndeterminateCount.Equals(input.IndeterminateCount))
                 ) && 
                 (
                     this.UniverseId == input.UniverseId ||
-                    this.UniverseId.Equals(input.UniverseId)
+                    (this.UniverseId != null &&
+                    this.UniverseId.Equals(input.UniverseId))
                 );
         }
 
@@ -158,11 +163,26 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                if (this.TotalCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                }
+                if (this.MappedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
+                }
+                if (this.UnmappedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
+                }
+                if (this.IndeterminateCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
+                }
+                if (this.UniverseId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                }
                 return hashCode;
             }
         }

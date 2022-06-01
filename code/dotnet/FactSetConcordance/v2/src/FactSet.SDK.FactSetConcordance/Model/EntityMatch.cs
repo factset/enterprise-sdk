@@ -64,7 +64,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. 
         /// </summary>
         /// <value>Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping. </value>
-        [DataMember(Name = "mapStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "mapStatus", EmitDefaultValue = true)]
         public MapStatusEnum? MapStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityMatch" /> class.
@@ -102,7 +102,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="clientUrl">URL specified in the request..</param>
         /// <param name="nameMatchString">String on which the Concordance algorithm mapped the submitted entity..</param>
         /// <param name="nameMatchSource">Type of name that the nameMatchString matched..</param>
-        public EntityMatch(int universeId = default(int), int taskId = default(int), int rowIndex = default(int), bool matchFlag = default(bool), string entityId = default(string), string entityName = default(string), string url = default(string), MapStatusEnum? mapStatus = default(MapStatusEnum?), double similarityScore = default(double), double confidenceScore = default(double), string countryCode = default(string), string countryName = default(string), string stateCode = default(string), string stateName = default(string), string sicCode = default(string), string entityTypeCode = default(string), string entityTypeDescription = default(string), string entitySubTypeCode = default(string), string locationCity = default(string), string regionName = default(string), string factsetIndustryCode = default(string), string factsetIndustryName = default(string), string factsetSectorCode = default(string), string factsetSectorName = default(string), string parentName = default(string), bool parentMatchFlag = default(bool), string clientId = default(string), string clientName = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string), string nameMatchString = default(string), string nameMatchSource = default(string))
+        public EntityMatch(int? universeId = default(int?), int? taskId = default(int?), int? rowIndex = default(int?), bool? matchFlag = default(bool?), string entityId = default(string), string entityName = default(string), string url = default(string), MapStatusEnum? mapStatus = default(MapStatusEnum?), double? similarityScore = default(double?), double? confidenceScore = default(double?), string countryCode = default(string), string countryName = default(string), string stateCode = default(string), string stateName = default(string), string sicCode = default(string), string entityTypeCode = default(string), string entityTypeDescription = default(string), string entitySubTypeCode = default(string), string locationCity = default(string), string regionName = default(string), string factsetIndustryCode = default(string), string factsetIndustryName = default(string), string factsetSectorCode = default(string), string factsetSectorName = default(string), string parentName = default(string), bool? parentMatchFlag = default(bool?), string clientId = default(string), string clientName = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string), string nameMatchString = default(string), string nameMatchSource = default(string))
         {
             this.UniverseId = universeId;
             this.TaskId = taskId;
@@ -143,168 +143,168 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// The id of the universe that entities should be mapped to
         /// </summary>
         /// <value>The id of the universe that entities should be mapped to</value>
-        [DataMember(Name = "universeId", EmitDefaultValue = false)]
-        public int UniverseId { get; set; }
+        [DataMember(Name = "universeId", EmitDefaultValue = true)]
+        public int? UniverseId { get; set; }
 
         /// <summary>
         /// Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the \&quot;Bulk\&quot; workflow. 
         /// </summary>
         /// <value>Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the \&quot;Bulk\&quot; workflow. </value>
-        [DataMember(Name = "taskId", EmitDefaultValue = false)]
-        public int TaskId { get; set; }
+        [DataMember(Name = "taskId", EmitDefaultValue = true)]
+        public int? TaskId { get; set; }
 
         /// <summary>
         /// Row number for match in the request or input file.
         /// </summary>
         /// <value>Row number for match in the request or input file.</value>
-        [DataMember(Name = "rowIndex", EmitDefaultValue = false)]
-        public int RowIndex { get; set; }
+        [DataMember(Name = "rowIndex", EmitDefaultValue = true)]
+        public int? RowIndex { get; set; }
 
         /// <summary>
         /// Flag denoting if the row is a match.
         /// </summary>
         /// <value>Flag denoting if the row is a match.</value>
         [DataMember(Name = "matchFlag", EmitDefaultValue = true)]
-        public bool MatchFlag { get; set; }
+        public bool? MatchFlag { get; set; }
 
         /// <summary>
         /// FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) 
         /// </summary>
         /// <value>FactSet Entity Identifier of the entity matched respective to the requested Name submitted. For more detail, visit [FactSet Permanent Security Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881) </value>
-        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Full name corresponding to the matched entity.
         /// </summary>
         /// <value>Full name corresponding to the matched entity.</value>
-        [DataMember(Name = "entityName", EmitDefaultValue = false)]
+        [DataMember(Name = "entityName", EmitDefaultValue = true)]
         public string EntityName { get; set; }
 
         /// <summary>
         /// URL of the matched entity.
         /// </summary>
         /// <value>URL of the matched entity.</value>
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. 
         /// </summary>
         /// <value>Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity. </value>
-        [DataMember(Name = "similarityScore", EmitDefaultValue = false)]
-        public double SimilarityScore { get; set; }
+        [DataMember(Name = "similarityScore", EmitDefaultValue = true)]
+        public double? SimilarityScore { get; set; }
 
         /// <summary>
         /// Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence. 
         /// </summary>
         /// <value>Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence. </value>
-        [DataMember(Name = "confidenceScore", EmitDefaultValue = false)]
-        public double ConfidenceScore { get; set; }
+        [DataMember(Name = "confidenceScore", EmitDefaultValue = true)]
+        public double? ConfidenceScore { get; set; }
 
         /// <summary>
         /// ISO2 country code corresponding to the location of the matched entity.
         /// </summary>
         /// <value>ISO2 country code corresponding to the location of the matched entity.</value>
-        [DataMember(Name = "countryCode", EmitDefaultValue = false)]
+        [DataMember(Name = "countryCode", EmitDefaultValue = true)]
         public string CountryCode { get; set; }
 
         /// <summary>
         /// Country name corresponding to the location of the matched entity
         /// </summary>
         /// <value>Country name corresponding to the location of the matched entity</value>
-        [DataMember(Name = "countryName", EmitDefaultValue = false)]
+        [DataMember(Name = "countryName", EmitDefaultValue = true)]
         public string CountryName { get; set; }
 
         /// <summary>
         /// Two character state code corresponding to the location of the matched entity.
         /// </summary>
         /// <value>Two character state code corresponding to the location of the matched entity.</value>
-        [DataMember(Name = "stateCode", EmitDefaultValue = false)]
+        [DataMember(Name = "stateCode", EmitDefaultValue = true)]
         public string StateCode { get; set; }
 
         /// <summary>
         /// State name corresponding to the location of the matched entity.
         /// </summary>
         /// <value>State name corresponding to the location of the matched entity.</value>
-        [DataMember(Name = "stateName", EmitDefaultValue = false)]
+        [DataMember(Name = "stateName", EmitDefaultValue = true)]
         public string StateName { get; set; }
 
         /// <summary>
         /// Standard Industrial Classification (SIC) Code of the matched entity.
         /// </summary>
         /// <value>Standard Industrial Classification (SIC) Code of the matched entity.</value>
-        [DataMember(Name = "sicCode", EmitDefaultValue = false)]
+        [DataMember(Name = "sicCode", EmitDefaultValue = true)]
         public string SicCode { get; set; }
 
         /// <summary>
         /// Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.
         /// </summary>
         /// <value>Code representing the entity type of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.</value>
-        [DataMember(Name = "entityTypeCode", EmitDefaultValue = false)]
+        [DataMember(Name = "entityTypeCode", EmitDefaultValue = true)]
         public string EntityTypeCode { get; set; }
 
         /// <summary>
         /// Description of of the matched entity&#39;s type.
         /// </summary>
         /// <value>Description of of the matched entity&#39;s type.</value>
-        [DataMember(Name = "entityTypeDescription", EmitDefaultValue = false)]
+        [DataMember(Name = "entityTypeDescription", EmitDefaultValue = true)]
         public string EntityTypeDescription { get; set; }
 
         /// <summary>
         /// Code representing the entity subtype of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.
         /// </summary>
         /// <value>Code representing the entity subtype of the matched entity. See the related request parameter for a table of all Codes and their respective descriptions.</value>
-        [DataMember(Name = "entitySubTypeCode", EmitDefaultValue = false)]
+        [DataMember(Name = "entitySubTypeCode", EmitDefaultValue = true)]
         public string EntitySubTypeCode { get; set; }
 
         /// <summary>
         /// City where the matched entity is located.
         /// </summary>
         /// <value>City where the matched entity is located.</value>
-        [DataMember(Name = "locationCity", EmitDefaultValue = false)]
+        [DataMember(Name = "locationCity", EmitDefaultValue = true)]
         public string LocationCity { get; set; }
 
         /// <summary>
         /// Region where the matched entity is located.
         /// </summary>
         /// <value>Region where the matched entity is located.</value>
-        [DataMember(Name = "regionName", EmitDefaultValue = false)]
+        [DataMember(Name = "regionName", EmitDefaultValue = true)]
         public string RegionName { get; set; }
 
         /// <summary>
         /// FactSet Industry Classification Code of the matched entity.
         /// </summary>
         /// <value>FactSet Industry Classification Code of the matched entity.</value>
-        [DataMember(Name = "factsetIndustryCode", EmitDefaultValue = false)]
+        [DataMember(Name = "factsetIndustryCode", EmitDefaultValue = true)]
         public string FactsetIndustryCode { get; set; }
 
         /// <summary>
         /// Name of the matched entity&#39;s FactSet Industry Classification.
         /// </summary>
         /// <value>Name of the matched entity&#39;s FactSet Industry Classification.</value>
-        [DataMember(Name = "factsetIndustryName", EmitDefaultValue = false)]
+        [DataMember(Name = "factsetIndustryName", EmitDefaultValue = true)]
         public string FactsetIndustryName { get; set; }
 
         /// <summary>
         /// Name of the matched entity&#39;s FactSet Sector Classification Code.
         /// </summary>
         /// <value>Name of the matched entity&#39;s FactSet Sector Classification Code.</value>
-        [DataMember(Name = "factsetSectorCode", EmitDefaultValue = false)]
+        [DataMember(Name = "factsetSectorCode", EmitDefaultValue = true)]
         public string FactsetSectorCode { get; set; }
 
         /// <summary>
         /// Name of the matched entity&#39;s FactSet Sector Classification.
         /// </summary>
         /// <value>Name of the matched entity&#39;s FactSet Sector Classification.</value>
-        [DataMember(Name = "factsetSectorName", EmitDefaultValue = false)]
+        [DataMember(Name = "factsetSectorName", EmitDefaultValue = true)]
         public string FactsetSectorName { get; set; }
 
         /// <summary>
         /// Name of the matched entity&#39;s parent entity.
         /// </summary>
         /// <value>Name of the matched entity&#39;s parent entity.</value>
-        [DataMember(Name = "parentName", EmitDefaultValue = false)]
+        [DataMember(Name = "parentName", EmitDefaultValue = true)]
         public string ParentName { get; set; }
 
         /// <summary>
@@ -312,55 +312,55 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// </summary>
         /// <value>Flag denoting that the matched entity is the parent of another match.</value>
         [DataMember(Name = "parentMatchFlag", EmitDefaultValue = true)]
-        public bool ParentMatchFlag { get; set; }
+        public bool? ParentMatchFlag { get; set; }
 
         /// <summary>
         /// Unique Identifer provided by the user in the request to represent the entity Name being requested.
         /// </summary>
         /// <value>Unique Identifer provided by the user in the request to represent the entity Name being requested.</value>
-        [DataMember(Name = "clientId", EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Name of the entity to match as specified in the request
         /// </summary>
         /// <value>Name of the entity to match as specified in the request</value>
-        [DataMember(Name = "clientName", EmitDefaultValue = false)]
+        [DataMember(Name = "clientName", EmitDefaultValue = true)]
         public string ClientName { get; set; }
 
         /// <summary>
         /// ISO2 country code specified in the request.
         /// </summary>
         /// <value>ISO2 country code specified in the request.</value>
-        [DataMember(Name = "clientCountry", EmitDefaultValue = false)]
+        [DataMember(Name = "clientCountry", EmitDefaultValue = true)]
         public string ClientCountry { get; set; }
 
         /// <summary>
         /// State code specified in the request.
         /// </summary>
         /// <value>State code specified in the request.</value>
-        [DataMember(Name = "clientState", EmitDefaultValue = false)]
+        [DataMember(Name = "clientState", EmitDefaultValue = true)]
         public string ClientState { get; set; }
 
         /// <summary>
         /// URL specified in the request.
         /// </summary>
         /// <value>URL specified in the request.</value>
-        [DataMember(Name = "clientUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "clientUrl", EmitDefaultValue = true)]
         public string ClientUrl { get; set; }
 
         /// <summary>
         /// String on which the Concordance algorithm mapped the submitted entity.
         /// </summary>
         /// <value>String on which the Concordance algorithm mapped the submitted entity.</value>
-        [DataMember(Name = "nameMatchString", EmitDefaultValue = false)]
+        [DataMember(Name = "nameMatchString", EmitDefaultValue = true)]
         public string NameMatchString { get; set; }
 
         /// <summary>
         /// Type of name that the nameMatchString matched.
         /// </summary>
         /// <value>Type of name that the nameMatchString matched.</value>
-        [DataMember(Name = "nameMatchSource", EmitDefaultValue = false)]
+        [DataMember(Name = "nameMatchSource", EmitDefaultValue = true)]
         public string NameMatchSource { get; set; }
 
         /// <summary>
@@ -441,19 +441,23 @@ namespace FactSet.SDK.FactSetConcordance.Model
             return 
                 (
                     this.UniverseId == input.UniverseId ||
-                    this.UniverseId.Equals(input.UniverseId)
+                    (this.UniverseId != null &&
+                    this.UniverseId.Equals(input.UniverseId))
                 ) && 
                 (
                     this.TaskId == input.TaskId ||
-                    this.TaskId.Equals(input.TaskId)
+                    (this.TaskId != null &&
+                    this.TaskId.Equals(input.TaskId))
                 ) && 
                 (
                     this.RowIndex == input.RowIndex ||
-                    this.RowIndex.Equals(input.RowIndex)
+                    (this.RowIndex != null &&
+                    this.RowIndex.Equals(input.RowIndex))
                 ) && 
                 (
                     this.MatchFlag == input.MatchFlag ||
-                    this.MatchFlag.Equals(input.MatchFlag)
+                    (this.MatchFlag != null &&
+                    this.MatchFlag.Equals(input.MatchFlag))
                 ) && 
                 (
                     this.EntityId == input.EntityId ||
@@ -476,11 +480,13 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.SimilarityScore == input.SimilarityScore ||
-                    this.SimilarityScore.Equals(input.SimilarityScore)
+                    (this.SimilarityScore != null &&
+                    this.SimilarityScore.Equals(input.SimilarityScore))
                 ) && 
                 (
                     this.ConfidenceScore == input.ConfidenceScore ||
-                    this.ConfidenceScore.Equals(input.ConfidenceScore)
+                    (this.ConfidenceScore != null &&
+                    this.ConfidenceScore.Equals(input.ConfidenceScore))
                 ) && 
                 (
                     this.CountryCode == input.CountryCode ||
@@ -559,7 +565,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.ParentMatchFlag == input.ParentMatchFlag ||
-                    this.ParentMatchFlag.Equals(input.ParentMatchFlag)
+                    (this.ParentMatchFlag != null &&
+                    this.ParentMatchFlag.Equals(input.ParentMatchFlag))
                 ) && 
                 (
                     this.ClientId == input.ClientId ||
@@ -607,10 +614,22 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
-                hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
-                hashCode = (hashCode * 59) + this.RowIndex.GetHashCode();
-                hashCode = (hashCode * 59) + this.MatchFlag.GetHashCode();
+                if (this.UniverseId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                }
+                if (this.TaskId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
+                }
+                if (this.RowIndex != null)
+                {
+                    hashCode = (hashCode * 59) + this.RowIndex.GetHashCode();
+                }
+                if (this.MatchFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.MatchFlag.GetHashCode();
+                }
                 if (this.EntityId != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
@@ -624,8 +643,14 @@ namespace FactSet.SDK.FactSetConcordance.Model
                     hashCode = (hashCode * 59) + this.Url.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.SimilarityScore.GetHashCode();
-                hashCode = (hashCode * 59) + this.ConfidenceScore.GetHashCode();
+                if (this.SimilarityScore != null)
+                {
+                    hashCode = (hashCode * 59) + this.SimilarityScore.GetHashCode();
+                }
+                if (this.ConfidenceScore != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConfidenceScore.GetHashCode();
+                }
                 if (this.CountryCode != null)
                 {
                     hashCode = (hashCode * 59) + this.CountryCode.GetHashCode();
@@ -686,7 +711,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 {
                     hashCode = (hashCode * 59) + this.ParentName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ParentMatchFlag.GetHashCode();
+                if (this.ParentMatchFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentMatchFlag.GetHashCode();
+                }
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

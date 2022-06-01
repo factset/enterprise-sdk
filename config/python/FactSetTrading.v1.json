@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetTrading",
+  "projectName": "fds.sdk.FactSetTrading",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet Trading client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetTrading/v1",
+  "httpUserAgent": "fds-sdk/python/FactSetTrading/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

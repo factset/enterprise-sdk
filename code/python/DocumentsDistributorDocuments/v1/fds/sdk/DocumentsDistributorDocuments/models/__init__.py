@@ -9,10 +9,11 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.DocumentsDistributorDocuments.model.checkstatus import Checkstatus
 from fds.sdk.DocumentsDistributorDocuments.model.checkstatus_response import CheckstatusResponse
 from fds.sdk.DocumentsDistributorDocuments.model.filings_files import FilingsFiles
 from fds.sdk.DocumentsDistributorDocuments.model.filings_response import FilingsResponse
-from fds.sdk.DocumentsDistributorDocuments.model.get_response import GetResponse
+from fds.sdk.DocumentsDistributorDocuments.model.getfiles import Getfiles
 from fds.sdk.DocumentsDistributorDocuments.model.getfiles_response import GetfilesResponse
 from fds.sdk.DocumentsDistributorDocuments.model.requestfiles_response import RequestfilesResponse
 from fds.sdk.DocumentsDistributorDocuments.model.status import Status

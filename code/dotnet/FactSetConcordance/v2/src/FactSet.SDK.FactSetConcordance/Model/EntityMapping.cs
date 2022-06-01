@@ -64,7 +64,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Current status of the entity mapping.
         /// </summary>
         /// <value>Current status of the entity mapping.</value>
-        [DataMember(Name = "mapStatus", EmitDefaultValue = false)]
+        [DataMember(Name = "mapStatus", EmitDefaultValue = true)]
         public MapStatusEnum? MapStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityMapping" /> class.
@@ -80,7 +80,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="updatedTime">Time when the submitted entity was last updated in UTC..</param>
         /// <param name="mapStatus">Current status of the entity mapping..</param>
         /// <param name="universeId">The universe this mapping belongs to. Only set in v2 endpoints .</param>
-        public EntityMapping(string entityId = default(string), string entityName = default(string), string clientId = default(string), string clientName = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string), DateTime createdTime = default(DateTime), DateTime updatedTime = default(DateTime), MapStatusEnum? mapStatus = default(MapStatusEnum?), int universeId = default(int))
+        public EntityMapping(string entityId = default(string), string entityName = default(string), string clientId = default(string), string clientName = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string), DateTime? createdTime = default(DateTime?), DateTime? updatedTime = default(DateTime?), MapStatusEnum? mapStatus = default(MapStatusEnum?), int? universeId = default(int?))
         {
             this.EntityId = entityId;
             this.EntityName = entityName;
@@ -99,71 +99,71 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// FactSet Entity Identifier of the entity matched to the submitted entity
         /// </summary>
         /// <value>FactSet Entity Identifier of the entity matched to the submitted entity</value>
-        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
         /// Full name corresponding to the matched entity.
         /// </summary>
         /// <value>Full name corresponding to the matched entity.</value>
-        [DataMember(Name = "entityName", EmitDefaultValue = false)]
+        [DataMember(Name = "entityName", EmitDefaultValue = true)]
         public string EntityName { get; set; }
 
         /// <summary>
         /// User-defined unique identifier provided by the user in the request
         /// </summary>
         /// <value>User-defined unique identifier provided by the user in the request</value>
-        [DataMember(Name = "clientId", EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Name of the entity to match as specified in the request.
         /// </summary>
         /// <value>Name of the entity to match as specified in the request.</value>
-        [DataMember(Name = "clientName", EmitDefaultValue = false)]
+        [DataMember(Name = "clientName", EmitDefaultValue = true)]
         public string ClientName { get; set; }
 
         /// <summary>
         /// ISO2 country code specified in the request
         /// </summary>
         /// <value>ISO2 country code specified in the request</value>
-        [DataMember(Name = "clientCountry", EmitDefaultValue = false)]
+        [DataMember(Name = "clientCountry", EmitDefaultValue = true)]
         public string ClientCountry { get; set; }
 
         /// <summary>
         /// State code specified in the request
         /// </summary>
         /// <value>State code specified in the request</value>
-        [DataMember(Name = "clientState", EmitDefaultValue = false)]
+        [DataMember(Name = "clientState", EmitDefaultValue = true)]
         public string ClientState { get; set; }
 
         /// <summary>
         /// URL specified in the request
         /// </summary>
         /// <value>URL specified in the request</value>
-        [DataMember(Name = "clientUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "clientUrl", EmitDefaultValue = true)]
         public string ClientUrl { get; set; }
 
         /// <summary>
         /// Time when entity was created in UTC.
         /// </summary>
         /// <value>Time when entity was created in UTC.</value>
-        [DataMember(Name = "createdTime", EmitDefaultValue = false)]
-        public DateTime CreatedTime { get; set; }
+        [DataMember(Name = "createdTime", EmitDefaultValue = true)]
+        public DateTime? CreatedTime { get; set; }
 
         /// <summary>
         /// Time when the submitted entity was last updated in UTC.
         /// </summary>
         /// <value>Time when the submitted entity was last updated in UTC.</value>
-        [DataMember(Name = "updatedTime", EmitDefaultValue = false)]
-        public DateTime UpdatedTime { get; set; }
+        [DataMember(Name = "updatedTime", EmitDefaultValue = true)]
+        public DateTime? UpdatedTime { get; set; }
 
         /// <summary>
         /// The universe this mapping belongs to. Only set in v2 endpoints 
         /// </summary>
         /// <value>The universe this mapping belongs to. Only set in v2 endpoints </value>
-        [DataMember(Name = "universeId", EmitDefaultValue = false)]
-        public int UniverseId { get; set; }
+        [DataMember(Name = "universeId", EmitDefaultValue = true)]
+        public int? UniverseId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -270,7 +270,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.UniverseId == input.UniverseId ||
-                    this.UniverseId.Equals(input.UniverseId)
+                    (this.UniverseId != null &&
+                    this.UniverseId.Equals(input.UniverseId))
                 );
         }
 
@@ -320,7 +321,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
                     hashCode = (hashCode * 59) + this.UpdatedTime.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                if (this.UniverseId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                }
                 return hashCode;
             }
         }

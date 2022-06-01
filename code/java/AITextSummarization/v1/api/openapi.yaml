@@ -4,7 +4,7 @@ info:
   title: AI Text Summarization
   version: 1.0.0
 servers:
-- url: //ai-text-summarization-staging.factset.io/
+- url: //api.factset.com/cognitive/summarization/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -12,7 +12,7 @@ tags:
 - description: Default namespace
   name: default
 paths:
-  /v1/headline:
+  /headline:
     post:
       description: Endpoint for initiating a processing job to create a headline from
         input text.
@@ -55,7 +55,7 @@ paths:
       x-codegen-request-body-name: payload
       x-contentType: application/json
       x-accepts: application/json
-  /v1/headline-and-summary:
+  /headline-and-summary:
     post:
       description: Endpoint for initiating a processing job to create a 2-3 sentence
         summary from input text.
@@ -98,7 +98,7 @@ paths:
       x-codegen-request-body-name: payload
       x-contentType: application/json
       x-accepts: application/json
-  /v1/result/{result_id}:
+  /result/{result_id}:
     get:
       description: Endpoint that returns the full headline and summary results from
         the initial POST requests.
@@ -142,7 +142,7 @@ paths:
       tags:
       - default
       x-accepts: application/json
-  /v1/summary:
+  /summary:
     post:
       description: Endpoint for initiating a processing job to create a headline and
         summary from input text.

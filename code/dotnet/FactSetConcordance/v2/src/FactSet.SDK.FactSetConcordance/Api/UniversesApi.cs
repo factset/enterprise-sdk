@@ -71,6 +71,27 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>ApiResponse of UniverseMetaResponse</returns>
         ApiResponse<UniverseMetaResponse> GetUniverseForListWithHttpInfo(CreateUniverseRequest createUniverseRequest);
         /// <summary>
+        /// Get statistics on a given universe
+        /// </summary>
+        /// <remarks>
+        /// Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <returns>UniverseStatisticsResponse</returns>
+        UniverseStatisticsResponse GetUniverseStatistics(int universeId);
+
+        /// <summary>
+        /// Get statistics on a given universe
+        /// </summary>
+        /// <remarks>
+        /// Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <returns>ApiResponse of UniverseStatisticsResponse</returns>
+        ApiResponse<UniverseStatisticsResponse> GetUniverseStatisticsWithHttpInfo(int universeId);
+        /// <summary>
         /// Fetch metadata for universes
         /// </summary>
         /// <remarks>
@@ -78,8 +99,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <returns>UniversesResponse</returns>
-        UniversesResponse GetUniverses(int? universeId = default(int?));
+        UniversesResponse GetUniverses(int? universeId = default(int?), string universeType = default(string));
 
         /// <summary>
         /// Fetch metadata for universes
@@ -89,8 +111,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <returns>ApiResponse of UniversesResponse</returns>
-        ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?));
+        ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?), string universeType = default(string));
         /// <summary>
         /// Update metadata for an existing universe
         /// </summary>
@@ -168,6 +191,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>Task of ApiResponse (UniverseMetaResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<UniverseMetaResponse>> GetUniverseForListWithHttpInfoAsync(CreateUniverseRequest createUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Get statistics on a given universe
+        /// </summary>
+        /// <remarks>
+        /// Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UniverseStatisticsResponse</returns>
+        System.Threading.Tasks.Task<UniverseStatisticsResponse> GetUniverseStatisticsAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get statistics on a given universe
+        /// </summary>
+        /// <remarks>
+        /// Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UniverseStatisticsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UniverseStatisticsResponse>> GetUniverseStatisticsWithHttpInfoAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Fetch metadata for universes
         /// </summary>
         /// <remarks>
@@ -175,9 +221,10 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UniversesResponse</returns>
-        System.Threading.Tasks.Task<UniversesResponse> GetUniversesAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UniversesResponse> GetUniversesAsync(int? universeId = default(int?), string universeType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Fetch metadata for universes
@@ -187,9 +234,10 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UniversesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), string universeType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update metadata for an existing universe
         /// </summary>
@@ -245,6 +293,11 @@ namespace FactSet.SDK.FactSetConcordance.Api
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)415, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
+            { (HttpStatusCode)0, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetUniverseStatisticsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UniverseStatisticsResponse) },
             { (HttpStatusCode)0, typeof(ErrorResponse) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetUniversesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -717,14 +770,180 @@ namespace FactSet.SDK.FactSetConcordance.Api
         }
 
         /// <summary>
+        /// Get statistics on a given universe Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <returns>UniverseStatisticsResponse</returns>
+        public UniverseStatisticsResponse GetUniverseStatistics(int universeId)
+        {
+            var localVarResponse = GetUniverseStatisticsWithHttpInfo(universeId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get statistics on a given universe Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <returns>ApiResponse of UniverseStatisticsResponse</returns>
+        public ApiResponse<UniverseStatisticsResponse> GetUniverseStatisticsWithHttpInfo(int universeId)
+        {
+            FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetUniverseStatisticsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            UniverseStatisticsResponse>("/factset-concordance/v2/universe-statistics", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUniverseStatistics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get statistics on a given universe Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UniverseStatisticsResponse</returns>
+        public async System.Threading.Tasks.Task<UniverseStatisticsResponse>GetUniverseStatisticsAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetUniverseStatisticsWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get statistics on a given universe Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UniverseStatisticsResponse)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<UniverseStatisticsResponse>> GetUniverseStatisticsWithHttpInfoAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetUniverseStatisticsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UniverseStatisticsResponse>("/factset-concordance/v2/universe-statistics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUniverseStatistics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Fetch metadata for universes Fetch information on active universes for the current user. Optionally filter for a specific universe given a &#x60;universeId&#x60; 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <returns>UniversesResponse</returns>
-        public UniversesResponse GetUniverses(int? universeId = default(int?))
+        public UniversesResponse GetUniverses(int? universeId = default(int?), string universeType = default(string))
         {
-            var localVarResponse = GetUniversesWithHttpInfo(universeId);
+            var localVarResponse = GetUniversesWithHttpInfo(universeId, universeType);
             return localVarResponse.Data;
         }
 
@@ -733,8 +952,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <returns>ApiResponse of UniversesResponse</returns>
-        public ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?))
+        public ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?), string universeType = default(string))
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -761,6 +981,10 @@ namespace FactSet.SDK.FactSetConcordance.Api
             if (universeId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
+            }
+            if (universeType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeType", universeType));
             }
 
             // authentication (FactSetApiKey) required
@@ -804,11 +1028,12 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UniversesResponse</returns>
-        public async System.Threading.Tasks.Task<UniversesResponse>GetUniversesAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UniversesResponse>GetUniversesAsync(int? universeId = default(int?), string universeType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await GetUniversesWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUniversesWithHttpInfoAsync(universeId, universeType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -817,10 +1042,11 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
+        /// <param name="universeType">Universe Type. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UniversesResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), string universeType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -848,6 +1074,10 @@ namespace FactSet.SDK.FactSetConcordance.Api
             if (universeId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
+            }
+            if (universeType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeType", universeType));
             }
 
             // authentication (FactSetApiKey) required

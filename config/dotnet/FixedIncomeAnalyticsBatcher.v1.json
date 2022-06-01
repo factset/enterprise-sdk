@@ -1,0 +1,24 @@
+{
+  "packageName": "FactSet.SDK.FixedIncomeAnalyticsBatcher",
+  "packageVersion": "0.20.0",
+  "packageGuid": "{ab2345ad-5969-5977-a544-7a77ff3e52f1}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Fixed Income Analytics Batcher client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Fixed Income Analytics Batcher",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/FixedIncomeAnalyticsBatcher/0.20.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

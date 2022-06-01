@@ -1,0 +1,1085 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EMS API",
+    "description": "Allow clients to trade orders.",
+    "contact": {
+      "name": "Analytics API Support",
+      "url": "https://developer.factset.com/contact",
+      "email": "analytics.api.support@factset.com"
+    },
+    "license": {
+      "name": "Apache License 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    },
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
+  "paths": {
+    "/trading/ems/v1/orders/create": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Send orders to EMS for execution.",
+        "description": "This endpoint takes the list of orders and place them on EMS for execution.",
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSOrdersRoot"
+              },
+              "examples": {
+                "Multiple Orders": {
+                  "value": {
+                    "data": {
+                      "investorId": "MyOrganization",
+                      "orders": [
+                        {
+                          "orderId": "OR0000001",
+                          "instrument": {
+                            "symbol": "GOOGL"
+                          },
+                          "side": "buy",
+                          "orderType": "market",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "currency": "USD",
+                          "handlingInstructions": "auto_ord_pub"
+                        },
+                        {
+                          "orderId": "OR0000002",
+                          "instrument": {
+                            "symbol": "MSFT"
+                          },
+                          "side": "sell",
+                          "orderType": "limit",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "currency": "USD",
+                          "handlingInstructions": "auto_ord_pub"
+                        },
+                        {
+                          "orderId": "OR0000003",
+                          "instrument": {
+                            "symbol": "TSLA"
+                          },
+                          "side": "buy",
+                          "orderType": "market_on_close",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "currency": "USD",
+                          "handlingInstructions": "auto_ord_pub"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Single Order (Minimum Fields)": {
+                  "summary": "Very basic single order with only required fields.",
+                  "value": {
+                    "data": {
+                      "investorId": "MyOrganization",
+                      "orders": [
+                        {
+                          "instrument": {
+                            "symbol": "GOOGL"
+                          },
+                          "side": "buy",
+                          "orderType": "market",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "currency": "USD",
+                          "handlingInstructions": "auto_ord_pub"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "Single Order": {
+                  "value": {
+                    "data": {
+                      "investorId": "MyOrganization",
+                      "orders": [
+                        {
+                          "orderId": "OR0000004",
+                          "instrument": {
+                            "symbol": "GOOGL"
+                          },
+                          "side": "buy",
+                          "orderType": "market",
+                          "orderQuantity": 1000,
+                          "price": 450,
+                          "stopPrice": 500,
+                          "strikePrice": 60,
+                          "currency": "USD",
+                          "isCovered": false,
+                          "maxShow": 30,
+                          "maxFloor": 20,
+                          "settlementType": "regular",
+                          "settlementDate": "20211024",
+                          "handlingInstructions": "auto_ord_pub",
+                          "locateRequired": false,
+                          "account": "ACCT1",
+                          "timeInForce": {
+                            "tif": "GTC"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the list of orders.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "OR123456789": {
+                        "symbol": "GOOGL",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 2500
+                      },
+                      "OR123456790": {
+                        "symbol": "MSFT",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 200
+                      }
+                    },
+                    "rejected": {
+                      "OR123456791": {
+                        "symbol": "TSLA",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 500
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid post body parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials"
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
+    },
+    "/trading/ems/v1/orders/replace": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Replace the orders on EMS system.",
+        "description": "This endpoint takes the list of orders to be replaced on the EMS system.",
+        "operationId": "replace",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSReplaceOrdersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the list of order ids.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "OR123456789": {
+                        "symbol": "GOOGL",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 2500
+                      },
+                      "OR123456790": {
+                        "symbol": "MSFT",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 200
+                      }
+                    },
+                    "rejected": {
+                      "OR123456791": {
+                        "symbol": "TSLA",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 500
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid post body parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials"
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
+    },
+    "/trading/ems/v1/orders/cancel": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Cancel the orders on EMS system.",
+        "description": "This endpoint takes the list of orders to be cancelled on the EMS system.",
+        "operationId": "cancel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EMSCancelOrdersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the list of order ids.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
+                },
+                "example": {
+                  "data": {
+                    "accepted": {
+                      "OR123456789": {
+                        "symbol": "GOOGL",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 2500
+                      },
+                      "OR123456790": {
+                        "symbol": "MSFT",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 200
+                      }
+                    },
+                    "rejected": {
+                      "OR123456791": {
+                        "symbol": "TSLA",
+                        "side": "buy",
+                        "orderType": "market",
+                        "orderQuantity": 500
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid post body parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication."
+          },
+          "403": {
+            "description": "User is forbidden with current credentials"
+          },
+          "415": {
+            "description": "Missing/Invalid Content-Type header. Header needs to be set to application/json."
+          },
+          "429": {
+            "description": "Rate limit reached. Wait before sending further requests."
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting."
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "description": "List of errors"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSCancelOrder": {
+        "required": [
+          "originalOrderId"
+        ],
+        "type": "object",
+        "properties": {
+          "originalOrderId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSCancelOrders": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EMSCancelOrder"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSCancelOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSCancelOrders"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrder": {
+        "required": [
+          "handlingInstructions",
+          "instrument",
+          "orderType",
+          "side"
+        ],
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "description": "Unique id for the order",
+            "example": "12322123"
+          },
+          "instrument": {
+            "$ref": "#/components/schemas/Instrument"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "type": "string",
+            "description": "Side can be buy or sell",
+            "example": "buy"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stop",
+              "stop_limit",
+              "market_on_close",
+              "limit_or_better"
+            ],
+            "type": "string",
+            "description": "Type of the order",
+            "example": "market"
+          },
+          "orderQuantity": {
+            "type": "number",
+            "description": "Order quantity",
+            "format": "double",
+            "example": 350
+          },
+          "price": {
+            "type": "number",
+            "description": "Order Price",
+            "format": "double",
+            "example": 800
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Stop Price",
+            "format": "double",
+            "example": 800
+          },
+          "strikePrice": {
+            "type": "number",
+            "description": "Strike Price",
+            "format": "double",
+            "example": 400
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency",
+            "example": "USD"
+          },
+          "isCovered": {
+            "type": "boolean",
+            "description": "Currency",
+            "example": false
+          },
+          "maxShow": {
+            "type": "number",
+            "description": "Max Show",
+            "format": "double",
+            "example": 100
+          },
+          "maxFloor": {
+            "type": "number",
+            "description": "Max Floor",
+            "format": "double",
+            "example": 100
+          },
+          "prevClosePrice": {
+            "type": "number",
+            "description": "Previous close price",
+            "format": "double",
+            "example": 100
+          },
+          "settlementType": {
+            "type": "string",
+            "description": "Settlement type",
+            "example": "regular"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Settlement date in YYYYMMDD format",
+            "example": "20210622"
+          },
+          "handlingInstructions": {
+            "enum": [
+              "auto_ord_pvt",
+              "auto_ord_pub",
+              "best_execution"
+            ],
+            "type": "string",
+            "description": "Handling instructions",
+            "example": "auto_ord_pub"
+          },
+          "executionInstructions": {
+            "enum": [
+              "not_held",
+              "work",
+              "go_along",
+              "over_the_day",
+              "held",
+              "participate_dont_initiate",
+              "strict_scale",
+              "try_to_scale",
+              "stay_on_bidside",
+              "stay_on_offerside",
+              "no_cross",
+              "ok_to_cross",
+              "call_first",
+              "percent_of_volume",
+              "do_not_increase",
+              "do_not_reduce",
+              "all_or_none",
+              "reinstate_on_system_failure",
+              "institutions_only",
+              "reinstate_on_trading_halt",
+              "cancel_on_trading_halt",
+              "last_peg",
+              "mid_price_peg",
+              "non_negotiable",
+              "opening_peg",
+              "market_peg",
+              "cancel_on_system_failure",
+              "primary_peg",
+              "suspend",
+              "fixed_peg_to_local_best_bid",
+              "customer_display_instruction",
+              "netting",
+              "peg_to_vwap",
+              "trade_along",
+              "try_to_stop",
+              "cancel_if_not_best",
+              "trailing_stop_peg",
+              "strict_limit",
+              "ignore_price_validity_checks",
+              "peg_to_limit_price",
+              "work_to_target_strategy",
+              "intermarket_sweep",
+              "external_routing_allowed",
+              "external_routing_not_allowed",
+              "imbalance_only",
+              "single_execution_requested_for_block_trade",
+              "best_execution"
+            ],
+            "type": "string",
+            "description": "Execution instructions",
+            "example": "not_held"
+          },
+          "locateRequired": {
+            "type": "boolean",
+            "description": "Locate Required",
+            "example": false
+          },
+          "effectiveTime": {
+            "type": "string",
+            "description": "Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC",
+            "example": "20210622-12:15:30"
+          },
+          "account": {
+            "type": "string",
+            "description": "Account",
+            "example": "Test.ACCT"
+          },
+          "timeInForce": {
+            "$ref": "#/components/schemas/TimeInForce"
+          },
+          "userDefinedFields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User defined fields"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrderMetadata": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "type": "string",
+            "description": "Side"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stop",
+              "stop_limit",
+              "market_on_close",
+              "limit_or_better"
+            ],
+            "type": "string",
+            "description": "Order Type"
+          },
+          "orderQuantity": {
+            "type": "number",
+            "description": "Order Quantity",
+            "format": "double"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "info": {
+            "type": "string",
+            "description": "information"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Order Id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrders": {
+        "required": [
+          "orders"
+        ],
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string",
+            "description": "Investor Id",
+            "example": "DEMO-12345"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EMSOrder"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrdersCreateResponse": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSOrderMetadata"
+            }
+          },
+          "rejected": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EMSOrderMetadata"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrdersCreateResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSOrdersCreateResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSOrders"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSReplaceOrder": {
+        "required": [
+          "handlingInstructions",
+          "instrument",
+          "orderType",
+          "originalOrderId",
+          "side"
+        ],
+        "type": "object",
+        "properties": {
+          "originalOrderId": {
+            "type": "string"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Unique id for the order",
+            "example": "12322123"
+          },
+          "instrument": {
+            "$ref": "#/components/schemas/Instrument"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell"
+            ],
+            "type": "string",
+            "description": "Side can be buy or sell",
+            "example": "buy"
+          },
+          "orderType": {
+            "enum": [
+              "market",
+              "limit",
+              "stop",
+              "stop_limit",
+              "market_on_close",
+              "limit_or_better"
+            ],
+            "type": "string",
+            "description": "Type of the order",
+            "example": "market"
+          },
+          "orderQuantity": {
+            "type": "number",
+            "description": "Order quantity",
+            "format": "double",
+            "example": 350
+          },
+          "price": {
+            "type": "number",
+            "description": "Order Price",
+            "format": "double",
+            "example": 800
+          },
+          "stopPrice": {
+            "type": "number",
+            "description": "Stop Price",
+            "format": "double",
+            "example": 800
+          },
+          "strikePrice": {
+            "type": "number",
+            "description": "Strike Price",
+            "format": "double",
+            "example": 400
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency",
+            "example": "USD"
+          },
+          "isCovered": {
+            "type": "boolean",
+            "description": "Currency",
+            "example": false
+          },
+          "maxShow": {
+            "type": "number",
+            "description": "Max Show",
+            "format": "double",
+            "example": 100
+          },
+          "maxFloor": {
+            "type": "number",
+            "description": "Max Floor",
+            "format": "double",
+            "example": 100
+          },
+          "prevClosePrice": {
+            "type": "number",
+            "description": "Previous close price",
+            "format": "double",
+            "example": 100
+          },
+          "settlementType": {
+            "type": "string",
+            "description": "Settlement type",
+            "example": "regular"
+          },
+          "settlementDate": {
+            "type": "string",
+            "description": "Settlement date in YYYYMMDD format",
+            "example": "20210622"
+          },
+          "handlingInstructions": {
+            "enum": [
+              "auto_ord_pvt",
+              "auto_ord_pub",
+              "best_execution"
+            ],
+            "type": "string",
+            "description": "Handling instructions",
+            "example": "auto_ord_pub"
+          },
+          "executionInstructions": {
+            "enum": [
+              "not_held",
+              "work",
+              "go_along",
+              "over_the_day",
+              "held",
+              "participate_dont_initiate",
+              "strict_scale",
+              "try_to_scale",
+              "stay_on_bidside",
+              "stay_on_offerside",
+              "no_cross",
+              "ok_to_cross",
+              "call_first",
+              "percent_of_volume",
+              "do_not_increase",
+              "do_not_reduce",
+              "all_or_none",
+              "reinstate_on_system_failure",
+              "institutions_only",
+              "reinstate_on_trading_halt",
+              "cancel_on_trading_halt",
+              "last_peg",
+              "mid_price_peg",
+              "non_negotiable",
+              "opening_peg",
+              "market_peg",
+              "cancel_on_system_failure",
+              "primary_peg",
+              "suspend",
+              "fixed_peg_to_local_best_bid",
+              "customer_display_instruction",
+              "netting",
+              "peg_to_vwap",
+              "trade_along",
+              "try_to_stop",
+              "cancel_if_not_best",
+              "trailing_stop_peg",
+              "strict_limit",
+              "ignore_price_validity_checks",
+              "peg_to_limit_price",
+              "work_to_target_strategy",
+              "intermarket_sweep",
+              "external_routing_allowed",
+              "external_routing_not_allowed",
+              "imbalance_only",
+              "single_execution_requested_for_block_trade",
+              "best_execution"
+            ],
+            "type": "string",
+            "description": "Execution instructions",
+            "example": "not_held"
+          },
+          "locateRequired": {
+            "type": "boolean",
+            "description": "Locate Required",
+            "example": false
+          },
+          "effectiveTime": {
+            "type": "string",
+            "description": "Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC",
+            "example": "20210622-12:15:30"
+          },
+          "account": {
+            "type": "string",
+            "description": "Account",
+            "example": "Test.ACCT"
+          },
+          "timeInForce": {
+            "$ref": "#/components/schemas/TimeInForce"
+          },
+          "userDefinedFields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User defined fields"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSReplaceOrders": {
+        "type": "object",
+        "properties": {
+          "investorId": {
+            "type": "string",
+            "description": "Investor Id",
+            "example": "DEMO-12345"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EMSReplaceOrder"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "EMSReplaceOrdersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EMSReplaceOrders"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifier for the error"
+          },
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string",
+            "description": "Explanation specific to the occurrence of the error"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ErrorSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string",
+            "description": "Pointer to the associated entity in the request body"
+          },
+          "parameter": {
+            "type": "string",
+            "description": "Indicates which path or URI query parameter caused the error"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Instrument": {
+        "required": [
+          "symbol"
+        ],
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Symbol",
+            "example": "TATAMOTORS"
+          },
+          "securityType": {
+            "type": "string",
+            "description": "Security Type"
+          },
+          "cfiCode": {
+            "type": "string",
+            "description": "Cfi Code"
+          },
+          "securityExchange": {
+            "type": "string",
+            "description": "Security exchange"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "Issuer"
+          },
+          "securityDescription": {
+            "type": "string",
+            "description": "Security Description"
+          },
+          "maturityMonthYear": {
+            "type": "string",
+            "description": "Maturity month year"
+          },
+          "maturityDay": {
+            "type": "string",
+            "description": "Maturity day"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TimeInForce": {
+        "type": "object",
+        "properties": {
+          "tif": {
+            "enum": [
+              "DAY",
+              "GTC",
+              "OPG",
+              "IOC",
+              "FOK",
+              "GTX",
+              "GTD",
+              "ATC"
+            ],
+            "type": "string",
+            "description": "Time in force: if GTD, then Expire Time or Expire Date is a required field"
+          },
+          "expireDate": {
+            "type": "string",
+            "description": "Expire date in YYYYMMDD format expressed in UTC"
+          },
+          "expireTime": {
+            "type": "string",
+            "description": "Expire time in YYYYMMDD-HH:MM:SS format expressed in UTC"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

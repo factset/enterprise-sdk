@@ -1,0 +1,1118 @@
+openapi: 3.0.2
+info:
+  description: |-
+    Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.
+    Calculate and return the results of your saved Universal Screens.
+  title: Universal Screening API
+  version: 1.0.2
+externalDocs:
+  description: Read more about STACH 2.0's column organized schema
+  url: https://factset.github.io/stachschema/#/v2/ColumnOrganized
+servers:
+- url: https://api.factset.com/universal-screening
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v2/job/archive:
+    post:
+      description: Begins archive of screen to OFDB. Subject to rate limiting by serial.
+      operationId: SubmitArchiveOFDB
+      requestBody:
+        $ref: '#/components/requestBodies/submitArchiveOFDBRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+          description: Successful archive OFDB submission response, returns the job
+            ID unique to this archive and the URL in the Location header to check
+            the status of the archive.
+          headers:
+            Location:
+              description: Relative location to poll for archive status
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              description: Maximum number of jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Remaining:
+              description: Number of available jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: Number of weekly jobs available.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Remaining:
+              description: Number of remaining weekly jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Reset:
+              description: Time, in seconds, until weekly limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid request body.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              description: Maximum number of jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Remaining:
+              description: Number of available jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /v2/job/calculate:
+    post:
+      description: Begins calculation of screen. Subject to rate limiting by serial.
+      operationId: SubmitCalculate
+      requestBody:
+        $ref: '#/components/requestBodies/submitCalcRequest'
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+          description: Successful calculation submission response, returns the job
+            ID unique to this calculation and the URL in the Location header to check
+            the status of the calculation.
+          headers:
+            Location:
+              description: Relative location to poll for calculation status
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Limit:
+              description: Maximum number of jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Remaining:
+              description: Number of available jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Limit:
+              description: Number of weekly jobs available.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Remaining:
+              description: Number of remaining weekly jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            RateLimit-Reset:
+              description: Time, in seconds, until weekly limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid request body.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Too many requests.
+          headers:
+            X-FactSet-Api-Units-Limit:
+              description: Maximum number of jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-Units-Remaining:
+              description: Number of available jobs.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Screening Operations
+      x-contentType: application/json
+      x-accepts: application/json
+  /v2/job/{id}/status:
+    get:
+      description: Polls the job with a given screen ID and returns job status
+      operationId: PollCalculate
+      parameters:
+      - description: Unique identifier for a screen calculation job
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+          description: Job completed
+          headers:
+            Location:
+              description: Relative location to pick up screen results, calculate
+                route only
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-PickUp-Progress:
+              description: Screen progress
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+          description: Calculation job still in progress
+          headers:
+            Location:
+              description: Relative location to poll for status
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-PickUp-Progress:
+              description: Screen progress
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Job ID not found.
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: The results have been fetched for this ID.
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Screening Operations
+      x-accepts: application/json
+  /v2/jobs:
+    delete:
+      description: Delete all active jobs started by the requester's username-serial
+      operationId: DeleteAllActiveJobs
+      responses:
+        "204":
+          description: No Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Job ID not found.
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Job Management
+      x-accepts: application/json
+    get:
+      description: Retrieve list of all active job ids started by requester's username-serial
+      operationId: GetAllActiveJobs
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActiveJobsData'
+          description: ActiveJobsResponse contains id of all of a user's active jobs
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Job ID not found.
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Job Management
+      x-accepts: application/json
+  /v2/job/{id}:
+    delete:
+      description: Delete a specified job started by the requester's username-serial
+      operationId: DeleteActiveJob
+      parameters:
+      - description: Unique identifier for a screen calculation job
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Job ID not found.
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Job Management
+      x-accepts: application/json
+    get:
+      description: Retrieve results of complete screen calculation. Screens with more
+        than 10,000 rows will be returned in a paginated format. Results may be fetched
+        in pages of 1,000 - 100,000 results with 10,000 being the default page size.
+      operationId: GetCalculateResults
+      parameters:
+      - description: Unique identifier for a screen calculation job
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Page size limit (minumum 1000, default 10,000, maximum 100,000)
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Paging index (Initial request may omit)
+        explode: true
+        in: query
+        name: _paginationCursor
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCalculationResponse'
+          description: Paginated Screen Results and Metadata
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusResponse'
+          description: Calculation job still in progress
+          headers:
+            Location:
+              description: Relative location to poll for status
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-PickUp-Progress:
+              description: Screen progress
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: The requested screen could not be opened.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Invalid or missing authentication.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: Job ID not found.
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorArray'
+          description: The results have been fetched for this ID.
+        "500":
+          description: Internal Server Error
+          headers:
+            Request-Key:
+              description: Provide this key when reporting this issue
+              explode: false
+              schema:
+                type: string
+              style: simple
+      tags:
+      - Screening Operations
+      x-accepts: application/json
+components:
+  parameters:
+    ArchiveID:
+      description: Unique identifier for a screen archive to OFDB job
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+    PaginationCursor:
+      description: Paging index (Initial request may omit)
+      explode: true
+      in: query
+      name: _paginationCursor
+      required: false
+      schema:
+        type: integer
+      style: form
+    PaginationLimit:
+      description: Page size limit (minumum 1000, default 10,000, maximum 100,000)
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        type: integer
+      style: form
+    ScreenCalcID:
+      description: Unique identifier for a screen calculation job
+      explode: false
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+  requestBodies:
+    submitArchiveOFDBRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScreenArchiveOFDBParameters'
+      description: Data required for an archive to OFDB request
+    submitCalcRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ScreenCalcParameters'
+      description: Data required for a calculation request
+  responses:
+    ActiveJobsResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ActiveJobsData'
+      description: ActiveJobsResponse contains id of all of a user's active jobs
+    ArchiveOFDBInProgressResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Archive job still in progress
+      headers:
+        Location:
+          description: Relative location to poll for archive status
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-PickUp-Progress:
+          description: Screen archive progress
+          explode: false
+          schema:
+            type: string
+          style: simple
+    ArchiveOFDBSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Archive job completed
+      headers:
+        X-FactSet-Api-PickUp-Progress:
+          description: Screen progress
+          explode: false
+          schema:
+            type: string
+          style: simple
+    CalculateInProgressResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Calculation job still in progress
+      headers:
+        Location:
+          description: Relative location to poll for status
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-PickUp-Progress:
+          description: Screen progress
+          explode: false
+          schema:
+            type: string
+          style: simple
+    CalculateSuccessResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Job completed
+      headers:
+        Location:
+          description: Relative location to pick up screen results, calculate route
+            only
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-PickUp-Progress:
+          description: Screen progress
+          explode: false
+          schema:
+            type: string
+          style: simple
+    PaginatedCalculateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaginatedCalculationResponse'
+      description: Paginated Screen Results and Metadata
+    Error400InvalidRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: Invalid request body.
+    Error400ScreenOpen:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: The requested screen could not be opened.
+    Error401Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: Invalid or missing authentication.
+    Error404Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: Job ID not found.
+    Error410Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: The results have been fetched for this ID.
+    Error429Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorArray'
+      description: Too many requests.
+      headers:
+        X-FactSet-Api-Units-Limit:
+          description: Maximum number of jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-Units-Remaining:
+          description: Number of available jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    Generic500ErrorResponse:
+      description: Internal Server Error
+      headers:
+        Request-Key:
+          description: Provide this key when reporting this issue
+          explode: false
+          schema:
+            type: string
+          style: simple
+    SubmitArchiveOFDBResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Successful archive OFDB submission response, returns the job ID
+        unique to this archive and the URL in the Location header to check the status
+        of the archive.
+      headers:
+        Location:
+          description: Relative location to poll for archive status
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-Units-Limit:
+          description: Maximum number of jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-Units-Remaining:
+          description: Number of available jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Limit:
+          description: Number of weekly jobs available.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Remaining:
+          description: Number of remaining weekly jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Reset:
+          description: Time, in seconds, until weekly limit resets.
+          explode: false
+          schema:
+            type: string
+          style: simple
+    SubmitCalculateResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResourceStatusResponse'
+      description: Successful calculation submission response, returns the job ID
+        unique to this calculation and the URL in the Location header to check the
+        status of the calculation.
+      headers:
+        Location:
+          description: Relative location to poll for calculation status
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-Units-Limit:
+          description: Maximum number of jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        X-FactSet-Api-Units-Remaining:
+          description: Number of available jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Limit:
+          description: Number of weekly jobs available.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Remaining:
+          description: Number of remaining weekly jobs.
+          explode: false
+          schema:
+            type: string
+          style: simple
+        RateLimit-Reset:
+          description: Time, in seconds, until weekly limit resets.
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    ActiveJobsData:
+      description: Object containing active jobs ids
+      example:
+        data:
+          id:
+          - id
+          - id
+      properties:
+        data:
+          $ref: '#/components/schemas/ActiveJobIDs'
+    ActiveJobIDs:
+      description: Array of active jobs ids associated with the account
+      example:
+        id:
+        - id
+        - id
+      properties:
+        id:
+          items:
+            type: string
+          type: array
+      type: object
+    ErrorArray:
+      description: An array of errors
+      properties:
+        errors:
+          description: Array of Error Objects
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      type: object
+    ErrorCode:
+      description: Factset API specific error codes
+      enum:
+      - notAuthenticated
+      - notAuthorized
+      - notFound
+      - endpointNotFound
+      - parameterError
+      - genericServerError
+      - resourceGone
+      - quantityLimitsExceeded
+      - universal_screening_parameterError
+      - universal_screening_parameterWarning
+      type: string
+    ErrorObject:
+      description: Associated Error Objects
+      example:
+        id: id
+        source:
+          parameter: parameter
+        title: title
+      properties:
+        code:
+          $ref: '#/components/schemas/ErrorCode'
+        id:
+          description: A unique ID for the occurrence of the error. It is advised
+            to log this code and include it if you contact FactSet support desk.
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObjectSource'
+        title:
+          description: a description of the error
+          type: string
+      type: object
+    ErrorObjectSource:
+      description: For errors and warnings found in screens, contains the paramID
+        the error/warning belongs to
+      example:
+        parameter: parameter
+      properties:
+        parameter:
+          type: string
+      type: object
+    PaginationResponse:
+      example:
+        next: next
+        total: 6
+        prev: 0
+        isEstimatedTotal: true
+      properties:
+        isEstimatedTotal:
+          description: Denotes if the 'total' property is an estimation
+          type: boolean
+        next:
+          description: Next cursor to be sent, will be null when there are no more
+            results
+          nullable: true
+          type: string
+        prev:
+          description: Previous cursor, currently not supported
+          nullable: true
+          type: integer
+        total:
+          description: Total number of rows in the screen
+          type: integer
+      type: object
+    ResourceStatusResponse:
+      description: ResourceStatusResponse contains information regarding the status
+        of a calculation job
+      example:
+        data:
+          id: id
+          error:
+            id: id
+            source:
+              parameter: parameter
+            title: title
+          status: status
+      properties:
+        data:
+          $ref: '#/components/schemas/ResourceStatusResponse_data'
+      type: object
+    ResultsMetadata:
+      description: Metadata containing results pagination information
+      example:
+        pagination:
+          next: next
+          total: 6
+          prev: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
+      type: object
+    StachPackage:
+      description: Stach v2 column oriented paginated screen results
+      type: object
+    PaginatedCalculationResponse:
+      description: Paged results from screen calculation
+      example:
+        data: '{}'
+        meta:
+          pagination:
+            next: next
+            total: 6
+            prev: 0
+            isEstimatedTotal: true
+      properties:
+        meta:
+          $ref: '#/components/schemas/ResultsMetadata'
+        data:
+          description: Stach v2 column oriented paginated screen results
+          type: object
+      type: object
+    ScreenArchiveOFDBParameters:
+      example:
+        data:
+          globalVariablesMap:
+            key: globalVariablesMap
+          archiveOptions:
+            unsplitHistory: true
+            timeSeries: true
+            archiveType: archiveType
+            filename: filename
+            overwriteData: true
+            archiveDate: archiveDate
+            quickColumns: quickColumns
+            useReportOrder: true
+            autoSymbolUpdates: true
+            existed: true
+            symbolType: symbolType
+          legacyUniverseType: legacyUniverseType
+          screenName: screenName
+          backtestDate: backtestDate
+      properties:
+        data:
+          $ref: '#/components/schemas/ScreenArchiveOFDBParameters_data'
+      required:
+      - data
+      type: object
+    ScreenCalcParameters:
+      example:
+        data:
+          globalVariablesMap:
+            key: globalVariablesMap
+          legacyUniverseType: legacyUniverseType
+          screenName: screenName
+          backtestDate: backtestDate
+      properties:
+        data:
+          $ref: '#/components/schemas/ScreenCalcParameters_data'
+      required:
+      - data
+      type: object
+    ResourceStatusResponse_data:
+      example:
+        id: id
+        error:
+          id: id
+          source:
+            parameter: parameter
+          title: title
+        status: status
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorObject'
+        id:
+          description: ID of the submitted calculation job
+          type: string
+        status:
+          description: Current status of the calculation job
+          type: string
+      type: object
+    ScreenArchiveOFDBParameters_data_archiveOptions:
+      example:
+        unsplitHistory: true
+        timeSeries: true
+        archiveType: archiveType
+        filename: filename
+        overwriteData: true
+        archiveDate: archiveDate
+        quickColumns: quickColumns
+        useReportOrder: true
+        autoSymbolUpdates: true
+        existed: true
+        symbolType: symbolType
+      properties:
+        archiveDate:
+          description: YYYYMMDD date to archive to
+          type: string
+        archiveType:
+          description: Type of archive, i.e. ofdbSymbols, ofdbNts, ofdbQuickNts, ofdb
+          type: string
+        autoSymbolUpdates:
+          description: Flag to enable automatic symbol updates
+          type: boolean
+        existed:
+          description: Indicates that the output file exists
+          type: boolean
+        filename:
+          description: OFDB Filename to archive to
+          type: string
+        overwriteData:
+          description: If true and target file (or date for a time series file) exists,
+            it will be cleared before archiving
+          type: boolean
+        quickColumns:
+          description: 'Space delimited list of parameter references to be archived,
+            which are UPPERCASED with the #P. omitted'
+          type: string
+        symbolType:
+          description: The symbol type for archiving
+          type: string
+        timeSeries:
+          description: If true, archive 3D time series OFDB
+          type: boolean
+        unsplitHistory:
+          description: Flag indicating split adjust
+          type: boolean
+        useReportOrder:
+          description: If true, archive in report order
+          type: boolean
+      required:
+      - archiveType
+      - filename
+      type: object
+    ScreenArchiveOFDBParameters_data:
+      description: Object containing archive request payload
+      example:
+        globalVariablesMap:
+          key: globalVariablesMap
+        archiveOptions:
+          unsplitHistory: true
+          timeSeries: true
+          archiveType: archiveType
+          filename: filename
+          overwriteData: true
+          archiveDate: archiveDate
+          quickColumns: quickColumns
+          useReportOrder: true
+          autoSymbolUpdates: true
+          existed: true
+          symbolType: symbolType
+        legacyUniverseType: legacyUniverseType
+        screenName: screenName
+        backtestDate: backtestDate
+      properties:
+        archiveOptions:
+          $ref: '#/components/schemas/ScreenArchiveOFDBParameters_data_archiveOptions'
+        backtestDate:
+          description: |-
+            Specifies the backtest date used when running the screen, replacing
+              the backtest date saved in the screen, can be written in YYYYMMDD,
+              MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
+            Requires addtional access to use.
+          type: string
+        globalVariablesMap:
+          additionalProperties:
+            type: string
+          description: |-
+            Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist
+            Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.
+          type: object
+        legacyUniverseType:
+          description: Universe type to open legacy screen with. Must be one of "equity",
+            "debt", or "fund". Defaults to "equity".
+          type: string
+        screenName:
+          description: File path to a valid screen
+          type: string
+      required:
+      - screenName
+      type: object
+    ScreenCalcParameters_data:
+      description: Object containing screen data
+      example:
+        globalVariablesMap:
+          key: globalVariablesMap
+        legacyUniverseType: legacyUniverseType
+        screenName: screenName
+        backtestDate: backtestDate
+      properties:
+        backtestDate:
+          description: Specifies the backtest date used when running the screen, replacing
+            the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY
+            or relative (0, -1, 0/-1/0) format. Requires addtional access to use.
+          type: string
+        globalVariablesMap:
+          additionalProperties:
+            type: string
+          description: |-
+            Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist
+            Variable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty.
+          type: object
+        legacyUniverseType:
+          description: Universe type to open legacy screen with. Must be one of "equity",
+            "debt", or "fund". Defaults to "equity".
+          type: string
+        screenName:
+          description: File path to a valid screen
+          type: string
+      required:
+      - screenName
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

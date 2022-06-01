@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
-  "host": "ai-text-summarization-staging.factset.io",
-  "basePath": "/",
+  "host": "api.factset.com",
+  "basePath": "/cognitive/summarization/v1",
   "securityDefinitions": {
     "FactSetApiKey": {
       "type": "basic"
@@ -14,7 +14,7 @@
     }
   },
   "paths": {
-    "/v1/headline": {
+    "/headline": {
       "post": {
         "responses": {
           "201": {
@@ -58,7 +58,7 @@
         ]
       }
     },
-    "/v1/headline-and-summary": {
+    "/headline-and-summary": {
       "post": {
         "responses": {
           "201": {
@@ -102,7 +102,7 @@
         ]
       }
     },
-    "/v1/result/{result_id}": {
+    "/result/{result_id}": {
       "parameters": [
         {
           "name": "result_id",
@@ -149,7 +149,7 @@
         ]
       }
     },
-    "/v1/summary": {
+    "/summary": {
       "post": {
         "responses": {
           "201": {

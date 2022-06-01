@@ -1,0 +1,30 @@
+# OptionsPrices
+
+The Options prices response object
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ask_time** | **float** | Returns the Bid time | [optional] 
+**bid_time** | **float** | Returns the Last Trade time | [optional] 
+**date** | **date** | The date of data in YYYY-MM-DD format | [optional] 
+**fsym_id** | **str** | FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options) | [optional] 
+**price52_week_high** | **float** | 52-Week High Price | [optional] 
+**price52_week_low** | **float** | 52-Week Low Price | [optional] 
+**price_ask** | **float** | Ask price of the option | [optional] 
+**price_bid** | **float** | Bid price of the option | [optional] 
+**price_mid_bid_ask** | **float** | Mid/Bid/Ask price of the option | [optional] 
+**price_open** | **float** | Open price of the option | [optional] 
+**price_high** | **float** | High price of the option | [optional] 
+**price_low** | **float** | Low price of the option | [optional] 
+**price_settlement** | **float** | Settlement price of the option | [optional] 
+**price_strike** | **float** | The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract. | [optional] 
+**price_underlying** | **float** | The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. | [optional] 
+**price** | **float** | The price of the option based on the &#x60;quoteType&#x60; calculation. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;.  | [optional] 
+**quote_type** | **str** | The calculated quote type, based on the calculated status. This represents the type for &#x60;price&#x60; field. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;.  | [optional] 
+**request_id** | **str** | The requested identifier submitted in the query. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

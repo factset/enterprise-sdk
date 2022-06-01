@@ -1,0 +1,561 @@
+openapi: 3.0.0
+info:
+  description: An API for interacting with CTS Data Dictionary.
+  title: CTS Data Dictionary API
+  version: "0.2"
+servers:
+- description: Production
+  url: https://api.factset.com/data-dictionary
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /navigator/products:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Product'
+                type: array
+          description: Successful operation.
+        "401":
+          description: You are not authorized to view this page.
+      summary: Get the list of products for Navigator.
+      tags:
+      - navigator
+      x-accepts: application/json
+  /navigator/data_items/{Product_id}:
+    get:
+      parameters:
+      - description: The id for the Product to fetch the list of data items for.
+        explode: false
+        in: path
+        name: Product_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DataItem'
+                type: array
+          description: Successful operation.
+        "401":
+          description: You are not authorized to view this page.
+        "404":
+          description: The specified Product_id was not found.
+      summary: Get the list of data items associated with a product for Navigator.
+      tags:
+      - navigator
+      x-accepts: application/json
+  /navigator/sources/{DataItem_id}:
+    get:
+      parameters:
+      - description: The id for the DataItem to fetch the sources for.
+        explode: false
+        in: path
+        name: DataItem_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The id for the Product to filter down the sources returned on.
+        explode: true
+        in: query
+        name: Product_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NavigatorSourcesResponse'
+          description: Successful operation.
+        "401":
+          description: You are not authorized to view this page.
+        "404":
+          description: The specified DataItem_id was not found.
+      summary: Get a list of sources where the specified data item can be found, for
+        each delivery method, filtered to the appearances of the given data item within
+        the specified product.
+      tags:
+      - navigator
+      x-accepts: application/json
+  /navigator/sources:
+    get:
+      parameters:
+      - description: The id for the Product to filter down the sources returned on.
+        explode: true
+        in: query
+        name: Product_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NavigatorSourcesResponse'
+          description: Successful operation.
+        "401":
+          description: You are not authorized to view this page.
+        "404":
+          description: The specified DataItem_id was not found.
+      summary: Get a list of sources by delivery method for the given product_id
+      tags:
+      - navigator
+      x-accepts: application/json
+  /navigator/table_fields/{Table_id}:
+    get:
+      parameters:
+      - description: The id for the Table to fetch the fields for.
+        explode: false
+        in: path
+        name: Table_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The id for the DataItem. This is required in case the data item
+          is represented as a code in Standard DataFeeds.
+        explode: true
+        in: query
+        name: DataItem_id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableCodeFieldInfoResponse'
+          description: Successful operation.
+        "401":
+          description: You are not authorized to view this page.
+        "404":
+          description: The specified Table_id was not found.
+      summary: Get the list of fields associated with a table for Navigator, and the
+        code information for the specified data item, if applicable.
+      tags:
+      - navigator
+      x-accepts: application/json
+  /navigator/basic_search:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BasicSearchRequest'
+        description: A list of search terms (each term must be at least two characters).
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicSearchResponse'
+          description: Successful operation.
+        "400":
+          description: The request body was not formatted properly.
+        "401":
+          description: You are not authorized to view this page.
+      summary: Returns the data items (along with the products they belong to) that
+        contain at least one of the search terms as a substring of either their name
+        or description.
+      tags:
+      - navigator
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ApiEndpoint:
+      example:
+        entitled: "true"
+        developerPortalLink: https://developer.factset.com/api-catalog/symbology-api
+        name: /symbology/v1/bloomberg
+        description: Translate FactSet symbols into Bloomberg Identifiers.
+        id: "180443"
+      properties:
+        id:
+          description: Unique identifier for the api endpoint
+          example: "180443"
+          type: string
+        name:
+          description: API endpoint path
+          example: /symbology/v1/bloomberg
+          type: string
+        description:
+          description: A description of the endpoint
+          example: Translate FactSet symbols into Bloomberg Identifiers.
+          type: string
+        developerPortalLink:
+          description: Developer Portal URL of the endpoint
+          example: https://developer.factset.com/api-catalog/symbology-api
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: "true"
+          type: string
+    BasicSearchRequest:
+      example:
+        searchTerms:
+        - searchTerms
+        - searchTerms
+      properties:
+        searchTerms:
+          items:
+            type: string
+          type: array
+    BasicSearchResponse:
+      example:
+        results:
+        - dataItem:
+            entitled: true
+            name: fsym_id
+            description: Factset Perm Id
+            id: 35
+            source: SDF
+          product:
+            entitled: true
+            ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
+            name: Estimize US Equities
+            id: "3210"
+            providerName: Estimize
+            ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
+        - dataItem:
+            entitled: true
+            name: fsym_id
+            description: Factset Perm Id
+            id: 35
+            source: SDF
+          product:
+            entitled: true
+            ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
+            name: Estimize US Equities
+            id: "3210"
+            providerName: Estimize
+            ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/BasicSearchResponse_results'
+          type: array
+    DataItem:
+      example:
+        entitled: true
+        name: fsym_id
+        description: Factset Perm Id
+        id: 35
+        source: SDF
+      properties:
+        id:
+          description: Unique identifier for the data item
+          example: 35
+          type: integer
+        source:
+          description: Unique identifier for the product source
+          example: SDF
+          type: string
+        name:
+          description: Name of the data item
+          example: fsym_id
+          type: string
+        description:
+          description: Description of the data item
+          example: Factset Perm Id
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: true
+          type: boolean
+      type: object
+    Product:
+      example:
+        entitled: true
+        ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
+        name: Estimize US Equities
+        id: "3210"
+        providerName: Estimize
+        ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
+      properties:
+        id:
+          description: Unique identifier for the product
+          example: "3210"
+          type: string
+        name:
+          description: Name of the product
+          example: Estimize US Equities
+          type: string
+        ofmLink:
+          description: URL to the product page on the Open:FactSet Marketplace
+          example: https://open.factset.com/products/estimize-us-equities/en-us
+          type: string
+        ofmProductId:
+          description: The id defining a product in the Open:FactSet Marketplace
+          example: 168e9bf8-108c-4912-beca-b658083c7c86
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: true
+          type: boolean
+        providerName:
+          description: Name of the Data Provider for the product
+          example: Estimize
+          type: string
+      type: object
+    NavigatorSourcesResponse:
+      example:
+        sdf:
+        - dbSchema: gr_v2
+          entitled: true
+          name: gr_coverage
+          description: This table contains coverage information for each entity that
+            has a report in the Geographic Revenue Exposure package.
+          id: "123"
+        - dbSchema: gr_v2
+          entitled: true
+          name: gr_coverage
+          description: This table contains coverage information for each entity that
+            has a report in the Geographic Revenue Exposure package.
+          id: "123"
+        contentApi:
+        - entitled: "true"
+          developerPortalLink: https://developer.factset.com/api-catalog/symbology-api
+          name: /symbology/v1/bloomberg
+          description: Translate FactSet symbols into Bloomberg Identifiers.
+          id: "180443"
+        - entitled: "true"
+          developerPortalLink: https://developer.factset.com/api-catalog/symbology-api
+          name: /symbology/v1/bloomberg
+          description: Translate FactSet symbols into Bloomberg Identifiers.
+          id: "180443"
+      properties:
+        sdf:
+          items:
+            $ref: '#/components/schemas/Table'
+          type: array
+        contentApi:
+          items:
+            $ref: '#/components/schemas/ApiEndpoint'
+          type: array
+      required:
+      - sdf
+      type: object
+    Table:
+      example:
+        dbSchema: gr_v2
+        entitled: true
+        name: gr_coverage
+        description: This table contains coverage information for each entity that
+          has a report in the Geographic Revenue Exposure package.
+        id: "123"
+      properties:
+        id:
+          description: Unique identifier for the table
+          example: "123"
+          type: string
+        dbSchema:
+          description: Schema prefix for Standard DataFeeds
+          example: gr_v2
+          type: string
+        name:
+          description: Name of the table
+          example: gr_coverage
+          type: string
+        description:
+          description: A description of the table
+          example: This table contains coverage information for each entity that has
+            a report in the Geographic Revenue Exposure package.
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: true
+          type: boolean
+    TableCodeFieldInfoResponse:
+      example:
+        entitled: true
+        codeInfo:
+          dataItemIsCode: true
+          codeFieldId: "9019"
+          codeString: ACCESS_LINES
+        fields:
+        - hasCodeDependency: false
+          monetary: false
+          nullable: false
+          dataType: CHAR(8)
+          name: fsym_id
+          description: FactSet Security-Level Permanent Identifier
+          isPrimaryKey: false
+          id: "1335"
+          position: 1
+          splitAffected: true
+          unitFactor: None
+          dataItemId: "1778"
+        - hasCodeDependency: false
+          monetary: false
+          nullable: false
+          dataType: CHAR(8)
+          name: fsym_id
+          description: FactSet Security-Level Permanent Identifier
+          isPrimaryKey: false
+          id: "1335"
+          position: 1
+          splitAffected: true
+          unitFactor: None
+          dataItemId: "1778"
+      properties:
+        codeInfo:
+          $ref: '#/components/schemas/TableCodeInfo'
+        fields:
+          items:
+            $ref: '#/components/schemas/TableField'
+          type: array
+        entitled:
+          example: true
+          type: boolean
+      required:
+      - codeInfo
+      - fields
+      type: object
+    TableCodeInfo:
+      example:
+        dataItemIsCode: true
+        codeFieldId: "9019"
+        codeString: ACCESS_LINES
+      properties:
+        dataItemIsCode:
+          description: Flag indicating if the field is represented as a code in Standard
+            DataFeeds
+          example: true
+          type: boolean
+        codeFieldId:
+          description: Unique identifier for the code
+          example: "9019"
+          type: string
+        codeString:
+          description: String value for the code as it appears in Standard DataFeeds
+          example: ACCESS_LINES
+          type: string
+    TableField:
+      example:
+        hasCodeDependency: false
+        monetary: false
+        nullable: false
+        dataType: CHAR(8)
+        name: fsym_id
+        description: FactSet Security-Level Permanent Identifier
+        isPrimaryKey: false
+        id: "1335"
+        position: 1
+        splitAffected: true
+        unitFactor: None
+        dataItemId: "1778"
+      properties:
+        id:
+          description: Unique identifier for a combination of table and data field
+          example: "1335"
+          type: string
+        dataItemId:
+          description: Unique identifier for the data item
+          example: "1778"
+          type: string
+        name:
+          description: Name of the data field
+          example: fsym_id
+          type: string
+        dataType:
+          description: Data type of the data field
+          example: CHAR(8)
+          type: string
+        position:
+          description: Column position of the data field within the table
+          example: 1
+          type: integer
+        isPrimaryKey:
+          description: Flag indicating if the data field is a primary key.
+          example: false
+          type: boolean
+        nullable:
+          description: Flag indicating if a data field is nullable
+          example: false
+          type: boolean
+        hasCodeDependency:
+          description: Flag indicating if the field's value is determined by a code
+            value in its row. The monetary, splitAffected and unitFactor fields for
+            that value will also be inherited from the code.
+          example: false
+          type: boolean
+        monetary:
+          description: Flag indicating if the data field contained in this TableField
+            is monetary. If true, this field can have exchange rates applied to convert
+            to other currencies
+          example: false
+          type: boolean
+        splitAffected:
+          description: Flag indicating if the data field contained in this TableField
+            can be affected by splits
+          example: true
+          type: boolean
+        unitFactor:
+          description: Factor to indicate what units that the data field is displayed
+            in. If null, the field does not need to have a factor applied to obtain
+            the real value
+          example: None
+          type: string
+        description:
+          description: A description of the data field within the context of its table
+          example: FactSet Security-Level Permanent Identifier
+          type: string
+    BasicSearchResponse_results:
+      example:
+        dataItem:
+          entitled: true
+          name: fsym_id
+          description: Factset Perm Id
+          id: 35
+          source: SDF
+        product:
+          entitled: true
+          ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
+          name: Estimize US Equities
+          id: "3210"
+          providerName: Estimize
+          ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
+      properties:
+        product:
+          $ref: '#/components/schemas/Product'
+        dataItem:
+          $ref: '#/components/schemas/DataItem'
+      required:
+      - dataItem
+      - product
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -82,11 +82,11 @@ class UniverseStatistics(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'total_count': (int,),  # noqa: E501
-            'mapped_count': (int,),  # noqa: E501
-            'unmapped_count': (int,),  # noqa: E501
-            'indeterminate_count': (int,),  # noqa: E501
-            'universe_id': (int,),  # noqa: E501
+            'total_count': (int, none_type,),  # noqa: E501
+            'mapped_count': (int, none_type,),  # noqa: E501
+            'unmapped_count': (int, none_type,),  # noqa: E501
+            'indeterminate_count': (int, none_type,),  # noqa: E501
+            'universe_id': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -143,11 +143,11 @@ class UniverseStatistics(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total_count (int): [optional]  # noqa: E501
-            mapped_count (int): [optional]  # noqa: E501
-            unmapped_count (int): [optional]  # noqa: E501
-            indeterminate_count (int): [optional]  # noqa: E501
-            universe_id (int): [optional]  # noqa: E501
+            total_count (int, none_type): [optional]  # noqa: E501
+            mapped_count (int, none_type): [optional]  # noqa: E501
+            unmapped_count (int, none_type): [optional]  # noqa: E501
+            indeterminate_count (int, none_type): [optional]  # noqa: E501
+            universe_id (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,11 +229,11 @@ class UniverseStatistics(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            total_count (int): [optional]  # noqa: E501
-            mapped_count (int): [optional]  # noqa: E501
-            unmapped_count (int): [optional]  # noqa: E501
-            indeterminate_count (int): [optional]  # noqa: E501
-            universe_id (int): [optional]  # noqa: E501
+            total_count (int, none_type): [optional]  # noqa: E501
+            mapped_count (int, none_type): [optional]  # noqa: E501
+            unmapped_count (int, none_type): [optional]  # noqa: E501
+            indeterminate_count (int, none_type): [optional]  # noqa: E501
+            universe_id (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

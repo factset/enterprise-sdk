@@ -1,0 +1,532 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: analytics.api.support@factset.com
+    name: Analytics API Support
+    url: https://developer.factset.com/contact
+  description: Allow clients to send transactions data to FactSet
+  license:
+    name: Apache License 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+  title: DSOTM API
+  version: "1"
+servers:
+- url: /
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /analytics/dsotm/v1/transactions:
+    post:
+      description: This endpoint takes the transactions data and pushes them into
+        FactSet's systems.
+      operationId: sendTransactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transactions'
+      responses:
+        "202":
+          description: Expected response.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "400":
+          description: Invalid POST body.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "415":
+          description: Missing/Invalid Content-Type header. Header needs to be set
+            to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Retry the requests after waiting the time
+            specified in the retry-after header.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirectRequest-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              explode: false
+              schema:
+                description: FactSet’s request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Push transactions data into FactSet's systems.
+      tags:
+      - DSOTM
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ExecutionParameters:
+      example:
+        symbol: symbol
+        settlementvalue: 1.4658129
+        amount: 5.637377
+        currencyiso: currencyiso
+        gross: 6.0274563
+        description: description
+        transactionid: transactionid
+        settlementcurrencyiso: settlementcurrencyiso
+        tradetype: tradetype
+        transactionleaves: 5.962134
+        portfolio: portfolio
+        tradedate: tradedate
+        foreignexchangerate: 2.302136
+        net: 0.8008282
+        settlementdate: settlementdate
+        status: status
+      properties:
+        net:
+          description: Cash value of the transaction, net of brokerage costs.
+          format: float
+          type: number
+        gross:
+          description: Cash value of the transaction, including brokerage costs
+          format: float
+          type: number
+        settlementvalue:
+          description: Cash value of the transaction, a value that has been multiplied
+            by an applicable FX rates to convert the a transacti
+          format: float
+          type: number
+        settlementdate:
+          description: Settlement date in YYYYMMDD format
+          type: string
+        settlementcurrencyiso:
+          description: Currency code for Settlement Value
+          type: string
+        portfolio:
+          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
+          type: string
+        transactionid:
+          description: Unique id for the transaction
+          type: string
+        symbol:
+          description: Symbol corresponding to the traded instrument.
+          type: string
+        description:
+          description: Description
+          type: string
+        tradetype:
+          description: "Trade type could be any of the following values BL, BC, SL,\
+            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
+            \ respectively."
+          type: string
+        status:
+          description: "Status could be any of the following value: ACCT or CNCL.\r\
+            \nwhich stands for Accounted and Cancelled respectively."
+          type: string
+        tradedate:
+          description: Transaction date which is in the format YYYYMMDD
+          type: string
+        transactionleaves:
+          description: Shares that have been ordered and not executed
+          format: float
+          type: number
+        amount:
+          description: Quantity of the instrument traded.
+          format: float
+          type: number
+        currencyiso:
+          description: The currency code of cash valued fields, Net Amount and Gross
+            Amount.
+          type: string
+        foreignexchangerate:
+          description: FX rate that can be picked up by PA, multiplied with the cash
+            valued fields, Net, Gross, to allow PA to show transactions in reporting
+            currency.
+          format: float
+          type: number
+      required:
+      - amount
+      - currencyiso
+      - gross
+      - net
+      - portfolio
+      - settlementdate
+      - settlementvalue
+      - status
+      - symbol
+      - tradedate
+      - tradetype
+      - transactionid
+      type: object
+    PlacementParameters:
+      example:
+        symbol: symbol
+        tradetype: tradetype
+        transactionleaves: 7.0614014
+        amount: 9.301444
+        currencyiso: currencyiso
+        portfolio: portfolio
+        tradedate: tradedate
+        foreignexchangerate: 3.6160767
+        description: description
+        transactionid: transactionid
+        settlementcurrencyiso: settlementcurrencyiso
+        status: status
+      properties:
+        settlementcurrencyiso:
+          description: Currency code for Settlement Value
+          type: string
+        portfolio:
+          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
+          type: string
+        transactionid:
+          description: Unique id for the transaction
+          type: string
+        symbol:
+          description: Symbol corresponding to the traded instrument.
+          type: string
+        description:
+          description: Description
+          type: string
+        tradetype:
+          description: "Trade type could be any of the following values BL, BC, SL,\
+            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
+            \ respectively."
+          type: string
+        status:
+          description: "Status could be any of the following value: ACCT or CNCL.\r\
+            \nwhich stands for Accounted and Cancelled respectively."
+          type: string
+        tradedate:
+          description: Transaction date which is in the format YYYYMMDD
+          type: string
+        transactionleaves:
+          description: Shares that have been ordered and not executed
+          format: float
+          type: number
+        amount:
+          description: Quantity of the instrument traded.
+          format: float
+          type: number
+        currencyiso:
+          description: The currency code of cash valued fields, Net Amount and Gross
+            Amount.
+          type: string
+        foreignexchangerate:
+          description: FX rate that can be picked up by PA, multiplied with the cash
+            valued fields, Net, Gross, to allow PA to show transactions in reporting
+            currency.
+          format: float
+          type: number
+      required:
+      - amount
+      - currencyiso
+      - portfolio
+      - status
+      - symbol
+      - tradedate
+      - tradetype
+      - transactionid
+      type: object
+    OrderParameters:
+      example:
+        symbol: symbol
+        tradetype: tradetype
+        transactionleaves: 2.027123
+        amount: 4.145608
+        currencyiso: currencyiso
+        portfolio: portfolio
+        tradedate: tradedate
+        foreignexchangerate: 7.386282
+        description: description
+        transactionid: transactionid
+        status: status
+      properties:
+        portfolio:
+          description: 'Path of the portfolio (Ex: Client:/folder1/testing.ofdb)'
+          type: string
+        transactionid:
+          description: Unique id for the transaction
+          type: string
+        symbol:
+          description: Symbol corresponding to the traded instrument.
+          type: string
+        description:
+          description: Description
+          type: string
+        tradetype:
+          description: "Trade type could be any of the following values BL, BC, SL,\
+            \ SS.\r\nwhich stands for Buy Long, Buy to cover, Sell Long and Sell Short\
+            \ respectively."
+          type: string
+        status:
+          description: "Status could be any of the following value: ACCT or CNCL.\r\
+            \nwhich stands for Accounted and Cancelled respectively."
+          type: string
+        tradedate:
+          description: Transaction date which is in the format YYYYMMDD
+          type: string
+        transactionleaves:
+          description: Shares that have been ordered and not executed
+          format: float
+          type: number
+        amount:
+          description: Quantity of the instrument traded.
+          format: float
+          type: number
+        currencyiso:
+          description: The currency code of cash valued fields, Net Amount and Gross
+            Amount.
+          type: string
+        foreignexchangerate:
+          description: FX rate that can be picked up by PA, multiplied with the cash
+            valued fields, Net, Gross, to allow PA to show transactions in reporting
+            currency.
+          format: float
+          type: number
+      required:
+      - amount
+      - currencyiso
+      - portfolio
+      - status
+      - symbol
+      - tradedate
+      - tradetype
+      - transactionid
+      type: object
+    Transactions:
+      example:
+        executions:
+        - symbol: symbol
+          settlementvalue: 1.4658129
+          amount: 5.637377
+          currencyiso: currencyiso
+          gross: 6.0274563
+          description: description
+          transactionid: transactionid
+          settlementcurrencyiso: settlementcurrencyiso
+          tradetype: tradetype
+          transactionleaves: 5.962134
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 2.302136
+          net: 0.8008282
+          settlementdate: settlementdate
+          status: status
+        - symbol: symbol
+          settlementvalue: 1.4658129
+          amount: 5.637377
+          currencyiso: currencyiso
+          gross: 6.0274563
+          description: description
+          transactionid: transactionid
+          settlementcurrencyiso: settlementcurrencyiso
+          tradetype: tradetype
+          transactionleaves: 5.962134
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 2.302136
+          net: 0.8008282
+          settlementdate: settlementdate
+          status: status
+        placements:
+        - symbol: symbol
+          tradetype: tradetype
+          transactionleaves: 7.0614014
+          amount: 9.301444
+          currencyiso: currencyiso
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 3.6160767
+          description: description
+          transactionid: transactionid
+          settlementcurrencyiso: settlementcurrencyiso
+          status: status
+        - symbol: symbol
+          tradetype: tradetype
+          transactionleaves: 7.0614014
+          amount: 9.301444
+          currencyiso: currencyiso
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 3.6160767
+          description: description
+          transactionid: transactionid
+          settlementcurrencyiso: settlementcurrencyiso
+          status: status
+        orders:
+        - symbol: symbol
+          tradetype: tradetype
+          transactionleaves: 2.027123
+          amount: 4.145608
+          currencyiso: currencyiso
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 7.386282
+          description: description
+          transactionid: transactionid
+          status: status
+        - symbol: symbol
+          tradetype: tradetype
+          transactionleaves: 2.027123
+          amount: 4.145608
+          currencyiso: currencyiso
+          portfolio: portfolio
+          tradedate: tradedate
+          foreignexchangerate: 7.386282
+          description: description
+          transactionid: transactionid
+          status: status
+      properties:
+        executions:
+          description: List of executions
+          items:
+            $ref: '#/components/schemas/ExecutionParameters'
+          type: array
+        placements:
+          description: List of placements
+          items:
+            $ref: '#/components/schemas/PlacementParameters'
+          type: array
+        orders:
+          description: List of orders
+          items:
+            $ref: '#/components/schemas/OrderParameters'
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_entity_universe_statistics**](UniversesApi.md#get_entity_universe_statistics) | **GET** /factset-concordance/v2/entity-universe-statistics | Get statistics on a given universe
 [**get_universe_for_list**](UniversesApi.md#get_universe_for_list) | **POST** /factset-concordance/v2/universe | Create a new universe
+[**get_universe_statistics**](UniversesApi.md#get_universe_statistics) | **GET** /factset-concordance/v2/universe-statistics | Get statistics on a given universe
 [**get_universes**](UniversesApi.md#get_universes) | **GET** /factset-concordance/v2/universes | Fetch metadata for universes
 [**get_update_universe_for_list**](UniversesApi.md#get_update_universe_for_list) | **POST** /factset-concordance/v2/update-universe | Update metadata for an existing universe
 
@@ -149,6 +150,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     create_universe_request = CreateUniverseRequest(
         universe_name="My Universe",
         universe_description="This is my universe",
+        universe_type="ENTITY",
     ) # CreateUniverseRequest | A request to create a user's universe
 
     try:
@@ -191,6 +193,94 @@ Name | Type | Description  | Notes
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
 **500** | Internal Server Error. |  -  |
+**0** | Error Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_universe_statistics**
+> UniverseStatisticsResponse get_universe_statistics(universe_id)
+
+Get statistics on a given universe
+
+Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.FactSetConcordance
+from fds.sdk.FactSetConcordance.api import universes_api
+from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+from fds.sdk.FactSetConcordance.model.universe_statistics_response import UniverseStatisticsResponse
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.FactSetConcordance.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.FactSetConcordance.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = universes_api.UniversesApi(api_client)
+
+    universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+    try:
+        # Get statistics on a given universe
+        api_response = api_instance.get_universe_statistics(universe_id)
+        pprint(api_response)
+
+    except fds.sdk.FactSetConcordance.ApiException as e:
+        print("Exception when calling UniversesApi->get_universe_statistics: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **universe_id** | **int**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* |
+
+### Return type
+
+[**UniverseStatisticsResponse**](UniverseStatisticsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Response object for mapping statistics for a universe |  -  |
 **0** | Error Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,10 +333,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = universes_api.UniversesApi(api_client)
 
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.* (optional)
+    universe_type = "ENTITY" # str | Universe Type. (optional)
 
     try:
         # Fetch metadata for universes
-        api_response = api_instance.get_universes(universe_id=universe_id)
+        api_response = api_instance.get_universes(universe_id=universe_id, universe_type=universe_type)
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -259,6 +350,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **universe_id** | **int**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | [optional]
+ **universe_type** | **str**| Universe Type. | [optional]
 
 ### Return type
 

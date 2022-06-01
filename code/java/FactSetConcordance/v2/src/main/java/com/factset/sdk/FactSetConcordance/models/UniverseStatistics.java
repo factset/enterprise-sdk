@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetConcordance.JSON;
@@ -45,25 +49,25 @@ public class UniverseStatistics implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
-  private Integer totalCount;
+  private JsonNullable<Integer> totalCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_MAPPED_COUNT = "mappedCount";
-  private Integer mappedCount;
+  private JsonNullable<Integer> mappedCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNMAPPED_COUNT = "unmappedCount";
-  private Integer unmappedCount;
+  private JsonNullable<Integer> unmappedCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_INDETERMINATE_COUNT = "indeterminateCount";
-  private Integer indeterminateCount;
+  private JsonNullable<Integer> indeterminateCount = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
-  private Integer universeId;
+  private JsonNullable<Integer> universeId = JsonNullable.<Integer>undefined();
 
   public UniverseStatistics() { 
   }
 
   public UniverseStatistics totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
+    this.totalCount = JsonNullable.<Integer>of(totalCount);
     return this;
   }
 
@@ -73,23 +77,31 @@ public class UniverseStatistics implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "")
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getTotalCount() {
-    return totalCount;
+        return totalCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalCount(Integer totalCount) {
+
+  public JsonNullable<Integer> getTotalCount_JsonNullable() {
+    return totalCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  public void setTotalCount_JsonNullable(JsonNullable<Integer> totalCount) {
     this.totalCount = totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = JsonNullable.<Integer>of(totalCount);
   }
 
 
   public UniverseStatistics mappedCount(Integer mappedCount) {
-    this.mappedCount = mappedCount;
+    this.mappedCount = JsonNullable.<Integer>of(mappedCount);
     return this;
   }
 
@@ -99,23 +111,31 @@ public class UniverseStatistics implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "8", value = "")
-  @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getMappedCount() {
-    return mappedCount;
+        return mappedCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMappedCount(Integer mappedCount) {
+
+  public JsonNullable<Integer> getMappedCount_JsonNullable() {
+    return mappedCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAPPED_COUNT)
+  public void setMappedCount_JsonNullable(JsonNullable<Integer> mappedCount) {
     this.mappedCount = mappedCount;
+  }
+
+  public void setMappedCount(Integer mappedCount) {
+    this.mappedCount = JsonNullable.<Integer>of(mappedCount);
   }
 
 
   public UniverseStatistics unmappedCount(Integer unmappedCount) {
-    this.unmappedCount = unmappedCount;
+    this.unmappedCount = JsonNullable.<Integer>of(unmappedCount);
     return this;
   }
 
@@ -125,23 +145,31 @@ public class UniverseStatistics implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
-  @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUnmappedCount() {
-    return unmappedCount;
+        return unmappedCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnmappedCount(Integer unmappedCount) {
+
+  public JsonNullable<Integer> getUnmappedCount_JsonNullable() {
+    return unmappedCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNMAPPED_COUNT)
+  public void setUnmappedCount_JsonNullable(JsonNullable<Integer> unmappedCount) {
     this.unmappedCount = unmappedCount;
+  }
+
+  public void setUnmappedCount(Integer unmappedCount) {
+    this.unmappedCount = JsonNullable.<Integer>of(unmappedCount);
   }
 
 
   public UniverseStatistics indeterminateCount(Integer indeterminateCount) {
-    this.indeterminateCount = indeterminateCount;
+    this.indeterminateCount = JsonNullable.<Integer>of(indeterminateCount);
     return this;
   }
 
@@ -151,23 +179,31 @@ public class UniverseStatistics implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
-  @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getIndeterminateCount() {
-    return indeterminateCount;
+        return indeterminateCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndeterminateCount(Integer indeterminateCount) {
+
+  public JsonNullable<Integer> getIndeterminateCount_JsonNullable() {
+    return indeterminateCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INDETERMINATE_COUNT)
+  public void setIndeterminateCount_JsonNullable(JsonNullable<Integer> indeterminateCount) {
     this.indeterminateCount = indeterminateCount;
+  }
+
+  public void setIndeterminateCount(Integer indeterminateCount) {
+    this.indeterminateCount = JsonNullable.<Integer>of(indeterminateCount);
   }
 
 
   public UniverseStatistics universeId(Integer universeId) {
-    this.universeId = universeId;
+    this.universeId = JsonNullable.<Integer>of(universeId);
     return this;
   }
 
@@ -177,23 +213,31 @@ public class UniverseStatistics implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
-  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getUniverseId() {
-    return universeId;
+        return universeId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUniverseId(Integer universeId) {
+
+  public JsonNullable<Integer> getUniverseId_JsonNullable() {
+    return universeId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNIVERSE_ID)
+  public void setUniverseId_JsonNullable(JsonNullable<Integer> universeId) {
     this.universeId = universeId;
+  }
+
+  public void setUniverseId(Integer universeId) {
+    this.universeId = JsonNullable.<Integer>of(universeId);
   }
 
 
   /**
-   * Return true if this UniverseStatistics object is equal to o.
+   * Return true if this universeStatistics object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -204,16 +248,27 @@ public class UniverseStatistics implements Serializable {
       return false;
     }
     UniverseStatistics universeStatistics = (UniverseStatistics) o;
-    return Objects.equals(this.totalCount, universeStatistics.totalCount) &&
-        Objects.equals(this.mappedCount, universeStatistics.mappedCount) &&
-        Objects.equals(this.unmappedCount, universeStatistics.unmappedCount) &&
-        Objects.equals(this.indeterminateCount, universeStatistics.indeterminateCount) &&
-        Objects.equals(this.universeId, universeStatistics.universeId);
+    return equalsNullable(this.totalCount, universeStatistics.totalCount) &&
+        equalsNullable(this.mappedCount, universeStatistics.mappedCount) &&
+        equalsNullable(this.unmappedCount, universeStatistics.unmappedCount) &&
+        equalsNullable(this.indeterminateCount, universeStatistics.indeterminateCount) &&
+        equalsNullable(this.universeId, universeStatistics.universeId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, mappedCount, unmappedCount, indeterminateCount, universeId);
+    return Objects.hash(hashCodeNullable(totalCount), hashCodeNullable(mappedCount), hashCodeNullable(unmappedCount), hashCodeNullable(indeterminateCount), hashCodeNullable(universeId));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

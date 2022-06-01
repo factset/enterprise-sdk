@@ -1,0 +1,1294 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+  description: "\n<p>FactSet’s Tick History provides cost-effective access to real-time\
+    \ and delayed global exchange data. Proprietary technology normalizes over 200\
+    \ global exchanges and 19 tick history fields. Asset types integrated include\
+    \ equities, futures, options, fixed income, mutual funds, ETFs, indices, commodities,\
+    \ and FX rates.</p><p>Tick History provides dynamic access to tick data for a\
+    \ specific security intra-day or historically via standard HTTPS protocol. History\
+    \ is available for all quotes and trades for a trailing 6 months or 1-year, respectively.\
+    \ Quotes and trade data for Options is available for 30 days. Tick History data\
+    \ is also available in a separate end-of-day feed.</p>\n \n"
+  license:
+    name: Apache 3.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Tick History
+  version: 1.0.0
+externalDocs:
+  description: Data Service Manual
+  url: https://www.factset.com/hubfs/Website_Downloads/Exchange%20DataFeed/data%20service%20manual%202.0b.pdf
+servers:
+- url: https://api-sandbox.factset.com
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /TickHistory/history:
+    get:
+      description: When using an HTTP GET request, the seach criteria is sent via
+        the query string in the URL. Please make sure that all requests contain a
+        date within the past trailing year. Fields are added using ampersands, with
+        enumerations seperated by commas. <p>**Try it Out** - references a sandbox
+        environment to simulate live reponses. Available `id` is limited to BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA.
+        Current day data is not available.</p>
+      operationId: get_TickHistory
+      parameters:
+      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
+          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
+          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Request Identification String. Can be used by the application
+          to keep track of requests.  The id is not used by this service, however,
+          it is included in the XML response.
+        explode: true
+        in: query
+        name: req_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The format of the output file. **TRY IT OUT** Choose from JSON,
+          CSV, CSV_NO_HEADER
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: XML
+          enum:
+          - XML
+          - JSON
+          - CSV
+          - CSV_NO_HEADER
+          type: string
+        style: form
+      - description: All available fields. This is a comma-seperated list (no spaces).
+          See definitions for details. Default is all fields when left blank.
+        explode: true
+        in: query
+        name: fields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: This is the start date for the Snapshot History. Requests should
+          be made in the format **YYYYMMDD**. Default is current business day. Field
+          can be sd or date. **TRY IT OUT** Cannot use current day.
+        explode: true
+        in: query
+        name: sd
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: This is the end date for teh Snapshot History. Requests should
+          be made in the format **YYYYMMDD**. If the period requested is larger than
+          Max. Days requested, results will be limited to the Max Days starting at
+          sd/date. Defautl is sd or date. **TRY IT OUT** Cannot use current day.
+        explode: true
+        in: query
+        name: ed
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Requested start time. This is the start time for the snapshot
+          history requested. Requests should be made in a **HHMMSSS** format. Range
+          from 000000 - 235959. **TRY IT OUT** Cannot use current day.
+        explode: true
+        in: query
+        name: st
+        required: false
+        schema:
+          default: "040000"
+          type: string
+        style: form
+      - description: Requested end time. This is the end time for the snapshot history
+          requested. Requests should be made in a **HHMMSSS** format. Range from 000000
+          - 235959. **TRY IT OUT** Cannot use current day.
+        explode: true
+        in: query
+        name: et
+        required: false
+        schema:
+          default: "200000"
+          type: string
+        style: form
+      - description: Requested time interval. This is the interval the data is returned
+          from the service. Possible values from 1 Second (1S) to 1 Hour (1H). A maximum
+          of 10 Tick History Requests and a maximum of 100,000 rows of data may be
+          made in any one-minute period. Additional subsctiption is available to access
+          20 requests/200,000 rows of data per minute. Contact your FactSet team for
+          details.
+        explode: true
+        in: query
+        name: interval
+        required: false
+        schema:
+          default: 1M
+          enum:
+          - "0"
+          - 1S
+          - 5S
+          - 10S
+          - 15S
+          - 30S
+          - 1M
+          - 2M
+          - 5M
+          - 10M
+          - 15M
+          - 30M
+          - 1H
+          type: string
+        style: form
+      - description: Flag to include request id and key in the CSV output.
+        explode: true
+        in: query
+        name: include_request
+        required: false
+        schema:
+          default: "false"
+          enum:
+          - "true"
+          - T
+          - "false"
+          - F
+          type: string
+        style: form
+      - description: Decides what type of trades to return, default is all trades
+          and quotes, alternatively charting can be selected which will filter out
+          unofficial trades.
+        explode: true
+        in: query
+        name: dataset
+        required: false
+        schema:
+          enum:
+          - ""
+          - charting
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                Request ID: ""
+                Requested Symbol: IBM-USA
+                Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+                Request Key: 5C8926159C36F315
+                Error Code: 0
+                Error Description: ""
+                Field Names:
+                - LAST_1
+                - LAST_TIME_1
+                - LAST_VOL_1
+                Field IDs:
+                - 300
+                - 302
+                - 304
+                Key: IBM-USA:D
+                Values:
+                - - 139.59
+                  - 105955785
+                  - 326658
+                - - 138.1872
+                  - 115957067
+                  - 444631
+                - - 137.4711
+                  - 125957913
+                  - 477766
+                - - 137.7599
+                  - 135956519
+                  - 252993
+                - - 137.81
+                  - 140059812
+                  - 4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            application/xml:
+              example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
+                code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
+                stale=""><Record><Fields><Field id="300" name="LAST_1" value="145.96"/><Field
+                id="302" name="LAST_TIME_1" value="105959029"/><Field id="304" name="LAST_VOL_1"
+                value="638559"/></Fields></Record><Record><Fields><Field id="300"
+                name="LAST_1" value="145.95"/><Field id="302" name="LAST_TIME_1" value="115956985"/><Field
+                id="304" name="LAST_VOL_1" value="359625"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.82"/><Field id="302" name="LAST_TIME_1"
+                value="125955145"/><Field id="304" name="LAST_VOL_1" value="280630"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.74"/><Field id="302" name="LAST_TIME_1"
+                value="135955094"/><Field id="304" name="LAST_VOL_1" value="256692"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
+                value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            text/csv:
+              example: |
+                LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Access Denied. The user is not authorized to view the data
+            requested. Contact FactSet Consulting Services for assistance.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP URL. Necessary query parameters are missing in
+            the request. The description field will indicate the exact reason.
+        "405":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request lenght (currently set at 5000 bytes. The description
+            field will indicate the exact reason.
+      summary: Tick History service returns trade data and associated quotes for a
+        client specified interval and time period
+      tags:
+      - Tick History
+      x-accepts: application/json
+  /TickHistory/firsttrade:
+    get:
+      parameters:
+      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
+          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
+          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Request Identification String. Can be used by the application
+          to keep track of requests. The id is not used by this service, however,
+          it is included in the XML response.
+        explode: true
+        in: query
+        name: req_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: This is the start date for the Snapshot History. Requests should
+          be made in the format YYYYMMDD Default is current business day. Field can
+          be sd or date. TRY IT OUT Cannot use current day.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: This is the start time for the snapshot history requested. Requests
+          should be made in a **HHMMSSS** format.Range from 000000 - 235959. **TRY
+          IT OUT** Cannot use current day
+        explode: true
+        in: query
+        name: start_time
+        required: false
+        schema:
+          default: "040000"
+          type: string
+        style: form
+      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
+          CSV_NO_HEADER
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: XML
+          enum:
+          - XML
+          - JSON
+          - CSV
+          - CSV_NO_HEADER
+          type: string
+        style: form
+      - description: Flag to include request id and key in the CSV output.
+        explode: true
+        in: query
+        name: include_request
+        required: false
+        schema:
+          default: "false"
+          enum:
+          - "true"
+          - T
+          - "false"
+          - F
+          type: string
+        style: form
+      - description: Decides what type of trades to return, default is all trades
+          and quotes, alternatively charting can be selected which will filter out
+          unofficial trades.
+        explode: true
+        in: query
+        name: dataset
+        required: false
+        schema:
+          enum:
+          - ""
+          - charting
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                Request ID: ""
+                Requested Symbol: IBM-USA
+                Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+                Request Key: 5C8926159C36F315
+                Error Code: 0
+                Error Description: ""
+                Field Names:
+                - LAST_1
+                - LAST_TIME_1
+                - LAST_VOL_1
+                Field IDs:
+                - 300
+                - 302
+                - 304
+                Key: IBM-USA:D
+                Values:
+                - - 139.59
+                  - 105955785
+                  - 326658
+                - - 138.1872
+                  - 115957067
+                  - 444631
+                - - 137.4711
+                  - 125957913
+                  - 477766
+                - - 137.7599
+                  - 135956519
+                  - 252993
+                - - 137.81
+                  - 140059812
+                  - 4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            application/xml:
+              example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
+                code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
+                stale=""><Record><Fields><Field id="300" name="LAST_1" value="145.96"/><Field
+                id="302" name="LAST_TIME_1" value="105959029"/><Field id="304" name="LAST_VOL_1"
+                value="638559"/></Fields></Record><Record><Fields><Field id="300"
+                name="LAST_1" value="145.95"/><Field id="302" name="LAST_TIME_1" value="115956985"/><Field
+                id="304" name="LAST_VOL_1" value="359625"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.82"/><Field id="302" name="LAST_TIME_1"
+                value="125955145"/><Field id="304" name="LAST_VOL_1" value="280630"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.74"/><Field id="302" name="LAST_TIME_1"
+                value="135955094"/><Field id="304" name="LAST_VOL_1" value="256692"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
+                value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            text/csv:
+              example: |
+                LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+          description: OK  x
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Access Denied. The user is not authorized to view the data
+            requested. Contact FactSet Consulting Services for assistance.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP URL. Necessary query parameters are missing in
+            the request. The description field will indicate the exact reason.
+        "405":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request lenght (currently set at 5000 bytes. The description
+            field will indicate the exact reason.
+      summary: Request returns data for the first trade (official and unofficial)
+        after the specified time
+      tags:
+      - First Trade
+      x-accepts: application/json
+  /TickHistory/lasttrade:
+    get:
+      parameters:
+      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
+          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
+          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
+          CSV_NO_HEADER
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: XML
+          enum:
+          - XML
+          - JSON
+          - CSV
+          - CSV_NO_HEADER
+          type: string
+        style: form
+      - description: Request should be made in the format **YYYYMMDD**. The initial
+          release only supports requests from completed trading days
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Request should be made in the format **HHMMSS**.HH- Hour, MM-
+          Minutes, SSS- Seconds
+        explode: true
+        in: query
+        name: time
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                Request ID: ""
+                Requested Symbol: IBM-USA
+                Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+                Request Key: 5C8926159C36F315
+                Error Code: 0
+                Error Description: ""
+                Field Names:
+                - LAST_1
+                - LAST_TIME_1
+                - LAST_VOL_1
+                Field IDs:
+                - 300
+                - 302
+                - 304
+                Key: IBM-USA:D
+                Values:
+                - - 139.59
+                  - 105955785
+                  - 326658
+                - - 138.1872
+                  - 115957067
+                  - 444631
+                - - 137.4711
+                  - 125957913
+                  - 477766
+                - - 137.7599
+                  - 135956519
+                  - 252993
+                - - 137.81
+                  - 140059812
+                  - 4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            application/xml:
+              example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
+                code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
+                stale=""><Record><Fields><Field id="300" name="LAST_1" value="145.96"/><Field
+                id="302" name="LAST_TIME_1" value="105959029"/><Field id="304" name="LAST_VOL_1"
+                value="638559"/></Fields></Record><Record><Fields><Field id="300"
+                name="LAST_1" value="145.95"/><Field id="302" name="LAST_TIME_1" value="115956985"/><Field
+                id="304" name="LAST_VOL_1" value="359625"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.82"/><Field id="302" name="LAST_TIME_1"
+                value="125955145"/><Field id="304" name="LAST_VOL_1" value="280630"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.74"/><Field id="302" name="LAST_TIME_1"
+                value="135955094"/><Field id="304" name="LAST_VOL_1" value="256692"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
+                value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            text/csv:
+              example: |
+                LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+          description: OK  x
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Access Denied. The user is not authorized to view the data
+            requested. Contact FactSet Consulting Services for assistance.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP URL. Necessary query parameters are missing in
+            the request. The description field will indicate the exact reason.
+        "405":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request lenght (currently set at 5000 bytes. The description
+            field will indicate the exact reason.
+      summary: Request returns data for the last trade and associated quotes before
+        the specified time
+      tags:
+      - Last Trade
+      x-accepts: application/json
+  /TickHistory/qat:
+    get:
+      parameters:
+      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
+          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
+          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Request should be made in the format **YYYYMMDD**. The initial
+          release only supports requests from completed trading days
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Request should be made in the format **HHMMSSS**.HH- Hour, MM-
+          Minutes, SS- Seconds
+        explode: true
+        in: query
+        name: time
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
+          CSV_NO_HEADER
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: XML
+          enum:
+          - XML
+          - JSON
+          - CSV
+          - CSV_NO_HEADER
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                Request ID: ""
+                Requested Symbol: IBM-USA
+                Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+                Request Key: 5C8926159C36F315
+                Error Code: 0
+                Error Description: ""
+                Field Names:
+                - LAST_1
+                - LAST_TIME_1
+                - LAST_VOL_1
+                Field IDs:
+                - 300
+                - 302
+                - 304
+                Key: IBM-USA:D
+                Values:
+                - - 139.59
+                  - 105955785
+                  - 326658
+                - - 138.1872
+                  - 115957067
+                  - 444631
+                - - 137.4711
+                  - 125957913
+                  - 477766
+                - - 137.7599
+                  - 135956519
+                  - 252993
+                - - 137.81
+                  - 140059812
+                  - 4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            application/xml:
+              example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
+                code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
+                stale=""><Record><Fields><Field id="300" name="LAST_1" value="145.96"/><Field
+                id="302" name="LAST_TIME_1" value="105959029"/><Field id="304" name="LAST_VOL_1"
+                value="638559"/></Fields></Record><Record><Fields><Field id="300"
+                name="LAST_1" value="145.95"/><Field id="302" name="LAST_TIME_1" value="115956985"/><Field
+                id="304" name="LAST_VOL_1" value="359625"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.82"/><Field id="302" name="LAST_TIME_1"
+                value="125955145"/><Field id="304" name="LAST_VOL_1" value="280630"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.74"/><Field id="302" name="LAST_TIME_1"
+                value="135955094"/><Field id="304" name="LAST_VOL_1" value="256692"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
+                value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            text/csv:
+              example: |
+                LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+          description: OK  x
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Access Denied. The user is not authorized to view the data
+            requested. Contact FactSet Consulting Services for assistance.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP URL. Necessary query parameters are missing in
+            the request. The description field will indicate the exact reason.
+        "405":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request lenght (currently set at 5000 bytes. The description
+            field will indicate the exact reason.
+      summary: Request returns a quote at the specified time
+      tags:
+      - Quote at Time
+      x-accepts: application/json
+  /TickHistory/tradesattime:
+    get:
+      parameters:
+      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
+          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
+          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Request Identification String. Can be used by the application
+          to keep track of requests. The id is not used by this service, however,
+          it is included in the XML response.
+        explode: true
+        in: query
+        name: req_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
+          CSV_NO_HEADER
+        explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          default: XML
+          enum:
+          - XML
+          - JSON
+          - CSV
+          - CSV_NO_HEADER
+          type: string
+        style: form
+      - description: Request should be made in the format **YYYYMMDD**. The initial
+          release only supports requests from completed trading days
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Request should be made in the format **HHMMSSS**.HH- Hour, MM-
+          Minutes, SS- Seconds
+        explode: true
+        in: query
+        name: time
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                Request ID: ""
+                Requested Symbol: IBM-USA
+                Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+                Request Key: 5C8926159C36F315
+                Error Code: 0
+                Error Description: ""
+                Field Names:
+                - LAST_1
+                - LAST_TIME_1
+                - LAST_VOL_1
+                Field IDs:
+                - 300
+                - 302
+                - 304
+                Key: IBM-USA:D
+                Values:
+                - - 139.59
+                  - 105955785
+                  - 326658
+                - - 138.1872
+                  - 115957067
+                  - 444631
+                - - 137.4711
+                  - 125957913
+                  - 477766
+                - - 137.7599
+                  - 135956519
+                  - 252993
+                - - 137.81
+                  - 140059812
+                  - 4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            application/xml:
+              example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
+                code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
+                stale=""><Record><Fields><Field id="300" name="LAST_1" value="145.96"/><Field
+                id="302" name="LAST_TIME_1" value="105959029"/><Field id="304" name="LAST_VOL_1"
+                value="638559"/></Fields></Record><Record><Fields><Field id="300"
+                name="LAST_1" value="145.95"/><Field id="302" name="LAST_TIME_1" value="115956985"/><Field
+                id="304" name="LAST_VOL_1" value="359625"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.82"/><Field id="302" name="LAST_TIME_1"
+                value="125955145"/><Field id="304" name="LAST_VOL_1" value="280630"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.74"/><Field id="302" name="LAST_TIME_1"
+                value="135955094"/><Field id="304" name="LAST_VOL_1" value="256692"/></Fields></Record><Record><Fields><Field
+                id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
+                value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+            text/csv:
+              example: |
+                LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
+              schema:
+                $ref: '#/components/schemas/tickhistory_response'
+          description: OK  x
+        "401":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Access Denied. The user is not authorized to view the data
+            requested. Contact FactSet Consulting Services for assistance.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP URL. Necessary query parameters are missing in
+            the request. The description field will indicate the exact reason.
+        "405":
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: object
+          description: Invalid HTTP method. Either the method is not GET or exceeds
+            the maximum request lenght (currently set at 5000 bytes. The description
+            field will indicate the exact reason.
+      summary: Request returns the before and after trade data along with the associated
+        quotes for the specified time
+      tags:
+      - Trades at Time
+      x-accepts: application/json
+components:
+  parameters:
+    req_id:
+      description: Request Identification String. Can be used by the application to
+        keep track of requests.  The id is not used by this service, however, it is
+        included in the XML response.
+      explode: true
+      in: query
+      name: req_id
+      required: false
+      schema:
+        type: string
+      style: form
+    format:
+      description: The format of the output file. **TRY IT OUT** Choose from JSON,
+        CSV, CSV_NO_HEADER
+      explode: true
+      in: query
+      name: format
+      required: false
+      schema:
+        default: XML
+        enum:
+        - XML
+        - JSON
+        - CSV
+        - CSV_NO_HEADER
+        type: string
+      style: form
+    id:
+      description: 'Requested symbol or security. The symbol can be a FactSet exchange
+        symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per
+        request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        type: string
+      style: form
+    fields:
+      description: All available fields. This is a comma-seperated list (no spaces).
+        See definitions for details. Default is all fields when left blank.
+      explode: true
+      in: query
+      name: fields
+      required: false
+      schema:
+        type: string
+      style: form
+    sd:
+      description: This is the start date for the Snapshot History. Requests should
+        be made in the format **YYYYMMDD**. Default is current business day. Field
+        can be sd or date. **TRY IT OUT** Cannot use current day.
+      explode: true
+      in: query
+      name: sd
+      required: false
+      schema:
+        type: string
+      style: form
+    ed:
+      description: This is the end date for teh Snapshot History. Requests should
+        be made in the format **YYYYMMDD**. If the period requested is larger than
+        Max. Days requested, results will be limited to the Max Days starting at sd/date.
+        Defautl is sd or date. **TRY IT OUT** Cannot use current day.
+      explode: true
+      in: query
+      name: ed
+      required: false
+      schema:
+        type: string
+      style: form
+    st:
+      description: Requested start time. This is the start time for the snapshot history
+        requested. Requests should be made in a **HHMMSSS** format. Range from 000000
+        - 235959. **TRY IT OUT** Cannot use current day.
+      explode: true
+      in: query
+      name: st
+      required: false
+      schema:
+        default: "040000"
+        type: string
+      style: form
+    et:
+      description: Requested end time. This is the end time for the snapshot history
+        requested. Requests should be made in a **HHMMSSS** format. Range from 000000
+        - 235959. **TRY IT OUT** Cannot use current day.
+      explode: true
+      in: query
+      name: et
+      required: false
+      schema:
+        default: "200000"
+        type: string
+      style: form
+    interval:
+      description: Requested time interval. This is the interval the data is returned
+        from the service. Possible values from 1 Second (1S) to 1 Hour (1H). A maximum
+        of 10 Tick History Requests and a maximum of 100,000 rows of data may be made
+        in any one-minute period. Additional subsctiption is available to access 20
+        requests/200,000 rows of data per minute. Contact your FactSet team for details.
+      explode: true
+      in: query
+      name: interval
+      required: false
+      schema:
+        default: 1M
+        enum:
+        - "0"
+        - 1S
+        - 5S
+        - 10S
+        - 15S
+        - 30S
+        - 1M
+        - 2M
+        - 5M
+        - 10M
+        - 15M
+        - 30M
+        - 1H
+        type: string
+      style: form
+    include_request:
+      description: Flag to include request id and key in the CSV output.
+      explode: true
+      in: query
+      name: include_request
+      required: false
+      schema:
+        default: "false"
+        enum:
+        - "true"
+        - T
+        - "false"
+        - F
+        type: string
+      style: form
+    dataset:
+      description: Decides what type of trades to return, default is all trades and
+        quotes, alternatively charting can be selected which will filter out unofficial
+        trades.
+      explode: true
+      in: query
+      name: dataset
+      required: false
+      schema:
+        enum:
+        - ""
+        - charting
+        type: string
+      style: form
+  schemas:
+    fields:
+      description: All available fields in service. FID = Field ID Number.
+      properties:
+        BID_1:
+          description: 'The last bid price or last bid price in an interval. FID #
+            100'
+          format: float
+          type: number
+        BID_VOL_1:
+          description: 'The volume of the last bid in an interval. FID # 104'
+          type: integer
+        BID_EXCH_1:
+          description: 'The volume of the last bid or last bid in an interval. FID
+            # 107. Enumeration Table 7'
+          type: string
+        ASK_1:
+          description: 'The last ask price or last ask price in an interval. FID #
+            200'
+          format: float
+          type: number
+        ASK_VOL_1:
+          description: 'The volume of the last ask or last ask in an interval. FID
+            # 204'
+          type: integer
+        ASK_EXCH_1:
+          description: 'The exchange of the last ask or last ask in an interval. FID
+            # 207. Enumeration Table 7.'
+          type: string
+        LAST_1:
+          description: 'The last trade price or last trade price in an interval. FID
+            # 300'
+          format: float
+          type: number
+        LAST_DATE_1:
+          description: 'The date of the last trade or last trade in an interval. FID
+            # 301'
+          type: string
+        LAST_TIME_1:
+          description: 'The time of the last trade or last trade in an interval. FID
+            # 302'
+          type: string
+        LAST_VOL_1:
+          description: 'The trade volume, or the sum of all trade volumes inside a
+            bin. FID # 304'
+          type: integer
+        LAST_EXCH_1:
+          description: 'The exchange of the last trade or last trade in an interval.
+            FID # 307. Enumeration Table 7'
+          type: string
+        CUM_VOL:
+          description: 'The symbol''s daily cumulative volume, or the last cumulative
+            volume in an interval. FID # 601'
+          type: integer
+        VWAP:
+          description: 'The daily volume weighted average price, or the last VWAP
+            in an interval. FID # 603'
+          format: float
+          type: number
+        OPEN_1:
+          description: 'The first trade of an interval. FID # 710'
+          format: float
+          type: number
+        HIGH_1:
+          description: 'The highest trade price in an interval. FID # 720'
+          format: float
+          type: number
+        LOW_1:
+          description: 'The lowest trade price in an interval. FID # 723'
+          format: float
+          type: number
+        TRADE_CONDITION:
+          description: 'Trade Condition. FID # 2709'
+          type: string
+        GMT_OFFSET:
+          description: 'GMT Offset in Minutes. FID # 2037'
+          type: integer
+        PRICE_CURRENCY:
+          description: 'Price Currency Code. FID # 2032'
+          type: string
+      type: object
+    tickhistory_response:
+      description: response for tick history
+      example:
+        Request Key: 5C8926159C36F315
+        Field IDs: 0.8008281904610115
+        Requested ID: ""
+        Field Names: ""
+        Values: 6.027456183070403
+        Requested Fields: LAST_1,LAST_TIME_1,LAST_VOL_1
+        Requested Symbol: IBM-USA
+        Error Description: ""
+        Key: IBM-USA:D
+        Error Code: "0"
+      properties:
+        Requested ID:
+          description: Request Identification String.
+          example: ""
+          type: string
+        Requested Symbol:
+          description: Single Requested Symbol or Security.
+          example: IBM-USA
+          type: string
+        Requested Fields:
+          description: 'Array of requested fields '
+          example: LAST_1,LAST_TIME_1,LAST_VOL_1
+          items:
+            $ref: '#/components/schemas/fields'
+          type: array
+        Request Key:
+          example: 5C8926159C36F315
+          type: string
+        Error Code:
+          example: "0"
+          type: string
+        Error Description:
+          description: Brief description of error response. Blank if successful.
+          example: ""
+          type: string
+        Field Names:
+          description: Requested Field Names
+          example: ""
+          type: string
+        Field IDs:
+          description: Requested Field ID numbers 'FID'. Found in Data Service Manual.
+          type: number
+        Key:
+          description: Requested Symbol Key, where :D represented delayed data.
+          example: IBM-USA:D
+          type: string
+        Values:
+          description: Array of field values. Each value is returned for requested
+            interval query.
+          type: number
+      type: object
+    intervals:
+      properties:
+        "0":
+          description: Every Tick. Max days requested = 1
+          type: string
+        "1S":
+          description: 1 Second. Max days requested = 1
+          type: string
+        "5S":
+          description: 5 Seconds. Max days requested = 1
+          type: string
+        "10S":
+          description: 10 Seconds. Max days requested = 1
+          type: string
+        "15S":
+          description: 15 Seconds. Max days requested = 1
+          type: string
+        "30S":
+          description: 30 Seconds. Max days requested = 15
+          type: string
+        "1M":
+          description: 1 Minute. Max days requested = 30
+          type: string
+        "2M":
+          description: 2 Minutes. Max days requested = 60
+          type: string
+        "5M":
+          description: 5 Minutes. Max days requested = 60
+          type: string
+        "10M":
+          description: 10 Minutes. Max days requested = 60
+          type: string
+        "15M":
+          description: 15 Minutes. Max days requested = 60
+          type: string
+        "30M":
+          description: 30 Minutes. Max days requested = 60
+          type: string
+        "1H":
+          description: 1 Hour. Max days requested = 60
+          type: string
+      title: intervals
+      type: object
+    specialfield:
+      properties:
+        NF:
+          description: '**#NF#** - Not found. The requested symbol could not be found
+            by the service.'
+          type: string
+        NA:
+          description: '**#NA#** - Not Applicable. The requested field could not be
+            found for the requested symbol. This usually means that the field is not
+            applicable for this type of record.'
+          type: object
+      title: special field values
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

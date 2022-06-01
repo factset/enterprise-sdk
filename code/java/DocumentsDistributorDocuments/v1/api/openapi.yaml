@@ -284,6 +284,10 @@ components:
           type: string
       type: object
     checkstatusResponse:
+      items:
+        $ref: '#/components/schemas/checkstatus'
+      type: array
+    checkstatus:
       example:
         jobID: jobID
         percentDone: 0
@@ -318,29 +322,10 @@ components:
           type: integer
       type: object
     getfilesResponse:
-      example:
-        data:
-        - jobID: jobID
-          product: product
-          endDate: 2000-01-23
-          part: 0
-          startDate: 2000-01-23
-          url: url
-          status: status
-        - jobID: jobID
-          product: product
-          endDate: 2000-01-23
-          part: 0
-          startDate: 2000-01-23
-          url: url
-          status: status
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/getResponse'
-          type: array
-      type: object
-    getResponse:
+      items:
+        $ref: '#/components/schemas/getfiles'
+      type: array
+    getfiles:
       example:
         jobID: jobID
         product: product

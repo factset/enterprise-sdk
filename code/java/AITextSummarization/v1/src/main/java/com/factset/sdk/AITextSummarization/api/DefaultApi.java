@@ -121,7 +121,7 @@ public class DefaultApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/result/{result_id}"
+    String localVarPath = "/result/{result_id}"
       .replaceAll("\\{" + "result_id" + "\\}", apiClient.escapeString(resultId.toString()));
 
     // query params
@@ -201,7 +201,7 @@ public class DefaultApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/headline-and-summary";
+    String localVarPath = "/headline-and-summary";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -280,7 +280,7 @@ public class DefaultApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/headline";
+    String localVarPath = "/headline";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -359,7 +359,7 @@ public class DefaultApi {
     }
     
     // create path and map variables
-    String localVarPath = "/v1/summary";
+    String localVarPath = "/summary";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

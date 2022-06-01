@@ -42,7 +42,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// </summary>
         /// <param name="universeName">Universe name (required).</param>
         /// <param name="universeDescription">Universe description.</param>
-        public CreateUniverseRequest(string universeName = default(string), string universeDescription = default(string))
+        /// <param name="universeType">Universe type.</param>
+        public CreateUniverseRequest(string universeName = default(string), string universeDescription = default(string), string universeType = default(string))
         {
             // to ensure "universeName" is required (not null)
             if (universeName == null) {
@@ -50,6 +51,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
             }
             this.UniverseName = universeName;
             this.UniverseDescription = universeDescription;
+            this.UniverseType = universeType;
         }
 
         /// <summary>
@@ -67,6 +69,13 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public string UniverseDescription { get; set; }
 
         /// <summary>
+        /// Universe type
+        /// </summary>
+        /// <value>Universe type</value>
+        [DataMember(Name = "universeType", EmitDefaultValue = false)]
+        public string UniverseType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
             sb.Append("class CreateUniverseRequest {\n");
             sb.Append("  UniverseName: ").Append(UniverseName).Append("\n");
             sb.Append("  UniverseDescription: ").Append(UniverseDescription).Append("\n");
+            sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,6 +130,11 @@ namespace FactSet.SDK.FactSetConcordance.Model
                     this.UniverseDescription == input.UniverseDescription ||
                     (this.UniverseDescription != null &&
                     this.UniverseDescription.Equals(input.UniverseDescription))
+                ) && 
+                (
+                    this.UniverseType == input.UniverseType ||
+                    (this.UniverseType != null &&
+                    this.UniverseType.Equals(input.UniverseType))
                 );
         }
 
@@ -139,6 +154,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 if (this.UniverseDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.UniverseDescription.GetHashCode();
+                }
+                if (this.UniverseType != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseType.GetHashCode();
                 }
                 return hashCode;
             }

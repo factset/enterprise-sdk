@@ -23,7 +23,7 @@ import ServiceProviderConfigSort from './ServiceProviderConfigSort';
 /**
  * The ServiceProviderConfig model module.
  * @module model/ServiceProviderConfig
- * @version 0.20.0
+ * @version 0.20.1
  */
 class ServiceProviderConfig {
     /**

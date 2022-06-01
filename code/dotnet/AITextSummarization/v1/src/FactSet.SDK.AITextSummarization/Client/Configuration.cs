@@ -32,7 +32,7 @@ namespace FactSet.SDK.AITextSummarization.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.20.0";
+        public const string Version = "0.20.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,8 +104,8 @@ namespace FactSet.SDK.AITextSummarization.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/AITextSummarization/0.20.0";
-            BasePath = "http://ai-text-summarization-staging.factset.io";
+            UserAgent = "fds-sdk/dotnet/AITextSummarization/0.20.1";
+            BasePath = "http://api.factset.com/cognitive/summarization/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -113,7 +113,7 @@ namespace FactSet.SDK.AITextSummarization.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "//ai-text-summarization-staging.factset.io"},
+                        {"url", "//api.factset.com/cognitive/summarization/v1"},
                         {"description", "No description provided"},
                     }
                 }
@@ -131,7 +131,7 @@ namespace FactSet.SDK.AITextSummarization.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://ai-text-summarization-staging.factset.io") : this()
+            string basePath = "http://api.factset.com/cognitive/summarization/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -460,7 +460,7 @@ namespace FactSet.SDK.AITextSummarization.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.20.0\n";
+            report += "    SDK Package Version: 0.20.1\n";
 
             return report;
         }

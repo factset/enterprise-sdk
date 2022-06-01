@@ -111,7 +111,7 @@ conf = fds.sdk.AITextSummarization.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "http://ai-text-summarization-staging.factset.io" if host is None else host
+        self._base_path = "http://api.factset.com/cognitive/summarization/v1" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -421,7 +421,7 @@ conf = fds.sdk.AITextSummarization.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 0.20.0".\
+               "SDK Package Version: 0.20.1".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -431,7 +431,7 @@ conf = fds.sdk.AITextSummarization.Configuration(
         """
         return [
             {
-                'url': "//ai-text-summarization-staging.factset.io",
+                'url': "//api.factset.com/cognitive/summarization/v1",
                 'description': "No description provided",
             }
         ]

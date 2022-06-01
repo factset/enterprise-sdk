@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-factsetcontentapibatch",
+  "projectVersion": "0.20.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "FactSet Content API Batch client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "factsetcontentapibatch",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FactSetContentAPIBatch/0.20.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

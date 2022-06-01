@@ -38,16 +38,18 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="universeId">The universe identifier.</param>
         /// <param name="universeName">The user specified universe name.</param>
         /// <param name="universeDescription">The user specified universe description.</param>
+        /// <param name="universeType">The user specified universe type..</param>
         /// <param name="selfManaged">False if the universe is managed by FactSet Managed Service, True otherwise.</param>
         /// <param name="createdBy">The user who created the universe.</param>
         /// <param name="createdOn">When the universe was created.</param>
         /// <param name="updatedBy">The user who most recently updated the universe metadata.</param>
         /// <param name="updatedOn">When the universe metadata was most recently updated.</param>
-        public UniverseMeta(int universeId = default(int), string universeName = default(string), string universeDescription = default(string), bool selfManaged = default(bool), string createdBy = default(string), DateTime createdOn = default(DateTime), string updatedBy = default(string), DateTime updatedOn = default(DateTime))
+        public UniverseMeta(int? universeId = default(int?), string universeName = default(string), string universeDescription = default(string), string universeType = default(string), bool? selfManaged = default(bool?), string createdBy = default(string), DateTime? createdOn = default(DateTime?), string updatedBy = default(string), DateTime? updatedOn = default(DateTime?))
         {
             this.UniverseId = universeId;
             this.UniverseName = universeName;
             this.UniverseDescription = universeDescription;
+            this.UniverseType = universeType;
             this.SelfManaged = selfManaged;
             this.CreatedBy = createdBy;
             this.CreatedOn = createdOn;
@@ -59,57 +61,64 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// The universe identifier
         /// </summary>
         /// <value>The universe identifier</value>
-        [DataMember(Name = "universeId", EmitDefaultValue = false)]
-        public int UniverseId { get; set; }
+        [DataMember(Name = "universeId", EmitDefaultValue = true)]
+        public int? UniverseId { get; set; }
 
         /// <summary>
         /// The user specified universe name
         /// </summary>
         /// <value>The user specified universe name</value>
-        [DataMember(Name = "universeName", EmitDefaultValue = false)]
+        [DataMember(Name = "universeName", EmitDefaultValue = true)]
         public string UniverseName { get; set; }
 
         /// <summary>
         /// The user specified universe description
         /// </summary>
         /// <value>The user specified universe description</value>
-        [DataMember(Name = "universeDescription", EmitDefaultValue = false)]
+        [DataMember(Name = "universeDescription", EmitDefaultValue = true)]
         public string UniverseDescription { get; set; }
+
+        /// <summary>
+        /// The user specified universe type.
+        /// </summary>
+        /// <value>The user specified universe type.</value>
+        [DataMember(Name = "universeType", EmitDefaultValue = true)]
+        public string UniverseType { get; set; }
 
         /// <summary>
         /// False if the universe is managed by FactSet Managed Service, True otherwise
         /// </summary>
         /// <value>False if the universe is managed by FactSet Managed Service, True otherwise</value>
         [DataMember(Name = "selfManaged", EmitDefaultValue = true)]
-        public bool SelfManaged { get; set; }
+        public bool? SelfManaged { get; set; }
 
         /// <summary>
         /// The user who created the universe
         /// </summary>
         /// <value>The user who created the universe</value>
-        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
         public string CreatedBy { get; set; }
 
         /// <summary>
         /// When the universe was created
         /// </summary>
         /// <value>When the universe was created</value>
-        [DataMember(Name = "createdOn", EmitDefaultValue = false)]
-        public DateTime CreatedOn { get; set; }
+        [DataMember(Name = "createdOn", EmitDefaultValue = true)]
+        public DateTime? CreatedOn { get; set; }
 
         /// <summary>
         /// The user who most recently updated the universe metadata
         /// </summary>
         /// <value>The user who most recently updated the universe metadata</value>
-        [DataMember(Name = "updatedBy", EmitDefaultValue = false)]
+        [DataMember(Name = "updatedBy", EmitDefaultValue = true)]
         public string UpdatedBy { get; set; }
 
         /// <summary>
         /// When the universe metadata was most recently updated
         /// </summary>
         /// <value>When the universe metadata was most recently updated</value>
-        [DataMember(Name = "updatedOn", EmitDefaultValue = false)]
-        public DateTime UpdatedOn { get; set; }
+        [DataMember(Name = "updatedOn", EmitDefaultValue = true)]
+        public DateTime? UpdatedOn { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,6 +131,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
             sb.Append("  UniverseId: ").Append(UniverseId).Append("\n");
             sb.Append("  UniverseName: ").Append(UniverseName).Append("\n");
             sb.Append("  UniverseDescription: ").Append(UniverseDescription).Append("\n");
+            sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  SelfManaged: ").Append(SelfManaged).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
@@ -164,7 +174,8 @@ namespace FactSet.SDK.FactSetConcordance.Model
             return 
                 (
                     this.UniverseId == input.UniverseId ||
-                    this.UniverseId.Equals(input.UniverseId)
+                    (this.UniverseId != null &&
+                    this.UniverseId.Equals(input.UniverseId))
                 ) && 
                 (
                     this.UniverseName == input.UniverseName ||
@@ -177,8 +188,14 @@ namespace FactSet.SDK.FactSetConcordance.Model
                     this.UniverseDescription.Equals(input.UniverseDescription))
                 ) && 
                 (
+                    this.UniverseType == input.UniverseType ||
+                    (this.UniverseType != null &&
+                    this.UniverseType.Equals(input.UniverseType))
+                ) && 
+                (
                     this.SelfManaged == input.SelfManaged ||
-                    this.SelfManaged.Equals(input.SelfManaged)
+                    (this.SelfManaged != null &&
+                    this.SelfManaged.Equals(input.SelfManaged))
                 ) && 
                 (
                     this.CreatedBy == input.CreatedBy ||
@@ -211,7 +228,10 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                if (this.UniverseId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                }
                 if (this.UniverseName != null)
                 {
                     hashCode = (hashCode * 59) + this.UniverseName.GetHashCode();
@@ -220,7 +240,14 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 {
                     hashCode = (hashCode * 59) + this.UniverseDescription.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SelfManaged.GetHashCode();
+                if (this.UniverseType != null)
+                {
+                    hashCode = (hashCode * 59) + this.UniverseType.GetHashCode();
+                }
+                if (this.SelfManaged != null)
+                {
+                    hashCode = (hashCode * 59) + this.SelfManaged.GetHashCode();
+                }
                 if (this.CreatedBy != null)
                 {
                     hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();

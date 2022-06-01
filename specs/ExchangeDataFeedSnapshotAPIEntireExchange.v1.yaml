@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: Exchange Snapshot API
+  version: '1.0'
+  description: >-
+    A service that provides access to Real Time or Delayed data snapped at
+    hourly intervals for an entire Exchange. Clients that need access to the
+    DFSnapshot product for a custom watchlist snapped at a client specified
+    interval should use this API
+  contact:
+    name: Team Mustang
+    email: teammustang@factset.com
+servers:
+  - url: https://api.factset.com/bulk-documents/exchange-snapshot
+paths:
+  /v1/list-files:
+    get:
+      summary: Snapshot
+      tags:
+        - Snapshot
+      responses:
+        '200':
+          description: 'Success '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  product:
+                    type: string
+                    description: Product (Exchange) Code for which the data is requested
+                  date:
+                    type: string
+                    description: Date for which the snapshot is generated
+                  time:
+                    type: string
+                    description: Time for which the snapshot is generated
+                  responseType:
+                    type: string
+                    description: Type of data "RT" or "DL"
+                  fileName:
+                    type: string
+                    description: >-
+                      fileName a combination of product code, date of snapshot &
+                      time of snapshot
+                  url:
+                    type: string
+                    description: download link of snapshot file
+              examples:
+                Sample Response:
+                  value:
+                    product: '10001'
+                    date: '20210604'
+                    time: '0800'
+                    responseType: DL
+                    fileName: 10001_20210604-0800.csv.gz
+                    url: >-
+                      https://fdss3-quotes-timed-snapshot-stage.s3.amazonaws.com/DL/10001_20210604-0800.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAUPYONY3ISNP4VUCF%2F20210607%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210607T200717Z&X-Amz-Expires=43200&X-Amz-Security-Token=FwoGZXIvYXdzEL7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDP%2FDn2HdZcDOLKNnGiL4AZoairNbKIsTgOKJveIJp64svOMyehuoHc2uJ2rKaI46HR3nP6ew1Ovqg%2FdS%2BoljndNlCtG2jKrM7SOt%2BDxirwnTOe6O%2FDuYU1z8l4uwUXrFB6ENyOoZmbWdJpZ2H1LSAoVAfX1IVY5eOYkhK8VA8V7P9jhmKIC1WHSR4ssFsGWXMQYsS%2F8zZvrybHlaeoDfcopiAulzn%2BsmYgzATwJrnxIAcc9O1NfrTOLKRHeeEagNFj4UZWhDJ2xWnMQ0YghylcowaR8SSxyLM8u38OmAOKrUFp9DKGZ9CBtvHyskJ1%2Fr6T%2BWRjTQWQw%2F747U6ftuy5AypxYIGMWbKPT4%2BYUGMiv2Qbz2V8ebQjM8Ptg%2BwKKhJ24h6LOdgqQEn4JFk9%2BAeS1%2Fiu6NQngA1gKh&X-Amz-SignedHeaders=host&X-Amz-Signature=3173444a681f696a40348ae175a8a38cee908fc76312934b9404b98bb5d0a80d
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error-Messages'
+              examples:
+                error_message:
+                  value:
+                    error_message: Missing or Wrong product parameter
+      operationId: get-v1-list-files
+      description: >-
+        A service that provides access to Real Time or Delayed data snapped at
+        hourly intervals for an entire Exchange
+      parameters:
+        - schema:
+            type: integer
+            minimum: 9001
+            example: 10001
+          in: query
+          name: product
+          required: true
+          description: any product subscribed by client. Minimum value for prod code=9001
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: start_date
+          required: true
+          description: YYYYMMDD (Choose between 1 and 4 previous trading days)
+        - schema:
+            type: string
+            format: date
+          in: query
+          name: end_date
+          description: >-
+            YYYYMMDD (Choose between 1 and 4 previous trading days, greater than
+            or equal to start date)
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: start_time
+          required: true
+          description: HHMM (24 hour time EST)
+        - schema:
+            type: string
+            format: time
+          in: query
+          name: end_time
+          required: true
+          description: HHMM (24 hour time EST)
+        - schema:
+            type: string
+            enum:
+              - static
+              - DL
+              - RT
+            default: DL
+          in: query
+          name: access
+          required: false
+          description: Option to select from static, DL or RT data
+    parameters: []
+components:
+  schemas:
+    data:
+      title: data
+      description: Array of data objects
+      type: object
+      properties:
+        product:
+          type: integer
+          description: Product or Exchange code. Minimum value for prod code=9001
+        date:
+          type: string
+          description: Date for which data is requested
+        time:
+          type: string
+          description: time for which data is requested
+        responseType:
+          type: string
+          description: Type of data (Delayed or Real Time)
+        fileName:
+          type: string
+          description: >-
+            Name of the file(s) generated for the query requested. This is a
+            combination of product code, date & time of request
+        url:
+          type: string
+          description: Download link for the snapshot file with requested parameters
+    meta:
+      title: meta
+      type: object
+      description: Array of metadata objects
+      properties:
+        sort:
+          type: string
+          description: ''
+    Error-Messages:
+      title: Error-Messages
+      type: object
+      properties:
+        Permission Error:
+          type: string
+          description: >-
+            Error message when user is not subscribed to the Exchange Snapshot
+            API
+        Param Error:
+          type: string
+          description: when the parameters passed in the query are incorrect or missing
+        startDate:
+          type: string
+          description: startDate must be < 0
+        endDate:
+          type: string
+          description: endDate must be < 0
+      x-examples:
+        example-1:
+          Permission Error: 'You are not subscribed to this product: Exchange Snapshot API'
+          Param Error: Missing or Wrong product parameter
+          startDate: Missing or Wrong date parameter
+          endDate: Missing or Wrong date parameter
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []

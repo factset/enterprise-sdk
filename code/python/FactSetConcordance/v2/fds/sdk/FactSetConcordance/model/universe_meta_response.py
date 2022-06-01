@@ -31,8 +31,8 @@ from fds.sdk.FactSetConcordance.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.FactSetConcordance.model.universe_meta import UniverseMeta
-    globals()['UniverseMeta'] = UniverseMeta
+    from fds.sdk.FactSetConcordance.model.universe import Universe
+    globals()['Universe'] = Universe
 
 
 class UniverseMetaResponse(ModelNormal):
@@ -88,7 +88,7 @@ class UniverseMetaResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (UniverseMeta,),  # noqa: E501
+            'data': (Universe,),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class UniverseMetaResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (UniverseMeta): [optional]  # noqa: E501
+            data (Universe): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class UniverseMetaResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (UniverseMeta): [optional]  # noqa: E501
+            data (Universe): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

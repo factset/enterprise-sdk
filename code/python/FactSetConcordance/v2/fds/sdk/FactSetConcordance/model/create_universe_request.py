@@ -84,6 +84,7 @@ class CreateUniverseRequest(ModelNormal):
         return {
             'universe_name': (str,),  # noqa: E501
             'universe_description': (str,),  # noqa: E501
+            'universe_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class CreateUniverseRequest(ModelNormal):
     attribute_map = {
         'universe_name': 'universeName',  # noqa: E501
         'universe_description': 'universeDescription',  # noqa: E501
+        'universe_type': 'universeType',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +143,7 @@ class CreateUniverseRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             universe_description (str): Universe description. [optional]  # noqa: E501
+            universe_type (str): Universe type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,6 +230,7 @@ class CreateUniverseRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             universe_description (str): Universe description. [optional]  # noqa: E501
+            universe_type (str): Universe type. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.20.0
+* @version 0.20.1
 */
 
 /**
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetConcordance/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/FactSetConcordance/0.20.1'
         };
 
         /**

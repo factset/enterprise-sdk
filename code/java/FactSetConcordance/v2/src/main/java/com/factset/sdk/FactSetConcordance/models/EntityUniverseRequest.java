@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.FactSetConcordance.models.MapStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -53,8 +52,45 @@ public class EntityUniverseRequest implements Serializable {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Integer limit;
 
+  /**
+   * Gets or Sets mapStatus
+   */
+  public enum MapStatusEnum {
+    MAPPED("MAPPED"),
+    
+    UNMAPPED("UNMAPPED"),
+    
+    INDETERMINATE("INDETERMINATE");
+
+    private String value;
+
+    MapStatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static MapStatusEnum fromValue(String value) {
+      for (MapStatusEnum b : MapStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_MAP_STATUS = "mapStatus";
-  private java.util.List<MapStatus> mapStatus = null;
+  private java.util.List<MapStatusEnum> mapStatus = null;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private java.util.List<String> clientId = null;
@@ -148,12 +184,12 @@ public class EntityUniverseRequest implements Serializable {
   }
 
 
-  public EntityUniverseRequest mapStatus(java.util.List<MapStatus> mapStatus) {
+  public EntityUniverseRequest mapStatus(java.util.List<MapStatusEnum> mapStatus) {
     this.mapStatus = mapStatus;
     return this;
   }
 
-  public EntityUniverseRequest addMapStatusItem(MapStatus mapStatusItem) {
+  public EntityUniverseRequest addMapStatusItem(MapStatusEnum mapStatusItem) {
     if (this.mapStatus == null) {
       this.mapStatus = new java.util.ArrayList<>();
     }
@@ -162,22 +198,22 @@ public class EntityUniverseRequest implements Serializable {
   }
 
    /**
-   * entity statuses to be filtered
+   * Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
    * @return mapStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"MAPPED\"]", value = "entity statuses to be filtered")
+  @ApiModelProperty(example = "MAPPED", value = "Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. ")
   @JsonProperty(JSON_PROPERTY_MAP_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<MapStatus> getMapStatus() {
+  public java.util.List<MapStatusEnum> getMapStatus() {
     return mapStatus;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MAP_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMapStatus(java.util.List<MapStatus> mapStatus) {
+  public void setMapStatus(java.util.List<MapStatusEnum> mapStatus) {
     this.mapStatus = mapStatus;
   }
 

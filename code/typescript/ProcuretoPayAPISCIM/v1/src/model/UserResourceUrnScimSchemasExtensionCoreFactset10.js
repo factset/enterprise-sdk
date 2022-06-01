@@ -19,7 +19,7 @@ import ProductResourceReference from './ProductResourceReference';
 /**
  * The UserResourceUrnScimSchemasExtensionCoreFactset10 model module.
  * @module model/UserResourceUrnScimSchemasExtensionCoreFactset10
- * @version 0.20.0
+ * @version 0.20.1
  */
 class UserResourceUrnScimSchemasExtensionCoreFactset10 {
     /**

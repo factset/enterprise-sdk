@@ -1,0 +1,3 @@
+<manifest package="com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange" xmlns:android="http://schemas.android.com/apk/res/android">
+    <application />
+</manifest>

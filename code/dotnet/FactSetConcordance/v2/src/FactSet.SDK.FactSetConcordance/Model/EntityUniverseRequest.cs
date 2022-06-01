@@ -33,6 +33,40 @@ namespace FactSet.SDK.FactSetConcordance.Model
     public partial class EntityUniverseRequest : IEquatable<EntityUniverseRequest>, IValidatableObject
     {
         /// <summary>
+        /// Defines MapStatus
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MapStatusEnum
+        {
+            /// <summary>
+            /// Enum MAPPED for value: MAPPED
+            /// </summary>
+            [EnumMember(Value = "MAPPED")]
+            MAPPED = 1,
+
+            /// <summary>
+            /// Enum UNMAPPED for value: UNMAPPED
+            /// </summary>
+            [EnumMember(Value = "UNMAPPED")]
+            UNMAPPED = 2,
+
+            /// <summary>
+            /// Enum INDETERMINATE for value: INDETERMINATE
+            /// </summary>
+            [EnumMember(Value = "INDETERMINATE")]
+            INDETERMINATE = 3
+
+        }
+
+
+
+        /// <summary>
+        /// Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
+        /// </summary>
+        /// <value>Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. </value>
+        [DataMember(Name = "mapStatus", EmitDefaultValue = false)]
+        public List<MapStatusEnum> MapStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="EntityUniverseRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -43,9 +77,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="universeId">the id of the universe that entities come from (required).</param>
         /// <param name="offset">starting row of the universe.</param>
         /// <param name="limit">Limits the number of records in the response..</param>
-        /// <param name="mapStatus">entity statuses to be filtered.</param>
+        /// <param name="mapStatus">Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. .</param>
         /// <param name="clientId">fetch only the mappings that has client id included in the specified list..</param>
-        public EntityUniverseRequest(int universeId = default(int), int offset = default(int), int limit = default(int), List<MapStatus> mapStatus = default(List<MapStatus>), List<string> clientId = default(List<string>))
+        public EntityUniverseRequest(int universeId = default(int), int offset = default(int), int limit = default(int), List<MapStatusEnum> mapStatus = default(List<MapStatusEnum>), List<string> clientId = default(List<string>))
         {
             this.UniverseId = universeId;
             this.Offset = offset;
@@ -74,13 +108,6 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <value>Limits the number of records in the response.</value>
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
-
-        /// <summary>
-        /// entity statuses to be filtered
-        /// </summary>
-        /// <value>entity statuses to be filtered</value>
-        [DataMember(Name = "mapStatus", EmitDefaultValue = false)]
-        public List<MapStatus> MapStatus { get; set; }
 
         /// <summary>
         /// fetch only the mappings that has client id included in the specified list.
@@ -151,8 +178,6 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 ) && 
                 (
                     this.MapStatus == input.MapStatus ||
-                    this.MapStatus != null &&
-                    input.MapStatus != null &&
                     this.MapStatus.SequenceEqual(input.MapStatus)
                 ) && 
                 (
@@ -175,10 +200,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
                 hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 hashCode = (hashCode * 59) + this.Offset.GetHashCode();
                 hashCode = (hashCode * 59) + this.Limit.GetHashCode();
-                if (this.MapStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();

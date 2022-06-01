@@ -13,15 +13,15 @@
 
 
 import ApiClient from "../ApiClient";
-import CheckstatusResponse from '../model/CheckstatusResponse';
-import GetfilesResponse from '../model/GetfilesResponse';
+import Checkstatus from '../model/Checkstatus';
+import Getfiles from '../model/Getfiles';
 import RequestfilesResponse from '../model/RequestfilesResponse';
 import StreetAccountStatus from '../model/StreetAccountStatus';
 
 /**
 * StreetAccountXMLAPI service.
 * @module api/StreetAccountXMLAPIApi
-* @version 0.20.0
+* @version 0.20.1
 */
 export default class StreetAccountXMLAPIApi {
 
@@ -42,7 +42,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the status and percentDone of the requested jobID
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to know the status and percentDone
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CheckstatusResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Checkstatus>} and HTTP response
      */
     asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID) {
       let postBody = null;
@@ -66,7 +66,7 @@ export default class StreetAccountXMLAPIApi {
       let accepts = ['application/json'];
 
 
-      let returnType = CheckstatusResponse;
+      let returnType = [Checkstatus];
 
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/check-status', 'GET',
@@ -79,7 +79,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the status and percentDone of the requested jobID
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to know the status and percentDone
-     * @return { Promise.< module:model/CheckstatusResponse > } a Promise, with data of type {@link module:model/CheckstatusResponse }
+     * @return { Promise.< Array.<module:model/Checkstatus> > } a Promise, with data of type {@link Array.<module:model/Checkstatus> }
      */
     asynchStreetaccountV1CheckStatusGet(jobID) {
       return this.asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID)
@@ -93,7 +93,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the SA XML files for the specified daterange
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to collect the results of the query
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetfilesResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Getfiles>} and HTTP response
      */
     asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID) {
       let postBody = null;
@@ -117,7 +117,7 @@ export default class StreetAccountXMLAPIApi {
       let accepts = ['application/json'];
 
 
-      let returnType = GetfilesResponse;
+      let returnType = [Getfiles];
 
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/get-files', 'GET',
@@ -130,7 +130,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the SA XML files for the specified daterange
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to collect the results of the query
-     * @return { Promise.< module:model/GetfilesResponse > } a Promise, with data of type {@link module:model/GetfilesResponse }
+     * @return { Promise.< Array.<module:model/Getfiles> > } a Promise, with data of type {@link Array.<module:model/Getfiles> }
      */
     asynchStreetaccountV1GetFilesGet(jobID) {
       return this.asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID)

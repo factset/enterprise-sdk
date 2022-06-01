@@ -82,14 +82,15 @@ class UniverseMeta(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'universe_id': (int,),  # noqa: E501
-            'universe_name': (str,),  # noqa: E501
-            'universe_description': (str,),  # noqa: E501
-            'self_managed': (bool,),  # noqa: E501
-            'created_by': (str,),  # noqa: E501
-            'created_on': (datetime,),  # noqa: E501
-            'updated_by': (str,),  # noqa: E501
-            'updated_on': (datetime,),  # noqa: E501
+            'universe_id': (int, none_type,),  # noqa: E501
+            'universe_name': (str, none_type,),  # noqa: E501
+            'universe_description': (str, none_type,),  # noqa: E501
+            'universe_type': (str, none_type,),  # noqa: E501
+            'self_managed': (bool, none_type,),  # noqa: E501
+            'created_by': (str, none_type,),  # noqa: E501
+            'created_on': (datetime, none_type,),  # noqa: E501
+            'updated_by': (str, none_type,),  # noqa: E501
+            'updated_on': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +102,7 @@ class UniverseMeta(ModelNormal):
         'universe_id': 'universeId',  # noqa: E501
         'universe_name': 'universeName',  # noqa: E501
         'universe_description': 'universeDescription',  # noqa: E501
+        'universe_type': 'universeType',  # noqa: E501
         'self_managed': 'selfManaged',  # noqa: E501
         'created_by': 'createdBy',  # noqa: E501
         'created_on': 'createdOn',  # noqa: E501
@@ -149,14 +151,15 @@ class UniverseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            universe_id (int): The universe identifier. [optional]  # noqa: E501
-            universe_name (str): The user specified universe name. [optional]  # noqa: E501
-            universe_description (str): The user specified universe description. [optional]  # noqa: E501
-            self_managed (bool): False if the universe is managed by FactSet Managed Service, True otherwise. [optional]  # noqa: E501
-            created_by (str): The user who created the universe. [optional]  # noqa: E501
-            created_on (datetime): When the universe was created. [optional]  # noqa: E501
-            updated_by (str): The user who most recently updated the universe metadata. [optional]  # noqa: E501
-            updated_on (datetime): When the universe metadata was most recently updated. [optional]  # noqa: E501
+            universe_id (int, none_type): The universe identifier. [optional]  # noqa: E501
+            universe_name (str, none_type): The user specified universe name. [optional]  # noqa: E501
+            universe_description (str, none_type): The user specified universe description. [optional]  # noqa: E501
+            universe_type (str, none_type): The user specified universe type.. [optional]  # noqa: E501
+            self_managed (bool, none_type): False if the universe is managed by FactSet Managed Service, True otherwise. [optional]  # noqa: E501
+            created_by (str, none_type): The user who created the universe. [optional]  # noqa: E501
+            created_on (datetime, none_type): When the universe was created. [optional]  # noqa: E501
+            updated_by (str, none_type): The user who most recently updated the universe metadata. [optional]  # noqa: E501
+            updated_on (datetime, none_type): When the universe metadata was most recently updated. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,14 +241,15 @@ class UniverseMeta(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            universe_id (int): The universe identifier. [optional]  # noqa: E501
-            universe_name (str): The user specified universe name. [optional]  # noqa: E501
-            universe_description (str): The user specified universe description. [optional]  # noqa: E501
-            self_managed (bool): False if the universe is managed by FactSet Managed Service, True otherwise. [optional]  # noqa: E501
-            created_by (str): The user who created the universe. [optional]  # noqa: E501
-            created_on (datetime): When the universe was created. [optional]  # noqa: E501
-            updated_by (str): The user who most recently updated the universe metadata. [optional]  # noqa: E501
-            updated_on (datetime): When the universe metadata was most recently updated. [optional]  # noqa: E501
+            universe_id (int, none_type): The universe identifier. [optional]  # noqa: E501
+            universe_name (str, none_type): The user specified universe name. [optional]  # noqa: E501
+            universe_description (str, none_type): The user specified universe description. [optional]  # noqa: E501
+            universe_type (str, none_type): The user specified universe type.. [optional]  # noqa: E501
+            self_managed (bool, none_type): False if the universe is managed by FactSet Managed Service, True otherwise. [optional]  # noqa: E501
+            created_by (str, none_type): The user who created the universe. [optional]  # noqa: E501
+            created_on (datetime, none_type): When the universe was created. [optional]  # noqa: E501
+            updated_by (str, none_type): The user who most recently updated the universe metadata. [optional]  # noqa: E501
+            updated_on (datetime, none_type): When the universe metadata was most recently updated. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,13 +1,13 @@
 # aitextsummarization.DefaultApi
 
-All URIs are relative to *http://ai-text-summarization-staging.factset.io*
+All URIs are relative to *http://api.factset.com/cognitive/summarization/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getResultV1ResultResultId**](DefaultApi.md#getResultV1ResultResultId) | **GET** /v1/result/{result_id} | GET request that returns the full headline and summary results from the initial POST requests
-[**postHeadlineAndSummaryV1HeadlineAndSummary**](DefaultApi.md#postHeadlineAndSummaryV1HeadlineAndSummary) | **POST** /v1/headline-and-summary | POST request to create a 2-3 sentence summary from input text
-[**postHeadlineV1Headline**](DefaultApi.md#postHeadlineV1Headline) | **POST** /v1/headline | POST request to create a headline from input text
-[**postSummaryV1Summary**](DefaultApi.md#postSummaryV1Summary) | **POST** /v1/summary | POST request to create a headline and summary from input text
+[**getResultV1ResultResultId**](DefaultApi.md#getResultV1ResultResultId) | **GET** /result/{result_id} | GET request that returns the full headline and summary results from the initial POST requests
+[**postHeadlineAndSummaryV1HeadlineAndSummary**](DefaultApi.md#postHeadlineAndSummaryV1HeadlineAndSummary) | **POST** /headline-and-summary | POST request to create a 2-3 sentence summary from input text
+[**postHeadlineV1Headline**](DefaultApi.md#postHeadlineV1Headline) | **POST** /headline | POST request to create a headline from input text
+[**postSummaryV1Summary**](DefaultApi.md#postSummaryV1Summary) | **POST** /summary | POST request to create a headline and summary from input text
 
 
 

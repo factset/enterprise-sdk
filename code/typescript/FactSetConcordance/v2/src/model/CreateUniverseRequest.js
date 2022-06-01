@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateUniverseRequest model module.
  * @module model/CreateUniverseRequest
- * @version 0.20.0
+ * @version 0.20.1
  */
 class CreateUniverseRequest {
     /**
@@ -55,6 +55,9 @@ class CreateUniverseRequest {
             if (data.hasOwnProperty('universeDescription')) {
                 obj['universeDescription'] = ApiClient.convertToType(data['universeDescription'], 'String');
             }
+            if (data.hasOwnProperty('universeType')) {
+                obj['universeType'] = ApiClient.convertToType(data['universeType'], 'String');
+            }
         }
         return obj;
     }
@@ -73,6 +76,12 @@ CreateUniverseRequest.prototype['universeName'] = undefined;
  * @member {String} universeDescription
  */
 CreateUniverseRequest.prototype['universeDescription'] = undefined;
+
+/**
+ * Universe type
+ * @member {String} universeType
+ */
+CreateUniverseRequest.prototype['universeType'] = undefined;
 
 
 

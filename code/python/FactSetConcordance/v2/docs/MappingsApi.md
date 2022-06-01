@@ -362,7 +362,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         offset=0,
         limit=10,
         map_status=[
-            MapStatus("["MAPPED"]"),
+            "MAPPED",
         ],
         client_id=["abc-123","dfg-456"],
     ) # EntityUniverseRequest | A request to fetch all entities of a given universe
