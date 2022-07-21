@@ -28,7 +28,6 @@ import InlineResponse20062DataCostsAndChargesExAnteTransactionCosts from './Inli
 /**
  * The InlineResponse20062DataCostsAndChargesExAnte model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnte
- * @version 0.9.2
  */
 class InlineResponse20062DataCostsAndChargesExAnte {
     /**

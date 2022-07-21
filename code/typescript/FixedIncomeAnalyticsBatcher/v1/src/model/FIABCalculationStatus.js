@@ -17,7 +17,6 @@ import EventSummary from './EventSummary';
 /**
  * The FIABCalculationStatus model module.
  * @module model/FIABCalculationStatus
- * @version 0.20.0
  */
 class FIABCalculationStatus {
     /**

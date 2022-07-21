@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataTradingValueAverageDays30 model module.
  * @module model/StockNotationScreenerSearchDataTradingValueAverageDays30
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataTradingValueAverageDays30 {
     /**

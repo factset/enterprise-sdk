@@ -26,8 +26,8 @@ Get a list of users.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.user_resource_list import UserResourceList
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +65,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of users.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.users_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
         pprint(api_response)
 
@@ -123,7 +125,8 @@ Delete a user
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,7 +160,9 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Delete a user
+        # example passing only required values which don't have defaults set
         api_instance.users_id_delete(id)
+
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
         print("Exception when calling UsersApi->users_id_delete: %s\n" % e)
 ```
@@ -209,8 +214,8 @@ Get a user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.user_resource import UserResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -244,6 +249,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.users_id_get(id)
         pprint(api_response)
 
@@ -298,9 +304,8 @@ Patch a user (add, replace, or remove attributes of a user.)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.patch import Patch
-from fds.sdk.ProcuretoPayAPISCIM.model.user_resource import UserResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -346,6 +351,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Patch a user (add, replace, or remove attributes of a user.)
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.users_id_patch(id, patch=patch)
         pprint(api_response)
 
@@ -401,8 +408,8 @@ Replace a user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.user_resource import UserResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -462,6 +469,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Replace a user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.users_id_put(id, user_resource)
         pprint(api_response)
 
@@ -518,8 +526,8 @@ Create a user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.user_resource import UserResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -578,6 +586,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Create a user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.users_post(user_resource)
         pprint(api_response)
 

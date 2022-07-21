@@ -17,7 +17,6 @@ import DataPointMeta from './DataPointMeta';
 /**
  * The ProfileDataSizeEv model module.
  * @module model/ProfileDataSizeEv
- * @version 0.20.0
  */
 class ProfileDataSizeEv {
     /**

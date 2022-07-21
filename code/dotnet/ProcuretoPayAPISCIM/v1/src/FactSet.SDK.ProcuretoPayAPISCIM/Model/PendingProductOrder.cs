@@ -40,7 +40,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="PendingProductOrder" /> class.
         /// </summary>
         /// <param name="product">product (required).</param>
-        public PendingProductOrder(ProductResourceReference product = default(ProductResourceReference))
+        public PendingProductOrder(ProductResourceReference product, string type, string status, string requested)
         {
             // to ensure "product" is required (not null)
             if (product == null) {

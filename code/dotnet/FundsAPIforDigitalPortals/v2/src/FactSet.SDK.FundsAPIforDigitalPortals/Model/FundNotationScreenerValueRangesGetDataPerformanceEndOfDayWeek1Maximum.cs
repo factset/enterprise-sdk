@@ -41,7 +41,7 @@ namespace FactSet.SDK.FundsAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="value">The maximum value. (required).</param>
         /// <param name="inclusive">Indicates whether the maximum value is included in the range or not. (default to true).</param>
-        public FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum(decimal value = default(decimal), bool inclusive = true)
+        public FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum(decimal value,bool inclusive = true)
         {
             this.Value = value;
             this.Inclusive = inclusive;

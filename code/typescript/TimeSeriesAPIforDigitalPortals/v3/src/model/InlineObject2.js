@@ -18,17 +18,15 @@ import VendorChartIQTimeSeriesEodSubsampleListData from './VendorChartIQTimeSeri
 /**
  * The InlineObject2 model module.
  * @module model/InlineObject2
- * @version 0.10.0
  */
 class InlineObject2 {
     /**
      * Constructs a new <code>InlineObject2</code>.
      * @alias module:model/InlineObject2
-     * @param data {module:model/VendorChartIQTimeSeriesEodSubsampleListData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject2.initialize(this, data);
+        InlineObject2.initialize(this);
     }
 
     /**
@@ -36,8 +34,7 @@ class InlineObject2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**

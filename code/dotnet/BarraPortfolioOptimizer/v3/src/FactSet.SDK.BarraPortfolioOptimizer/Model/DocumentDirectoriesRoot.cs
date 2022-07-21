@@ -41,7 +41,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// Initializes a new instance of the <see cref="DocumentDirectoriesRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public DocumentDirectoriesRoot(DocumentDirectories data = default(DocumentDirectories))
+        public DocumentDirectoriesRoot(DocumentDirectories data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

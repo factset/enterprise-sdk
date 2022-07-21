@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TemplateContentTypes model module.
  * @module model/TemplateContentTypes
- * @version 0.20.0
  */
 class TemplateContentTypes {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="next">The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;. (required).</param>
         /// <param name="previous">The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;. (required).</param>
-        public CursorBasedPaginationOutputObjectWithoutTotal(string next = default(string), string previous = default(string))
+        public CursorBasedPaginationOutputObjectWithoutTotal(string next, string previous)
         {
             // to ensure "next" is required (not null)
             if (next == null) {

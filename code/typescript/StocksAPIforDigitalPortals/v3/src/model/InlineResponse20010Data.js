@@ -22,7 +22,6 @@ import InlineResponse20010Trade from './InlineResponse20010Trade';
 /**
  * The InlineResponse20010Data model module.
  * @module model/InlineResponse20010Data
- * @version 0.10.0
  */
 class InlineResponse20010Data {
     /**

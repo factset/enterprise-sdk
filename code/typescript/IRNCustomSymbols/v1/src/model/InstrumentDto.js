@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentDto model module.
  * @module model/InstrumentDto
- * @version 0.20.0
  */
 class InstrumentDto {
     /**

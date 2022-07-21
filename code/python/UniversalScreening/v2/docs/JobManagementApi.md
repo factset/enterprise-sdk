@@ -25,7 +25,8 @@ Delete a specified job started by the requester's username-serial
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import job_management_api
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +59,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     id = "id_example" # str | Unique identifier for a screen calculation job
 
     try:
+        # example passing only required values which don't have defaults set
         api_instance.delete_active_job(id)
+
     except fds.sdk.UniversalScreening.ApiException as e:
         print("Exception when calling JobManagementApi->delete_active_job: %s\n" % e)
 ```
@@ -111,7 +114,8 @@ Delete all active jobs started by the requester's username-serial
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import job_management_api
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -143,7 +147,9 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_instance.delete_all_active_jobs()
+
     except fds.sdk.UniversalScreening.ApiException as e:
         print("Exception when calling JobManagementApi->delete_all_active_jobs: %s\n" % e)
 ```
@@ -193,8 +199,8 @@ Retrieve list of all active job ids started by requester's username-serial
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import job_management_api
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
-from fds.sdk.UniversalScreening.model.active_jobs_data import ActiveJobsData
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -226,6 +232,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_all_active_jobs()
         pprint(api_response)
 

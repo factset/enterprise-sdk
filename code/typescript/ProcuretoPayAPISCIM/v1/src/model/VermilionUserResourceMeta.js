@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourceMeta model module.
  * @module model/VermilionUserResourceMeta
- * @version 0.20.1
  */
 class VermilionUserResourceMeta {
     /**

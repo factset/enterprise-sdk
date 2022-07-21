@@ -25,9 +25,8 @@ This endpoint takes the list of orders to be cancelled on the EMS system.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTrading
 from fds.sdk.FactSetTrading.api import orders_api
-from fds.sdk.FactSetTrading.model.client_error_response import ClientErrorResponse
-from fds.sdk.FactSetTrading.model.ems_orders_create_response_root import EMSOrdersCreateResponseRoot
-from fds.sdk.FactSetTrading.model.ems_cancel_orders_root import EMSCancelOrdersRoot
+from fds.sdk.FactSetTrading.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -70,6 +69,8 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
     try:
         # Cancel the orders on EMS system.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.cancel(ems_cancel_orders_root=ems_cancel_orders_root)
         pprint(api_response)
 
@@ -129,9 +130,8 @@ This endpoint takes the list of orders and place them on EMS for execution.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTrading
 from fds.sdk.FactSetTrading.api import orders_api
-from fds.sdk.FactSetTrading.model.client_error_response import ClientErrorResponse
-from fds.sdk.FactSetTrading.model.ems_orders_create_response_root import EMSOrdersCreateResponseRoot
-from fds.sdk.FactSetTrading.model.ems_orders_root import EMSOrdersRoot
+from fds.sdk.FactSetTrading.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -210,6 +210,8 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
     try:
         # Send orders to EMS for execution.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create(ems_orders_root=ems_orders_root)
         pprint(api_response)
 
@@ -269,9 +271,8 @@ This endpoint takes the list of orders to be replaced on the EMS system.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTrading
 from fds.sdk.FactSetTrading.api import orders_api
-from fds.sdk.FactSetTrading.model.ems_replace_orders_root import EMSReplaceOrdersRoot
-from fds.sdk.FactSetTrading.model.client_error_response import ClientErrorResponse
-from fds.sdk.FactSetTrading.model.ems_orders_create_response_root import EMSOrdersCreateResponseRoot
+from fds.sdk.FactSetTrading.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -351,6 +352,8 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
     try:
         # Replace the orders on EMS system.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.replace(ems_replace_orders_root=ems_replace_orders_root)
         pprint(api_response)
 

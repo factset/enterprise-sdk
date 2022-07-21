@@ -21,8 +21,8 @@ Get server configuration.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import server_configuration_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.service_provider_config import ServiceProviderConfig
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,6 +55,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get server configuration.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.service_provider_config_get()
         pprint(api_response)
 

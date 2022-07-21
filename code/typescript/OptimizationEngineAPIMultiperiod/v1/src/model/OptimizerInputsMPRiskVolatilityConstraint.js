@@ -20,7 +20,6 @@ import OptimizerInputsRiskVolatilityConstraint from './OptimizerInputsRiskVolati
 /**
  * The OptimizerInputsMPRiskVolatilityConstraint model module.
  * @module model/OptimizerInputsMPRiskVolatilityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPRiskVolatilityConstraint {
     /**

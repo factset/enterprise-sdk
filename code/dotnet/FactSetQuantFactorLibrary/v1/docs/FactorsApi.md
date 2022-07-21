@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactorsApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted as inputs. **NOTE:** Fixed Income identifiers, ETFs, and Options are not accepted in this endpoint. <p>***Maximum possible ids limit** =  3500 per request*</p> `NOTE:` *The maximum possible ids limit for a request will **decrease** based on the size of the historical date range, the number of factors or factorGroups requested.* *<p> GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var factors = new List<string>(); // List<string> | Array of individual Factor Items requested. For a list of all available factors and descriptions use the `/library` endpoint.***<p>factors limit** = 20 individual factors per request* 
             var startDate = 2020-11-30;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. 
@@ -154,6 +155,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactorsApi(config);
+
             var factorsRequest = new FactorsRequest(); // FactorsRequest | Request Body for requesting a list or group of Factors and ids.
 
             try

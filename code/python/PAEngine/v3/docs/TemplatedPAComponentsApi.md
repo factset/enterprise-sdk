@@ -27,9 +27,8 @@ This endpoint creates new component based off of linked PA template or unlinked 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import templated_pa_components_api
-from fds.sdk.PAEngine.model.templated_pa_component_post_summary_root import TemplatedPAComponentPostSummaryRoot
-from fds.sdk.PAEngine.model.templated_pa_component_parameters_root import TemplatedPAComponentParametersRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -118,6 +117,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Create templated PA component
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_templated_pa_components(templated_pa_component_parameters_root)
         pprint(api_response)
 
@@ -178,7 +178,8 @@ This endpoint deletes an existing templated PA component
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import templated_pa_components_api
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -208,11 +209,12 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
 
     try:
         # Delete templated PA component
-        api_instance.delete_templated_pa_components(id)
+        # example passing only required values which don't have defaults set
+        api_instance.delete_templated_pa_components()
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->delete_templated_pa_components: %s\n" % e)
 ```
@@ -270,8 +272,8 @@ This endpoint fetches the templated PA component settings.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import templated_pa_components_api
-from fds.sdk.PAEngine.model.templated_pa_component_root import TemplatedPAComponentRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -301,11 +303,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
 
     try:
         # Get templated PA component by id
-        api_response = api_instance.get_templated_pa_component_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_templated_pa_component_by_id()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -365,8 +367,8 @@ This endpoint returns the list of templated PA components in path.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import templated_pa_components_api
-from fds.sdk.PAEngine.model.templated_pa_component_summary_root import TemplatedPAComponentSummaryRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -396,11 +398,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    directory = "Personal:TemplatedPAComponents/" # str | Get templated PA components in path (default to "Personal:TemplatedPAComponents/")
 
     try:
         # Get templated PA components in path
-        api_response = api_instance.get_templated_pa_components_in_path(directory)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_templated_pa_components_in_path()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -459,9 +461,8 @@ This endpoint allows the user to change the request body from an existing templa
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import templated_pa_components_api
-from fds.sdk.PAEngine.model.templated_pa_component_update_parameters_root import TemplatedPAComponentUpdateParametersRoot
-from fds.sdk.PAEngine.model.templated_pa_component_post_summary_root import TemplatedPAComponentPostSummaryRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -491,7 +492,6 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
     templated_pa_component_update_parameters_root = TemplatedPAComponentUpdateParametersRoot(
         data=TemplatedPAComponentUpdateParameters(
             parent_template_id="parent_template_id_example",
@@ -550,7 +550,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Update templated PA component
-        api_response = api_instance.update_templated_pa_components(id, templated_pa_component_update_parameters_root)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.update_templated_pa_components(templated_pa_component_update_parameters_root)
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

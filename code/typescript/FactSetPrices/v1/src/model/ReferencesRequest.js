@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ReferencesRequest model module.
  * @module model/ReferencesRequest
- * @version 0.20.0
  */
 class ReferencesRequest {
     /**

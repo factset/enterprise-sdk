@@ -48,7 +48,7 @@ namespace FactSet.SDK.Vault.Model
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
         /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS..</param>
-        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), string componentdetail = default(string))
+        public PACalculationParameters(string componentid,List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
             if (componentid == null) {

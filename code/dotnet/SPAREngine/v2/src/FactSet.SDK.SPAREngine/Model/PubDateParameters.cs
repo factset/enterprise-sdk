@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="startdate">Calculation&#39;s start date..</param>
         /// <param name="enddate">Calculation&#39;s end date or as of date. (required).</param>
-        public PubDateParameters(string startdate = default(string), string enddate = default(string))
+        public PubDateParameters(string enddate,string startdate = default(string))
         {
             // to ensure "enddate" is required (not null)
             if (enddate == null) {

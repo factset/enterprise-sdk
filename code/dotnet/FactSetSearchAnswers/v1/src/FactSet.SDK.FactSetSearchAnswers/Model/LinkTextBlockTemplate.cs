@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="applicationLinks">applicationLinks.</param>
         /// <param name="link">link.</param>
         /// <param name="blurb">blurb.</param>
-        public LinkTextBlockTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string link = default(string), string blurb = default(string))
+        public LinkTextBlockTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string link = default(string), string blurb = default(string))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

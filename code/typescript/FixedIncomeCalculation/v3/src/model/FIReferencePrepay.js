@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIReferencePrepay model module.
  * @module model/FIReferencePrepay
- * @version 0.20.0
  */
 class FIReferencePrepay {
     /**

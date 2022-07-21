@@ -17,7 +17,6 @@ import Metric from './Metric';
 /**
  * The MetricsResponse model module.
  * @module model/MetricsResponse
- * @version 0.20.0
  */
 class MetricsResponse {
     /**

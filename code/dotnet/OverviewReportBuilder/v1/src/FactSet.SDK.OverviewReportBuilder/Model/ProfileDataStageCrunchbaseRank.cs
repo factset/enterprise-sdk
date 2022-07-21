@@ -41,7 +41,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="note">note (required).</param>
-        public ProfileDataStageCrunchbaseRank(decimal value = default(decimal), string note = default(string))
+        public ProfileDataStageCrunchbaseRank(decimal value, string note)
         {
             this.Value = value;
             // to ensure "note" is required (not null)

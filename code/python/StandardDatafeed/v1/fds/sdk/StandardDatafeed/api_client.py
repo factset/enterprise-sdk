@@ -1,7 +1,7 @@
 """
-    SDF_API
+    SDF Download API
 
-    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.   # noqa: E501
+    The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: teammustang@factset.com
@@ -106,7 +106,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/StandardDatafeed/0.20.0'
+        self.user_agent = 'fds-sdk/python/StandardDatafeed/0.21.0'
 
     def __enter__(self):
         return self
@@ -836,11 +836,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = SchemaApi()
-        api_instance.get_v1_list_schemas  # this is an instance of the class Endpoint
-        api_instance.get_v1_list_schemas()  # this invokes api_instance.get_v1_list_schemas.__call__()
+        api_instance = SDFAndQFLContentLibraryApi()
+        api_instance.get_v1_list_files  # this is an instance of the class Endpoint
+        api_instance.get_v1_list_files()  # this invokes api_instance.get_v1_list_files.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.get_v1_list_schemas.callable or self.callable in this class
+        api_instance.get_v1_list_files.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

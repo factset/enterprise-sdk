@@ -20,7 +20,6 @@ import FundNotationScreenerSearchDataValidation from './FundNotationScreenerSear
 /**
  * The FundNotationScreenerSearchData model module.
  * @module model/FundNotationScreenerSearchData
- * @version 0.10.0
  */
 class FundNotationScreenerSearchData {
     /**

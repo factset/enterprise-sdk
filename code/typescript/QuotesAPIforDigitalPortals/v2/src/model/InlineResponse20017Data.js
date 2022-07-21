@@ -17,7 +17,6 @@ import InlineResponse20017DataCountries from './InlineResponse20017DataCountries
 /**
  * The InlineResponse20017Data model module.
  * @module model/InlineResponse20017Data
- * @version 0.9.2
  */
 class InlineResponse20017Data {
     /**

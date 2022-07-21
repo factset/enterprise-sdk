@@ -20,7 +20,6 @@ import Frequency from './Frequency';
 /**
  * The PricesRequest model module.
  * @module model/PricesRequest
- * @version 0.20.0
  */
 class PricesRequest {
     /**

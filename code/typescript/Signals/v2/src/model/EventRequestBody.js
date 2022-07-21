@@ -18,7 +18,6 @@ import RelevanceScoreRange from './RelevanceScoreRange';
 /**
  * The EventRequestBody model module.
  * @module model/EventRequestBody
- * @version 0.20.0
  */
 class EventRequestBody {
     /**
@@ -84,13 +83,13 @@ class EventRequestBody {
 }
 
 /**
- * A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+ * A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
  * @member {module:model/DateTimeInterval} created
  */
 EventRequestBody.prototype['created'] = undefined;
 
 /**
- * A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
+ * A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
  * @member {module:model/DateTimeInterval} updated
  */
 EventRequestBody.prototype['updated'] = undefined;

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PubDateParameters model module.
  * @module model/PubDateParameters
- * @version 0.8.2
  */
 class PubDateParameters {
     /**

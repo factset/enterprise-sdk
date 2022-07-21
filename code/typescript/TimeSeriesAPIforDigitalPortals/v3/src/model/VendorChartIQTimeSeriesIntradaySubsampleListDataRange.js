@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesIntradaySubsampleListDataRange model module.
  * @module model/VendorChartIQTimeSeriesIntradaySubsampleListDataRange
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesIntradaySubsampleListDataRange {
     /**
@@ -24,7 +23,7 @@ class VendorChartIQTimeSeriesIntradaySubsampleListDataRange {
      * Date and time range for the time series. The &#x60;start&#x60; and &#x60;end&#x60; boundaries must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;.
      * @alias module:model/VendorChartIQTimeSeriesIntradaySubsampleListDataRange
      * @param start {String} The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most.
-     * @param end {String} The ending point of the time range (exclusive). Dates in the future are not allowed.
+     * @param end {String} The ending point of the time range (exclusive). Values in the future are not allowed.
      */
     constructor(start, end) { 
         
@@ -72,7 +71,7 @@ class VendorChartIQTimeSeriesIntradaySubsampleListDataRange {
 VendorChartIQTimeSeriesIntradaySubsampleListDataRange.prototype['start'] = undefined;
 
 /**
- * The ending point of the time range (exclusive). Dates in the future are not allowed.
+ * The ending point of the time range (exclusive). Values in the future are not allowed.
  * @member {String} end
  */
 VendorChartIQTimeSeriesIntradaySubsampleListDataRange.prototype['end'] = undefined;

@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="created">Date/Time in UTC the event was first recorded in our data store. (required).</param>
         /// <param name="updated">Date/Time in UTC the event was last updated. (required).</param>
         /// <param name="details">Signal specific event properties. (required).</param>
-        public EventDetailDataItemAllOf(DateTime created = default(DateTime), DateTime updated = default(DateTime), Dictionary<string, Object> details = default(Dictionary<string, Object>))
+        public EventDetailDataItemAllOf(DateTime created, DateTime updated, Dictionary<string, Object> details)
         {
             this.Created = created;
             this.Updated = updated;

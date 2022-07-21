@@ -19,7 +19,6 @@ import ProfileDataSizeRevenue from './ProfileDataSizeRevenue';
 /**
  * The ProfileDataSize model module.
  * @module model/ProfileDataSize
- * @version 0.20.0
  */
 class ProfileDataSize {
     /**

@@ -25,7 +25,6 @@ import InlineResponse20079DataValueUnit from './InlineResponse20079DataValueUnit
 /**
  * The InlineResponse20079Data model module.
  * @module model/InlineResponse20079Data
- * @version 0.10.0
  */
 class InlineResponse20079Data {
     /**

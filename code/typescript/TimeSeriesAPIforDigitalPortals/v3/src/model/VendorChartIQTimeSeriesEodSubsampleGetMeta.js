@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodSubsampleGetMeta model module.
  * @module model/VendorChartIQTimeSeriesEodSubsampleGetMeta
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesEodSubsampleGetMeta {
     /**

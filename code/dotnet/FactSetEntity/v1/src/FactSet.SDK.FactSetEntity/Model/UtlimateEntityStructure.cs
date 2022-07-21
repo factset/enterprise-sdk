@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <param name="inactive">A flag for inactive securities; whereby 1 &#x3D; inactive and 0 &#x3D; active..</param>
         /// <param name="description">The proper name and entity type for the entity..</param>
         /// <param name="requestId">Identifier used in &#x60;ids&#x60;..</param>
-        public UtlimateEntityStructure(string fsymId = default(string), string fsymEntityId = default(string), string ultimateParentId = default(string), string parentEntityId = default(string), int level = default(int), int inactive = default(int), string description = default(string), string requestId = default(string))
+        public UtlimateEntityStructure(string fsymId = default(string), string fsymEntityId = default(string), string ultimateParentId = default(string), string parentEntityId = default(string), int? level = default(int?), int? inactive = default(int?), string description = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.FsymEntityId = fsymEntityId;
@@ -59,49 +59,49 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
         /// </summary>
         /// <value>Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Unique FactSet-generated identifier representing an entity
         /// </summary>
         /// <value>Unique FactSet-generated identifier representing an entity</value>
-        [DataMember(Name = "fsymEntityId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymEntityId", EmitDefaultValue = true)]
         public string FsymEntityId { get; set; }
 
         /// <summary>
         /// The ultimate parent id of the entity.
         /// </summary>
         /// <value>The ultimate parent id of the entity.</value>
-        [DataMember(Name = "ultimateParentId", EmitDefaultValue = false)]
+        [DataMember(Name = "ultimateParentId", EmitDefaultValue = true)]
         public string UltimateParentId { get; set; }
 
         /// <summary>
         /// Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.
         /// </summary>
         /// <value>Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.</value>
-        [DataMember(Name = "parentEntityId", EmitDefaultValue = false)]
+        [DataMember(Name = "parentEntityId", EmitDefaultValue = true)]
         public string ParentEntityId { get; set; }
 
         /// <summary>
         /// Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.
         /// </summary>
         /// <value>Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.</value>
-        [DataMember(Name = "level", EmitDefaultValue = false)]
-        public int Level { get; set; }
+        [DataMember(Name = "level", EmitDefaultValue = true)]
+        public int? Level { get; set; }
 
         /// <summary>
         /// A flag for inactive securities; whereby 1 &#x3D; inactive and 0 &#x3D; active.
         /// </summary>
         /// <value>A flag for inactive securities; whereby 1 &#x3D; inactive and 0 &#x3D; active.</value>
-        [DataMember(Name = "inactive", EmitDefaultValue = false)]
-        public int Inactive { get; set; }
+        [DataMember(Name = "inactive", EmitDefaultValue = true)]
+        public int? Inactive { get; set; }
 
         /// <summary>
         /// The proper name and entity type for the entity.
         /// </summary>
         /// <value>The proper name and entity type for the entity.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -184,11 +184,13 @@ namespace FactSet.SDK.FactSetEntity.Model
                 ) && 
                 (
                     this.Level == input.Level ||
-                    this.Level.Equals(input.Level)
+                    (this.Level != null &&
+                    this.Level.Equals(input.Level))
                 ) && 
                 (
                     this.Inactive == input.Inactive ||
-                    this.Inactive.Equals(input.Inactive)
+                    (this.Inactive != null &&
+                    this.Inactive.Equals(input.Inactive))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -227,8 +229,14 @@ namespace FactSet.SDK.FactSetEntity.Model
                 {
                     hashCode = (hashCode * 59) + this.ParentEntityId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Level.GetHashCode();
-                hashCode = (hashCode * 59) + this.Inactive.GetHashCode();
+                if (this.Level != null)
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
+                if (this.Inactive != null)
+                {
+                    hashCode = (hashCode * 59) + this.Inactive.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();

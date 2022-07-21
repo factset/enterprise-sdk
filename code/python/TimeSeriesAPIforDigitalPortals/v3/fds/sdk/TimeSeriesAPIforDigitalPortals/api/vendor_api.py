@@ -67,10 +67,10 @@ class VendorApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object',
                 ],
                 'required': [
-                    'body',
+                    'inline_object',
                 ],
                 'nullable': [
                 ],
@@ -85,13 +85,13 @@ class VendorApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object':
                         (InlineObject,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -123,10 +123,10 @@ class VendorApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object1',
                 ],
                 'required': [
-                    'body',
+                    'inline_object1',
                 ],
                 'nullable': [
                 ],
@@ -141,13 +141,13 @@ class VendorApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object1':
                         (InlineObject1,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object1': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -179,10 +179,10 @@ class VendorApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object2',
                 ],
                 'required': [
-                    'body',
+                    'inline_object2',
                 ],
                 'nullable': [
                 ],
@@ -197,13 +197,13 @@ class VendorApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object2':
                         (InlineObject2,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object2': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -235,10 +235,10 @@ class VendorApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object3',
                 ],
                 'required': [
-                    'body',
+                    'inline_object3',
                 ],
                 'nullable': [
                 ],
@@ -253,13 +253,13 @@ class VendorApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object3':
                         (InlineObject3,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object3': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -291,10 +291,10 @@ class VendorApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object4',
                 ],
                 'required': [
-                    'body',
+                    'inline_object4',
                 ],
                 'nullable': [
                 ],
@@ -309,13 +309,13 @@ class VendorApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object4':
                         (InlineObject4,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object4': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -345,7 +345,7 @@ class VendorApi(object):
 
     def post_vendor_chart_iq_time_series_eod_list(
         self,
-        body,
+        inline_object,
         **kwargs
     ) -> InlineResponse200:
         """End-of-day time series data for a notation.  # noqa: E501
@@ -354,7 +354,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject):
+            inline_object (InlineObject):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -385,13 +385,13 @@ class VendorApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object'] = \
+            inline_object
         return self.post_vendor_chart_iq_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_list_with_http_info(
         self,
-        body,
+        inline_object,
         **kwargs
     ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
         """End-of-day time series data for a notation.  # noqa: E501
@@ -400,7 +400,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject):
+            inline_object (InlineObject):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -435,13 +435,13 @@ class VendorApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object'] = \
+            inline_object
         return self.post_vendor_chart_iq_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_list_async(
         self,
-        body,
+        inline_object,
         **kwargs
     ) -> "ApplyResult[InlineResponse200]":
         """End-of-day time series data for a notation.  # noqa: E501
@@ -450,7 +450,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject):
+            inline_object (InlineObject):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -480,13 +480,13 @@ class VendorApi(object):
             ApplyResult[InlineResponse200]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object'] = \
+            inline_object
         return self.post_vendor_chart_iq_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_list_with_http_info_async(
         self,
-        body,
+        inline_object,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
         """End-of-day time series data for a notation.  # noqa: E501
@@ -495,7 +495,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject):
+            inline_object (InlineObject):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -525,13 +525,13 @@ class VendorApi(object):
             ApplyResult[(InlineResponse200, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object'] = \
+            inline_object
         return self.post_vendor_chart_iq_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_get(
         self,
-        body,
+        inline_object1,
         **kwargs
     ) -> InlineResponse2001:
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -540,7 +540,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject1):
+            inline_object1 (InlineObject1):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -571,13 +571,13 @@ class VendorApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object1'] = \
+            inline_object1
         return self.post_vendor_chart_iq_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_get_with_http_info(
         self,
-        body,
+        inline_object1,
         **kwargs
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -586,7 +586,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject1):
+            inline_object1 (InlineObject1):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -621,13 +621,13 @@ class VendorApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object1'] = \
+            inline_object1
         return self.post_vendor_chart_iq_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_get_async(
         self,
-        body,
+        inline_object1,
         **kwargs
     ) -> "ApplyResult[InlineResponse2001]":
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -636,7 +636,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject1):
+            inline_object1 (InlineObject1):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -666,13 +666,13 @@ class VendorApi(object):
             ApplyResult[InlineResponse2001]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object1'] = \
+            inline_object1
         return self.post_vendor_chart_iq_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_get_with_http_info_async(
         self,
-        body,
+        inline_object1,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -681,7 +681,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject1):
+            inline_object1 (InlineObject1):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -711,13 +711,13 @@ class VendorApi(object):
             ApplyResult[(InlineResponse2001, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object1'] = \
+            inline_object1
         return self.post_vendor_chart_iq_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_list(
         self,
-        body,
+        inline_object2,
         **kwargs
     ) -> InlineResponse2002:
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -726,7 +726,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject2):
+            inline_object2 (InlineObject2):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -757,13 +757,13 @@ class VendorApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object2'] = \
+            inline_object2
         return self.post_vendor_chart_iq_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_list_with_http_info(
         self,
-        body,
+        inline_object2,
         **kwargs
     ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -772,7 +772,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject2):
+            inline_object2 (InlineObject2):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -807,13 +807,13 @@ class VendorApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object2'] = \
+            inline_object2
         return self.post_vendor_chart_iq_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_list_async(
         self,
-        body,
+        inline_object2,
         **kwargs
     ) -> "ApplyResult[InlineResponse2002]":
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -822,7 +822,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject2):
+            inline_object2 (InlineObject2):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -852,13 +852,13 @@ class VendorApi(object):
             ApplyResult[InlineResponse2002]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object2'] = \
+            inline_object2
         return self.post_vendor_chart_iq_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_eod_subsample_list_with_http_info_async(
         self,
-        body,
+        inline_object2,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -867,7 +867,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject2):
+            inline_object2 (InlineObject2):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -897,13 +897,13 @@ class VendorApi(object):
             ApplyResult[(InlineResponse2002, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object2'] = \
+            inline_object2
         return self.post_vendor_chart_iq_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_get(
         self,
-        body,
+        inline_object3,
         **kwargs
     ) -> InlineResponse2003:
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -912,7 +912,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject3):
+            inline_object3 (InlineObject3):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -943,13 +943,13 @@ class VendorApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object3'] = \
+            inline_object3
         return self.post_vendor_chart_iq_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_get_with_http_info(
         self,
-        body,
+        inline_object3,
         **kwargs
     ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -958,7 +958,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject3):
+            inline_object3 (InlineObject3):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -993,13 +993,13 @@ class VendorApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object3'] = \
+            inline_object3
         return self.post_vendor_chart_iq_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_get_async(
         self,
-        body,
+        inline_object3,
         **kwargs
     ) -> "ApplyResult[InlineResponse2003]":
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1008,7 +1008,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject3):
+            inline_object3 (InlineObject3):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1038,13 +1038,13 @@ class VendorApi(object):
             ApplyResult[InlineResponse2003]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object3'] = \
+            inline_object3
         return self.post_vendor_chart_iq_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_get_with_http_info_async(
         self,
-        body,
+        inline_object3,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1053,7 +1053,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject3):
+            inline_object3 (InlineObject3):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1083,13 +1083,13 @@ class VendorApi(object):
             ApplyResult[(InlineResponse2003, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object3'] = \
+            inline_object3
         return self.post_vendor_chart_iq_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_list(
         self,
-        body,
+        inline_object4,
         **kwargs
     ) -> InlineResponse2004:
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1098,7 +1098,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject4):
+            inline_object4 (InlineObject4):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1129,13 +1129,13 @@ class VendorApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object4'] = \
+            inline_object4
         return self.post_vendor_chart_iq_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_list_with_http_info(
         self,
-        body,
+        inline_object4,
         **kwargs
     ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1144,7 +1144,7 @@ class VendorApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject4):
+            inline_object4 (InlineObject4):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1179,13 +1179,13 @@ class VendorApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object4'] = \
+            inline_object4
         return self.post_vendor_chart_iq_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_list_async(
         self,
-        body,
+        inline_object4,
         **kwargs
     ) -> "ApplyResult[InlineResponse2004]":
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1194,7 +1194,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject4):
+            inline_object4 (InlineObject4):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1224,13 +1224,13 @@ class VendorApi(object):
             ApplyResult[InlineResponse2004]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object4'] = \
+            inline_object4
         return self.post_vendor_chart_iq_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_vendor_chart_iq_time_series_intraday_subsample_list_with_http_info_async(
         self,
-        body,
+        inline_object4,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1239,7 +1239,7 @@ class VendorApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject4):
+            inline_object4 (InlineObject4):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1269,7 +1269,7 @@ class VendorApi(object):
             ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object4'] = \
+            inline_object4
         return self.post_vendor_chart_iq_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 

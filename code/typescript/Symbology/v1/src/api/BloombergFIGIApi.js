@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * BloombergFIGI service.
 * @module api/BloombergFIGIApi
-* @version 0.8.2
 */
 export default class BloombergFIGIApi {
 

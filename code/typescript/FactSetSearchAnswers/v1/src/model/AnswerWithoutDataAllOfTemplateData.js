@@ -17,7 +17,6 @@ import Fdc3Context from './Fdc3Context';
 /**
  * The AnswerWithoutDataAllOfTemplateData model module.
  * @module model/AnswerWithoutDataAllOfTemplateData
- * @version 0.20.0
  */
 class AnswerWithoutDataAllOfTemplateData {
     /**

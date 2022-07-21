@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataShareClassLifeCycleIssue model module.
  * @module model/FundNotationScreenerSearchDataShareClassLifeCycleIssue
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassLifeCycleIssue {
     /**

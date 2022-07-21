@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsSecurity model module.
  * @module model/OptimizerInputsSecurity
- * @version 0.20.0
  */
 class OptimizerInputsSecurity {
     /**

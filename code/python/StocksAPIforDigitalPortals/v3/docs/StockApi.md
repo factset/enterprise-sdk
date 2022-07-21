@@ -36,7 +36,8 @@ List of dividend types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -73,6 +74,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of dividend types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_dividend_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -126,7 +129,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one mont
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,6 +171,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -222,7 +228,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three mo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -263,6 +270,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -318,7 +327,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one week
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -359,6 +369,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -414,7 +426,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of one year
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -455,6 +468,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -510,7 +525,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of three ye
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,6 +567,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -606,7 +624,8 @@ End-of-day (EOD) benchmark key figures of a stock for the time range of five yea
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -647,6 +666,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -702,7 +723,8 @@ List of top-20 owners for a specific type of a company's shares.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -740,6 +762,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of owners for a specific type of a company's shares.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_owner_list(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -794,7 +818,8 @@ Target price and aggregated recommendations for a stock.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -831,6 +856,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Target price and aggregated recommendations for a stock.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_recommendation_aggregate_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -884,7 +911,8 @@ Current and historical trade recommendations and target prices for a stock.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -924,6 +952,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Current and historical trade recommendations and target prices for a stock.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_stock_recommendation_aggregate_history_list(id, snapshots, attributes=attributes)
         pprint(api_response)
 
@@ -978,8 +1008,8 @@ List of dividends for a stock.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object1 import InlineObject1
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1035,6 +1065,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of dividends for a stock.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_stock_dividend_list(body)
         pprint(api_response)
 
@@ -1087,8 +1118,8 @@ Ranking of stocks' notations using intraday figures. The result is limited to 10
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20010 import InlineResponse20010
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object2 import InlineObject2
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1194,6 +1225,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Ranking of stocks' notations using intraday figures.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_stock_notation_ranking_intraday_list(body=body)
         pprint(api_response)
 
@@ -1246,8 +1279,8 @@ Screener for stocks' notations based on stock-specific parameters. The result is
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20011 import InlineResponse20011
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2221,6 +2254,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Screener for stocks' notations based on stock-specific parameters.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_stock_notation_screener_search(body=body)
         pprint(api_response)
 
@@ -2273,8 +2308,8 @@ The endpoint returns the possible values and value ranges for the parameters use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20012 import InlineResponse20012
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -3241,6 +3276,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_stock_notation_screener_value_ranges_get(body=body)
         pprint(api_response)
 

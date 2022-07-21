@@ -16,12 +16,11 @@ import ApiClient from '../ApiClient';
 /**
  * The TransactionTypeTransactionType model module.
  * @module model/TransactionTypeTransactionType
- * @version 0.20.0
  */
 class TransactionTypeTransactionType {
     /**
      * Constructs a new <code>TransactionTypeTransactionType</code>.
-     * Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) 
+     * Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) - \&quot;IPO\&quot; (Initial Public Offering) - \&quot;Follow-On\&quot; (Follow-On Public Offer) 
      * @alias module:model/TransactionTypeTransactionType
      */
     constructor() { 
@@ -78,7 +77,19 @@ TransactionTypeTransactionType['ValueEnum'] = {
      * value: "MA"
      * @const
      */
-    "MA": "MA"
+    "MA": "MA",
+
+    /**
+     * value: "IPO"
+     * @const
+     */
+    "IPO": "IPO",
+
+    /**
+     * value: "Follow-On"
+     * @const
+     */
+    "Follow-On": "Follow-On"
 };
 
 

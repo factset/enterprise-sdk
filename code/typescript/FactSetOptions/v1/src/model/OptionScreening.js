@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionScreening model module.
  * @module model/OptionScreening
- * @version 0.20.0
  */
 class OptionScreening {
     /**

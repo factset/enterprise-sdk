@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FixedIncomePrice model module.
  * @module model/FixedIncomePrice
- * @version 0.20.0
  */
 class FixedIncomePrice {
     /**

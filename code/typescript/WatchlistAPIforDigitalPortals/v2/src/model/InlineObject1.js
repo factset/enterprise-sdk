@@ -18,7 +18,6 @@ import WatchlistCreateMeta from './WatchlistCreateMeta';
 /**
  * The InlineObject1 model module.
  * @module model/InlineObject1
- * @version 0.9.2
  */
 class InlineObject1 {
     /**

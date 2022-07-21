@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNNotes.Api.NotesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
+
             var createNoteDto = new CreateNoteDto(); // CreateNoteDto | 
             var xIRNContributorUsername = "xIRNContributorUsername_example";  // string |  (optional) 
             var xIRNContributorSerial = "xIRNContributorSerial_example";  // string |  (optional) 
@@ -143,6 +144,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
+
             var noteId = "noteId_example";  // Guid | 
 
             try
@@ -231,6 +233,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
+
             var noteId = "noteId_example";  // Guid | Note Id
 
             try
@@ -319,6 +322,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
+
             var start = "start_example";  // string | StartDate (optional) 
             var end = "end_example";  // string | EndDate (optional) 
             var identifiers = new List<string>(); // List<string> | Set of identifiers to filter on (optional) 
@@ -430,6 +434,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
+
             var noteId = "noteId_example";  // Guid | Note Id
             var updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | Note details to update (optional) 
 

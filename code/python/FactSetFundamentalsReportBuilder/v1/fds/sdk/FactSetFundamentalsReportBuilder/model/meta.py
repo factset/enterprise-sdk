@@ -66,7 +66,7 @@ class Meta(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        return (str,)  # noqa: E501
+        return (str, none_type,)  # noqa: E501
 
     _nullable = False
 

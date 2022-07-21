@@ -24,7 +24,6 @@ import InlineResponse20062DataCostsAndChargesExPostTransactionCosts from './Inli
 /**
  * The InlineResponse20062DataCostsAndChargesExPost model module.
  * @module model/InlineResponse20062DataCostsAndChargesExPost
- * @version 0.9.2
  */
 class InlineResponse20062DataCostsAndChargesExPost {
     /**

@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SnowflakeApi(config);
+
             var snowflakeEntityMatchRequest = new SnowflakeEntityMatchRequest(); // SnowflakeEntityMatchRequest | A request to match an entity name and its attributes within Snowflake.
 
             try

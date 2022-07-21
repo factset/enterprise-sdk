@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ContractPropertyItems model module.
  * @module model/ContractPropertyItems
- * @version 0.20.0
  */
 class ContractPropertyItems {
     /**

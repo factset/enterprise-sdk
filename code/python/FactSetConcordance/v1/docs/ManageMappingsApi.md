@@ -24,8 +24,8 @@ Retrieves all entity mappings' history made by the current user, or for a list o
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import manage_mappings_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_universe_response import EntityUniverseResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,11 +59,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     map_status = [
         "MAPPED",
     ] # [str] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
         # View Universe for the requesting user.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_universe(client_id=client_id, map_status=map_status, offset=offset, limit=limit)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Saves a Concordance Mapping to the client universe. When making a post, all exit
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import manage_mappings_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_mapping_request import EntityMappingRequest
-from fds.sdk.FactSetConcordance.model.entity_response import EntityResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,6 +168,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Saves a single-mapping specified by the client.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.save_entity_mapping(entity_mapping_request)
         pprint(api_response)
 

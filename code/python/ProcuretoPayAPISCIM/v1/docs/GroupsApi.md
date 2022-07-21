@@ -24,8 +24,8 @@ Get a group.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.group_resource import GroupResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a group.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.group_id_get(id)
         pprint(api_response)
 
@@ -113,9 +114,8 @@ Patch a group (add, replace, or remove attributes of a group.)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.group_resource import GroupResource
-from fds.sdk.ProcuretoPayAPISCIM.model.patch import Patch
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,6 +161,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Patch a group (add, replace, or remove attributes of a group.)
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.group_id_patch(id, patch=patch)
         pprint(api_response)
 
@@ -216,8 +218,8 @@ Replace a group.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.group_resource import GroupResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -264,6 +266,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Replace a group.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.group_id_put(id, group_resource)
         pprint(api_response)
 
@@ -320,8 +323,8 @@ Get a list of groups.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
-from fds.sdk.ProcuretoPayAPISCIM.model.group_resource_list import GroupResourceList
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -359,6 +362,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of groups.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.groups_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
         pprint(api_response)
 

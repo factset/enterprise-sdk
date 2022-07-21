@@ -22,7 +22,6 @@ import RelationshipCategorySaveDto from '../model/RelationshipCategorySaveDto';
 /**
 * ContactsRelationshipCategory service.
 * @module api/ContactsRelationshipCategoryApi
-* @version 0.20.0
 */
 export default class ContactsRelationshipCategoryApi {
 

@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsSharpeRatioTerm model module.
  * @module model/OptimizerInputsSharpeRatioTerm
- * @version 0.20.0
  */
 class OptimizerInputsSharpeRatioTerm {
     /**

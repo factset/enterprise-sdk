@@ -22,7 +22,6 @@ import InlineResponse2004InstrumentIndustryClassificationRbicsLevel6 from './Inl
 /**
  * The InlineResponse2004InstrumentIndustryClassificationRbics model module.
  * @module model/InlineResponse2004InstrumentIndustryClassificationRbics
- * @version 0.9.2
  */
 class InlineResponse2004InstrumentIndustryClassificationRbics {
     /**

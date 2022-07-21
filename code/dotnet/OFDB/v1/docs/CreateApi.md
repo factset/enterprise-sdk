@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
+
             var databaseSchema = new DatabaseSchema(); // DatabaseSchema |  (optional) 
 
             try
@@ -106,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathdatesdatesymbolspost"></a>
 # **V1DatabasePathDatesDateSymbolsPost**
-> SuccessPostResponse V1DatabasePathDatesDateSymbolsPost (string path, int date, InlineObject4 inlineObject4)
+> SuccessPostResponse V1DatabasePathDatesDateSymbolsPost (string path, int date, Postnewsymboldate postnewsymboldate)
 
 
 
@@ -147,13 +148,14 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
+
             var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
-            var inlineObject4 = new InlineObject4(); // InlineObject4 | 
+            var postnewsymboldate = new Postnewsymboldate(); // Postnewsymboldate | Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4);
+                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -173,7 +175,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| Encode database path | 
  **date** | **int**| Date in YYYYMMDD format | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **postnewsymboldate** | [**Postnewsymboldate**](Postnewsymboldate.md)| Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)
@@ -204,7 +206,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathdatespost"></a>
 # **V1DatabasePathDatesPost**
-> SuccessPostResponse V1DatabasePathDatesPost (string path, InlineObject2 inlineObject2)
+> SuccessPostResponse V1DatabasePathDatesPost (string path, PostDatesymbol postDatesymbol)
 
 
 
@@ -245,12 +247,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
+
             var path = "path_example";  // string | Encode database path
-            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
+            var postDatesymbol = new PostDatesymbol(); // PostDatesymbol | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathDatesPost(path, inlineObject2);
+                SuccessPostResponse result = apiInstance.V1DatabasePathDatesPost(path, postDatesymbol);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -269,7 +272,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| Encode database path | 
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **postDatesymbol** | [**PostDatesymbol**](PostDatesymbol.md)| Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)
@@ -301,7 +304,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathsymbolspost"></a>
 # **V1DatabasePathSymbolsPost**
-> SuccessPostResponse V1DatabasePathSymbolsPost (string path, InlineObject inlineObject)
+> SuccessPostResponse V1DatabasePathSymbolsPost (string path, CreateSymbols createSymbols)
 
 
 
@@ -342,12 +345,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
+
             var path = "path_example";  // string | Encode database path
-            var inlineObject = new InlineObject(); // InlineObject | 
+            var createSymbols = new CreateSymbols(); // CreateSymbols | Data for creating symbol in the database
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathSymbolsPost(path, inlineObject);
+                SuccessPostResponse result = apiInstance.V1DatabasePathSymbolsPost(path, createSymbols);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -366,7 +370,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| Encode database path | 
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **createSymbols** | [**CreateSymbols**](CreateSymbols.md)| Data for creating symbol in the database | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)

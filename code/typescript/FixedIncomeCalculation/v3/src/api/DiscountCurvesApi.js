@@ -19,7 +19,6 @@ import FIDiscountCurveInfoRoot from '../model/FIDiscountCurveInfoRoot';
 /**
 * DiscountCurves service.
 * @module api/DiscountCurvesApi
-* @version 0.20.0
 */
 export default class DiscountCurvesApi {
 

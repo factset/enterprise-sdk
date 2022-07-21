@@ -24,7 +24,6 @@ import ImpliedVolatilityResponse from '../model/ImpliedVolatilityResponse';
 /**
 * RiskMeasures service.
 * @module api/RiskMeasuresApi
-* @version 0.20.0
 */
 export default class RiskMeasuresApi {
 

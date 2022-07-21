@@ -17,7 +17,6 @@ import SegmentsEstimate from './SegmentsEstimate';
 /**
  * The SegmentsResponse model module.
  * @module model/SegmentsResponse
- * @version 0.20.0
  */
 class SegmentsResponse {
     /**

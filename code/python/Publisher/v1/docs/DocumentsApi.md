@@ -23,7 +23,8 @@ This endpoint looks up all Publisher documents and sub-directories in a given di
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Publisher
 from fds.sdk.Publisher.api import documents_api
-from fds.sdk.Publisher.model.document_directories import DocumentDirectories
+from fds.sdk.Publisher.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,11 +54,11 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    path = "Client:folder1/folder2" # str | The directory to get the documents in (default to "Client:folder1/folder2")
 
     try:
         # Gets Publisher documents and sub-directories in a directory
-        api_response = api_instance.get_pub_documents(path)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_pub_documents()
         pprint(api_response)
 
     except fds.sdk.Publisher.ApiException as e:

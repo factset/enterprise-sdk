@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicValueUnitCurrencyMainListDataFilter model module.
  * @module model/BasicValueUnitCurrencyMainListDataFilter
- * @version 0.10.0
  */
 class BasicValueUnitCurrencyMainListDataFilter {
     /**

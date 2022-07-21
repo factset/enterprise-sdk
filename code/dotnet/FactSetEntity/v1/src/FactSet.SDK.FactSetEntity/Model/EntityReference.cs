@@ -59,7 +59,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <param name="emailIR">Email Address of the Investor Relations Contact.</param>
         /// <param name="websiteIR">Website or Page for the Entity&#39;s Investor Relations team..</param>
         /// <param name="requestId">Identifier used in \&quot;ids\&quot; parameter.  When list of identifiers used, they will be parsed and resolved individually..</param>
-        public EntityReference(string fsymId = default(string), string entityProperName = default(string), string fsymEntityId = default(string), string ultimateParentId = default(string), string ultimateParentName = default(string), string creditParentId = default(string), string parentEquityId = default(string), int privateEntityFlag = default(int), int publicEntityFlag = default(int), string securityType = default(string), string website = default(string), DateTime incorporationDate = default(DateTime), string countryOfRisk = default(string), string incorporationCountry = default(string), string businessDescription = default(string), string phone = default(string), string headquartersStreet = default(string), string headquartersCity = default(string), string headquartersState = default(string), string headquartersZip = default(string), string headquartersCountry = default(string), string emailIR = default(string), string websiteIR = default(string), string requestId = default(string))
+        public EntityReference(string fsymId = default(string), string entityProperName = default(string), string fsymEntityId = default(string), string ultimateParentId = default(string), string ultimateParentName = default(string), string creditParentId = default(string), string parentEquityId = default(string), int? privateEntityFlag = default(int?), int? publicEntityFlag = default(int?), string securityType = default(string), string website = default(string), DateTime? incorporationDate = default(DateTime?), string countryOfRisk = default(string), string incorporationCountry = default(string), string businessDescription = default(string), string phone = default(string), string headquartersStreet = default(string), string headquartersCity = default(string), string headquartersState = default(string), string headquartersZip = default(string), string headquartersCountry = default(string), string emailIR = default(string), string websiteIR = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.EntityProperName = entityProperName;
@@ -91,162 +91,162 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)
         /// </summary>
         /// <value>Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Name that the entity is commonly referred to as, normalized and in proper case.
         /// </summary>
         /// <value>Name that the entity is commonly referred to as, normalized and in proper case.</value>
-        [DataMember(Name = "entityProperName", EmitDefaultValue = false)]
+        [DataMember(Name = "entityProperName", EmitDefaultValue = true)]
         public string EntityProperName { get; set; }
 
         /// <summary>
         /// Unique FactSet-generated identifier representing an entity
         /// </summary>
         /// <value>Unique FactSet-generated identifier representing an entity</value>
-        [DataMember(Name = "fsymEntityId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymEntityId", EmitDefaultValue = true)]
         public string FsymEntityId { get; set; }
 
         /// <summary>
         /// The ultimate parent id of the entity.
         /// </summary>
         /// <value>The ultimate parent id of the entity.</value>
-        [DataMember(Name = "ultimateParentId", EmitDefaultValue = false)]
+        [DataMember(Name = "ultimateParentId", EmitDefaultValue = true)]
         public string UltimateParentId { get; set; }
 
         /// <summary>
         /// Name that the ultimate parent entity is commonly referred to as, normalized and in proper case.\&quot;
         /// </summary>
         /// <value>Name that the ultimate parent entity is commonly referred to as, normalized and in proper case.\&quot;</value>
-        [DataMember(Name = "ultimateParentName", EmitDefaultValue = false)]
+        [DataMember(Name = "ultimateParentName", EmitDefaultValue = true)]
         public string UltimateParentName { get; set; }
 
         /// <summary>
         /// The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer&#39;s debt offerings. Credit Parent&#39;s are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology - * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent. * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B). * An issuer must have active debt. 
         /// </summary>
         /// <value>The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer&#39;s debt offerings. Credit Parent&#39;s are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology - * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent. * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B). * An issuer must have active debt. </value>
-        [DataMember(Name = "creditParentId", EmitDefaultValue = false)]
+        [DataMember(Name = "creditParentId", EmitDefaultValue = true)]
         public string CreditParentId { get; set; }
 
         /// <summary>
         /// The regional parent equity listing id.
         /// </summary>
         /// <value>The regional parent equity listing id.</value>
-        [DataMember(Name = "parentEquityId", EmitDefaultValue = false)]
+        [DataMember(Name = "parentEquityId", EmitDefaultValue = true)]
         public string ParentEquityId { get; set; }
 
         /// <summary>
         /// Returns 1 if the entity is a Private Company, otherwise, 0.
         /// </summary>
         /// <value>Returns 1 if the entity is a Private Company, otherwise, 0.</value>
-        [DataMember(Name = "privateEntityFlag", EmitDefaultValue = false)]
-        public int PrivateEntityFlag { get; set; }
+        [DataMember(Name = "privateEntityFlag", EmitDefaultValue = true)]
+        public int? PrivateEntityFlag { get; set; }
 
         /// <summary>
         /// Returns 1 if the entity is a Public Company, otherwise, 0.
         /// </summary>
         /// <value>Returns 1 if the entity is a Public Company, otherwise, 0.</value>
-        [DataMember(Name = "publicEntityFlag", EmitDefaultValue = false)]
-        public int PublicEntityFlag { get; set; }
+        [DataMember(Name = "publicEntityFlag", EmitDefaultValue = true)]
+        public int? PublicEntityFlag { get; set; }
 
         /// <summary>
         /// Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)
         /// </summary>
         /// <value>Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)</value>
-        [DataMember(Name = "securityType", EmitDefaultValue = false)]
+        [DataMember(Name = "securityType", EmitDefaultValue = true)]
         public string SecurityType { get; set; }
 
         /// <summary>
         /// Web page address for the entity
         /// </summary>
         /// <value>Web page address for the entity</value>
-        [DataMember(Name = "website", EmitDefaultValue = false)]
+        [DataMember(Name = "website", EmitDefaultValue = true)]
         public string Website { get; set; }
 
         /// <summary>
         /// Year the entity was incorporated in YYYY-MM-DD format.
         /// </summary>
         /// <value>Year the entity was incorporated in YYYY-MM-DD format.</value>
-        [DataMember(Name = "incorporationDate", EmitDefaultValue = false)]
+        [DataMember(Name = "incorporationDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime IncorporationDate { get; set; }
+        public DateTime? IncorporationDate { get; set; }
 
         /// <summary>
         /// Entity&#39;s Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade) 
         /// </summary>
         /// <value>Entity&#39;s Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade) </value>
-        [DataMember(Name = "countryOfRisk", EmitDefaultValue = false)]
+        [DataMember(Name = "countryOfRisk", EmitDefaultValue = true)]
         public string CountryOfRisk { get; set; }
 
         /// <summary>
         /// ISO Country code where the entity is incorporated
         /// </summary>
         /// <value>ISO Country code where the entity is incorporated</value>
-        [DataMember(Name = "incorporationCountry", EmitDefaultValue = false)]
+        [DataMember(Name = "incorporationCountry", EmitDefaultValue = true)]
         public string IncorporationCountry { get; set; }
 
         /// <summary>
         /// Extended business description for the requested entity.
         /// </summary>
         /// <value>Extended business description for the requested entity.</value>
-        [DataMember(Name = "businessDescription", EmitDefaultValue = false)]
+        [DataMember(Name = "businessDescription", EmitDefaultValue = true)]
         public string BusinessDescription { get; set; }
 
         /// <summary>
         /// The entity&#39;s international phone number.
         /// </summary>
         /// <value>The entity&#39;s international phone number.</value>
-        [DataMember(Name = "phone", EmitDefaultValue = false)]
+        [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
 
         /// <summary>
         /// The entity&#39;s headquarters street address.
         /// </summary>
         /// <value>The entity&#39;s headquarters street address.</value>
-        [DataMember(Name = "headquartersStreet", EmitDefaultValue = false)]
+        [DataMember(Name = "headquartersStreet", EmitDefaultValue = true)]
         public string HeadquartersStreet { get; set; }
 
         /// <summary>
         /// The entity&#39;s headquarters street address.
         /// </summary>
         /// <value>The entity&#39;s headquarters street address.</value>
-        [DataMember(Name = "headquartersCity", EmitDefaultValue = false)]
+        [DataMember(Name = "headquartersCity", EmitDefaultValue = true)]
         public string HeadquartersCity { get; set; }
 
         /// <summary>
         /// Abbreviated State of company headquarters.
         /// </summary>
         /// <value>Abbreviated State of company headquarters.</value>
-        [DataMember(Name = "headquartersState", EmitDefaultValue = false)]
+        [DataMember(Name = "headquartersState", EmitDefaultValue = true)]
         public string HeadquartersState { get; set; }
 
         /// <summary>
         /// Zip/Postal Code for entity&#39;s headquarters.
         /// </summary>
         /// <value>Zip/Postal Code for entity&#39;s headquarters.</value>
-        [DataMember(Name = "headquartersZip", EmitDefaultValue = false)]
+        [DataMember(Name = "headquartersZip", EmitDefaultValue = true)]
         public string HeadquartersZip { get; set; }
 
         /// <summary>
         /// Abbreviated (ISO) Country of headquarters.
         /// </summary>
         /// <value>Abbreviated (ISO) Country of headquarters.</value>
-        [DataMember(Name = "headquartersCountry", EmitDefaultValue = false)]
+        [DataMember(Name = "headquartersCountry", EmitDefaultValue = true)]
         public string HeadquartersCountry { get; set; }
 
         /// <summary>
         /// Email Address of the Investor Relations Contact
         /// </summary>
         /// <value>Email Address of the Investor Relations Contact</value>
-        [DataMember(Name = "emailIR", EmitDefaultValue = false)]
+        [DataMember(Name = "emailIR", EmitDefaultValue = true)]
         public string EmailIR { get; set; }
 
         /// <summary>
         /// Website or Page for the Entity&#39;s Investor Relations team.
         /// </summary>
         /// <value>Website or Page for the Entity&#39;s Investor Relations team.</value>
-        [DataMember(Name = "websiteIR", EmitDefaultValue = false)]
+        [DataMember(Name = "websiteIR", EmitDefaultValue = true)]
         public string WebsiteIR { get; set; }
 
         /// <summary>
@@ -360,11 +360,13 @@ namespace FactSet.SDK.FactSetEntity.Model
                 ) && 
                 (
                     this.PrivateEntityFlag == input.PrivateEntityFlag ||
-                    this.PrivateEntityFlag.Equals(input.PrivateEntityFlag)
+                    (this.PrivateEntityFlag != null &&
+                    this.PrivateEntityFlag.Equals(input.PrivateEntityFlag))
                 ) && 
                 (
                     this.PublicEntityFlag == input.PublicEntityFlag ||
-                    this.PublicEntityFlag.Equals(input.PublicEntityFlag)
+                    (this.PublicEntityFlag != null &&
+                    this.PublicEntityFlag.Equals(input.PublicEntityFlag))
                 ) && 
                 (
                     this.SecurityType == input.SecurityType ||
@@ -480,8 +482,14 @@ namespace FactSet.SDK.FactSetEntity.Model
                 {
                     hashCode = (hashCode * 59) + this.ParentEquityId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PrivateEntityFlag.GetHashCode();
-                hashCode = (hashCode * 59) + this.PublicEntityFlag.GetHashCode();
+                if (this.PrivateEntityFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.PrivateEntityFlag.GetHashCode();
+                }
+                if (this.PublicEntityFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublicEntityFlag.GetHashCode();
+                }
                 if (this.SecurityType != null)
                 {
                     hashCode = (hashCode * 59) + this.SecurityType.GetHashCode();

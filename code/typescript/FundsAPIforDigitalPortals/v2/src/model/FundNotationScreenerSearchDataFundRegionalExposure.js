@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundRegionalExposureSpecific from './FundNo
 /**
  * The FundNotationScreenerSearchDataFundRegionalExposure model module.
  * @module model/FundNotationScreenerSearchDataFundRegionalExposure
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundRegionalExposure {
     /**

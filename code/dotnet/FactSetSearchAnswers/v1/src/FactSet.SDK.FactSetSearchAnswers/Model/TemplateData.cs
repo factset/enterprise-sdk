@@ -37,7 +37,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="LinkTextBlockTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LinkTextBlockTemplate.</param>
         public TemplateData(LinkTextBlockTemplate actualInstance)
@@ -49,7 +48,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="TextBlockFootingTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TextBlockFootingTemplate.</param>
         public TemplateData(TextBlockFootingTemplate actualInstance)
@@ -61,7 +59,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="PercentChangeLabelTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of PercentChangeLabelTemplate.</param>
         public TemplateData(PercentChangeLabelTemplate actualInstance)
@@ -73,7 +70,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ValueChangeDateLabelTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueChangeDateLabelTemplate.</param>
         public TemplateData(ValueChangeDateLabelTemplate actualInstance)
@@ -85,7 +81,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="RankedTableTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of RankedTableTemplate.</param>
         public TemplateData(RankedTableTemplate actualInstance)
@@ -97,7 +92,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="TableTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TableTemplate.</param>
         public TemplateData(TableTemplate actualInstance)
@@ -109,7 +103,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="TableTableTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TableTableTemplate.</param>
         public TemplateData(TableTableTemplate actualInstance)
@@ -121,7 +114,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ValueLabelTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueLabelTemplate.</param>
         public TemplateData(ValueLabelTemplate actualInstance)
@@ -133,7 +125,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ValueLabelDateTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueLabelDateTemplate.</param>
         public TemplateData(ValueLabelDateTemplate actualInstance)
@@ -145,7 +136,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ColoredValueLabelDateTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ColoredValueLabelDateTemplate.</param>
         public TemplateData(ColoredValueLabelDateTemplate actualInstance)
@@ -157,7 +147,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ValueLabelDateTextBlockTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueLabelDateTextBlockTemplate.</param>
         public TemplateData(ValueLabelDateTextBlockTemplate actualInstance)
@@ -169,7 +158,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="ValueLabelDateDataPairListTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueLabelDateDataPairListTemplate.</param>
         public TemplateData(ValueLabelDateDataPairListTemplate actualInstance)
@@ -181,7 +169,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateData" /> class
-        /// with the <see cref="LabelValueChangeLabelValueChangeTemplate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LabelValueChangeLabelValueChangeTemplate.</param>
         public TemplateData(LabelValueChangeLabelValueChangeTemplate actualInstance)
@@ -205,31 +192,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value is ColoredValueLabelDateTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is LabelValueChangeLabelValueChangeTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is LinkTextBlockTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is PercentChangeLabelTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is RankedTableTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is TableTableTemplate)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is TableTemplate)
+                if (value is LinkTextBlockTemplate)
                 {
                     this._actualInstance = value;
                 }
@@ -237,19 +200,23 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value is PercentChangeLabelTemplate)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value is ValueChangeDateLabelTemplate)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is ValueLabelDateDataPairListTemplate)
+                else if (value is RankedTableTemplate)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is ValueLabelDateTemplate)
+                else if (value is TableTemplate)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is ValueLabelDateTextBlockTemplate)
+                else if (value is TableTableTemplate)
                 {
                     this._actualInstance = value;
                 }
@@ -257,9 +224,29 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value is ValueLabelDateTemplate)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ColoredValueLabelDateTemplate)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelDateTextBlockTemplate)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelDateDataPairListTemplate)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is LabelValueChangeLabelValueChangeTemplate)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: ColoredValueLabelDateTemplate, LabelValueChangeLabelValueChangeTemplate, LinkTextBlockTemplate, PercentChangeLabelTemplate, RankedTableTemplate, TableTableTemplate, TableTemplate, TextBlockFootingTemplate, ValueChangeDateLabelTemplate, ValueLabelDateDataPairListTemplate, ValueLabelDateTemplate, ValueLabelDateTextBlockTemplate, ValueLabelTemplate");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: LinkTextBlockTemplate, TextBlockFootingTemplate, PercentChangeLabelTemplate, ValueChangeDateLabelTemplate, RankedTableTemplate, TableTemplate, TableTableTemplate, ValueLabelTemplate, ValueLabelDateTemplate, ColoredValueLabelDateTemplate, ValueLabelDateTextBlockTemplate, ValueLabelDateDataPairListTemplate, LabelValueChangeLabelValueChangeTemplate");
                 }
             }
         }
@@ -492,7 +479,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(LinkTextBlockTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<LinkTextBlockTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -509,7 +496,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(TextBlockFootingTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<TextBlockFootingTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -526,7 +513,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(PercentChangeLabelTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<PercentChangeLabelTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -543,7 +530,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueChangeDateLabelTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueChangeDateLabelTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -560,7 +547,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(RankedTableTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<RankedTableTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -577,7 +564,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(TableTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<TableTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -594,7 +581,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(TableTableTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<TableTableTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -611,7 +598,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueLabelTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueLabelTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -628,7 +615,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueLabelDateTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -645,7 +632,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ColoredValueLabelDateTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ColoredValueLabelDateTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -662,7 +649,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueLabelDateTextBlockTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateTextBlockTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -679,7 +666,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueLabelDateDataPairListTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateDataPairListTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);
@@ -696,7 +683,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(LabelValueChangeLabelValueChangeTemplate).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<LabelValueChangeLabelValueChangeTemplate>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? TemplateData.AdditionalPropertiesSerializerSettings : TemplateData.SerializerSettings
                 );
                 newTemplateData = new TemplateData(parsedValue);

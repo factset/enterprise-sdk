@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTargetProbabilityTerm model module.
  * @module model/OptimizerInputsTargetProbabilityTerm
- * @version 0.20.0
  */
 class OptimizerInputsTargetProbabilityTerm {
     /**

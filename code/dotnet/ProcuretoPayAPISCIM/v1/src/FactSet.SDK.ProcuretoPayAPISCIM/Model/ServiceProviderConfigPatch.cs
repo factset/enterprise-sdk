@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigPatch" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigPatch()
+        public ServiceProviderConfigPatch(bool supported)
         {
         }
 

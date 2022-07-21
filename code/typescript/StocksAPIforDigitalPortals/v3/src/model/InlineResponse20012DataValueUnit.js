@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20012DataValueUnit model module.
  * @module model/InlineResponse20012DataValueUnit
- * @version 0.10.0
  */
 class InlineResponse20012DataValueUnit {
     /**

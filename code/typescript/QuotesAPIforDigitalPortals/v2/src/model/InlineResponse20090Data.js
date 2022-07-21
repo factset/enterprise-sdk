@@ -19,7 +19,6 @@ import InlineResponse20090Instrument from './InlineResponse20090Instrument';
 /**
  * The InlineResponse20090Data model module.
  * @module model/InlineResponse20090Data
- * @version 0.9.2
  */
 class InlineResponse20090Data {
     /**

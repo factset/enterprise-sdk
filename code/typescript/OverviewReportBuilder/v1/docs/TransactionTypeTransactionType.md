@@ -13,6 +13,10 @@ Name | Type | Description | Notes
 
 * `MA` (value: `"MA"`)
 
+* `IPO` (value: `"IPO"`)
+
+* `Follow-On` (value: `"Follow-On"`)
+
 
 
 

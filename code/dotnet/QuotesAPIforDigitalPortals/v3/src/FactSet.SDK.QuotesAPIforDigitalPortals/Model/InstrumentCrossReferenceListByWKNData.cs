@@ -40,7 +40,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InstrumentCrossReferenceListByWKNData" /> class.
         /// </summary>
         /// <param name="wkns">List of source WKNs to be translated. (required).</param>
-        public InstrumentCrossReferenceListByWKNData(List<string> wkns = default(List<string>))
+        public InstrumentCrossReferenceListByWKNData(List<string> wkns)
         {
             // to ensure "wkns" is required (not null)
             if (wkns == null) {

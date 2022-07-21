@@ -19,7 +19,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsGeneralLinearTerm model module.
  * @module model/OptimizerInputsGeneralLinearTerm
- * @version 0.20.0
  */
 class OptimizerInputsGeneralLinearTerm {
     /**

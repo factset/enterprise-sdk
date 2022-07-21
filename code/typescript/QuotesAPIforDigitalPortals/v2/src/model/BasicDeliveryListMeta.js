@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicDeliveryListMeta model module.
  * @module model/BasicDeliveryListMeta
- * @version 0.9.2
  */
 class BasicDeliveryListMeta {
     /**

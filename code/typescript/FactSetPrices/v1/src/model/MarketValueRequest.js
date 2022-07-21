@@ -18,7 +18,6 @@ import Frequency from './Frequency';
 /**
  * The MarketValueRequest model module.
  * @module model/MarketValueRequest
- * @version 0.20.0
  */
 class MarketValueRequest {
     /**

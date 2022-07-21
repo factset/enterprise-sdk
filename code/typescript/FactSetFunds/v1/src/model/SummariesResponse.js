@@ -17,7 +17,6 @@ import Summaries from './Summaries';
 /**
  * The SummariesResponse model module.
  * @module model/SummariesResponse
- * @version 0.20.0
  */
 class SummariesResponse {
     /**

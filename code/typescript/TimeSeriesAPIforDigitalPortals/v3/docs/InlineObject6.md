@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PricesTimeSeriesEodSubsampleGetData**](PricesTimeSeriesEodSubsampleGetData.md) |  | 
+**data** | [**PricesTimeSeriesEodSubsampleGetData**](PricesTimeSeriesEodSubsampleGetData.md) |  | [optional] 
 **meta** | [**VendorChartIQTimeSeriesEodSubsampleGetMeta**](VendorChartIQTimeSeriesEodSubsampleGetMeta.md) |  | [optional] 
 
 

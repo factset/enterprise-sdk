@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// </summary>
         /// <param name="message">message (required).</param>
         /// <param name="querySuggestions">querySuggestions (required).</param>
-        public NoAnswersFoundAllOf(string message = default(string), List<string> querySuggestions = default(List<string>))
+        public NoAnswersFoundAllOf(string message, List<string> querySuggestions)
         {
             // to ensure "message" is required (not null)
             if (message == null) {

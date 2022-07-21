@@ -18,7 +18,6 @@ import StockNotationRankingIntradayListDataPerformanceRelativeMinimum from './St
 /**
  * The StockNotationRankingIntradayListDataPerformanceRelative model module.
  * @module model/StockNotationRankingIntradayListDataPerformanceRelative
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataPerformanceRelative {
     /**

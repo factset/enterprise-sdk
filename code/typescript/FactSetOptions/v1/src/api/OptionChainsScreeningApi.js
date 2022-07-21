@@ -22,7 +22,6 @@ import OptionScreeningResponse from '../model/OptionScreeningResponse';
 /**
 * OptionChainsScreening service.
 * @module api/OptionChainsScreeningApi
-* @version 0.20.0
 */
 export default class OptionChainsScreeningApi {
 

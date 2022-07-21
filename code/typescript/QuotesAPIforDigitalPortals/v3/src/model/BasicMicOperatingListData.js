@@ -17,7 +17,6 @@ import BasicMicOperatingListDataFilter from './BasicMicOperatingListDataFilter';
 /**
  * The BasicMicOperatingListData model module.
  * @module model/BasicMicOperatingListData
- * @version 0.10.0
  */
 class BasicMicOperatingListData {
     /**

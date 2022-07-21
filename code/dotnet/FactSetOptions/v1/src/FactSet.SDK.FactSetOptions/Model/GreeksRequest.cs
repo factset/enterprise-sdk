@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="priceType">priceType.</param>
         /// <param name="calendar">calendar.</param>
-        public GreeksRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), PriceType priceType = default(PriceType), Calendar calendar = default(Calendar))
+        public GreeksRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), PriceType priceType = default(PriceType), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

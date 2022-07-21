@@ -2504,11 +2504,13 @@ components:
           title: STACH
         meta:
           additionalProperties:
+            nullable: true
             type: string
           type: object
       type: object
     Meta:
       additionalProperties:
+        nullable: true
         type: string
       type: object
     ErrorResponse:
@@ -2519,6 +2521,7 @@ components:
           type: array
         meta:
           additionalProperties:
+            nullable: true
             type: string
           type: object
       type: object

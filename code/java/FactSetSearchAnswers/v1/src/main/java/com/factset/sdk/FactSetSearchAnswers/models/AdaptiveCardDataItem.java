@@ -97,32 +97,6 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize AdaptiveCardWithThumbnail
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (AdaptiveCardWithThumbnail.class.equals(Integer.class) || AdaptiveCardWithThumbnail.class.equals(Long.class) || AdaptiveCardWithThumbnail.class.equals(Float.class) || AdaptiveCardWithThumbnail.class.equals(Double.class) || AdaptiveCardWithThumbnail.class.equals(Boolean.class) || AdaptiveCardWithThumbnail.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((AdaptiveCardWithThumbnail.class.equals(Integer.class) || AdaptiveCardWithThumbnail.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((AdaptiveCardWithThumbnail.class.equals(Float.class) || AdaptiveCardWithThumbnail.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (AdaptiveCardWithThumbnail.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (AdaptiveCardWithThumbnail.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AdaptiveCardWithThumbnail.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'AdaptiveCardWithThumbnail'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'AdaptiveCardWithThumbnail'", e);
-            }
-
             // deserialize Object
             try {
                 boolean attemptParsing = true;
@@ -137,7 +111,7 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Object.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Object>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -147,6 +121,32 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'Object'", e);
+            }
+
+            // deserialize AdaptiveCardWithThumbnail
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (AdaptiveCardWithThumbnail.class.equals(Integer.class) || AdaptiveCardWithThumbnail.class.equals(Long.class) || AdaptiveCardWithThumbnail.class.equals(Float.class) || AdaptiveCardWithThumbnail.class.equals(Double.class) || AdaptiveCardWithThumbnail.class.equals(Boolean.class) || AdaptiveCardWithThumbnail.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((AdaptiveCardWithThumbnail.class.equals(Integer.class) || AdaptiveCardWithThumbnail.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((AdaptiveCardWithThumbnail.class.equals(Float.class) || AdaptiveCardWithThumbnail.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (AdaptiveCardWithThumbnail.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (AdaptiveCardWithThumbnail.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<AdaptiveCardWithThumbnail>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'AdaptiveCardWithThumbnail'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'AdaptiveCardWithThumbnail'", e);
             }
 
             if (match == 1) {
@@ -173,16 +173,14 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
         super("oneOf", Boolean.FALSE);
     }
 
-    public AdaptiveCardDataItem(AdaptiveCardWithThumbnail o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public AdaptiveCardDataItem(Object o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
+    public AdaptiveCardDataItem(AdaptiveCardWithThumbnail o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
     static {
         schemas.put("AdaptiveCardWithThumbnail", new GenericType<AdaptiveCardWithThumbnail>() {
         });
@@ -206,12 +204,14 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(AdaptiveCardWithThumbnail.class, instance, new HashSet<Class<?>>())) {
+        // Object
+        if (JSON.isInstanceOf(Object.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(Object.class, instance, new HashSet<Class<?>>())) {
+        // AdaptiveCardWithThumbnail
+        if (JSON.isInstanceOf(AdaptiveCardWithThumbnail.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -231,17 +231,6 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
     }
 
     /**
-     * Get the actual instance of `AdaptiveCardWithThumbnail`. If the actual instance is not `AdaptiveCardWithThumbnail`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `AdaptiveCardWithThumbnail`
-     * @throws ClassCastException if the instance is not `AdaptiveCardWithThumbnail`
-     */
-    public AdaptiveCardWithThumbnail getAdaptiveCardWithThumbnail() throws ClassCastException {
-        return (AdaptiveCardWithThumbnail)super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `Object`. If the actual instance is not `Object`,
      * the ClassCastException will be thrown.
      *
@@ -251,6 +240,17 @@ public class AdaptiveCardDataItem extends AbstractOpenApiSchema implements Seria
     public Object getObject() throws ClassCastException {
         return (Object)super.getActualInstance();
     }
-
+    
+    /**
+     * Get the actual instance of `AdaptiveCardWithThumbnail`. If the actual instance is not `AdaptiveCardWithThumbnail`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AdaptiveCardWithThumbnail`
+     * @throws ClassCastException if the instance is not `AdaptiveCardWithThumbnail`
+     */
+    public AdaptiveCardWithThumbnail getAdaptiveCardWithThumbnail() throws ClassCastException {
+        return (AdaptiveCardWithThumbnail)super.getActualInstance();
+    }
+    
 }
 

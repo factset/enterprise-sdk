@@ -18,7 +18,6 @@ import InlineResponse2005DataShareClassMinimumInvestmentSubsequent from './Inlin
 /**
  * The InlineResponse2005DataShareClassMinimumInvestment model module.
  * @module model/InlineResponse2005DataShareClassMinimumInvestment
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassMinimumInvestment {
     /**

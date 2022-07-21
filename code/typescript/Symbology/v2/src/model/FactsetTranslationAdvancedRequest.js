@@ -17,7 +17,6 @@ import GetSymbolType from './GetSymbolType';
 /**
  * The FactsetTranslationAdvancedRequest model module.
  * @module model/FactsetTranslationAdvancedRequest
- * @version 0.20.0
  */
 class FactsetTranslationAdvancedRequest {
     /**

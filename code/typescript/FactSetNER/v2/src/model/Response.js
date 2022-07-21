@@ -17,7 +17,6 @@ import Entity from './Entity';
 /**
  * The Response model module.
  * @module model/Response
- * @version 0.20.0
  */
 class Response {
     /**

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getdocsdistributoraudiov1listfiles"></a>
 # **GetDocsDistributorAudioV1ListFiles**
-> EventsAudio GetDocsDistributorAudioV1ListFiles (string sort = null, int? paginationLimit = null, DateTime? startDate = null, int? paginationOffset = null, DateTime? endDate = null, int? reportId = null, string ids = null, string sourceCode = null, string fileName = null, bool? trimmed = null, int? uploadTime = null)
+> EventsAudio GetDocsDistributorAudioV1ListFiles (string sort = null, int? paginationLimit = null, DateTime? startDate = null, int? paginationOffset = null, DateTime? endDate = null, int? reportId = null, int? audioSourceId = null, string ids = null, string sourceCode = null, string fileName = null, bool? trimmed = null, int? uploadTime = null)
 
 Retrieve audio recordings and metadata within FactSet coverage
 
@@ -50,12 +50,14 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsAudioApi(config);
+
             var sort = "-startDate";  // string | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional)  (default to -startDate)
             var paginationLimit = 56;  // int? | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional) 
             var startDate = DateTime.Parse("2013-10-20");  // DateTime? | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: -1 for yesterday)' (optional) 
             var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
             var endDate = DateTime.Parse("2013-10-20");  // DateTime? | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional) 
             var reportId = 56;  // int? | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event (optional) 
+            var audioSourceId = 56;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. (optional) 
             var ids = "ids_example";  // string | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional) 
             var sourceCode = "P";  // string | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay) (optional) 
             var fileName = "fileName_example";  // string | This parameter is used to filter the data on based on the file name. (optional) 
@@ -65,7 +67,7 @@ namespace Example
             try
             {
                 // Retrieve audio recordings and metadata within FactSet coverage
-                EventsAudio result = apiInstance.GetDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime);
+                EventsAudio result = apiInstance.GetDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, audioSourceId, ids, sourceCode, fileName, trimmed, uploadTime);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,6 +91,7 @@ Name | Type | Description  | Notes
  **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
  **endDate** | **DateTime?**| Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) | [optional] 
  **reportId** | **int?**| Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event | [optional] 
+ **audioSourceId** | **int?**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. | [optional] 
  **ids** | **string**| This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier | [optional] 
  **sourceCode** | **string**| This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) | [optional] 
  **fileName** | **string**| This parameter is used to filter the data on based on the file name. | [optional] 

@@ -19,7 +19,6 @@ import ClientErrorResponse from '../model/ClientErrorResponse';
 /**
 * Accounts service.
 * @module api/AccountsApi
-* @version 0.20.0
 */
 export default class AccountsApi {
 

@@ -17,7 +17,6 @@ import TitledTextBlock from './TitledTextBlock';
 /**
  * The TextBlockFootingTemplateAllOf model module.
  * @module model/TextBlockFootingTemplateAllOf
- * @version 0.20.0
  */
 class TextBlockFootingTemplateAllOf {
     /**

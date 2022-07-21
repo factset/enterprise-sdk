@@ -52,7 +52,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="isMandatory">isMandatory (required) (default to false).</param>
         /// <param name="fieldFormula">fieldFormula.</param>
         /// <param name="contactCustomFieldOptions">contactCustomFieldOptions.</param>
-        public ContactCustomFieldSaveDto(string code = default(string), string name = default(string), ContactCustomFieldType type = default(ContactCustomFieldType), bool isHidden = false, bool isMandatory = false, ContactCustomFieldFormulaDto fieldFormula = default(ContactCustomFieldFormulaDto), List<ContactCustomFieldOptionSaveDto> contactCustomFieldOptions = default(List<ContactCustomFieldOptionSaveDto>))
+        public ContactCustomFieldSaveDto(string code, string name, ContactCustomFieldType type, bool isHidden, bool isMandatory,ContactCustomFieldFormulaDto fieldFormula = default(ContactCustomFieldFormulaDto), List<ContactCustomFieldOptionSaveDto> contactCustomFieldOptions = default(List<ContactCustomFieldOptionSaveDto>))
         {
             // to ensure "code" is required (not null)
             if (code == null) {

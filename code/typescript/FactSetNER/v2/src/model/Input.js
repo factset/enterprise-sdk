@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Input model module.
  * @module model/Input
- * @version 0.20.0
  */
 class Input {
     /**

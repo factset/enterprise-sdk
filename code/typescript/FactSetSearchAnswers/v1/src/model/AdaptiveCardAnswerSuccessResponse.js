@@ -17,7 +17,6 @@ import AdaptiveCardDataItem from './AdaptiveCardDataItem';
 /**
  * The AdaptiveCardAnswerSuccessResponse model module.
  * @module model/AdaptiveCardAnswerSuccessResponse
- * @version 0.20.0
  */
 class AdaptiveCardAnswerSuccessResponse {
     /**

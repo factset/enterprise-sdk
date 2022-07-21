@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DefaultApi(config);
+
             var resultId = "resultId_example";  // string | 
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DefaultApi(config);
+
             var payload = new Request(); // Request | 
 
             try
@@ -237,6 +239,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DefaultApi(config);
+
             var payload = new Request(); // Request | 
 
             try
@@ -328,6 +331,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DefaultApi(config);
+
             var payload = new Request(); // Request | 
 
             try

@@ -34,7 +34,6 @@ import OptimizerInputsMPTurnoverConstraint from './OptimizerInputsMPTurnoverCons
 /**
  * The OptimizerInputsMultiPeriodConstraints model module.
  * @module model/OptimizerInputsMultiPeriodConstraints
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodConstraints {
     /**

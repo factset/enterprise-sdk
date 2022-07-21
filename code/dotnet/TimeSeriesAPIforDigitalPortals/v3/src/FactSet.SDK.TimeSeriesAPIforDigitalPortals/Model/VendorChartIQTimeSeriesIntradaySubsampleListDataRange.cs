@@ -40,8 +40,8 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="VendorChartIQTimeSeriesIntradaySubsampleListDataRange" /> class.
         /// </summary>
         /// <param name="start">The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most. (required).</param>
-        /// <param name="end">The ending point of the time range (exclusive). Dates in the future are not allowed. (required).</param>
-        public VendorChartIQTimeSeriesIntradaySubsampleListDataRange(string start = default(string), string end = default(string))
+        /// <param name="end">The ending point of the time range (exclusive). Values in the future are not allowed. (required).</param>
+        public VendorChartIQTimeSeriesIntradaySubsampleListDataRange(string start, string end)
         {
             // to ensure "start" is required (not null)
             if (start == null) {
@@ -63,9 +63,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public string Start { get; set; }
 
         /// <summary>
-        /// The ending point of the time range (exclusive). Dates in the future are not allowed.
+        /// The ending point of the time range (exclusive). Values in the future are not allowed.
         /// </summary>
-        /// <value>The ending point of the time range (exclusive). Dates in the future are not allowed.</value>
+        /// <value>The ending point of the time range (exclusive). Values in the future are not allowed.</value>
         [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = false)]
         public string End { get; set; }
 

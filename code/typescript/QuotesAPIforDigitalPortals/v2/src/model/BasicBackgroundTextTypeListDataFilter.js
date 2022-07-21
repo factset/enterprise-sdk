@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicBackgroundTextTypeListDataFilter model module.
  * @module model/BasicBackgroundTextTypeListDataFilter
- * @version 0.9.2
  */
 class BasicBackgroundTextTypeListDataFilter {
     /**

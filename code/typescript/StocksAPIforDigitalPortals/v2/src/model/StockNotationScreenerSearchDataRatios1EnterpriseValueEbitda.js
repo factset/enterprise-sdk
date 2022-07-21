@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean from '.
 /**
  * The StockNotationScreenerSearchDataRatios1EnterpriseValueEbitda model module.
  * @module model/StockNotationScreenerSearchDataRatios1EnterpriseValueEbitda
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataRatios1EnterpriseValueEbitda {
     /**

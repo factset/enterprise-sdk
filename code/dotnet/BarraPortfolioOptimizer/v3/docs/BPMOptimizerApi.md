@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get BPM optimization status by id endpoint
 
             try
@@ -336,6 +339,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
             try
@@ -399,6 +403,7 @@ This endpoint creates and runs BPM optimization specified in the POST body param
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.BarraPortfolioOptimizer.Api;
@@ -431,6 +436,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var bPMOptimizationParametersRoot = new BPMOptimizationParametersRoot(); // BPMOptimizationParametersRoot | Optimization Parameters (optional) 
@@ -512,6 +518,7 @@ This endpoint updates and run the BPM optimization specified in the PUT body par
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.BarraPortfolioOptimizer.Api;
@@ -544,6 +551,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BPMOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run BPM optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 

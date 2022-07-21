@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNMeetings.Api.EventsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -49,6 +49,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting ID
 
             try
@@ -137,6 +138,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
             var recordEventId = "recordEventId_example";  // Guid | Record Event Id
 

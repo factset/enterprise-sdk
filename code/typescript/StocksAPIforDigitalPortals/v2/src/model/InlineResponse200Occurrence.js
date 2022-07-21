@@ -17,7 +17,6 @@ import InlineResponse200OccurrenceFrequency from './InlineResponse200OccurrenceF
 /**
  * The InlineResponse200Occurrence model module.
  * @module model/InlineResponse200Occurrence
- * @version 0.9.2
  */
 class InlineResponse200Occurrence {
     /**

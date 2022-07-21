@@ -20,7 +20,6 @@ import VermilionGroupResource from '../model/VermilionGroupResource';
 /**
 * VermilionGroups service.
 * @module api/VermilionGroupsApi
-* @version 0.20.1
 */
 export default class VermilionGroupsApi {
 

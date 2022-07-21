@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Distribution model module.
  * @module model/Distribution
- * @version 0.20.0
  */
 class Distribution {
     /**

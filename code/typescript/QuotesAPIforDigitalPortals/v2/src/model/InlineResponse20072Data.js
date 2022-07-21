@@ -20,7 +20,6 @@ import InlineResponse20072DataTradingVolume from './InlineResponse20072DataTradi
 /**
  * The InlineResponse20072Data model module.
  * @module model/InlineResponse20072Data
- * @version 0.9.2
  */
 class InlineResponse20072Data {
     /**

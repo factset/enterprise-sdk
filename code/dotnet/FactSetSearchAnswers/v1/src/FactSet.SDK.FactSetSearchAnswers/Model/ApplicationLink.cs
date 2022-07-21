@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="name">name (required).</param>
         /// <param name="workstationLink">workstationLink (required).</param>
         /// <param name="webLink">webLink (required).</param>
-        public ApplicationLink(string name = default(string), string workstationLink = default(string), string webLink = default(string))
+        public ApplicationLink(string name, string workstationLink, string webLink)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

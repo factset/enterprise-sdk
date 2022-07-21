@@ -580,7 +580,7 @@ class NavigatorApi(object):
         self,
         product_id,
         **kwargs
-    ) -> [DataItem]:
+    ) -> typing.List[DataItem]:
         """Get the list of data items associated with a product for Navigator.  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -613,7 +613,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [DataItem]
+            typing.List[DataItem]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -625,7 +625,7 @@ class NavigatorApi(object):
         self,
         product_id,
         **kwargs
-    ) -> typing.Tuple[[DataItem], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[DataItem], int, typing.MutableMapping]:
         """Get the list of data items associated with a product for Navigator.  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -658,7 +658,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [DataItem]
+            typing.List[DataItem]
                 Response Object
             int
                 Http Status Code
@@ -674,7 +674,7 @@ class NavigatorApi(object):
         self,
         product_id,
         **kwargs
-    ) -> "ApplyResult[[DataItem]]":
+    ) -> "ApplyResult[typing.List[DataItem]]":
         """Get the list of data items associated with a product for Navigator.  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -707,7 +707,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[DataItem]]
+            ApplyResult[typing.List[DataItem]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['product_id'] = \
@@ -718,7 +718,7 @@ class NavigatorApi(object):
         self,
         product_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[DataItem], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[DataItem], int, typing.MutableMapping]]":
         """Get the list of data items associated with a product for Navigator.  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -751,7 +751,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([DataItem], int, typing.Dict)]
+            ApplyResult[(typing.List[DataItem], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['product_id'] = \
@@ -761,7 +761,7 @@ class NavigatorApi(object):
     def navigator_products_get(
         self,
         **kwargs
-    ) -> [Product]:
+    ) -> typing.List[Product]:
         """Get the list of products for Navigator.  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -792,7 +792,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [Product]
+            typing.List[Product]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -801,7 +801,7 @@ class NavigatorApi(object):
     def navigator_products_get_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[Product], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[Product], int, typing.MutableMapping]:
         """Get the list of products for Navigator.  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -832,7 +832,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [Product]
+            typing.List[Product]
                 Response Object
             int
                 Http Status Code
@@ -845,7 +845,7 @@ class NavigatorApi(object):
     def navigator_products_get_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[Product]]":
+    ) -> "ApplyResult[typing.List[Product]]":
         """Get the list of products for Navigator.  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -876,7 +876,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[Product]]
+            ApplyResult[typing.List[Product]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.navigator_products_get_endpoint.call_with_http_info(**kwargs)
@@ -884,7 +884,7 @@ class NavigatorApi(object):
     def navigator_products_get_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[Product], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[Product], int, typing.MutableMapping]]":
         """Get the list of products for Navigator.  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -915,7 +915,7 @@ class NavigatorApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([Product], int, typing.Dict)]
+            ApplyResult[(typing.List[Product], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.navigator_products_get_endpoint.call_with_http_info(**kwargs)

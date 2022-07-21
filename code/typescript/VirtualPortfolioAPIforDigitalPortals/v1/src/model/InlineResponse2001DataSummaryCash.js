@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001DataSummaryCash model module.
  * @module model/InlineResponse2001DataSummaryCash
- * @version 0.9.2
  */
 class InlineResponse2001DataSummaryCash {
     /**

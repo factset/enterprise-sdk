@@ -21,8 +21,8 @@ Method | HTTP request | Description
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OptimizationEngineAPIMultiperiod
 from fds.sdk.OptimizationEngineAPIMultiperiod.api import default_api
-from fds.sdk.OptimizationEngineAPIMultiperiod.model.optimizer_inputs_multi_period_input import OptimizerInputsMultiPeriodInput
-from fds.sdk.OptimizationEngineAPIMultiperiod.model.optimizer_outputs_multi_period_output import OptimizerOutputsMultiPeriodOutput
+from fds.sdk.OptimizationEngineAPIMultiperiod.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1547,6 +1547,8 @@ with fds.sdk.OptimizationEngineAPIMultiperiod.ApiClient(configuration) as api_cl
     ) # OptimizerInputsMultiPeriodInput | Multiperiod protobuf input (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.mpo_v1_optimize_fpo_post(multi_period_input=multi_period_input)
         pprint(api_response)
 

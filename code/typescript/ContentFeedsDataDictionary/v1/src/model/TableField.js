@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TableField model module.
  * @module model/TableField
- * @version 0.20.0
  */
 class TableField {
     /**

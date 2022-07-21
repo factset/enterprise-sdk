@@ -18,7 +18,6 @@ import Frequency from './Frequency';
 /**
  * The AtmImpliedVolatilityRequest model module.
  * @module model/AtmImpliedVolatilityRequest
- * @version 0.20.0
  */
 class AtmImpliedVolatilityRequest {
     /**

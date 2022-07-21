@@ -89,11 +89,11 @@ public class EventRequestBody implements Serializable {
   }
 
    /**
-   * A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+   * A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
    * @return created
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.")
+  @ApiModelProperty(value = "A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.")
   @JsonIgnore
 
   public DateTimeInterval getCreated() {
@@ -123,11 +123,11 @@ public class EventRequestBody implements Serializable {
   }
 
    /**
-   * A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
+   * A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
    * @return updated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.")
+  @ApiModelProperty(value = "A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.")
   @JsonIgnore
 
   public DateTimeInterval getUpdated() {

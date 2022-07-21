@@ -28,7 +28,6 @@ import OptimizerInputsVolatilityTerm from './OptimizerInputsVolatilityTerm';
 /**
  * The OptimizerInputsObjective model module.
  * @module model/OptimizerInputsObjective
- * @version 0.20.0
  */
 class OptimizerInputsObjective {
     /**

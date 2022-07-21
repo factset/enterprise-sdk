@@ -501,7 +501,6 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object'
         content:
           application/json:
             examples:
@@ -521,16 +520,7 @@ paths:
                   data:
                   - field: value
             schema:
-              properties:
-                symbol:
-                  description: Name of the symbol and unique to this database
-                  type: string
-                data:
-                  description: date has to be provide in case 3d OFDB with date and
-                    atleast one iterative field
-                  items: {}
-                  type: array
-              type: object
+              $ref: '#/components/schemas/createSymbols'
         description: Data for creating symbol in the database
         required: true
       responses:
@@ -1010,7 +1000,6 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_1'
         content:
           application/json:
             examples:
@@ -1028,15 +1017,7 @@ paths:
                   data:
                   - field: value
             schema:
-              description: Any arbitary set of fields that are provided while creating
-                the ofdb and their values date field is important for 3d ofdbs.
-              properties:
-                data:
-                  description: date has to be provide in case 3d OFDB with date and
-                    atleast one iterative field
-                  items: {}
-                  type: array
-              type: object
+              $ref: '#/components/schemas/modifySymbols'
         description: Data for updating symbol in the database
         required: true
       responses:
@@ -1545,24 +1526,10 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_2'
         content:
           application/json:
             schema:
-              properties:
-                date:
-                  description: Date unique to the database.
-                  example: "20200730"
-                  type: string
-                data:
-                  description: symbol has to be provided to save the date with atleast
-                    one iterative field.
-                  example:
-                  - symbol: FACTSET
-                    field: VALUE
-                  items: {}
-                  type: array
-              type: object
+              $ref: '#/components/schemas/postDatesymbol'
         description: Required data for creating date in the database. At least one
           iterative field is required otherwise it will throw 400.
         required: true
@@ -2041,22 +2008,10 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_3'
         content:
           application/json:
             schema:
-              description: Set of fields along with symbol is mandatory to update
-                the date.
-              properties:
-                data:
-                  description: date has to be provide in case 3d OFDB with date and
-                    atleast one iterative field
-                  example:
-                  - symbol: FACTSET
-                    field1: VALUE
-                  items: {}
-                  type: array
-              type: object
+              $ref: '#/components/schemas/modifydatespecific'
         description: Required data for updating date in the database
         required: true
       responses:
@@ -2315,21 +2270,10 @@ paths:
           type: integer
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_4'
         content:
           application/json:
             schema:
-              properties:
-                symbol:
-                  description: Name of the symbol and unique to this database
-                  example: FACTSET
-                  type: string
-                data:
-                  description: At least one iterative field is required
-                  example:
-                    field1: value
-                  type: object
-              type: object
+              $ref: '#/components/schemas/postnewsymboldate'
         description: Data for creating symbol specific to a date in the database.
           At least one 3d field is required along with symbol.
         required: true
@@ -2792,18 +2736,10 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_5'
         content:
           application/json:
             schema:
-              description: Any arbitary set of fields that are provided while creating
-                the ofdb and their values.
-              properties:
-                data:
-                  example:
-                    field1: VALUE
-                  type: object
-              type: object
+              $ref: '#/components/schemas/modifysymboldate'
         description: Data for updating symbol in the database
         required: true
       responses:
@@ -3683,43 +3619,6 @@ components:
       schema:
         type: string
       style: simple
-  requestBodies:
-    inline_object_1:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_1'
-      required: true
-    inline_object:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object'
-      required: true
-    inline_object_5:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_5'
-      required: true
-    inline_object_4:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_4'
-      required: true
-    inline_object_3:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_3'
-      required: true
-    inline_object_2:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_2'
-      required: true
   responses:
     PostRequestsSuccessCompleteRespones:
       content:
@@ -3995,15 +3894,66 @@ components:
         X-RateLimit-Reset:
           $ref: '#/components/headers/X-RateLimit-Reset'
   schemas:
-    createDatabaseResponse:
+    createSymbols:
       properties:
-        id:
+        symbol:
+          description: Names of the symbol and unique to this database
           type: string
+        data:
+          description: date has to be provide in case 3d OFDB with date and atleast
+            one iterative field
+          items: {}
+          type: array
       type: object
-    Ofdb:
+    postDatesymbol:
       properties:
-        username:
+        date:
+          description: Date unique to the database.
+          example: "20200730"
           type: string
+        data:
+          description: symbol has to be provided to save the date with atleast one
+            iterative field.
+          items: {}
+          type: array
+      type: object
+    modifydatespecific:
+      description: Set of fields along with symbol is mandatory to update the date.
+      properties:
+        data:
+          description: date has to be provide in case 3d OFDB with date and atleast
+            one iterative field
+          items: {}
+          type: array
+      type: object
+    postnewsymboldate:
+      properties:
+        symbol:
+          description: Name of the symbol and unique to this database
+          example: FACTSET
+          type: string
+        data:
+          description: At least one iterative field is required
+          example:
+            field1: value
+          type: object
+      type: object
+    modifysymboldate:
+      description: Any arbitary set of fields that are provided while creating the
+        ofdb and their values.
+      properties:
+        data:
+          type: object
+      type: object
+    modifySymbols:
+      description: Any arbitary set of fields that are provided while creating the
+        ofdb and their values date field is important for 3d ofdbs.
+      properties:
+        data:
+          description: date has to be provide in case 3d OFDB with date and atleast
+            one iterative field
+          items: {}
+          type: array
       type: object
     Symbols:
       items:
@@ -4012,20 +3962,6 @@ components:
     Dates:
       items:
         type: integer
-      type: array
-    Data:
-      items:
-        properties:
-          symbol:
-            properties:
-              date:
-                type: string
-              field1:
-                type: string
-              field2:
-                type: string
-            type: object
-        type: object
       type: array
     Fields:
       items:
@@ -4115,75 +4051,6 @@ components:
         id:
           description: id of the newly created resource
           type: string
-      type: object
-    inline_object:
-      properties:
-        symbol:
-          description: Name of the symbol and unique to this database
-          type: string
-        data:
-          description: date has to be provide in case 3d OFDB with date and atleast
-            one iterative field
-          items: {}
-          type: array
-      type: object
-    inline_object_1:
-      description: Any arbitary set of fields that are provided while creating the
-        ofdb and their values date field is important for 3d ofdbs.
-      properties:
-        data:
-          description: date has to be provide in case 3d OFDB with date and atleast
-            one iterative field
-          items: {}
-          type: array
-      type: object
-    inline_object_2:
-      properties:
-        date:
-          description: Date unique to the database.
-          example: "20200730"
-          type: string
-        data:
-          description: symbol has to be provided to save the date with atleast one
-            iterative field.
-          example:
-          - symbol: FACTSET
-            field: VALUE
-          items: {}
-          type: array
-      type: object
-    inline_object_3:
-      description: Set of fields along with symbol is mandatory to update the date.
-      properties:
-        data:
-          description: date has to be provide in case 3d OFDB with date and atleast
-            one iterative field
-          example:
-          - symbol: FACTSET
-            field1: VALUE
-          items: {}
-          type: array
-      type: object
-    inline_object_4:
-      properties:
-        symbol:
-          description: Name of the symbol and unique to this database
-          example: FACTSET
-          type: string
-        data:
-          description: At least one iterative field is required
-          example:
-            field1: value
-          type: object
-      type: object
-    inline_object_5:
-      description: Any arbitary set of fields that are provided while creating the
-        ofdb and their values.
-      properties:
-        data:
-          example:
-            field1: VALUE
-          type: object
       type: object
     inline_response_201:
       example:

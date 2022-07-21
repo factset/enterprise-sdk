@@ -18,7 +18,6 @@ import InlineResponse20012DataPerformanceIntraday from './InlineResponse20012Dat
 /**
  * The InlineResponse20012DataPerformance model module.
  * @module model/InlineResponse20012DataPerformance
- * @version 0.10.0
  */
 class InlineResponse20012DataPerformance {
     /**

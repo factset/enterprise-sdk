@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataFundIssuerJuristicPerson model module.
  * @module model/InlineResponse2005DataFundIssuerJuristicPerson
- * @version 0.10.0
  */
 class InlineResponse2005DataFundIssuerJuristicPerson {
     /**

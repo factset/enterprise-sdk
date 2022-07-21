@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodListMetaPagination model module.
  * @module model/VendorChartIQTimeSeriesEodListMetaPagination
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesEodListMetaPagination {
     /**
@@ -70,8 +69,9 @@ VendorChartIQTimeSeriesEodListMetaPagination.prototype['cursor'] = undefined;
 /**
  * Non-negative maximum number of entries to return.
  * @member {Number} limit
+ * @default 20
  */
-VendorChartIQTimeSeriesEodListMetaPagination.prototype['limit'] = undefined;
+VendorChartIQTimeSeriesEodListMetaPagination.prototype['limit'] = 20;
 
 
 

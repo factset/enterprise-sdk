@@ -40,7 +40,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData" /> class.
         /// </summary>
         /// <param name="symbologyIdentifier">FactSet Symbology Identifier. See the endpoint description for valid FactSet Symbology Identifier types. (required).</param>
-        public NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData(string symbologyIdentifier = default(string))
+        public NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData(string symbologyIdentifier)
         {
             // to ensure "symbologyIdentifier" is required (not null)
             if (symbologyIdentifier == null) {

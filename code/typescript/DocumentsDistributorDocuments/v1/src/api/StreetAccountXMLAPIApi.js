@@ -21,7 +21,6 @@ import StreetAccountStatus from '../model/StreetAccountStatus';
 /**
 * StreetAccountXMLAPI service.
 * @module api/StreetAccountXMLAPIApi
-* @version 0.20.1
 */
 export default class StreetAccountXMLAPIApi {
 

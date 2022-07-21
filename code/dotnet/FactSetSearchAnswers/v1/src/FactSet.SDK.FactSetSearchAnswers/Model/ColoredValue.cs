@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// </summary>
         /// <param name="text">text.</param>
         /// <param name="color">color.</param>
-        public ColoredValue(string text = default(string), ValueColor? color = default(ValueColor?))
+        public ColoredValue(string text = default(string), ValueColor color = default(ValueColor))
         {
             this.Text = text;
             this.Color = color;

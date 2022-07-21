@@ -17,7 +17,6 @@ import InlineResponse20012DataParent from './InlineResponse20012DataParent';
 /**
  * The InlineResponse20012DataCategories model module.
  * @module model/InlineResponse20012DataCategories
- * @version 0.10.0
  */
 class InlineResponse20012DataCategories {
     /**

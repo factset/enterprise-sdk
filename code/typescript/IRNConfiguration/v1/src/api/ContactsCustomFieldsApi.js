@@ -22,7 +22,6 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * ContactsCustomFields service.
 * @module api/ContactsCustomFieldsApi
-* @version 0.20.0
 */
 export default class ContactsCustomFieldsApi {
 

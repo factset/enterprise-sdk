@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Initializes a new instance of the <see cref="ReferencesRequest" /> class.
         /// </summary>
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.  (required).</param>
-        public ReferencesRequest(List<string> ids = default(List<string>))
+        public ReferencesRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

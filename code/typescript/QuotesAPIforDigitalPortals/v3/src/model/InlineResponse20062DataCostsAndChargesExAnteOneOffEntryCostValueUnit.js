@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit
- * @version 0.10.0
  */
 class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit {
     /**

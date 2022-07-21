@@ -63,6 +63,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject(); // InlineObject | 
 
             try
@@ -151,6 +152,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
@@ -327,6 +330,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -417,6 +421,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -507,6 +512,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
@@ -595,6 +601,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -685,6 +692,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -775,6 +783,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject7(); // InlineObject7 |  (optional) 
 
             try
@@ -863,6 +872,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject8(); // InlineObject8 |  (optional) 
 
             try
@@ -951,6 +961,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject4(); // InlineObject4 |  (optional) 
 
             try
@@ -1039,6 +1050,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try
@@ -1127,6 +1139,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1217,6 +1230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
+
             var body = new InlineObject6(); // InlineObject6 |  (optional) 
 
             try

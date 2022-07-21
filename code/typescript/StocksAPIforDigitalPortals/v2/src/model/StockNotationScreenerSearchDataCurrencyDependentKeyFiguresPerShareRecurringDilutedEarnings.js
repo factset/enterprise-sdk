@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings {
     /**

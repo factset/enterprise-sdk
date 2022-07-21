@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StandardSymbolDto model module.
  * @module model/StandardSymbolDto
- * @version 0.20.0
  */
 class StandardSymbolDto {
     /**

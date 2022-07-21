@@ -18,7 +18,6 @@ import NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData from '
 /**
  * The InlineObject19 model module.
  * @module model/InlineObject19
- * @version 0.9.2
  */
 class InlineObject19 {
     /**

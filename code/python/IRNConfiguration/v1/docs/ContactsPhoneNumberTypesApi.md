@@ -1,6 +1,6 @@
 # fds.sdk.IRNConfiguration.ContactsPhoneNumberTypesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,8 +24,8 @@ Create a phone type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___phone_number_types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.new_item_dto import NewItemDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Create a phone type
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_phone_number_type(body)
         pprint(api_response)
 
@@ -111,7 +112,8 @@ Delete a phone type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___phone_number_types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,7 +147,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Delete a phone type
+        # example passing only required values which don't have defaults set
         api_instance.delete_phone_number_type(phone_number_type_id)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsPhoneNumberTypesApi->delete_phone_number_type: %s\n" % e)
 ```
@@ -196,7 +200,8 @@ Get list of the phone types configured in your group
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___phone_number_types_api
-from fds.sdk.IRNConfiguration.model.phone_number_type_dto import PhoneNumberTypeDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -229,6 +234,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get list of the phone types configured in your group
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_phone_number_types()
         pprint(api_response)
 
@@ -276,7 +282,8 @@ Edit a phone type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___phone_number_types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -311,7 +318,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Edit a phone type
+        # example passing only required values which don't have defaults set
         api_instance.update_phone_number_type(phone_number_type_id, body)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsPhoneNumberTypesApi->update_phone_number_type: %s\n" % e)
 ```

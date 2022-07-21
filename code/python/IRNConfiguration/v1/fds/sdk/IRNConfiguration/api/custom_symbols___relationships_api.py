@@ -812,7 +812,7 @@ class CustomSymbolsRelationshipsApi(object):
     def get_symbols_relationships(
         self,
         **kwargs
-    ) -> [SymbolsRelationshipDto]:
+    ) -> typing.List[SymbolsRelationshipDto]:
         """Get all the Symbols Relationships  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -843,7 +843,7 @@ class CustomSymbolsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SymbolsRelationshipDto]
+            typing.List[SymbolsRelationshipDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -852,7 +852,7 @@ class CustomSymbolsRelationshipsApi(object):
     def get_symbols_relationships_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[SymbolsRelationshipDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[SymbolsRelationshipDto], int, typing.MutableMapping]:
         """Get all the Symbols Relationships  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -883,7 +883,7 @@ class CustomSymbolsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SymbolsRelationshipDto]
+            typing.List[SymbolsRelationshipDto]
                 Response Object
             int
                 Http Status Code
@@ -896,7 +896,7 @@ class CustomSymbolsRelationshipsApi(object):
     def get_symbols_relationships_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[SymbolsRelationshipDto]]":
+    ) -> "ApplyResult[typing.List[SymbolsRelationshipDto]]":
         """Get all the Symbols Relationships  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -927,7 +927,7 @@ class CustomSymbolsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[SymbolsRelationshipDto]]
+            ApplyResult[typing.List[SymbolsRelationshipDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_symbols_relationships_endpoint.call_with_http_info(**kwargs)
@@ -935,7 +935,7 @@ class CustomSymbolsRelationshipsApi(object):
     def get_symbols_relationships_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[SymbolsRelationshipDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[SymbolsRelationshipDto], int, typing.MutableMapping]]":
         """Get all the Symbols Relationships  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -966,7 +966,7 @@ class CustomSymbolsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([SymbolsRelationshipDto], int, typing.Dict)]
+            ApplyResult[(typing.List[SymbolsRelationshipDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_symbols_relationships_endpoint.call_with_http_info(**kwargs)

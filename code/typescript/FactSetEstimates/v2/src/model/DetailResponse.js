@@ -17,7 +17,6 @@ import DetailEstimate from './DetailEstimate';
 /**
  * The DetailResponse model module.
  * @module model/DetailResponse
- * @version 0.20.0
  */
 class DetailResponse {
     /**

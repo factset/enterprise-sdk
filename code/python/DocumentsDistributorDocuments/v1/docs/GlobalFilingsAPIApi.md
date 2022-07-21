@@ -23,8 +23,8 @@ Parameters can be used to get the filings
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import global_filings_api_api
-from fds.sdk.DocumentsDistributorDocuments.model.filings_response import FilingsResponse
-from fds.sdk.DocumentsDistributorDocuments.model.status import Status
+from fds.sdk.DocumentsDistributorDocuments.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,13 +54,13 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = global_filings_api_api.GlobalFilingsAPIApi(api_client)
 
-    dataset = "edgar" # str | This parameter filters the results based on the dataset of the filings documents. (default to "edgar")
     start_date = dateutil_parser('1970-01-01').date() # date | The earliest date the API should fetch for. Dates can be YYYY-MM-DD format
     end_date = dateutil_parser('1970-01-01').date() # date | The date after upto eight days of the earliest date given the API should fetch for. Dates can be YYYY-MM-DD format
 
     try:
         # Retrieve filings within FactSet coverage
-        api_response = api_instance.global_filings_v1_list_files_get(dataset, start_date, end_date)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.global_filings_v1_list_files_get(start_date, end_date)
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:

@@ -23,7 +23,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsHoldingsWeightConstraint model module.
  * @module model/OptimizerInputsHoldingsWeightConstraint
- * @version 0.20.0
  */
 class OptimizerInputsHoldingsWeightConstraint {
     /**

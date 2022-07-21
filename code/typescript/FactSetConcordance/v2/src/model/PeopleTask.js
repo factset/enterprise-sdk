@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleTask model module.
  * @module model/PeopleTask
- * @version 0.20.1
  */
 class PeopleTask {
     /**

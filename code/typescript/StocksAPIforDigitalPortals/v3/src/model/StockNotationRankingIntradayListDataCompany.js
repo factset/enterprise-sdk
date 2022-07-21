@@ -17,7 +17,6 @@ import StockNotationRankingIntradayListDataCompanyCountry from './StockNotationR
 /**
  * The StockNotationRankingIntradayListDataCompany model module.
  * @module model/StockNotationRankingIntradayListDataCompany
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataCompany {
     /**

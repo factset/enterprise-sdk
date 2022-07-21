@@ -1,6 +1,6 @@
 # fds.sdk.IRNCustomSymbols.CustomSymbolsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,9 +27,8 @@ Create a custom symbol
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.new_item_dto import NewItemDto
-from fds.sdk.IRNCustomSymbols.model.create_custom_symbol_dto import CreateCustomSymbolDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -90,6 +89,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Create a custom symbol
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_custom_symbol(create_custom_symbol_dto=create_custom_symbol_dto)
         pprint(api_response)
 
@@ -142,7 +143,8 @@ Delete a custom symbol
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -176,7 +178,9 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Delete a custom symbol
+        # example passing only required values which don't have defaults set
         api_instance.delete_custom_symbol(custom_symbol_id)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->delete_custom_symbol: %s\n" % e)
 ```
@@ -227,7 +231,8 @@ Get all custom field and standard field details on a specific custom symbol
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.custom_symbol_dto import CustomSymbolDto
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,10 +263,12 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
     api_instance = custom_symbols_api.CustomSymbolsApi(api_client)
 
     custom_symbol_id = "customSymbolId_example" # str | customSymbolId to get associated custom symbol
-    include_event = False # bool | Whether or not to include event (optional) (default to False)
+    include_event = False # bool | Whether or not to include event (optional) if omitted the server will use the default value of False
 
     try:
         # Get all custom field and standard field details on a specific custom symbol
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_custom_symbol(custom_symbol_id, include_event=include_event)
         pprint(api_response)
 
@@ -313,8 +320,8 @@ Get all notes and meetings where a specific customSymbol was tagged as primary o
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.record_preview_dto import RecordPreviewDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -348,6 +355,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_custom_symbol_records(custom_symbol_id)
         pprint(api_response)
 
@@ -400,8 +408,8 @@ Get list of all custom symbols in your group along with some of their standard f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.custom_symbol_dto import CustomSymbolDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -433,12 +441,14 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     type_name = "typeName_example" # str | filter custom symbols based on custom symbol type (optional)
     query = "query_example" # str | filter custom symbols based on custom symbol code or name (optional)
-    include_custom_field_values = False # bool | Whether or not to include customFieldValues (optional) (default to False)
-    exclude_linked_custom_symbol = False # bool | Whether or not to exclude linked custom symbol (optional) (default to False)
-    include_event = True # bool | Whether or not to include event (optional) (default to True)
+    include_custom_field_values = False # bool | Whether or not to include customFieldValues (optional) if omitted the server will use the default value of False
+    exclude_linked_custom_symbol = False # bool | Whether or not to exclude linked custom symbol (optional) if omitted the server will use the default value of False
+    include_event = True # bool | Whether or not to include event (optional) if omitted the server will use the default value of True
 
     try:
         # Get list of all custom symbols in your group along with some of their standard field and custom fields data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_custom_symbols(type_name=type_name, query=query, include_custom_field_values=include_custom_field_values, exclude_linked_custom_symbol=exclude_linked_custom_symbol, include_event=include_event)
         pprint(api_response)
 
@@ -495,7 +505,8 @@ Link custom symbol to standard symbol
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.standard_symbol_dto import StandardSymbolDto
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -532,7 +543,10 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Link custom symbol to standard symbol
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.link_custom_symbol_to_standard_symbol(custom_symbol_id, standard_symbol_dto=standard_symbol_dto)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->link_custom_symbol_to_standard_symbol: %s\n" % e)
 ```
@@ -581,8 +595,8 @@ Edit a custom symbol’s standard field and custom field data
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols_api
-from fds.sdk.IRNCustomSymbols.model.operation import Operation
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -625,7 +639,10 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Edit a custom symbol’s standard field and custom field data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_custom_symbol(custom_symbol_id, operation=operation)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsApi->patch_custom_symbol: %s\n" % e)
 ```

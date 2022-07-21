@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeOngoingCurrent from './FundNot
 /**
  * The FundNotationScreenerSearchDataShareClassFeeOngoing model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeOngoing
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeOngoing {
     /**

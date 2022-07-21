@@ -17,7 +17,6 @@ import InlineResponse20036Fsym from './InlineResponse20036Fsym';
 /**
  * The InlineResponse20046NotationInstrument model module.
  * @module model/InlineResponse20046NotationInstrument
- * @version 0.10.0
  */
 class InlineResponse20046NotationInstrument {
     /**

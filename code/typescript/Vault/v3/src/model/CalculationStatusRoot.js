@@ -18,7 +18,6 @@ import CalculationStatusMeta from './CalculationStatusMeta';
 /**
  * The CalculationStatusRoot model module.
  * @module model/CalculationStatusRoot
- * @version 0.20.0
  */
 class CalculationStatusRoot {
     /**

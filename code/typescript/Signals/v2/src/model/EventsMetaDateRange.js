@@ -17,7 +17,6 @@ import DateTimeInterval from './DateTimeInterval';
 /**
  * The EventsMetaDateRange model module.
  * @module model/EventsMetaDateRange
- * @version 0.20.0
  */
 class EventsMetaDateRange {
     /**

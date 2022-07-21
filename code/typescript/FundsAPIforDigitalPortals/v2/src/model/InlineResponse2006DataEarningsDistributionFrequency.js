@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataEarningsDistributionFrequency model module.
  * @module model/InlineResponse2006DataEarningsDistributionFrequency
- * @version 0.10.0
  */
 class InlineResponse2006DataEarningsDistributionFrequency {
     /**

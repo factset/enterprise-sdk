@@ -17,7 +17,6 @@ import InlineResponse20026DataSummary from './InlineResponse20026DataSummary';
 /**
  * The InlineResponse20026Data model module.
  * @module model/InlineResponse20026Data
- * @version 0.10.0
  */
 class InlineResponse20026Data {
     /**

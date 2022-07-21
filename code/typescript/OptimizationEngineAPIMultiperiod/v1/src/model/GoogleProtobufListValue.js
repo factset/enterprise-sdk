@@ -17,7 +17,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The GoogleProtobufListValue model module.
  * @module model/GoogleProtobufListValue
- * @version 0.20.0
  */
 class GoogleProtobufListValue {
     /**

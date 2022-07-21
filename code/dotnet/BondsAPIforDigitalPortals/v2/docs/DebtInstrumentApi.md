@@ -54,9 +54,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var id = "id_example";  // string | Identifier of the instrument.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -79,9 +80,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -146,7 +147,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var id = "id_example";  // string | Identifier of a notation.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -170,7 +172,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of a notation. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -195,7 +197,7 @@ Name | Type | Description  | Notes
 
 <a name="postdebtinstrumentissuersearch"></a>
 # **PostDebtInstrumentIssuerSearch**
-> InlineResponse2001 PostDebtInstrumentIssuerSearch (InlineObject body = null)
+> InlineResponse2001 PostDebtInstrumentIssuerSearch (InlineObject inlineObject = null)
 
 Search for issuers of debt instruments.
 
@@ -236,12 +238,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var body = new InlineObject(); // InlineObject |  (optional) 
+
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
 
             try
             {
                 // Search for issuers of debt instruments.
-                InlineResponse2001 result = apiInstance.PostDebtInstrumentIssuerSearch(body);
+                InlineResponse2001 result = apiInstance.PostDebtInstrumentIssuerSearch(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -259,7 +262,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -283,7 +286,7 @@ Name | Type | Description  | Notes
 
 <a name="postdebtinstrumentnotationscreenersearch"></a>
 # **PostDebtInstrumentNotationScreenerSearch**
-> InlineResponse2003 PostDebtInstrumentNotationScreenerSearch (InlineObject1 body = null)
+> InlineResponse2003 PostDebtInstrumentNotationScreenerSearch (InlineObject1 inlineObject1 = null)
 
 Screener for debt instruments' notations based on debt instrument-specific parameters.
 
@@ -324,12 +327,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var body = new InlineObject1(); // InlineObject1 |  (optional) 
+
+            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
             {
                 // Screener for debt instruments' notations based on debt instrument-specific parameters.
-                InlineResponse2003 result = apiInstance.PostDebtInstrumentNotationScreenerSearch(body);
+                InlineResponse2003 result = apiInstance.PostDebtInstrumentNotationScreenerSearch(inlineObject1);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -347,7 +351,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -371,7 +375,7 @@ Name | Type | Description  | Notes
 
 <a name="postdebtinstrumentnotationscreenervaluerangesget"></a>
 # **PostDebtInstrumentNotationScreenerValueRangesGet**
-> InlineResponse2004 PostDebtInstrumentNotationScreenerValueRangesGet (InlineObject2 body = null)
+> InlineResponse2004 PostDebtInstrumentNotationScreenerValueRangesGet (InlineObject2 inlineObject2 = null)
 
 Possible values and value ranges for the parameters used in the endpoint `/debtInstrument/notation/screener/search.`
 
@@ -412,12 +416,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var body = new InlineObject2(); // InlineObject2 |  (optional) 
+
+            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
             {
                 // Possible values and value ranges for the parameters used in the endpoint `/debtInstrument/notation/screener/search.`
-                InlineResponse2004 result = apiInstance.PostDebtInstrumentNotationScreenerValueRangesGet(body);
+                InlineResponse2004 result = apiInstance.PostDebtInstrumentNotationScreenerValueRangesGet(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -435,7 +440,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)

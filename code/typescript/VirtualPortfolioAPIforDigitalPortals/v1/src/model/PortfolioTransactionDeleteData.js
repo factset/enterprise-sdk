@@ -18,7 +18,6 @@ import PortfolioTransactionDeleteDataTransaction from './PortfolioTransactionDel
 /**
  * The PortfolioTransactionDeleteData model module.
  * @module model/PortfolioTransactionDeleteData
- * @version 0.9.2
  */
 class PortfolioTransactionDeleteData {
     /**

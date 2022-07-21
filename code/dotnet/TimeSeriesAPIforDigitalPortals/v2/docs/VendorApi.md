@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var from = "from_example";  // string | Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
             var type = "trade";  // string | Type of the price as configured for the customer. (optional)  (default to trade)
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
+
             var body = new InlineObject(); // InlineObject | 
 
             try
@@ -240,6 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
+
             var body = new InlineObject1(); // InlineObject1 | 
 
             try
@@ -328,6 +331,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
+
             var body = new InlineObject2(); // InlineObject2 | 
 
             try
@@ -416,6 +420,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
+
             var body = new InlineObject3(); // InlineObject3 | 
 
             try

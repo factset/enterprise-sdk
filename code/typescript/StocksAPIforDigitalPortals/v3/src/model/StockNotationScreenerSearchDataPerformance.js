@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataPerformanceIntraday from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataPerformance model module.
  * @module model/StockNotationScreenerSearchDataPerformance
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataPerformance {
     /**

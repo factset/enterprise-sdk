@@ -29,14 +29,14 @@ import com.factset.sdk.OverviewReportBuilder.models.Frequency;
 import com.factset.sdk.OverviewReportBuilder.models.FrequencyFrequency;
 import com.factset.sdk.OverviewReportBuilder.models.Metric;
 import com.factset.sdk.OverviewReportBuilder.models.MetricMetric;
+import com.factset.sdk.OverviewReportBuilder.models.RelevanceType;
+import com.factset.sdk.OverviewReportBuilder.models.RelevanceTypeRelevanceType;
 import com.factset.sdk.OverviewReportBuilder.models.Scale;
 import com.factset.sdk.OverviewReportBuilder.models.ScaleScale;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionId;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionIdTransactionId;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionType;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionTypeTransactionType;
-import com.factset.sdk.OverviewReportBuilder.models.Units;
-import com.factset.sdk.OverviewReportBuilder.models.UnitsUnits;
 import com.factset.sdk.OverviewReportBuilder.models.ValueType;
 import com.factset.sdk.OverviewReportBuilder.models.ValueTypeValueType;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -128,7 +128,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Category.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Category>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -154,7 +154,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CurrencyCode.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<CurrencyCode>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -180,7 +180,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CurrencySymbol.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<CurrencySymbol>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -206,7 +206,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Description.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Description>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -232,7 +232,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Frequency.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Frequency>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -258,7 +258,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Metric.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Metric>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -268,6 +268,32 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'Metric'", e);
+            }
+
+            // deserialize RelevanceType
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (RelevanceType.class.equals(Integer.class) || RelevanceType.class.equals(Long.class) || RelevanceType.class.equals(Float.class) || RelevanceType.class.equals(Double.class) || RelevanceType.class.equals(Boolean.class) || RelevanceType.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((RelevanceType.class.equals(Integer.class) || RelevanceType.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((RelevanceType.class.equals(Float.class) || RelevanceType.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (RelevanceType.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (RelevanceType.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<RelevanceType>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'RelevanceType'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'RelevanceType'", e);
             }
 
             // deserialize Scale
@@ -284,7 +310,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Scale.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Scale>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -310,7 +336,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TransactionId.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TransactionId>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -336,7 +362,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TransactionType.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TransactionType>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -346,32 +372,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'TransactionType'", e);
-            }
-
-            // deserialize Units
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (Units.class.equals(Integer.class) || Units.class.equals(Long.class) || Units.class.equals(Float.class) || Units.class.equals(Double.class) || Units.class.equals(Boolean.class) || Units.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((Units.class.equals(Integer.class) || Units.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((Units.class.equals(Float.class) || Units.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (Units.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (Units.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Units.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'Units'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Units'", e);
             }
 
             // deserialize ValueType
@@ -388,7 +388,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueType.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueType>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -428,57 +428,46 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(CurrencyCode o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(CurrencySymbol o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(Description o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(Frequency o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(Metric o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
+    public MetadataEntry(RelevanceType o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
     public MetadataEntry(Scale o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(TransactionId o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(TransactionType o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
-    public MetadataEntry(Units o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public MetadataEntry(ValueType o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     static {
         schemas.put("Category", new GenericType<Category>() {
         });
@@ -492,13 +481,13 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
         });
         schemas.put("Metric", new GenericType<Metric>() {
         });
+        schemas.put("RelevanceType", new GenericType<RelevanceType>() {
+        });
         schemas.put("Scale", new GenericType<Scale>() {
         });
         schemas.put("TransactionId", new GenericType<TransactionId>() {
         });
         schemas.put("TransactionType", new GenericType<TransactionType>() {
-        });
-        schemas.put("Units", new GenericType<Units>() {
         });
         schemas.put("ValueType", new GenericType<ValueType>() {
         });
@@ -513,76 +502,87 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, Scale, TransactionId, TransactionType, Units, ValueType
+     * Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, RelevanceType, Scale, TransactionId, TransactionType, ValueType
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
+        // Category
         if (JSON.isInstanceOf(Category.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // CurrencyCode
         if (JSON.isInstanceOf(CurrencyCode.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // CurrencySymbol
         if (JSON.isInstanceOf(CurrencySymbol.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // Description
         if (JSON.isInstanceOf(Description.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // Frequency
         if (JSON.isInstanceOf(Frequency.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // Metric
         if (JSON.isInstanceOf(Metric.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // RelevanceType
+        if (JSON.isInstanceOf(RelevanceType.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // Scale
         if (JSON.isInstanceOf(Scale.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // TransactionId
         if (JSON.isInstanceOf(TransactionId.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // TransactionType
         if (JSON.isInstanceOf(TransactionType.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(Units.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
+        // ValueType
         if (JSON.isInstanceOf(ValueType.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, Scale, TransactionId, TransactionType, Units, ValueType");
+        throw new RuntimeException("Invalid instance type. Must be Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, RelevanceType, Scale, TransactionId, TransactionType, ValueType");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, Scale, TransactionId, TransactionType, Units, ValueType
+     * Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, RelevanceType, Scale, TransactionId, TransactionType, ValueType
      *
-     * @return The actual instance (Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, Scale, TransactionId, TransactionType, Units, ValueType)
+     * @return The actual instance (Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, RelevanceType, Scale, TransactionId, TransactionType, ValueType)
      */
     @Override
     public Object getActualInstance() {
@@ -599,7 +599,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Category getCategory() throws ClassCastException {
         return (Category)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `CurrencyCode`. If the actual instance is not `CurrencyCode`,
      * the ClassCastException will be thrown.
@@ -610,7 +610,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencyCode getCurrencyCode() throws ClassCastException {
         return (CurrencyCode)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `CurrencySymbol`. If the actual instance is not `CurrencySymbol`,
      * the ClassCastException will be thrown.
@@ -621,7 +621,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencySymbol getCurrencySymbol() throws ClassCastException {
         return (CurrencySymbol)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `Description`. If the actual instance is not `Description`,
      * the ClassCastException will be thrown.
@@ -632,7 +632,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Description getDescription() throws ClassCastException {
         return (Description)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `Frequency`. If the actual instance is not `Frequency`,
      * the ClassCastException will be thrown.
@@ -643,7 +643,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Frequency getFrequency() throws ClassCastException {
         return (Frequency)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `Metric`. If the actual instance is not `Metric`,
      * the ClassCastException will be thrown.
@@ -654,7 +654,18 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Metric getMetric() throws ClassCastException {
         return (Metric)super.getActualInstance();
     }
-
+    
+    /**
+     * Get the actual instance of `RelevanceType`. If the actual instance is not `RelevanceType`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `RelevanceType`
+     * @throws ClassCastException if the instance is not `RelevanceType`
+     */
+    public RelevanceType getRelevanceType() throws ClassCastException {
+        return (RelevanceType)super.getActualInstance();
+    }
+    
     /**
      * Get the actual instance of `Scale`. If the actual instance is not `Scale`,
      * the ClassCastException will be thrown.
@@ -665,7 +676,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public Scale getScale() throws ClassCastException {
         return (Scale)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `TransactionId`. If the actual instance is not `TransactionId`,
      * the ClassCastException will be thrown.
@@ -676,7 +687,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public TransactionId getTransactionId() throws ClassCastException {
         return (TransactionId)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `TransactionType`. If the actual instance is not `TransactionType`,
      * the ClassCastException will be thrown.
@@ -687,18 +698,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public TransactionType getTransactionType() throws ClassCastException {
         return (TransactionType)super.getActualInstance();
     }
-
-    /**
-     * Get the actual instance of `Units`. If the actual instance is not `Units`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Units`
-     * @throws ClassCastException if the instance is not `Units`
-     */
-    public Units getUnits() throws ClassCastException {
-        return (Units)super.getActualInstance();
-    }
-
+    
     /**
      * Get the actual instance of `ValueType`. If the actual instance is not `ValueType`,
      * the ClassCastException will be thrown.
@@ -709,6 +709,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public ValueType getValueType() throws ClassCastException {
         return (ValueType)super.getActualInstance();
     }
-
+    
 }
 

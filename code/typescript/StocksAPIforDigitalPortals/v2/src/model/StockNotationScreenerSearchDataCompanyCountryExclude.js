@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataCompanyCountryExclude model module.
  * @module model/StockNotationScreenerSearchDataCompanyCountryExclude
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataCompanyCountryExclude {
     /**

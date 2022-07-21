@@ -17,7 +17,6 @@ import InterimCpnChgInterimCpnChg from './InterimCpnChgInterimCpnChg';
 /**
  * The InterimCpnChg model module.
  * @module model/InterimCpnChg
- * @version 0.20.0
  */
 class InterimCpnChg {
     /**

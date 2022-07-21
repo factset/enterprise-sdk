@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsSTARRTerm model module.
  * @module model/OptimizerInputsSTARRTerm
- * @version 0.20.0
  */
 class OptimizerInputsSTARRTerm {
     /**

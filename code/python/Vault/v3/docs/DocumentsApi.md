@@ -23,8 +23,8 @@ This endpoint looks up all Vault documents and sub-directories in a given direct
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import documents_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.document_directories_root import DocumentDirectoriesRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,11 +54,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    path = "" # str | The directory to get the documents in (default to "")
 
     try:
         # Get Vault documents and sub-directories in a directory
-        api_response = api_instance.get_vault_documents(path)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_vault_documents()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

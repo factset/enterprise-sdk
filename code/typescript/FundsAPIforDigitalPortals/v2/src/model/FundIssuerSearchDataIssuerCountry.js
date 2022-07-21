@@ -18,7 +18,6 @@ import FundIssuerSearchDataIssuerCountryRestrict from './FundIssuerSearchDataIss
 /**
  * The FundIssuerSearchDataIssuerCountry model module.
  * @module model/FundIssuerSearchDataIssuerCountry
- * @version 0.10.0
  */
 class FundIssuerSearchDataIssuerCountry {
     /**

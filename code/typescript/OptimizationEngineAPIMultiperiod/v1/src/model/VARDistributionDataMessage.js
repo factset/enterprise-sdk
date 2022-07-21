@@ -19,7 +19,6 @@ import VARSimulatedReturns from './VARSimulatedReturns';
 /**
  * The VARDistributionDataMessage model module.
  * @module model/VARDistributionDataMessage
- * @version 0.20.0
  */
 class VARDistributionDataMessage {
     /**

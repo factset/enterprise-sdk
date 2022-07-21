@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataCreateRedeem model module.
  * @module model/InlineResponse200DataCreateRedeem
- * @version 0.10.0
  */
 class InlineResponse200DataCreateRedeem {
     /**

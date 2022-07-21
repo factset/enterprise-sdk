@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="id">id (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="description">description (required).</param>
-        public SignalMetaDataData(string id = default(string), string name = default(string), string description = default(string))
+        public SignalMetaDataData(string id, string name, string description)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Chains model module.
  * @module model/Chains
- * @version 0.20.0
  */
 class Chains {
     /**

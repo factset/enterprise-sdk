@@ -26,9 +26,8 @@ Delete a Concordance Mapping to the client universe. When making a post, all exi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_mapping_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_mapping_delete_response import PeopleMappingDeleteResponse
-from fds.sdk.FactSetConcordance.model.entity_mapping_delete_request import EntityMappingDeleteRequest
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Deletes mapping specified by the client.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_mapping_delete_for_list(entity_mapping_delete_request)
         pprint(api_response)
 
@@ -122,9 +122,8 @@ Saves a single Concordance People Mapping to a given universe. When making a pos
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_mapping_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_mapping_response import PeopleMappingResponse
-from fds.sdk.FactSetConcordance.model.people_mapping_request import PeopleMappingRequest
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -170,6 +169,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Saves a single-mapping specified by the client.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_mapping_for_list(people_mapping_request)
         pprint(api_response)
 
@@ -227,8 +227,8 @@ Retrieves all people mappings within a requested universe.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_mapping_api
-from fds.sdk.FactSetConcordance.model.people_universe_response import PeopleUniverseResponse
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -263,11 +263,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     map_status = [
         "MAPPED",
     ] # [str] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
         # Retrieve all saved mappings within a requested universe
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_universe(universe_id, client_id=client_id, map_status=map_status, offset=offset, limit=limit)
         pprint(api_response)
 
@@ -329,9 +331,8 @@ Retrieves all people mappings that were saved in a given universe. Supports filt
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_mapping_api
-from fds.sdk.FactSetConcordance.model.people_universe_response import PeopleUniverseResponse
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_universe_request import PeopleUniverseRequest
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -371,6 +372,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve all saved mappings within a requested universe or large list of client ids
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_universe_for_list(people_universe_request)
         pprint(api_response)
 

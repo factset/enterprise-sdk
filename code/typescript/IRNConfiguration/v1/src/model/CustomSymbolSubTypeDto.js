@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomSymbolSubTypeDto model module.
  * @module model/CustomSymbolSubTypeDto
- * @version 0.20.0
  */
 class CustomSymbolSubTypeDto {
     /**

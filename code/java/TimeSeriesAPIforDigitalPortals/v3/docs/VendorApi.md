@@ -1,6 +1,6 @@
 # VendorApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## postVendorChartIQTimeSeriesEodList
 
-> InlineResponse200 postVendorChartIQTimeSeriesEodList(body)
+> InlineResponse200 postVendorChartIQTimeSeriesEodList(inlineObject)
 
 End-of-day time series data for a notation.
 
@@ -54,9 +54,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VendorApi apiInstance = new VendorApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse200 result = apiInstance.postVendorChartIQTimeSeriesEodList(body);
+            InlineResponse200 result = apiInstance.postVendorChartIQTimeSeriesEodList(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -75,7 +75,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  |
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesEodSubsampleGet
 
-> InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(body)
+> InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1)
 
 Single subsample end-of-day data for a notation.
 
@@ -138,9 +138,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VendorApi apiInstance = new VendorApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2001 result = apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(body);
+            InlineResponse2001 result = apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -159,7 +159,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesEodSubsampleList
 
-> InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(body)
+> InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(inlineObject2)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -222,9 +222,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VendorApi apiInstance = new VendorApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2002 result = apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(body);
+            InlineResponse2002 result = apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -243,7 +243,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  |
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesIntradaySubsampleGet
 
-> InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(body)
+> InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3)
 
 Single subsample intraday data for a notation.
 
@@ -306,9 +306,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VendorApi apiInstance = new VendorApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse2003 result = apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleGet(body);
+            InlineResponse2003 result = apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -327,7 +327,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  |
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
 
 ### Return type
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesIntradaySubsampleList
 
-> InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(body)
+> InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4)
 
 Subsampled intraday time series data for a notation.
 
@@ -390,9 +390,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         VendorApi apiInstance = new VendorApi(defaultClient);
-        InlineObject4 body = new InlineObject4(); // InlineObject4 | 
+        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
         try {
-            InlineResponse2004 result = apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(body);
+            InlineResponse2004 result = apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -411,7 +411,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  |
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
 
 ### Return type
 

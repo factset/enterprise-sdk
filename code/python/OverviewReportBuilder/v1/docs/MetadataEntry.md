@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **description** | [**DescriptionDescription**](DescriptionDescription.md) |  | [optional] 
 **frequency** | [**FrequencyFrequency**](FrequencyFrequency.md) |  | [optional] 
 **metric** | [**MetricMetric**](MetricMetric.md) |  | [optional] 
+**relevance_type** | [**RelevanceTypeRelevanceType**](RelevanceTypeRelevanceType.md) |  | [optional] 
 **scale** | [**ScaleScale**](ScaleScale.md) |  | [optional] 
 **transaction_id** | [**TransactionIdTransactionId**](TransactionIdTransactionId.md) |  | [optional] 
 **transaction_type** | [**TransactionTypeTransactionType**](TransactionTypeTransactionType.md) |  | [optional] 
-**units** | [**UnitsUnits**](UnitsUnits.md) |  | [optional] 
 **value_type** | [**ValueTypeValueType**](ValueTypeValueType.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

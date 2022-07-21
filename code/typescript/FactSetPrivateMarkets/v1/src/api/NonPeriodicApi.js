@@ -20,7 +20,6 @@ import NonPeriodicResponse from '../model/NonPeriodicResponse';
 /**
 * NonPeriodic service.
 * @module api/NonPeriodicApi
-* @version 0.20.0
 */
 export default class NonPeriodicApi {
 

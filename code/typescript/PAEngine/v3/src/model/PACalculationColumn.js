@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PACalculationColumn model module.
  * @module model/PACalculationColumn
- * @version 0.20.0
  */
 class PACalculationColumn {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BatchStatus model module.
  * @module model/BatchStatus
- * @version 0.20.0
  */
 class BatchStatus {
     /**

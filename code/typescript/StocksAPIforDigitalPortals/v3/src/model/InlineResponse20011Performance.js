@@ -17,7 +17,6 @@ import InlineResponse20011PerformanceEndOfDay from './InlineResponse20011Perform
 /**
  * The InlineResponse20011Performance model module.
  * @module model/InlineResponse20011Performance
- * @version 0.10.0
  */
 class InlineResponse20011Performance {
     /**

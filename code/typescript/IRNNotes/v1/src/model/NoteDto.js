@@ -18,7 +18,6 @@ import RelatedRecordsDto from './RelatedRecordsDto';
 /**
  * The NoteDto model module.
  * @module model/NoteDto
- * @version 0.20.0
  */
 class NoteDto {
     /**

@@ -26,7 +26,8 @@ Details of an alert. The details include the trigger definition at the time of a
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PriceAlertingAPIforDigitalPortals
 from fds.sdk.PriceAlertingAPIforDigitalPortals.api import alerting_api
-from fds.sdk.PriceAlertingAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.PriceAlertingAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,13 +57,15 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    id = "id_example" # str | Identifier of the alert.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Details of an alert.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_alerting_prices_basic_alert_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -75,7 +78,7 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the alert. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -116,7 +119,8 @@ List of alerts in descending order of creation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PriceAlertingAPIforDigitalPortals
 from fds.sdk.PriceAlertingAPIforDigitalPortals.api import alerting_api
-from fds.sdk.PriceAlertingAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.PriceAlertingAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,12 +153,14 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 0.0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) (default to 0.0)
+    subscription_minimum_interval = 0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) if omitted the server will use the default value of 0
     pagination_cursor = "_paginationCursor_example" # str | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of alerts.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_alerting_prices_basic_alert_list(attributes=attributes, subscription_minimum_interval=subscription_minimum_interval, pagination_cursor=pagination_cursor, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -168,9 +174,9 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **subscription_minimum_interval** | **float**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] if omitted the server will use the default value of 0.0
+ **subscription_minimum_interval** | **float**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] if omitted the server will use the default value of 0
  **pagination_cursor** | **str**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional]
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
@@ -210,7 +216,8 @@ Details of a trigger.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PriceAlertingAPIforDigitalPortals
 from fds.sdk.PriceAlertingAPIforDigitalPortals.api import alerting_api
-from fds.sdk.PriceAlertingAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.PriceAlertingAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -240,13 +247,15 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    id = "id_example" # str | Identifier of the trigger.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Details of a trigger.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_alerting_prices_basic_trigger_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -259,7 +268,7 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the trigger. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -300,8 +309,8 @@ Returns a list of triggers sorted in descending order of creation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PriceAlertingAPIforDigitalPortals
 from fds.sdk.PriceAlertingAPIforDigitalPortals.api import alerting_api
-from fds.sdk.PriceAlertingAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
-from fds.sdk.PriceAlertingAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.PriceAlertingAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -331,7 +340,7 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=AlertingPricesBasicTriggerListData(
             filter=AlertingPricesBasicTriggerListDataFilter(
                 status=AlertingPricesBasicTriggerListDataFilterStatus(
@@ -345,14 +354,16 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
             ]),
             pagination=AlertingPricesBasicTriggerListMetaPagination(
                 cursor="cursor_example",
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject |  (optional)
 
     try:
         # List of triggers.
-        api_response = api_instance.post_alerting_prices_basic_trigger_list(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_alerting_prices_basic_trigger_list(inline_object=inline_object)
         pprint(api_response)
 
     except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
@@ -364,7 +375,7 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 

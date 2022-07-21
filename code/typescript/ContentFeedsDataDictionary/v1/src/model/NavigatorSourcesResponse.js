@@ -18,7 +18,6 @@ import Table from './Table';
 /**
  * The NavigatorSourcesResponse model module.
  * @module model/NavigatorSourcesResponse
- * @version 0.20.0
  */
 class NavigatorSourcesResponse {
     /**

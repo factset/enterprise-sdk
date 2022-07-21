@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNCustomSymbols.Api.CustomSymbolsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var createCustomSymbolDto = new CreateCustomSymbolDto(); // CreateCustomSymbolDto | createCustomSymbolDto object to save (optional) 
 
             try
@@ -142,6 +143,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var customSymbolId = "customSymbolId_example";  // Guid | customSymbolId to delete associated custom symbol
 
             try
@@ -230,6 +232,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var customSymbolId = "customSymbolId_example";  // Guid | customSymbolId to get associated custom symbol
             var includeEvent = false;  // bool? | Whether or not to include event (optional)  (default to false)
 
@@ -318,6 +321,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var customSymbolId = "customSymbolId_example";  // Guid | CustomSymbolId to get associated records
 
             try
@@ -406,6 +410,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var typeName = "typeName_example";  // string | filter custom symbols based on custom symbol type (optional) 
             var query = "query_example";  // string | filter custom symbols based on custom symbol code or name (optional) 
             var includeCustomFieldValues = false;  // bool? | Whether or not to include customFieldValues (optional)  (default to false)
@@ -502,6 +507,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var customSymbolId = "customSymbolId_example";  // Guid | customSymbolId associated with custom symbol
             var standardSymbolDto = new StandardSymbolDto(); // StandardSymbolDto | standard symbol name (optional) 
 
@@ -589,6 +595,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsApi(config);
+
             var customSymbolId = "customSymbolId_example";  // Guid | customSymbolId to update associated custom symbol
             var operation = new List<Operation>(); // List<Operation> | updateCustomSymbolDto object to update (optional) 
 

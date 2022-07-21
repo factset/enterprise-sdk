@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RecommendationSettingsDto model module.
  * @module model/RecommendationSettingsDto
- * @version 0.20.0
  */
 class RecommendationSettingsDto {
     /**

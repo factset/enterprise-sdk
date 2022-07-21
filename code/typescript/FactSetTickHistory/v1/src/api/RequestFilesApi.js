@@ -19,7 +19,6 @@ import RequestFilestatus from '../model/RequestFilestatus';
 /**
 * RequestFiles service.
 * @module api/RequestFilesApi
-* @version 0.20.0
 */
 export default class RequestFilesApi {
 

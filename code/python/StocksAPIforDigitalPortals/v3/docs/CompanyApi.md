@@ -26,7 +26,8 @@ List of boards for a company, with their officers. A given person may be a membe
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import company_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +65,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of boards for a company, with their officers.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_board_list_by_instrument(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -118,7 +121,8 @@ List of officer functions as provided by a delivery.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import company_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,6 +159,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of officer functions as provided by a delivery.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_board_officer_function_delivery_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -208,7 +214,8 @@ List of company board types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import company_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -245,6 +252,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of company board types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_board_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -298,8 +307,8 @@ Fiscal year estimates for selected figures of a stock. Data is available only fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import company_api
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object import InlineObject
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -349,6 +358,8 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Estimates for selected figures for a stock.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_company_estimates_list_by_instrument(body=body)
         pprint(api_response)
 

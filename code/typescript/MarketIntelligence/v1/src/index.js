@@ -55,7 +55,6 @@ import RetrieveReportListApi from './api/RetrieveReportListApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

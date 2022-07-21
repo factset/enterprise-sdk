@@ -26,8 +26,8 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import consensus_api
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
-from fds.sdk.FactSetEstimates.model.consensus_response import ConsensusResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,14 +63,16 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ] # [str] | Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) (default to "D")
+    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
     fiscal_period_start = "2019" # str | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
     fiscal_period_end = "2020" # str | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
-    periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional) (default to "ANN")
+    periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional) if omitted the server will use the default value of "ANN"
     currency = "USD" # str | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
         # Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fixed_consensus(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, periodicity=periodicity, currency=currency)
         pprint(api_response)
 
@@ -136,9 +138,8 @@ Returns FactSet Estimates consensus data using fixed fiscal dates. For example, 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import consensus_api
-from fds.sdk.FactSetEstimates.model.fixed_consensus_request import FixedConsensusRequest
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
-from fds.sdk.FactSetEstimates.model.consensus_response import ConsensusResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -182,6 +183,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # FactSet consensus estimates for fixed fiscal periods
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_consensus_for_list(fixed_consensus_request)
         pprint(api_response)
 
@@ -239,8 +241,8 @@ Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The roll
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import consensus_api
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
-from fds.sdk.FactSetEstimates.model.consensus_response import ConsensusResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -276,14 +278,16 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ] # [str] | Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) (default to "D")
+    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
     relative_fiscal_start = 1 # int | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
     relative_fiscal_end = 3 # int | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)
-    periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional) (default to "ANN")
+    periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional) if omitted the server will use the default value of "ANN"
     currency = "USD" # str | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
         # Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_rolling_consensus(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, periodicity=periodicity, currency=currency)
         pprint(api_response)
 
@@ -349,9 +353,8 @@ Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The roll
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import consensus_api
-from fds.sdk.FactSetEstimates.model.rolling_consensus_request import RollingConsensusRequest
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
-from fds.sdk.FactSetEstimates.model.consensus_response import ConsensusResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -395,6 +398,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_rolling_consensus_for_list(rolling_consensus_request)
         pprint(api_response)
 

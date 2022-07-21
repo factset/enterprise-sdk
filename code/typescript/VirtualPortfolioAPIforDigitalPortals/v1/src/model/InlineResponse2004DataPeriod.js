@@ -17,7 +17,6 @@ import InlineResponse2004DataPeriodProfitLoss from './InlineResponse2004DataPeri
 /**
  * The InlineResponse2004DataPeriod model module.
  * @module model/InlineResponse2004DataPeriod
- * @version 0.9.2
  */
 class InlineResponse2004DataPeriod {
     /**

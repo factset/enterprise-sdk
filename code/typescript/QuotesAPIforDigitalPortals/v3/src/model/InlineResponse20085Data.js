@@ -18,7 +18,6 @@ import InlineResponse20085DataRange from './InlineResponse20085DataRange';
 /**
  * The InlineResponse20085Data model module.
  * @module model/InlineResponse20085Data
- * @version 0.10.0
  */
 class InlineResponse20085Data {
     /**

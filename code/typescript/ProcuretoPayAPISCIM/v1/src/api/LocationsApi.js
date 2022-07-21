@@ -21,7 +21,6 @@ import Patch from '../model/Patch';
 /**
 * Locations service.
 * @module api/LocationsApi
-* @version 0.20.1
 */
 export default class LocationsApi {
 

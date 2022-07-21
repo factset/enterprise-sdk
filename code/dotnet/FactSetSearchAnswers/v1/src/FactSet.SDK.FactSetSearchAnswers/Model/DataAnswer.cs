@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="DataAnswer" /> class.
         /// </summary>
         /// <param name="template">template (required).</param>
-        public DataAnswer(string template = default(string))
+        public DataAnswer(string template)
         {
             // to ensure "template" is required (not null)
             if (template == null) {

@@ -144,7 +144,7 @@ class VendorChartIQTimeSeriesIntradaySubsampleGetData(ModelNormal):
 
         Args:
             id (str): Identifier of the notation.
-            _from (str): Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+            _from (str): Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,7 +235,7 @@ class VendorChartIQTimeSeriesIntradaySubsampleGetData(ModelNormal):
 
         Args:
             id (str): Identifier of the notation.
-            _from (str): Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+            _from (str): Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

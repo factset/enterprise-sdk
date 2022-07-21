@@ -976,7 +976,7 @@ class CustomSymbolsTypesApi(object):
     def get_custom_symbol_types(
         self,
         **kwargs
-    ) -> [CustomSymbolTypeDto]:
+    ) -> typing.List[CustomSymbolTypeDto]:
         """Get all the custom symbol types  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1007,7 +1007,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolTypeDto]
+            typing.List[CustomSymbolTypeDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1016,7 +1016,7 @@ class CustomSymbolsTypesApi(object):
     def get_custom_symbol_types_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[CustomSymbolTypeDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[CustomSymbolTypeDto], int, typing.MutableMapping]:
         """Get all the custom symbol types  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1047,7 +1047,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolTypeDto]
+            typing.List[CustomSymbolTypeDto]
                 Response Object
             int
                 Http Status Code
@@ -1060,7 +1060,7 @@ class CustomSymbolsTypesApi(object):
     def get_custom_symbol_types_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[CustomSymbolTypeDto]]":
+    ) -> "ApplyResult[typing.List[CustomSymbolTypeDto]]":
         """Get all the custom symbol types  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1091,7 +1091,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[CustomSymbolTypeDto]]
+            ApplyResult[typing.List[CustomSymbolTypeDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_custom_symbol_types_endpoint.call_with_http_info(**kwargs)
@@ -1099,7 +1099,7 @@ class CustomSymbolsTypesApi(object):
     def get_custom_symbol_types_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[CustomSymbolTypeDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[CustomSymbolTypeDto], int, typing.MutableMapping]]":
         """Get all the custom symbol types  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1130,7 +1130,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([CustomSymbolTypeDto], int, typing.Dict)]
+            ApplyResult[(typing.List[CustomSymbolTypeDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_symbol_types_endpoint.call_with_http_info(**kwargs)
@@ -1139,7 +1139,7 @@ class CustomSymbolsTypesApi(object):
         self,
         custom_symbol_type_id,
         **kwargs
-    ) -> [CustomSymbolCustomFieldConfigDto]:
+    ) -> typing.List[CustomSymbolCustomFieldConfigDto]:
         """Get Custom fields for Custom Symbol type  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1172,7 +1172,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolCustomFieldConfigDto]
+            typing.List[CustomSymbolCustomFieldConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1184,7 +1184,7 @@ class CustomSymbolsTypesApi(object):
         self,
         custom_symbol_type_id,
         **kwargs
-    ) -> typing.Tuple[[CustomSymbolCustomFieldConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[CustomSymbolCustomFieldConfigDto], int, typing.MutableMapping]:
         """Get Custom fields for Custom Symbol type  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1217,7 +1217,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolCustomFieldConfigDto]
+            typing.List[CustomSymbolCustomFieldConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -1233,7 +1233,7 @@ class CustomSymbolsTypesApi(object):
         self,
         custom_symbol_type_id,
         **kwargs
-    ) -> "ApplyResult[[CustomSymbolCustomFieldConfigDto]]":
+    ) -> "ApplyResult[typing.List[CustomSymbolCustomFieldConfigDto]]":
         """Get Custom fields for Custom Symbol type  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1266,7 +1266,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[CustomSymbolCustomFieldConfigDto]]
+            ApplyResult[typing.List[CustomSymbolCustomFieldConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['custom_symbol_type_id'] = \
@@ -1277,7 +1277,7 @@ class CustomSymbolsTypesApi(object):
         self,
         custom_symbol_type_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[CustomSymbolCustomFieldConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[CustomSymbolCustomFieldConfigDto], int, typing.MutableMapping]]":
         """Get Custom fields for Custom Symbol type  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1310,7 +1310,7 @@ class CustomSymbolsTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([CustomSymbolCustomFieldConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[CustomSymbolCustomFieldConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['custom_symbol_type_id'] = \

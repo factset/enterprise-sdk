@@ -27,7 +27,6 @@ import InlineResponse2006 from '../model/InlineResponse2006';
 /**
 * Fund service.
 * @module api/FundApi
-* @version 0.10.0
 */
 export default class FundApi {
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**NewsPublisherSearchByNameData**](NewsPublisherSearchByNameData.md) |  | 
+**data** | [**NewsPublisherSearchByNameData**](NewsPublisherSearchByNameData.md) |  | [optional] 
 **meta** | [**NewsPublisherSearchByNameMeta**](NewsPublisherSearchByNameMeta.md) |  | [optional] 
 
 

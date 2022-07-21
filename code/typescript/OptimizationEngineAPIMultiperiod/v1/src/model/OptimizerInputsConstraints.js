@@ -35,7 +35,6 @@ import OptimizerInputsTurnoverConstraint from './OptimizerInputsTurnoverConstrai
 /**
  * The OptimizerInputsConstraints model module.
  * @module model/OptimizerInputsConstraints
- * @version 0.20.0
  */
 class OptimizerInputsConstraints {
     /**

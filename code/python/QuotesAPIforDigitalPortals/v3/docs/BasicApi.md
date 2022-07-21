@@ -54,7 +54,8 @@ List of asset classes as defined by FactSet Digital Solutions.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -90,6 +91,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of asset classes.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_asset_class_list(attributes=attributes)
         pprint(api_response)
 
@@ -142,7 +145,8 @@ List of benchmark types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -179,6 +183,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of benchmark types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_benchmark_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -232,7 +238,8 @@ List of frequency types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -269,6 +276,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of frequency types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_frequency_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -322,7 +331,8 @@ Details for a language.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -360,6 +370,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a language.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_language_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -414,7 +426,8 @@ Details for a language identified by code.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -452,6 +465,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a language identified by code.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_language_get_by_code(code, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -506,7 +521,8 @@ List of languages.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -542,10 +558,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of languages.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_language_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -600,7 +618,8 @@ Details of a market.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -638,6 +657,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a market.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_market_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -692,7 +713,8 @@ List of market groups.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20010 import InlineResponse20010
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -728,10 +750,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of market groups.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_market_group_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -786,7 +810,8 @@ List of market types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20011 import InlineResponse20011
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -822,10 +847,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of market types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_market_type_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -880,7 +907,8 @@ List of media kinds.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20012 import InlineResponse20012
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -916,6 +944,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of media kinds.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_media_kind_list(attributes=attributes)
         pprint(api_response)
 
@@ -968,7 +998,8 @@ Details for a continent.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20017 import InlineResponse20017
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1006,6 +1037,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a continent.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_continent_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1060,7 +1093,8 @@ List of continents.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20018 import InlineResponse20018
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1096,10 +1130,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of continents.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_continent_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -1154,7 +1190,8 @@ Details for a country.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20019 import InlineResponse20019
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1192,6 +1229,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a country.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_country_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1246,7 +1285,8 @@ Details for a country identified by code.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20020 import InlineResponse20020
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1284,6 +1324,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a country identified by code.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_country_get_by_code(code, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1338,7 +1380,8 @@ List of countries.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20021 import InlineResponse20021
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1374,10 +1417,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of countries.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_country_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -1432,7 +1477,8 @@ Details for a geographic, political, or economic region.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20015 import InlineResponse20015
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1470,6 +1516,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details for a region.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1524,7 +1572,8 @@ List of geographic, political, and economic regions.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20016 import InlineResponse20016
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1560,10 +1609,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of regions.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_region_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -1618,7 +1669,8 @@ Details of a timezone identified by id, as specified by the Internet Assigned Nu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20022 import InlineResponse20022
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1655,6 +1707,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a timezone.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_timezone_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1708,7 +1762,8 @@ Details of a timezone identified by name, as specified by the Internet Assigned 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20022 import InlineResponse20022
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1745,6 +1800,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a timezone identified by name.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_timezone_get_by_name(name, attributes=attributes)
         pprint(api_response)
 
@@ -1798,7 +1855,8 @@ List of alternative units.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20026 import InlineResponse20026
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1834,10 +1892,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of alternative units.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_value_unit_alternative_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -1892,7 +1952,8 @@ Details of a fractional currency.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20028 import InlineResponse20028
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1930,6 +1991,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a fractional currency.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_value_unit_currency_fractional_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1984,7 +2047,8 @@ List of fractional currencies.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20029 import InlineResponse20029
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2020,10 +2084,12 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of fractional currencies.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_value_unit_currency_fractional_list(attributes=attributes, language=language, sort=sort)
         pprint(api_response)
 
@@ -2078,7 +2144,8 @@ Details of a value unit.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20024 import InlineResponse20024
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2116,6 +2183,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a value unit.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_basic_value_unit_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -2170,8 +2239,8 @@ List of background text types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2218,6 +2287,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of background text types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_background_text_type_list(body=body)
         pprint(api_response)
 
@@ -2270,8 +2341,8 @@ List of deliveries.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2321,6 +2392,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of deliveries.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_delivery_list(body=body)
         pprint(api_response)
 
@@ -2373,8 +2446,8 @@ List of markets.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object2 import InlineObject2
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2432,6 +2505,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of markets.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_market_list(body=body)
         pprint(api_response)
 
@@ -2484,8 +2559,8 @@ List of Internet media types. See http://www.iana.org/assignments/media-types/ f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20013 import InlineResponse20013
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2535,6 +2610,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of Internet media types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_media_type_list(body=body)
         pprint(api_response)
 
@@ -2587,8 +2664,8 @@ List of operating market identifier codes (MIC).
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20014 import InlineResponse20014
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2640,6 +2717,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of operating market identifier codes (MIC).
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_mic_operating_list(body=body)
         pprint(api_response)
 
@@ -2692,8 +2771,8 @@ List of timezones identified by id, as specified by the Internet Assigned Number
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object5 import InlineObject5
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20023 import InlineResponse20023
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2740,6 +2819,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of timezones.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_timezone_list(body=body)
         pprint(api_response)
 
@@ -2792,8 +2873,8 @@ List of currencies.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20027 import InlineResponse20027
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object7 import InlineObject7
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2842,6 +2923,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of currencies.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_value_unit_currency_list(body=body)
         pprint(api_response)
 
@@ -2894,8 +2977,8 @@ List of main currencies.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object8 import InlineObject8
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20030 import InlineResponse20030
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2944,6 +3027,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of main currencies.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_value_unit_currency_main_list(body=body)
         pprint(api_response)
 
@@ -2996,8 +3081,8 @@ List of value units.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20025 import InlineResponse20025
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object6 import InlineObject6
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -3046,6 +3131,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of value units.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_basic_value_unit_list(body=body)
         pprint(api_response)
 

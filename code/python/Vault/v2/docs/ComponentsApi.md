@@ -24,7 +24,8 @@ This endpoint returns the default settings of a Vault component.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import components_api
-from fds.sdk.Vault.model.vault_component import VaultComponent
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,11 +55,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    id = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935" # str | Unique identifier for a vault component (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
 
     try:
         # Get Vault component by id
-        api_response = api_instance.get_vault_component_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_vault_component_by_id()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -118,7 +119,8 @@ This endpoint returns the list of Vault components in a given Vault document.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import components_api
-from fds.sdk.Vault.model.component_summary import ComponentSummary
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,11 +150,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    document = "Client:Foo" # str | Document Name (default to "Client:Foo")
 
     try:
         # Get Vault components
-        api_response = api_instance.get_vault_components(document)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_vault_components()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

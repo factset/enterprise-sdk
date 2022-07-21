@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsRelationshipCategoryApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipCategoryApi(config);
+
             var relationshipCategorySaveDto = new RelationshipCategorySaveDto(); // RelationshipCategorySaveDto | RelationshipCategorySaveDto object to save (optional) 
 
             try
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipCategoryApi(config);
+
             var relationshipCategoryId = "relationshipCategoryId_example";  // Guid | relationshipCategoryId to delete associated record
 
             try
@@ -228,6 +230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipCategoryApi(config);
+
             var relationshipCategoryId = "relationshipCategoryId_example";  // Guid | relationshipCategoryId to update associated record
             var relationshipCategorySaveDto = new RelationshipCategorySaveDto(); // RelationshipCategorySaveDto | RelationshipCategorySaveDto object to update (optional) 
 
@@ -319,6 +322,7 @@ namespace Example
 
             var apiInstance = new ContactsRelationshipCategoryApi(config);
 
+
             try
             {
                 // Get list of the relationship categories configured in your group
@@ -400,6 +404,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipCategoryApi(config);
+
             var relationshipCategoryListDto = new RelationshipCategoryListDto(); // RelationshipCategoryListDto | List of Guid (optional) 
 
             try

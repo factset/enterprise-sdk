@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20072DataPerformance model module.
  * @module model/InlineResponse20072DataPerformance
- * @version 0.10.0
  */
 class InlineResponse20072DataPerformance {
     /**

@@ -68,7 +68,6 @@ import HybridSymbolsApi from './api/HybridSymbolsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

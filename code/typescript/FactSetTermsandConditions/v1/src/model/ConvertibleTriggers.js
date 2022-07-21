@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ConvertibleTriggers model module.
  * @module model/ConvertibleTriggers
- * @version 0.20.0
  */
 class ConvertibleTriggers {
     /**

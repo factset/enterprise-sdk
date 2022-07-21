@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UserResourceMeta model module.
  * @module model/UserResourceMeta
- * @version 0.20.1
  */
 class UserResourceMeta {
     /**

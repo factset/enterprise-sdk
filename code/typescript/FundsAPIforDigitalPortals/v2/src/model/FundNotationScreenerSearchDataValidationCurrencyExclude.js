@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataValidationCurrencyExclude model module.
  * @module model/FundNotationScreenerSearchDataValidationCurrencyExclude
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationCurrencyExclude {
     /**

@@ -654,7 +654,7 @@ class ContactsPhoneNumberTypesApi(object):
     def get_phone_number_types(
         self,
         **kwargs
-    ) -> [PhoneNumberTypeDto]:
+    ) -> typing.List[PhoneNumberTypeDto]:
         """Get list of the phone types configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -685,7 +685,7 @@ class ContactsPhoneNumberTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [PhoneNumberTypeDto]
+            typing.List[PhoneNumberTypeDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -694,7 +694,7 @@ class ContactsPhoneNumberTypesApi(object):
     def get_phone_number_types_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[PhoneNumberTypeDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[PhoneNumberTypeDto], int, typing.MutableMapping]:
         """Get list of the phone types configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -725,7 +725,7 @@ class ContactsPhoneNumberTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [PhoneNumberTypeDto]
+            typing.List[PhoneNumberTypeDto]
                 Response Object
             int
                 Http Status Code
@@ -738,7 +738,7 @@ class ContactsPhoneNumberTypesApi(object):
     def get_phone_number_types_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[PhoneNumberTypeDto]]":
+    ) -> "ApplyResult[typing.List[PhoneNumberTypeDto]]":
         """Get list of the phone types configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -769,7 +769,7 @@ class ContactsPhoneNumberTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[PhoneNumberTypeDto]]
+            ApplyResult[typing.List[PhoneNumberTypeDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_phone_number_types_endpoint.call_with_http_info(**kwargs)
@@ -777,7 +777,7 @@ class ContactsPhoneNumberTypesApi(object):
     def get_phone_number_types_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[PhoneNumberTypeDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[PhoneNumberTypeDto], int, typing.MutableMapping]]":
         """Get list of the phone types configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -808,7 +808,7 @@ class ContactsPhoneNumberTypesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([PhoneNumberTypeDto], int, typing.Dict)]
+            ApplyResult[(typing.List[PhoneNumberTypeDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_phone_number_types_endpoint.call_with_http_info(**kwargs)

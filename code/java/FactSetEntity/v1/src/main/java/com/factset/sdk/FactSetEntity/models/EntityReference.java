@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetEntity.JSON;
@@ -64,73 +68,73 @@ public class EntityReference implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_PROPER_NAME = "entityProperName";
-  private String entityProperName;
+  private JsonNullable<String> entityProperName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ENTITY_ID = "fsymEntityId";
-  private String fsymEntityId;
+  private JsonNullable<String> fsymEntityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ULTIMATE_PARENT_ID = "ultimateParentId";
-  private String ultimateParentId;
+  private JsonNullable<String> ultimateParentId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ULTIMATE_PARENT_NAME = "ultimateParentName";
-  private String ultimateParentName;
+  private JsonNullable<String> ultimateParentName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREDIT_PARENT_ID = "creditParentId";
-  private String creditParentId;
+  private JsonNullable<String> creditParentId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARENT_EQUITY_ID = "parentEquityId";
-  private String parentEquityId;
+  private JsonNullable<String> parentEquityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRIVATE_ENTITY_FLAG = "privateEntityFlag";
-  private Integer privateEntityFlag;
+  private JsonNullable<Integer> privateEntityFlag = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_PUBLIC_ENTITY_FLAG = "publicEntityFlag";
-  private Integer publicEntityFlag;
+  private JsonNullable<Integer> publicEntityFlag = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_TYPE = "securityType";
-  private String securityType;
+  private JsonNullable<String> securityType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WEBSITE = "website";
-  private String website;
+  private JsonNullable<String> website = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INCORPORATION_DATE = "incorporationDate";
-  private LocalDate incorporationDate;
+  private JsonNullable<LocalDate> incorporationDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY_OF_RISK = "countryOfRisk";
-  private String countryOfRisk;
+  private JsonNullable<String> countryOfRisk = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INCORPORATION_COUNTRY = "incorporationCountry";
-  private String incorporationCountry;
+  private JsonNullable<String> incorporationCountry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BUSINESS_DESCRIPTION = "businessDescription";
-  private String businessDescription;
+  private JsonNullable<String> businessDescription = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PHONE = "phone";
-  private String phone;
+  private JsonNullable<String> phone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_STREET = "headquartersStreet";
-  private String headquartersStreet;
+  private JsonNullable<String> headquartersStreet = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_CITY = "headquartersCity";
-  private String headquartersCity;
+  private JsonNullable<String> headquartersCity = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_STATE = "headquartersState";
-  private String headquartersState;
+  private JsonNullable<String> headquartersState = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_ZIP = "headquartersZip";
-  private String headquartersZip;
+  private JsonNullable<String> headquartersZip = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_COUNTRY = "headquartersCountry";
-  private String headquartersCountry;
+  private JsonNullable<String> headquartersCountry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EMAIL_I_R = "emailIR";
-  private String emailIR;
+  private JsonNullable<String> emailIR = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_WEBSITE_I_R = "websiteIR";
-  private String websiteIR;
+  private JsonNullable<String> websiteIR = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -139,7 +143,7 @@ public class EntityReference implements Serializable {
   }
 
   public EntityReference fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -149,23 +153,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public EntityReference entityProperName(String entityProperName) {
-    this.entityProperName = entityProperName;
+    this.entityProperName = JsonNullable.<String>of(entityProperName);
     return this;
   }
 
@@ -175,23 +187,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc.", value = "Name that the entity is commonly referred to as, normalized and in proper case.")
-  @JsonProperty(JSON_PROPERTY_ENTITY_PROPER_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEntityProperName() {
-    return entityProperName;
+        return entityProperName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_PROPER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityProperName(String entityProperName) {
+
+  public JsonNullable<String> getEntityProperName_JsonNullable() {
+    return entityProperName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_PROPER_NAME)
+  public void setEntityProperName_JsonNullable(JsonNullable<String> entityProperName) {
     this.entityProperName = entityProperName;
+  }
+
+  public void setEntityProperName(String entityProperName) {
+    this.entityProperName = JsonNullable.<String>of(entityProperName);
   }
 
 
   public EntityReference fsymEntityId(String fsymEntityId) {
-    this.fsymEntityId = fsymEntityId;
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
     return this;
   }
 
@@ -201,23 +221,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity")
-  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymEntityId() {
-    return fsymEntityId;
+        return fsymEntityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymEntityId(String fsymEntityId) {
+
+  public JsonNullable<String> getFsymEntityId_JsonNullable() {
+    return fsymEntityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
+  public void setFsymEntityId_JsonNullable(JsonNullable<String> fsymEntityId) {
     this.fsymEntityId = fsymEntityId;
+  }
+
+  public void setFsymEntityId(String fsymEntityId) {
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
   }
 
 
   public EntityReference ultimateParentId(String ultimateParentId) {
-    this.ultimateParentId = ultimateParentId;
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
     return this;
   }
 
@@ -227,23 +255,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The ultimate parent id of the entity.")
-  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUltimateParentId() {
-    return ultimateParentId;
+        return ultimateParentId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUltimateParentId(String ultimateParentId) {
+
+  public JsonNullable<String> getUltimateParentId_JsonNullable() {
+    return ultimateParentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
+  public void setUltimateParentId_JsonNullable(JsonNullable<String> ultimateParentId) {
     this.ultimateParentId = ultimateParentId;
+  }
+
+  public void setUltimateParentId(String ultimateParentId) {
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
   }
 
 
   public EntityReference ultimateParentName(String ultimateParentName) {
-    this.ultimateParentName = ultimateParentName;
+    this.ultimateParentName = JsonNullable.<String>of(ultimateParentName);
     return this;
   }
 
@@ -253,23 +289,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc.", value = "Name that the ultimate parent entity is commonly referred to as, normalized and in proper case.\"")
-  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUltimateParentName() {
-    return ultimateParentName;
+        return ultimateParentName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUltimateParentName(String ultimateParentName) {
+
+  public JsonNullable<String> getUltimateParentName_JsonNullable() {
+    return ultimateParentName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_NAME)
+  public void setUltimateParentName_JsonNullable(JsonNullable<String> ultimateParentName) {
     this.ultimateParentName = ultimateParentName;
+  }
+
+  public void setUltimateParentName(String ultimateParentName) {
+    this.ultimateParentName = JsonNullable.<String>of(ultimateParentName);
   }
 
 
   public EntityReference creditParentId(String creditParentId) {
-    this.creditParentId = creditParentId;
+    this.creditParentId = JsonNullable.<String>of(creditParentId);
     return this;
   }
 
@@ -279,23 +323,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer's debt offerings. Credit Parent's are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology - * If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent. * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B). * An issuer must have active debt. ")
-  @JsonProperty(JSON_PROPERTY_CREDIT_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCreditParentId() {
-    return creditParentId;
+        return creditParentId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CREDIT_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreditParentId(String creditParentId) {
+
+  public JsonNullable<String> getCreditParentId_JsonNullable() {
+    return creditParentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREDIT_PARENT_ID)
+  public void setCreditParentId_JsonNullable(JsonNullable<String> creditParentId) {
     this.creditParentId = creditParentId;
+  }
+
+  public void setCreditParentId(String creditParentId) {
+    this.creditParentId = JsonNullable.<String>of(creditParentId);
   }
 
 
   public EntityReference parentEquityId(String parentEquityId) {
-    this.parentEquityId = parentEquityId;
+    this.parentEquityId = JsonNullable.<String>of(parentEquityId);
     return this;
   }
 
@@ -305,23 +357,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "MCNYYL-R", value = "The regional parent equity listing id.")
-  @JsonProperty(JSON_PROPERTY_PARENT_EQUITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getParentEquityId() {
-    return parentEquityId;
+        return parentEquityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PARENT_EQUITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentEquityId(String parentEquityId) {
+
+  public JsonNullable<String> getParentEquityId_JsonNullable() {
+    return parentEquityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_EQUITY_ID)
+  public void setParentEquityId_JsonNullable(JsonNullable<String> parentEquityId) {
     this.parentEquityId = parentEquityId;
+  }
+
+  public void setParentEquityId(String parentEquityId) {
+    this.parentEquityId = JsonNullable.<String>of(parentEquityId);
   }
 
 
   public EntityReference privateEntityFlag(Integer privateEntityFlag) {
-    this.privateEntityFlag = privateEntityFlag;
+    this.privateEntityFlag = JsonNullable.<Integer>of(privateEntityFlag);
     return this;
   }
 
@@ -331,23 +391,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns 1 if the entity is a Private Company, otherwise, 0.")
-  @JsonProperty(JSON_PROPERTY_PRIVATE_ENTITY_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getPrivateEntityFlag() {
-    return privateEntityFlag;
+        return privateEntityFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRIVATE_ENTITY_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrivateEntityFlag(Integer privateEntityFlag) {
+
+  public JsonNullable<Integer> getPrivateEntityFlag_JsonNullable() {
+    return privateEntityFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRIVATE_ENTITY_FLAG)
+  public void setPrivateEntityFlag_JsonNullable(JsonNullable<Integer> privateEntityFlag) {
     this.privateEntityFlag = privateEntityFlag;
+  }
+
+  public void setPrivateEntityFlag(Integer privateEntityFlag) {
+    this.privateEntityFlag = JsonNullable.<Integer>of(privateEntityFlag);
   }
 
 
   public EntityReference publicEntityFlag(Integer publicEntityFlag) {
-    this.publicEntityFlag = publicEntityFlag;
+    this.publicEntityFlag = JsonNullable.<Integer>of(publicEntityFlag);
     return this;
   }
 
@@ -357,23 +425,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Returns 1 if the entity is a Public Company, otherwise, 0.")
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ENTITY_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getPublicEntityFlag() {
-    return publicEntityFlag;
+        return publicEntityFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PUBLIC_ENTITY_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPublicEntityFlag(Integer publicEntityFlag) {
+
+  public JsonNullable<Integer> getPublicEntityFlag_JsonNullable() {
+    return publicEntityFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ENTITY_FLAG)
+  public void setPublicEntityFlag_JsonNullable(JsonNullable<Integer> publicEntityFlag) {
     this.publicEntityFlag = publicEntityFlag;
+  }
+
+  public void setPublicEntityFlag(Integer publicEntityFlag) {
+    this.publicEntityFlag = JsonNullable.<Integer>of(publicEntityFlag);
   }
 
 
   public EntityReference securityType(String securityType) {
-    this.securityType = securityType;
+    this.securityType = JsonNullable.<String>of(securityType);
     return this;
   }
 
@@ -383,23 +459,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SHARE", value = "Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)")
-  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecurityType() {
-    return securityType;
+        return securityType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityType(String securityType) {
+
+  public JsonNullable<String> getSecurityType_JsonNullable() {
+    return securityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
+  public void setSecurityType_JsonNullable(JsonNullable<String> securityType) {
     this.securityType = securityType;
+  }
+
+  public void setSecurityType(String securityType) {
+    this.securityType = JsonNullable.<String>of(securityType);
   }
 
 
   public EntityReference website(String website) {
-    this.website = website;
+    this.website = JsonNullable.<String>of(website);
     return this;
   }
 
@@ -409,23 +493,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "http://www.amazon.com", value = "Web page address for the entity")
-  @JsonProperty(JSON_PROPERTY_WEBSITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getWebsite() {
-    return website;
+        return website.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWebsite(String website) {
+
+  public JsonNullable<String> getWebsite_JsonNullable() {
+    return website;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBSITE)
+  public void setWebsite_JsonNullable(JsonNullable<String> website) {
     this.website = website;
+  }
+
+  public void setWebsite(String website) {
+    this.website = JsonNullable.<String>of(website);
   }
 
 
   public EntityReference incorporationDate(LocalDate incorporationDate) {
-    this.incorporationDate = incorporationDate;
+    this.incorporationDate = JsonNullable.<LocalDate>of(incorporationDate);
     return this;
   }
 
@@ -435,23 +527,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue May 28 00:00:00 UTC 1996", value = "Year the entity was incorporated in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_INCORPORATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getIncorporationDate() {
-    return incorporationDate;
+        return incorporationDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INCORPORATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncorporationDate(LocalDate incorporationDate) {
+
+  public JsonNullable<LocalDate> getIncorporationDate_JsonNullable() {
+    return incorporationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCORPORATION_DATE)
+  public void setIncorporationDate_JsonNullable(JsonNullable<LocalDate> incorporationDate) {
     this.incorporationDate = incorporationDate;
+  }
+
+  public void setIncorporationDate(LocalDate incorporationDate) {
+    this.incorporationDate = JsonNullable.<LocalDate>of(incorporationDate);
   }
 
 
   public EntityReference countryOfRisk(String countryOfRisk) {
-    this.countryOfRisk = countryOfRisk;
+    this.countryOfRisk = JsonNullable.<String>of(countryOfRisk);
     return this;
   }
 
@@ -461,23 +561,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "US", value = "Entity's Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following - * Country of Headquarters * Country of Incorporation * Country of Primary Exchange (the country where most liquid equity listings trade) ")
-  @JsonProperty(JSON_PROPERTY_COUNTRY_OF_RISK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCountryOfRisk() {
-    return countryOfRisk;
+        return countryOfRisk.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COUNTRY_OF_RISK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountryOfRisk(String countryOfRisk) {
+
+  public JsonNullable<String> getCountryOfRisk_JsonNullable() {
+    return countryOfRisk;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNTRY_OF_RISK)
+  public void setCountryOfRisk_JsonNullable(JsonNullable<String> countryOfRisk) {
     this.countryOfRisk = countryOfRisk;
+  }
+
+  public void setCountryOfRisk(String countryOfRisk) {
+    this.countryOfRisk = JsonNullable.<String>of(countryOfRisk);
   }
 
 
   public EntityReference incorporationCountry(String incorporationCountry) {
-    this.incorporationCountry = incorporationCountry;
+    this.incorporationCountry = JsonNullable.<String>of(incorporationCountry);
     return this;
   }
 
@@ -487,23 +595,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "US", value = "ISO Country code where the entity is incorporated")
-  @JsonProperty(JSON_PROPERTY_INCORPORATION_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIncorporationCountry() {
-    return incorporationCountry;
+        return incorporationCountry.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INCORPORATION_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncorporationCountry(String incorporationCountry) {
+
+  public JsonNullable<String> getIncorporationCountry_JsonNullable() {
+    return incorporationCountry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INCORPORATION_COUNTRY)
+  public void setIncorporationCountry_JsonNullable(JsonNullable<String> incorporationCountry) {
     this.incorporationCountry = incorporationCountry;
+  }
+
+  public void setIncorporationCountry(String incorporationCountry) {
+    this.incorporationCountry = JsonNullable.<String>of(incorporationCountry);
   }
 
 
   public EntityReference businessDescription(String businessDescription) {
-    this.businessDescription = businessDescription;
+    this.businessDescription = JsonNullable.<String>of(businessDescription);
     return this;
   }
 
@@ -513,23 +629,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc. engages in the provision of Online retail shopping services. It operates through the following business segments: North America, International, and Amazon Web Services (AWS). The North America segment includes retail sales of consumer products and subscriptions through North America-focused websites such as www.amazon.com and www.amazon.ca. The International segment offers retail sales of consumer products and subscriptions through internationally-focused websites. The Amazon Web Services segment involves in the global sales of compute, storage, database, and AWS service offerings for start-ups, enterprises, government agencies, and academic institutions. The company was founded by Jeffrey P. Bezos in July 1994 and is headquartered in Seattle, WA.", value = "Extended business description for the requested entity.")
-  @JsonProperty(JSON_PROPERTY_BUSINESS_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getBusinessDescription() {
-    return businessDescription;
+        return businessDescription.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_BUSINESS_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBusinessDescription(String businessDescription) {
+
+  public JsonNullable<String> getBusinessDescription_JsonNullable() {
+    return businessDescription;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BUSINESS_DESCRIPTION)
+  public void setBusinessDescription_JsonNullable(JsonNullable<String> businessDescription) {
     this.businessDescription = businessDescription;
+  }
+
+  public void setBusinessDescription(String businessDescription) {
+    this.businessDescription = JsonNullable.<String>of(businessDescription);
   }
 
 
   public EntityReference phone(String phone) {
-    this.phone = phone;
+    this.phone = JsonNullable.<String>of(phone);
     return this;
   }
 
@@ -539,23 +663,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "+1.206.266.1000", value = "The entity's international phone number.")
-  @JsonProperty(JSON_PROPERTY_PHONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getPhone() {
-    return phone;
+        return phone.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPhone(String phone) {
+
+  public JsonNullable<String> getPhone_JsonNullable() {
+    return phone;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PHONE)
+  public void setPhone_JsonNullable(JsonNullable<String> phone) {
     this.phone = phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = JsonNullable.<String>of(phone);
   }
 
 
   public EntityReference headquartersStreet(String headquartersStreet) {
-    this.headquartersStreet = headquartersStreet;
+    this.headquartersStreet = JsonNullable.<String>of(headquartersStreet);
     return this;
   }
 
@@ -565,23 +697,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "410 Terry Avenue North", value = "The entity's headquarters street address.")
-  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STREET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadquartersStreet() {
-    return headquartersStreet;
+        return headquartersStreet.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadquartersStreet(String headquartersStreet) {
+
+  public JsonNullable<String> getHeadquartersStreet_JsonNullable() {
+    return headquartersStreet;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STREET)
+  public void setHeadquartersStreet_JsonNullable(JsonNullable<String> headquartersStreet) {
     this.headquartersStreet = headquartersStreet;
+  }
+
+  public void setHeadquartersStreet(String headquartersStreet) {
+    this.headquartersStreet = JsonNullable.<String>of(headquartersStreet);
   }
 
 
   public EntityReference headquartersCity(String headquartersCity) {
-    this.headquartersCity = headquartersCity;
+    this.headquartersCity = JsonNullable.<String>of(headquartersCity);
     return this;
   }
 
@@ -591,23 +731,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Seattle", value = "The entity's headquarters street address.")
-  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_CITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadquartersCity() {
-    return headquartersCity;
+        return headquartersCity.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadquartersCity(String headquartersCity) {
+
+  public JsonNullable<String> getHeadquartersCity_JsonNullable() {
+    return headquartersCity;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_CITY)
+  public void setHeadquartersCity_JsonNullable(JsonNullable<String> headquartersCity) {
     this.headquartersCity = headquartersCity;
+  }
+
+  public void setHeadquartersCity(String headquartersCity) {
+    this.headquartersCity = JsonNullable.<String>of(headquartersCity);
   }
 
 
   public EntityReference headquartersState(String headquartersState) {
-    this.headquartersState = headquartersState;
+    this.headquartersState = JsonNullable.<String>of(headquartersState);
     return this;
   }
 
@@ -617,23 +765,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WA", value = "Abbreviated State of company headquarters.")
-  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadquartersState() {
-    return headquartersState;
+        return headquartersState.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadquartersState(String headquartersState) {
+
+  public JsonNullable<String> getHeadquartersState_JsonNullable() {
+    return headquartersState;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_STATE)
+  public void setHeadquartersState_JsonNullable(JsonNullable<String> headquartersState) {
     this.headquartersState = headquartersState;
+  }
+
+  public void setHeadquartersState(String headquartersState) {
+    this.headquartersState = JsonNullable.<String>of(headquartersState);
   }
 
 
   public EntityReference headquartersZip(String headquartersZip) {
-    this.headquartersZip = headquartersZip;
+    this.headquartersZip = JsonNullable.<String>of(headquartersZip);
     return this;
   }
 
@@ -643,23 +799,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "98109-5210", value = "Zip/Postal Code for entity's headquarters.")
-  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_ZIP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadquartersZip() {
-    return headquartersZip;
+        return headquartersZip.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_ZIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadquartersZip(String headquartersZip) {
+
+  public JsonNullable<String> getHeadquartersZip_JsonNullable() {
+    return headquartersZip;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_ZIP)
+  public void setHeadquartersZip_JsonNullable(JsonNullable<String> headquartersZip) {
     this.headquartersZip = headquartersZip;
+  }
+
+  public void setHeadquartersZip(String headquartersZip) {
+    this.headquartersZip = JsonNullable.<String>of(headquartersZip);
   }
 
 
   public EntityReference headquartersCountry(String headquartersCountry) {
-    this.headquartersCountry = headquartersCountry;
+    this.headquartersCountry = JsonNullable.<String>of(headquartersCountry);
     return this;
   }
 
@@ -669,23 +833,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "US", value = "Abbreviated (ISO) Country of headquarters.")
-  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getHeadquartersCountry() {
-    return headquartersCountry;
+        return headquartersCountry.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHeadquartersCountry(String headquartersCountry) {
+
+  public JsonNullable<String> getHeadquartersCountry_JsonNullable() {
+    return headquartersCountry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HEADQUARTERS_COUNTRY)
+  public void setHeadquartersCountry_JsonNullable(JsonNullable<String> headquartersCountry) {
     this.headquartersCountry = headquartersCountry;
+  }
+
+  public void setHeadquartersCountry(String headquartersCountry) {
+    this.headquartersCountry = JsonNullable.<String>of(headquartersCountry);
   }
 
 
   public EntityReference emailIR(String emailIR) {
-    this.emailIR = emailIR;
+    this.emailIR = JsonNullable.<String>of(emailIR);
     return this;
   }
 
@@ -695,23 +867,31 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "amazon-ir@amazon.com", value = "Email Address of the Investor Relations Contact")
-  @JsonProperty(JSON_PROPERTY_EMAIL_I_R)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getEmailIR() {
-    return emailIR;
+        return emailIR.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EMAIL_I_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailIR(String emailIR) {
+
+  public JsonNullable<String> getEmailIR_JsonNullable() {
+    return emailIR;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EMAIL_I_R)
+  public void setEmailIR_JsonNullable(JsonNullable<String> emailIR) {
     this.emailIR = emailIR;
+  }
+
+  public void setEmailIR(String emailIR) {
+    this.emailIR = JsonNullable.<String>of(emailIR);
   }
 
 
   public EntityReference websiteIR(String websiteIR) {
-    this.websiteIR = websiteIR;
+    this.websiteIR = JsonNullable.<String>of(websiteIR);
     return this;
   }
 
@@ -721,18 +901,26 @@ public class EntityReference implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "https://ir.aboutamazon.com/overview/default.aspx", value = "Website or Page for the Entity's Investor Relations team.")
-  @JsonProperty(JSON_PROPERTY_WEBSITE_I_R)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getWebsiteIR() {
-    return websiteIR;
+        return websiteIR.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WEBSITE_I_R)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWebsiteIR(String websiteIR) {
+
+  public JsonNullable<String> getWebsiteIR_JsonNullable() {
+    return websiteIR;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEBSITE_I_R)
+  public void setWebsiteIR_JsonNullable(JsonNullable<String> websiteIR) {
     this.websiteIR = websiteIR;
+  }
+
+  public void setWebsiteIR(String websiteIR) {
+    this.websiteIR = JsonNullable.<String>of(websiteIR);
   }
 
 
@@ -774,35 +962,46 @@ public class EntityReference implements Serializable {
       return false;
     }
     EntityReference entityReference = (EntityReference) o;
-    return Objects.equals(this.fsymId, entityReference.fsymId) &&
-        Objects.equals(this.entityProperName, entityReference.entityProperName) &&
-        Objects.equals(this.fsymEntityId, entityReference.fsymEntityId) &&
-        Objects.equals(this.ultimateParentId, entityReference.ultimateParentId) &&
-        Objects.equals(this.ultimateParentName, entityReference.ultimateParentName) &&
-        Objects.equals(this.creditParentId, entityReference.creditParentId) &&
-        Objects.equals(this.parentEquityId, entityReference.parentEquityId) &&
-        Objects.equals(this.privateEntityFlag, entityReference.privateEntityFlag) &&
-        Objects.equals(this.publicEntityFlag, entityReference.publicEntityFlag) &&
-        Objects.equals(this.securityType, entityReference.securityType) &&
-        Objects.equals(this.website, entityReference.website) &&
-        Objects.equals(this.incorporationDate, entityReference.incorporationDate) &&
-        Objects.equals(this.countryOfRisk, entityReference.countryOfRisk) &&
-        Objects.equals(this.incorporationCountry, entityReference.incorporationCountry) &&
-        Objects.equals(this.businessDescription, entityReference.businessDescription) &&
-        Objects.equals(this.phone, entityReference.phone) &&
-        Objects.equals(this.headquartersStreet, entityReference.headquartersStreet) &&
-        Objects.equals(this.headquartersCity, entityReference.headquartersCity) &&
-        Objects.equals(this.headquartersState, entityReference.headquartersState) &&
-        Objects.equals(this.headquartersZip, entityReference.headquartersZip) &&
-        Objects.equals(this.headquartersCountry, entityReference.headquartersCountry) &&
-        Objects.equals(this.emailIR, entityReference.emailIR) &&
-        Objects.equals(this.websiteIR, entityReference.websiteIR) &&
+    return equalsNullable(this.fsymId, entityReference.fsymId) &&
+        equalsNullable(this.entityProperName, entityReference.entityProperName) &&
+        equalsNullable(this.fsymEntityId, entityReference.fsymEntityId) &&
+        equalsNullable(this.ultimateParentId, entityReference.ultimateParentId) &&
+        equalsNullable(this.ultimateParentName, entityReference.ultimateParentName) &&
+        equalsNullable(this.creditParentId, entityReference.creditParentId) &&
+        equalsNullable(this.parentEquityId, entityReference.parentEquityId) &&
+        equalsNullable(this.privateEntityFlag, entityReference.privateEntityFlag) &&
+        equalsNullable(this.publicEntityFlag, entityReference.publicEntityFlag) &&
+        equalsNullable(this.securityType, entityReference.securityType) &&
+        equalsNullable(this.website, entityReference.website) &&
+        equalsNullable(this.incorporationDate, entityReference.incorporationDate) &&
+        equalsNullable(this.countryOfRisk, entityReference.countryOfRisk) &&
+        equalsNullable(this.incorporationCountry, entityReference.incorporationCountry) &&
+        equalsNullable(this.businessDescription, entityReference.businessDescription) &&
+        equalsNullable(this.phone, entityReference.phone) &&
+        equalsNullable(this.headquartersStreet, entityReference.headquartersStreet) &&
+        equalsNullable(this.headquartersCity, entityReference.headquartersCity) &&
+        equalsNullable(this.headquartersState, entityReference.headquartersState) &&
+        equalsNullable(this.headquartersZip, entityReference.headquartersZip) &&
+        equalsNullable(this.headquartersCountry, entityReference.headquartersCountry) &&
+        equalsNullable(this.emailIR, entityReference.emailIR) &&
+        equalsNullable(this.websiteIR, entityReference.websiteIR) &&
         Objects.equals(this.requestId, entityReference.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, entityProperName, fsymEntityId, ultimateParentId, ultimateParentName, creditParentId, parentEquityId, privateEntityFlag, publicEntityFlag, securityType, website, incorporationDate, countryOfRisk, incorporationCountry, businessDescription, phone, headquartersStreet, headquartersCity, headquartersState, headquartersZip, headquartersCountry, emailIR, websiteIR, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(entityProperName), hashCodeNullable(fsymEntityId), hashCodeNullable(ultimateParentId), hashCodeNullable(ultimateParentName), hashCodeNullable(creditParentId), hashCodeNullable(parentEquityId), hashCodeNullable(privateEntityFlag), hashCodeNullable(publicEntityFlag), hashCodeNullable(securityType), hashCodeNullable(website), hashCodeNullable(incorporationDate), hashCodeNullable(countryOfRisk), hashCodeNullable(incorporationCountry), hashCodeNullable(businessDescription), hashCodeNullable(phone), hashCodeNullable(headquartersStreet), hashCodeNullable(headquartersCity), hashCodeNullable(headquartersState), hashCodeNullable(headquartersZip), hashCodeNullable(headquartersCountry), hashCodeNullable(emailIR), hashCodeNullable(websiteIR), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

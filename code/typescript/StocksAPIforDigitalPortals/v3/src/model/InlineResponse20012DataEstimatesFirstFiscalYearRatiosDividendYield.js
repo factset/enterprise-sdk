@@ -17,7 +17,6 @@ import InlineResponse20012DataEstimatesFirstFiscalYearRatiosDividendYieldMean fr
 /**
  * The InlineResponse20012DataEstimatesFirstFiscalYearRatiosDividendYield model module.
  * @module model/InlineResponse20012DataEstimatesFirstFiscalYearRatiosDividendYield
- * @version 0.10.0
  */
 class InlineResponse20012DataEstimatesFirstFiscalYearRatiosDividendYield {
     /**

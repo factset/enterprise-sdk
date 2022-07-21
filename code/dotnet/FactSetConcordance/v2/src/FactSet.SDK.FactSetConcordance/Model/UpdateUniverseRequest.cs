@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="universeName">Universe name.</param>
         /// <param name="universeDescription">Universe description.</param>
         /// <param name="universeId">Universe identifier (required).</param>
-        public UpdateUniverseRequest(string universeName = default(string), string universeDescription = default(string), int universeId = default(int))
+        public UpdateUniverseRequest(int universeId,string universeName = default(string), string universeDescription = default(string))
         {
             this.UniverseId = universeId;
             this.UniverseName = universeName;

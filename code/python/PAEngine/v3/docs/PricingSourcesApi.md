@@ -23,8 +23,8 @@ This endpoint lists all the PA pricing sources that can be applied to a PA calcu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import pricing_sources_api
-from fds.sdk.PAEngine.model.pa_pricing_source_root import PAPricingSourceRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,12 +54,14 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pricing_sources_api.PricingSourcesApi(api_client)
 
-    name = "" # str | PA pricing sources name (optional) (default to "")
-    category = "" # str | PA pricing sources category (optional) (default to "")
-    directory = "" # str | The directory to get the PA pricing sources in (optional) (default to "")
+    name = "" # str | PA pricing sources name (optional) if omitted the server will use the default value of ""
+    category = "" # str | PA pricing sources category (optional) if omitted the server will use the default value of ""
+    directory = "" # str | The directory to get the PA pricing sources in (optional) if omitted the server will use the default value of ""
 
     try:
         # Get PA pricing sources
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_pa_pricing_sources(name=name, category=category, directory=directory)
         pprint(api_response)
 

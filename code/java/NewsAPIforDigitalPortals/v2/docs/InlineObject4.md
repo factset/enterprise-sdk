@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**NewsArticleListByMediaKindData**](NewsArticleListByMediaKindData.md) |  | 
+**data** | [**NewsArticleListByMediaKindData**](NewsArticleListByMediaKindData.md) |  |  [optional]
 **meta** | [**NewsArticleListMeta**](NewsArticleListMeta.md) |  |  [optional]
 
 

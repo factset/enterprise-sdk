@@ -867,7 +867,7 @@ class ContactsRelationshipCategoryApi(object):
     def get_relationship_categories(
         self,
         **kwargs
-    ) -> [RelationshipCategoryDto]:
+    ) -> typing.List[RelationshipCategoryDto]:
         """Get list of the relationship categories configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -898,7 +898,7 @@ class ContactsRelationshipCategoryApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RelationshipCategoryDto]
+            typing.List[RelationshipCategoryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -907,7 +907,7 @@ class ContactsRelationshipCategoryApi(object):
     def get_relationship_categories_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[RelationshipCategoryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[RelationshipCategoryDto], int, typing.MutableMapping]:
         """Get list of the relationship categories configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -938,7 +938,7 @@ class ContactsRelationshipCategoryApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RelationshipCategoryDto]
+            typing.List[RelationshipCategoryDto]
                 Response Object
             int
                 Http Status Code
@@ -951,7 +951,7 @@ class ContactsRelationshipCategoryApi(object):
     def get_relationship_categories_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[RelationshipCategoryDto]]":
+    ) -> "ApplyResult[typing.List[RelationshipCategoryDto]]":
         """Get list of the relationship categories configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -982,7 +982,7 @@ class ContactsRelationshipCategoryApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[RelationshipCategoryDto]]
+            ApplyResult[typing.List[RelationshipCategoryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_relationship_categories_endpoint.call_with_http_info(**kwargs)
@@ -990,7 +990,7 @@ class ContactsRelationshipCategoryApi(object):
     def get_relationship_categories_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[RelationshipCategoryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[RelationshipCategoryDto], int, typing.MutableMapping]]":
         """Get list of the relationship categories configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1021,7 +1021,7 @@ class ContactsRelationshipCategoryApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([RelationshipCategoryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[RelationshipCategoryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_relationship_categories_endpoint.call_with_http_info(**kwargs)

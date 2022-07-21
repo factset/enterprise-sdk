@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ServiceProviderConfigBulk model module.
  * @module model/ServiceProviderConfigBulk
- * @version 0.20.1
  */
 class ServiceProviderConfigBulk {
     /**

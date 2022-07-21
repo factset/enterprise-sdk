@@ -17,7 +17,6 @@ import Prices from './Prices';
 /**
  * The FundsPricesResponse model module.
  * @module model/FundsPricesResponse
- * @version 0.20.0
  */
 class FundsPricesResponse {
     /**

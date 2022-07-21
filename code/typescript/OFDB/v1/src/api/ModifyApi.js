@@ -13,15 +13,14 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject1 from '../model/InlineObject1';
-import InlineObject3 from '../model/InlineObject3';
-import InlineObject5 from '../model/InlineObject5';
+import ModifySymbols from '../model/ModifySymbols';
+import Modifydatespecific from '../model/Modifydatespecific';
+import Modifysymboldate from '../model/Modifysymboldate';
 import SuccessPostResponse from '../model/SuccessPostResponse';
 
 /**
 * Modify service.
 * @module api/ModifyApi
-* @version 0.9.2
 */
 export default class ModifyApi {
 
@@ -98,11 +97,11 @@ export default class ModifyApi {
      * Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
-     * @param {module:model/InlineObject3} inlineObject3 
+     * @param {module:model/Modifydatespecific} modifydatespecific Required data for updating date in the database
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3) {
-      let postBody = inlineObject3;
+    v1DatabasePathDatesDatePutWithHttpInfo(path, date, modifydatespecific) {
+      let postBody = modifydatespecific;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathDatesDatePut");
@@ -111,9 +110,9 @@ export default class ModifyApi {
       if (date === undefined || date === null) {
         throw new Error("Missing the required parameter 'date' when calling v1DatabasePathDatesDatePut");
       }
-      // verify the required parameter 'inlineObject3' is set
-      if (inlineObject3 === undefined || inlineObject3 === null) {
-        throw new Error("Missing the required parameter 'inlineObject3' when calling v1DatabasePathDatesDatePut");
+      // verify the required parameter 'modifydatespecific' is set
+      if (modifydatespecific === undefined || modifydatespecific === null) {
+        throw new Error("Missing the required parameter 'modifydatespecific' when calling v1DatabasePathDatesDatePut");
       }
 
       let pathParams = {
@@ -145,11 +144,11 @@ export default class ModifyApi {
      * Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
-     * @param {module:model/InlineObject3} inlineObject3 
+     * @param {module:model/Modifydatespecific} modifydatespecific Required data for updating date in the database
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathDatesDatePut(path, date, inlineObject3) {
-      return this.v1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3)
+    v1DatabasePathDatesDatePut(path, date, modifydatespecific) {
+      return this.v1DatabasePathDatesDatePutWithHttpInfo(path, date, modifydatespecific)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -224,11 +223,11 @@ export default class ModifyApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {String} symbol Symbol with in the ofdb
-     * @param {module:model/InlineObject5} inlineObject5 
+     * @param {module:model/Modifysymboldate} modifysymboldate Data for updating symbol in the database
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5) {
-      let postBody = inlineObject5;
+    v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, modifysymboldate) {
+      let postBody = modifysymboldate;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
@@ -241,9 +240,9 @@ export default class ModifyApi {
       if (symbol === undefined || symbol === null) {
         throw new Error("Missing the required parameter 'symbol' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
       }
-      // verify the required parameter 'inlineObject5' is set
-      if (inlineObject5 === undefined || inlineObject5 === null) {
-        throw new Error("Missing the required parameter 'inlineObject5' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
+      // verify the required parameter 'modifysymboldate' is set
+      if (modifysymboldate === undefined || modifysymboldate === null) {
+        throw new Error("Missing the required parameter 'modifysymboldate' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
       }
 
       let pathParams = {
@@ -277,11 +276,11 @@ export default class ModifyApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {String} symbol Symbol with in the ofdb
-     * @param {module:model/InlineObject5} inlineObject5 
+     * @param {module:model/Modifysymboldate} modifysymboldate Data for updating symbol in the database
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5) {
-      return this.v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5)
+    v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate) {
+      return this.v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, modifysymboldate)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -348,11 +347,11 @@ export default class ModifyApi {
      * Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
-     * @param {module:model/InlineObject1} inlineObject1 
+     * @param {module:model/ModifySymbols} modifySymbols Data for updating symbol in the database
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1) {
-      let postBody = inlineObject1;
+    v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, modifySymbols) {
+      let postBody = modifySymbols;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathSymbolsSymbolPut");
@@ -361,9 +360,9 @@ export default class ModifyApi {
       if (symbol === undefined || symbol === null) {
         throw new Error("Missing the required parameter 'symbol' when calling v1DatabasePathSymbolsSymbolPut");
       }
-      // verify the required parameter 'inlineObject1' is set
-      if (inlineObject1 === undefined || inlineObject1 === null) {
-        throw new Error("Missing the required parameter 'inlineObject1' when calling v1DatabasePathSymbolsSymbolPut");
+      // verify the required parameter 'modifySymbols' is set
+      if (modifySymbols === undefined || modifySymbols === null) {
+        throw new Error("Missing the required parameter 'modifySymbols' when calling v1DatabasePathSymbolsSymbolPut");
       }
 
       let pathParams = {
@@ -395,11 +394,11 @@ export default class ModifyApi {
      * Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
-     * @param {module:model/InlineObject1} inlineObject1 
+     * @param {module:model/ModifySymbols} modifySymbols Data for updating symbol in the database
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1) {
-      return this.v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1)
+    v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols) {
+      return this.v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, modifySymbols)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

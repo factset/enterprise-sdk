@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IdentifierSettingsDto model module.
  * @module model/IdentifierSettingsDto
- * @version 0.20.0
  */
 class IdentifierSettingsDto {
     /**

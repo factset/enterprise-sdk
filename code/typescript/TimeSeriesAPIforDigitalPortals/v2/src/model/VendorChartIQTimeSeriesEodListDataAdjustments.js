@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodListDataAdjustments model module.
  * @module model/VendorChartIQTimeSeriesEodListDataAdjustments
- * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodListDataAdjustments {
     /**

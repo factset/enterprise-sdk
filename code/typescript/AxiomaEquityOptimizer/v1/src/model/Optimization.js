@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Optimization model module.
  * @module model/Optimization
- * @version 0.8.2
  */
 class Optimization {
     /**

@@ -17,7 +17,6 @@ import InlineResponse200DataHoldings from './InlineResponse200DataHoldings';
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.10.0
  */
 class InlineResponse200Data {
     /**

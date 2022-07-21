@@ -18,17 +18,15 @@ import VendorChartIQTimeSeriesEodListMeta from './VendorChartIQTimeSeriesEodList
 /**
  * The InlineObject model module.
  * @module model/InlineObject
- * @version 0.10.0
  */
 class InlineObject {
     /**
      * Constructs a new <code>InlineObject</code>.
      * @alias module:model/InlineObject
-     * @param data {module:model/VendorChartIQTimeSeriesEodListData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject.initialize(this, data);
+        InlineObject.initialize(this);
     }
 
     /**
@@ -36,8 +34,7 @@ class InlineObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**

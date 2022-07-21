@@ -17,7 +17,6 @@ import FundNotationScreenerSearchMetaPagination from './FundNotationScreenerSear
 /**
  * The FundNotationScreenerSearchMeta model module.
  * @module model/FundNotationScreenerSearchMeta
- * @version 0.10.0
  */
 class FundNotationScreenerSearchMeta {
     /**

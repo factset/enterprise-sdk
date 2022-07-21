@@ -17,7 +17,6 @@ import VARDistributionType from './VARDistributionType';
 /**
  * The VARDistributionDescription model module.
  * @module model/VARDistributionDescription
- * @version 0.20.0
  */
 class VARDistributionDescription {
     /**

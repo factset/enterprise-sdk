@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of the notation. (required).</param>
         /// <param name="filter">filter.</param>
-        public PricesTradingScheduleEventListData(string id = default(string), PricesTradingScheduleEventListDataFilter filter = default(PricesTradingScheduleEventListDataFilter))
+        public PricesTradingScheduleEventListData(string id,PricesTradingScheduleEventListDataFilter filter = default(PricesTradingScheduleEventListDataFilter))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

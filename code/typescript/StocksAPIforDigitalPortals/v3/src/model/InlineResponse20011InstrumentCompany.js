@@ -17,7 +17,6 @@ import InlineResponse20011InstrumentCompanyCountry from './InlineResponse20011In
 /**
  * The InlineResponse20011InstrumentCompany model module.
  * @module model/InlineResponse20011InstrumentCompany
- * @version 0.10.0
  */
 class InlineResponse20011InstrumentCompany {
     /**

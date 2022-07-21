@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// <param name="strategy">strategy (required).</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public FPOOptimizationParameters(FPOAccount account = default(FPOAccount), OptimizerStrategy strategy = default(OptimizerStrategy), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public FPOOptimizationParameters(OptimizerStrategy strategy, OptimizerOutputTypes outputTypes,FPOAccount account = default(FPOAccount), Optimization optimization = default(Optimization))
         {
             // to ensure "strategy" is required (not null)
             if (strategy == null) {

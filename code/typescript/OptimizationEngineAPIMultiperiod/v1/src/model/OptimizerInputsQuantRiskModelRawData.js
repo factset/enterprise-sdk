@@ -19,7 +19,6 @@ import OptimizerInputsSparseMatrix from './OptimizerInputsSparseMatrix';
 /**
  * The OptimizerInputsQuantRiskModelRawData model module.
  * @module model/OptimizerInputsQuantRiskModelRawData
- * @version 0.20.0
  */
 class OptimizerInputsQuantRiskModelRawData {
     /**

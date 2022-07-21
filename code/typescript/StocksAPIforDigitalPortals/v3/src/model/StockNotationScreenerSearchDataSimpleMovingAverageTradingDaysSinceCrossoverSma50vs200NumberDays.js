@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossov
 /**
  * The StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays model module.
  * @module model/StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays {
     /**

@@ -42,7 +42,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// </summary>
         /// <param name="overrides">overrides.</param>
         /// <param name="id">OptimizerStrategy document path (required).</param>
-        public BPMOptimizerStrategy(BPMOptimizerStrategyOverrides overrides = default(BPMOptimizerStrategyOverrides), string id = default(string))
+        public BPMOptimizerStrategy(string id,BPMOptimizerStrategyOverrides overrides = default(BPMOptimizerStrategyOverrides))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

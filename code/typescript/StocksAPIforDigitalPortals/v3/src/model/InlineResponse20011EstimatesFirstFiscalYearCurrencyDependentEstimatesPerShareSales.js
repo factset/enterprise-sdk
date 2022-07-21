@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales model module.
  * @module model/InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales
- * @version 0.10.0
  */
 class InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales {
     /**

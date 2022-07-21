@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AgentsApi(config);
+
             var ids = new List<string>(); // List<string> | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AgentsApi(config);
+
             var termsAndConditionsScalarRequest = new TermsAndConditionsScalarRequest(); // TermsAndConditionsScalarRequest | Request object for Fixed Income Agents.
 
             try

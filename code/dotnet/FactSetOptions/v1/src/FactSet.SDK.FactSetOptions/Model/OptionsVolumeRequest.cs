@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="exchange">exchange.</param>
         /// <param name="calendar">calendar.</param>
-        public OptionsVolumeRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Exchange exchange = default(Exchange), Calendar calendar = default(Calendar))
+        public OptionsVolumeRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Exchange exchange = default(Exchange), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

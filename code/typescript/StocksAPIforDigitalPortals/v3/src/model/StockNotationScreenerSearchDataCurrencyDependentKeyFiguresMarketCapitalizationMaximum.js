@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum {
     /**

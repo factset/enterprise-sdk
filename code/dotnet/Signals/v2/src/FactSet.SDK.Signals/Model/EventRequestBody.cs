@@ -35,8 +35,8 @@ namespace FactSet.SDK.Signals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventRequestBody" /> class.
         /// </summary>
-        /// <param name="created">A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted..</param>
-        /// <param name="updated">A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted..</param>
+        /// <param name="created">A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted..</param>
+        /// <param name="updated">A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted..</param>
         /// <param name="signalIds">Comma delimited string of signalIds.</param>
         /// <param name="ids">Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are processed. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used..</param>
         /// <param name="portfolios">Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb.</param>
@@ -58,16 +58,16 @@ namespace FactSet.SDK.Signals.Model
         }
 
         /// <summary>
-        /// A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+        /// A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
         /// </summary>
-        /// <value>A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.</value>
+        /// <value>A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.</value>
         [DataMember(Name = "created", EmitDefaultValue = true)]
         public DateTimeInterval Created { get; set; }
 
         /// <summary>
-        /// A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
+        /// A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.
         /// </summary>
-        /// <value>A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.</value>
+        /// <value>A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted.</value>
         [DataMember(Name = "updated", EmitDefaultValue = true)]
         public DateTimeInterval Updated { get; set; }
 

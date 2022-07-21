@@ -24,9 +24,8 @@ The `/cross-sectional` endpoint is closely aligned with FactSet’s powerful dat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Formula
 from fds.sdk.Formula.api import cross_sectional_api
-from fds.sdk.Formula.model.cross_sectional_response import CrossSectionalResponse
-from fds.sdk.Formula.model.error_detail import ErrorDetail
-from fds.sdk.Formula.model.batch_status_response import BatchStatusResponse
+from fds.sdk.Formula.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,18 +58,20 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
     formulas = ["P_PRICE(0)"] # [str] | List of Screening formulas
     ids = ["IBM"] # [str] | List of entity identifiers.  The `ids` and `universe` parameters provide two different ways to specify the identifiers for which you want data retrieved. Please enter either the `ids` or `universe` parameter.  (optional)
     universe = "" # str | Screening expression to limit the universe  Please enter either the `ids` or `universe` parameter.  (optional)
-    universe_type = "EQUITY" # str | Specify the universe type to calculate the `universe` in.  Find documentation below on how to build a screen for each universe type - * Equity Screen - [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)  * Debt Screen - [Online Assistant Page 20888](https://my.apps.factset.com/oa/pages/20888)  * Fund Screen - [Online Assistant Page 21384](https://my.apps.factset.com/oa/pages/21384)  (optional) (default to "EQUITY")
+    universe_type = "EQUITY" # str | Specify the universe type to calculate the `universe` in.  Find documentation below on how to build a screen for each universe type - * Equity Screen - [Online Assistant Page 20606](https://my.apps.factset.com/oa/pages/20606)  * Debt Screen - [Online Assistant Page 20888](https://my.apps.factset.com/oa/pages/20888)  * Fund Screen - [Online Assistant Page 21384](https://my.apps.factset.com/oa/pages/21384)  (optional) if omitted the server will use the default value of "EQUITY"
     back_test_date = "backTestDate_example" # str | Specify the backtest date either in **YYYY-MM-DD**, **YYYYMMDD** or **MM/DD/YYYY** format.  To learn more about backtesting, please visit [Online Assistant Page 20610](https://my.apps.factset.com/oa/pages/20610#backtest). User must have access to backtesting functionality.  (optional)
     calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)
-    fsym_id = "N" # str | Specify **Y** for `fsymId` to return an additional response object containing the data item **fsymId** which will contain the fsymIds of the requestIds. This is in addition to the response object containing the data item **requestId**. The default value for `fsymId` is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).  (optional) (default to "N")
+    fsym_id = "N" # str | Specify **Y** for `fsymId` to return an additional response object containing the data item **fsymId** which will contain the fsymIds of the requestIds. This is in addition to the response object containing the data item **requestId**. The default value for `fsymId` is **N**.  The **fsymId** field returned is the FactSet Default Permanent Identifier for the `requestId`. For all supported `requestId` symbol types, the `fsymId` parameter will return the Regional Level PermId '-R' which identifies the security’s best regional security data series per currency. Currently, the fsymId parameter only supports equities. Accepted `requestId` symbol types include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. Further documentation can be found at this [Online Assistant attachment](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881).  (optional) if omitted the server will use the default value of "N"
     display_name = [
         "",
     ] # [str] | Define display names for the formulas inputted. Enter the list of display names in the same order as the formulas inputted. An additional field **displayName** will be returned in the data object for a formula.  If the number of display names does not match the number of formulas provided, an error will be returned.  To define the display name for a subset of the formulas, leave a blank in the position of the formula that won't be renamed. For example - If three formulas are inputted, to define display names only for the first and third formula, enter *displayName=FORMULA_1,,FORMULA_3*. The **displayName** field will still be included in that formula, but will contain the formula as inputted.  (optional)
-    flatten = "N" # str | Specify **Y** for `flatten` to return a flat, table-like JSON response model instead of the standard nested JSON response model. This option is provided for easier data processing and visualization. The default value for `flatten` is **N**.  See the **Cross-Sectional Result Object Flattened** schema for more detail on the response structure for flattened output.  (optional) (default to "N")
-    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  A user is limited to running 5 Batch Requests in a 10 minute period.  *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.*  Once a batch request is submitted, use `/batch-status` to see if the job has completed. Once completed, retrieve the results of the request via `/batch-result`. See the endpoints listed under *Batch Processing* for more information.  (optional) (default to "N")
+    flatten = "N" # str | Specify **Y** for `flatten` to return a flat, table-like JSON response model instead of the standard nested JSON response model. This option is provided for easier data processing and visualization. The default value for `flatten` is **N**.  See the **Cross-Sectional Result Object Flattened** schema for more detail on the response structure for flattened output.  (optional) if omitted the server will use the default value of "N"
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  A user is limited to running 5 Batch Requests in a 10 minute period.  *This feature is available to Individual Users subscribed to the Performance Package and Performance Package Plus Performance Tiers and all Production Users. If you are unsure which Performance Tier you are subscribed to or you would like to gain access to the batch capabilities, please contact your FactSet Account Team or \"Report Issue\" above and our support teams can assist.*  Once a batch request is submitted, use `/batch-status` to see if the job has completed. Once completed, retrieve the results of the request via `/batch-result`. See the endpoints listed under *Batch Processing* for more information.  (optional) if omitted the server will use the default value of "N"
 
     try:
         # Retrieve data items (Screening formulas) for a list of identifiers or defined universe.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_cross_sectional_data(formulas, ids=ids, universe=universe, universe_type=universe_type, back_test_date=back_test_date, calendar=calendar, fsym_id=fsym_id, display_name=display_name, flatten=flatten, batch=batch)
         responseWrapper = {
             200: api_response.get_response_200,
@@ -149,10 +150,8 @@ The `/cross-sectional` endpoint is closely aligned with FactSet’s powerful dat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Formula
 from fds.sdk.Formula.api import cross_sectional_api
-from fds.sdk.Formula.model.cross_sectional_response import CrossSectionalResponse
-from fds.sdk.Formula.model.error_detail import ErrorDetail
-from fds.sdk.Formula.model.cross_sectional_request import CrossSectionalRequest
-from fds.sdk.Formula.model.batch_status_response import BatchStatusResponse
+from fds.sdk.Formula.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -199,6 +198,7 @@ with fds.sdk.Formula.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve data items (Screening formulas) for a list of identifiers or defined universe.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_cross_sectional_data_for_list(cross_sectional_request)
         responseWrapper = {
             200: api_response.get_response_200,

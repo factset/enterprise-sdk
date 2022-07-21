@@ -21,7 +21,6 @@ import InstrumentDto from './InstrumentDto';
 /**
  * The CustomSymbolDto model module.
  * @module model/CustomSymbolDto
- * @version 0.20.0
  */
 class CustomSymbolDto {
     /**

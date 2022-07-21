@@ -17,7 +17,6 @@ import PeopleMapping from './PeopleMapping';
 /**
  * The PeopleMappingDeleteResponse model module.
  * @module model/PeopleMappingDeleteResponse
- * @version 0.20.1
  */
 class PeopleMappingDeleteResponse {
     /**

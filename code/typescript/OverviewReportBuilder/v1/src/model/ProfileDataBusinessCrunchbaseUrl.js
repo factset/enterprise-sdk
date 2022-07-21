@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataBusinessCrunchbaseUrl model module.
  * @module model/ProfileDataBusinessCrunchbaseUrl
- * @version 0.20.0
  */
 class ProfileDataBusinessCrunchbaseUrl {
     /**

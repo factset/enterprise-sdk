@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CovenantDetail model module.
  * @module model/CovenantDetail
- * @version 0.20.0
  */
 class CovenantDetail {
     /**

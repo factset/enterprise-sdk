@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ColumnsApi(config);
+
             var id = "\"2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5\"";  // string | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ColumnsApi(config);
+
             var name = "\"\"";  // string |  (optional)  (default to "")
             var category = "\"\"";  // string |  (optional)  (default to "")
             var directory = "\"\"";  // string |  (optional)  (default to "")

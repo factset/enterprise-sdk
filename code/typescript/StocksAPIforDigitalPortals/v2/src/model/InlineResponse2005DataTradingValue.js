@@ -17,7 +17,6 @@ import InlineResponse2005DataTradingValueAverage from './InlineResponse2005DataT
 /**
  * The InlineResponse2005DataTradingValue model module.
  * @module model/InlineResponse2005DataTradingValue
- * @version 0.9.2
  */
 class InlineResponse2005DataTradingValue {
     /**

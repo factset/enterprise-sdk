@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public ComponentSummaryRoot(Dictionary<string, ComponentSummary> data = default(Dictionary<string, ComponentSummary>), Object meta = default(Object))
+        public ComponentSummaryRoot(Dictionary<string, ComponentSummary> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

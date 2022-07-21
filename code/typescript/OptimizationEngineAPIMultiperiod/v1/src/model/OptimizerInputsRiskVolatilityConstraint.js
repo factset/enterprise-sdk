@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsRiskVolatilityConstraint model module.
  * @module model/OptimizerInputsRiskVolatilityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsRiskVolatilityConstraint {
     /**

@@ -80,7 +80,6 @@ import FrequenciesApi from './api/FrequenciesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

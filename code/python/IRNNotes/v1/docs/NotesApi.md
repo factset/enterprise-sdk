@@ -1,6 +1,6 @@
 # fds.sdk.IRNNotes.NotesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,9 +25,8 @@ Create a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import notes_api
-from fds.sdk.IRNNotes.model.new_item_dto import NewItemDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.create_note_dto import CreateNoteDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -112,6 +111,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Create a note
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_note(create_note_dto, x_irn_contributor_username=x_irn_contributor_username, x_irn_contributor_serial=x_irn_contributor_serial)
         pprint(api_response)
 
@@ -165,7 +166,8 @@ Delete a Note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import notes_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -199,7 +201,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Delete a Note
+        # example passing only required values which don't have defaults set
         api_instance.delete_note(note_id)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->delete_note: %s\n" % e)
 ```
@@ -250,8 +254,8 @@ Get details of a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import notes_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.note_dto import NoteDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,6 +289,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get details of a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_note(note_id)
         pprint(api_response)
 
@@ -337,8 +342,8 @@ Get all the notes in the specified date range filtered on the given identifiers
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import notes_api
-from fds.sdk.IRNNotes.model.note_summary_dto import NoteSummaryDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -391,11 +396,13 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     states = [
         "states_example",
     ] # [str] | Set of states to filter on (optional)
-    filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) (default to False)
-    x_irn_include_deleted = False # bool |  (optional) (default to False)
+    filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) if omitted the server will use the default value of False
+    x_irn_include_deleted = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all the notes in the specified date range filtered on the given identifiers
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, states=states, filter_on_related_symbols=filter_on_related_symbols, x_irn_include_deleted=x_irn_include_deleted)
         pprint(api_response)
 
@@ -459,8 +466,8 @@ Update a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import notes_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.update_note_dto import UpdateNoteDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -544,7 +551,10 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Update a note
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.update_note(note_id, update_note_dto=update_note_dto)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->update_note: %s\n" % e)
 ```

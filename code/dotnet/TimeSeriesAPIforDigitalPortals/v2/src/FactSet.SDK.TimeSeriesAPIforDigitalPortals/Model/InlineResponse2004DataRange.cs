@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">The starting point of the time range (inclusive). (required).</param>
         /// <param name="end">The ending point of the time range (exclusive). (required).</param>
-        public InlineResponse2004DataRange(string start = default(string), string end = default(string))
+        public InlineResponse2004DataRange(string start, string end)
         {
             // to ensure "start" is required (not null)
             if (start == null) {

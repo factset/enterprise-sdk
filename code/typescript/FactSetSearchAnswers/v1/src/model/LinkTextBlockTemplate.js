@@ -20,7 +20,6 @@ import TemplateWithLinks from './TemplateWithLinks';
 /**
  * The LinkTextBlockTemplate model module.
  * @module model/LinkTextBlockTemplate
- * @version 0.20.0
  */
 class LinkTextBlockTemplate {
     /**

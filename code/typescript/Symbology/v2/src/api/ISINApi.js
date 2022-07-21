@@ -22,7 +22,6 @@ import IsinTranslationResponse from '../model/IsinTranslationResponse';
 /**
 * ISIN service.
 * @module api/ISINApi
-* @version 0.20.0
 */
 export default class ISINApi {
 

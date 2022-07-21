@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public AccountDirectoriesRoot(AccountDirectories data = default(AccountDirectories), Object meta = default(Object))
+        public AccountDirectoriesRoot(AccountDirectories data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

@@ -86,7 +86,6 @@ import UseOfProceedsApi from './api/UseOfProceedsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

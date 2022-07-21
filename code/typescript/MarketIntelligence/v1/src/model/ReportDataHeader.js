@@ -17,7 +17,6 @@ import ReportContent from './ReportContent';
 /**
  * The ReportDataHeader model module.
  * @module model/ReportDataHeader
- * @version 0.20.0
  */
 class ReportDataHeader {
     /**

@@ -20,7 +20,6 @@ import VaultComponentRoot from '../model/VaultComponentRoot';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.20.0
 */
 export default class ComponentsApi {
 

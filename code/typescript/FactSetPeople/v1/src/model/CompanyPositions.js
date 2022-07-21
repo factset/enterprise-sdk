@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CompanyPositions model module.
  * @module model/CompanyPositions
- * @version 0.20.0
  */
 class CompanyPositions {
     /**

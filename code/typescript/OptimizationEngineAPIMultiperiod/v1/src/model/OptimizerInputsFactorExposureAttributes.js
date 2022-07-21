@@ -17,7 +17,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsFactorExposureAttributes model module.
  * @module model/OptimizerInputsFactorExposureAttributes
- * @version 0.20.0
  */
 class OptimizerInputsFactorExposureAttributes {
     /**

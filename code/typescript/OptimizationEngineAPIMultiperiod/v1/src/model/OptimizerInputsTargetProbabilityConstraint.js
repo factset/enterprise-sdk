@@ -17,7 +17,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTargetProbabilityConstraint model module.
  * @module model/OptimizerInputsTargetProbabilityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsTargetProbabilityConstraint {
     /**

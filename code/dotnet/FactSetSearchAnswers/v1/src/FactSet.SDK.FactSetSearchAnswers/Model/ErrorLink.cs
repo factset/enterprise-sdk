@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="ErrorLink" /> class.
         /// </summary>
         /// <param name="about">about (required).</param>
-        public ErrorLink(string about = default(string))
+        public ErrorLink(string about)
         {
             // to ensure "about" is required (not null)
             if (about == null) {

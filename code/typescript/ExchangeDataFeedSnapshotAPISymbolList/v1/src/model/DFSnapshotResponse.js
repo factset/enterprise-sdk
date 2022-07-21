@@ -17,7 +17,6 @@ import Fields from './Fields';
 /**
  * The DFSnapshotResponse model module.
  * @module model/DFSnapshotResponse
- * @version 0.20.0
  */
 class DFSnapshotResponse {
     /**

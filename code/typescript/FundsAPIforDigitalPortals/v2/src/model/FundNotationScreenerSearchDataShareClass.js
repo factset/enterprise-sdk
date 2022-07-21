@@ -23,7 +23,6 @@ import FundNotationScreenerSearchDataShareClassRegistrationCountry from './FundN
 /**
  * The FundNotationScreenerSearchDataShareClass model module.
  * @module model/FundNotationScreenerSearchDataShareClass
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClass {
     /**

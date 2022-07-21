@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationRankingIntradayListDataPerformanceRelativeMinimum model module.
  * @module model/StockNotationRankingIntradayListDataPerformanceRelativeMinimum
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataPerformanceRelativeMinimum {
     /**

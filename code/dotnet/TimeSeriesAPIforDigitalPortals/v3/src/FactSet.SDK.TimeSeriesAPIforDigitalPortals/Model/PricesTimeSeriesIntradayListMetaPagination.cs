@@ -35,8 +35,8 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PricesTimeSeriesIntradayListMetaPagination" /> class.
         /// </summary>
         /// <param name="cursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default)..</param>
-        /// <param name="limit">Non-negative maximum number of entries to return..</param>
-        public PricesTimeSeriesIntradayListMetaPagination(string cursor = default(string), decimal limit = default(decimal))
+        /// <param name="limit">Non-negative maximum number of entries to return. (default to 20M).</param>
+        public PricesTimeSeriesIntradayListMetaPagination(string cursor = default(string), decimal limit = 20M)
         {
             this.Cursor = cursor;
             this.Limit = limit;
@@ -144,9 +144,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             }
 
             // Limit (decimal) maximum
-            if (this.Limit > (decimal)5E+2)
+            if (this.Limit > (decimal)500)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 5E+2.", new [] { "Limit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 500.", new [] { "Limit" });
             }
 
             // Limit (decimal) minimum

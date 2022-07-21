@@ -41,7 +41,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of the watchlist. (required).</param>
         /// <param name="name">Name of the watchlist. (required).</param>
-        public WatchlistModifyData(string id = default(string), string name = default(string))
+        public WatchlistModifyData(string id, string name)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

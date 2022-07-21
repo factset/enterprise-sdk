@@ -19,7 +19,6 @@ import OptimizerInputsDerivative from './OptimizerInputsDerivative';
 /**
  * The OptimizerInputsTotalUniverse model module.
  * @module model/OptimizerInputsTotalUniverse
- * @version 0.20.0
  */
 class OptimizerInputsTotalUniverse {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2009Country model module.
  * @module model/InlineResponse2009Country
- * @version 0.9.2
  */
 class InlineResponse2009Country {
     /**

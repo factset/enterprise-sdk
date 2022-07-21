@@ -19,7 +19,6 @@ import EventMeta from './EventMeta';
 /**
  * The EventAdaptiveCard model module.
  * @module model/EventAdaptiveCard
- * @version 0.20.0
  */
 class EventAdaptiveCard {
     /**

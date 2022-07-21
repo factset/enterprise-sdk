@@ -41,7 +41,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// </summary>
         /// <param name="product">product (required).</param>
         /// <param name="dataItem">dataItem (required).</param>
-        public BasicSearchResponseResults(Product product = default(Product), DataItem dataItem = default(DataItem))
+        public BasicSearchResponseResults(Product product, DataItem dataItem)
         {
             // to ensure "product" is required (not null)
             if (product == null) {

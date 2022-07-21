@@ -17,7 +17,6 @@ import TeamSummaryDto from './TeamSummaryDto';
 /**
  * The UserConfigDto model module.
  * @module model/UserConfigDto
- * @version 0.20.0
  */
 class UserConfigDto {
     /**

@@ -42,7 +42,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// </summary>
         /// <param name="overrides">overrides.</param>
         /// <param name="id">OptimizerStrategy document path (required).</param>
-        public NPOOptimizerStrategy(NPOOptimizerStrategyOverrides overrides = default(NPOOptimizerStrategyOverrides), string id = default(string))
+        public NPOOptimizerStrategy(string id,NPOOptimizerStrategyOverrides overrides = default(NPOOptimizerStrategyOverrides))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

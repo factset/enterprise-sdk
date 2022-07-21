@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="WatchlistDeleteData" /> class.
         /// </summary>
         /// <param name="id">Identifier of the watchlist. (required).</param>
-        public WatchlistDeleteData(string id = default(string))
+        public WatchlistDeleteData(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

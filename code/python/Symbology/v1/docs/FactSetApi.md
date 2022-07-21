@@ -24,9 +24,8 @@ Translate market security symbols into FactSet Permanent Security Identifiers. T
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import fact_set_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.factset_translation_request import FactsetTranslationRequest
-from fds.sdk.Symbology.model.factset_translation_response import FactsetTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into FactSet Permanent Identifiers.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_factset(factset_translation_request)
         pprint(api_response)
 
@@ -119,8 +119,8 @@ Translate market security symbols into FactSet Permanent Security Identifiers. T
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import fact_set_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.factset_translation_response import FactsetTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into FactSet Permanent Identifiers.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.translate_factset(ids)
         pprint(api_response)
 

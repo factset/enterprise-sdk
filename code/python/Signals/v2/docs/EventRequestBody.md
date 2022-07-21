@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
-**updated** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted. | [optional] 
+**created** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+**updated** | **bool, date, datetime, dict, float, int, list, str, none_type** | A date/time (UTC) interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted. | [optional] 
 **signal_ids** | **str** | Comma delimited string of signalIds | [optional] 
 **ids** | **str** | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are processed. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
 **portfolios** | **str** | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 

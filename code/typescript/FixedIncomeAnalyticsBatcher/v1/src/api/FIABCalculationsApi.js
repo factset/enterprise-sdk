@@ -20,7 +20,6 @@ import FIABCalculationStatusSummary from '../model/FIABCalculationStatusSummary'
 /**
 * FIABCalculations service.
 * @module api/FIABCalculationsApi
-* @version 0.20.0
 */
 export default class FIABCalculationsApi {
 

@@ -17,7 +17,6 @@ import RankedTable from './RankedTable';
 /**
  * The RankedTableTemplateAllOf model module.
  * @module model/RankedTableTemplateAllOf
- * @version 0.20.0
  */
 class RankedTableTemplateAllOf {
     /**

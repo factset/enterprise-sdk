@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DatesApi(config);
+
             var enddate = "enddate_example";  // string | End Date
             var componentid = "componentid_example";  // string | Vault Component Id
             var account = "account_example";  // string | Account

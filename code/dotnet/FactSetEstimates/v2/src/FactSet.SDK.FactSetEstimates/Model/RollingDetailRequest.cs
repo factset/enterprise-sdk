@@ -50,7 +50,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="periodicity">periodicity.</param>
         /// <param name="metrics">Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). (required).</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public RollingDetailRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), List<string> metrics = default(List<string>), string currency = default(string))
+        public RollingDetailRequest(List<string> ids, List<string> metrics,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

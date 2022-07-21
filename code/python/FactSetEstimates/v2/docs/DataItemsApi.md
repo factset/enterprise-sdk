@@ -24,8 +24,8 @@ Returns list of available Estimate metrics that can be used in the `metrics` par
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import data_items_api
-from fds.sdk.FactSetEstimates.model.metrics_response import MetricsResponse
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +60,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Available Estimate metrics
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimate_metrics(category=category, subcategory=subcategory)
         pprint(api_response)
 
@@ -118,9 +120,8 @@ Returns list of available Estimate metrics that can be used in the `metrics` par
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import data_items_api
-from fds.sdk.FactSetEstimates.model.metrics_response import MetricsResponse
-from fds.sdk.FactSetEstimates.model.metrics_request import MetricsRequest
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +158,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Available Estimate metrics or ratios.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_estimate_metrics_for_list(metrics_request)
         pprint(api_response)
 

@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public CurrencyRoot(Dictionary<string, Currency> data = default(Dictionary<string, Currency>), Object meta = default(Object))
+        public CurrencyRoot(Dictionary<string, Currency> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

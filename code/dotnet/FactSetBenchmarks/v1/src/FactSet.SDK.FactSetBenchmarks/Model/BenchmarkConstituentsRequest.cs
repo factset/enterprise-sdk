@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Model
         /// <param name="ids">Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. (required).</param>
         /// <param name="date">Date of holding expressed in YYYY-MM-DD format..</param>
         /// <param name="currency">Currency for response..</param>
-        public BenchmarkConstituentsRequest(List<string> ids = default(List<string>), string date = default(string), string currency = default(string))
+        public BenchmarkConstituentsRequest(List<string> ids,string date = default(string), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -17,7 +17,6 @@ import Frequency from './Frequency';
 /**
  * The RegionRequest model module.
  * @module model/RegionRequest
- * @version 0.20.0
  */
 class RegionRequest {
     /**

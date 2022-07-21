@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNNotes.Api.IdentifiersApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -48,6 +48,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new IdentifiersApi(config);
+
             var identifiers = "identifiers_example";  // string | Identifiers (optional) 
 
             try

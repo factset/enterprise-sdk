@@ -21,7 +21,6 @@ import SpotlightsResponse from '../model/SpotlightsResponse';
 /**
 * Spotlights service.
 * @module api/SpotlightsApi
-* @version 0.20.0
 */
 export default class SpotlightsApi {
 

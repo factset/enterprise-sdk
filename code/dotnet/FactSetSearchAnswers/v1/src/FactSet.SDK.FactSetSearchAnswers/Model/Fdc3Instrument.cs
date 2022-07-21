@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="exchangeMic">exchangeMic.</param>
         /// <param name="exchangeMicFds">exchangeMicFds.</param>
         /// <param name="id">id.</param>
-        public Fdc3Instrument(string type = default(string), string name = default(string), string exchangeMic = default(string), string exchangeMicFds = default(string), InstrumentID id = default(InstrumentID))
+        public Fdc3Instrument(string type, string name,string exchangeMic = default(string), string exchangeMicFds = default(string), InstrumentID id = default(InstrumentID))
         {
             // to ensure "type" is required (not null)
             if (type == null) {

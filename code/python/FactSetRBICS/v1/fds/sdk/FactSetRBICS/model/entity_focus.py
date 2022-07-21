@@ -83,9 +83,9 @@ class EntityFocus(ModelNormal):
         """
         return {
             'request_id': (str,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'first_date': (str,),  # noqa: E501
-            'last_date': (str,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'first_date': (str, none_type,),  # noqa: E501
+            'last_date': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -112,9 +112,9 @@ class EntityFocus(ModelNormal):
 
         Args:
             request_id (str): Company identifier used in request.
-            fsym_id (str): FactSet Company identifier being classified.
-            first_date (str): First date of the classification.
-            last_date (str): Date when the classification became no longer valid.
+            fsym_id (str, none_type): FactSet Company identifier being classified.
+            first_date (str, none_type): First date of the classification.
+            last_date (str, none_type): Date when the classification became no longer valid.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,9 +203,9 @@ class EntityFocus(ModelNormal):
 
         Args:
             request_id (str): Company identifier used in request.
-            fsym_id (str): FactSet Company identifier being classified.
-            first_date (str): First date of the classification.
-            last_date (str): Date when the classification became no longer valid.
+            fsym_id (str, none_type): FactSet Company identifier being classified.
+            first_date (str, none_type): First date of the classification.
+            last_date (str, none_type): Date when the classification became no longer valid.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

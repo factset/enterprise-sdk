@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <param name="requestId">Identifier that was used for the request. (required).</param>
         /// <param name="fsymId">Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security’s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet. (required).</param>
         /// <param name="date">The as of date of the factors in YYYY-MM-DD format. (required).</param>
-        public Factors(string requestId = default(string), string fsymId = default(string), DateTime date = default(DateTime)) : base()
+        public Factors(string requestId, string fsymId, DateTime date) : base()
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

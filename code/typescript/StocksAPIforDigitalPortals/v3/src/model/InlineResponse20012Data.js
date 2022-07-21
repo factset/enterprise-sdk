@@ -30,7 +30,6 @@ import InlineResponse20012DataVolatility from './InlineResponse20012DataVolatili
 /**
  * The InlineResponse20012Data model module.
  * @module model/InlineResponse20012Data
- * @version 0.10.0
  */
 class InlineResponse20012Data {
     /**

@@ -17,7 +17,6 @@ import DataPointMeta from './DataPointMeta';
 /**
  * The ProfileDataSizeRevenue model module.
  * @module model/ProfileDataSizeRevenue
- * @version 0.20.0
  */
 class ProfileDataSizeRevenue {
     /**

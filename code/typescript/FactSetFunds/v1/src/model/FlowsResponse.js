@@ -17,7 +17,6 @@ import Flows from './Flows';
 /**
  * The FlowsResponse model module.
  * @module model/FlowsResponse
- * @version 0.20.0
  */
 class FlowsResponse {
     /**

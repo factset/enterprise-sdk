@@ -17,7 +17,6 @@ import ValueChange from './ValueChange';
 /**
  * The ValueChangeDateLabelTemplateAllOf model module.
  * @module model/ValueChangeDateLabelTemplateAllOf
- * @version 0.20.0
  */
 class ValueChangeDateLabelTemplateAllOf {
     /**

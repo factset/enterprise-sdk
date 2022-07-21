@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigAuthenticationSchemes" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigAuthenticationSchemes()
+        public ServiceProviderConfigAuthenticationSchemes(string type, string name, string description,string specUri = default(string), string documentationUri = default(string))
         {
         }
 

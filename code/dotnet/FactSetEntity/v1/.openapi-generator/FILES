@@ -6,6 +6,10 @@ README.md
 appveyor.yml
 docs/EntityReference.md
 docs/EntityReferenceApi.md
+docs/EntityReferenceChi.md
+docs/EntityReferenceChiRequest.md
+docs/EntityReferenceChiResponse.md
+docs/EntityReferenceChineseApi.md
 docs/EntityReferenceRequest.md
 docs/EntityReferenceResponse.md
 docs/EntitySecurities.md
@@ -24,6 +28,7 @@ docs/UltimateEntityStructureResponse.md
 docs/UtlimateEntityStructure.md
 git_push.sh
 src/FactSet.SDK.FactSetEntity/Api/EntityReferenceApi.cs
+src/FactSet.SDK.FactSetEntity/Api/EntityReferenceChineseApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntitySecuritiesApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntityStructureApi.cs
 src/FactSet.SDK.FactSetEntity/Client/ApiClient.cs
@@ -45,6 +50,9 @@ src/FactSet.SDK.FactSetEntity/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetEntity/FactSet.SDK.FactSetEntity.csproj
 src/FactSet.SDK.FactSetEntity/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReference.cs
+src/FactSet.SDK.FactSetEntity/Model/EntityReferenceChi.cs
+src/FactSet.SDK.FactSetEntity/Model/EntityReferenceChiRequest.cs
+src/FactSet.SDK.FactSetEntity/Model/EntityReferenceChiResponse.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReferenceRequest.cs
 src/FactSet.SDK.FactSetEntity/Model/EntityReferenceResponse.cs
 src/FactSet.SDK.FactSetEntity/Model/EntitySecurities.cs

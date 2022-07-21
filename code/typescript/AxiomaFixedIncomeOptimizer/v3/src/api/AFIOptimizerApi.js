@@ -21,7 +21,6 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * AFIOptimizer service.
 * @module api/AFIOptimizerApi
-* @version 0.20.0
 */
 export default class AFIOptimizerApi {
 

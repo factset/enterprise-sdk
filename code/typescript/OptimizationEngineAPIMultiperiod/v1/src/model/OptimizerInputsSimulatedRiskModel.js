@@ -18,7 +18,6 @@ import VARDistributionDataMessage from './VARDistributionDataMessage';
 /**
  * The OptimizerInputsSimulatedRiskModel model module.
  * @module model/OptimizerInputsSimulatedRiskModel
- * @version 0.20.0
  */
 class OptimizerInputsSimulatedRiskModel {
     /**

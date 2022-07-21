@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataGeneralLegalStructure model module.
  * @module model/InlineResponse20062DataGeneralLegalStructure
- * @version 0.10.0
  */
 class InlineResponse20062DataGeneralLegalStructure {
     /**

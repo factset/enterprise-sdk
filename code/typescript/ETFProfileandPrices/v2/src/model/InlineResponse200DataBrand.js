@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataBrand model module.
  * @module model/InlineResponse200DataBrand
- * @version 0.10.0
  */
 class InlineResponse200DataBrand {
     /**

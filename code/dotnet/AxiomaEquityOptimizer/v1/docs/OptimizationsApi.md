@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptimizationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Run Optimization endpoint
 
             try
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptimizationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Run Optimization endpoint
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptimizationsApi(config);
+
             var axiomaEquityOptimizationParameters = new AxiomaEquityOptimizationParameters(); // AxiomaEquityOptimizationParameters |  (optional) 
 
             try

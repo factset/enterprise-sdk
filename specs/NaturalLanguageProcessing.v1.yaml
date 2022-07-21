@@ -1,0 +1,230 @@
+openapi: 3.0.1
+info:
+  title: Natural Language Processing API
+  description: >-
+    APIs that leverage Natural Language Processing to help extract meaningful
+    data from unstructured text
+  contact:
+    email: ai@factset.com
+  version: 1.0.0
+servers:
+  - url: https://api.factset.com
+tags:
+  - name: themes
+    description: AI Themes
+paths:
+  /cognitive/nlp/v1/themes:
+    post:
+      tags:
+        - themes
+      summary: POST request to extract themes from text
+      description: >
+        This endpoint extracts themes from unstructured text. Each theme
+        (`themeText`) is also given a score (`themeScore`). This score shows the
+        relevancy of the theme within the text. 
+
+        Example Output:
+
+        ```json
+
+        {
+          "data": [
+          {
+            "themeText": "home entertainment results",
+            "themeScore": 0.92
+          },
+          {
+            "themeText": ".....",
+            "themeScore": .....
+          }]
+        }
+
+        ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThemeParametersRoot'
+        required: true
+      responses:
+        '200':
+          description: Expected response, generated themes
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+              example: cb87799eadc14d9fba25c09fb639171d
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThemesRoot'
+        '400':
+          description: >-
+            The browser (or proxy) sent a request that this server could not
+            understand.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsRoot'
+        '401':
+          description: >-
+            The server could not verify that you are authorized to access the
+            URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the
+            credentials required.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+        '403':
+          description: >-
+            You don't have the permission to access the requested resource. It
+            is either read-protected or not readable by the server.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+        '404':
+          description: >-
+            The requested URL was not found on the server. If you entered the
+            URL manually please check your spelling and try again.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsRoot'
+        '500':
+          description: >-
+            The server encountered an internal error and was unable to complete
+            your request. Either the server is overloaded or there is an error
+            in the application.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+        '503':
+          description: >-
+            The server is temporarily unable to service your request due to
+            maintenance downtime or capacity problems. Please try again later.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              schema:
+                type: string
+                description: Key to uniquely identify an API request.
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  schemas:
+    ThemeParameters:
+      required:
+        - text
+      type: object
+      properties:
+        text:
+          type: string
+          description: Text from which themes will be extracted
+          example: >-
+            Studio Entertainment: At Studio Entertainment, operating income
+            decreased in the quarter due to lower theatrical distribution and
+            home entertainment results. Worldwide theatrical results continued
+            to be adversely impacted by COVID-19, as theaters were closed in
+            many key markets both domestically and internationally. With no
+            significant worldwide theatrical releases in the quarter, we faced a
+            difficult comparison against the strong performance of The Lion King
+            and Toy Story 4 in the prior-year quarter. Operating Results: On our
+            last earnings call, we said that we expected Q4 operating results of
+            our DTC businesses to improve by approximately $100mm relative to
+            the prior-year quarter. Our results came in better than that
+            guidance, with operating income at our DTC businesses improving by
+            approximately $300mm vs. the prior year due to better-than-expected
+            performance across all three of our streaming services. I will note
+            that we do not plan to further update any of our subscriber numbers
+            until our Investor Day on December 10 At our International Channels,
+            lower results were due to lower affiliate and advertising revenues,
+            partially offset by a decrease in cost.
+      additionalProperties: false
+    ThemeParametersRoot:
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ThemeParameters'
+        meta:
+          type: object
+      additionalProperties: false
+    Error:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        detail:
+          type: string
+      additionalProperties: false
+    ErrorsRoot:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+      additionalProperties: false
+    ThemesRoot:
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Theme'
+        meta:
+          type: object
+      additionalProperties: false
+    Theme:
+      required:
+        - themeScore
+        - themeText
+      type: object
+      properties:
+        themeText:
+          type: string
+          description: Extracted theme text
+          example: home entertainment results
+        themeScore:
+          type: number
+          description: Extracted theme score
+          example: 0.92
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic

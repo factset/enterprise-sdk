@@ -30,9 +30,9 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
 
 
 /**
- * Describes the entity&#39;s financial metrics category - FIN - Financial; Numerical value taken from an entity&#39;s financial statements. - RAT - Ratio; A relative magnitude of two or more selected numerical values taken from an entity&#39;s financial statements.  Exception: units &#x3D; A (Actual) in combination with metric &#x3D; RAT (Ratio) should be treated similarly as units &#x3D; RATIO; the value is returned in the same format. 
+ * Describes the entity&#39;s financial metrics category - FIN - Financial; Numerical value taken from an entity&#39;s financial statements. - RAT - Ratio; A relative magnitude of two or more selected numerical values taken from an entity&#39;s financial statements. 
  */
-@ApiModel(description = "Describes the entity's financial metrics category - FIN - Financial; Numerical value taken from an entity's financial statements. - RAT - Ratio; A relative magnitude of two or more selected numerical values taken from an entity's financial statements.  Exception: units = A (Actual) in combination with metric = RAT (Ratio) should be treated similarly as units = RATIO; the value is returned in the same format. ")
+@ApiModel(description = "Describes the entity's financial metrics category - FIN - Financial; Numerical value taken from an entity's financial statements. - RAT - Ratio; A relative magnitude of two or more selected numerical values taken from an entity's financial statements. ")
 @JsonPropertyOrder({
   MetricMetric.JSON_PROPERTY_VALUE
 })

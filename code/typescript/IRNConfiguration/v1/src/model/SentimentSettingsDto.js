@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SentimentSettingsDto model module.
  * @module model/SentimentSettingsDto
- * @version 0.20.0
  */
 class SentimentSettingsDto {
     /**

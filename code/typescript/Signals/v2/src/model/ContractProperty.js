@@ -17,7 +17,6 @@ import ContractPropertyItems from './ContractPropertyItems';
 /**
  * The ContractProperty model module.
  * @module model/ContractProperty
- * @version 0.20.0
  */
 class ContractProperty {
     /**

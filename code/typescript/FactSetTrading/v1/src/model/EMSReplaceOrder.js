@@ -18,7 +18,6 @@ import TimeInForce from './TimeInForce';
 /**
  * The EMSReplaceOrder model module.
  * @module model/EMSReplaceOrder
- * @version 0.20.0
  */
 class EMSReplaceOrder {
     /**

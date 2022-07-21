@@ -34,9 +34,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 PostPricesTimeSeriesEodList(InlineObject5 body);
+        InlineResponse2005 PostPricesTimeSeriesEodList(InlineObject5 inlineObject5);
 
         /// <summary>
         /// End-of-day time series data for a notation.
@@ -45,9 +45,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject5 body);
+        ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject5 inlineObject5);
         /// <summary>
         /// Single subsample end-of-day data for a notation.
         /// </summary>
@@ -55,9 +55,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet(InlineObject6 body);
+        InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet(InlineObject6 inlineObject6);
 
         /// <summary>
         /// Single subsample end-of-day data for a notation.
@@ -66,9 +66,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject6 body);
+        ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject6 inlineObject6);
         /// <summary>
         /// Subsampled end-of-day time series data for a notation.
         /// </summary>
@@ -76,9 +76,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 PostPricesTimeSeriesEodSubsampleList(InlineObject7 body);
+        InlineResponse2007 PostPricesTimeSeriesEodSubsampleList(InlineObject7 inlineObject7);
 
         /// <summary>
         /// Subsampled end-of-day time series data for a notation.
@@ -87,9 +87,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject7 body);
+        ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject7 inlineObject7);
         /// <summary>
         /// Intraday time series data for a notation.
         /// </summary>
@@ -97,9 +97,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 PostPricesTimeSeriesIntradayList(InlineObject8 body);
+        InlineResponse2008 PostPricesTimeSeriesIntradayList(InlineObject8 inlineObject8);
 
         /// <summary>
         /// Intraday time series data for a notation.
@@ -108,9 +108,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject8 body);
+        ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject8 inlineObject8);
         /// <summary>
         /// Single subsample intraday data for a notation.
         /// </summary>
@@ -118,9 +118,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet(InlineObject9 body);
+        InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet(InlineObject9 inlineObject9);
 
         /// <summary>
         /// Single subsample intraday data for a notation.
@@ -129,9 +129,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject9 body);
+        ApiResponse<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject9 inlineObject9);
         /// <summary>
         /// Subsampled intraday time series data for a notation.
         /// </summary>
@@ -139,9 +139,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <returns>InlineResponse20010</returns>
-        InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList(InlineObject10 body);
+        InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList(InlineObject10 inlineObject10);
 
         /// <summary>
         /// Subsampled intraday time series data for a notation.
@@ -150,9 +150,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject10 body);
+        ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject10 inlineObject10);
         #endregion Synchronous Operations
     }
 
@@ -169,10 +169,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> PostPricesTimeSeriesEodListAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2005> PostPricesTimeSeriesEodListAsync(InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day time series data for a notation.
@@ -181,10 +181,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Single subsample end-of-day data for a notation.
         /// </summary>
@@ -192,10 +192,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject6 inlineObject6, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Single subsample end-of-day data for a notation.
@@ -204,10 +204,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject6 inlineObject6, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Subsampled end-of-day time series data for a notation.
         /// </summary>
@@ -215,10 +215,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListAsync(InlineObject7 inlineObject7, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Subsampled end-of-day time series data for a notation.
@@ -227,10 +227,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject7 inlineObject7, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Intraday time series data for a notation.
         /// </summary>
@@ -238,10 +238,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> PostPricesTimeSeriesIntradayListAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2008> PostPricesTimeSeriesIntradayListAsync(InlineObject8 inlineObject8, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Intraday time series data for a notation.
@@ -250,10 +250,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject8 inlineObject8, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Single subsample intraday data for a notation.
         /// </summary>
@@ -261,10 +261,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetAsync(InlineObject9 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetAsync(InlineObject9 inlineObject9, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Single subsample intraday data for a notation.
@@ -273,10 +273,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(InlineObject9 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(InlineObject9 inlineObject9, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Subsampled intraday time series data for a notation.
         /// </summary>
@@ -284,10 +284,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20010</returns>
-        System.Threading.Tasks.Task<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject10 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject10 inlineObject10, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Subsampled intraday time series data for a notation.
@@ -296,10 +296,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </remarks>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject10 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject10 inlineObject10, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -457,11 +457,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 PostPricesTimeSeriesEodList(InlineObject5 body)
+        public InlineResponse2005 PostPricesTimeSeriesEodList(InlineObject5 inlineObject5)
         {
-            var localVarResponse = PostPricesTimeSeriesEodListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodListWithHttpInfo(inlineObject5);
             return localVarResponse.Data;
         }
 
@@ -469,14 +469,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject5 body)
+        public ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject5 inlineObject5)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject5' is set
+            if (inlineObject5 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling PricesApi->PostPricesTimeSeriesEodList");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -502,7 +502,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject5;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -544,12 +544,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005>PostPricesTimeSeriesEodListAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>PostPricesTimeSeriesEodListAsync(InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesEodListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodListWithHttpInfoAsync(inlineObject5, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -557,16 +557,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// End-of-day time series data for a notation. End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject5' is set
+            if (inlineObject5 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling PricesApi->PostPricesTimeSeriesEodList");
             }
 
 
@@ -593,7 +593,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject5;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -636,11 +636,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet(InlineObject6 body)
+        public InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet(InlineObject6 inlineObject6)
         {
-            var localVarResponse = PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(inlineObject6);
             return localVarResponse.Data;
         }
 
@@ -648,14 +648,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject6 body)
+        public ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject6 inlineObject6)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject6' is set
+            if (inlineObject6 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject6' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -681,7 +681,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject6;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -723,12 +723,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006>PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject6 inlineObject6, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(inlineObject6, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -736,16 +736,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample end-of-day data for a notation. Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject6"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject6 inlineObject6, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject6' is set
+            if (inlineObject6 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject6' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
             }
 
 
@@ -772,7 +772,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject6;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -815,11 +815,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 PostPricesTimeSeriesEodSubsampleList(InlineObject7 body)
+        public InlineResponse2007 PostPricesTimeSeriesEodSubsampleList(InlineObject7 inlineObject7)
         {
-            var localVarResponse = PostPricesTimeSeriesEodSubsampleListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodSubsampleListWithHttpInfo(inlineObject7);
             return localVarResponse.Data;
         }
 
@@ -827,14 +827,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject7 body)
+        public ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject7 inlineObject7)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject7' is set
+            if (inlineObject7 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject7' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -860,7 +860,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject7;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -902,12 +902,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007>PostPricesTimeSeriesEodSubsampleListAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>PostPricesTimeSeriesEodSubsampleListAsync(InlineObject7 inlineObject7, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(inlineObject7, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -915,16 +915,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled end-of-day time series data for a notation. Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject7"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject7 inlineObject7, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject7' is set
+            if (inlineObject7 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject7' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
             }
 
 
@@ -951,7 +951,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject7;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -994,11 +994,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation. Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 PostPricesTimeSeriesIntradayList(InlineObject8 body)
+        public InlineResponse2008 PostPricesTimeSeriesIntradayList(InlineObject8 inlineObject8)
         {
-            var localVarResponse = PostPricesTimeSeriesIntradayListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesIntradayListWithHttpInfo(inlineObject8);
             return localVarResponse.Data;
         }
 
@@ -1006,14 +1006,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation. Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject8 body)
+        public ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject8 inlineObject8)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject8' is set
+            if (inlineObject8 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradayList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject8' when calling PricesApi->PostPricesTimeSeriesIntradayList");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1039,7 +1039,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject8;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1081,12 +1081,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation. Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008>PostPricesTimeSeriesIntradayListAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2008>PostPricesTimeSeriesIntradayListAsync(InlineObject8 inlineObject8, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesIntradayListWithHttpInfoAsync(inlineObject8, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1094,16 +1094,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Intraday time series data for a notation. Intraday time series data for a notation.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject8"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject8 inlineObject8, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject8' is set
+            if (inlineObject8 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradayList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject8' when calling PricesApi->PostPricesTimeSeriesIntradayList");
             }
 
 
@@ -1130,7 +1130,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject8;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1173,11 +1173,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet(InlineObject9 body)
+        public InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet(InlineObject9 inlineObject9)
         {
-            var localVarResponse = PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(inlineObject9);
             return localVarResponse.Data;
         }
 
@@ -1185,14 +1185,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject9 body)
+        public ApiResponse<InlineResponse2009> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject9 inlineObject9)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject9' is set
+            if (inlineObject9 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleGet");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject9' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleGet");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1218,7 +1218,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject9;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1260,12 +1260,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>PostPricesTimeSeriesIntradaySubsampleGetAsync(InlineObject9 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>PostPricesTimeSeriesIntradaySubsampleGetAsync(InlineObject9 inlineObject9, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(inlineObject9, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1273,16 +1273,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Single subsample intraday data for a notation. Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject9"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(InlineObject9 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(InlineObject9 inlineObject9, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject9' is set
+            if (inlineObject9 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleGet");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject9' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleGet");
             }
 
 
@@ -1309,7 +1309,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject9;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1352,11 +1352,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <returns>InlineResponse20010</returns>
-        public InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList(InlineObject10 body)
+        public InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList(InlineObject10 inlineObject10)
         {
-            var localVarResponse = PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(inlineObject10);
             return localVarResponse.Data;
         }
 
@@ -1364,14 +1364,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        public ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject10 body)
+        public ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject10 inlineObject10)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject10' is set
+            if (inlineObject10 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject10' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
             }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1397,7 +1397,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject10;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1439,12 +1439,12 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010>PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject10 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20010>PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject10 inlineObject10, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(inlineObject10, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1452,16 +1452,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// Subsampled intraday time series data for a notation. Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
         /// </summary>
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject10"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject10 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject10 inlineObject10, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject10' is set
+            if (inlineObject10 == null)
             {
-                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
+                throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject10' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
             }
 
 
@@ -1488,7 +1488,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject10;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

@@ -18,7 +18,6 @@ import VendorChartIQTimeSeriesIntradaySubsampleListDataRange from './VendorChart
 /**
  * The VendorChartIQTimeSeriesIntradaySubsampleListData model module.
  * @module model/VendorChartIQTimeSeriesIntradaySubsampleListData
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesIntradaySubsampleListData {
     /**

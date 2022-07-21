@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundAssetsUnderManagementMinimum from './Fu
 /**
  * The FundNotationScreenerSearchDataFundAssetsUnderManagement model module.
  * @module model/FundNotationScreenerSearchDataFundAssetsUnderManagement
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundAssetsUnderManagement {
     /**

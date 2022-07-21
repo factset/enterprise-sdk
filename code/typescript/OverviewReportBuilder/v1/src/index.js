@@ -50,8 +50,14 @@ import ProfileDataStage from './model/ProfileDataStage';
 import ProfileDataStageCrunchbaseRank from './model/ProfileDataStageCrunchbaseRank';
 import ProfileDataStagePeActiveFirmNumber from './model/ProfileDataStagePeActiveFirmNumber';
 import ProfileDataStagePeActiveFirms from './model/ProfileDataStagePeActiveFirms';
+import ProfileDataStagePevcLatestPostMoneyValuation from './model/ProfileDataStagePevcLatestPostMoneyValuation';
 import ProfileDataStageTradeDateRange from './model/ProfileDataStageTradeDateRange';
 import ProfileResponse from './model/ProfileResponse';
+import RelevanceType from './model/RelevanceType';
+import RelevanceTypeRelevanceType from './model/RelevanceTypeRelevanceType';
+import RelevanceTypeRelevanceTypeC from './model/RelevanceTypeRelevanceTypeC';
+import RelevanceTypeRelevanceTypeP from './model/RelevanceTypeRelevanceTypeP';
+import RelevanceTypeRelevanceTypeS from './model/RelevanceTypeRelevanceTypeS';
 import Scale from './model/Scale';
 import ScaleScale from './model/ScaleScale';
 import StachTableResponse from './model/StachTableResponse';
@@ -59,8 +65,6 @@ import TransactionId from './model/TransactionId';
 import TransactionIdTransactionId from './model/TransactionIdTransactionId';
 import TransactionType from './model/TransactionType';
 import TransactionTypeTransactionType from './model/TransactionTypeTransactionType';
-import Units from './model/Units';
-import UnitsUnits from './model/UnitsUnits';
 import ValueType from './model/ValueType';
 import ValueTypeValueType from './model/ValueTypeValueType';
 
@@ -96,7 +100,6 @@ import CompanyApi from './api/CompanyApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**
@@ -334,6 +337,12 @@ export {
     ProfileDataStagePeActiveFirms,
 
     /**
+     * The ProfileDataStagePevcLatestPostMoneyValuation model constructor.
+     * @property {module:model/ProfileDataStagePevcLatestPostMoneyValuation}
+     */
+    ProfileDataStagePevcLatestPostMoneyValuation,
+
+    /**
      * The ProfileDataStageTradeDateRange model constructor.
      * @property {module:model/ProfileDataStageTradeDateRange}
      */
@@ -344,6 +353,36 @@ export {
      * @property {module:model/ProfileResponse}
      */
     ProfileResponse,
+
+    /**
+     * The RelevanceType model constructor.
+     * @property {module:model/RelevanceType}
+     */
+    RelevanceType,
+
+    /**
+     * The RelevanceTypeRelevanceType model constructor.
+     * @property {module:model/RelevanceTypeRelevanceType}
+     */
+    RelevanceTypeRelevanceType,
+
+    /**
+     * The RelevanceTypeRelevanceTypeC model constructor.
+     * @property {module:model/RelevanceTypeRelevanceTypeC}
+     */
+    RelevanceTypeRelevanceTypeC,
+
+    /**
+     * The RelevanceTypeRelevanceTypeP model constructor.
+     * @property {module:model/RelevanceTypeRelevanceTypeP}
+     */
+    RelevanceTypeRelevanceTypeP,
+
+    /**
+     * The RelevanceTypeRelevanceTypeS model constructor.
+     * @property {module:model/RelevanceTypeRelevanceTypeS}
+     */
+    RelevanceTypeRelevanceTypeS,
 
     /**
      * The Scale model constructor.
@@ -386,18 +425,6 @@ export {
      * @property {module:model/TransactionTypeTransactionType}
      */
     TransactionTypeTransactionType,
-
-    /**
-     * The Units model constructor.
-     * @property {module:model/Units}
-     */
-    Units,
-
-    /**
-     * The UnitsUnits model constructor.
-     * @property {module:model/UnitsUnits}
-     */
-    UnitsUnits,
 
     /**
      * The ValueType model constructor.

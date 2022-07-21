@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ## transactionsGet
 
-> StachTableResponse transactionsGet(id)
+> StachTableResponse transactionsGet(id, transactionType, financingType)
 
 Transactions
 
@@ -408,8 +408,10 @@ public class Example {
 
         CompanyApi apiInstance = new CompanyApi(defaultClient);
         String id = "FDS"; // String | Company ticker
+        String transactionType = "ACQUISITION_MERGER"; // String | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.
+        String financingType = "DEBT"; // String | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive
         try {
-            StachTableResponse result = apiInstance.transactionsGet(id);
+            StachTableResponse result = apiInstance.transactionsGet(id, transactionType, financingType);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -429,6 +431,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Company ticker |
+ **transactionType** | **String**| Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. | [optional] [enum: ACQUISITION_MERGER, MAJORITY_STAKE, MINORITY_STAKE, SPINOFF, IPO, FOLLOW_ON, ST_DEBT, NOTES_BONDS, REVOLVING_CREDIT, TERM_LOANS]
+ **financingType** | **String**| Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive | [optional] [enum: DEBT, EQUITY]
 
 ### Return type
 

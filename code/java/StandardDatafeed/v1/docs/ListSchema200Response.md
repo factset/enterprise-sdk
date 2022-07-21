@@ -7,10 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schema** | **String** | schema name |  [optional]
-**sequence** | **Integer** | version number of the schema |  [optional]
-**url** | **String** | pre-signed downloadable url of the schema &amp; sequence |  [optional]
-**timestamp** | **String** | time stamp of when the schema-sequence was last updated |  [optional]
+**data** | [**java.util.List&lt;ListSchema200ResponseData&gt;**](ListSchema200ResponseData.md) |  |  [optional]
+**meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

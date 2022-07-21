@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataShareClassFeePerformanceCurrent model module.
  * @module model/InlineResponse2005DataShareClassFeePerformanceCurrent
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeePerformanceCurrent {
     /**

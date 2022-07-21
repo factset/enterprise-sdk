@@ -70,7 +70,6 @@ import ReturnsApi from './api/ReturnsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

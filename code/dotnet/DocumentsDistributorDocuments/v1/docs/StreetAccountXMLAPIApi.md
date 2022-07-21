@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
+
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to know the status and percentDone
 
             try
@@ -141,6 +142,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
+
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to collect the results of the query
 
             try
@@ -230,6 +232,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
+
             var startDate = DateTime.Parse("2013-10-20");  // DateTime | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
             var endDate = DateTime.Parse("2013-10-20");  // DateTime | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
 

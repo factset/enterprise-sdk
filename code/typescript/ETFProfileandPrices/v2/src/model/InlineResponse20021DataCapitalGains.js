@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20021DataCapitalGains model module.
  * @module model/InlineResponse20021DataCapitalGains
- * @version 0.10.0
  */
 class InlineResponse20021DataCapitalGains {
     /**

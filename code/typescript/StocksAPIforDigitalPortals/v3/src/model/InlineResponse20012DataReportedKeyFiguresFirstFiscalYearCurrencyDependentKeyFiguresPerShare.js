@@ -21,7 +21,6 @@ import InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependent
 /**
  * The InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare model module.
  * @module model/InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare
- * @version 0.10.0
  */
 class InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare {
     /**

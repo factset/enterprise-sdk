@@ -110,7 +110,7 @@ class IdentifiersApi(object):
     def get_identifiers(
         self,
         **kwargs
-    ) -> [dict]:
+    ) -> typing.List[dict]:
         """Get all the identifier details for given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -142,7 +142,7 @@ class IdentifiersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [dict]
+            typing.List[dict]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -151,7 +151,7 @@ class IdentifiersApi(object):
     def get_identifiers_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[dict], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[dict], int, typing.MutableMapping]:
         """Get all the identifier details for given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -183,7 +183,7 @@ class IdentifiersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [dict]
+            typing.List[dict]
                 Response Object
             int
                 Http Status Code
@@ -196,7 +196,7 @@ class IdentifiersApi(object):
     def get_identifiers_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[dict]]":
+    ) -> "ApplyResult[typing.List[dict]]":
         """Get all the identifier details for given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -228,7 +228,7 @@ class IdentifiersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[dict]]
+            ApplyResult[typing.List[dict]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_identifiers_endpoint.call_with_http_info(**kwargs)
@@ -236,7 +236,7 @@ class IdentifiersApi(object):
     def get_identifiers_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[dict], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[dict], int, typing.MutableMapping]]":
         """Get all the identifier details for given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -268,7 +268,7 @@ class IdentifiersApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([dict], int, typing.Dict)]
+            ApplyResult[(typing.List[dict], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_identifiers_endpoint.call_with_http_info(**kwargs)

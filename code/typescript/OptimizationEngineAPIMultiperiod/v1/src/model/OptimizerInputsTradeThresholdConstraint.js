@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTradeThresholdConstraint model module.
  * @module model/OptimizerInputsTradeThresholdConstraint
- * @version 0.20.0
  */
 class OptimizerInputsTradeThresholdConstraint {
     /**

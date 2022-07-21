@@ -18,7 +18,6 @@ import OptimizerInputsRiskContributionConstraint from './OptimizerInputsRiskCont
 /**
  * The OptimizerInputsMPRiskContributionConstraint model module.
  * @module model/OptimizerInputsMPRiskContributionConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPRiskContributionConstraint {
     /**

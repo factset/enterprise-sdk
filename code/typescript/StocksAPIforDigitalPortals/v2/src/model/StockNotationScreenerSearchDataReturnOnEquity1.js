@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataReturnOnAssets1Mean from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataReturnOnEquity1 model module.
  * @module model/StockNotationScreenerSearchDataReturnOnEquity1
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataReturnOnEquity1 {
     /**

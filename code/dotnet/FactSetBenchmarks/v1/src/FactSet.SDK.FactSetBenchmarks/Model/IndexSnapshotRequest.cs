@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Model
         /// <param name="returnType">returnType.</param>
         /// <param name="currency">Currency for response..</param>
         /// <param name="calendar">calendar.</param>
-        public IndexSnapshotRequest(List<string> ids = default(List<string>), string date = default(string), ReturnType returnType = default(ReturnType), string currency = default(string), Calendar calendar = default(Calendar))
+        public IndexSnapshotRequest(List<string> ids,string date = default(string), ReturnType returnType = default(ReturnType), string currency = default(string), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

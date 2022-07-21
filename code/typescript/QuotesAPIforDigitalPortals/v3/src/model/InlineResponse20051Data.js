@@ -18,7 +18,6 @@ import InlineResponse20051DataCurrency from './InlineResponse20051DataCurrency';
 /**
  * The InlineResponse20051Data model module.
  * @module model/InlineResponse20051Data
- * @version 0.10.0
  */
 class InlineResponse20051Data {
     /**

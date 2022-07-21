@@ -17,7 +17,6 @@ import InlineResponse20036FsymSecurity from './InlineResponse20036FsymSecurity';
 /**
  * The InlineResponse20036Fsym model module.
  * @module model/InlineResponse20036Fsym
- * @version 0.9.2
  */
 class InlineResponse20036Fsym {
     /**

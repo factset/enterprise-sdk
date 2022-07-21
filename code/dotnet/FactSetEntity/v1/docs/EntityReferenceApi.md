@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityReferenceApi(config);
+
             var entityReferenceRequest = new EntityReferenceRequest(); // EntityReferenceRequest | Request Body to request a list of Entity Reference objects.
 
             try

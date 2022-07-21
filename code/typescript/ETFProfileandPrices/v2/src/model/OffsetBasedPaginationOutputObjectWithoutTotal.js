@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OffsetBasedPaginationOutputObjectWithoutTotal model module.
  * @module model/OffsetBasedPaginationOutputObjectWithoutTotal
- * @version 0.10.0
  */
 class OffsetBasedPaginationOutputObjectWithoutTotal {
     /**

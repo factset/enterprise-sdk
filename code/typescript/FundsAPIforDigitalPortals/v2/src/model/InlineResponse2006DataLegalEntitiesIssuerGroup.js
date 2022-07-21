@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataLegalEntitiesIssuerGroup model module.
  * @module model/InlineResponse2006DataLegalEntitiesIssuerGroup
- * @version 0.10.0
  */
 class InlineResponse2006DataLegalEntitiesIssuerGroup {
     /**

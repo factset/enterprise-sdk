@@ -22,7 +22,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * BatchProcessing service.
 * @module api/BatchProcessingApi
-* @version 0.20.0
 */
 export default class BatchProcessingApi {
 

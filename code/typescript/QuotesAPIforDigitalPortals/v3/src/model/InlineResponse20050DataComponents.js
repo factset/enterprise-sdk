@@ -18,7 +18,6 @@ import InlineResponse20050DataValueUnit from './InlineResponse20050DataValueUnit
 /**
  * The InlineResponse20050DataComponents model module.
  * @module model/InlineResponse20050DataComponents
- * @version 0.10.0
  */
 class InlineResponse20050DataComponents {
     /**

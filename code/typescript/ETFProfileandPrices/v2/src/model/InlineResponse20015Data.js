@@ -18,7 +18,6 @@ import InlineResponse20015DataGeography from './InlineResponse20015DataGeography
 /**
  * The InlineResponse20015Data model module.
  * @module model/InlineResponse20015Data
- * @version 0.10.0
  */
 class InlineResponse20015Data {
     /**

@@ -21,7 +21,6 @@ import InlineResponse200PerShareSales from './InlineResponse200PerShareSales';
 /**
  * The InlineResponse200PerShare model module.
  * @module model/InlineResponse200PerShare
- * @version 0.10.0
  */
 class InlineResponse200PerShare {
     /**

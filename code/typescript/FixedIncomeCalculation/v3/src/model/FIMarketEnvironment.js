@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIMarketEnvironment model module.
  * @module model/FIMarketEnvironment
- * @version 0.20.0
  */
 class FIMarketEnvironment {
     /**

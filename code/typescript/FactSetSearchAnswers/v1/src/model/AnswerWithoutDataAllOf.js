@@ -17,7 +17,6 @@ import AnswerWithoutDataAllOfTemplateData from './AnswerWithoutDataAllOfTemplate
 /**
  * The AnswerWithoutDataAllOf model module.
  * @module model/AnswerWithoutDataAllOf
- * @version 0.20.0
  */
 class AnswerWithoutDataAllOf {
     /**

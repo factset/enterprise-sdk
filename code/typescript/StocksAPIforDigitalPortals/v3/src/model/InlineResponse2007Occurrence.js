@@ -17,7 +17,6 @@ import InlineResponse2007OccurrenceFrequency from './InlineResponse2007Occurrenc
 /**
  * The InlineResponse2007Occurrence model module.
  * @module model/InlineResponse2007Occurrence
- * @version 0.10.0
  */
 class InlineResponse2007Occurrence {
     /**

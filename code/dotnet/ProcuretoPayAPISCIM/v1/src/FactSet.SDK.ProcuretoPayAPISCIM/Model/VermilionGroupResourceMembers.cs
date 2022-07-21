@@ -43,7 +43,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="_ref">The uri corresponding to a SCIM resource that is a member of this Group..</param>
         /// <param name="display">A human-readable name for the Member.</param>
         /// <param name="type">A label indicating the type of resource, e.g. &#39;User&#39; or &#39;Group&#39;.</param>
-        public VermilionGroupResourceMembers(string value = default(string), string _ref = default(string), string display = default(string), string type = default(string))
+        public VermilionGroupResourceMembers(string value,string _ref = default(string), string display = default(string), string type = default(string))
         {
             // to ensure "value" is required (not null)
             if (value == null) {

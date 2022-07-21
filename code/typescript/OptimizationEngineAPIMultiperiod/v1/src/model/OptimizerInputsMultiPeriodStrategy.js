@@ -21,7 +21,6 @@ import OptimizerInputsTransactionCost from './OptimizerInputsTransactionCost';
 /**
  * The OptimizerInputsMultiPeriodStrategy model module.
  * @module model/OptimizerInputsMultiPeriodStrategy
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodStrategy {
     /**

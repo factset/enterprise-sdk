@@ -24,8 +24,8 @@ Returns a summary of basic information about the person referenced by the entity
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import profiles_api
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
-from fds.sdk.FactSetPeople.model.people_profiles_response import PeopleProfilesResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Return information about the person with the specified entity ID.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_profiles(ids)
         pprint(api_response)
 
@@ -114,9 +115,8 @@ Returns profile information for a large list of people.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import profiles_api
-from fds.sdk.FactSetPeople.model.people_profiles_request import PeopleProfilesRequest
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
-from fds.sdk.FactSetPeople.model.people_profiles_response import PeopleProfilesResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -152,6 +152,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns profile information for a large list of people.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_profiles_for_list(people_profiles_request)
         pprint(api_response)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Universe model module.
  * @module model/Universe
- * @version 0.20.1
  */
 class Universe {
     /**

@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ManageMappingsApi(config);
+
             var clientId = new List<string>(); // List<string> | Filter by the clientId(s) created by the user in a previous mapping.  (optional) 
             var mapStatus = new List<string>(); // List<string> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional) 
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ManageMappingsApi(config);
+
             var entityMappingRequest = new EntityMappingRequest(); // EntityMappingRequest | A request to create a single mapping.
 
             try

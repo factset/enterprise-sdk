@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCustomSymbolCustomFieldValueDto model module.
  * @module model/CreateCustomSymbolCustomFieldValueDto
- * @version 0.20.0
  */
 class CreateCustomSymbolCustomFieldValueDto {
     /**

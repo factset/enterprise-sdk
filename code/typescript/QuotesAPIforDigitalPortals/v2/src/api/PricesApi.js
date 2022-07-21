@@ -26,7 +26,6 @@ import InlineResponse20086 from '../model/InlineResponse20086';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.9.2
 */
 export default class PricesApi {
 

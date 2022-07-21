@@ -18,17 +18,15 @@ import VendorChartIQTimeSeriesIntradaySubsampleGetData from './VendorChartIQTime
 /**
  * The InlineObject3 model module.
  * @module model/InlineObject3
- * @version 0.10.0
  */
 class InlineObject3 {
     /**
      * Constructs a new <code>InlineObject3</code>.
      * @alias module:model/InlineObject3
-     * @param data {module:model/VendorChartIQTimeSeriesIntradaySubsampleGetData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject3.initialize(this, data);
+        InlineObject3.initialize(this);
     }
 
     /**
@@ -36,8 +34,7 @@ class InlineObject3 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**

@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// <param name="paDocument">paDocument (required).</param>
         /// <param name="id">Account path.</param>
         /// <param name="overrides">overrides.</param>
-        public FPOAccount(PaDoc paDocument = default(PaDoc), string id = default(string), OptimizerAccountOverrides overrides = default(OptimizerAccountOverrides))
+        public FPOAccount(PaDoc paDocument,string id = default(string), OptimizerAccountOverrides overrides = default(OptimizerAccountOverrides))
         {
             // to ensure "paDocument" is required (not null)
             if (paDocument == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundHolding model module.
  * @module model/FundHolding
- * @version 0.20.0
  */
 class FundHolding {
     /**

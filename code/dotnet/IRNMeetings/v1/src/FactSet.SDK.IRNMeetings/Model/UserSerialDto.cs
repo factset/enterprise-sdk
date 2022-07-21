@@ -41,7 +41,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// </summary>
         /// <param name="username">username (required).</param>
         /// <param name="serialNumber">serialNumber (required).</param>
-        public UserSerialDto(string username = default(string), string serialNumber = default(string))
+        public UserSerialDto(string username, string serialNumber)
         {
             // to ensure "username" is required (not null)
             if (username == null) {

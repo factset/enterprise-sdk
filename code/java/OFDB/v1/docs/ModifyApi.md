@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDatePut
 
-> SuccessPostResponse v1DatabasePathDatesDatePut(path, date, inlineObject3)
+> SuccessPostResponse v1DatabasePathDatesDatePut(path, date, modifydatespecific)
 
 
 
@@ -150,9 +150,9 @@ public class Example {
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         Integer date = 56; // Integer | Date in YYYYMMDD format
-        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
+        Modifydatespecific modifydatespecific = new Modifydatespecific(); // Modifydatespecific | Required data for updating date in the database
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDatePut(path, date, inlineObject3);
+            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDatePut(path, date, modifydatespecific);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path |
  **date** | **Integer**| Date in YYYYMMDD format |
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
+ **modifydatespecific** | [**Modifydatespecific**](Modifydatespecific.md)| Required data for updating date in the database |
 
 ### Return type
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDateSymbolsSymbolPut
 
-> SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5)
+> SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate)
 
 
 
@@ -342,9 +342,9 @@ public class Example {
         String path = "path_example"; // String | Encode database path
         Integer date = 56; // Integer | Date in YYYYMMDD format
         String symbol = "symbol_example"; // String | Symbol with in the ofdb
-        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
+        Modifysymboldate modifysymboldate = new Modifysymboldate(); // Modifysymboldate | Data for updating symbol in the database
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5);
+            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
  **path** | **String**| Encode database path |
  **date** | **Integer**| Date in YYYYMMDD format |
  **symbol** | **String**| Symbol with in the ofdb |
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  |
+ **modifysymboldate** | [**Modifysymboldate**](Modifysymboldate.md)| Data for updating symbol in the database |
 
 ### Return type
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathSymbolsSymbolPut
 
-> SuccessPostResponse v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1)
+> SuccessPostResponse v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols)
 
 
 
@@ -531,9 +531,9 @@ public class Example {
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         String symbol = "symbol_example"; // String | Symbol with in the ofdb
-        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        ModifySymbols modifySymbols = new ModifySymbols(); // ModifySymbols | Data for updating symbol in the database
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1);
+            SuccessPostResponse result = apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path |
  **symbol** | **String**| Symbol with in the ofdb |
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
+ **modifySymbols** | [**ModifySymbols**](ModifySymbols.md)| Data for updating symbol in the database |
 
 ### Return type
 

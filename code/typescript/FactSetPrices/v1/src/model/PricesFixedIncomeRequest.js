@@ -17,7 +17,6 @@ import FrequencyFi from './FrequencyFi';
 /**
  * The PricesFixedIncomeRequest model module.
  * @module model/PricesFixedIncomeRequest
- * @version 0.20.0
  */
 class PricesFixedIncomeRequest {
     /**

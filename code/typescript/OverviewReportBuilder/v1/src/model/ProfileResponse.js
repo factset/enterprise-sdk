@@ -17,7 +17,6 @@ import ProfileData from './ProfileData';
 /**
  * The ProfileResponse model module.
  * @module model/ProfileResponse
- * @version 0.20.0
  */
 class ProfileResponse {
     /**

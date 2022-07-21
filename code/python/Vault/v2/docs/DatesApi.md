@@ -23,7 +23,8 @@ This endpoint converts the given start and end dates in FactSet date format to y
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import dates_api
-from fds.sdk.Vault.model.date_parameters_summary import DateParametersSummary
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,14 +54,13 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dates_api.DatesApi(api_client)
 
-    enddate = "-1AY" # str | End Date (default to "-1AY")
-    componentid = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935" # str | Vault Component Id (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
-    account = "Client:Foo/Bar/myaccount.acct" # str | Account (default to "Client:Foo/Bar/myaccount.acct")
-    startdate = "-3AY" # str | Start Date (optional) (default to "-3AY")
+    startdate = "-3AY" # str | Start Date (optional) if omitted the server will use the default value of "-3AY"
 
     try:
         # Convert Vault dates to absolute format
-        api_response = api_instance.convert_vault_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.convert_vault_dates_to_absolute_format(startdate=startdate)
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

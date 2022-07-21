@@ -18,7 +18,6 @@ import InlineResponse20090Data from './InlineResponse20090Data';
 /**
  * The InlineResponse20090 model module.
  * @module model/InlineResponse20090
- * @version 0.10.0
  */
 class InlineResponse20090 {
     /**

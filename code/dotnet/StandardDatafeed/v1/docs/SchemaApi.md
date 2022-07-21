@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 schemas
 
-<a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema & sequence number (version number of schema) specified
+<a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema & sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
 
 ### Example
 ```csharp
@@ -50,8 +50,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SchemaApi(config);
-            var schema = "schema_example";  // string | schema name</p> Default is all schemas & bundles subscribed by the client</p> **Example: acta_v1, fgp_v1, yn_v1** (optional) 
-            var sequence = 56;  // int? | Enter the sequence number associated with a schema</p> Provides a pre-signed url to download the respective schema file</p> \"**Example: \"8\" from acta_v1: [8],** (optional) 
+
+            var schema = "schema_example";  // string | schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional) 
+            var sequence = 56;  // int? | Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional) 
 
             try
             {
@@ -74,8 +75,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schema** | **string**| schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** | [optional] 
- **sequence** | **int?**| Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** | [optional] 
+ **schema** | **string**| schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  | [optional] 
+ **sequence** | **int?**| Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request | [optional] 
 
 ### Return type
 [**ListSchema200Response**](ListSchema200Response.md)

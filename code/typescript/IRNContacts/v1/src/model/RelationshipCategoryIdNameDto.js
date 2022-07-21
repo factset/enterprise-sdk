@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelationshipCategoryIdNameDto model module.
  * @module model/RelationshipCategoryIdNameDto
- * @version 0.20.0
  */
 class RelationshipCategoryIdNameDto {
     /**

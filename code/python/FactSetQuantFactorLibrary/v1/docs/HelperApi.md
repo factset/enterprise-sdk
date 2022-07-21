@@ -24,7 +24,8 @@ Fetch the list of all available factors and related meta data.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetQuantFactorLibrary
 from fds.sdk.FactSetQuantFactorLibrary.api import helper_api
-from fds.sdk.FactSetQuantFactorLibrary.model.library_response import LibraryResponse
+from fds.sdk.FactSetQuantFactorLibrary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +60,8 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a list of all available factors with relevant meta data.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factor_library(factors=factors, factor_groups=factor_groups)
         pprint(api_response)
 
@@ -112,8 +115,8 @@ Fetch the list of all available factors and related meta data.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetQuantFactorLibrary
 from fds.sdk.FactSetQuantFactorLibrary.api import helper_api
-from fds.sdk.FactSetQuantFactorLibrary.model.library_response import LibraryResponse
-from fds.sdk.FactSetQuantFactorLibrary.model.library_request import LibraryRequest
+from fds.sdk.FactSetQuantFactorLibrary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -150,6 +153,7 @@ with fds.sdk.FactSetQuantFactorLibrary.ApiClient(configuration) as api_client:
 
     try:
         # Retrieves a list of all available factors with relevant meta data.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_factor_library_list(library_request)
         pprint(api_response)
 

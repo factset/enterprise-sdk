@@ -24,7 +24,6 @@ import OptimizerInputsMPVolatilityTerm from './OptimizerInputsMPVolatilityTerm';
 /**
  * The OptimizerInputsMultiPeriodObjective model module.
  * @module model/OptimizerInputsMultiPeriodObjective
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodObjective {
     /**

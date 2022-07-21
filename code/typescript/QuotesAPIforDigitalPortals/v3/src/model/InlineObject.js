@@ -18,7 +18,6 @@ import BasicBackgroundTextTypeListMeta from './BasicBackgroundTextTypeListMeta';
 /**
  * The InlineObject model module.
  * @module model/InlineObject
- * @version 0.10.0
  */
 class InlineObject {
     /**

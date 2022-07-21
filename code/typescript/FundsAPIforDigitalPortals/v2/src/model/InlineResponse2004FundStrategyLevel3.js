@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004FundStrategyLevel3 model module.
  * @module model/InlineResponse2004FundStrategyLevel3
- * @version 0.10.0
  */
 class InlineResponse2004FundStrategyLevel3 {
     /**

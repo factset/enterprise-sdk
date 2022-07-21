@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20072DataHigh model module.
  * @module model/InlineResponse20072DataHigh
- * @version 0.10.0
  */
 class InlineResponse20072DataHigh {
     /**

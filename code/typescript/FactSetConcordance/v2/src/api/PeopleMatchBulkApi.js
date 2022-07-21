@@ -21,7 +21,6 @@ import PeopleTaskStatusResponse from '../model/PeopleTaskStatusResponse';
 /**
 * PeopleMatchBulk service.
 * @module api/PeopleMatchBulkApi
-* @version 0.20.1
 */
 export default class PeopleMatchBulkApi {
 

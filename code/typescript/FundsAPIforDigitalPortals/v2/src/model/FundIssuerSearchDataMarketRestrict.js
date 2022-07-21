@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundIssuerSearchDataMarketRestrict model module.
  * @module model/FundIssuerSearchDataMarketRestrict
- * @version 0.10.0
  */
 class FundIssuerSearchDataMarketRestrict {
     /**

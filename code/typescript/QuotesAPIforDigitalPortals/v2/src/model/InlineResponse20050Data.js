@@ -17,7 +17,6 @@ import InlineResponse20050DataComponents from './InlineResponse20050DataComponen
 /**
  * The InlineResponse20050Data model module.
  * @module model/InlineResponse20050Data
- * @version 0.9.2
  */
 class InlineResponse20050Data {
     /**

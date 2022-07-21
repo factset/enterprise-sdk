@@ -19,7 +19,6 @@ import TemplateData from './TemplateData';
 /**
  * The Answer model module.
  * @module model/Answer
- * @version 0.20.0
  */
 class Answer {
     /**

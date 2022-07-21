@@ -17,7 +17,6 @@ import NotationSearchByTextDataValidationValueUnitSelection from './NotationSear
 /**
  * The NotationSearchByTextDataValidationValueUnit model module.
  * @module model/NotationSearchByTextDataValidationValueUnit
- * @version 0.10.0
  */
 class NotationSearchByTextDataValidationValueUnit {
     /**

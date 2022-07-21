@@ -17,7 +17,6 @@ import OptimizerInputsAssetPrice from './OptimizerInputsAssetPrice';
 /**
  * The OptimizerInputsBuyListItem model module.
  * @module model/OptimizerInputsBuyListItem
- * @version 0.20.0
  */
 class OptimizerInputsBuyListItem {
     /**

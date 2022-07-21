@@ -25,8 +25,8 @@ Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match___bulk_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_task_response import EntityTaskResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -78,6 +78,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Input a file with names and attributes, creating a taskId.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_entity_task(task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
         pprint(api_response)
 
@@ -145,8 +147,8 @@ Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do n
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match___bulk_api
-from fds.sdk.FactSetConcordance.model.entity_decisions_response import EntityDecisionsResponse
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -177,11 +179,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
 
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
         # Get the decisions of matches for the requested taskId.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_decisions(task_id, offset=offset, limit=limit)
         pprint(api_response)
 
@@ -241,8 +245,8 @@ Pulls the **status** for ALL the Entity Tasks submitted by a client within the l
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match___bulk_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_task_status_response import EntityTaskStatusResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -273,7 +277,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
 
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
     status = [
         "PENDING",
@@ -281,6 +285,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Gets the status of the requested taskId or all tasks for a User
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_task_status(task_id=task_id, offset=offset, limit=limit, status=status)
         pprint(api_response)
 

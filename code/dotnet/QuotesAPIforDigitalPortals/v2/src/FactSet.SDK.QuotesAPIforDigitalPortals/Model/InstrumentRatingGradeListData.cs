@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="ids">List of instrument identifiers. (required).</param>
         /// <param name="filter">filter.</param>
-        public InstrumentRatingGradeListData(List<string> ids = default(List<string>), InstrumentRatingGradeListDataFilter filter = default(InstrumentRatingGradeListDataFilter))
+        public InstrumentRatingGradeListData(List<string> ids,InstrumentRatingGradeListDataFilter filter = default(InstrumentRatingGradeListDataFilter))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

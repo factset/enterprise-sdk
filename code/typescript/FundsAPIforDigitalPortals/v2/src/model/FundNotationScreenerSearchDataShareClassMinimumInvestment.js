@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassMinimumInvestmentSubsequent from 
 /**
  * The FundNotationScreenerSearchDataShareClassMinimumInvestment model module.
  * @module model/FundNotationScreenerSearchDataShareClassMinimumInvestment
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassMinimumInvestment {
     /**

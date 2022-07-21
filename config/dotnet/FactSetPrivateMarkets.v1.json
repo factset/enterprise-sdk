@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetPrivateMarkets",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{1946ad13-917f-5aac-b58b-54c2a543e7d5}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetPrivateMarkets/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetPrivateMarkets/0.21.0",
   "files": {
     "LICENSE": {}
   },

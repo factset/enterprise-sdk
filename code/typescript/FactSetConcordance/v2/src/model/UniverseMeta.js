@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UniverseMeta model module.
  * @module model/UniverseMeta
- * @version 0.20.1
  */
 class UniverseMeta {
     /**

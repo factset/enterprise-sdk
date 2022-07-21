@@ -21,7 +21,6 @@ import PACalculationParametersRoot from '../model/PACalculationParametersRoot';
 /**
 * PACalculations service.
 * @module api/PACalculationsApi
-* @version 0.20.0
 */
 export default class PACalculationsApi {
 

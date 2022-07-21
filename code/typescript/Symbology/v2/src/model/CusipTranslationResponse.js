@@ -17,7 +17,6 @@ import CusipTranslation from './CusipTranslation';
 /**
  * The CusipTranslationResponse model module.
  * @module model/CusipTranslationResponse
- * @version 0.20.0
  */
 class CusipTranslationResponse {
     /**

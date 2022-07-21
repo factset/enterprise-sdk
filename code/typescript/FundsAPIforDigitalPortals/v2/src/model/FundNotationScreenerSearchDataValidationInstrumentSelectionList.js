@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataValidationInstrumentSelectionListRestrict f
 /**
  * The FundNotationScreenerSearchDataValidationInstrumentSelectionList model module.
  * @module model/FundNotationScreenerSearchDataValidationInstrumentSelectionList
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationInstrumentSelectionList {
     /**

@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsDrawdownTerm model module.
  * @module model/OptimizerInputsDrawdownTerm
- * @version 0.20.0
  */
 class OptimizerInputsDrawdownTerm {
     /**

@@ -17,7 +17,6 @@ import ConvertibleDetails from './ConvertibleDetails';
 /**
  * The ConvertibleDetailsResponse model module.
  * @module model/ConvertibleDetailsResponse
- * @version 0.20.0
  */
 class ConvertibleDetailsResponse {
     /**

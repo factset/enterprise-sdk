@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -59,7 +59,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -70,7 +70,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -89,7 +89,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -104,7 +104,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -118,7 +118,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -130,7 +130,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// Get RBICS classification for the Focus industry
         /// </summary>
         /// <remarks>
-        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -280,7 +280,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -295,7 +295,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -384,7 +384,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -400,7 +400,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt; </param>
@@ -493,7 +493,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -505,7 +505,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -580,7 +580,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
@@ -593,7 +593,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         }
 
         /// <summary>
-        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+        /// Get RBICS classification for the Focus industry Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>

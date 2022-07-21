@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFee12bCurrent from './FundNotatio
 /**
  * The FundNotationScreenerSearchDataShareClassFee12b model module.
  * @module model/FundNotationScreenerSearchDataShareClassFee12b
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFee12b {
     /**

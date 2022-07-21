@@ -26,8 +26,8 @@ Returns historical Coupon information for the Fixed Income security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
-from fds.sdk.FactSetTermsandConditions.model.coupon_history_response import CouponHistoryResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +61,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return historical Coupon information for a Fixed Income security.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_history(ids)
         pprint(api_response)
 
@@ -118,9 +119,8 @@ Returns historical Coupon information for a list of Fixed Income securities.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.coupon_history_response import CouponHistoryResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -156,6 +156,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return historical Coupon information for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_history_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 
@@ -213,8 +214,8 @@ Returns Coupon Schedules information for the Fixed Income security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
-from fds.sdk.FactSetTermsandConditions.model.coupon_schedules_response import CouponSchedulesResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -248,6 +249,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Coupon Sechedules for a Fixed Income security.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_schedules(ids)
         pprint(api_response)
 
@@ -305,9 +307,8 @@ Returns historical Coupon Schedules information for a list of Fixed Income secur
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import coupons_api
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
-from fds.sdk.FactSetTermsandConditions.model.coupon_schedules_response import CouponSchedulesResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,6 +344,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Coupon Schedules information for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_coupon_schedules_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 

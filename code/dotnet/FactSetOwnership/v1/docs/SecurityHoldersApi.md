@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecurityHoldersApi(config);
+
             var ids = new List<string>(); // List<string> | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
             var holderType = "F";  // string | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional)  (default to F)
             var topn = 5;  // string | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional)  (default to "ALL")
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecurityHoldersApi(config);
+
             var securityHoldersRequest = new SecurityHoldersRequest(); // SecurityHoldersRequest | Requesting Security Holders for a list of Fund Identifiers.
 
             try

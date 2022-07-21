@@ -18,7 +18,6 @@ import InlineResponse20011ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyF
 /**
  * The InlineResponse20011ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures model module.
  * @module model/InlineResponse20011ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures
- * @version 0.10.0
  */
 class InlineResponse20011ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures {
     /**

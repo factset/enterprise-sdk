@@ -64,10 +64,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        String code = "code_example"; // String | Identifier of a news article.
-        Boolean includeMedia = false; // Boolean | If true, media references are included if available.
+        String code = "code_example"; // String | 
+        Boolean includeMedia = false; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse200 result = apiInstance.getNewsArticleGet(code, includeMedia, attributes, language);
             System.out.println(result);
@@ -88,10 +88,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Identifier of a news article. |
- **includeMedia** | **Boolean**| If true, media references are included if available. | [optional] [default to false]
+ **code** | **String**|  |
+ **includeMedia** | **Boolean**|  | [optional] [default to false]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -155,9 +155,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a news article type.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2003 result = apiInstance.getNewsArticleTypeGet(id, attributes, language);
             System.out.println(result);
@@ -178,9 +178,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a news article type. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -244,7 +244,7 @@ public class Example {
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2004 result = apiInstance.getNewsArticleTypeList(attributes, language);
             System.out.println(result);
@@ -266,7 +266,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -330,7 +330,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a distributor.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse2005 result = apiInstance.getNewsDistributorGet(id, attributes);
@@ -352,7 +352,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a distributor. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -416,7 +416,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | Identifiers of distributors.
+        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
@@ -439,7 +439,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;BigDecimal&gt;**| Identifiers of distributors. | [optional]
+ **ids** | **List&lt;BigDecimal&gt;**|  | [optional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, name, -name]
 
@@ -505,7 +505,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a publisher.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse2007 result = apiInstance.getNewsPublisherGet(id, attributes);
@@ -527,7 +527,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a publisher. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -592,11 +592,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | Identifiers of publishers.
+        java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        BigDecimal paginationOffset = new BigDecimal("0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
+        BigDecimal paginationLimit = new BigDecimal("20"); // BigDecimal | Non-negative maximum number of entries to return.
         try {
             InlineResponse2008 result = apiInstance.getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
             System.out.println(result);
@@ -617,11 +617,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;BigDecimal&gt;**| Identifiers of publishers. | [optional]
+ **ids** | **List&lt;BigDecimal&gt;**|  | [optional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, name, -name]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -685,7 +685,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a distributor.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
         try {
@@ -708,7 +708,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of a distributor. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, name, -name]
 
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleList
 
-> InlineResponse2001 postNewsArticleList(body)
+> InlineResponse2001 postNewsArticleList(inlineObject)
 
 List of news articles.
 
@@ -773,9 +773,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleList(body);
+            InlineResponse2001 result = apiInstance.postNewsArticleList(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -794,7 +794,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByChain
 
-> InlineResponse2002 postNewsArticleListByChain(body)
+> InlineResponse2002 postNewsArticleListByChain(inlineObject1)
 
 List news articles of an article chain.
 
@@ -857,9 +857,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2002 result = apiInstance.postNewsArticleListByChain(body);
+            InlineResponse2002 result = apiInstance.postNewsArticleListByChain(inlineObject1);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -878,7 +878,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByIndex
 
-> InlineResponse2001 postNewsArticleListByIndex(body)
+> InlineResponse2001 postNewsArticleListByIndex(inlineObject2)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -941,9 +941,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByIndex(body);
+            InlineResponse2001 result = apiInstance.postNewsArticleListByIndex(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -962,7 +962,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  |
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 
@@ -985,7 +985,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByInstrument
 
-> InlineResponse2001 postNewsArticleListByInstrument(body)
+> InlineResponse2001 postNewsArticleListByInstrument(inlineObject3)
 
 News articles for instruments.
 
@@ -1025,9 +1025,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByInstrument(body);
+            InlineResponse2001 result = apiInstance.postNewsArticleListByInstrument(inlineObject3);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1046,7 +1046,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  |
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  |
 
 ### Return type
 
@@ -1069,7 +1069,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByMediaKind
 
-> InlineResponse2001 postNewsArticleListByMediaKind(body)
+> InlineResponse2001 postNewsArticleListByMediaKind(inlineObject4)
 
 List news articles which contain media of specific media kinds.
 
@@ -1109,9 +1109,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject4 body = new InlineObject4(); // InlineObject4 | 
+        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleListByMediaKind(body);
+            InlineResponse2001 result = apiInstance.postNewsArticleListByMediaKind(inlineObject4);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1130,7 +1130,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  |
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
 
 ### Return type
 
@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleSearchByText
 
-> InlineResponse2001 postNewsArticleSearchByText(body)
+> InlineResponse2001 postNewsArticleSearchByText(inlineObject5)
 
 Search for news articles using a fulltext search.
 
@@ -1193,9 +1193,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject5 body = new InlineObject5(); // InlineObject5 | 
+        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
         try {
-            InlineResponse2001 result = apiInstance.postNewsArticleSearchByText(body);
+            InlineResponse2001 result = apiInstance.postNewsArticleSearchByText(inlineObject5);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1214,7 +1214,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
 
 ### Return type
 
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Notes
 
 ## postNewsPublisherSearchByName
 
-> InlineResponse2009 postNewsPublisherSearchByName(body)
+> InlineResponse2009 postNewsPublisherSearchByName(inlineObject6)
 
 Search for publishers.
 
@@ -1277,9 +1277,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
-        InlineObject6 body = new InlineObject6(); // InlineObject6 | 
+        InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
         try {
-            InlineResponse2009 result = apiInstance.postNewsPublisherSearchByName(body);
+            InlineResponse2009 result = apiInstance.postNewsPublisherSearchByName(inlineObject6);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1298,7 +1298,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  |
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
 
 ### Return type
 

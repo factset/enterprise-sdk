@@ -1,6 +1,6 @@
 # fds.sdk.IRNConfiguration.CustomSymbolsCustomFieldsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,9 +25,8 @@ Create a Custom symbol custom field
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import custom_symbols___custom_fields_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.create_custom_symbol_custom_field_dto import CreateCustomSymbolCustomFieldDto
-from fds.sdk.IRNConfiguration.model.new_item_dto import NewItemDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -78,6 +77,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Create a Custom symbol custom field
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_custom_symbol_custom_field(create_custom_symbol_custom_field_dto=create_custom_symbol_custom_field_dto)
         pprint(api_response)
 
@@ -130,7 +131,8 @@ Delete a Custom symbol custom field
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import custom_symbols___custom_fields_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -164,7 +166,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Delete a Custom symbol custom field
+        # example passing only required values which don't have defaults set
         api_instance.delete_custom_symbol_custom_field(custom_symbol_custom_field_id)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsCustomFieldsApi->delete_custom_symbol_custom_field: %s\n" % e)
 ```
@@ -215,8 +219,8 @@ Get a specific Custom symbol custom field's details
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import custom_symbols___custom_fields_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.custom_symbol_custom_field_config_dto import CustomSymbolCustomFieldConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -250,6 +254,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get a specific Custom symbol custom field's details
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_custom_symbol_custom_field(custom_symbol_custom_field_id)
         pprint(api_response)
 
@@ -302,7 +307,8 @@ Get all the Custom symbol custom fields
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import custom_symbols___custom_fields_api
-from fds.sdk.IRNConfiguration.model.custom_symbol_custom_field_config_dto import CustomSymbolCustomFieldConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -335,6 +341,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get all the Custom symbol custom fields
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_custom_symbol_custom_fields()
         pprint(api_response)
 
@@ -382,8 +389,8 @@ Edit a Custom symbol custom field
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import custom_symbols___custom_fields_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.operation import Operation
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -426,7 +433,10 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Edit a Custom symbol custom field
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_custom_symbol_custom_field(custom_symbol_custom_field_id, operation=operation)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling CustomSymbolsCustomFieldsApi->patch_custom_symbol_custom_field: %s\n" % e)
 ```

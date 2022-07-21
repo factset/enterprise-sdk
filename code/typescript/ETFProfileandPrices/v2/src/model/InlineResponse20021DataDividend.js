@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20021DataDividend model module.
  * @module model/InlineResponse20021DataDividend
- * @version 0.10.0
  */
 class InlineResponse20021DataDividend {
     /**

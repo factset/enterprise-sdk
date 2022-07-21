@@ -5,7 +5,7 @@
     <artifactId>pricealertingapifordigitalportals</artifactId>
     <packaging>jar</packaging>
     <name>pricealertingapifordigitalportals</name>
-    <version>0.10.0</version>
+    <version>0.10.2</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Price Alerting API for Digital Portals client library for Java</description>
     <scm>

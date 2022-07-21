@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CargoApi(config);
+
             var groupId = "\"a4186c50f8e74f979d271dd22298c901\"";  // string | The ID of the group (default to "a4186c50f8e74f979d271dd22298c901")
             var objectId = "\"fe875bc4150542dea6bc237663a01a0d\"";  // string | The ID of the object (default to "fe875bc4150542dea6bc237663a01a0d")
 

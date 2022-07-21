@@ -41,7 +41,7 @@ namespace FactSet.SDK.Signals.Model
         /// Initializes a new instance of the <see cref="SignalMetaData" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public SignalMetaData(List<SignalMetaDataData> data = default(List<SignalMetaDataData>))
+        public SignalMetaData(List<SignalMetaDataData> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

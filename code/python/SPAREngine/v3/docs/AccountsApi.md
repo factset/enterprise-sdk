@@ -24,8 +24,8 @@ This endpoint looks up all ACCT and ACTM files and sub-directories in a given di
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import accounts_api
-from fds.sdk.SPAREngine.model.account_directories_root import AccountDirectoriesRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,11 +55,11 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = accounts_api.AccountsApi(api_client)
 
-    path = "Client:Foo/Bar" # str | The directory to get the accounts and sub-directories in (default to "Client:Foo/Bar")
 
     try:
         # Get accounts and sub-directories in a directory
-        api_response = api_instance.get_accounts(path)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_accounts()
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:
@@ -119,8 +119,8 @@ This endpoint returns the returns type of account associated with an account
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import accounts_api
-from fds.sdk.SPAREngine.model.spar_accounts_root import SPARAccountsRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Get SPAR account returns type details
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_spar_returns_type(account_path)
         pprint(api_response)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataValidationMarketPriority model module.
  * @module model/NotationSearchByTextDataValidationMarketPriority
- * @version 0.9.2
  */
 class NotationSearchByTextDataValidationMarketPriority {
     /**

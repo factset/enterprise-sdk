@@ -21,7 +21,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityMatchBulk service.
 * @module api/EntityMatchBulkApi
-* @version 0.8.2
 */
 export default class EntityMatchBulkApi {
 

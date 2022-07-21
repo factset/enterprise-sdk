@@ -17,7 +17,6 @@ import UserResource from './UserResource';
 /**
  * The UserResourceList model module.
  * @module model/UserResourceList
- * @version 0.20.1
  */
 class UserResourceList {
     /**

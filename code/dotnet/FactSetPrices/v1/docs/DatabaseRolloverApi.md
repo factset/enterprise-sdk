@@ -52,6 +52,7 @@ namespace Example
 
             var apiInstance = new DatabaseRolloverApi(config);
 
+
             try
             {
                 // Gets the latest relative rollover date for the database.
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DatabaseRolloverApi(config);
+
 
             try
             {

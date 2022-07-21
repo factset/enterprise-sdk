@@ -83,7 +83,6 @@ import SurpriseApi from './api/SurpriseApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

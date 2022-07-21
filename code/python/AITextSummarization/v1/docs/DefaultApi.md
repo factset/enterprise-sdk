@@ -26,9 +26,8 @@ Endpoint that returns the full headline and summary results from the initial POS
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AITextSummarization
 from fds.sdk.AITextSummarization.api import default_api
-from fds.sdk.AITextSummarization.model.internal_server_error_response import InternalServerErrorResponse
-from fds.sdk.AITextSummarization.model.bad_request_response import BadRequestResponse
-from fds.sdk.AITextSummarization.model.success_response import SuccessResponse
+from fds.sdk.AITextSummarization.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
 
     try:
         # GET request that returns the full headline and summary results from the initial POST requests
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_result_v1_result_result_id(result_id)
         pprint(api_response)
 
@@ -119,9 +119,8 @@ Endpoint for initiating a processing job to create a 2-3 sentence summary from i
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AITextSummarization
 from fds.sdk.AITextSummarization.api import default_api
-from fds.sdk.AITextSummarization.model.internal_server_error_response import InternalServerErrorResponse
-from fds.sdk.AITextSummarization.model.request import Request
-from fds.sdk.AITextSummarization.model.bad_request_response import BadRequestResponse
+from fds.sdk.AITextSummarization.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +156,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
 
     try:
         # POST request to create a 2-3 sentence summary from input text
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_headline_and_summary_v1_headline_and_summary(payload)
         pprint(api_response)
 
@@ -212,9 +212,8 @@ Endpoint for initiating a processing job to create a headline from input text.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AITextSummarization
 from fds.sdk.AITextSummarization.api import default_api
-from fds.sdk.AITextSummarization.model.internal_server_error_response import InternalServerErrorResponse
-from fds.sdk.AITextSummarization.model.request import Request
-from fds.sdk.AITextSummarization.model.bad_request_response import BadRequestResponse
+from fds.sdk.AITextSummarization.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -250,6 +249,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
 
     try:
         # POST request to create a headline from input text
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_headline_v1_headline(payload)
         pprint(api_response)
 
@@ -305,9 +305,8 @@ Endpoint for initiating a processing job to create a headline and summary from i
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AITextSummarization
 from fds.sdk.AITextSummarization.api import default_api
-from fds.sdk.AITextSummarization.model.internal_server_error_response import InternalServerErrorResponse
-from fds.sdk.AITextSummarization.model.request import Request
-from fds.sdk.AITextSummarization.model.bad_request_response import BadRequestResponse
+from fds.sdk.AITextSummarization.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,6 +342,7 @@ with fds.sdk.AITextSummarization.ApiClient(configuration) as api_client:
 
     try:
         # POST request to create a headline and summary from input text
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_summary_v1_summary(payload)
         pprint(api_response)
 

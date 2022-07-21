@@ -24,8 +24,8 @@ Gets market capitalization of list of ids for the company level, security level,
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import market_value_api
-from fds.sdk.FactSetPrices.model.market_value_response import MarketValueResponse
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,12 +58,14 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) (default to "D")
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional) (default to "FIVEDAY")
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) if omitted the server will use the default value of "D"
+    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional) if omitted the server will use the default value of "FIVEDAY"
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
         # Gets the security level and company level market values for a list of `ids` as of given date range and frequency.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_market_value(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar, currency=currency)
         pprint(api_response)
 
@@ -126,9 +128,8 @@ Requests the market value for a list of `ids` as of given date range.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import market_value_api
-from fds.sdk.FactSetPrices.model.market_value_response import MarketValueResponse
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.market_value_request import MarketValueRequest
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -169,6 +170,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Requests the market value for a list of `ids` as of given date range.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_market_value_for_list(market_value_request)
         pprint(api_response)
 

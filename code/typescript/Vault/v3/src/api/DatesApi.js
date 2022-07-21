@@ -19,7 +19,6 @@ import DateParametersSummaryRoot from '../model/DateParametersSummaryRoot';
 /**
 * Dates service.
 * @module api/DatesApi
-* @version 0.20.0
 */
 export default class DatesApi {
 

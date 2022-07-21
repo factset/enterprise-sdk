@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EventsMetaPagination model module.
  * @module model/EventsMetaPagination
- * @version 0.20.0
  */
 class EventsMetaPagination {
     /**

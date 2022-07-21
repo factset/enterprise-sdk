@@ -17,7 +17,6 @@ import InlineResponse20024Exchange from './InlineResponse20024Exchange';
 /**
  * The InlineResponse20024Data model module.
  * @module model/InlineResponse20024Data
- * @version 0.10.0
  */
 class InlineResponse20024Data {
     /**

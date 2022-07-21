@@ -17,7 +17,6 @@ import FundIssuerSearchDataShareClassRegistrationCountry from './FundIssuerSearc
 /**
  * The FundIssuerSearchDataShareClass model module.
  * @module model/FundIssuerSearchDataShareClass
- * @version 0.10.0
  */
 class FundIssuerSearchDataShareClass {
     /**

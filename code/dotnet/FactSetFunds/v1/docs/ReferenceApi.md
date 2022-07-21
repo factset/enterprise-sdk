@@ -61,6 +61,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -154,6 +155,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var benchmarkDetailsRequest = new BenchmarkDetailsRequest(); // BenchmarkDetailsRequest | The Benchmark Details request body, allowing the user to specify a list of ids.
 
             try
@@ -247,6 +249,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -340,6 +343,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var classificationsRequest = new ClassificationsRequest(); // ClassificationsRequest | The Classifications request body, allowing the user to specify a list of ids.
 
             try
@@ -433,6 +437,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var date = 2019-12-31;  // string | The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
@@ -530,6 +535,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var costsFeesRequest = new CostsFeesRequest(); // CostsFeesRequest | The Costs and Fees request body, allowing the user to specify a list of ids.
 
             try
@@ -623,6 +629,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -716,6 +723,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var managersRequest = new ManagersRequest(); // ManagersRequest | The Funds Managers request body, allowing the user to specify a list of ids.
 
             try
@@ -809,6 +817,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -902,6 +911,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var summariesRequest = new SummariesRequest(); // SummariesRequest | The Funds Summary request body, allowing the user to specify a list of ids.
 
             try
@@ -995,6 +1005,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -1088,6 +1099,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var relatedFundsRequest = new RelatedFundsRequest(); // RelatedFundsRequest | The Related Funds request body, allowing the user to specify a list of ids.
 
             try

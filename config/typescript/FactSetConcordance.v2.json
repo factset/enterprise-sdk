@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-factsetconcordance",
-  "projectVersion": "0.20.1",
+  "projectVersion": "0.21.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Concordance client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetconcordance",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetConcordance/0.20.1",
+  "httpUserAgent": "fds-sdk/javascript/FactSetConcordance/0.21.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

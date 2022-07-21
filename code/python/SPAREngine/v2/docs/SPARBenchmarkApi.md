@@ -23,7 +23,8 @@ This endpoint returns the details of a given SPAR benchmark identifier.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_benchmark_api
-from fds.sdk.SPAREngine.model.spar_benchmark import SPARBenchmark
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,11 +54,11 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spar_benchmark_api.SPARBenchmarkApi(api_client)
 
-    id = "R.1000" # str | Benchmark Identifier (default to "R.1000")
 
     try:
         # Get SPAR benchmark details
-        api_response = api_instance.get_spar_benchmark_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_spar_benchmark_by_id()
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

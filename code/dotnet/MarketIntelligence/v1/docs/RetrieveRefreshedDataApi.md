@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RetrieveRefreshedDataApi(config);
+
             var pollId = "pollId_example";  // string | example: 65ba6dd63fb366464646426d0b
 
             try

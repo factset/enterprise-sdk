@@ -18,7 +18,6 @@ import WatchlistModifyData from './WatchlistModifyData';
 /**
  * The InlineObject2 model module.
  * @module model/InlineObject2
- * @version 0.9.2
  */
 class InlineObject2 {
     /**

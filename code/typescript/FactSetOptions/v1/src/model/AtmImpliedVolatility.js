@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AtmImpliedVolatility model module.
  * @module model/AtmImpliedVolatility
- * @version 0.20.0
  */
 class AtmImpliedVolatility {
     /**

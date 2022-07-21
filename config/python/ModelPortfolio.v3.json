@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.ModelPortfolio",
   "projectName": "fds.sdk.ModelPortfolio",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Model Portfolio client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ModelPortfolio/v3",
-  "httpUserAgent": "fds-sdk/python/ModelPortfolio/0.20.0",
+  "httpUserAgent": "fds-sdk/python/ModelPortfolio/0.21.0",
   "files": {
     "LICENSE": {}
   }

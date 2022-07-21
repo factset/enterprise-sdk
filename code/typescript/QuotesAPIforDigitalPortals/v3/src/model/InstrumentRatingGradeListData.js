@@ -17,7 +17,6 @@ import InstrumentRatingGradeListDataFilter from './InstrumentRatingGradeListData
 /**
  * The InstrumentRatingGradeListData model module.
  * @module model/InstrumentRatingGradeListData
- * @version 0.10.0
  */
 class InstrumentRatingGradeListData {
     /**

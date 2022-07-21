@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SEDOLApi(config);
+
             var sedolHistoryTranslationRequest = new SedolHistoryTranslationRequest(); // SedolHistoryTranslationRequest | Request Body for SEDOL History
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SEDOLApi(config);
+
             var sedolTranslationRequest = new SedolTranslationRequest(); // SedolTranslationRequest | Request Body for SEDOL Symbology Translation
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SEDOLApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
             try
@@ -332,6 +335,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SEDOLApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
             var asOfDate = 2010-01-01;  // string | As-Of date for historical symbol request in YYYY-MM-DD format. (optional) 
 

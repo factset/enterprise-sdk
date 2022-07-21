@@ -17,7 +17,6 @@ import ApiClient from "../ApiClient";
 /**
 * Swivel service.
 * @module api/SwivelApi
-* @version 0.20.0
 */
 export default class SwivelApi {
 

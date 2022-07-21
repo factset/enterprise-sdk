@@ -17,7 +17,6 @@ import Job from './Job';
 /**
  * The PeopleJobsResponse model module.
  * @module model/PeopleJobsResponse
- * @version 0.20.0
  */
 class PeopleJobsResponse {
     /**

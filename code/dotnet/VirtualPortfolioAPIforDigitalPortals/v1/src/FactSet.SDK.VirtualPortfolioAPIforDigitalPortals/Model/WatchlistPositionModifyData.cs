@@ -43,7 +43,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <param name="position">position (required).</param>
         /// <param name="notation">notation.</param>
         /// <param name="comment">Personal note for the watchlist position..</param>
-        public WatchlistPositionModifyData(string id = default(string), WatchlistPositionModifyDataPosition position = default(WatchlistPositionModifyDataPosition), PortfolioTransactionCreateDataNotation notation = default(PortfolioTransactionCreateDataNotation), string comment = default(string))
+        public WatchlistPositionModifyData(string id, WatchlistPositionModifyDataPosition position,PortfolioTransactionCreateDataNotation notation = default(PortfolioTransactionCreateDataNotation), string comment = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

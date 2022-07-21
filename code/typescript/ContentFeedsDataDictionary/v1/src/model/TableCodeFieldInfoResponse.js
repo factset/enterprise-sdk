@@ -18,7 +18,6 @@ import TableField from './TableField';
 /**
  * The TableCodeFieldInfoResponse model module.
  * @module model/TableCodeFieldInfoResponse
- * @version 0.20.0
  */
 class TableCodeFieldInfoResponse {
     /**

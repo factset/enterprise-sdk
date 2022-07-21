@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var factsetTranslationRequest = new FactsetTranslationRequest(); // FactsetTranslationRequest | Request Body for FactSet Symbology Translation
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var factsetTranslationAdvancedRequest = new FactsetTranslationAdvancedRequest(); // FactsetTranslationAdvancedRequest | Request Body for FactSet Symbology Translation
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
 
             try
@@ -332,6 +335,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
             var symbolType = ;  // string | Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun & Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody's Ratings Identifier|Entity (-E)|   |SPR|S&P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\"Valor\") Identification|Security (-S)|   |WKN|German Securities Identification (\"Wert\")|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional) 
 

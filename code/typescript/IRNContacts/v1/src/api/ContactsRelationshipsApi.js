@@ -22,7 +22,6 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * ContactsRelationships service.
 * @module api/ContactsRelationshipsApi
-* @version 0.20.0
 */
 export default class ContactsRelationshipsApi {
 

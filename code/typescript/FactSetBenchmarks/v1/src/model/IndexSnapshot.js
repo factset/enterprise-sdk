@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IndexSnapshot model module.
  * @module model/IndexSnapshot
- * @version 0.20.0
  */
 class IndexSnapshot {
     /**

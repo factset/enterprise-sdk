@@ -18,7 +18,6 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * FirstTrade service.
 * @module api/FirstTradeApi
-* @version 0.20.0
 */
 export default class FirstTradeApi {
 

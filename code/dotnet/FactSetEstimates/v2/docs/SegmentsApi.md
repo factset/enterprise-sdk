@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SegmentsApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> * Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var segmentType = BUS;  // string | Controls the type of segment selected.   * **BUS** = Business / Product Segment   * **GEO** = Geographic Segment  (default to BUS)
             var metrics = new List<string>(); // List<string> | Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
@@ -162,6 +163,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SegmentsApi(config);
+
             var segmentsRequest = new SegmentsRequest(); // SegmentsRequest | Request object for Product Segments estimates.
 
             try

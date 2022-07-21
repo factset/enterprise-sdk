@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTradingScheduleEventListMetaPagination model module.
  * @module model/PricesTradingScheduleEventListMetaPagination
- * @version 0.9.2
  */
 class PricesTradingScheduleEventListMetaPagination {
     /**

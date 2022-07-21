@@ -24,8 +24,8 @@ Gets zero relative date and last update time for FactSet databases. The dates re
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import database_rollover_api
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.rollover_response import RolloverResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,6 +58,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Gets the latest relative rollover date for the database.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_database_rollover()
         pprint(api_response)
 
@@ -112,8 +113,8 @@ Gets zero relative date and last update time for FactSet databases. The dates re
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import database_rollover_api
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.rollover_response import RolloverResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -146,6 +147,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Gets the latest relative rollover date for the database.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_database_rollover_for_list()
         pprint(api_response)
 

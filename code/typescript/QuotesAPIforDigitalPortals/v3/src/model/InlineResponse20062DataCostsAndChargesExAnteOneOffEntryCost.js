@@ -17,7 +17,6 @@ import InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit from
 /**
  * The InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCost model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCost
- * @version 0.10.0
  */
 class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCost {
     /**

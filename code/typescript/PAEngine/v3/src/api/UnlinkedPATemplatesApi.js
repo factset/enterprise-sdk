@@ -25,7 +25,6 @@ import UnlinkedPATemplateUpdateParametersRoot from '../model/UnlinkedPATemplateU
 /**
 * UnlinkedPATemplates service.
 * @module api/UnlinkedPATemplatesApi
-* @version 0.20.0
 */
 export default class UnlinkedPATemplatesApi {
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EMSCancelOrder model module.
  * @module model/EMSCancelOrder
- * @version 0.20.0
  */
 class EMSCancelOrder {
     /**

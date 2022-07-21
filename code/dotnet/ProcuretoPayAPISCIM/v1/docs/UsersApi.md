@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var filter = "filter_example";  // string | Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard \"re\" operator for regular expression matching against strings. (optional) 
             var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
             var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
@@ -151,6 +152,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var id = "id_example";  // string | ID of resource.
 
             try
@@ -240,6 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var id = "id_example";  // string | ID of resource.
 
             try
@@ -330,6 +333,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var id = "id_example";  // string | ID of resource.
             var patch = new Patch(); // Patch |  (optional) 
 
@@ -422,6 +426,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var id = "id_example";  // string | ID of resource.
             var userResource = new UserResource(); // UserResource | User resource.
 
@@ -515,6 +520,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UsersApi(config);
+
             var userResource = new UserResource(); // UserResource | User resource.
 
             try

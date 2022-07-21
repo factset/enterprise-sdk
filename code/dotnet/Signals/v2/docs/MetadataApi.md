@@ -54,6 +54,7 @@ namespace Example
 
             var apiInstance = new MetadataApi(config);
 
+
             try
             {
                 SignalMetaData result = apiInstance.GetCategories();
@@ -138,6 +139,7 @@ namespace Example
 
             var apiInstance = new MetadataApi(config);
 
+
             try
             {
                 SignalMetaData result = apiInstance.GetDataDictionary();
@@ -221,6 +223,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MetadataApi(config);
+
             var signalId = dilutionTrigger;  // string | 
 
             try
@@ -310,6 +313,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MetadataApi(config);
+
 
             try
             {

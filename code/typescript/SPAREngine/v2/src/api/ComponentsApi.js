@@ -18,7 +18,6 @@ import ComponentSummary from '../model/ComponentSummary';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.2
 */
 export default class ComponentsApi {
 

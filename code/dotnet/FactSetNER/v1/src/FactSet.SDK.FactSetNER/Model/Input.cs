@@ -71,7 +71,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <param name="characterOffset">Offset to add to the returned named entity positions; useful if the given text input is not from the beginning of the original document..</param>
         /// <param name="idType">Format of the Ids to return for the extracted named entities. (default to IdTypeEnum.Iconum).</param>
         /// <param name="filterTagsWithoutId">Boolean flag, set True [False] to [not] drop named entities for which a matching Id could not be found. (default to true).</param>
-        public Input(string text = default(string), int characterOffset = default(int), IdTypeEnum? idType = IdTypeEnum.Iconum, bool filterTagsWithoutId = true)
+        public Input(string text,int characterOffset = default(int), IdTypeEnum? idType = IdTypeEnum.Iconum, bool filterTagsWithoutId = true)
         {
             // to ensure "text" is required (not null)
             if (text == null) {

@@ -55,9 +55,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var id = 8.14D;  // decimal | Identifier of the list.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -80,9 +81,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of the list. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -147,9 +148,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var idRevision = 8.14D;  // decimal | Identifier of the revision.
+
+            var idRevision = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -172,9 +174,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idRevision** | **decimal**| Identifier of the revision. | 
+ **idRevision** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2005**](InlineResponse2005.md)
@@ -239,9 +241,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var id = 8.14D;  // decimal | Identifier of the revision.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -264,9 +267,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of the revision. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -331,10 +334,11 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var idNotation = "idNotation_example";  // string | Restrict the search to revisions containing an element associated with the identified notation. (optional) 
-            var idInstrument = "idInstrument_example";  // string | Restrict the search to revisions pointing to the identified instrument. (optional) 
+
+            var idNotation = "idNotation_example";  // string |  (optional) 
+            var idInstrument = "idInstrument_example";  // string |  (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -357,10 +361,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idNotation** | **string**| Restrict the search to revisions containing an element associated with the identified notation. | [optional] 
- **idInstrument** | **string**| Restrict the search to revisions pointing to the identified instrument. | [optional] 
+ **idNotation** | **string**|  | [optional] 
+ **idInstrument** | **string**|  | [optional] 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -425,10 +429,11 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var name = "name_example";  // string | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional) 
-            var onlyActive = true;  // bool? | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional) 
+
+            var name = "name_example";  // string |  (optional) 
+            var onlyActive = true;  // bool? |  (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -451,10 +456,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. | [optional] 
- **onlyActive** | **bool?**| Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. | [optional] 
+ **name** | **string**|  | [optional] 
+ **onlyActive** | **bool?**|  | [optional] 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -478,7 +483,7 @@ Name | Type | Description  | Notes
 
 <a name="postrecommendationlistrevisionlist"></a>
 # **PostRecommendationListRevisionList**
-> InlineResponse2003 PostRecommendationListRevisionList (InlineObject body)
+> InlineResponse2003 PostRecommendationListRevisionList (InlineObject inlineObject)
 
 List of revisions of a recommendation list.
 
@@ -519,12 +524,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var body = new InlineObject(); // InlineObject | 
+
+            var inlineObject = new InlineObject(); // InlineObject | 
 
             try
             {
                 // List of revisions of a recommendation list.
-                InlineResponse2003 result = apiInstance.PostRecommendationListRevisionList(body);
+                InlineResponse2003 result = apiInstance.PostRecommendationListRevisionList(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -542,7 +548,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)

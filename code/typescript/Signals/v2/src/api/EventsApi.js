@@ -27,7 +27,6 @@ import RelevanceScoreRange from '../model/RelevanceScoreRange';
 /**
 * Events service.
 * @module api/EventsApi
-* @version 0.20.0
 */
 export default class EventsApi {
 
@@ -96,8 +95,8 @@ export default class EventsApi {
     /**
      * Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -146,8 +145,8 @@ export default class EventsApi {
     /**
      * Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -217,8 +216,8 @@ export default class EventsApi {
     /**
      * Fetch Signals event headlines plus all additional event details based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -267,8 +266,8 @@ export default class EventsApi {
     /**
      * Fetch Signals event headlines plus all additional event details based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -289,8 +288,8 @@ export default class EventsApi {
     /**
      * Fetch FactSet entity IDs for events that match the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.
      * @param {String} opts.categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.
@@ -333,8 +332,8 @@ export default class EventsApi {
     /**
      * Fetch FactSet entity IDs for events that match the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.
      * @param {String} opts.categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.
@@ -352,8 +351,8 @@ export default class EventsApi {
     /**
      * Fetch Signals event headlines based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -402,8 +401,8 @@ export default class EventsApi {
     /**
      * Fetch Signals event headlines based on the filtering criteria
      * @param {Object} opts Optional parameters
-     * @param {module:model/DateTimeInterval} opts.created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-     * @param {module:model/DateTimeInterval} opts.updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+     * @param {module:model/DateTimeInterval} opts.updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
      * @param {String} opts.signalIds 
      * @param {String} opts.ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
      * @param {String} opts.portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb

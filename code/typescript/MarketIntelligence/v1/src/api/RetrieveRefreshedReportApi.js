@@ -18,7 +18,6 @@ import FetchReportPollID from '../model/FetchReportPollID';
 /**
 * RetrieveRefreshedReport service.
 * @module api/RetrieveRefreshedReportApi
-* @version 0.20.0
 */
 export default class RetrieveRefreshedReportApi {
 

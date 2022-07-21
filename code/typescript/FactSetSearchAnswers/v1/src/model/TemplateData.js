@@ -36,7 +36,6 @@ import ValueLabelTemplate from './ValueLabelTemplate';
 /**
  * The TemplateData model module.
  * @module model/TemplateData
- * @version 0.20.0
  */
 class TemplateData {
     /**

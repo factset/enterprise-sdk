@@ -18,7 +18,6 @@ import FundIssuerSearchDataMarketRestrict from './FundIssuerSearchDataMarketRest
 /**
  * The FundNotationScreenerSearchDataValidationMarketSelection model module.
  * @module model/FundNotationScreenerSearchDataValidationMarketSelection
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationMarketSelection {
     /**

@@ -24,11 +24,8 @@ Returns reference data items for Exchange Traded Funds.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetETF
 from fds.sdk.FactSetETF.api import reference_api
-from fds.sdk.FactSetETF.model.categories import Categories
-from fds.sdk.FactSetETF.model.ids import Ids
-from fds.sdk.FactSetETF.model.metrics import Metrics
-from fds.sdk.FactSetETF.model.etf_reference_data_response import EtfReferenceDataResponse
-from fds.sdk.FactSetETF.model.error_response import ErrorResponse
+from fds.sdk.FactSetETF.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -66,6 +63,8 @@ with fds.sdk.FactSetETF.ApiClient(configuration) as api_client:
 
     try:
         # Return reference data for an ETF.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_etf_reference_data(ids, metrics=metrics, categories=categories)
         pprint(api_response)
 
@@ -125,9 +124,8 @@ Returns reference data items for a list of Exchange Traded Funds.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetETF
 from fds.sdk.FactSetETF.api import reference_api
-from fds.sdk.FactSetETF.model.etf_reference_data_response import EtfReferenceDataResponse
-from fds.sdk.FactSetETF.model.etf_reference_data_request import EtfReferenceDataRequest
-from fds.sdk.FactSetETF.model.error_response import ErrorResponse
+from fds.sdk.FactSetETF.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,6 +165,7 @@ with fds.sdk.FactSetETF.ApiClient(configuration) as api_client:
 
     try:
         # Fetch Reference Data for a large list of ETF securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_etf_reference_data_for_list(etf_reference_data_request)
         pprint(api_response)
 

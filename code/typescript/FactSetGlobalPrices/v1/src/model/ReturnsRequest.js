@@ -17,7 +17,6 @@ import Frequency from './Frequency';
 /**
  * The ReturnsRequest model module.
  * @module model/ReturnsRequest
- * @version 0.20.0
  */
 class ReturnsRequest {
     /**

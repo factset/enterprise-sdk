@@ -654,7 +654,7 @@ class ContactsRolesApi(object):
     def get_contact_roles(
         self,
         **kwargs
-    ) -> [ContactRoleDto]:
+    ) -> typing.List[ContactRoleDto]:
         """Get list of the contact roles configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -685,7 +685,7 @@ class ContactsRolesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRoleDto]
+            typing.List[ContactRoleDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -694,7 +694,7 @@ class ContactsRolesApi(object):
     def get_contact_roles_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[ContactRoleDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactRoleDto], int, typing.MutableMapping]:
         """Get list of the contact roles configured in your group  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -725,7 +725,7 @@ class ContactsRolesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRoleDto]
+            typing.List[ContactRoleDto]
                 Response Object
             int
                 Http Status Code
@@ -738,7 +738,7 @@ class ContactsRolesApi(object):
     def get_contact_roles_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[ContactRoleDto]]":
+    ) -> "ApplyResult[typing.List[ContactRoleDto]]":
         """Get list of the contact roles configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -769,7 +769,7 @@ class ContactsRolesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactRoleDto]]
+            ApplyResult[typing.List[ContactRoleDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_contact_roles_endpoint.call_with_http_info(**kwargs)
@@ -777,7 +777,7 @@ class ContactsRolesApi(object):
     def get_contact_roles_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactRoleDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactRoleDto], int, typing.MutableMapping]]":
         """Get list of the contact roles configured in your group  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -808,7 +808,7 @@ class ContactsRolesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactRoleDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactRoleDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_contact_roles_endpoint.call_with_http_info(**kwargs)

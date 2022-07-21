@@ -17,7 +17,6 @@ import InlineResponse2004InstrumentFsymSecurity from './InlineResponse2004Instru
 /**
  * The InlineResponse2004InstrumentFsym model module.
  * @module model/InlineResponse2004InstrumentFsym
- * @version 0.10.0
  */
 class InlineResponse2004InstrumentFsym {
     /**

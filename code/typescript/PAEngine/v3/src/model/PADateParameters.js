@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PADateParameters model module.
  * @module model/PADateParameters
- * @version 0.20.0
  */
 class PADateParameters {
     /**

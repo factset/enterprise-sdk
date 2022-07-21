@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20026DataCount model module.
  * @module model/InlineResponse20026DataCount
- * @version 0.10.0
  */
 class InlineResponse20026DataCount {
     /**

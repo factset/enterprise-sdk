@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BenchmarkConstituentsApi(config);
+
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
             var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
             var currency = "currency_example";  // string | Currency for response. (optional) 
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BenchmarkConstituentsApi(config);
+
             var benchmarkConstituentsRequest = new BenchmarkConstituentsRequest(); // BenchmarkConstituentsRequest | Requests Benchmark Constituents for the given identifier and date.
 
             try
@@ -243,6 +245,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BenchmarkConstituentsApi(config);
+
             var ids = new List<string>(); // List<string> | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
             var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
             var currency = "currency_example";  // string | Currency for response. (optional) 
@@ -340,6 +343,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BenchmarkConstituentsApi(config);
+
             var fixedIncomeBenchmarkConstituentsRequest = new FixedIncomeBenchmarkConstituentsRequest(); // FixedIncomeBenchmarkConstituentsRequest | Requests Fixed Income Benchmark Constituents for the given identifier and date.
 
             try

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactTypeDto model module.
  * @module model/ContactTypeDto
- * @version 0.20.0
  */
 class ContactTypeDto {
     /**

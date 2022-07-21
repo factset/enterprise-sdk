@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="entity">entity.</param>
         /// <param name="applicationLink">applicationLink.</param>
         /// <param name="additionalData">additionalData.</param>
-        public RankedTableRow(decimal rank = default(decimal), RankedTableEntity entity = default(RankedTableEntity), ApplicationLink applicationLink = default(ApplicationLink), List<string> additionalData = default(List<string>))
+        public RankedTableRow(decimal rank,RankedTableEntity entity = default(RankedTableEntity), ApplicationLink applicationLink = default(ApplicationLink), List<string> additionalData = default(List<string>))
         {
             this.Rank = rank;
             this.Entity = entity;

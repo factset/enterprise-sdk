@@ -41,7 +41,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="value">The minimum value. (required).</param>
         /// <param name="inclusive">Indicates whether the minimum value is included in the range or not. (default to true).</param>
-        public StockNotationRankingIntradayListDataPerformanceRelativeMinimum(decimal value = default(decimal), bool inclusive = true)
+        public StockNotationRankingIntradayListDataPerformanceRelativeMinimum(decimal value,bool inclusive = true)
         {
             this.Value = value;
             this.Inclusive = inclusive;

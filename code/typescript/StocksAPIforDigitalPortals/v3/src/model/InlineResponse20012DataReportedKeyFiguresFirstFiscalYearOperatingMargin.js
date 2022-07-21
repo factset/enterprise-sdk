@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20012DataReportedKeyFiguresFirstFiscalYearOperatingMargin model module.
  * @module model/InlineResponse20012DataReportedKeyFiguresFirstFiscalYearOperatingMargin
- * @version 0.10.0
  */
 class InlineResponse20012DataReportedKeyFiguresFirstFiscalYearOperatingMargin {
     /**

@@ -23,7 +23,8 @@ This endpoint lists all the frequencies that can be applied to a Vault calculati
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import frequencies_api
-from fds.sdk.Vault.model.frequency_root import FrequencyRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault frequencies
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_vault_frequencies()
         pprint(api_response)
 

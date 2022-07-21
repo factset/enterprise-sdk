@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TickerApi(config);
+
             var tickerHistoryTranslationRequest = new TickerHistoryTranslationRequest(); // TickerHistoryTranslationRequest | Request Body for Ticker History
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TickerApi(config);
+
             var tickerTranslationRequest = new TickerTranslationRequest(); // TickerTranslationRequest | Request Body for Ticker History
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TickerApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
             var tickerType = REGION;  // string | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional)  (default to REGION)
 
@@ -334,6 +337,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TickerApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
             var tickerType = REGION;  // string | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional)  (default to REGION)
             var asOfDate = 2010-01-01;  // string | As-Of date for historical symbol request in YYYY-MM-DD format. (optional) 

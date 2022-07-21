@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeManagementCurrent from './Fund
 /**
  * The FundNotationScreenerSearchDataShareClassFeeManagement model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeManagement
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeManagement {
     /**

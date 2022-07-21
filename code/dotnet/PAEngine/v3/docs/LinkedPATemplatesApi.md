@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
+
             var linkedPATemplateParametersRoot = new LinkedPATemplateParametersRoot(); // LinkedPATemplateParametersRoot | Request Parameters
 
             try
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
             try
@@ -245,6 +247,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
+
             var directory = "\"Personal:LinkedPATemplates/\"";  // string | Get linked PA templates in path. (optional)  (default to "Personal:LinkedPATemplates/")
             var documentDirectory = "documentDirectory_example";  // string | Get linked PA templates for documents in document path (optional) 
             var documentName = "documentName_example";  // string | Get linked PA templates for documents by document name (optional) 
@@ -345,6 +348,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
             try
@@ -441,6 +445,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
             var linkedPATemplateUpdateParametersRoot = new LinkedPATemplateUpdateParametersRoot(); // LinkedPATemplateUpdateParametersRoot | Request Parameters
 

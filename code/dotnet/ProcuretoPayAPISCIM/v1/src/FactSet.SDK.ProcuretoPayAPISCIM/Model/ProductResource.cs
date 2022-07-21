@@ -41,7 +41,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// </summary>
         /// <param name="schemas">schemas.</param>
         /// <param name="meta">meta.</param>
-        public ProductResource(List<string> schemas = default(List<string>), ProductResourceMeta meta = default(ProductResourceMeta))
+        public ProductResource(bool whitelist,List<string> schemas = default(List<string>), string id = default(string), string name = default(string), string description = default(string), string groupDescription = default(string), bool workstation = default(bool), string requiresApproval = default(string), ProductResourceMeta meta = default(ProductResourceMeta))
         {
             this.Schemas = schemas;
             this.Meta = meta;

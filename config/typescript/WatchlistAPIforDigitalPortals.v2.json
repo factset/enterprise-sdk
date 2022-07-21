@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-watchlistapifordigitalportals",
-  "projectVersion": "0.9.2",
+  "projectVersion": "0.9.3",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Watchlist API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "watchlistapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/WatchlistAPIforDigitalPortals/0.9.2",
+  "httpUserAgent": "fds-sdk/javascript/WatchlistAPIforDigitalPortals/0.9.3",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

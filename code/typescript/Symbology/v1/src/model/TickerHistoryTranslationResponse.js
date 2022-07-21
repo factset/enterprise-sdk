@@ -17,7 +17,6 @@ import TickerHistoryTranslation from './TickerHistoryTranslation';
 /**
  * The TickerHistoryTranslationResponse model module.
  * @module model/TickerHistoryTranslationResponse
- * @version 0.8.2
  */
 class TickerHistoryTranslationResponse {
     /**

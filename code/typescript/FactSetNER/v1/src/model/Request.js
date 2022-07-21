@@ -17,7 +17,6 @@ import Input from './Input';
 /**
  * The Request model module.
  * @module model/Request
- * @version 0.8.2
  */
 class Request {
     /**

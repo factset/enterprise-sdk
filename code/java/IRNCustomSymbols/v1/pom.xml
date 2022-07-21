@@ -5,7 +5,7 @@
     <artifactId>irncustomsymbols</artifactId>
     <packaging>jar</packaging>
     <name>irncustomsymbols</name>
-    <version>0.20.0</version>
+    <version>0.21.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>IRN Custom Symbols client library for Java</description>
     <scm>

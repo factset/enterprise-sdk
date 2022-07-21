@@ -47,7 +47,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="sort">sort (required).</param>
         /// <param name="etag">etag (required).</param>
         /// <param name="authenticationSchemes">authenticationSchemes (required).</param>
-        public ServiceProviderConfig(List<string> schemas = default(List<string>), ServiceProviderConfigPatch patch = default(ServiceProviderConfigPatch), ServiceProviderConfigBulk bulk = default(ServiceProviderConfigBulk), ServiceProviderConfigFilter filter = default(ServiceProviderConfigFilter), ServiceProviderConfigChangePassword changePassword = default(ServiceProviderConfigChangePassword), ServiceProviderConfigSort sort = default(ServiceProviderConfigSort), ServiceProviderConfigEtag etag = default(ServiceProviderConfigEtag), ServiceProviderConfigAuthenticationSchemes authenticationSchemes = default(ServiceProviderConfigAuthenticationSchemes))
+        public ServiceProviderConfig(ServiceProviderConfigPatch patch, ServiceProviderConfigBulk bulk, ServiceProviderConfigFilter filter, ServiceProviderConfigChangePassword changePassword, ServiceProviderConfigSort sort, ServiceProviderConfigEtag etag, ServiceProviderConfigAuthenticationSchemes authenticationSchemes,List<string> schemas = default(List<string>), string documentationUri = default(string))
         {
             // to ensure "patch" is required (not null)
             if (patch == null) {

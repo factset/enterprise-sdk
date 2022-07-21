@@ -36,7 +36,7 @@ setup(
     author="FactSet Research Systems",
     url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FundsAPIforDigitalPortals/v2",
     keywords=["FactSet", "API", "SDK"],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

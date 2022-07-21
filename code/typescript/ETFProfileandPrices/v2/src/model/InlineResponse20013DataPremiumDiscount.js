@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20013DataPremiumDiscount model module.
  * @module model/InlineResponse20013DataPremiumDiscount
- * @version 0.10.0
  */
 class InlineResponse20013DataPremiumDiscount {
     /**

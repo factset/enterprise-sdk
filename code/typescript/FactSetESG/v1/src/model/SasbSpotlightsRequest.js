@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SasbSpotlightsRequest model module.
  * @module model/SasbSpotlightsRequest
- * @version 0.20.0
  */
 class SasbSpotlightsRequest {
     /**

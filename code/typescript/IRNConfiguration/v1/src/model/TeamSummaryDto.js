@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TeamSummaryDto model module.
  * @module model/TeamSummaryDto
- * @version 0.20.0
  */
 class TeamSummaryDto {
     /**

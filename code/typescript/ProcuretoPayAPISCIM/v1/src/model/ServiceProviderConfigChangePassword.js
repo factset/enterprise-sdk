@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ServiceProviderConfigChangePassword model module.
  * @module model/ServiceProviderConfigChangePassword
- * @version 0.20.1
  */
 class ServiceProviderConfigChangePassword {
     /**

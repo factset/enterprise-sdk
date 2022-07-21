@@ -17,7 +17,6 @@ import Error from './Error';
 /**
  * The AnswerFailureResponse model module.
  * @module model/AnswerFailureResponse
- * @version 0.20.0
  */
 class AnswerFailureResponse {
     /**

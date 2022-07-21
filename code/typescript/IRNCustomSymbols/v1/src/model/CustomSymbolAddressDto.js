@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomSymbolAddressDto model module.
  * @module model/CustomSymbolAddressDto
- * @version 0.20.0
  */
 class CustomSymbolAddressDto {
     /**

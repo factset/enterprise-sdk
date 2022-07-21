@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">Starting date. (required).</param>
         /// <param name="end">Ending date (inclusive). (required).</param>
-        public InlineResponse20051DataPeriod(DateTime start = default(DateTime), DateTime end = default(DateTime))
+        public InlineResponse20051DataPeriod(DateTime start, DateTime end)
         {
             this.Start = start;
             this.End = end;

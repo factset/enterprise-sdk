@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricingSourcesApi(config);
+
             var name = "\"\"";  // string | PA pricing sources name (optional)  (default to "")
             var category = "\"\"";  // string | PA pricing sources category (optional)  (default to "")
             var directory = "\"\"";  // string | The directory to get the PA pricing sources in (optional)  (default to "")

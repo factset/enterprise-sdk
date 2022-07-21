@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Greeks model module.
  * @module model/Greeks
- * @version 0.20.0
  */
 class Greeks {
     /**

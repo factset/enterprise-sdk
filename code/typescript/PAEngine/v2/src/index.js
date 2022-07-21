@@ -85,7 +85,6 @@ import GroupsApi from './api/GroupsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

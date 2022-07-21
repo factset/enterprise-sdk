@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataRecommendationCountsTotalMaximum model module.
  * @module model/StockNotationScreenerSearchDataRecommendationCountsTotalMaximum
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRecommendationCountsTotalMaximum {
     /**

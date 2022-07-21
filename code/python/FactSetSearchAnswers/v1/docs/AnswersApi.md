@@ -24,8 +24,8 @@ Returns an answer to the specified query (if valid answer exists) in the Adaptiv
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetSearchAnswers
 from fds.sdk.FactSetSearchAnswers.api import answers_api
-from fds.sdk.FactSetSearchAnswers.model.adaptive_card_answer_success_response import AdaptiveCardAnswerSuccessResponse
-from fds.sdk.FactSetSearchAnswers.model.answer_failure_response import AnswerFailureResponse
+from fds.sdk.FactSetSearchAnswers.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,11 +56,13 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     api_instance = answers_api.AnswersApi(api_client)
 
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
-    include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) (default to False)
-    disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) (default to True)
+    include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) if omitted the server will use the default value of False
+    disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) if omitted the server will use the default value of True
 
     try:
         # Fetch FactSet answer in Adaptive Card format
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.search_for_adaptive_card_answer(query, include_thumbnail=include_thumbnail, disable_no_answer_responses=disable_no_answer_responses)
         pprint(api_response)
 
@@ -118,8 +120,8 @@ Returns an answer to the specified query (if a valid answer exists). Returns the
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetSearchAnswers
 from fds.sdk.FactSetSearchAnswers.api import answers_api
-from fds.sdk.FactSetSearchAnswers.model.answer_failure_response import AnswerFailureResponse
-from fds.sdk.FactSetSearchAnswers.model.data_answer_success_response import DataAnswerSuccessResponse
+from fds.sdk.FactSetSearchAnswers.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +155,7 @@ with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
 
     try:
         # Fetch FactSet answer in data format
+        # example passing only required values which don't have defaults set
         api_response = api_instance.search_for_data_answer(query)
         pprint(api_response)
 

@@ -45,7 +45,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AlertingApi();
-const id = "id_example"; // String | Identifier of the alert.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -70,7 +70,7 @@ apiInstance.getAlertingPricesBasicAlertGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the alert. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -123,9 +123,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new AlertingApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'subscriptionMinimumInterval': 0.0, // Number | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
+  'subscriptionMinimumInterval': 0, // Number | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
   'paginationCursor': "paginationCursor_example", // String | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -149,9 +149,9 @@ apiInstance.getAlertingPricesBasicAlertList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **subscriptionMinimumInterval** | **Number**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0.0]
+ **subscriptionMinimumInterval** | **Number**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0]
  **paginationCursor** | **String**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional] 
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -201,7 +201,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new AlertingApi();
-const id = "id_example"; // String | Identifier of the trigger.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -226,7 +226,7 @@ apiInstance.getAlertingPricesBasicTriggerGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the trigger. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -278,7 +278,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new AlertingApi();
 const opts = {
-  'body': new pricealertingapifordigitalportals.InlineObject() // InlineObject | 
+  'inlineObject': new pricealertingapifordigitalportals.InlineObject() // InlineObject | 
 };
 
 // Call api endpoint
@@ -301,7 +301,7 @@ apiInstance.postAlertingPricesBasicTriggerList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 

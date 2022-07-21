@@ -23,7 +23,8 @@ List of URLs for transparent company logos in different sizes and formats.   The
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CompanyLogoAPIforDigitalPortals
 from fds.sdk.CompanyLogoAPIforDigitalPortals.api import company_api
-from fds.sdk.CompanyLogoAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.CompanyLogoAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,13 +56,15 @@ with fds.sdk.CompanyLogoAPIforDigitalPortals.ApiClient(configuration) as api_cli
 
     identifier = "80728" # str | Identifier that resolves to a company. 
     identifier_type = "idInstrument" # str | The type of the identifier.
-    format = "rectangular" # str | Format of the logos. (optional) (default to "rectangular")
+    format = "rectangular" # str | Format of the logos. (optional) if omitted the server will use the default value of "rectangular"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # List of URLs of company logos.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_logo_get(identifier, identifier_type, format=format, attributes=attributes)
         pprint(api_response)
 

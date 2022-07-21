@@ -6,6 +6,10 @@ LICENSE
 README.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
+docs/EntityReferenceChi.md
+docs/EntityReferenceChiRequest.md
+docs/EntityReferenceChiResponse.md
+docs/EntityReferenceChineseApi.md
 docs/EntityReferenceRequest.md
 docs/EntityReferenceResponse.md
 docs/EntitySecurities.md
@@ -27,10 +31,14 @@ mocha.opts
 package.json
 src/ApiClient.js
 src/api/EntityReferenceApi.js
+src/api/EntityReferenceChineseApi.js
 src/api/EntitySecuritiesApi.js
 src/api/EntityStructureApi.js
 src/index.js
 src/model/EntityReference.js
+src/model/EntityReferenceChi.js
+src/model/EntityReferenceChiRequest.js
+src/model/EntityReferenceChiResponse.js
 src/model/EntityReferenceRequest.js
 src/model/EntityReferenceResponse.js
 src/model/EntitySecurities.js

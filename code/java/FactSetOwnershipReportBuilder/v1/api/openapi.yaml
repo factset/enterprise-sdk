@@ -1043,6 +1043,7 @@ components:
       description: Describes fund id or institution id
       properties:
         value:
+          nullable: true
           type: string
       type: object
     currencyCode_currencyCode:

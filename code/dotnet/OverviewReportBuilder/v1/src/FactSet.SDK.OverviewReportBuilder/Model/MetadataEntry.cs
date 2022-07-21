@@ -35,7 +35,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Category" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Category.</param>
         public MetadataEntry(Category actualInstance)
@@ -47,7 +46,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="CurrencyCode" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencyCode.</param>
         public MetadataEntry(CurrencyCode actualInstance)
@@ -59,7 +57,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="CurrencySymbol" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencySymbol.</param>
         public MetadataEntry(CurrencySymbol actualInstance)
@@ -71,7 +68,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Description" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Description.</param>
         public MetadataEntry(Description actualInstance)
@@ -83,7 +79,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Frequency" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Frequency.</param>
         public MetadataEntry(Frequency actualInstance)
@@ -95,7 +90,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Metric" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Metric.</param>
         public MetadataEntry(Metric actualInstance)
@@ -107,7 +101,17 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Scale" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RelevanceType.</param>
+        public MetadataEntry(RelevanceType actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Scale.</param>
         public MetadataEntry(Scale actualInstance)
@@ -119,7 +123,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="TransactionId" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TransactionId.</param>
         public MetadataEntry(TransactionId actualInstance)
@@ -131,7 +134,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="TransactionType" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TransactionType.</param>
         public MetadataEntry(TransactionType actualInstance)
@@ -143,19 +145,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Units" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of Units.</param>
-        public MetadataEntry(Units actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="ValueType" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueType.</param>
         public MetadataEntry(ValueType actualInstance)
@@ -203,6 +192,10 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value is RelevanceType)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value is Scale)
                 {
                     this._actualInstance = value;
@@ -215,17 +208,13 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
                 {
                     this._actualInstance = value;
                 }
-                else if (value is Units)
-                {
-                    this._actualInstance = value;
-                }
                 else if (value is ValueType)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, Scale, TransactionId, TransactionType, Units, ValueType");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Category, CurrencyCode, CurrencySymbol, Description, Frequency, Metric, RelevanceType, Scale, TransactionId, TransactionType, ValueType");
                 }
             }
         }
@@ -291,6 +280,16 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `RelevanceType`. If the actual instance is not `RelevanceType`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RelevanceType</returns>
+        public RelevanceType GetRelevanceType()
+        {
+            return (RelevanceType)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Get the actual instance of `Scale`. If the actual instance is not `Scale`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -318,16 +317,6 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         public TransactionType GetTransactionType()
         {
             return (TransactionType)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `Units`. If the actual instance is not `Units`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Units</returns>
-        public Units GetUnits()
-        {
-            return (Units)this.ActualInstance;
         }
 
         /// <summary>
@@ -382,7 +371,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Category).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Category>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -399,7 +388,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(CurrencyCode).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<CurrencyCode>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -416,7 +405,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(CurrencySymbol).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<CurrencySymbol>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -433,7 +422,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Description).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Description>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -450,7 +439,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Frequency).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Frequency>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -467,7 +456,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Metric).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Metric>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -482,9 +471,26 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
             try
             {
+                var hasAdditionalProperties = !(typeof(RelevanceType).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<RelevanceType>(
+                    jsonString,
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
+                matchedTypes.Add("RelevanceType");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RelevanceType: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
                 var hasAdditionalProperties = !(typeof(Scale).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Scale>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -501,7 +507,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(TransactionId).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<TransactionId>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -518,7 +524,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(TransactionType).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<TransactionType>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -533,26 +539,9 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
 
             try
             {
-                var hasAdditionalProperties = !(typeof(Units).GetProperty("AdditionalProperties") is null);
-                var parsedValue = JsonConvert.DeserializeObject<Units>(
-                    jsonString, 
-                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
-                );
-                newMetadataEntry = new MetadataEntry(parsedValue);
-                matchedTypes.Add("Units");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Units: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
                 var hasAdditionalProperties = !(typeof(ValueType).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueType>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);

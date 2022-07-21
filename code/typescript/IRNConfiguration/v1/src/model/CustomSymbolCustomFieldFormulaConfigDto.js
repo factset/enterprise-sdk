@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomSymbolCustomFieldFormulaConfigDto model module.
  * @module model/CustomSymbolCustomFieldFormulaConfigDto
- * @version 0.20.0
  */
 class CustomSymbolCustomFieldFormulaConfigDto {
     /**

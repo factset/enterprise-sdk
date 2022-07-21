@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationRankingIntradayListDataIndustryClassification model module.
  * @module model/StockNotationRankingIntradayListDataIndustryClassification
- * @version 0.9.2
  */
 class StockNotationRankingIntradayListDataIndustryClassification {
     /**

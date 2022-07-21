@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SymbolIdNameDto model module.
  * @module model/SymbolIdNameDto
- * @version 0.20.0
  */
 class SymbolIdNameDto {
     /**

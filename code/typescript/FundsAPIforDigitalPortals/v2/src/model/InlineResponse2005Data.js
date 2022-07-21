@@ -21,7 +21,6 @@ import InlineResponse2005DataShareClass from './InlineResponse2005DataShareClass
 /**
  * The InlineResponse2005Data model module.
  * @module model/InlineResponse2005Data
- * @version 0.10.0
  */
 class InlineResponse2005Data {
     /**

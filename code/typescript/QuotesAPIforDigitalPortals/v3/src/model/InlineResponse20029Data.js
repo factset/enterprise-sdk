@@ -17,7 +17,6 @@ import InlineResponse20029MainCurrency from './InlineResponse20029MainCurrency';
 /**
  * The InlineResponse20029Data model module.
  * @module model/InlineResponse20029Data
- * @version 0.10.0
  */
 class InlineResponse20029Data {
     /**

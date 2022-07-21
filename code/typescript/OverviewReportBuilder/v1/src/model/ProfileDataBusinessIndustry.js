@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataBusinessIndustry model module.
  * @module model/ProfileDataBusinessIndustry
- * @version 0.20.0
  */
 class ProfileDataBusinessIndustry {
     /**

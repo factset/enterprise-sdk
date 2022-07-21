@@ -1,6 +1,6 @@
 # irnconfiguration.ContactsRelationshipCategoryApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

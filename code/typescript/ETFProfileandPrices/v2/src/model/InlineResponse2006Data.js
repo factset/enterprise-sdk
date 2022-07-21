@@ -17,7 +17,6 @@ import InlineResponse2006DataIndustries from './InlineResponse2006DataIndustries
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.10.0
  */
 class InlineResponse2006Data {
     /**

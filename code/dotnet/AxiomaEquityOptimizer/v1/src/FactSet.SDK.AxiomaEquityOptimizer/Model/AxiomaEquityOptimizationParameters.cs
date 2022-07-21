@@ -44,7 +44,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputtypes">outputtypes (required).</param>
-        public AxiomaEquityOptimizationParameters(OptimizerStrategy strategy = default(OptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputtypes = default(OptimizerOutputTypes))
+        public AxiomaEquityOptimizationParameters(OptimizerStrategy strategy, OptimizerOutputTypes outputtypes,OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization))
         {
             // to ensure "strategy" is required (not null)
             if (strategy == null) {

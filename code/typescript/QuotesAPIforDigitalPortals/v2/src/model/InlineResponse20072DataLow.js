@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20072DataLow model module.
  * @module model/InlineResponse20072DataLow
- * @version 0.9.2
  */
 class InlineResponse20072DataLow {
     /**

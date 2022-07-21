@@ -50,7 +50,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="summary">One sentence summary of the event. (required).</param>
         /// <param name="userRelevanceScore">Relevancy score of this event for the requesting user on a scale of 0 to 1. Higher value indicates more relevancy. (required).</param>
         /// <param name="created">Date/Time in UTC the event was first recorded in our data store..</param>
-        public EventHeadlineDataItem(string requestId = default(string), string signalId = default(string), string signalName = default(string), string theme = default(string), string source = default(string), Guid eventId = default(Guid), DateTime eventDate = default(DateTime), string summary = default(string), float userRelevanceScore = default(float), DateTime created = default(DateTime))
+        public EventHeadlineDataItem(string requestId, string signalId, string signalName, string theme, string source, Guid eventId, DateTime eventDate, string summary, float userRelevanceScore,DateTime created = default(DateTime))
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

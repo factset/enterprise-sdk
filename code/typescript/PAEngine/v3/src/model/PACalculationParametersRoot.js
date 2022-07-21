@@ -18,7 +18,6 @@ import PACalculationParameters from './PACalculationParameters';
 /**
  * The PACalculationParametersRoot model module.
  * @module model/PACalculationParametersRoot
- * @version 0.20.0
  */
 class PACalculationParametersRoot {
     /**

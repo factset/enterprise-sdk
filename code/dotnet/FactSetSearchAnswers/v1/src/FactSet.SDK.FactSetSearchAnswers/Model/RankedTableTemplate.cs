@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="footer">footer.</param>
         /// <param name="fdc3Context">fdc3Context.</param>
         /// <param name="table">table.</param>
-        public RankedTableTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), RankedTable table = default(RankedTable))
+        public RankedTableTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), RankedTable table = default(RankedTable))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

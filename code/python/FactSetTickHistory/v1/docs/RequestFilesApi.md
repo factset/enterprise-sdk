@@ -23,8 +23,8 @@ Try it Out - references a Sandbox environment to simulate live reponses.</p> **I
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTickHistory
 from fds.sdk.FactSetTickHistory.api import request_files_api
-from fds.sdk.FactSetTickHistory.model.request_files_response import RequestFilesResponse
-from fds.sdk.FactSetTickHistory.model.request_filestatus import RequestFilestatus
+from fds.sdk.FactSetTickHistory.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,10 +58,12 @@ with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     end_date = dateutil_parser('2021-01-31').date() # date | The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
     ticker = "IBM,F,AAPL,GOOG" # str | any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional)
     iso_code = "USA" # str | iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p> (optional)
-    fields = "*" # str | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional) (default to "*")
+    fields = "*" # str | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional) if omitted the server will use the default value of "*"
 
     try:
         # Returns the requestId and status
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.v1_request_files_get(start_date, end_date, ticker=ticker, iso_code=iso_code, fields=fields)
         pprint(api_response)
 

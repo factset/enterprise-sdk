@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new RetrieveReportListApi(config);
 
+
             try
             {
                 // Retrieve a list of previously created reports and associated report metadata.

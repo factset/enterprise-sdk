@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2002NotationInstrument model module.
  * @module model/InlineResponse2002NotationInstrument
- * @version 0.10.0
  */
 class InlineResponse2002NotationInstrument {
     /**

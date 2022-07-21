@@ -24,9 +24,8 @@ Gets security reference details for a large list of `ids`, such as Name, Securit
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import reference_api
-from fds.sdk.FactSetPrices.model.references_request import ReferencesRequest
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.references_response import ReferencesResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Requests security reference details a list of securities
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_reference_for_list(references_request)
         pprint(api_response)
 
@@ -119,8 +119,8 @@ Gets security reference details for a list of `ids`, such as Name, Security Type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import reference_api
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.references_response import ReferencesResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Gets security reference details for a list of securities
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_references(ids)
         pprint(api_response)
 

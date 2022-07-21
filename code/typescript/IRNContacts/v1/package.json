@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-irncontacts",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "description": "IRN Contacts client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -11,8 +11,14 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
+  "homepage": "https://developer.factset.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/factset/enterprise-sdk.git",
+    "directory": "code/typescript/IRNContacts/v1"
+  },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "dependencies": {
     "@factset/sdk-utils": "^1.0.0",

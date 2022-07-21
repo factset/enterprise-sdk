@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OrdersApi(config);
+
             var eMSCancelOrdersRoot = new EMSCancelOrdersRoot(); // EMSCancelOrdersRoot |  (optional) 
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OrdersApi(config);
+
             var eMSOrdersRoot = new EMSOrdersRoot(); // EMSOrdersRoot |  (optional) 
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OrdersApi(config);
+
             var eMSReplaceOrdersRoot = new EMSReplaceOrdersRoot(); // EMSReplaceOrdersRoot |  (optional) 
 
             try

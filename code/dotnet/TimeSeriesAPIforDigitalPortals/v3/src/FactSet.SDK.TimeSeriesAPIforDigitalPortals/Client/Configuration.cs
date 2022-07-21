@@ -32,7 +32,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.10.0";
+        public const string Version = "0.10.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -104,8 +104,8 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/TimeSeriesAPIforDigitalPortals/0.10.0";
-            BasePath = "http://api.factset.com/wealth/v1";
+            UserAgent = "fds-sdk/dotnet/TimeSeriesAPIforDigitalPortals/0.10.1";
+            BasePath = "https://api.factset.com/wealth/v1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -113,7 +113,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "//api.factset.com/wealth/v1"},
+                        {"url", "https://api.factset.com/wealth/v1"},
                         {"description", "No description provided"},
                     }
                 }
@@ -131,7 +131,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://api.factset.com/wealth/v1") : this()
+            string basePath = "https://api.factset.com/wealth/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -460,7 +460,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2\n";
-            report += "    SDK Package Version: 0.10.0\n";
+            report += "    SDK Package Version: 0.10.1\n";
 
             return report;
         }

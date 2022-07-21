@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new FrequenciesApi(config);
 
+
             try
             {
                 // Get PA frequencies

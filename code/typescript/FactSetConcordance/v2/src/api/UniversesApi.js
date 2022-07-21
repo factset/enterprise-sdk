@@ -24,7 +24,6 @@ import UpdateUniverseRequest from '../model/UpdateUniverseRequest';
 /**
 * Universes service.
 * @module api/UniversesApi
-* @version 0.20.1
 */
 export default class UniversesApi {
 

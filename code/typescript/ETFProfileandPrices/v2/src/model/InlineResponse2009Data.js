@@ -17,7 +17,6 @@ import InlineResponse2009DataSectors from './InlineResponse2009DataSectors';
 /**
  * The InlineResponse2009Data model module.
  * @module model/InlineResponse2009Data
- * @version 0.10.0
  */
 class InlineResponse2009Data {
     /**

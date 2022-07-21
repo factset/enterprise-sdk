@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsExpectedReturnConstraint model module.
  * @module model/OptimizerInputsExpectedReturnConstraint
- * @version 0.20.0
  */
 class OptimizerInputsExpectedReturnConstraint {
     /**

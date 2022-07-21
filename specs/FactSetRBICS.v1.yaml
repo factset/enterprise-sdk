@@ -41,6 +41,10 @@ paths:
         Gets RBICS classifications for the Focus industry for a short list of
         companies. Full history is included if _date_ parameter is not
         specified.
+          
+          RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.
+
+          The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
       tags:
         - Entity Focus
       operationId: getRbicsEntityFocus
@@ -75,6 +79,10 @@ paths:
         Gets RBICS classifications for the Focus industry for a long list of
         companies. Full history is included if _date_ parameter is not
         specified.
+                  
+          RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.
+
+          The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
       tags:
         - Entity Focus
       operationId: getRbicsEntityFocusForList
@@ -327,16 +335,19 @@ components:
           description: FactSet Company identifier being classified.
           type: string
           example: 000C7F-E
+          nullable: true
         firstDate:
           description: First date of the classification.
           type: string
           format: datetime
           example: '2008-08-26T00:00:00.000'
+          nullable: true
         lastDate:
           description: Date when the classification became no longer valid.
           type: string
           format: datetime
           example: '2016-09-07T14:00:00.000'
+          nullable: true
       additionalProperties: true
       required:
         - requestId
@@ -374,11 +385,13 @@ components:
           description: RBICS Code for the classification.
           type: string
           example: '101010101010'
+          nullable: true
         firstDate:
           description: First date of the classification.
           type: string
           format: datetime
           example: '1945-01-01T00:00:00.000'
+          nullable: true
         lastDate:
           description: >-
             Date when the classification became no longer valid. If `null`, the
@@ -386,6 +399,7 @@ components:
           type: string
           format: datetime
           example: null
+          nullable: true
       additionalProperties: true
     ids:
       title: ids

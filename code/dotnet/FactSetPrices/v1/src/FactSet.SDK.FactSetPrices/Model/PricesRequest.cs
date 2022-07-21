@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="calendar">calendar.</param>
         /// <param name="adjust">adjust.</param>
         /// <param name="batch">batch.</param>
-        public PricesRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), Adjust adjust = default(Adjust), Batch batch = default(Batch))
+        public PricesRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), Adjust adjust = default(Adjust), Batch batch = default(Batch))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

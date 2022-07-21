@@ -17,7 +17,6 @@ import InlineResponse2003Function from './InlineResponse2003Function';
 /**
  * The InlineResponse2003Officers model module.
  * @module model/InlineResponse2003Officers
- * @version 0.10.0
  */
 class InlineResponse2003Officers {
     /**

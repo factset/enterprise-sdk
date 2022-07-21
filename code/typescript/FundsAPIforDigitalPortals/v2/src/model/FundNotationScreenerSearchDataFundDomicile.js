@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundDomicileRestrict from './FundNotationSc
 /**
  * The FundNotationScreenerSearchDataFundDomicile model module.
  * @module model/FundNotationScreenerSearchDataFundDomicile
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundDomicile {
     /**

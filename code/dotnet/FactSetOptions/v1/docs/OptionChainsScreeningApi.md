@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptionChainsScreeningApi(config);
+
             var chainsRequest = new ChainsRequest(); // ChainsRequest | Options Chains Request Object
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptionChainsScreeningApi(config);
+
             var optionScreeningRequest = new OptionScreeningRequest(); // OptionScreeningRequest | Option Screening Request. Example request asks for Put Options where Underlying Security is AAPL and Volume is greater than 0 as of 2021-03-31.  
 
             try

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelationshipDto model module.
  * @module model/RelationshipDto
- * @version 0.20.0
  */
 class RelationshipDto {
     /**

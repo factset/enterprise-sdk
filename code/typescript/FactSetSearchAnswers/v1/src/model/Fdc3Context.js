@@ -19,7 +19,6 @@ import Fdc3Instrument from './Fdc3Instrument';
 /**
  * The Fdc3Context model module.
  * @module model/Fdc3Context
- * @version 0.20.0
  */
 class Fdc3Context {
     /**

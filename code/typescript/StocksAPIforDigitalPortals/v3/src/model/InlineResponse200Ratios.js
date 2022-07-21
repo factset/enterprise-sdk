@@ -28,7 +28,6 @@ import InlineResponse200RatiosPriceSales from './InlineResponse200RatiosPriceSal
 /**
  * The InlineResponse200Ratios model module.
  * @module model/InlineResponse200Ratios
- * @version 0.10.0
  */
 class InlineResponse200Ratios {
     /**

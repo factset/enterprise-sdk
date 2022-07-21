@@ -17,7 +17,6 @@ import VermilionUserResource from './VermilionUserResource';
 /**
  * The VermilionUserResourceList model module.
  * @module model/VermilionUserResourceList
- * @version 0.20.1
  */
 class VermilionUserResourceList {
     /**

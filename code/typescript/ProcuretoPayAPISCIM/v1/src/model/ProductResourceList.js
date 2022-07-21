@@ -17,7 +17,6 @@ import ProductResource from './ProductResource';
 /**
  * The ProductResourceList model module.
  * @module model/ProductResourceList
- * @version 0.20.1
  */
 class ProductResourceList {
     /**

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get RBICS classification for the Focus industry
 
-Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
 
 ### Example
 
@@ -24,8 +24,8 @@ Gets RBICS classifications for the Focus industry for a short list of companies.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetRBICS
 from fds.sdk.FactSetRBICS.api import entity_focus_api
-from fds.sdk.FactSetRBICS.model.entity_focus_response import EntityFocusResponse
-from fds.sdk.FactSetRBICS.model.error_response import ErrorResponse
+from fds.sdk.FactSetRBICS.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,10 +58,12 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**ids limit = 2500 per request**</p>    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p> 
     date = "2017-07-24" # str | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
     levels = [1,3,6] # [int] | List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional)
-    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) (default to True)
+    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) if omitted the server will use the default value of True
 
     try:
         # Get RBICS classification for the Focus industry
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_rbics_entity_focus(ids, date=date, levels=levels, include_names=include_names)
         pprint(api_response)
 
@@ -111,7 +113,7 @@ Name | Type | Description  | Notes
 
 Get RBICS classification for the Focus industry
 
-Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
 
 ### Example
 
@@ -122,8 +124,8 @@ Gets RBICS classifications for the Focus industry for a long list of companies. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetRBICS
 from fds.sdk.FactSetRBICS.api import entity_focus_api
-from fds.sdk.FactSetRBICS.model.entity_focus_request import EntityFocusRequest
-from fds.sdk.FactSetRBICS.model.entity_focus_response import EntityFocusResponse
+from fds.sdk.FactSetRBICS.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -162,6 +164,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
 
     try:
         # Get RBICS classification for the Focus industry
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_rbics_entity_focus_for_list(entity_focus_request)
         pprint(api_response)
 

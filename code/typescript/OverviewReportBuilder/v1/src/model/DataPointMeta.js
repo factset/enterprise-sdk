@@ -17,7 +17,6 @@ import DataPointMetaAnyOf from './DataPointMetaAnyOf';
 /**
  * The DataPointMeta model module.
  * @module model/DataPointMeta
- * @version 0.20.0
  */
 class DataPointMeta {
     /**

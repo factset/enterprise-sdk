@@ -23,8 +23,8 @@ Endpoint to create a new Market Intelligence report. If you want to retrieve a r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.MarketIntelligence
 from fds.sdk.MarketIntelligence.api import create_report_api
-from fds.sdk.MarketIntelligence.model.miapi_post_request import MIAPIPostRequest
-from fds.sdk.MarketIntelligence.model.post_response_info import PostResponseInfo
+from fds.sdk.MarketIntelligence.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,6 +69,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
 
     try:
         # Create new report templates including portfolio or market news and data.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_post(miapi_post_request)
         pprint(api_response)
 

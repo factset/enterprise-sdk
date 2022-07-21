@@ -24,8 +24,8 @@ Gets the **Global Industry Classification Standard (\"GICS\")** Sectors, Industr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Classifications
 from fds.sdk.Classifications.api import gics_api
-from fds.sdk.Classifications.model.error_response import ErrorResponse
-from fds.sdk.Classifications.model.gics_response import GicsResponse
+from fds.sdk.Classifications.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,11 +60,13 @@ with fds.sdk.Classifications.ApiClient(configuration) as api_client:
     ] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "startDate_example" # str | Requested start date expressed in YYYY-MM-DD format. (optional)
     end_date = "endDate_example" # str | Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
-    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "M")
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) (default to "FIVEDAY")
+    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "M"
+    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
         # Gets the GICS Direct Classifications
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_gics(ids, start_date=start_date, end_date=end_date, frequency=frequency, calendar=calendar)
         pprint(api_response)
 
@@ -126,9 +128,8 @@ Gets the **Global Industry Classification Standard (\"GICS\")** Sectors, Industr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Classifications
 from fds.sdk.Classifications.api import gics_api
-from fds.sdk.Classifications.model.error_response import ErrorResponse
-from fds.sdk.Classifications.model.gics_response import GicsResponse
-from fds.sdk.Classifications.model.gics_request import GicsRequest
+from fds.sdk.Classifications.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,6 +169,7 @@ with fds.sdk.Classifications.ApiClient(configuration) as api_client:
 
     try:
         # Returns the GICS classifications for the requested 'ids' and date range.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_gics(gics_request)
         pprint(api_response)
 

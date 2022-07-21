@@ -17,7 +17,6 @@ import ErrorResponseSubErrors from './ErrorResponseSubErrors';
 /**
  * The ErrorResponse model module.
  * @module model/ErrorResponse
- * @version 0.20.1
  */
 class ErrorResponse {
     /**

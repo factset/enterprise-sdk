@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.IRNContacts",
   "projectName": "fds.sdk.IRNContacts",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "IRN Contacts client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/IRNContacts/v1",
-  "httpUserAgent": "fds-sdk/python/IRNContacts/0.20.0",
+  "httpUserAgent": "fds-sdk/python/IRNContacts/0.21.0",
   "files": {
     "LICENSE": {}
   }

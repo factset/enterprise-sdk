@@ -18,7 +18,6 @@ import InlineResponse20012DataLevel from './InlineResponse20012DataLevel';
 /**
  * The InlineResponse20012DataIndustryClassification model module.
  * @module model/InlineResponse20012DataIndustryClassification
- * @version 0.10.0
  */
 class InlineResponse20012DataIndustryClassification {
     /**

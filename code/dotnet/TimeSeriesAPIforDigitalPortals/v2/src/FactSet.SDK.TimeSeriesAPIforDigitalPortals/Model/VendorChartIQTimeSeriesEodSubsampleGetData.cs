@@ -124,7 +124,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <param name="quality">Quality of the price. (default to QualityEnum.DLY).</param>
         /// <param name="interval">interval (required).</param>
         /// <param name="adjustments">adjustments.</param>
-        public VendorChartIQTimeSeriesEodSubsampleGetData(string id = default(string), TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, VendorChartIQTimeSeriesEodSubsampleGetDataInterval interval = default(VendorChartIQTimeSeriesEodSubsampleGetDataInterval), VendorChartIQTimeSeriesEodListDataAdjustments adjustments = default(VendorChartIQTimeSeriesEodListDataAdjustments))
+        public VendorChartIQTimeSeriesEodSubsampleGetData(string id, VendorChartIQTimeSeriesEodSubsampleGetDataInterval interval,TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, VendorChartIQTimeSeriesEodListDataAdjustments adjustments = default(VendorChartIQTimeSeriesEodListDataAdjustments))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

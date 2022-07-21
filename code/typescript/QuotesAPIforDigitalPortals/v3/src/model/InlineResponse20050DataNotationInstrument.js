@@ -17,7 +17,6 @@ import InlineResponse20036Fsym from './InlineResponse20036Fsym';
 /**
  * The InlineResponse20050DataNotationInstrument model module.
  * @module model/InlineResponse20050DataNotationInstrument
- * @version 0.10.0
  */
 class InlineResponse20050DataNotationInstrument {
     /**

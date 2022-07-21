@@ -23,8 +23,8 @@ Get a list of chart categories
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ChartGenerationService
 from fds.sdk.ChartGenerationService.api import chart_templates_api
-from fds.sdk.ChartGenerationService.model.category_list_response import CategoryListResponse
-from fds.sdk.ChartGenerationService.model.categories_error_response import CategoriesErrorResponse
+from fds.sdk.ChartGenerationService.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,6 +57,7 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of chart categories
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_category_list()
         pprint(api_response)
 
@@ -107,8 +108,8 @@ You can get all the charts present or can just get the information by categories
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ChartGenerationService
 from fds.sdk.ChartGenerationService.api import chart_templates_api
-from fds.sdk.ChartGenerationService.model.chart_list_error_response import ChartListErrorResponse
-from fds.sdk.ChartGenerationService.model.categorized_chart_list import CategorizedChartList
+from fds.sdk.ChartGenerationService.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -143,6 +144,8 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of chart templates that can be used for getting the image from the service.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_chart_list(categories=categories, type=type)
         pprint(api_response)
 
@@ -195,8 +198,8 @@ Get chart image back in PNG or JPEG formats
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ChartGenerationService
 from fds.sdk.ChartGenerationService.api import chart_templates_api
-from fds.sdk.ChartGenerationService.model.unauthorized_response import UnauthorizedResponse
-from fds.sdk.ChartGenerationService.model.error_response import ErrorResponse
+from fds.sdk.ChartGenerationService.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -230,20 +233,22 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     ids = "FDS,AAPL" # str | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional)
     sd = "-1Y" # str | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
     ed = "0" # str | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
-    width = 600 # int | Option for setting the width of the image (optional) (default to 1056)
-    height = 500 # int | Option for setting the height of the image (optional) (default to 816)
+    width = 600 # int | Option for setting the width of the image (optional) if omitted the server will use the default value of 1056
+    height = 500 # int | Option for setting the height of the image (optional) if omitted the server will use the default value of 816
     freq = "D" # str | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional)
     ccy = "USD" # str | Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time. (optional)
     split = "SPLIT" # str | Option to specify the splits adjustment (optional)
     spin = 1 # float | Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments) (optional)
-    cal = "local" # str | Option for the calendarType of the chart (optional) (default to "local")
+    cal = "local" # str | Option for the calendarType of the chart (optional) if omitted the server will use the default value of "local"
     title = "title_example" # str | Option to customize the title. If you don't customize the title, then it displays by default the security name. (optional)
     font_size = 10 # float | Option to adjust chart's fontSize (optional)
-    type = "png" # str | The type of image to be generated by the service (optional) (default to "png")
-    grid_lines = False # bool | Option to toggle gridLines on/off on the chart (optional) (default to True)
+    type = "png" # str | The type of image to be generated by the service (optional) if omitted the server will use the default value of "png"
+    grid_lines = False # bool | Option to toggle gridLines on/off on the chart (optional) if omitted the server will use the default value of True
 
     try:
         # Get chart image back in PNG or JPEG formats
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.images(chart, ids=ids, sd=sd, ed=ed, width=width, height=height, freq=freq, ccy=ccy, split=split, spin=spin, cal=cal, title=title, font_size=font_size, type=type, grid_lines=grid_lines)
         pprint(api_response)
 

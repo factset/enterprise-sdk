@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDateSymbolsPost
 
-> SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4)
+> SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate)
 
 
 
@@ -146,9 +146,9 @@ public class Example {
         CreateApi apiInstance = new CreateApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         Integer date = 56; // Integer | Date in YYYYMMDD format
-        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
+        Postnewsymboldate postnewsymboldate = new Postnewsymboldate(); // Postnewsymboldate | Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4);
+            SuccessPostResponse result = apiInstance.v1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path |
  **date** | **Integer**| Date in YYYYMMDD format |
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  |
+ **postnewsymboldate** | [**Postnewsymboldate**](Postnewsymboldate.md)| Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. |
 
 ### Return type
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesPost
 
-> SuccessPostResponse v1DatabasePathDatesPost(path, inlineObject2)
+> SuccessPostResponse v1DatabasePathDatesPost(path, postDatesymbol)
 
 
 
@@ -240,9 +240,9 @@ public class Example {
 
         CreateApi apiInstance = new CreateApi(defaultClient);
         String path = "path_example"; // String | Encode database path
-        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
+        PostDatesymbol postDatesymbol = new PostDatesymbol(); // PostDatesymbol | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathDatesPost(path, inlineObject2);
+            SuccessPostResponse result = apiInstance.v1DatabasePathDatesPost(path, postDatesymbol);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -262,7 +262,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path |
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  |
+ **postDatesymbol** | [**PostDatesymbol**](PostDatesymbol.md)| Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. |
 
 ### Return type
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathSymbolsPost
 
-> SuccessPostResponse v1DatabasePathSymbolsPost(path, inlineObject)
+> SuccessPostResponse v1DatabasePathSymbolsPost(path, createSymbols)
 
 
 
@@ -334,9 +334,9 @@ public class Example {
 
         CreateApi apiInstance = new CreateApi(defaultClient);
         String path = "path_example"; // String | Encode database path
-        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        CreateSymbols createSymbols = new CreateSymbols(); // CreateSymbols | Data for creating symbol in the database
         try {
-            SuccessPostResponse result = apiInstance.v1DatabasePathSymbolsPost(path, inlineObject);
+            SuccessPostResponse result = apiInstance.v1DatabasePathSymbolsPost(path, createSymbols);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -356,7 +356,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path |
- **inlineObject** | [**InlineObject**](InlineObject.md)|  |
+ **createSymbols** | [**CreateSymbols**](CreateSymbols.md)| Data for creating symbol in the database |
 
 ### Return type
 

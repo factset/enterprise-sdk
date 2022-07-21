@@ -42,7 +42,7 @@ namespace FactSet.SDK.Signals.Model
         /// </summary>
         /// <param name="message">A short description of the error. (required).</param>
         /// <param name="errors">Optional list of errors. e.g. Validation errors for multiple parameters.</param>
-        public ErrorResponse(string message = default(string), List<ErrorItem> errors = default(List<ErrorItem>))
+        public ErrorResponse(string message,List<ErrorItem> errors = default(List<ErrorItem>))
         {
             // to ensure "message" is required (not null)
             if (message == null) {

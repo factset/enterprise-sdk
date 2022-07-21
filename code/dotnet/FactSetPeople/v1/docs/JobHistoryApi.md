@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new JobHistoryApi(config);
+
             var ids = new List<string>(); // List<string> | List of FactSet Person Entity identifier.
             var status = "ALL";  // string | Select only Jobs with a certain status primary, active, or inactive. (optional)  (default to ALL)
             var level = "SUMMARY";  // string | Select the level of detail only main Jobs or include other Jobs at a company. (optional)  (default to DETAIL)
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new JobHistoryApi(config);
+
             var peopleJobsRequest = new PeopleJobsRequest(); // PeopleJobsRequest | 
 
             try

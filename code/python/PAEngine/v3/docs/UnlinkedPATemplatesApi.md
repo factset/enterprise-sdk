@@ -29,9 +29,8 @@ This endpoint creates a template which is not linked to any specific PA3 tile.  
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_post_summary_root import UnlinkedPATemplatePostSummaryRoot
-from fds.sdk.PAEngine.model.unlinked_pa_template_parameters_root import UnlinkedPATemplateParametersRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -129,6 +128,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Create unlinked PA template
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_unlinked_pa_templates(unlinked_pa_template_parameters_root)
         pprint(api_response)
 
@@ -188,7 +188,8 @@ This endpoint deletes an existing unliked PA template.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -218,11 +219,12 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
     try:
         # Delete unlinked PA template
-        api_instance.delete_unlinked_pa_templates(id)
+        # example passing only required values which don't have defaults set
+        api_instance.delete_unlinked_pa_templates()
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->delete_unlinked_pa_templates: %s\n" % e)
 ```
@@ -280,7 +282,8 @@ This endpoint fetches default unlinked PA template types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_category_and_type_root import UnlinkedPATemplateCategoryAndTypeRoot
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -313,6 +316,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get default unlinked PA template types.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_default_unlinked_pa_template_types()
         pprint(api_response)
 
@@ -368,8 +372,8 @@ This endpoint fetches the unlinked PA template type details.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_category_and_type_details_root import UnlinkedPATemplateCategoryAndTypeDetailsRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -403,6 +407,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get unlinked PA template type details by id.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_details_type(id)
         pprint(api_response)
 
@@ -463,8 +468,8 @@ This endpoint returns the list of unlinked PA templates.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_summary_root import UnlinkedPATemplateSummaryRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -494,11 +499,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) (default to "Personal:UninkedPATemplates/")
-    category = "Weights" # str | Get unlinked PA templates by category. (optional) (default to "Weights")
+    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) if omitted the server will use the default value of "Personal:UninkedPATemplates/"
+    category = "Weights" # str | Get unlinked PA templates by category. (optional) if omitted the server will use the default value of "Weights"
 
     try:
         # Get unlinked PA templates
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_unlinked_pa_templates(directory=directory, category=category)
         pprint(api_response)
 
@@ -559,8 +566,8 @@ This endpoint fetches the template settings.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_root import UnlinkedPATemplateRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -590,11 +597,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
     try:
         # Get unlinked PA template details by id
-        api_response = api_instance.get_unlinked_pa_templates_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_unlinked_pa_templates_by_id()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -654,9 +661,8 @@ This endpoint updates an existing unlinked PA template.    Remarks:             
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import unlinked_pa_templates_api
-from fds.sdk.PAEngine.model.unlinked_pa_template_post_summary_root import UnlinkedPATemplatePostSummaryRoot
-from fds.sdk.PAEngine.model.unlinked_pa_template_update_parameters_root import UnlinkedPATemplateUpdateParametersRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -686,7 +692,6 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
     unlinked_pa_template_update_parameters_root = UnlinkedPATemplateUpdateParametersRoot(
         data=UnlinkedPATemplateUpdateParameters(
             description="description_example",
@@ -753,7 +758,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Update unlinked PA template
-        api_response = api_instance.update_unlinked_pa_templates(id, unlinked_pa_template_update_parameters_root)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.update_unlinked_pa_templates(unlinked_pa_template_update_parameters_root)
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

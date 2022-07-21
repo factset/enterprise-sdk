@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMaximum model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMaximum
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMaximum {
     /**

@@ -43,7 +43,7 @@ namespace FactSet.SDK.Portfolio.Model
         /// <param name="iterative">iterative (required).</param>
         /// <param name="nonIterative">nonIterative.</param>
         /// <param name="additionalFields">additionalFields.</param>
-        public ModelAccountFields(Dictionary<string, Dictionary<string, Dictionary<string, Object>>> iterative = default(Dictionary<string, Dictionary<string, Dictionary<string, Object>>>), Dictionary<string, Dictionary<string, Object>> nonIterative = default(Dictionary<string, Dictionary<string, Object>>), List<ModelAccountAdditionalField> additionalFields = default(List<ModelAccountAdditionalField>))
+        public ModelAccountFields(Dictionary<string, Dictionary<string, Dictionary<string, Object>>> iterative,Dictionary<string, Dictionary<string, Object>> nonIterative = default(Dictionary<string, Dictionary<string, Object>>), List<ModelAccountAdditionalField> additionalFields = default(List<ModelAccountAdditionalField>))
         {
             // to ensure "iterative" is required (not null)
             if (iterative == null) {

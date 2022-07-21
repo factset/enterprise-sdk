@@ -24,7 +24,6 @@ import InlineResponse2005DataShareClassMinimumInvestment from './InlineResponse2
 /**
  * The InlineResponse2005DataShareClass model module.
  * @module model/InlineResponse2005DataShareClass
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClass {
     /**

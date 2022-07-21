@@ -122,7 +122,6 @@ import NotesConfigurationApi from './api/NotesConfigurationApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

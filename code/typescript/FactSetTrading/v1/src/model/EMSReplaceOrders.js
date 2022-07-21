@@ -17,7 +17,6 @@ import EMSReplaceOrder from './EMSReplaceOrder';
 /**
  * The EMSReplaceOrders model module.
  * @module model/EMSReplaceOrders
- * @version 0.20.0
  */
 class EMSReplaceOrders {
     /**

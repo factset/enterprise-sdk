@@ -21,8 +21,8 @@ Get File Manager audit data.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import file_manager_audit_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.file_manager_audit import FileManagerAudit
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,6 +55,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get File Manager audit data.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.file_manager_audit_get()
         pprint(api_response)
 

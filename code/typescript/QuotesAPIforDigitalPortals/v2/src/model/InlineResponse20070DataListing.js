@@ -17,7 +17,6 @@ import InlineResponse20070DataNotation from './InlineResponse20070DataNotation';
 /**
  * The InlineResponse20070DataListing model module.
  * @module model/InlineResponse20070DataListing
- * @version 0.9.2
  */
 class InlineResponse20070DataListing {
     /**

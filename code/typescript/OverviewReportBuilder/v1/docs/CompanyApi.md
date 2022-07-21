@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## transactionsGet
 
-> StachTableResponse transactionsGet(id)
+> StachTableResponse transactionsGet(id, opts)
 
 Transactions
 
@@ -329,9 +329,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CompanyApi();
 const id = FDS; // String | Company ticker
+const opts = {
+  'transactionType': ACQUISITION_MERGER, // String | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.
+  'financingType': EQUITY // String | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive
+};
 
 // Call api endpoint
-apiInstance.transactionsGet(id).then(
+apiInstance.transactionsGet(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -351,6 +355,8 @@ apiInstance.transactionsGet(id).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Company ticker | 
+ **transactionType** | **String**| Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. | [optional] 
+ **financingType** | **String**| Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive | [optional] 
 
 ### Return type
 

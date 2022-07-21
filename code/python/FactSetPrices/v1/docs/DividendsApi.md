@@ -24,8 +24,8 @@ Get the dividend amounts, dates, types, and flags over a specified date range. Y
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import dividends_api
-from fds.sdk.FactSetPrices.model.dividends_response import DividendsResponse
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,10 +59,12 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-    adjust = "SPLIT" # str | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (optional) (default to "SPLIT")
+    adjust = "SPLIT" # str | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (optional) if omitted the server will use the default value of "SPLIT"
 
     try:
         # Gets dividend information for a given date range and list of securities
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_security_dividends(ids, start_date=start_date, end_date=end_date, currency=currency, adjust=adjust)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Get the dividend amounts, dates, types, and flags over a specified date range
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import dividends_api
-from fds.sdk.FactSetPrices.model.dividends_response import DividendsResponse
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.dividends_request import DividendsRequest
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,6 +167,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Requests dividend information for a given date range and list of securities
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_dividends_for_list(dividends_request)
         pprint(api_response)
 

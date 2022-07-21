@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InterimStatusInterimStatus model module.
  * @module model/InterimStatusInterimStatus
- * @version 0.20.0
  */
 class InterimStatusInterimStatus {
     /**

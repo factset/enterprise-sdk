@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean {
     /**

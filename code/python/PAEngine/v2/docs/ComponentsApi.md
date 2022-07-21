@@ -24,7 +24,8 @@ This endpoint returns the default settings of a PA component.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import components_api
-from fds.sdk.PAEngine.model.pa_component import PAComponent
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,11 +55,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    id = "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53" # str | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
 
     try:
         # Get PA component by id
-        api_response = api_instance.get_pa_component_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_pa_component_by_id()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -118,7 +119,8 @@ This endpoint returns the list of PA components in a given PA document.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import components_api
-from fds.sdk.PAEngine.model.component_summary import ComponentSummary
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,11 +150,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    document = "Client:Foo" # str | Document Name (default to "Client:Foo")
 
     try:
         # Get PA components
-        api_response = api_instance.get_pa_components(document)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_pa_components()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

@@ -76,7 +76,6 @@ import ContactsRelationshipsApi from './api/ContactsRelationshipsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

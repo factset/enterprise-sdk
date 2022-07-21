@@ -17,7 +17,6 @@ import ContactCustomFieldOptionValueDto from './ContactCustomFieldOptionValueDto
 /**
  * The ContactCustomFieldValueDto model module.
  * @module model/ContactCustomFieldValueDto
- * @version 0.20.0
  */
 class ContactCustomFieldValueDto {
     /**

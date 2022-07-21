@@ -18,7 +18,6 @@ import FileUploadStatus from '../model/FileUploadStatus';
 /**
 * Files service.
 * @module api/FilesApi
-* @version 0.20.0
 */
 export default class FilesApi {
 

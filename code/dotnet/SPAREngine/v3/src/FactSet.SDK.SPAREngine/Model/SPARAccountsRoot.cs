@@ -42,7 +42,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public SPARAccountsRoot(SPARAccounts data = default(SPARAccounts), Object meta = default(Object))
+        public SPARAccountsRoot(SPARAccounts data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

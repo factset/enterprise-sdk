@@ -17,7 +17,6 @@ import EMSOrder from './EMSOrder';
 /**
  * The EMSOrders model module.
  * @module model/EMSOrders
- * @version 0.20.0
  */
 class EMSOrders {
     /**

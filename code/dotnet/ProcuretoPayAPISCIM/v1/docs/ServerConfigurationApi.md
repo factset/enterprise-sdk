@@ -49,6 +49,7 @@ namespace Example
 
             var apiInstance = new ServerConfigurationApi(config);
 
+
             try
             {
                 // Get server configuration.

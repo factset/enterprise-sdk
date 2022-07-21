@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20072DataTradingVolume model module.
  * @module model/InlineResponse20072DataTradingVolume
- * @version 0.9.2
  */
 class InlineResponse20072DataTradingVolume {
     /**

@@ -17,7 +17,6 @@ import Financials from './Financials';
 /**
  * The FinancialsResponse model module.
  * @module model/FinancialsResponse
- * @version 0.20.0
  */
 class FinancialsResponse {
     /**

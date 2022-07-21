@@ -162,9 +162,9 @@ public class SecuritizedDerivativeApi {
   /**
    * Fundamental data for a single securitized derivative.
    * Fundamental data for a single securitized derivative. Dates are interpreted in the timezone of the issuer.
-   * @param id Identifier of the instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -180,9 +180,9 @@ public class SecuritizedDerivativeApi {
   /**
    * Fundamental data for a single securitized derivative.
    * Fundamental data for a single securitized derivative. Dates are interpreted in the timezone of the issuer.
-   * @param id Identifier of the instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -242,9 +242,9 @@ public class SecuritizedDerivativeApi {
   /**
    * Notation-based key figures of a securitized derivative.
    * Notation-based key figures of a securitized derivative. Not all key figures are applicable and/or calculated for all types of securitized derivatives. Following, some frequently used references:   Cover ratio - see attribute &#x60;underlyings.coverRatio&#x60; in endpoint &#x60;/securitizedDerivative/underlying/list&#x60;.  Various barrier types (e.g. strike, knock in) - see endpoint &#x60;/securitizedDerivative/barrier/type/list&#x60;.  Exercise right - see attribute &#x60;exercise.right&#x60; in endpoint &#x60;/securitizedDerivative/get&#x60;.  Issue price - see attribute &#x60;issue.price&#x60; in endpoint &#x60;/securitizedDerivative/get&#x60;.  Ask price - see attribute &#x60;prices.ask&#x60;.  Bid price - see attribute &#x60;prices.bid&#x60;.
-   * @param id Identifier of a notation. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -260,9 +260,9 @@ public class SecuritizedDerivativeApi {
   /**
    * Notation-based key figures of a securitized derivative.
    * Notation-based key figures of a securitized derivative. Not all key figures are applicable and/or calculated for all types of securitized derivatives. Following, some frequently used references:   Cover ratio - see attribute &#x60;underlyings.coverRatio&#x60; in endpoint &#x60;/securitizedDerivative/underlying/list&#x60;.  Various barrier types (e.g. strike, knock in) - see endpoint &#x60;/securitizedDerivative/barrier/type/list&#x60;.  Exercise right - see attribute &#x60;exercise.right&#x60; in endpoint &#x60;/securitizedDerivative/get&#x60;.  Issue price - see attribute &#x60;issue.price&#x60; in endpoint &#x60;/securitizedDerivative/get&#x60;.  Ask price - see attribute &#x60;prices.ask&#x60;.  Bid price - see attribute &#x60;prices.bid&#x60;.
-   * @param id Identifier of a notation. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -322,9 +322,9 @@ public class SecuritizedDerivativeApi {
   /**
    * List of underlyings with barrier and cash flow information.
    * Provides details regarding the underlyings, their respective barriers and related cash flows (if any) of a securitized derivative. A unique combination of a cash flow and related barrier modalities, such as observation and level, is called a condition. In case of a securitized derivative with multiple underlyings, a condition comprises the respective barriers of all underlyings participating in that condition. Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.
-   * @param id Identifier of an instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2007
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -340,9 +340,9 @@ public class SecuritizedDerivativeApi {
   /**
    * List of underlyings with barrier and cash flow information.
    * Provides details regarding the underlyings, their respective barriers and related cash flows (if any) of a securitized derivative. A unique combination of a cash flow and related barrier modalities, such as observation and level, is called a condition. In case of a securitized derivative with multiple underlyings, a condition comprises the respective barriers of all underlyings participating in that condition. Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.
-   * @param id Identifier of an instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2007&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -402,7 +402,7 @@ public class SecuritizedDerivativeApi {
   /**
    * Search for issuers of securitized derivatives.
    * Search for issuers of securitized derivatives, including issuer groups, which do not represent actual juristic persons, but are defined by FactSet to facilitate searching. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -411,14 +411,14 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 postSecuritizedDerivativeIssuerSearch(InlineObject body) throws ApiException {
-    return postSecuritizedDerivativeIssuerSearchWithHttpInfo(body).getData();
+  public InlineResponse2002 postSecuritizedDerivativeIssuerSearch(InlineObject inlineObject) throws ApiException {
+    return postSecuritizedDerivativeIssuerSearchWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * Search for issuers of securitized derivatives.
    * Search for issuers of securitized derivatives, including issuer groups, which do not represent actual juristic persons, but are defined by FactSet to facilitate searching. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -427,8 +427,8 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> postSecuritizedDerivativeIssuerSearchWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2002> postSecuritizedDerivativeIssuerSearchWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
     // create path and map variables
     String localVarPath = "/securitizedDerivative/issuer/search";
@@ -470,7 +470,7 @@ public class SecuritizedDerivativeApi {
   /**
    * Ranking of securitized derivatives&#39; notations using intraday figures.
    * Ranking of securitized derivatives&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, the selection of the notation depends on the sort attribute: - absolute and relative performance (see the response attributes &#x60;trade.performance.absolute&#x60; and &#x60;trade.performance.relative&#x60;) - the notation with the most recent trade price is used - number trades, trading value and trading volume (see the response attributes &#x60;accumulated.numberTrades&#x60;, &#x60;accumulated.tradingVolume&#x60; and &#x60;accumulated.tradingValue&#x60;) - the notation with highest (lowest) value is used  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameters &#x60;valueUnit&#x60; and/or &#x60;currency&#x60; have not been specified.  The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-   * @param body  (optional)
+   * @param inlineObject1  (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -479,14 +479,14 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 postSecuritizedDerivativeNotationRankingIntradayList(InlineObject1 body) throws ApiException {
-    return postSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(body).getData();
+  public InlineResponse2004 postSecuritizedDerivativeNotationRankingIntradayList(InlineObject1 inlineObject1) throws ApiException {
+    return postSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(inlineObject1).getData();
   }
 
   /**
    * Ranking of securitized derivatives&#39; notations using intraday figures.
    * Ranking of securitized derivatives&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, the selection of the notation depends on the sort attribute: - absolute and relative performance (see the response attributes &#x60;trade.performance.absolute&#x60; and &#x60;trade.performance.relative&#x60;) - the notation with the most recent trade price is used - number trades, trading value and trading volume (see the response attributes &#x60;accumulated.numberTrades&#x60;, &#x60;accumulated.tradingVolume&#x60; and &#x60;accumulated.tradingValue&#x60;) - the notation with highest (lowest) value is used  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameters &#x60;valueUnit&#x60; and/or &#x60;currency&#x60; have not been specified.  The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-   * @param body  (optional)
+   * @param inlineObject1  (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -495,8 +495,8 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> postSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(InlineObject1 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2004> postSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
+    Object localVarPostBody = inlineObject1;
     
     // create path and map variables
     String localVarPath = "/securitizedDerivative/notation/ranking/intraday/list";
@@ -538,7 +538,7 @@ public class SecuritizedDerivativeApi {
   /**
    * Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters.
    * Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. All identifiers used as parameters must be valid and entitled.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support the search for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are returned in the result.   The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
-   * @param body  (optional)
+   * @param inlineObject3  (optional)
    * @return InlineResponse2006
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -547,14 +547,14 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2006 postSecuritizedDerivativeNotationScreenerSearch(InlineObject3 body) throws ApiException {
-    return postSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(body).getData();
+  public InlineResponse2006 postSecuritizedDerivativeNotationScreenerSearch(InlineObject3 inlineObject3) throws ApiException {
+    return postSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(inlineObject3).getData();
   }
 
   /**
    * Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters.
    * Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. All identifiers used as parameters must be valid and entitled.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support the search for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are returned in the result.   The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
-   * @param body  (optional)
+   * @param inlineObject3  (optional)
    * @return ApiResponse&lt;InlineResponse2006&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -563,8 +563,8 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2006> postSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(InlineObject3 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2006> postSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(InlineObject3 inlineObject3) throws ApiException {
+    Object localVarPostBody = inlineObject3;
     
     // create path and map variables
     String localVarPath = "/securitizedDerivative/notation/screener/search";
@@ -606,7 +606,7 @@ public class SecuritizedDerivativeApi {
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
    * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
-   * @param body  (optional)
+   * @param inlineObject2  (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -615,14 +615,14 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2005 postSecuritizedDerivativeNotationScreenerValueRangesGet(InlineObject2 body) throws ApiException {
-    return postSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(body).getData();
+  public InlineResponse2005 postSecuritizedDerivativeNotationScreenerValueRangesGet(InlineObject2 inlineObject2) throws ApiException {
+    return postSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(inlineObject2).getData();
   }
 
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
    * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
-   * @param body  (optional)
+   * @param inlineObject2  (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -631,8 +631,8 @@ public class SecuritizedDerivativeApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2005> postSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2005> postSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
+    Object localVarPostBody = inlineObject2;
     
     // create path and map variables
     String localVarPath = "/securitizedDerivative/notation/screener/valueRanges/get";

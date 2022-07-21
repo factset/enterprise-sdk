@@ -18,7 +18,6 @@ import DocumentDirectories from '../model/DocumentDirectories';
 /**
 * Documents service.
 * @module api/DocumentsApi
-* @version 0.8.2
 */
 export default class DocumentsApi {
 

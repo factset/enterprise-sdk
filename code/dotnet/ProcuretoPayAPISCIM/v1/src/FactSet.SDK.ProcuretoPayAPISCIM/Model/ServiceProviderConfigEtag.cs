@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigEtag" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigEtag()
+        public ServiceProviderConfigEtag(bool supported)
         {
         }
 

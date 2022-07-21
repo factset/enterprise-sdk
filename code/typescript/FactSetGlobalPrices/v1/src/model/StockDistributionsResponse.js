@@ -17,7 +17,6 @@ import Distribution from './Distribution';
 /**
  * The StockDistributionsResponse model module.
  * @module model/StockDistributionsResponse
- * @version 0.20.0
  */
 class StockDistributionsResponse {
     /**

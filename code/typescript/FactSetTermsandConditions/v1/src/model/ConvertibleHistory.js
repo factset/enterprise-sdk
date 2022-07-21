@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ConvertibleHistory model module.
  * @module model/ConvertibleHistory
- * @version 0.20.0
  */
 class ConvertibleHistory {
     /**

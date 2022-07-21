@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CalculationStatusSummary model module.
  * @module model/CalculationStatusSummary
- * @version 0.8.2
  */
 class CalculationStatusSummary {
     /**

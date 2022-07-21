@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001DataProfitLossTotal model module.
  * @module model/InlineResponse2001DataProfitLossTotal
- * @version 0.9.2
  */
 class InlineResponse2001DataProfitLossTotal {
     /**

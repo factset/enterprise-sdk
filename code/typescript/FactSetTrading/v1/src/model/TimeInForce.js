@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TimeInForce model module.
  * @module model/TimeInForce
- * @version 0.20.0
  */
 class TimeInForce {
     /**

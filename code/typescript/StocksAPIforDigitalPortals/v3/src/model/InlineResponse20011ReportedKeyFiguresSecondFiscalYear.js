@@ -19,7 +19,6 @@ import InlineResponse20011ReportedKeyFiguresFirstFiscalYearRatios from './Inline
 /**
  * The InlineResponse20011ReportedKeyFiguresSecondFiscalYear model module.
  * @module model/InlineResponse20011ReportedKeyFiguresSecondFiscalYear
- * @version 0.10.0
  */
 class InlineResponse20011ReportedKeyFiguresSecondFiscalYear {
     /**

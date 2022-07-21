@@ -20,7 +20,6 @@ import DataAnswerSuccessResponse from '../model/DataAnswerSuccessResponse';
 /**
 * Answers service.
 * @module api/AnswersApi
-* @version 0.20.0
 */
 export default class AnswersApi {
 

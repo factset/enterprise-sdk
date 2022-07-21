@@ -46,7 +46,7 @@ public class VendorChartIQTimeSeriesEodListMetaPagination implements Serializabl
   private String cursor;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private BigDecimal limit;
+  private BigDecimal limit = new BigDecimal("20");
 
   public VendorChartIQTimeSeriesEodListMetaPagination() { 
   }
@@ -85,7 +85,7 @@ public class VendorChartIQTimeSeriesEodListMetaPagination implements Serializabl
    /**
    * Non-negative maximum number of entries to return.
    * minimum: 0
-   * maximum: 5E+3
+   * maximum: 5000
    * @return limit
   **/
   @javax.annotation.Nullable

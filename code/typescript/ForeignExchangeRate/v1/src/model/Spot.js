@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Spot model module.
  * @module model/Spot
- * @version 0.20.0
  */
 class Spot {
     /**

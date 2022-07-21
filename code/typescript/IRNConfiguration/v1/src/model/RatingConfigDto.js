@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RatingConfigDto model module.
  * @module model/RatingConfigDto
- * @version 0.20.0
  */
 class RatingConfigDto {
     /**

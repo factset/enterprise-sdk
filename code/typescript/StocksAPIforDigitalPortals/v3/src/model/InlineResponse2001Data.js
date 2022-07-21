@@ -18,7 +18,6 @@ import InlineResponse2001DataTargetPrice from './InlineResponse2001DataTargetPri
 /**
  * The InlineResponse2001Data model module.
  * @module model/InlineResponse2001Data
- * @version 0.10.0
  */
 class InlineResponse2001Data {
     /**

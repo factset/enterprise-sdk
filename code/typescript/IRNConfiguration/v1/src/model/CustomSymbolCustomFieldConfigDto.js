@@ -18,7 +18,6 @@ import CustomSymbolTypeSummaryDto from './CustomSymbolTypeSummaryDto';
 /**
  * The CustomSymbolCustomFieldConfigDto model module.
  * @module model/CustomSymbolCustomFieldConfigDto
- * @version 0.20.0
  */
 class CustomSymbolCustomFieldConfigDto {
     /**

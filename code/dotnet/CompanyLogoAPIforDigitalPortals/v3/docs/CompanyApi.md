@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var identifier = "identifier_example";  // string | Identifier that resolves to a company. 
             var identifierType = "idInstrument";  // string | The type of the identifier.
             var format = "rectangular";  // string | Format of the logos. (optional)  (default to rectangular)

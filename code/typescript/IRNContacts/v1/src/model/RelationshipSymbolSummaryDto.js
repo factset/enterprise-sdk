@@ -17,7 +17,6 @@ import SymbolType from './SymbolType';
 /**
  * The RelationshipSymbolSummaryDto model module.
  * @module model/RelationshipSymbolSummaryDto
- * @version 0.20.0
  */
 class RelationshipSymbolSummaryDto {
     /**

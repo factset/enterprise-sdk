@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SnapshotApi(config);
+
             var product = 10001;  // int | any product subscribed by client. Minimum value for prod code=9001
             var startDate = DateTime.Parse("2013-10-20");  // DateTime | YYYYMMDD (Choose between 1 and 4 previous trading days)
             var endDate = DateTime.Parse("2013-10-20");  // DateTime | YYYYMMDD (Choose between 1 and 4 previous trading days, greater than or equal to start date)

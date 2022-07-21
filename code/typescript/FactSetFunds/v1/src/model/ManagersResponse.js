@@ -17,7 +17,6 @@ import Managers from './Managers';
 /**
  * The ManagersResponse model module.
  * @module model/ManagersResponse
- * @version 0.20.0
  */
 class ManagersResponse {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataSizeEmployeeNumber model module.
  * @module model/ProfileDataSizeEmployeeNumber
- * @version 0.20.0
  */
 class ProfileDataSizeEmployeeNumber {
     /**

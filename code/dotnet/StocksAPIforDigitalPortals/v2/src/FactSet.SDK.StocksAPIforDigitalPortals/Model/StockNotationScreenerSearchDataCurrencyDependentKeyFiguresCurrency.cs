@@ -80,7 +80,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency" /> class.
         /// </summary>
         /// <param name="isoCode">ISO 4217 code of the currency. (required).</param>
-        public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency(IsoCodeEnum isoCode = default(IsoCodeEnum))
+        public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency(IsoCodeEnum isoCode)
         {
             this.IsoCode = isoCode;
         }

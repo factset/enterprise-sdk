@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **tradeDateRange** | [**ProfileDataStageTradeDateRange**](ProfileDataStageTradeDateRange.md) |  | 
 **foundedYear** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
 **pevcBacking** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
-**pevcLatestPostMoneyValuation** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  |  [optional]
+**pevcLatestPostMoneyValuation** | [**ProfileDataStagePevcLatestPostMoneyValuation**](ProfileDataStagePevcLatestPostMoneyValuation.md) |  |  [optional]
 **peActiveFirmNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  |  [optional]
 **peActiveInvestmentNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  |  [optional]
 **peLastInvestmentDate** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  |  [optional]

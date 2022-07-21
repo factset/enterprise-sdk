@@ -19,7 +19,6 @@ import SPARBenchmarkRoot from '../model/SPARBenchmarkRoot';
 /**
 * Benchmarks service.
 * @module api/BenchmarksApi
-* @version 0.20.0
 */
 export default class BenchmarksApi {
 

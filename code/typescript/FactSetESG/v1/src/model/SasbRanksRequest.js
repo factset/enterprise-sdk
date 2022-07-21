@@ -17,7 +17,6 @@ import Frequency from './Frequency';
 /**
  * The SasbRanksRequest model module.
  * @module model/SasbRanksRequest
- * @version 0.20.0
  */
 class SasbRanksRequest {
     /**

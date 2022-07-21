@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleMatchRequestInput model module.
  * @module model/PeopleMatchRequestInput
- * @version 0.20.1
  */
 class PeopleMatchRequestInput {
     /**

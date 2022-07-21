@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Classifications model module.
  * @module model/Classifications
- * @version 0.20.0
  */
 class Classifications {
     /**

@@ -1,6 +1,6 @@
 # timeseriesapifordigitalportals.PricesApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## postPricesTimeSeriesEodList
 
-> InlineResponse2005 postPricesTimeSeriesEodList(body)
+> InlineResponse2005 postPricesTimeSeriesEodList(inlineObject5)
 
 End-of-day time series data for a notation.
 
@@ -47,10 +47,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject5(); // InlineObject5 | 
+const inlineObject5 = new timeseriesapifordigitalportals.InlineObject5(); // InlineObject5 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesEodList(body).then(
+apiInstance.postPricesTimeSeriesEodList(inlineObject5).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -69,7 +69,7 @@ apiInstance.postPricesTimeSeriesEodList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | 
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
 
 ### Return type
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesEodSubsampleGet
 
-> InlineResponse2006 postPricesTimeSeriesEodSubsampleGet(body)
+> InlineResponse2006 postPricesTimeSeriesEodSubsampleGet(inlineObject6)
 
 Single subsample end-of-day data for a notation.
 
@@ -119,10 +119,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject6(); // InlineObject6 | 
+const inlineObject6 = new timeseriesapifordigitalportals.InlineObject6(); // InlineObject6 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesEodSubsampleGet(body).then(
+apiInstance.postPricesTimeSeriesEodSubsampleGet(inlineObject6).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -141,7 +141,7 @@ apiInstance.postPricesTimeSeriesEodSubsampleGet(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesEodSubsampleList
 
-> InlineResponse2007 postPricesTimeSeriesEodSubsampleList(body)
+> InlineResponse2007 postPricesTimeSeriesEodSubsampleList(inlineObject7)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -191,10 +191,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject7(); // InlineObject7 | 
+const inlineObject7 = new timeseriesapifordigitalportals.InlineObject7(); // InlineObject7 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesEodSubsampleList(body).then(
+apiInstance.postPricesTimeSeriesEodSubsampleList(inlineObject7).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -213,7 +213,7 @@ apiInstance.postPricesTimeSeriesEodSubsampleList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradayList
 
-> InlineResponse2008 postPricesTimeSeriesIntradayList(body)
+> InlineResponse2008 postPricesTimeSeriesIntradayList(inlineObject8)
 
 Intraday time series data for a notation.
 
@@ -263,10 +263,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject8(); // InlineObject8 | 
+const inlineObject8 = new timeseriesapifordigitalportals.InlineObject8(); // InlineObject8 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesIntradayList(body).then(
+apiInstance.postPricesTimeSeriesIntradayList(inlineObject8).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -285,7 +285,7 @@ apiInstance.postPricesTimeSeriesIntradayList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradaySubsampleGet
 
-> InlineResponse2009 postPricesTimeSeriesIntradaySubsampleGet(body)
+> InlineResponse2009 postPricesTimeSeriesIntradaySubsampleGet(inlineObject9)
 
 Single subsample intraday data for a notation.
 
@@ -335,10 +335,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject9(); // InlineObject9 | 
+const inlineObject9 = new timeseriesapifordigitalportals.InlineObject9(); // InlineObject9 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesIntradaySubsampleGet(body).then(
+apiInstance.postPricesTimeSeriesIntradaySubsampleGet(inlineObject9).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -357,7 +357,7 @@ apiInstance.postPricesTimeSeriesIntradaySubsampleGet(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradaySubsampleList
 
-> InlineResponse20010 postPricesTimeSeriesIntradaySubsampleList(body)
+> InlineResponse20010 postPricesTimeSeriesIntradaySubsampleList(inlineObject10)
 
 Subsampled intraday time series data for a notation.
 
@@ -407,10 +407,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PricesApi();
-const body = new timeseriesapifordigitalportals.InlineObject10(); // InlineObject10 | 
+const inlineObject10 = new timeseriesapifordigitalportals.InlineObject10(); // InlineObject10 | 
 
 // Call api endpoint
-apiInstance.postPricesTimeSeriesIntradaySubsampleList(body).then(
+apiInstance.postPricesTimeSeriesIntradaySubsampleList(inlineObject10).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -429,7 +429,7 @@ apiInstance.postPricesTimeSeriesIntradaySubsampleList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
 
 ### Return type
 

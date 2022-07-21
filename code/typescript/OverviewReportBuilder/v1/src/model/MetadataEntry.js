@@ -24,21 +24,20 @@ import Frequency from './Frequency';
 import FrequencyFrequency from './FrequencyFrequency';
 import Metric from './Metric';
 import MetricMetric from './MetricMetric';
+import RelevanceType from './RelevanceType';
+import RelevanceTypeRelevanceType from './RelevanceTypeRelevanceType';
 import Scale from './Scale';
 import ScaleScale from './ScaleScale';
 import TransactionId from './TransactionId';
 import TransactionIdTransactionId from './TransactionIdTransactionId';
 import TransactionType from './TransactionType';
 import TransactionTypeTransactionType from './TransactionTypeTransactionType';
-import Units from './Units';
-import UnitsUnits from './UnitsUnits';
 import ValueType from './ValueType';
 import ValueTypeValueType from './ValueTypeValueType';
 
 /**
  * The MetadataEntry model module.
  * @module model/MetadataEntry
- * @version 0.20.0
  */
 class MetadataEntry {
     /**
@@ -51,14 +50,14 @@ class MetadataEntry {
      * @implements module:model/Description
      * @implements module:model/Frequency
      * @implements module:model/Metric
+     * @implements module:model/RelevanceType
      * @implements module:model/Scale
      * @implements module:model/TransactionId
      * @implements module:model/TransactionType
-     * @implements module:model/Units
      * @implements module:model/ValueType
      */
     constructor() { 
-        Category.initialize(this);CurrencyCode.initialize(this);CurrencySymbol.initialize(this);Description.initialize(this);Frequency.initialize(this);Metric.initialize(this);Scale.initialize(this);TransactionId.initialize(this);TransactionType.initialize(this);Units.initialize(this);ValueType.initialize(this);
+        Category.initialize(this);CurrencyCode.initialize(this);CurrencySymbol.initialize(this);Description.initialize(this);Frequency.initialize(this);Metric.initialize(this);RelevanceType.initialize(this);Scale.initialize(this);TransactionId.initialize(this);TransactionType.initialize(this);ValueType.initialize(this);
         MetadataEntry.initialize(this);
     }
 
@@ -86,10 +85,10 @@ class MetadataEntry {
             Description.constructFromObject(data, obj);
             Frequency.constructFromObject(data, obj);
             Metric.constructFromObject(data, obj);
+            RelevanceType.constructFromObject(data, obj);
             Scale.constructFromObject(data, obj);
             TransactionId.constructFromObject(data, obj);
             TransactionType.constructFromObject(data, obj);
-            Units.constructFromObject(data, obj);
             ValueType.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('category')) {
@@ -110,6 +109,9 @@ class MetadataEntry {
             if (data.hasOwnProperty('metric')) {
                 obj['metric'] = MetricMetric.constructFromObject(data['metric']);
             }
+            if (data.hasOwnProperty('relevanceType')) {
+                obj['relevanceType'] = RelevanceTypeRelevanceType.constructFromObject(data['relevanceType']);
+            }
             if (data.hasOwnProperty('scale')) {
                 obj['scale'] = ScaleScale.constructFromObject(data['scale']);
             }
@@ -118,9 +120,6 @@ class MetadataEntry {
             }
             if (data.hasOwnProperty('transactionType')) {
                 obj['transactionType'] = TransactionTypeTransactionType.constructFromObject(data['transactionType']);
-            }
-            if (data.hasOwnProperty('units')) {
-                obj['units'] = UnitsUnits.constructFromObject(data['units']);
             }
             if (data.hasOwnProperty('valueType')) {
                 obj['valueType'] = ValueTypeValueType.constructFromObject(data['valueType']);
@@ -163,6 +162,11 @@ MetadataEntry.prototype['frequency'] = undefined;
 MetadataEntry.prototype['metric'] = undefined;
 
 /**
+ * @member {module:model/RelevanceTypeRelevanceType} relevanceType
+ */
+MetadataEntry.prototype['relevanceType'] = undefined;
+
+/**
  * @member {module:model/ScaleScale} scale
  */
 MetadataEntry.prototype['scale'] = undefined;
@@ -176,11 +180,6 @@ MetadataEntry.prototype['transactionId'] = undefined;
  * @member {module:model/TransactionTypeTransactionType} transactionType
  */
 MetadataEntry.prototype['transactionType'] = undefined;
-
-/**
- * @member {module:model/UnitsUnits} units
- */
-MetadataEntry.prototype['units'] = undefined;
 
 /**
  * @member {module:model/ValueTypeValueType} valueType
@@ -218,6 +217,11 @@ Frequency.prototype['frequency'] = undefined;
  * @member {module:model/MetricMetric} metric
  */
 Metric.prototype['metric'] = undefined;
+// Implement RelevanceType interface:
+/**
+ * @member {module:model/RelevanceTypeRelevanceType} relevanceType
+ */
+RelevanceType.prototype['relevanceType'] = undefined;
 // Implement Scale interface:
 /**
  * @member {module:model/ScaleScale} scale
@@ -233,11 +237,6 @@ TransactionId.prototype['transactionId'] = undefined;
  * @member {module:model/TransactionTypeTransactionType} transactionType
  */
 TransactionType.prototype['transactionType'] = undefined;
-// Implement Units interface:
-/**
- * @member {module:model/UnitsUnits} units
- */
-Units.prototype['units'] = undefined;
 // Implement ValueType interface:
 /**
  * @member {module:model/ValueTypeValueType} valueType

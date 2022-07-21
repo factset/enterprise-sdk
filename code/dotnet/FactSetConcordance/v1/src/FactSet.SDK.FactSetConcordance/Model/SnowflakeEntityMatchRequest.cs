@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// Initializes a new instance of the <see cref="SnowflakeEntityMatchRequest" /> class.
         /// </summary>
         /// <param name="data">Array of input rows (required).</param>
-        public SnowflakeEntityMatchRequest(List<List<Object>> data = default(List<List<Object>>))
+        public SnowflakeEntityMatchRequest(List<List<Object>> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

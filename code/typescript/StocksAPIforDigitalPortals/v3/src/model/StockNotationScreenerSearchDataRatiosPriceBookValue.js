@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatiosPriceBookValue model module.
  * @module model/StockNotationScreenerSearchDataRatiosPriceBookValue
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatiosPriceBookValue {
     /**

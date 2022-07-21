@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schema** | **String** | schema name | [optional] 
-**sequence** | **Number** | version number of the schema | [optional] 
-**url** | **String** | pre-signed downloadable url of the schema &amp; sequence | [optional] 
-**timestamp** | **String** | time stamp of when the schema-sequence was last updated | [optional] 
+**data** | [**[ListSchema200ResponseData]**](ListSchema200ResponseData.md) |  | [optional] 
+**meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  | [optional] 
 
 

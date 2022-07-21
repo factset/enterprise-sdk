@@ -24,8 +24,8 @@ Finds the best candidate entities matching the given entity name. Additional att
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_matches_response import EntityMatchesResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -71,10 +71,12 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     exclude_entity_sub_type = [
         "HF",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
-    include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) (default to False)
+    include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) if omitted the server will use the default value of False
 
     try:
         # Get Entity Candidates and Matches for a single name and attributes.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent)
         pprint(api_response)
 
@@ -140,9 +142,8 @@ Finds the best candidate entities matching the given entity name. If a `universe
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import entity_match_api
-from fds.sdk.FactSetConcordance.model.entity_match_request import EntityMatchRequest
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_matches_response import EntityMatchesResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -200,6 +201,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_match_for_list(entity_match_request)
         pprint(api_response)
 

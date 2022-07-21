@@ -17,7 +17,6 @@ import OptimizerInputsAssetPriceEPriceSource from './OptimizerInputsAssetPriceEP
 /**
  * The OptimizerInputsAssetPrice model module.
  * @module model/OptimizerInputsAssetPrice
- * @version 0.20.0
  */
 class OptimizerInputsAssetPrice {
     /**

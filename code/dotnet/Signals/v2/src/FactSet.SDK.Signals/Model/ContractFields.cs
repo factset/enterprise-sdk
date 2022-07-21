@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="summary">summary (required).</param>
         /// <param name="eventDate">eventDate (required).</param>
         /// <param name="additionalProperties">additionalProperties.</param>
-        public ContractFields(ContractFieldsSummary summary = default(ContractFieldsSummary), ContractFieldsEventDate eventDate = default(ContractFieldsEventDate), ContractProperty additionalProperties = default(ContractProperty))
+        public ContractFields(ContractFieldsSummary summary, ContractFieldsEventDate eventDate,ContractProperty additionalProperties = default(ContractProperty))
         {
             // to ensure "summary" is required (not null)
             if (summary == null) {

@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">The ISO3 currency control for the requested fund. (default to &quot;LOCAL&quot;).</param>
         /// <param name="dataType">dataType.</param>
-        public AumRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), FrequencyAum frequency = default(FrequencyAum), string currency = "LOCAL", DataType dataType = default(DataType))
+        public AumRequest(List<string> ids,string startDate = default(string), string endDate = default(string), FrequencyAum frequency = default(FrequencyAum), string currency = "LOCAL", DataType dataType = default(DataType))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

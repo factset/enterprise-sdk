@@ -17,7 +17,6 @@ import AtmImpliedVolatility from './AtmImpliedVolatility';
 /**
  * The AtmImpliedVolatilityResponse model module.
  * @module model/AtmImpliedVolatilityResponse
- * @version 0.20.0
  */
 class AtmImpliedVolatilityResponse {
     /**

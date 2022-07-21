@@ -28,6 +28,8 @@ Deletes all data specific to the date in 3d database(OFDB). This includes all th
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +63,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     date = 1 # int | Date in YYYYMMDD format
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.v1_database_path_dates_date_delete(path, date)
         pprint(api_response)
 
@@ -106,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_dates_date_put**
-> SuccessPostResponse v1_database_path_dates_date_put(path, date, inline_object3)
+> SuccessPostResponse v1_database_path_dates_date_put(path, date, modifydatespecific)
 
 
 
@@ -121,8 +124,8 @@ Updates an existing date field value for single/multiple symbols or adds a new d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
-from fds.sdk.OFDB.model.inline_object3 import InlineObject3
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,12 +157,15 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
-    inline_object3 = InlineObject3(
-        data=[{"symbol":"FACTSET","field1":"VALUE"}],
-    ) # InlineObject3 | 
+    modifydatespecific = Modifydatespecific(
+        data=[
+            None,
+        ],
+    ) # Modifydatespecific | Required data for updating date in the database
 
     try:
-        api_response = api_instance.v1_database_path_dates_date_put(path, date, inline_object3)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_dates_date_put(path, date, modifydatespecific)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -173,7 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Encode database path |
  **date** | **int**| Date in YYYYMMDD format |
- **inline_object3** | [**InlineObject3**](InlineObject3.md)|  |
+ **modifydatespecific** | [**Modifydatespecific**](Modifydatespecific.md)| Required data for updating date in the database |
 
 ### Return type
 
@@ -221,6 +227,8 @@ Deletes data specific to the symbol and date from a 3d database(OFDB).
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -255,6 +263,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.v1_database_path_dates_date_symbols_symbol_delete(path, date, symbol)
         pprint(api_response)
 
@@ -301,7 +310,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_dates_date_symbols_symbol_put**
-> SuccessPostResponse v1_database_path_dates_date_symbols_symbol_put(path, date, symbol, inline_object5)
+> SuccessPostResponse v1_database_path_dates_date_symbols_symbol_put(path, date, symbol, modifysymboldate)
 
 
 
@@ -316,8 +325,8 @@ Updates a symbol field value for a given date of 3d database(OFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
-from fds.sdk.OFDB.model.inline_object5 import InlineObject5
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -350,12 +359,13 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
     symbol = "symbol_example" # str | Symbol with in the ofdb
-    inline_object5 = InlineObject5(
+    modifysymboldate = Modifysymboldate(
         data={},
-    ) # InlineObject5 | 
+    ) # Modifysymboldate | Data for updating symbol in the database
 
     try:
-        api_response = api_instance.v1_database_path_dates_date_symbols_symbol_put(path, date, symbol, inline_object5)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_dates_date_symbols_symbol_put(path, date, symbol, modifysymboldate)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -370,7 +380,7 @@ Name | Type | Description  | Notes
  **path** | **str**| Encode database path |
  **date** | **int**| Date in YYYYMMDD format |
  **symbol** | **str**| Symbol with in the ofdb |
- **inline_object5** | [**InlineObject5**](InlineObject5.md)|  |
+ **modifysymboldate** | [**Modifysymboldate**](Modifysymboldate.md)| Data for updating symbol in the database |
 
 ### Return type
 
@@ -417,6 +427,8 @@ Deletes all data specific to the symbol in both 2d and 3d database(OFDB). This i
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -450,6 +462,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.v1_database_path_symbols_symbol_delete(path, symbol)
         pprint(api_response)
 
@@ -495,7 +508,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_symbols_symbol_put**
-> SuccessPostResponse v1_database_path_symbols_symbol_put(path, symbol, inline_object1)
+> SuccessPostResponse v1_database_path_symbols_symbol_put(path, symbol, modify_symbols)
 
 
 
@@ -510,8 +523,8 @@ Updates an existing symbol field value for single/multiple dates or adds a new s
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import modify_api
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
-from fds.sdk.OFDB.model.inline_object1 import InlineObject1
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -543,14 +556,15 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 
     path = "path_example" # str | Encode database path
     symbol = "symbol_example" # str | Symbol with in the ofdb
-    inline_object1 = InlineObject1(
+    modify_symbols = ModifySymbols(
         data=[
             None,
         ],
-    ) # InlineObject1 | 
+    ) # ModifySymbols | Data for updating symbol in the database
 
     try:
-        api_response = api_instance.v1_database_path_symbols_symbol_put(path, symbol, inline_object1)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_symbols_symbol_put(path, symbol, modify_symbols)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -564,7 +578,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Encode database path |
  **symbol** | **str**| Symbol with in the ofdb |
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
+ **modify_symbols** | [**ModifySymbols**](ModifySymbols.md)| Data for updating symbol in the database |
 
 ### Return type
 

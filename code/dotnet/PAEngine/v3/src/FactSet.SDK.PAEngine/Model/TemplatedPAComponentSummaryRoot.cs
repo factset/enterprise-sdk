@@ -42,7 +42,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public TemplatedPAComponentSummaryRoot(Dictionary<string, TemplatedPAComponentSummary> data = default(Dictionary<string, TemplatedPAComponentSummary>), Object meta = default(Object))
+        public TemplatedPAComponentSummaryRoot(Dictionary<string, TemplatedPAComponentSummary> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **trimmed** | **bool** | The trimmed attribute helps identify if the audio is the trimmed version | [optional] 
 **sample_rate** | **float** | The number of samples of audio carried per second in Kbps | [optional] 
 **bitrate** | **float** | The total number of bits of information stored per second of sound in Kbps | [optional] 
+**audio_source_id** | **int** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSource ids. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

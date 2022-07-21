@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VaultIdentifier model module.
  * @module model/VaultIdentifier
- * @version 0.20.0
  */
 class VaultIdentifier {
     /**

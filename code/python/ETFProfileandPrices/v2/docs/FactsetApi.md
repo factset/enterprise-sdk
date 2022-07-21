@@ -56,7 +56,8 @@ This endpoint returns selected ETP's allocations grouped by asset class. The res
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2001 import InlineResponse2001
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -90,11 +91,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's asset allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_asset_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -150,7 +153,8 @@ This endpoint returns selected ETP's allocations grouped by country names. The r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2002 import InlineResponse2002
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -184,11 +188,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's country allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_country_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -244,7 +250,8 @@ This endpoint returns selected ETP's allocations grouped by currency. The respon
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2003 import InlineResponse2003
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -278,11 +285,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's currency allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_currency_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -338,7 +347,8 @@ List of allocations classified by a holding's economic development status (e.g. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2004 import InlineResponse2004
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -372,11 +382,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of allocations classified by a holding's economic development status.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_economic_development_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -432,7 +444,8 @@ This endpoint returns selected ETP's allocations grouped by exchanges. The respo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2005 import InlineResponse2005
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -466,11 +479,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's exchange allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_exchange_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -526,7 +541,8 @@ This endpoint returns selected ETP's allocations grouped by industry. The respon
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2006 import InlineResponse2006
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -560,11 +576,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's industry allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_industry_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -620,7 +638,8 @@ List of allocations classified by a holding's total market capitalization (e.g. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2007 import InlineResponse2007
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -654,11 +673,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of allocations classified by a holding's total market capitalization.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_market_capitalization_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -714,7 +735,8 @@ This endpoint returns selected ETP's allocations grouped by region names. The re
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2008 import InlineResponse2008
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -748,11 +770,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's region allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_region_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -808,7 +832,8 @@ This endpoint returns selected ETP's allocations grouped by sector names. The re
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response2009 import InlineResponse2009
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -842,11 +867,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's sector allocations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_allocation_sector_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -902,7 +929,8 @@ FactSet's proprietary analytical datapoints include ETP attributes specific to l
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20010 import InlineResponse20010
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -939,6 +967,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # FactSet proprietary analytics datapoints for ETPs.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_analytics_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -992,7 +1022,8 @@ FactSet calculates several proprietary portfolio statistics for ETPs including a
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20011 import InlineResponse20011
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1029,6 +1060,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # FactSet's portfolio statistics for ETPs.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_analytics_holdings_statistics_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1082,7 +1115,8 @@ FactSet calculates various proprietary fund rankings including unique scores, fu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20012 import InlineResponse20012
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1119,6 +1153,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # FactSet proprietary ETP rankings.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_analytics_score_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1172,7 +1208,8 @@ Various metrics of an ETP's liquidity including creation metrics, premium/discou
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20013 import InlineResponse20013
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1209,6 +1246,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Trade statistics for specific ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_analytics_trade_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1262,7 +1301,8 @@ An ETP has many unique characteristics specific to its composition that differen
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20014 import InlineResponse20014
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1299,6 +1339,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve basic characteristic information for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_characteristics_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1352,7 +1394,8 @@ List of ETP class broad categories.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20016 import InlineResponse20016
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1388,6 +1431,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # List of ETP class broad categories.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_class_category_broad_list(attributes=attributes)
         pprint(api_response)
 
@@ -1440,7 +1485,8 @@ List of ETP class focus categories.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20017 import InlineResponse20017
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1473,11 +1519,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of ETP class focus categories.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_class_category_focus_list(attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -1532,7 +1580,8 @@ List of ETP class niche categories.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20018 import InlineResponse20018
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1565,11 +1614,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of ETP class niche categories.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_class_category_niche_list(attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -1624,7 +1675,8 @@ List of ETP class geographies.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20019 import InlineResponse20019
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1660,6 +1712,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # List of ETP class geographies.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_class_geography_list(attributes=attributes)
         pprint(api_response)
 
@@ -1712,7 +1766,8 @@ ETP classification is divided into three categories: Asset Class, Geography, and
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20015 import InlineResponse20015
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1749,6 +1804,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an ETP's classification specific to asset class, geography, or investment strategy.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_class_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1802,7 +1859,8 @@ FactSet defines and maintains a proprietary list of competing companies based on
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20020 import InlineResponse20020
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1839,6 +1897,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # FactSet's proprietary list of competing companies.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_competitors_list_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1892,7 +1952,8 @@ Retrieve distribution-related details for a specific ETP including dividend and 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20021 import InlineResponse20021
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1929,6 +1990,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an ETP's current distribution details.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_distribution_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -1982,7 +2045,8 @@ Retrieve the amount invested or divested in a specific ETP over various time per
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20022 import InlineResponse20022
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2019,6 +2083,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an ETP's cash inflow/outflows for various time periods.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_fund_flows_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2072,7 +2138,8 @@ An ETP can be profiled by defining several common attributes such as issuer, fun
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response200 import InlineResponse200
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2109,6 +2176,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve basic profile information for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2162,7 +2231,8 @@ Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20023 import InlineResponse20023
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2199,11 +2269,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # This endpoint returns selected ETP's Growth of 10K calculated values.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_growth_of_ten_k_list_by_symbol(symbol, time_period=time_period, calculation_type=calculation_type, alignment=alignment, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -2262,7 +2334,8 @@ Retrieve an ETP's holdings information including security, shares held, and weig
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20024 import InlineResponse20024
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2296,11 +2369,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Holdings details for an individual ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_holdings_list_by_symbol(symbol, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -2356,7 +2431,8 @@ Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20025 import InlineResponse20025
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2393,6 +2469,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Market aggregate data for ETPs.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_market_aggregates_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2446,7 +2524,8 @@ Summary of ETP premium discount data.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20026 import InlineResponse20026
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2477,16 +2556,18 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     api_instance = factset_api.FactsetApi(api_client)
 
     symbol = "symbol_example" # str | Market symbol of ETP defined by FactSet.
-    time_period = "YTD" # str | Time frame of the data. (optional) (default to "YTD")
-    alignment = "quarter-end" # str | Indicates the reference point for the historical NAV and price values. (optional) (default to "quarter-end")
+    time_period = "YTD" # str | Time frame of the data. (optional) if omitted the server will use the default value of "YTD"
+    alignment = "quarter-end" # str | Indicates the reference point for the historical NAV and price values. (optional) if omitted the server will use the default value of "quarter-end"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Summary of ETP premium discount data.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_premium_discount_summary_list_by_symbol(symbol, time_period=time_period, alignment=alignment, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -2544,7 +2625,8 @@ Retrieve an ETP's historical NAV and shares outstanding for a specified time ran
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20027 import InlineResponse20027
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2581,6 +2663,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve historical ETP NAV values.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_price_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2634,7 +2718,8 @@ An ETP's total return data can be returned for various time frames including 1-m
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20028 import InlineResponse20028
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2665,13 +2750,15 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     api_instance = factset_api.FactsetApi(api_client)
 
     symbol = "symbol_example" # str | Market symbol of ETP defined by FactSet.
-    return_type = "price" # str | Return type. (optional) (default to "price")
+    return_type = "price" # str | Return type. (optional) if omitted the server will use the default value of "price"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Retrieve total return data for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_returns_get_by_symbol(symbol, return_type=return_type, attributes=attributes)
         pprint(api_response)
 
@@ -2726,7 +2813,8 @@ ETP's can be classified in many different ways including investment strategy, se
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20029 import InlineResponse20029
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2763,6 +2851,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve various classification details for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_strategy_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2816,7 +2906,8 @@ Retrieve the various segments assigned to a specific ETP. Segment data is used t
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20030 import InlineResponse20030
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2849,11 +2940,13 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Retrieve a list of ETP strategy segments.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_strategy_segment_list(attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -2908,7 +3001,8 @@ Retrieve details on a fund's structure including its type, investment style (act
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20031 import InlineResponse20031
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2945,6 +3039,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the basic structure information for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_structure_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -2998,7 +3094,8 @@ Retrieve various fee and tax related details on a specified ETP including expens
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20032 import InlineResponse20032
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -3035,6 +3132,8 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the tax and fee related information for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_taxes_and_fees_us_get_by_symbol(symbol, attributes=attributes)
         pprint(api_response)
 
@@ -3088,7 +3187,8 @@ Retrieve the historical NAV data and the respective fund flows and shares outsta
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api
-from fds.sdk.ETFProfileandPrices.model.inline_response20033 import InlineResponse20033
+from fds.sdk.ETFProfileandPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -3119,16 +3219,18 @@ with fds.sdk.ETFProfileandPrices.ApiClient(configuration) as api_client:
     api_instance = factset_api.FactsetApi(api_client)
 
     symbol = "symbol_example" # str | Market symbol of ETP defined by FactSet.
-    time_period = "1Y" # str | Time frame of the data. (optional) (default to "1Y")
+    time_period = "1Y" # str | Time frame of the data. (optional) if omitted the server will use the default value of "1Y"
     alignment = "day" # str | Indicates the reference point for the time series data. (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Retrieve historical NAV data for a specified ETP.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_factset_etf_time_series_list_by_symbol(symbol, time_period=time_period, alignment=alignment, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 

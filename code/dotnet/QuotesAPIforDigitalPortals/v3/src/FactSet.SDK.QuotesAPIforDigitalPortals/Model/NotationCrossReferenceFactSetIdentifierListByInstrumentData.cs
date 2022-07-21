@@ -40,7 +40,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="NotationCrossReferenceFactSetIdentifierListByInstrumentData" /> class.
         /// </summary>
         /// <param name="id">Identifier of an instrument. (required).</param>
-        public NotationCrossReferenceFactSetIdentifierListByInstrumentData(string id = default(string))
+        public NotationCrossReferenceFactSetIdentifierListByInstrumentData(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

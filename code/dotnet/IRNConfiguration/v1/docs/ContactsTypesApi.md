@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsTypesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsTypesApi(config);
+
             var body = "body_example";  // string | Contact type name
 
             try
@@ -139,6 +140,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsTypesApi(config);
+
             var contactTypeId = "contactTypeId_example";  // Guid | contactTypeId to delete associated record
 
             try
@@ -228,6 +230,7 @@ namespace Example
 
             var apiInstance = new ContactsTypesApi(config);
 
+
             try
             {
                 // Get list of the contact types configured in your group
@@ -309,6 +312,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsTypesApi(config);
+
             var contactTypeId = "contactTypeId_example";  // Guid | contactTypeId to update associated record
             var body = "body_example";  // string | Updated contact type name
 

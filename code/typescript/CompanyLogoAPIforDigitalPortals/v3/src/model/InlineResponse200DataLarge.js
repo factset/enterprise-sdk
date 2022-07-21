@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataLarge model module.
  * @module model/InlineResponse200DataLarge
- * @version 0.10.0
  */
 class InlineResponse200DataLarge {
     /**

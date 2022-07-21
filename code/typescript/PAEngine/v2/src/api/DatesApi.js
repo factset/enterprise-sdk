@@ -18,7 +18,6 @@ import DateParametersSummary from '../model/DateParametersSummary';
 /**
 * Dates service.
 * @module api/DatesApi
-* @version 0.8.2
 */
 export default class DatesApi {
 

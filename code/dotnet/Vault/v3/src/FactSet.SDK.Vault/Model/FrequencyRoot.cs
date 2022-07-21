@@ -42,7 +42,7 @@ namespace FactSet.SDK.Vault.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public FrequencyRoot(Dictionary<string, Frequency> data = default(Dictionary<string, Frequency>), Object meta = default(Object))
+        public FrequencyRoot(Dictionary<string, Frequency> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

@@ -41,7 +41,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject1(StockDividendListData data = default(StockDividendListData), StockDividendListMeta meta = default(StockDividendListMeta))
+        public InlineObject1(StockDividendListData data,StockDividendListMeta meta = default(StockDividendListMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

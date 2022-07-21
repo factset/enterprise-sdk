@@ -44,7 +44,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public NPOOptimizationParameters(NPOOptimizerStrategy strategy = default(NPOOptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public NPOOptimizationParameters(NPOOptimizerStrategy strategy, OptimizerOutputTypes outputTypes,OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization))
         {
             // to ensure "strategy" is required (not null)
             if (strategy == null) {

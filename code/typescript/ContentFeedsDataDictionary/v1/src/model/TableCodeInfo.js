@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TableCodeInfo model module.
  * @module model/TableCodeInfo
- * @version 0.20.0
  */
 class TableCodeInfo {
     /**

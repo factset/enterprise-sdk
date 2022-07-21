@@ -18,7 +18,6 @@ import PriceType from './PriceType';
 /**
  * The ImpliedVolatilityRequest model module.
  * @module model/ImpliedVolatilityRequest
- * @version 0.20.0
  */
 class ImpliedVolatilityRequest {
     /**

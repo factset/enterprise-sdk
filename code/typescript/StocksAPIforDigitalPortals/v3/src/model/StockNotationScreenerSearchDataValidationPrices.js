@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataValidationPricesPrevious from './StockNota
 /**
  * The StockNotationScreenerSearchDataValidationPrices model module.
  * @module model/StockNotationScreenerSearchDataValidationPrices
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataValidationPrices {
     /**

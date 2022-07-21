@@ -17,7 +17,6 @@ import InlineResponse20036Fsym from './InlineResponse20036Fsym';
 /**
  * The InlineResponse20036Data model module.
  * @module model/InlineResponse20036Data
- * @version 0.10.0
  */
 class InlineResponse20036Data {
     /**

@@ -20,7 +20,6 @@ import SpotsResponse from '../model/SpotsResponse';
 /**
 * Spots service.
 * @module api/SpotsApi
-* @version 0.20.0
 */
 export default class SpotsApi {
 

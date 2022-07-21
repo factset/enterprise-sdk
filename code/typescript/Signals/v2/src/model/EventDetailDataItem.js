@@ -18,7 +18,6 @@ import EventHeadlineDataItem from './EventHeadlineDataItem';
 /**
  * The EventDetailDataItem model module.
  * @module model/EventDetailDataItem
- * @version 0.20.0
  */
 class EventDetailDataItem {
     /**

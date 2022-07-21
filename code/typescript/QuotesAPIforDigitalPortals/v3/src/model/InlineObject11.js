@@ -18,7 +18,6 @@ import InstrumentCategoryListMeta from './InstrumentCategoryListMeta';
 /**
  * The InlineObject11 model module.
  * @module model/InlineObject11
- * @version 0.10.0
  */
 class InlineObject11 {
     /**

@@ -17,7 +17,6 @@ import InstrumentBenchmarkListDataFilter from './InstrumentBenchmarkListDataFilt
 /**
  * The InstrumentBenchmarkListData model module.
  * @module model/InstrumentBenchmarkListData
- * @version 0.9.2
  */
 class InstrumentBenchmarkListData {
     /**

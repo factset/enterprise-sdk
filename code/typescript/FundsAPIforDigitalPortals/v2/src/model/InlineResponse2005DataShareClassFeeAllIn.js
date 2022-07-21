@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeAllInCurrent from './InlineResponse200
 /**
  * The InlineResponse2005DataShareClassFeeAllIn model module.
  * @module model/InlineResponse2005DataShareClassFeeAllIn
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeAllIn {
     /**

@@ -17,7 +17,6 @@ import OptimizerInputsOptions from './OptimizerInputsOptions';
 /**
  * The OptimizerInputsMultiPeriodOptions model module.
  * @module model/OptimizerInputsMultiPeriodOptions
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodOptions {
     /**

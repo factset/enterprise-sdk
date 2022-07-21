@@ -25,7 +25,8 @@ This is the endpoint to check on the progress of a previously requested calculat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeAnalyticsBatcher
 from fds.sdk.FixedIncomeAnalyticsBatcher.api import fiab_calculations_api
-from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_status import FIABCalculationStatus
+from fds.sdk.FixedIncomeAnalyticsBatcher.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +60,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
 
     try:
         # Get FIAB calculation by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fiab_calculation_by_id(id)
         pprint(api_response)
 
@@ -118,7 +120,8 @@ This endpoints returns all FIAB calculation requests.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeAnalyticsBatcher
 from fds.sdk.FixedIncomeAnalyticsBatcher.api import fiab_calculations_api
-from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_status_summary import FIABCalculationStatusSummary
+from fds.sdk.FixedIncomeAnalyticsBatcher.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -151,6 +154,7 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
 
     try:
         # Get all FIAB calculation summaries
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_fiab_calculation_status_summaries()
         pprint(api_response)
 
@@ -206,7 +210,8 @@ This endpoint creates a new FIAB calculation.  This must be used first before ge
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeAnalyticsBatcher
 from fds.sdk.FixedIncomeAnalyticsBatcher.api import fiab_calculations_api
-from fds.sdk.FixedIncomeAnalyticsBatcher.model.fiab_calculation_parameters import FIABCalculationParameters
+from fds.sdk.FixedIncomeAnalyticsBatcher.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -251,7 +256,10 @@ with fds.sdk.FixedIncomeAnalyticsBatcher.ApiClient(configuration) as api_client:
 
     try:
         # Run FIAB calculation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.run_fiab_calculation(fiab_calculation_parameters=fiab_calculation_parameters)
+
     except fds.sdk.FixedIncomeAnalyticsBatcher.ApiException as e:
         print("Exception when calling FIABCalculationsApi->run_fiab_calculation: %s\n" % e)
 ```

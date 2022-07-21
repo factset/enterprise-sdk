@@ -26,7 +26,6 @@ import InlineResponse20012DataReportedKeyFiguresFirstFiscalYearReturnOnEquity fr
 /**
  * The InlineResponse20012DataReportedKeyFiguresThirdFiscalYear model module.
  * @module model/InlineResponse20012DataReportedKeyFiguresThirdFiscalYear
- * @version 0.10.0
  */
 class InlineResponse20012DataReportedKeyFiguresThirdFiscalYear {
     /**

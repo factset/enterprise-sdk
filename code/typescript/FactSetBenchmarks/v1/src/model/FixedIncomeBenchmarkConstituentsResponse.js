@@ -17,7 +17,6 @@ import FixedIncomeBenchmarkConstituent from './FixedIncomeBenchmarkConstituent';
 /**
  * The FixedIncomeBenchmarkConstituentsResponse model module.
  * @module model/FixedIncomeBenchmarkConstituentsResponse
- * @version 0.20.0
  */
 class FixedIncomeBenchmarkConstituentsResponse {
     /**

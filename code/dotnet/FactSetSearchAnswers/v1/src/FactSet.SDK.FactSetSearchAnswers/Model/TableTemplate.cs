@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="fdc3Context">fdc3Context.</param>
         /// <param name="applicationLinks">applicationLinks.</param>
         /// <param name="table">table.</param>
-        public TableTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), Table table = default(Table))
+        public TableTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), Table table = default(Table))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

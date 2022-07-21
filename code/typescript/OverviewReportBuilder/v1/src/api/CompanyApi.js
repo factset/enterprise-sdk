@@ -21,7 +21,6 @@ import StachTableResponse from '../model/StachTableResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.20.0
 */
 export default class CompanyApi {
 
@@ -243,9 +242,13 @@ export default class CompanyApi {
     /**
      * Transactions
      * @param {String} id Company ticker
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.transactionType Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.
+     * @param {module:model/String} opts.financingType Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StachTableResponse} and HTTP response
      */
-    transactionsGetWithHttpInfo(id) {
+    transactionsGetWithHttpInfo(id, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -255,7 +258,9 @@ export default class CompanyApi {
       let pathParams = {
       };
       let queryParams = {
-        'id': id
+        'id': id,
+        'transactionType': opts['transactionType'],
+        'financingType': opts['financingType']
       };
       let headerParams = {
       };
@@ -279,10 +284,13 @@ export default class CompanyApi {
     /**
      * Transactions
      * @param {String} id Company ticker
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.transactionType Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.
+     * @param {module:model/String} opts.financingType Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive
      * @return { Promise.< module:model/StachTableResponse > } a Promise, with data of type {@link module:model/StachTableResponse }
      */
-    transactionsGet(id) {
-      return this.transactionsGetWithHttpInfo(id)
+    transactionsGet(id, opts) {
+      return this.transactionsGetWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

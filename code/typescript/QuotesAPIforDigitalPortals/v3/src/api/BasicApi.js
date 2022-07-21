@@ -57,7 +57,6 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Basic service.
 * @module api/BasicApi
-* @version 0.10.0
 */
 export default class BasicApi {
 

@@ -41,7 +41,7 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="name">Name of watchlist (required).</param>
         /// <param name="id">Position id. (required).</param>
-        public WatchlistPositionDeleteData(string name = default(string), decimal id = default(decimal))
+        public WatchlistPositionDeleteData(string name, decimal id)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

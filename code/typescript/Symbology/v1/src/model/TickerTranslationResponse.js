@@ -17,7 +17,6 @@ import TickerTranslation from './TickerTranslation';
 /**
  * The TickerTranslationResponse model module.
  * @module model/TickerTranslationResponse
- * @version 0.8.2
  */
 class TickerTranslationResponse {
     /**

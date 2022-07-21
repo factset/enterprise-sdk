@@ -41,7 +41,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="name">Name of the portfolio. (required).</param>
         /// <param name="currency">currency.</param>
-        public PortfolioCreateData(string name = default(string), PortfolioCreateDataCurrency currency = default(PortfolioCreateDataCurrency))
+        public PortfolioCreateData(string name,PortfolioCreateDataCurrency currency = default(PortfolioCreateDataCurrency))
         {
             // to ensure "name" is required (not null)
             if (name == null) {

@@ -17,7 +17,6 @@ import InlineResponse2006DataPropertiesShareClassMinimumInvestmentInitial from '
 /**
  * The InlineResponse2006DataPropertiesShareClassMinimumInvestment model module.
  * @module model/InlineResponse2006DataPropertiesShareClassMinimumInvestment
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesShareClassMinimumInvestment {
     /**

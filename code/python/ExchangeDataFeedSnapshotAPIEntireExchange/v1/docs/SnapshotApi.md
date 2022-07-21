@@ -23,8 +23,8 @@ A service that provides access to Real Time or Delayed data snapped at hourly in
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange
 from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.api import snapshot_api
-from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.model.inline_response200 import InlineResponse200
-from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.model.error_messages import ErrorMessages
+from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,10 +59,12 @@ with fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.ApiClient(configuration) 
     end_date = dateutil_parser('1970-01-01').date() # date | YYYYMMDD (Choose between 1 and 4 previous trading days, greater than or equal to start date)
     start_time = "start_time_example" # str | HHMM (24 hour time EST)
     end_time = "end_time_example" # str | HHMM (24 hour time EST)
-    access = "DL" # str | Option to select from static, DL or RT data (optional) (default to "DL")
+    access = "DL" # str | Option to select from static, DL or RT data (optional) if omitted the server will use the default value of "DL"
 
     try:
         # Snapshot
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_v1_list_files(product, start_date, end_date, start_time, end_time, access=access)
         pprint(api_response)
 

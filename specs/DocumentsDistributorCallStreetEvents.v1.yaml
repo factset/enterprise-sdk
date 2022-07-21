@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Documents Distributor - CallStreet Events
-  version: 3.0.0
+  version: 1.0.0
   contact:
     name: FactSet Research Systems
   description: >-
@@ -64,6 +64,7 @@ paths:
                         trimmed: false
                         sampleRate: 22
                         bitrate: 32
+                        audioSourceId: 3256781
                     meta:
                       sort:
                         - '-startDate'
@@ -118,6 +119,8 @@ paths:
                           - true/false
                         uploadTime:
                           - integer from -1 to -168
+                        audioSourceId:
+                          - integer
         '401':
           description: Unauthorized
           content:
@@ -210,6 +213,16 @@ paths:
           description: >-
             Unique identifier for fetching the audio file for an event. The same
             ID is used for the transcript of the same event
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: audioSourceId
+          description: >-
+            Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different
+            source (phone or webcast or vendor or replay). One ReportID can have
+            multiple AudioSource ids.
         - schema:
             type: string
           in: query
@@ -1849,6 +1862,13 @@ components:
                 description: >-
                   The total number of bits of information stored per second of
                   sound in Kbps
+              audioSourceId:
+                type: integer
+                description: >-
+                  Unique ID for an Internal recording specific to reportID. For
+                  example, ReportID X would have multiple recordings from
+                  different source (Phone or Webcast or Vendor or Replay). One
+                  ReportID can have multiple AudioSource ids.
         meta:
           type: object
           properties:
@@ -1950,6 +1970,10 @@ components:
                   items:
                     type: string
                 uploadTime:
+                  type: array
+                  items:
+                    type: string
+                audioSourceId:
                   type: array
                   items:
                     type: string

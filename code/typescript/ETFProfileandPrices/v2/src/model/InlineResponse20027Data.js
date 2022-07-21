@@ -18,7 +18,6 @@ import InlineResponse20027DataSharesOutstanding from './InlineResponse20027DataS
 /**
  * The InlineResponse20027Data model module.
  * @module model/InlineResponse20027Data
- * @version 0.10.0
  */
 class InlineResponse20027Data {
     /**

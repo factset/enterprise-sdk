@@ -20,7 +20,6 @@ import SfdrPaiResponse from '../model/SfdrPaiResponse';
 /**
 * SFDR service.
 * @module api/SFDRApi
-* @version 0.20.0
 */
 export default class SFDRApi {
 

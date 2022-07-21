@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean from './Sto
 /**
  * The StockNotationScreenerSearchDataRatios1PriceBookValue model module.
  * @module model/StockNotationScreenerSearchDataRatios1PriceBookValue
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatios1PriceBookValue {
     /**

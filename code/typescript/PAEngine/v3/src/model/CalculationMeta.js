@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CalculationMeta model module.
  * @module model/CalculationMeta
- * @version 0.20.0
  */
 class CalculationMeta {
     /**

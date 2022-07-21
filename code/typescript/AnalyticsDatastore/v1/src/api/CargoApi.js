@@ -17,7 +17,6 @@ import ApiClient from "../ApiClient";
 /**
 * Cargo service.
 * @module api/CargoApi
-* @version 0.20.0
 */
 export default class CargoApi {
 

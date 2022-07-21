@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRecommendationConsensus model module.
  * @module model/StockNotationScreenerSearchDataRecommendationConsensus
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRecommendationConsensus {
     /**

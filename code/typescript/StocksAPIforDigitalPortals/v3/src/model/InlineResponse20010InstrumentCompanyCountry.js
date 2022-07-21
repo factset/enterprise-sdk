@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20010InstrumentCompanyCountry model module.
  * @module model/InlineResponse20010InstrumentCompanyCountry
- * @version 0.10.0
  */
 class InlineResponse20010InstrumentCompanyCountry {
     /**

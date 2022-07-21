@@ -22,7 +22,6 @@ import InlineResponse200Ratios from './InlineResponse200Ratios';
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.10.0
  */
 class InlineResponse200Data {
     /**

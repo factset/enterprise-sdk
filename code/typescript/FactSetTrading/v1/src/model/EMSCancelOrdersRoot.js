@@ -17,7 +17,6 @@ import EMSCancelOrders from './EMSCancelOrders';
 /**
  * The EMSCancelOrdersRoot model module.
  * @module model/EMSCancelOrdersRoot
- * @version 0.20.0
  */
 class EMSCancelOrdersRoot {
     /**

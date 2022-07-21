@@ -17,7 +17,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsConstraintGroup model module.
  * @module model/OptimizerInputsConstraintGroup
- * @version 0.20.0
  */
 class OptimizerInputsConstraintGroup {
     /**

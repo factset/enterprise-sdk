@@ -26,7 +26,6 @@ import InlineResponse2004FundStrategy from './InlineResponse2004FundStrategy';
 /**
  * The InlineResponse2004Fund model module.
  * @module model/InlineResponse2004Fund
- * @version 0.10.0
  */
 class InlineResponse2004Fund {
     /**

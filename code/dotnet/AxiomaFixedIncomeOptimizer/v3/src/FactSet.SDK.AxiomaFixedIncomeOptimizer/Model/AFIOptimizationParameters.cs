@@ -44,7 +44,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public AFIOptimizationParameters(AFIOptimizerStrategy strategy = default(AFIOptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public AFIOptimizationParameters(AFIOptimizerStrategy strategy, OptimizerOutputTypes outputTypes,OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization))
         {
             // to ensure "strategy" is required (not null)
             if (strategy == null) {

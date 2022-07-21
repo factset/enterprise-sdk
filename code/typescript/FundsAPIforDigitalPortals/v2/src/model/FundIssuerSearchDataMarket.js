@@ -18,7 +18,6 @@ import FundIssuerSearchDataMarketRestrict from './FundIssuerSearchDataMarketRest
 /**
  * The FundIssuerSearchDataMarket model module.
  * @module model/FundIssuerSearchDataMarket
- * @version 0.10.0
  */
 class FundIssuerSearchDataMarket {
     /**

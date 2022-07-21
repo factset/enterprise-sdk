@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataFundComplianceAnd from './FundNotationScree
 /**
  * The FundNotationScreenerSearchDataFundComplianceOr model module.
  * @module model/FundNotationScreenerSearchDataFundComplianceOr
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundComplianceOr {
     /**

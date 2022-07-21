@@ -42,7 +42,7 @@ namespace FactSet.SDK.Symbology.Model
         /// </summary>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. (required).</param>
         /// <param name="tickerType">Controls the Ticker Type returned.   * **REGION** &#x3D; Ticker-Regional   * **EXCHANGE** &#x3D; Ticker-Exchange  (required).</param>
-        public TickerTranslationRequest(List<string> ids = default(List<string>), string tickerType = default(string))
+        public TickerTranslationRequest(List<string> ids, string tickerType)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

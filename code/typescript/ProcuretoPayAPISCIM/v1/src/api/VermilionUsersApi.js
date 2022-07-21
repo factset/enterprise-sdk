@@ -20,7 +20,6 @@ import VermilionUserResource from '../model/VermilionUserResource';
 /**
 * VermilionUsers service.
 * @module api/VermilionUsersApi
-* @version 0.20.1
 */
 export default class VermilionUsersApi {
 

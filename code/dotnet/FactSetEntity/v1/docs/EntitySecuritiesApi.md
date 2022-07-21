@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntitySecuritiesApi(config);
+
             var ids = new List<string>(); // List<string> | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
             var securityType = EQ;  // string | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional)  (default to EQ)
 
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntitySecuritiesApi(config);
+
             var entitySecuritiesRequest = new EntitySecuritiesRequest(); // EntitySecuritiesRequest | Request Body to request a list of Entity Security objects.
 
             try

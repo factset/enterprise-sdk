@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="startDate">The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to the day prior to today&#39;s previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the &#x60;priceFirstDate&#x60; found within the /summary endpoint. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="dividendAdjust">dividendAdjust.</param>
-        public ReturnsRangeRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), DividendAdjust dividendAdjust = default(DividendAdjust))
+        public ReturnsRangeRequest(List<string> ids,string startDate = default(string), string endDate = default(string), DividendAdjust dividendAdjust = default(DividendAdjust))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -26,6 +26,8 @@ Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for the mentioned Sym
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import view_api
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,7 +71,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     sort_field_order = "ASC" # str | Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.get_database(path, symbol=symbol, date=date, filter_fields=filter_fields, filter_ops=filter_ops, filter_values=filter_values, filter_dates_ops=filter_dates_ops, filter_dates_values=filter_dates_values, filter_symbols_ops=filter_symbols_ops, filter_symbols_values=filter_symbols_values, sort_field_name=sort_field_name, sort_field_order=sort_field_order)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ViewApi->get_database: %s\n" % e)
 ```
@@ -137,7 +142,8 @@ Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import view_api
-from fds.sdk.OFDB.model.dates import Dates
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -175,6 +181,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     order_by = "asc" # str | Returns dates in the mentioned sorted order, should provide asc or desc (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.v1_database_path_dates_get(path, between=between, equals=equals, before=before, after=after, order_by=order_by)
         pprint(api_response)
 
@@ -239,7 +247,8 @@ Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import view_api
-from fds.sdk.OFDB.model.fields import Fields
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -272,6 +281,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     path = "path_example" # str | Encode database path
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.v1_database_path_fields_get(path)
         pprint(api_response)
 
@@ -331,7 +341,8 @@ Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import view_api
-from fds.sdk.OFDB.model.symbols import Symbols
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -369,6 +380,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     order_by = "asc" # str | Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.v1_database_path_symbols_get(path, starts_with=starts_with, ends_with=ends_with, contains=contains, equals=equals, order_by=order_by)
         pprint(api_response)
 

@@ -17,7 +17,6 @@ import EMSOrderMetadata from './EMSOrderMetadata';
 /**
  * The EMSOrdersCreateResponse model module.
  * @module model/EMSOrdersCreateResponse
- * @version 0.20.0
  */
 class EMSOrdersCreateResponse {
     /**

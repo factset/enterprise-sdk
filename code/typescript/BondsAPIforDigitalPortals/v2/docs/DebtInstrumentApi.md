@@ -46,10 +46,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DebtInstrumentApi();
-const id = "id_example"; // String | Identifier of the instrument.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -72,9 +72,9 @@ apiInstance.getDebtInstrumentGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -124,7 +124,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DebtInstrumentApi();
-const id = "id_example"; // String | Identifier of a notation.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -149,7 +149,7 @@ apiInstance.getDebtInstrumentKeyFiguresNotationGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -201,7 +201,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new DebtInstrumentApi();
 const opts = {
-  'body': new bondsapifordigitalportals.InlineObject() // InlineObject | 
+  'inlineObject': new bondsapifordigitalportals.InlineObject() // InlineObject | 
 };
 
 // Call api endpoint
@@ -224,7 +224,7 @@ apiInstance.postDebtInstrumentIssuerSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 
@@ -275,7 +275,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new DebtInstrumentApi();
 const opts = {
-  'body': new bondsapifordigitalportals.InlineObject1() // InlineObject1 | 
+  'inlineObject1': new bondsapifordigitalportals.InlineObject1() // InlineObject1 | 
 };
 
 // Call api endpoint
@@ -298,7 +298,7 @@ apiInstance.postDebtInstrumentNotationScreenerSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 
@@ -349,7 +349,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new DebtInstrumentApi();
 const opts = {
-  'body': new bondsapifordigitalportals.InlineObject2() // InlineObject2 | 
+  'inlineObject2': new bondsapifordigitalportals.InlineObject2() // InlineObject2 | 
 };
 
 // Call api endpoint
@@ -372,7 +372,7 @@ apiInstance.postDebtInstrumentNotationScreenerValueRangesGet(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 

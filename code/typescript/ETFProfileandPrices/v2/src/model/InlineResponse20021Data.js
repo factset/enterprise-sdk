@@ -18,7 +18,6 @@ import InlineResponse20021DataDividend from './InlineResponse20021DataDividend';
 /**
  * The InlineResponse20021Data model module.
  * @module model/InlineResponse20021Data
- * @version 0.10.0
  */
 class InlineResponse20021Data {
     /**

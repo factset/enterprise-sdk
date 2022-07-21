@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Data is available on a Fical Annual periodicity, but updated Daily. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">Currency code for adjusting the revenue data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public CountryRequest(List<string> ids = default(List<string>), List<string> countryIds = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string))
+        public CountryRequest(List<string> ids,List<string> countryIds = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

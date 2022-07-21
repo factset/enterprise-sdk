@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassLifeCycleIssue from './InlineResponse2005
 /**
  * The InlineResponse2005DataShareClassLifeCycle model module.
  * @module model/InlineResponse2005DataShareClassLifeCycle
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassLifeCycle {
     /**

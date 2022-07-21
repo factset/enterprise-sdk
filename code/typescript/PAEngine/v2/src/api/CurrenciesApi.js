@@ -18,7 +18,6 @@ import Currency from '../model/Currency';
 /**
 * Currencies service.
 * @module api/CurrenciesApi
-* @version 0.8.2
 */
 export default class CurrenciesApi {
 

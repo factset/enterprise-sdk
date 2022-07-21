@@ -40,7 +40,7 @@ namespace FactSet.SDK.FundsAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="OffsetBasedPaginationOutputObjectWithoutTotal" /> class.
         /// </summary>
         /// <param name="hasNext">Flag indicating that a subsequent request with the same parameters, except that the parameter &#x60;pagination.offset&#x60; is incremented by &#x60;pagination.limit&#x60;, would yield additional results. (required).</param>
-        public OffsetBasedPaginationOutputObjectWithoutTotal(bool hasNext = default(bool))
+        public OffsetBasedPaginationOutputObjectWithoutTotal(bool hasNext)
         {
             this.HasNext = hasNext;
         }

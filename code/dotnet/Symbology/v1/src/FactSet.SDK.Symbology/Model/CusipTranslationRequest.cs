@@ -42,7 +42,7 @@ namespace FactSet.SDK.Symbology.Model
         /// </summary>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. (required).</param>
         /// <param name="asOfDate">As-Of Date for historical symbol request in YYYY-MM-DD format..</param>
-        public CusipTranslationRequest(List<string> ids = default(List<string>), string asOfDate = default(string))
+        public CusipTranslationRequest(List<string> ids,string asOfDate = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

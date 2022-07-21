@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ViewApi(config);
+
             var path = "path_example";  // string | Encode database path
             var symbol = "symbol_example";  // string | Returns data for the symbol mentioned. e.g:sym1 (optional) 
             var date = "date_example";  // string | Return data for the specific date or range of dates mentioned.e.g:[date1,date2] (optional) 
@@ -168,6 +169,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ViewApi(config);
+
             var path = "path_example";  // string | Encode database path
             var between = "between_example";  // string | Returns list of dates which are between [start,end], dates should be in the respective order of start and end (optional) 
             var equals = "equals_example";  // string | Returns the date which matches given date (optional) 
@@ -272,6 +274,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ViewApi(config);
+
             var path = "path_example";  // string | Encode database path
 
             try
@@ -366,6 +369,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ViewApi(config);
+
             var path = "path_example";  // string | Encode database path
             var startsWith = "startsWith_example";  // string | Returns list of symbols which starts with mentioned string (optional) 
             var endsWith = "endsWith_example";  // string | Returns list of symbols which ends with mentioned string (optional) 

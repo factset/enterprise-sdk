@@ -17,7 +17,6 @@ import OptimizerInputsDerivativeFutureEComputationMethodEnum from './OptimizerIn
 /**
  * The OptimizerInputsDerivativeFuture model module.
  * @module model/OptimizerInputsDerivativeFuture
- * @version 0.20.0
  */
 class OptimizerInputsDerivativeFuture {
     /**

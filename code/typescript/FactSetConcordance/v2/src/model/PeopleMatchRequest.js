@@ -17,7 +17,6 @@ import PeopleMatchRequestInput from './PeopleMatchRequestInput';
 /**
  * The PeopleMatchRequest model module.
  * @module model/PeopleMatchRequest
- * @version 0.20.1
  */
 class PeopleMatchRequest {
     /**

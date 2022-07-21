@@ -7,7 +7,6 @@ The `result` attribute in the Time-Series Non-Flattened Response Object will be 
 ## oneOf schemas
 * [Double](Double.md)
 * [Integer](Integer.md)
-* [LocalDate](LocalDate.md)
 * [String](String.md)
 
 NOTE: this class is nullable.
@@ -18,7 +17,6 @@ NOTE: this class is nullable.
 import com.factset.sdk.Formula.models.TimeSeriesScalarValue;
 import com.factset.sdk.Formula.models.Double;
 import com.factset.sdk.Formula.models.Integer;
-import com.factset.sdk.Formula.models.LocalDate;
 import com.factset.sdk.Formula.models.String;
 
 public class Example {
@@ -38,13 +36,6 @@ public class Example {
         exampleTimeSeriesScalarValue.setActualInstance(exampleInteger);
         // to get back the Integer set earlier
         Integer testInteger = (Integer) exampleTimeSeriesScalarValue.getActualInstance();
-
-        // create a new LocalDate
-        LocalDate exampleLocalDate = new LocalDate();
-        // set TimeSeriesScalarValue to LocalDate
-        exampleTimeSeriesScalarValue.setActualInstance(exampleLocalDate);
-        // to get back the LocalDate set earlier
-        LocalDate testLocalDate = (LocalDate) exampleTimeSeriesScalarValue.getActualInstance();
 
         // create a new String
         String exampleString = new String();

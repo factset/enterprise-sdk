@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SfdrPaiRequest model module.
  * @module model/SfdrPaiRequest
- * @version 0.20.0
  */
 class SfdrPaiRequest {
     /**

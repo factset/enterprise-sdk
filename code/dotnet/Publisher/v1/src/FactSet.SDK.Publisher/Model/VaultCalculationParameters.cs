@@ -45,7 +45,7 @@ namespace FactSet.SDK.Publisher.Model
         /// <param name="dates">dates.</param>
         /// <param name="configid">Vault Configuration identifier. (required).</param>
         /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS..</param>
-        public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string), string componentdetail = default(string))
+        public VaultCalculationParameters(string componentid, VaultIdentifier account, string configid,VaultDateParameters dates = default(VaultDateParameters), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
             if (componentid == null) {

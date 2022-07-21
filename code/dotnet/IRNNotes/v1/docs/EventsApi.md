@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNNotes.Api.EventsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var startDate = "startDate_example";  // string | StartDate
             var endDate = "endDate_example";  // string | EndDate (optional) 
             var types = new List<string>(); // List<string> | Set of event types to filter on (optional) 
@@ -141,6 +142,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var noteId = "noteId_example";  // Guid | Note Id
 
             try
@@ -229,6 +231,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var noteId = "noteId_example";  // Guid | Note Id
             var recordEventId = "recordEventId_example";  // Guid | Record Event Id
 

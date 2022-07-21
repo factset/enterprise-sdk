@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="tableHeaders">tableHeaders.</param>
         /// <param name="tableRows">tableRows (required).</param>
         /// <param name="tableFooters">tableFooters.</param>
-        public Table(List<string> tableHeaders = default(List<string>), List<List<string>> tableRows = default(List<List<string>>), List<string> tableFooters = default(List<string>))
+        public Table(List<List<string>> tableRows,List<string> tableHeaders = default(List<string>), List<string> tableFooters = default(List<string>))
         {
             // to ensure "tableRows" is required (not null)
             if (tableRows == null) {

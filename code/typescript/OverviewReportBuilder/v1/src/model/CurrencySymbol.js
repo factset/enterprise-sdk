@@ -17,7 +17,6 @@ import CurrencySymbolCurrencySymbol from './CurrencySymbolCurrencySymbol';
 /**
  * The CurrencySymbol model module.
  * @module model/CurrencySymbol
- * @version 0.20.0
  */
 class CurrencySymbol {
     /**

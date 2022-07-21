@@ -19,7 +19,6 @@ import InlineResponse2004ReportedKeyFiguresThirdFiscalYear from './InlineRespons
 /**
  * The InlineResponse2004ReportedKeyFigures model module.
  * @module model/InlineResponse2004ReportedKeyFigures
- * @version 0.9.2
  */
 class InlineResponse2004ReportedKeyFigures {
     /**

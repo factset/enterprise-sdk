@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="periodicity">periodicity.</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="statistic">statistic.</param>
-        public SurpriseRequest(List<string> ids = default(List<string>), List<string> metrics = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), PeriodicitySurprise periodicity = default(PeriodicitySurprise), string currency = default(string), Statistic statistic = default(Statistic))
+        public SurpriseRequest(List<string> ids, List<string> metrics,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), PeriodicitySurprise periodicity = default(PeriodicitySurprise), string currency = default(string), Statistic statistic = default(Statistic))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

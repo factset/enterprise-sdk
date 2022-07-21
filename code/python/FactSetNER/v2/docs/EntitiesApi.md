@@ -23,8 +23,8 @@ Extract named entities from document text.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetNER
 from fds.sdk.FactSetNER.api import entities_api
-from fds.sdk.FactSetNER.model.response import Response
-from fds.sdk.FactSetNER.model.input import Input
+from fds.sdk.FactSetNER.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +61,7 @@ with fds.sdk.FactSetNER.ApiClient(configuration) as api_client:
     ) # Input | 
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_entities_entities(payload)
         pprint(api_response)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20011InstrumentIndustryClassificationRbicsLevel1 model module.
  * @module model/InlineResponse20011InstrumentIndustryClassificationRbicsLevel1
- * @version 0.10.0
  */
 class InlineResponse20011InstrumentIndustryClassificationRbicsLevel1 {
     /**

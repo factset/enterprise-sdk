@@ -20,7 +20,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPLimitTailRiskConstraint model module.
  * @module model/OptimizerInputsMPLimitTailRiskConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPLimitTailRiskConstraint {
     /**

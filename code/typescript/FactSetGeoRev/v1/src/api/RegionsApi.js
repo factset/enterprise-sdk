@@ -20,7 +20,6 @@ import RegionResponse from '../model/RegionResponse';
 /**
 * Regions service.
 * @module api/RegionsApi
-* @version 0.20.0
 */
 export default class RegionsApi {
 

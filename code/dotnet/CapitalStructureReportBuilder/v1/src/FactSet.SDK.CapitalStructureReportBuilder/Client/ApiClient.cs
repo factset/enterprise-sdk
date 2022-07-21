@@ -95,6 +95,11 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Client
         /// <returns>Object representation of the JSON string.</returns>
         internal object Deserialize(IRestResponse response, Type type)
         {
+            if (!response.IsSuccessful)
+            {
+                throw new ApiException((int) response.StatusCode, response.Content);
+            }
+
             if (type == typeof(byte[])) // return byte array
             {
                 return response.RawBytes;

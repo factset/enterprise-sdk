@@ -26,8 +26,8 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). <p>NOTE -
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import fund_flows__aum_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.aum_response import AumResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,12 +60,14 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    frequency = "M" # str | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional) (default to "M")
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
-    data_type = "ROLL" # str | The Data Type of the NAV expressed as Raw or Rolled values. (optional) (default to "ROLL")
+    frequency = "M" # str | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional) if omitted the server will use the default value of "M"
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
+    data_type = "ROLL" # str | The Data Type of the NAV expressed as Raw or Rolled values. (optional) if omitted the server will use the default value of "ROLL"
 
     try:
         # Get Fund AUM for a requested date range and list of ids
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_funds_aum(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, data_type=data_type)
         pprint(api_response)
 
@@ -128,9 +130,8 @@ Get the Fund Level or Share Class Level Assets Under Management (AUM). <p>NOTE -
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import fund_flows__aum_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.aum_response import AumResponse
-from fds.sdk.FactSetFunds.model.aum_request import AumRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,6 +172,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get Fund AUM for a requested date range and large list of ids
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_aum_for_list(aum_request)
         pprint(api_response)
 
@@ -228,8 +230,8 @@ Get the Fund Flows. One-day fund flows are calculated by subtracting the shares 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import fund_flows__aum_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.flows_response import FlowsResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -262,11 +264,13 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) (default to "M")
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
+    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) if omitted the server will use the default value of "M"
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
         # Get Fund Flows for a requested date range and list of ids
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_funds_flows(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency)
         pprint(api_response)
 
@@ -328,9 +332,8 @@ Get the Fund Flows. One-day fund flows are calculated by subtracting the shares 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import fund_flows__aum_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.flows_request import FlowsRequest
-from fds.sdk.FactSetFunds.model.flows_response import FlowsResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -370,6 +373,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get Fund Flows for a requested date range and large list of ids
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_flows_for_list(flows_request)
         pprint(api_response)
 

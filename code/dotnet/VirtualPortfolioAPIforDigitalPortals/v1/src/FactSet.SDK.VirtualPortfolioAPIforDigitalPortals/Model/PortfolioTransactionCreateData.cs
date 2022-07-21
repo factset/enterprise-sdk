@@ -88,7 +88,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <param name="charges">Charges accrued in portfolio‘s base currency..</param>
         /// <param name="exchangeRate">The exchange rate between the notation&#39;s currency and the portfolio currency..</param>
         /// <param name="parentTransaction">parentTransaction.</param>
-        public PortfolioTransactionCreateData(string id = default(string), TypeEnum type = default(TypeEnum), PortfolioTransactionCreateDataNotation notation = default(PortfolioTransactionCreateDataNotation), string time = default(string), decimal numberShares = default(decimal), decimal price = default(decimal), decimal charges = default(decimal), decimal exchangeRate = default(decimal), PortfolioTransactionCreateDataParentTransaction parentTransaction = default(PortfolioTransactionCreateDataParentTransaction))
+        public PortfolioTransactionCreateData(string id, TypeEnum type, PortfolioTransactionCreateDataNotation notation, string time, decimal numberShares, decimal price,decimal charges = default(decimal), decimal exchangeRate = default(decimal), PortfolioTransactionCreateDataParentTransaction parentTransaction = default(PortfolioTransactionCreateDataParentTransaction))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

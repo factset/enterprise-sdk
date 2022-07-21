@@ -226,12 +226,13 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.
         /// </summary>
         /// <value>The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.</value>
-        [DataMember(Name = "securityType", EmitDefaultValue = false)]
+        [DataMember(Name = "securityType", EmitDefaultValue = true)]
         public SecurityTypeEnum? SecurityType { get; set; }
         /// <summary>
         /// Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.
         /// </summary>
         /// <value>Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
         public enum ActiveFlagEnum
         {
             /// <summary>
@@ -251,7 +252,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.
         /// </summary>
         /// <value>Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.</value>
-        [DataMember(Name = "activeFlag", EmitDefaultValue = false)]
+        [DataMember(Name = "activeFlag", EmitDefaultValue = true)]
         public ActiveFlagEnum? ActiveFlag { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EntitySecurities" /> class.
@@ -286,56 +287,56 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// FactSet Ultimate Parent ID of the Requested Security ID
         /// </summary>
         /// <value>FactSet Ultimate Parent ID of the Requested Security ID</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// FactSet Security ID (-S).
         /// </summary>
         /// <value>FactSet Security ID (-S).</value>
-        [DataMember(Name = "fsymSecurityId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymSecurityId", EmitDefaultValue = true)]
         public string FsymSecurityId { get; set; }
 
         /// <summary>
         /// FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.
         /// </summary>
         /// <value>FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.</value>
-        [DataMember(Name = "fsymListingId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymListingId", EmitDefaultValue = true)]
         public string FsymListingId { get; set; }
 
         /// <summary>
         /// The securities primary listing exchange.
         /// </summary>
         /// <value>The securities primary listing exchange.</value>
-        [DataMember(Name = "listingExchange", EmitDefaultValue = false)]
+        [DataMember(Name = "listingExchange", EmitDefaultValue = true)]
         public string ListingExchange { get; set; }
 
         /// <summary>
         /// Security name
         /// </summary>
         /// <value>Security name</value>
-        [DataMember(Name = "securityName", EmitDefaultValue = false)]
+        [DataMember(Name = "securityName", EmitDefaultValue = true)]
         public string SecurityName { get; set; }
 
         /// <summary>
         /// Unique FactSet-generated identifier representing an entity.
         /// </summary>
         /// <value>Unique FactSet-generated identifier representing an entity.</value>
-        [DataMember(Name = "fsymEntityId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymEntityId", EmitDefaultValue = true)]
         public string FsymEntityId { get; set; }
 
         /// <summary>
         /// The security&#39;s ticker-exchange, representing the listing exchange symbol.
         /// </summary>
         /// <value>The security&#39;s ticker-exchange, representing the listing exchange symbol.</value>
-        [DataMember(Name = "fsymTickerExchange", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymTickerExchange", EmitDefaultValue = true)]
         public string FsymTickerExchange { get; set; }
 
         /// <summary>
         /// The security&#39;s regional ticker.
         /// </summary>
         /// <value>The security&#39;s regional ticker.</value>
-        [DataMember(Name = "fsymTickerRegion", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymTickerRegion", EmitDefaultValue = true)]
         public string FsymTickerRegion { get; set; }
 
         /// <summary>

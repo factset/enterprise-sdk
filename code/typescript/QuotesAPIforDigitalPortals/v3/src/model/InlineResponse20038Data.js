@@ -17,7 +17,6 @@ import InlineResponse20038DataCategories from './InlineResponse20038DataCategori
 /**
  * The InlineResponse20038Data model module.
  * @module model/InlineResponse20038Data
- * @version 0.10.0
  */
 class InlineResponse20038Data {
     /**

@@ -19,7 +19,6 @@ import InlineResponse20072DataPerformance from './InlineResponse20072DataPerform
 /**
  * The InlineResponse20074Data model module.
  * @module model/InlineResponse20074Data
- * @version 0.10.0
  */
 class InlineResponse20074Data {
     /**

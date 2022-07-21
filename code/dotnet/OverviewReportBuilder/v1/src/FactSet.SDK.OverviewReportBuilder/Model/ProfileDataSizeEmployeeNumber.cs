@@ -40,7 +40,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// Initializes a new instance of the <see cref="ProfileDataSizeEmployeeNumber" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        public ProfileDataSizeEmployeeNumber(decimal? value = default(decimal?))
+        public ProfileDataSizeEmployeeNumber(decimal? value)
         {
             // to ensure "value" is required (not null)
             if (value == null) {

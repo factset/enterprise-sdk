@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.AnalyticsDatastore",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{9ae8cc41-9377-5429-8572-198214c5bd21}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/AnalyticsDatastore/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/AnalyticsDatastore/0.21.0",
   "files": {
     "LICENSE": {}
   },

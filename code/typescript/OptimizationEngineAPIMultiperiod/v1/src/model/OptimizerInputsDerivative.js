@@ -17,7 +17,6 @@ import OptimizerInputsDerivativeFuture from './OptimizerInputsDerivativeFuture';
 /**
  * The OptimizerInputsDerivative model module.
  * @module model/OptimizerInputsDerivative
- * @version 0.20.0
  */
 class OptimizerInputsDerivative {
     /**

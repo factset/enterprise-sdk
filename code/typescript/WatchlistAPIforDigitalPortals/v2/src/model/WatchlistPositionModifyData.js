@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The WatchlistPositionModifyData model module.
  * @module model/WatchlistPositionModifyData
- * @version 0.9.2
  */
 class WatchlistPositionModifyData {
     /**

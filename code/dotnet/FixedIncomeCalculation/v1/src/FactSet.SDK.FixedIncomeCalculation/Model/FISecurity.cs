@@ -75,7 +75,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlementDate = default(string), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(string settlementDate, string calcFromMethod, double calcFromValue, string symbol,double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string discountCurve = default(string))
         {
             // to ensure "settlementDate" is required (not null)
             if (settlementDate == null) {

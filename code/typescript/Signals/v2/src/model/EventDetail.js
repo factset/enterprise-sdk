@@ -19,7 +19,6 @@ import EventMeta from './EventMeta';
 /**
  * The EventDetail model module.
  * @module model/EventDetail
- * @version 0.20.0
  */
 class EventDetail {
     /**

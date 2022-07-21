@@ -17,7 +17,6 @@ import InlineResponse20034DataCategories from './InlineResponse20034DataCategori
 /**
  * The InlineResponse20034Data model module.
  * @module model/InlineResponse20034Data
- * @version 0.9.2
  */
 class InlineResponse20034Data {
     /**

@@ -28,7 +28,6 @@ import InlineResponse2005DataShareClassFeeSwitching from './InlineResponse2005Da
 /**
  * The InlineResponse2005DataShareClassFee model module.
  * @module model/InlineResponse2005DataShareClassFee
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFee {
     /**

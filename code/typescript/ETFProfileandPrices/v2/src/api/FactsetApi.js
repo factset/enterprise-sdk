@@ -51,7 +51,6 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Factset service.
 * @module api/FactsetApi
-* @version 0.10.0
 */
 export default class FactsetApi {
 

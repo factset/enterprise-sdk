@@ -17,7 +17,6 @@ import Calendar from './Calendar';
 /**
  * The SnapshotRequest model module.
  * @module model/SnapshotRequest
- * @version 0.20.0
  */
 class SnapshotRequest {
     /**

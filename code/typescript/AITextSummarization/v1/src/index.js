@@ -49,7 +49,6 @@ import DefaultApi from './api/DefaultApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.1
 */
 export {
     /**

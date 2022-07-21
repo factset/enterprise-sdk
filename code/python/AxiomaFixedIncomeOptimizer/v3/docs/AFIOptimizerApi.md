@@ -28,7 +28,8 @@ This is the endpoint to cancel a previously submitted optimization.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +63,9 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Cancel AFI optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_optimization_by_id(id)
+
     except fds.sdk.AxiomaFixedIncomeOptimizer.ApiException as e:
         print("Exception when calling AFIOptimizerApi->cancel_optimization_by_id: %s\n" % e)
 ```
@@ -118,8 +121,8 @@ This is the endpoint that returns the optimization parameters passed for an opti
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get AFI optimization parameters by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_parameters(id)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ This is the endpoint to get the result of a previously requested optimization.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get AFI optimization result by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_result(id)
         pprint(api_response)
 
@@ -304,8 +309,8 @@ This is the endpoint to check on the progress of a previously requested optimiza
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -339,6 +344,7 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get AFI optimization status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_status_by_id(id)
         pprint(api_response)
 
@@ -398,10 +404,8 @@ This endpoint creates and runs AFI optimization specified in the POST body param
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.calculation_info_root import CalculationInfoRoot
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -485,6 +489,8 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Create and Run AFI optimization
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,
@@ -552,10 +558,8 @@ This endpoint updates and run the AFI optimization specified in the PUT body par
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaFixedIncomeOptimizer
 from fds.sdk.AxiomaFixedIncomeOptimizer.api import afi_optimizer_api
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.object_root import ObjectRoot
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.calculation_info_root import CalculationInfoRoot
-from fds.sdk.AxiomaFixedIncomeOptimizer.model.afi_optimization_parameters_root import AFIOptimizationParametersRoot
+from fds.sdk.AxiomaFixedIncomeOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -640,6 +644,8 @@ with fds.sdk.AxiomaFixedIncomeOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Create or Update AFI optimization and run it.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, afi_optimization_parameters_root=afi_optimization_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,

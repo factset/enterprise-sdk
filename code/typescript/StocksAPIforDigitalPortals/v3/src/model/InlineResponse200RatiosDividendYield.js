@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200RatiosDividendYield model module.
  * @module model/InlineResponse200RatiosDividendYield
- * @version 0.10.0
  */
 class InlineResponse200RatiosDividendYield {
     /**

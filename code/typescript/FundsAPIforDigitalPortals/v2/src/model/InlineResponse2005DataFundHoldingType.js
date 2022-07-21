@@ -18,7 +18,6 @@ import InlineResponse2005DataFundLevel from './InlineResponse2005DataFundLevel';
 /**
  * The InlineResponse2005DataFundHoldingType model module.
  * @module model/InlineResponse2005DataFundHoldingType
- * @version 0.10.0
  */
 class InlineResponse2005DataFundHoldingType {
     /**

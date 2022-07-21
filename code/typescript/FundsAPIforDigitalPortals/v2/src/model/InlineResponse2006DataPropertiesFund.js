@@ -19,7 +19,6 @@ import InlineResponse2006DataPropertiesFundTypeReplication from './InlineRespons
 /**
  * The InlineResponse2006DataPropertiesFund model module.
  * @module model/InlineResponse2006DataPropertiesFund
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesFund {
     /**

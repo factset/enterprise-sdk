@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundHoldingsApi(config);
+
             var ids = new List<string>(); // List<string> | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
             var date = 2019-12-31;  // string | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional) 
             var topn = 5;  // string | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional)  (default to "ALL")
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundHoldingsApi(config);
+
             var fundHoldingsRequest = new FundHoldingsRequest(); // FundHoldingsRequest | Requesting Underlying Holdings for a list of Fund Identifiers.
 
             try

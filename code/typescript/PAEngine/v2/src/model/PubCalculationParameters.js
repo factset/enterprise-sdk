@@ -18,7 +18,6 @@ import PubIdentifier from './PubIdentifier';
 /**
  * The PubCalculationParameters model module.
  * @module model/PubCalculationParameters
- * @version 0.8.2
  */
 class PubCalculationParameters {
     /**

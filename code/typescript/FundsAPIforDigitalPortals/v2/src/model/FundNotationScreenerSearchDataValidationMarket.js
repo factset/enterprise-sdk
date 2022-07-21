@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataValidationMarketSelection from './FundNotat
 /**
  * The FundNotationScreenerSearchDataValidationMarket model module.
  * @module model/FundNotationScreenerSearchDataValidationMarket
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationMarket {
     /**

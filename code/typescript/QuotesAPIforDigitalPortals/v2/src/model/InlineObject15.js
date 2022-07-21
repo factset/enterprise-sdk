@@ -18,7 +18,6 @@ import InstrumentRatingGradeListData from './InstrumentRatingGradeListData';
 /**
  * The InlineObject15 model module.
  * @module model/InlineObject15
- * @version 0.9.2
  */
 class InlineObject15 {
     /**

@@ -25,6 +25,8 @@ This is the endpoint to cancel a previously submitted optimization. Instead of d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPortfolioOptimizer
 from fds.sdk.FactSetPortfolioOptimizer.api import optimizations_api
+from fds.sdk.FactSetPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +60,9 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Cancel FPO optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_fpo_optimization_by_id(id)
+
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->cancel_fpo_optimization_by_id: %s\n" % e)
 ```
@@ -114,6 +118,8 @@ This is the endpoint to check on the progress of a previously requested optimiza
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPortfolioOptimizer
 from fds.sdk.FactSetPortfolioOptimizer.api import optimizations_api
+from fds.sdk.FactSetPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,7 +153,9 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get FPO optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.get_fpo_optimization_by_id(id)
+
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->get_fpo_optimization_by_id: %s\n" % e)
 ```
@@ -204,7 +212,8 @@ This endpoint runs FPO optimization specified in the POST body parameters.  It m
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPortfolioOptimizer
 from fds.sdk.FactSetPortfolioOptimizer.api import optimizations_api
-from fds.sdk.FactSetPortfolioOptimizer.model.fpo_optimization_parameters import FPOOptimizationParameters
+from fds.sdk.FactSetPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -286,7 +295,10 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Run FPO optimization
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.run_fpo_optimization(fpo_optimization_parameters=fpo_optimization_parameters)
+
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->run_fpo_optimization: %s\n" % e)
 ```

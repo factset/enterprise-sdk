@@ -43,7 +43,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="isEstimatedTotal">Flag indicating that the value of \&quot;total\&quot; is estimated. (required).</param>
         /// <param name="next">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null. (required).</param>
         /// <param name="previous">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null. (required).</param>
-        public CursorBasedPaginationOutputObject(decimal total = default(decimal), bool isEstimatedTotal = default(bool), string next = default(string), string previous = default(string))
+        public CursorBasedPaginationOutputObject(decimal total, bool isEstimatedTotal, string next, string previous)
         {
             this.Total = total;
             this.IsEstimatedTotal = isEstimatedTotal;

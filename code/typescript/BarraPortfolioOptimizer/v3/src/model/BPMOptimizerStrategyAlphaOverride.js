@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BPMOptimizerStrategyAlphaOverride model module.
  * @module model/BPMOptimizerStrategyAlphaOverride
- * @version 0.20.0
  */
 class BPMOptimizerStrategyAlphaOverride {
     /**

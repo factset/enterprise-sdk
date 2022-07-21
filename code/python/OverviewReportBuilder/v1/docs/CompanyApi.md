@@ -25,8 +25,8 @@ Current Capitalization
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api
-from fds.sdk.OverviewReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.OverviewReportBuilder.model.stach_table_response import StachTableResponse
+from fds.sdk.OverviewReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +60,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
 
     try:
         # Current Capitalization
+        # example passing only required values which don't have defaults set
         api_response = api_instance.current_cap_get(id)
         pprint(api_response)
 
@@ -116,8 +117,8 @@ Financial / Estimate Highlights
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api
-from fds.sdk.OverviewReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.OverviewReportBuilder.model.stach_table_response import StachTableResponse
+from fds.sdk.OverviewReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -151,6 +152,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
 
     try:
         # Financial / Estimate Highlights
+        # example passing only required values which don't have defaults set
         api_response = api_instance.financial_highlights_get(id)
         pprint(api_response)
 
@@ -207,8 +209,8 @@ Overview Profile
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api
-from fds.sdk.OverviewReportBuilder.model.profile_response import ProfileResponse
-from fds.sdk.OverviewReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.OverviewReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -242,6 +244,7 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
 
     try:
         # Overview Profile
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_profile_profile(id)
         pprint(api_response)
 
@@ -298,8 +301,8 @@ Peer List
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api
-from fds.sdk.OverviewReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.OverviewReportBuilder.model.peer_list_response import PeerListResponse
+from fds.sdk.OverviewReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -334,6 +337,8 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
 
     try:
         # Peer List
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.peer_list_get(id, topn=topn)
         pprint(api_response)
 
@@ -391,8 +396,8 @@ Transactions
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api
-from fds.sdk.OverviewReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.OverviewReportBuilder.model.stach_table_response import StachTableResponse
+from fds.sdk.OverviewReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -423,10 +428,14 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
     api_instance = company_api.CompanyApi(api_client)
 
     id = "FDS" # str | Company ticker
+    transaction_type = "ACQUISITION_MERGER" # str | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)
+    financing_type = "EQUITY" # str | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)
 
     try:
         # Transactions
-        api_response = api_instance.transactions_get(id)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.transactions_get(id, transaction_type=transaction_type, financing_type=financing_type)
         pprint(api_response)
 
     except fds.sdk.OverviewReportBuilder.ApiException as e:
@@ -439,6 +448,8 @@ with fds.sdk.OverviewReportBuilder.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Company ticker |
+ **transaction_type** | **str**| Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. | [optional]
+ **financing_type** | **str**| Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive | [optional]
 
 ### Return type
 

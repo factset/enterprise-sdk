@@ -17,7 +17,6 @@ import LinkedPATemplateSummary from './LinkedPATemplateSummary';
 /**
  * The LinkedPATemplateSummaryRoot model module.
  * @module model/LinkedPATemplateSummaryRoot
- * @version 0.20.0
  */
 class LinkedPATemplateSummaryRoot {
     /**

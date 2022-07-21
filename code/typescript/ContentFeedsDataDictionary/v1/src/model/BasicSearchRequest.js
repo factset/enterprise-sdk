@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicSearchRequest model module.
  * @module model/BasicSearchRequest
- * @version 0.20.0
  */
 class BasicSearchRequest {
     /**

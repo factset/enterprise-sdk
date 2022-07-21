@@ -982,7 +982,7 @@ class NotesApi(object):
     def get_notes(
         self,
         **kwargs
-    ) -> [NoteSummaryDto]:
+    ) -> typing.List[NoteSummaryDto]:
         """Get all the notes in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1026,7 +1026,7 @@ class NotesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [NoteSummaryDto]
+            typing.List[NoteSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1035,7 +1035,7 @@ class NotesApi(object):
     def get_notes_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[NoteSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[NoteSummaryDto], int, typing.MutableMapping]:
         """Get all the notes in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1079,7 +1079,7 @@ class NotesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [NoteSummaryDto]
+            typing.List[NoteSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -1092,7 +1092,7 @@ class NotesApi(object):
     def get_notes_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[NoteSummaryDto]]":
+    ) -> "ApplyResult[typing.List[NoteSummaryDto]]":
         """Get all the notes in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1136,7 +1136,7 @@ class NotesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[NoteSummaryDto]]
+            ApplyResult[typing.List[NoteSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_notes_endpoint.call_with_http_info(**kwargs)
@@ -1144,7 +1144,7 @@ class NotesApi(object):
     def get_notes_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[NoteSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[NoteSummaryDto], int, typing.MutableMapping]]":
         """Get all the notes in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1188,7 +1188,7 @@ class NotesApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([NoteSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[NoteSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_notes_endpoint.call_with_http_info(**kwargs)

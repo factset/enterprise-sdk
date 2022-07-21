@@ -18,7 +18,6 @@ import Product from './Product';
 /**
  * The BasicSearchResponseResults model module.
  * @module model/BasicSearchResponseResults
- * @version 0.20.0
  */
 class BasicSearchResponseResults {
     /**

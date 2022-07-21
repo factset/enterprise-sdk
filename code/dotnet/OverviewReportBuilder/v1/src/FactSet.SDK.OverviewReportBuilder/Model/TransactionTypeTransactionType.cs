@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.OverviewReportBuilder.Client.OpenAPIDat
 namespace FactSet.SDK.OverviewReportBuilder.Model
 {
     /// <summary>
-    /// Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) 
+    /// Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) - \&quot;IPO\&quot; (Initial Public Offering) - \&quot;Follow-On\&quot; (Follow-On Public Offer) 
     /// </summary>
     [DataContract(Name = "transactionType_transactionType")]
     public partial class TransactionTypeTransactionType : IEquatable<TransactionTypeTransactionType>, IValidatableObject
@@ -41,7 +41,19 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
             /// Enum MA for value: MA
             /// </summary>
             [EnumMember(Value = "MA")]
-            MA = 1
+            MA = 1,
+
+            /// <summary>
+            /// Enum IPO for value: IPO
+            /// </summary>
+            [EnumMember(Value = "IPO")]
+            IPO = 2,
+
+            /// <summary>
+            /// Enum FollowOn for value: Follow-On
+            /// </summary>
+            [EnumMember(Value = "Follow-On")]
+            FollowOn = 3
 
         }
 

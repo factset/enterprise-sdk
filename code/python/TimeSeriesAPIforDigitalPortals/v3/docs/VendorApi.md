@@ -1,6 +1,6 @@
 # fds.sdk.TimeSeriesAPIforDigitalPortals.VendorApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **post_vendor_chart_iq_time_series_eod_list**
-> InlineResponse200 post_vendor_chart_iq_time_series_eod_list(body)
+> InlineResponse200 post_vendor_chart_iq_time_series_eod_list(inline_object)
 
 End-of-day time series data for a notation.
 
@@ -27,8 +27,8 @@ End-of-day time series data for a notation. The resulting time series is always 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import vendor_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response200 import InlineResponse200
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +58,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=VendorChartIQTimeSeriesEodListData(
             id="id_example",
             type="trade",
@@ -78,14 +78,15 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
             ]),
             pagination=VendorChartIQTimeSeriesEodListMetaPagination(
                 cursor="cursor_example",
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject | 
 
     try:
         # End-of-day time series data for a notation.
-        api_response = api_instance.post_vendor_chart_iq_time_series_eod_list(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_vendor_chart_iq_time_series_eod_list(inline_object)
         pprint(api_response)
 
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
@@ -97,7 +98,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  |
+ **inline_object** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 
@@ -122,7 +123,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vendor_chart_iq_time_series_eod_subsample_get**
-> InlineResponse2001 post_vendor_chart_iq_time_series_eod_subsample_get(body)
+> InlineResponse2001 post_vendor_chart_iq_time_series_eod_subsample_get(inline_object1)
 
 Single subsample end-of-day data for a notation.
 
@@ -137,8 +138,8 @@ Single subsample end-of-day data for a notation. The sample is always adjusted f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import vendor_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,7 +169,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    body = InlineObject1(
+    inline_object1 = InlineObject1(
         data=VendorChartIQTimeSeriesEodSubsampleGetData(
             id="id_example",
             type="trade",
@@ -191,7 +192,8 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Single subsample end-of-day data for a notation.
-        api_response = api_instance.post_vendor_chart_iq_time_series_eod_subsample_get(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_vendor_chart_iq_time_series_eod_subsample_get(inline_object1)
         pprint(api_response)
 
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
@@ -203,7 +205,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 
@@ -228,7 +230,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vendor_chart_iq_time_series_eod_subsample_list**
-> InlineResponse2002 post_vendor_chart_iq_time_series_eod_subsample_list(body)
+> InlineResponse2002 post_vendor_chart_iq_time_series_eod_subsample_list(inline_object2)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -243,8 +245,8 @@ Subsampled end-of-day time series data for a notation. The resulting time series
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import vendor_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object2 import InlineObject2
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -274,7 +276,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    body = InlineObject2(
+    inline_object2 = InlineObject2(
         data=VendorChartIQTimeSeriesEodSubsampleListData(
             id="id_example",
             type="trade",
@@ -293,14 +295,15 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
             ]),
             pagination=VendorChartIQTimeSeriesEodListMetaPagination(
                 cursor="cursor_example",
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject2 | 
 
     try:
         # Subsampled end-of-day time series data for a notation.
-        api_response = api_instance.post_vendor_chart_iq_time_series_eod_subsample_list(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_vendor_chart_iq_time_series_eod_subsample_list(inline_object2)
         pprint(api_response)
 
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
@@ -312,7 +315,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  |
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 
@@ -337,7 +340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vendor_chart_iq_time_series_intraday_subsample_get**
-> InlineResponse2003 post_vendor_chart_iq_time_series_intraday_subsample_get(body)
+> InlineResponse2003 post_vendor_chart_iq_time_series_intraday_subsample_get(inline_object3)
 
 Single subsample intraday data for a notation.
 
@@ -352,8 +355,8 @@ Single subsample intraday data for a notation. The subsample may exceed the enti
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import vendor_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object3 import InlineObject3
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -383,7 +386,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    body = InlineObject3(
+    inline_object3 = InlineObject3(
         data=VendorChartIQTimeSeriesIntradaySubsampleGetData(
             id="id_example",
             type="trade",
@@ -403,7 +406,8 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Single subsample intraday data for a notation.
-        api_response = api_instance.post_vendor_chart_iq_time_series_intraday_subsample_get(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_vendor_chart_iq_time_series_intraday_subsample_get(inline_object3)
         pprint(api_response)
 
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
@@ -415,7 +419,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  |
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  |
 
 ### Return type
 
@@ -440,7 +444,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vendor_chart_iq_time_series_intraday_subsample_list**
-> InlineResponse2004 post_vendor_chart_iq_time_series_intraday_subsample_list(body)
+> InlineResponse2004 post_vendor_chart_iq_time_series_intraday_subsample_list(inline_object4)
 
 Subsampled intraday time series data for a notation.
 
@@ -455,8 +459,8 @@ Subsampled intraday time series data for a notation. If a subsample's time range
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import vendor_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object4 import InlineObject4
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -486,7 +490,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
     # Create an instance of the API class
     api_instance = vendor_api.VendorApi(api_client)
 
-    body = InlineObject4(
+    inline_object4 = InlineObject4(
         data=VendorChartIQTimeSeriesIntradaySubsampleListData(
             id="id_example",
             type="trade",
@@ -506,14 +510,15 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
             ]),
             pagination=VendorChartIQTimeSeriesEodListMetaPagination(
                 cursor="cursor_example",
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject4 | 
 
     try:
         # Subsampled intraday time series data for a notation.
-        api_response = api_instance.post_vendor_chart_iq_time_series_intraday_subsample_list(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_vendor_chart_iq_time_series_intraday_subsample_list(inline_object4)
         pprint(api_response)
 
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
@@ -525,7 +530,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  |
+ **inline_object4** | [**InlineObject4**](InlineObject4.md)|  |
 
 ### Return type
 

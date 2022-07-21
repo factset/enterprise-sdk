@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataStagePeActiveFirmNumber model module.
  * @module model/ProfileDataStagePeActiveFirmNumber
- * @version 0.20.0
  */
 class ProfileDataStagePeActiveFirmNumber {
     /**

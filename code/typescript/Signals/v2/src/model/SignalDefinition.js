@@ -17,7 +17,6 @@ import SignalDefinitionData from './SignalDefinitionData';
 /**
  * The SignalDefinition model module.
  * @module model/SignalDefinition
- * @version 0.20.0
  */
 class SignalDefinition {
     /**

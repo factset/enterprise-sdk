@@ -22,7 +22,6 @@ import FixedIncomeBenchmarkConstituentsResponse from '../model/FixedIncomeBenchm
 /**
 * BenchmarkConstituents service.
 * @module api/BenchmarkConstituentsApi
-* @version 0.20.0
 */
 export default class BenchmarkConstituentsApi {
 

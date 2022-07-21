@@ -24,7 +24,6 @@ import StandardSymbolDto from '../model/StandardSymbolDto';
 /**
 * CustomSymbols service.
 * @module api/CustomSymbolsApi
-* @version 0.20.0
 */
 export default class CustomSymbolsApi {
 

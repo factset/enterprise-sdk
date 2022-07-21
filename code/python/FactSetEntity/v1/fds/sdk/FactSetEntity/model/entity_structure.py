@@ -82,13 +82,13 @@ class EntityStructure(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'fsym_entity_id': (str,),  # noqa: E501
-            'ultimate_parent_id': (str,),  # noqa: E501
-            'parent_entity_id': (str,),  # noqa: E501
-            'level': (int,),  # noqa: E501
-            'inactive': (int,),  # noqa: E501
-            'description': (str,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'fsym_entity_id': (str, none_type,),  # noqa: E501
+            'ultimate_parent_id': (str, none_type,),  # noqa: E501
+            'parent_entity_id': (str, none_type,),  # noqa: E501
+            'level': (int, none_type,),  # noqa: E501
+            'inactive': (int, none_type,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -149,13 +149,13 @@ class EntityStructure(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Unique FactSet-generated identifier representing an entity for the current entity identifier (-E). [optional]  # noqa: E501
-            fsym_entity_id (str): Unique FactSet-generated identifier representing an entity. [optional]  # noqa: E501
-            ultimate_parent_id (str): The ultimate parent id of the entity.. [optional]  # noqa: E501
-            parent_entity_id (str): Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.. [optional]  # noqa: E501
-            level (int): Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.. [optional]  # noqa: E501
-            inactive (int): A flag for inactive securities; whereby 1 = inactive and 0 = active.. [optional]  # noqa: E501
-            description (str): The proper name and entity type for the entity.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Unique FactSet-generated identifier representing an entity for the current entity identifier (-E). [optional]  # noqa: E501
+            fsym_entity_id (str, none_type): Unique FactSet-generated identifier representing an entity. [optional]  # noqa: E501
+            ultimate_parent_id (str, none_type): The ultimate parent id of the entity.. [optional]  # noqa: E501
+            parent_entity_id (str, none_type): Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.. [optional]  # noqa: E501
+            level (int, none_type): Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.. [optional]  # noqa: E501
+            inactive (int, none_type): A flag for inactive securities; whereby 1 = inactive and 0 = active.. [optional]  # noqa: E501
+            description (str, none_type): The proper name and entity type for the entity.. [optional]  # noqa: E501
             request_id (str): Identifier used in `ids`.. [optional]  # noqa: E501
         """
 
@@ -238,13 +238,13 @@ class EntityStructure(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Unique FactSet-generated identifier representing an entity for the current entity identifier (-E). [optional]  # noqa: E501
-            fsym_entity_id (str): Unique FactSet-generated identifier representing an entity. [optional]  # noqa: E501
-            ultimate_parent_id (str): The ultimate parent id of the entity.. [optional]  # noqa: E501
-            parent_entity_id (str): Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.. [optional]  # noqa: E501
-            level (int): Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.. [optional]  # noqa: E501
-            inactive (int): A flag for inactive securities; whereby 1 = inactive and 0 = active.. [optional]  # noqa: E501
-            description (str): The proper name and entity type for the entity.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Unique FactSet-generated identifier representing an entity for the current entity identifier (-E). [optional]  # noqa: E501
+            fsym_entity_id (str, none_type): Unique FactSet-generated identifier representing an entity. [optional]  # noqa: E501
+            ultimate_parent_id (str, none_type): The ultimate parent id of the entity.. [optional]  # noqa: E501
+            parent_entity_id (str, none_type): Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.. [optional]  # noqa: E501
+            level (int, none_type): Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.. [optional]  # noqa: E501
+            inactive (int, none_type): A flag for inactive securities; whereby 1 = inactive and 0 = active.. [optional]  # noqa: E501
+            description (str, none_type): The proper name and entity type for the entity.. [optional]  # noqa: E501
             request_id (str): Identifier used in `ids`.. [optional]  # noqa: E501
         """
 

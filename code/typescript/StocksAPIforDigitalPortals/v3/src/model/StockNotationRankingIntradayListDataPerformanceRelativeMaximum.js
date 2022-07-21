@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationRankingIntradayListDataPerformanceRelativeMaximum model module.
  * @module model/StockNotationRankingIntradayListDataPerformanceRelativeMaximum
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataPerformanceRelativeMaximum {
     /**

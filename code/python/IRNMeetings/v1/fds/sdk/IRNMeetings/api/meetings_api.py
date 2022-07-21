@@ -896,7 +896,7 @@ class MeetingsApi(object):
     def get_meetings(
         self,
         **kwargs
-    ) -> [MeetingSummaryDto]:
+    ) -> typing.List[MeetingSummaryDto]:
         """Get all the meetings in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -933,7 +933,7 @@ class MeetingsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [MeetingSummaryDto]
+            typing.List[MeetingSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -942,7 +942,7 @@ class MeetingsApi(object):
     def get_meetings_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[MeetingSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[MeetingSummaryDto], int, typing.MutableMapping]:
         """Get all the meetings in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -979,7 +979,7 @@ class MeetingsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [MeetingSummaryDto]
+            typing.List[MeetingSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -992,7 +992,7 @@ class MeetingsApi(object):
     def get_meetings_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[MeetingSummaryDto]]":
+    ) -> "ApplyResult[typing.List[MeetingSummaryDto]]":
         """Get all the meetings in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1029,7 +1029,7 @@ class MeetingsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[MeetingSummaryDto]]
+            ApplyResult[typing.List[MeetingSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_meetings_endpoint.call_with_http_info(**kwargs)
@@ -1037,7 +1037,7 @@ class MeetingsApi(object):
     def get_meetings_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[MeetingSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[MeetingSummaryDto], int, typing.MutableMapping]]":
         """Get all the meetings in the specified date range filtered on the given identifiers  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1074,7 +1074,7 @@ class MeetingsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([MeetingSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[MeetingSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_meetings_endpoint.call_with_http_info(**kwargs)

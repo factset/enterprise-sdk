@@ -20,7 +20,6 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Agents service.
 * @module api/AgentsApi
-* @version 0.20.0
 */
 export default class AgentsApi {
 

@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundAssetsUnderManagementMinimum from './Fu
 /**
  * The FundNotationScreenerSearchDataShareClassMinimumInvestmentSubsequent model module.
  * @module model/FundNotationScreenerSearchDataShareClassMinimumInvestmentSubsequent
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassMinimumInvestmentSubsequent {
     /**

@@ -18,7 +18,6 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * LastTrade service.
 * @module api/LastTradeApi
-* @version 0.20.0
 */
 export default class LastTradeApi {
 

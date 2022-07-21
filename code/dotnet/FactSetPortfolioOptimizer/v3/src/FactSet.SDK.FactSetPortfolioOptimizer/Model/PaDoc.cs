@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// Initializes a new instance of the <see cref="PaDoc" /> class.
         /// </summary>
         /// <param name="id">PA document path (required).</param>
-        public PaDoc(string id = default(string))
+        public PaDoc(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

@@ -17,7 +17,6 @@ import Fields from './Fields';
 /**
  * The TickhistoryResponse model module.
  * @module model/TickhistoryResponse
- * @version 0.20.0
  */
 class TickhistoryResponse {
     /**

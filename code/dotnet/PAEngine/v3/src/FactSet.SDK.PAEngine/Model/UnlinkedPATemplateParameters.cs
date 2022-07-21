@@ -52,7 +52,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="componentdetail">PA storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
         /// <param name="content">content.</param>
-        public UnlinkedPATemplateParameters(string directory = default(string), string templateTypeId = default(string), string description = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes))
+        public UnlinkedPATemplateParameters(string directory, string templateTypeId,string description = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes))
         {
             // to ensure "directory" is required (not null)
             if (directory == null) {

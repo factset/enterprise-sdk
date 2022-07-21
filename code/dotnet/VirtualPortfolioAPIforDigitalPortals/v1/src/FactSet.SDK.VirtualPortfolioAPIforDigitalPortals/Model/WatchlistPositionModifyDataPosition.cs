@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="WatchlistPositionModifyDataPosition" /> class.
         /// </summary>
         /// <param name="id">Identifier of the position. (required).</param>
-        public WatchlistPositionModifyDataPosition(decimal id = default(decimal))
+        public WatchlistPositionModifyDataPosition(decimal id)
         {
             this.Id = id;
         }

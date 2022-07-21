@@ -17,7 +17,6 @@ import CouponSchedules from './CouponSchedules';
 /**
  * The CouponSchedulesResponse model module.
  * @module model/CouponSchedulesResponse
- * @version 0.20.0
  */
 class CouponSchedulesResponse {
     /**

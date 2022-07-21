@@ -19,7 +19,6 @@ import FundNotationScreenerSearchDataShareClassFeeInitialMinimum from './FundNot
 /**
  * The FundNotationScreenerSearchDataShareClassFeeInitial model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeInitial
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeInitial {
     /**

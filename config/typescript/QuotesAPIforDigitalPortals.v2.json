@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-quotesapifordigitalportals",
-  "projectVersion": "0.9.2",
+  "projectVersion": "0.9.3",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Quotes API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "quotesapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/QuotesAPIforDigitalPortals/0.9.2",
+  "httpUserAgent": "fds-sdk/javascript/QuotesAPIforDigitalPortals/0.9.3",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

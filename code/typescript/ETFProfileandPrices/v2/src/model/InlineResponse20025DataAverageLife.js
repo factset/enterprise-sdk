@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20025DataAverageLife model module.
  * @module model/InlineResponse20025DataAverageLife
- * @version 0.10.0
  */
 class InlineResponse20025DataAverageLife {
     /**

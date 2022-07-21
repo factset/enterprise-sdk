@@ -20,7 +20,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsLimitRiskETLConstraint model module.
  * @module model/OptimizerInputsLimitRiskETLConstraint
- * @version 0.20.0
  */
 class OptimizerInputsLimitRiskETLConstraint {
     /**

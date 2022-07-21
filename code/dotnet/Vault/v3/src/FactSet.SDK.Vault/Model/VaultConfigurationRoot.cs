@@ -42,7 +42,7 @@ namespace FactSet.SDK.Vault.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public VaultConfigurationRoot(VaultConfiguration data = default(VaultConfiguration), Object meta = default(Object))
+        public VaultConfigurationRoot(VaultConfiguration data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

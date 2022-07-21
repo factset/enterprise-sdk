@@ -81,7 +81,6 @@ import PutAndCalculateResponseWrapper from './api/VaultCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

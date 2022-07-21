@@ -42,7 +42,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="value">value (required).</param>
         /// <param name="_ref">_ref.</param>
         /// <param name="display">display.</param>
-        public ProductResourceReference(string value = default(string), string _ref = default(string), string display = default(string))
+        public ProductResourceReference(string value,string _ref = default(string), string display = default(string))
         {
             // to ensure "value" is required (not null)
             if (value == null) {

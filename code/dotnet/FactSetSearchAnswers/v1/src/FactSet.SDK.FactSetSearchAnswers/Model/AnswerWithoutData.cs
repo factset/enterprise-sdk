@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="querySuggestions">querySuggestions (required).</param>
         /// <param name="title">title (required).</param>
         /// <param name="templateData">templateData.</param>
-        public AnswerWithoutData(string template = default(string), string message = default(string), List<string> querySuggestions = default(List<string>), string title = default(string), AnswerWithoutDataAllOfTemplateData templateData = default(AnswerWithoutDataAllOfTemplateData))
+        public AnswerWithoutData(string template, string message, List<string> querySuggestions, string title,AnswerWithoutDataAllOfTemplateData templateData = default(AnswerWithoutDataAllOfTemplateData))
         {
             // to ensure "template" is required (not null)
             if (template == null) {

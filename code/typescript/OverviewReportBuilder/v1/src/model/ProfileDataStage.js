@@ -17,12 +17,12 @@ import ProfileDataSizeEv from './ProfileDataSizeEv';
 import ProfileDataStageCrunchbaseRank from './ProfileDataStageCrunchbaseRank';
 import ProfileDataStagePeActiveFirmNumber from './ProfileDataStagePeActiveFirmNumber';
 import ProfileDataStagePeActiveFirms from './ProfileDataStagePeActiveFirms';
+import ProfileDataStagePevcLatestPostMoneyValuation from './ProfileDataStagePevcLatestPostMoneyValuation';
 import ProfileDataStageTradeDateRange from './ProfileDataStageTradeDateRange';
 
 /**
  * The ProfileDataStage model module.
  * @module model/ProfileDataStage
- * @version 0.20.0
  */
 class ProfileDataStage {
     /**
@@ -74,7 +74,7 @@ class ProfileDataStage {
                 obj['pevcBacking'] = ProfileDataBusinessIndustry.constructFromObject(data['pevcBacking']);
             }
             if (data.hasOwnProperty('pevcLatestPostMoneyValuation')) {
-                obj['pevcLatestPostMoneyValuation'] = ProfileDataSizeEv.constructFromObject(data['pevcLatestPostMoneyValuation']);
+                obj['pevcLatestPostMoneyValuation'] = ProfileDataStagePevcLatestPostMoneyValuation.constructFromObject(data['pevcLatestPostMoneyValuation']);
             }
             if (data.hasOwnProperty('peActiveFirmNumber')) {
                 obj['peActiveFirmNumber'] = ProfileDataStagePeActiveFirmNumber.constructFromObject(data['peActiveFirmNumber']);
@@ -140,7 +140,7 @@ ProfileDataStage.prototype['foundedYear'] = undefined;
 ProfileDataStage.prototype['pevcBacking'] = undefined;
 
 /**
- * @member {module:model/ProfileDataSizeEv} pevcLatestPostMoneyValuation
+ * @member {module:model/ProfileDataStagePevcLatestPostMoneyValuation} pevcLatestPostMoneyValuation
  */
 ProfileDataStage.prototype['pevcLatestPostMoneyValuation'] = undefined;
 

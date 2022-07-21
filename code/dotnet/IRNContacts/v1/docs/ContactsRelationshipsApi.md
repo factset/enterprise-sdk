@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNContacts.Api.ContactsRelationshipsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var contactRelationshipTwoSidedSaveDto = new ContactRelationshipTwoSidedSaveDto(); // ContactRelationshipTwoSidedSaveDto | contactRelationship object to save (optional) 
 
             try
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var contactRelationshipId = "contactRelationshipId_example";  // Guid | contactRelationshipId to delete associated record
 
             try
@@ -228,6 +230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var symbol = "symbol_example";  // string |  (optional) 
             var contactId = "contactId_example";  // Guid? |  (optional) 
             var relationshipId = "relationshipId_example";  // Guid? |  (optional) 
@@ -319,6 +322,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var contactRelationshipId = "contactRelationshipId_example";  // Guid | contactRelationshipId to get associated record
 
             try
@@ -407,6 +411,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var contactRelationshipId = "contactRelationshipId_example";  // Guid | contactRelationshipId to update associated record
             var operation = new List<Operation>(); // List<Operation> | contactRelationshipPatch object to update (optional) 
 

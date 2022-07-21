@@ -17,7 +17,6 @@ import OptimizerInputsRiskModelForPeriods from './OptimizerInputsRiskModelForPer
 /**
  * The OptimizerInputsMultiPeriodRiskModels model module.
  * @module model/OptimizerInputsMultiPeriodRiskModels
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodRiskModels {
     /**

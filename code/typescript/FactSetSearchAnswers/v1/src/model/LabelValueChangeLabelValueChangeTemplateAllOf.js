@@ -17,7 +17,6 @@ import ValueChange from './ValueChange';
 /**
  * The LabelValueChangeLabelValueChangeTemplateAllOf model module.
  * @module model/LabelValueChangeLabelValueChangeTemplateAllOf
- * @version 0.20.0
  */
 class LabelValueChangeLabelValueChangeTemplateAllOf {
     /**

@@ -22,7 +22,6 @@ import InlineResponse20062DataTargetMarketRiskTolerance from './InlineResponse20
 /**
  * The InlineResponse20062DataTargetMarket model module.
  * @module model/InlineResponse20062DataTargetMarket
- * @version 0.10.0
  */
 class InlineResponse20062DataTargetMarket {
     /**

@@ -17,7 +17,6 @@ import RankedTableRow from './RankedTableRow';
 /**
  * The RankedTable model module.
  * @module model/RankedTable
- * @version 0.20.0
  */
 class RankedTable {
     /**

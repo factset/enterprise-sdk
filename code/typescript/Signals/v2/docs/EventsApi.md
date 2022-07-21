@@ -122,8 +122,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new EventsApi();
 const opts = {
-  'created': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-  'updated': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+  'created': {}, // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+  'updated': {}, // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
   'signalIds': dilutionTrigger,freeCashFlow, // String | 
   'ids': FDS-US,AMZN-US, // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
   'portfolios': "portfolios_example", // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -153,8 +153,8 @@ apiInstance.getEventAdaptiveCards(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **String**|  | [optional] 
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -284,8 +284,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new EventsApi();
 const opts = {
-  'created': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-  'updated': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+  'created': {}, // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+  'updated': {}, // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
   'signalIds': dilutionTrigger,freeCashFlow, // String | 
   'ids': FDS-US,AMZN-US, // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
   'portfolios': "portfolios_example", // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -315,8 +315,8 @@ apiInstance.getEventDetails(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **String**|  | [optional] 
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -374,8 +374,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new EventsApi();
 const opts = {
-  'created': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-  'updated': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+  'created': {}, // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+  'updated': {}, // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
   'signalIds': dilutionTrigger,freeCashFlow, // String | 
   'themes': "themes_example", // String | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.
   'categories': "categories_example", // String | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.
@@ -402,8 +402,8 @@ apiInstance.getEventEntities(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **String**|  | [optional] 
  **themes** | **String**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional] 
  **categories** | **String**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
@@ -458,8 +458,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new EventsApi();
 const opts = {
-  'created': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-  'updated': {}, // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+  'created': {}, // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+  'updated': {}, // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
   'signalIds': dilutionTrigger,freeCashFlow, // String | 
   'ids': FDS-US,AMZN-US, // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
   'portfolios': "portfolios_example", // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -489,8 +489,8 @@ apiInstance.getEventHeadlines(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **String**|  | [optional] 
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 

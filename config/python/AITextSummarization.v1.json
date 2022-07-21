@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.AITextSummarization",
   "projectName": "fds.sdk.AITextSummarization",
-  "packageVersion": "0.20.1",
+  "packageVersion": "0.21.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "AI Text Summarization client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/AITextSummarization/v1",
-  "httpUserAgent": "fds-sdk/python/AITextSummarization/0.20.1",
+  "httpUserAgent": "fds-sdk/python/AITextSummarization/0.21.0",
   "files": {
     "LICENSE": {}
   }

@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PartialOutputObject" /> class.
         /// </summary>
         /// <param name="isPartial">Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable. (required).</param>
-        public PartialOutputObject(bool isPartial = default(bool))
+        public PartialOutputObject(bool isPartial)
         {
             this.IsPartial = isPartial;
         }

@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigFilter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigFilter()
+        public ServiceProviderConfigFilter(bool supported, int maxResults)
         {
         }
 

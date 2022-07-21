@@ -28,7 +28,6 @@ import InlineResponse2004ShareClassFeeSwitching from './InlineResponse2004ShareC
 /**
  * The InlineResponse2004ShareClassFee model module.
  * @module model/InlineResponse2004ShareClassFee
- * @version 0.10.0
  */
 class InlineResponse2004ShareClassFee {
     /**

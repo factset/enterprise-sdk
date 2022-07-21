@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleDecisions model module.
  * @module model/PeopleDecisions
- * @version 0.20.1
  */
 class PeopleDecisions {
     /**

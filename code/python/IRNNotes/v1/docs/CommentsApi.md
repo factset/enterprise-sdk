@@ -1,6 +1,6 @@
 # fds.sdk.IRNNotes.CommentsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,9 +28,8 @@ Create a comment to a Note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.new_item_dto import NewItemDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.create_comment_dto import CreateCommentDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,6 +68,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Create a comment to a Note
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_comment(note_id, create_comment_dto=create_comment_dto)
         pprint(api_response)
 
@@ -124,8 +125,8 @@ Create a comment attachment to a Note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.new_item_dto import NewItemDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,6 +162,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Create a comment attachment to a Note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_comment_attachment(note_id, comment_id, file)
         pprint(api_response)
 
@@ -217,7 +219,8 @@ Delete a Comment from a Note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -252,7 +255,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Delete a Comment from a Note
+        # example passing only required values which don't have defaults set
         api_instance.delete_comment(note_id, comment_id)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling CommentsApi->delete_comment: %s\n" % e)
 ```
@@ -304,7 +309,8 @@ Download single attachment detail of a comment belonging to a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -340,7 +346,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Download single attachment detail of a comment belonging to a note
+        # example passing only required values which don't have defaults set
         api_instance.download_comment_attachment_for_comment(note_id, comment_id, attachment_id)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling CommentsApi->download_comment_attachment_for_comment: %s\n" % e)
 ```
@@ -393,8 +401,8 @@ Get details of a comment belonging to a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.comment_dto import CommentDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -429,6 +437,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get details of a comment belonging to a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_comment(note_id, comment_id)
         pprint(api_response)
 
@@ -483,8 +492,8 @@ Get attachments summary of a comment belonging to a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.attachment_summary_dto import AttachmentSummaryDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -519,6 +528,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get attachments summary of a comment belonging to a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_comment_attachments(note_id, comment_id)
         pprint(api_response)
 
@@ -573,8 +583,8 @@ Get all comments for a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.comment_summary_dto import CommentSummaryDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -608,6 +618,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get all comments for a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_comments(note_id)
         pprint(api_response)
 
@@ -661,8 +672,8 @@ Edit a comment for a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import comments_api
-from fds.sdk.IRNNotes.model.operation import Operation
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -706,7 +717,10 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Edit a comment for a note
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_comment(note_id, comment_id, operation=operation)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling CommentsApi->patch_comment: %s\n" % e)
 ```

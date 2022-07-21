@@ -20,7 +20,6 @@ import SchemaList from '../model/SchemaList';
 /**
 * Schemas service.
 * @module api/SchemasApi
-* @version 0.20.1
 */
 export default class SchemasApi {
 

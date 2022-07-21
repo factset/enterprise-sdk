@@ -17,7 +17,6 @@ import PeopleMatch from './PeopleMatch';
 /**
  * The PeopleMatchesResponse model module.
  * @module model/PeopleMatchesResponse
- * @version 0.20.1
  */
 class PeopleMatchesResponse {
     /**

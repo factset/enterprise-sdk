@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataLegalEntitiesCustodianBank model module.
  * @module model/InlineResponse2006DataLegalEntitiesCustodianBank
- * @version 0.10.0
  */
 class InlineResponse2006DataLegalEntitiesCustodianBank {
     /**

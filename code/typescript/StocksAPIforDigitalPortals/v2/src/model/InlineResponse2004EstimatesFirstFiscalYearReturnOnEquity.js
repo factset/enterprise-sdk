@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004EstimatesFirstFiscalYearReturnOnEquity model module.
  * @module model/InlineResponse2004EstimatesFirstFiscalYearReturnOnEquity
- * @version 0.9.2
  */
 class InlineResponse2004EstimatesFirstFiscalYearReturnOnEquity {
     /**

@@ -45,7 +45,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="title">title (required).</param>
         /// <param name="detail">detail.</param>
         /// <param name="source">source.</param>
-        public ErrorItem(Guid id = default(Guid), string code = default(string), string title = default(string), string detail = default(string), ErrorItemSource source = default(ErrorItemSource))
+        public ErrorItem(Guid id, string code, string title,string detail = default(string), ErrorItemSource source = default(ErrorItemSource))
         {
             this.Id = id;
             // to ensure "code" is required (not null)

@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="valueChange">valueChange.</param>
         /// <param name="date">date.</param>
         /// <param name="label">label.</param>
-        public ValueChangeDateLabelTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), ValueChange valueChange = default(ValueChange), string date = default(string), string label = default(string))
+        public ValueChangeDateLabelTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), ValueChange valueChange = default(ValueChange), string date = default(string), string label = default(string))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

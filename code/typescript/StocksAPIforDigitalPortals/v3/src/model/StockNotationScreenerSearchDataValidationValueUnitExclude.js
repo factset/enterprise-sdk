@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataValidationValueUnitExclude model module.
  * @module model/StockNotationScreenerSearchDataValidationValueUnitExclude
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataValidationValueUnitExclude {
     /**

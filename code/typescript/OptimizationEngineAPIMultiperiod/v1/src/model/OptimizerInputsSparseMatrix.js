@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsSparseMatrix model module.
  * @module model/OptimizerInputsSparseMatrix
- * @version 0.20.0
  */
 class OptimizerInputsSparseMatrix {
     /**

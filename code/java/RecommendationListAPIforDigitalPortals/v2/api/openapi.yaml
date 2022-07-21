@@ -1,7 +1,16 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: Prime Developer Trial
-  version: v1
+  description: |-
+    A recommendation list is revision-controlled, with up to 5,000 revisions per recommendation list.
+
+    A recommendation list as of a given revision may optionally point to an instrument (e.g. an index) and contains a list of up to 1,000 elements, each referring to a security traded on a market (e.g. a financial product recommended by the bank). For listings that are not available in the Wealth Management platform, no information beyond a customer-defined name is available. Each element may optionally have a portfolio weight. Identifiers for revisions are globally unique.
+
+    See the Quotes API for Digital Portals for access to detailed price information.
+  title: Recommendation List API For Digital Portals
+  version: "2"
+externalDocs:
+  description: Endpoint Reference
+  url: https://endpointreference.mdgms.com
 servers:
 - url: https://api.factset.com/wealth/v1
 security:
@@ -16,38 +25,44 @@ paths:
       description: Attributes of a single list, including data about its active revision.
       operationId: get/recommendationList/get
       parameters:
-      - description: Identifier of the list.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the list.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -78,44 +93,55 @@ paths:
         exists).
       operationId: get/recommendationList/search
       parameters:
-      - description: Restricts the search to recommendation lists, which contain the
-          provided string in their name attribute. The filter is a case-insensitive
-          substring match.
+      - explode: true
         in: query
         name: name
+        required: false
         schema:
+          description: Restricts the search to recommendation lists, which contain
+            the provided string in their name attribute. The filter is a case-insensitive
+            substring match.
           type: string
-      - description: Restrict the search to recommendation lists, which are currently
-          active (e.g., current date is before the recommendation list's activeRange.end
-          date). If set to false, recommendation lists will be returned regardless
-          of their state.
+        style: form
+      - explode: true
         in: query
         name: onlyActive
+        required: false
         schema:
+          description: Restrict the search to recommendation lists, which are currently
+            active (e.g., current date is before the recommendation list's activeRange.end
+            date). If set to false, recommendation lists will be returned regardless
+            of their state.
           type: boolean
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -143,38 +169,44 @@ paths:
       description: Attributes of a single revision.
       operationId: get/recommendationList/revision/get
       parameters:
-      - description: Identifier of the revision.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the revision.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -202,6 +234,7 @@ paths:
       description: List of revisions of a recommendation list, excluding the elements
         of each revision.
       operationId: post/recommendationList/revision/list
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object'
         content:
@@ -212,12 +245,8 @@ paths:
                   $ref: '#/components/schemas/_recommendationList_revision_list_data'
                 meta:
                   $ref: '#/components/schemas/_recommendationList_revision_list_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -240,7 +269,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /recommendationList/revision/search:
@@ -248,46 +276,56 @@ paths:
       description: Search for revisions of a recommendation list.
       operationId: get/recommendationList/revision/search
       parameters:
-      - description: Restrict the search to revisions containing an element associated
-          with the identified notation.
+      - explode: true
         in: query
         name: idNotation
+        required: false
         schema:
+          description: Restrict the search to revisions containing an element associated
+            with the identified notation.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
-      - description: Restrict the search to revisions pointing to the identified instrument.
+        style: form
+      - explode: true
         in: query
         name: idInstrument
+        required: false
         schema:
+          description: Restrict the search to revisions pointing to the identified
+            instrument.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -315,38 +353,44 @@ paths:
       description: List of elements of a given revision.
       operationId: get/recommendationList/revision/element/list
       parameters:
-      - description: Identifier of the revision.
+      - explode: true
         in: query
         name: idRevision
         required: true
         schema:
+          description: Identifier of the revision.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -370,6 +414,11 @@ paths:
       x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
 components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
   requestBodies:
     inline_object:
       content:
@@ -441,6 +490,7 @@ components:
       description: Limit the attributes returned in the response to the specified
         set.
       items:
+        exclusiveMaximum: false
         maxLength: 100
         type: string
       maxItems: 50
@@ -570,6 +620,7 @@ components:
       example:
         start: start
         end: end
+      format: timeRange
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -593,6 +644,7 @@ components:
       example:
         start: start
         end: end
+      format: timeRange
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -719,6 +771,7 @@ components:
       example:
         start: start
         end: end
+      format: timeRange
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -953,6 +1006,7 @@ components:
     _recommendationList_revision_list_data_activeRange:
       description: Restrict the result list to revisions which have been active during
         the specified time range.
+      format: timeRange
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -1006,6 +1060,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -1029,12 +1084,7 @@ components:
           $ref: '#/components/schemas/_recommendationList_revision_list_data'
         meta:
           $ref: '#/components/schemas/_recommendationList_revision_list_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3_data:
       description: Revision
       example:
@@ -1520,17 +1570,16 @@ components:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-interface-version: 1
-x-documenter-version: 5.38.1
-x-api-version: 2.9.1
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-interface-version: 2
+x-documenter-version: 6.0.1
+x-api-version: 3.3.0
 

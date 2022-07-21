@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Run FI Calculation endpoint
 
             try
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Run FI Calculation endpoint
 
             try
@@ -240,6 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
+
             var xFactSetContentOrganization = "xFactSetContentOrganization_example";  // string | FactSet content organization (optional) 
             var xFactSetContentType = "xFactSetContentType_example";  // string | FactSet content type (optional) 
             var fICalculationParameters = new FICalculationParameters(); // FICalculationParameters |  (optional) 

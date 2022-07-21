@@ -41,7 +41,7 @@ namespace FactSet.SDK.Symbology.Model
         /// Initializes a new instance of the <see cref="IsinHistoryTranslationRequest" /> class.
         /// </summary>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. (required).</param>
-        public IsinHistoryTranslationRequest(List<string> ids = default(List<string>))
+        public IsinHistoryTranslationRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

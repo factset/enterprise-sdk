@@ -1,6 +1,6 @@
 # fds.sdk.IRNMeetings.MeetingsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,9 +25,8 @@ Create a meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import meetings_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.create_meeting_dto import CreateMeetingDto
-from fds.sdk.IRNMeetings.model.new_item_dto import NewItemDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -117,6 +116,8 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Create a meeting
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_meeting(create_meeting_dto=create_meeting_dto)
         pprint(api_response)
 
@@ -169,7 +170,8 @@ Delete a Meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import meetings_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -203,7 +205,9 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Delete a Meeting
+        # example passing only required values which don't have defaults set
         api_instance.delete_meeting(meeting_id)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->delete_meeting: %s\n" % e)
 ```
@@ -254,8 +258,8 @@ Get details of a meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import meetings_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.meeting_dto import MeetingDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,6 +293,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Get details of a meeting
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_meeting(meeting_id)
         pprint(api_response)
 
@@ -341,8 +346,8 @@ Get all the meetings in the specified date range filtered on the given identifie
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import meetings_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.meeting_summary_dto import MeetingSummaryDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -379,10 +384,12 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     ] # [str] | Set of identifiers to filter on (optional)
     limit = 1 # int | Limit on the number of meetings retrieved (optional)
     modified_since = "modifiedSince_example" # str | Only return meetings which have been modified or created since a particular time (optional)
-    x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) (default to False)
+    x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) if omitted the server will use the default value of False
 
     try:
         # Get all the meetings in the specified date range filtered on the given identifiers
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_meetings(start=start, end=end, identifiers=identifiers, limit=limit, modified_since=modified_since, x_irn_include_deleted=x_irn_include_deleted)
         pprint(api_response)
 
@@ -439,8 +446,8 @@ Update meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import meetings_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.update_meeting_dto import UpdateMeetingDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -527,7 +534,10 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Update meeting
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.update_meeting(meeting_id, update_meeting_dto=update_meeting_dto)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->update_meeting: %s\n" % e)
 ```

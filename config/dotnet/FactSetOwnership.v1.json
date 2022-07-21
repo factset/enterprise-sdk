@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetOwnership",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{14907511-f3a2-57a1-9501-34d5942bdbb9}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetOwnership/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetOwnership/0.21.0",
   "files": {
     "LICENSE": {}
   },

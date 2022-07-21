@@ -20,7 +20,6 @@ import PeopleMatchesResponse from '../model/PeopleMatchesResponse';
 /**
 * PeopleMatch service.
 * @module api/PeopleMatchApi
-* @version 0.20.1
 */
 export default class PeopleMatchApi {
 

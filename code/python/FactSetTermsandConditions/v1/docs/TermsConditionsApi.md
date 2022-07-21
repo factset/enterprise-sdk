@@ -25,8 +25,8 @@ Returns Terms and Conditions data items for the Fixed Income security. Includes 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import terms__conditions_api
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_response import TermsAndConditionsResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +64,8 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return select Terms and Conditions items for a Fixed Income security.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_terms_and_conditions(ids, fields=fields, categories=categories)
         pprint(api_response)
 
@@ -123,8 +125,8 @@ Returns a list of available fields that can be used in the `fields` parameter of
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import terms__conditions_api
-from fds.sdk.FactSetTermsandConditions.model.fields_response import FieldsResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -158,6 +160,8 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Available fields for /terms-and-conditions endpoint
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_terms_and_conditions_fields(category=category)
         pprint(api_response)
 
@@ -215,9 +219,8 @@ Returns Terms and Conditions data items for the Fixed Income security. Includes 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import terms__conditions_api
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_request import TermsAndConditionsRequest
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_response import TermsAndConditionsResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -261,6 +264,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Terms and Conditions for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_terms_and_conditions_for_list(terms_and_conditions_request)
         pprint(api_response)
 

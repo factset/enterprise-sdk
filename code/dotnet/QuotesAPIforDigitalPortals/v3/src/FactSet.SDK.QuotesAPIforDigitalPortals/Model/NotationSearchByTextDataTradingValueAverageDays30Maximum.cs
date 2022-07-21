@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="value">The maximum value. (required).</param>
         /// <param name="inclusive">Indicates whether the maximum value is included in the range or not. (default to true).</param>
-        public NotationSearchByTextDataTradingValueAverageDays30Maximum(decimal value = default(decimal), bool inclusive = true)
+        public NotationSearchByTextDataTradingValueAverageDays30Maximum(decimal value,bool inclusive = true)
         {
             this.Value = value;
             this.Inclusive = inclusive;

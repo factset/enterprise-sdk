@@ -28,8 +28,8 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.benchmark_ratios_response import BenchmarkRatiosResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,12 +65,14 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     metrics = ["LTD_EQ"] # [str] | Requested List of  FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list. |metric item|Description|category|periodicity |:---|:---|:---|:---| |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |ROA|Return on Assets|Profitability (%)|LTM |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2 |ROIC|Return on Invested Capital|Profitability (%)| LTM |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |PEX|Price/Earnings (excl negatives)|Valuation|LTM |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2 |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM |NDEBT_FFO|Net Debt/FFO|Coverage|LTM |LTD_FFO|LT Debt/FFO|Coverage|LTM |FCF_DEBT|FCF/Total Debt|Coverage|LTM |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM |<p>***metrics limit** =  38 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "startDate_example" # str | Requested start date expressed in YYYY-MM-DD format. (optional)
     end_date = "endDate_example" # str | Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "D")
-    periodicity = "LTM" # str | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional) (default to "LTM")
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
+    periodicity = "LTM" # str | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional) if omitted the server will use the default value of "LTM"
     currency = "currency_example" # str | Currency for response. (optional)
 
     try:
         # Returns the aggregated ratios of a requested benchmark
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_benchmark_ratios(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, currency=currency)
         pprint(api_response)
 
@@ -134,9 +136,8 @@ Retrieves the index level ratios for a requested benchmark. Ratios supported are
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.benchmark_ratios_response import BenchmarkRatiosResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.benchmark_ratios_request import BenchmarkRatiosRequest
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -178,6 +179,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns the aggregated ratios of a requested benchmark
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_ratios_for_list(benchmark_ratios_request)
         pprint(api_response)
 
@@ -235,8 +237,8 @@ Retrieves Index Level Prices and Returns information as of a date range requeste
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.index_history_response import IndexHistoryResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -271,14 +273,16 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     start_date = "startDate_example" # str | Requested start date expressed in YYYY-MM-DD format. (optional)
     end_date = "endDate_example" # str | Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "D")
-    return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) (default to "GROSS")
-    hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) (default to "UNHEDGED")
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
+    return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
+    hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) if omitted the server will use the default value of "UNHEDGED"
     currency = "currency_example" # str | Currency for response. (optional)
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) (default to "FIVEDAY")
+    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
         # Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_index_history(ids, start_date=start_date, end_date=end_date, frequency=frequency, return_type=return_type, hedge_type=hedge_type, currency=currency, calendar=calendar)
         pprint(api_response)
 
@@ -343,9 +347,8 @@ Retrieves Index Level Prices and Returns information as aligned with FactSet's B
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.index_history_request import IndexHistoryRequest
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.index_history_response import IndexHistoryResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -388,6 +391,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_index_history_for_list(index_history_request)
         pprint(api_response)
 
@@ -445,8 +449,8 @@ Retrieves Index Level Prices and Returns information as of a specific date. Simp
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.index_snapshot_response import IndexSnapshotResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -480,12 +484,14 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         "ids_example",
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
-    return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) (default to "GROSS")
+    return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
     currency = "currency_example" # str | Currency for response. (optional)
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) (default to "FIVEDAY")
+    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
         # Index Level Prices, Returns, and related information as of a single date.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_index_snapshot(ids, date=date, return_type=return_type, currency=currency, calendar=calendar)
         pprint(api_response)
 
@@ -547,9 +553,8 @@ Retrieves Index Level Prices and Returns information as aligned with FactSet's B
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import index_level_api
-from fds.sdk.FactSetBenchmarks.model.index_snapshot_response import IndexSnapshotResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.index_snapshot_request import IndexSnapshotRequest
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -589,6 +594,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_index_snapshot_for_list(index_snapshot_request)
         pprint(api_response)
 

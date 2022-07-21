@@ -42,7 +42,7 @@ namespace FactSet.SDK.Signals.Model
         /// </summary>
         /// <param name="signalRequestId">signalRequestId (required).</param>
         /// <param name="dateRange">dateRange (required).</param>
-        public ScreenMeta(Guid signalRequestId = default(Guid), EventsMetaDateRange dateRange = default(EventsMetaDateRange))
+        public ScreenMeta(Guid signalRequestId, EventsMetaDateRange dateRange)
         {
             this.SignalRequestId = signalRequestId;
             // to ensure "dateRange" is required (not null)

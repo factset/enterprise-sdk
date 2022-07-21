@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LeadUnderwriter model module.
  * @module model/LeadUnderwriter
- * @version 0.20.0
  */
 class LeadUnderwriter {
     /**

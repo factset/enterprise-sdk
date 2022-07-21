@@ -106,8 +106,10 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <returns>StachTableResponse</returns>
-        StachTableResponse TransactionsGet(string id);
+        StachTableResponse TransactionsGet(string id, string transactionType = default(string), string financingType = default(string));
 
         /// <summary>
         /// Transactions
@@ -117,8 +119,10 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <returns>ApiResponse of StachTableResponse</returns>
-        ApiResponse<StachTableResponse> TransactionsGetWithHttpInfo(string id);
+        ApiResponse<StachTableResponse> TransactionsGetWithHttpInfo(string id, string transactionType = default(string), string financingType = default(string));
         #endregion Synchronous Operations
     }
 
@@ -230,9 +234,11 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StachTableResponse</returns>
-        System.Threading.Tasks.Task<StachTableResponse> TransactionsGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<StachTableResponse> TransactionsGetAsync(string id, string transactionType = default(string), string financingType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Transactions
@@ -242,9 +248,11 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StachTableResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<StachTableResponse>> TransactionsGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<StachTableResponse>> TransactionsGetWithHttpInfoAsync(string id, string transactionType = default(string), string financingType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1129,10 +1137,12 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <returns>StachTableResponse</returns>
-        public StachTableResponse TransactionsGet(string id)
+        public StachTableResponse TransactionsGet(string id, string transactionType = default(string), string financingType = default(string))
         {
-            var localVarResponse = TransactionsGetWithHttpInfo(id);
+            var localVarResponse = TransactionsGetWithHttpInfo(id, transactionType, financingType);
             return localVarResponse.Data;
         }
 
@@ -1141,8 +1151,10 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <returns>ApiResponse of StachTableResponse</returns>
-        public ApiResponse<StachTableResponse> TransactionsGetWithHttpInfo(string id)
+        public ApiResponse<StachTableResponse> TransactionsGetWithHttpInfo(string id, string transactionType = default(string), string financingType = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1173,6 +1185,14 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            if (transactionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "transactionType", transactionType));
+            }
+            if (financingType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "financingType", financingType));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1215,11 +1235,13 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StachTableResponse</returns>
-        public async System.Threading.Tasks.Task<StachTableResponse>TransactionsGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StachTableResponse>TransactionsGetAsync(string id, string transactionType = default(string), string financingType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await TransactionsGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TransactionsGetWithHttpInfoAsync(id, transactionType, financingType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1228,10 +1250,12 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OverviewReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
+        /// <param name="transactionType">Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)</param>
+        /// <param name="financingType">Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StachTableResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<StachTableResponse>> TransactionsGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<StachTableResponse>> TransactionsGetWithHttpInfoAsync(string id, string transactionType = default(string), string financingType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1263,6 +1287,14 @@ namespace FactSet.SDK.OverviewReportBuilder.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
+            if (transactionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "transactionType", transactionType));
+            }
+            if (financingType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.OverviewReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "financingType", financingType));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The GetFilesErrorDetail model module.
  * @module model/GetFilesErrorDetail
- * @version 0.20.0
  */
 class GetFilesErrorDetail {
     /**

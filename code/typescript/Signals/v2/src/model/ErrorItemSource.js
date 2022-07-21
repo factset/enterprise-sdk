@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ErrorItemSource model module.
  * @module model/ErrorItemSource
- * @version 0.20.0
  */
 class ErrorItemSource {
     /**

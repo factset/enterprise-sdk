@@ -20,7 +20,6 @@ import OptimizerInputsTargetProbabilityConstraint from './OptimizerInputsTargetP
 /**
  * The OptimizerInputsMPTargetProbabilityConstraint model module.
  * @module model/OptimizerInputsMPTargetProbabilityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPTargetProbabilityConstraint {
     /**

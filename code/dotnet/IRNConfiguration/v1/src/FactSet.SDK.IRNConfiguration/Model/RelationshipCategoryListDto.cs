@@ -40,7 +40,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// Initializes a new instance of the <see cref="RelationshipCategoryListDto" /> class.
         /// </summary>
         /// <param name="ids">ids (required).</param>
-        public RelationshipCategoryListDto(List<Guid> ids = default(List<Guid>))
+        public RelationshipCategoryListDto(List<Guid> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

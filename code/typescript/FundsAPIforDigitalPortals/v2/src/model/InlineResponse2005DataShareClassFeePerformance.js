@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeePerformanceCurrent from './InlineRespo
 /**
  * The InlineResponse2005DataShareClassFeePerformance model module.
  * @module model/InlineResponse2005DataShareClassFeePerformance
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeePerformance {
     /**

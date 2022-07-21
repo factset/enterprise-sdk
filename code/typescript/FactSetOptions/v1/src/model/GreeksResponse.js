@@ -17,7 +17,6 @@ import Greeks from './Greeks';
 /**
  * The GreeksResponse model module.
  * @module model/GreeksResponse
- * @version 0.20.0
  */
 class GreeksResponse {
     /**

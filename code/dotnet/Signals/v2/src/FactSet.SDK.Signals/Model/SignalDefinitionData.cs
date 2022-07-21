@@ -44,7 +44,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="theme">theme (required).</param>
         /// <param name="categories">categories (required).</param>
         /// <param name="contract">contract (required).</param>
-        public SignalDefinitionData(string signalId = default(string), string theme = default(string), List<string> categories = default(List<string>), Contract contract = default(Contract))
+        public SignalDefinitionData(string signalId, string theme, List<string> categories, Contract contract)
         {
             // to ensure "signalId" is required (not null)
             if (signalId == null) {

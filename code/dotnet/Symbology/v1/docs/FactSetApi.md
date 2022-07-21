@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var factsetTranslationRequest = new FactsetTranslationRequest(); // FactsetTranslationRequest | Request Body for FactSet Symbology Translation
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
             try

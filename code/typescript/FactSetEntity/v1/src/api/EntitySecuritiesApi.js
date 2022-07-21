@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntitySecurities service.
 * @module api/EntitySecuritiesApi
-* @version 0.20.0
 */
 export default class EntitySecuritiesApi {
 

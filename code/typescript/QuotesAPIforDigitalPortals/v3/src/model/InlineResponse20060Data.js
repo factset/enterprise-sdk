@@ -17,7 +17,6 @@ import InlineResponse20060LegalEntities from './InlineResponse20060LegalEntities
 /**
  * The InlineResponse20060Data model module.
  * @module model/InlineResponse20060Data
- * @version 0.10.0
  */
 class InlineResponse20060Data {
     /**

@@ -30,8 +30,8 @@ Create a watchlist.  Certain error conditions yield errors as follows:   |Error 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2012 import InlineResponse2012
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object9 import InlineObject9
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,6 +74,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Create a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_create_post(body=body)
         pprint(api_response)
 
@@ -126,8 +128,8 @@ Delete a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object10 import InlineObject10
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -170,6 +172,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Delete a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_delete_post(body=body)
         pprint(api_response)
 
@@ -222,7 +226,8 @@ List of watchlists.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response20010 import InlineResponse20010
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -257,10 +262,12 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of watchlists.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -314,8 +321,8 @@ Modify a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object11 import InlineObject11
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -359,6 +366,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Modify a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_modify_post(body=body)
         pprint(api_response)
 
@@ -411,8 +420,8 @@ Add a position to a watchlist.  Certain error conditions yield errors as follows
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object12 import InlineObject12
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2013 import InlineResponse2013
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -459,6 +468,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Add a position to a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_create_post(body=body)
         pprint(api_response)
 
@@ -511,8 +522,8 @@ Delete a position of a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object13 import InlineObject13
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -558,6 +569,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Delete a position of a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_delete_post(body=body)
         pprint(api_response)
 
@@ -610,7 +623,8 @@ List of positions of a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response20011 import InlineResponse20011
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -646,10 +660,12 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["id"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["id"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["id"]
 
     try:
         # List of positions of a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_list_get(id, attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -704,8 +720,8 @@ Modify a position in a watchlist.  Certain error conditions yield errors as foll
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object14 import InlineObject14
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -755,6 +771,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Modify a position in a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_modify_post(body=body)
         pprint(api_response)
 

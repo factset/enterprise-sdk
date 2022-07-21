@@ -19,7 +19,6 @@ import Frequency from './Frequency';
 /**
  * The OptionsVolumeRequest model module.
  * @module model/OptionsVolumeRequest
- * @version 0.20.0
  */
 class OptionsVolumeRequest {
     /**

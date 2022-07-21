@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Field model module.
  * @module model/Field
- * @version 0.20.0
  */
 class Field {
     /**

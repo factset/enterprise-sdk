@@ -1,6 +1,6 @@
 # fds.sdk.IRNMeetings.EventsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,8 +22,8 @@ Get all the record events that belong to a meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import events_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.record_event_summary_dto import RecordEventSummaryDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,6 +57,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Get all the record events that belong to a meeting
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_events(meeting_id)
         pprint(api_response)
 
@@ -109,8 +110,8 @@ Get details of a record event of a meeting
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNMeetings
 from fds.sdk.IRNMeetings.api import events_api
-from fds.sdk.IRNMeetings.model.problem_details import ProblemDetails
-from fds.sdk.IRNMeetings.model.meeting_event_dto import MeetingEventDto
+from fds.sdk.IRNMeetings.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,6 +146,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
     try:
         # Get details of a record event of a meeting
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_record_event(meeting_id, record_event_id)
         pprint(api_response)
 

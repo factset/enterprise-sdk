@@ -18,7 +18,6 @@ import InlineResponse2006DataFeesInitialMinimum from './InlineResponse2006DataFe
 /**
  * The InlineResponse2006DataFeesInitial model module.
  * @module model/InlineResponse2006DataFeesInitial
- * @version 0.10.0
  */
 class InlineResponse2006DataFeesInitial {
     /**

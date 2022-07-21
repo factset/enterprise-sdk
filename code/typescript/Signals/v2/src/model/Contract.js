@@ -17,7 +17,6 @@ import ContractFields from './ContractFields';
 /**
  * The Contract model module.
  * @module model/Contract
- * @version 0.20.0
  */
 class Contract {
     /**

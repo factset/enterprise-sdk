@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of an instrument. (required).</param>
         /// <param name="filter">filter.</param>
-        public NotationCrossReferenceListByInstrumentData(string id = default(string), NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
+        public NotationCrossReferenceListByInstrumentData(string id,NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

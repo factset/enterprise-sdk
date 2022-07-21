@@ -18,7 +18,6 @@ import Partial from './Partial';
 /**
  * The Meta model module.
  * @module model/Meta
- * @version 0.20.0
  */
 class Meta {
     /**

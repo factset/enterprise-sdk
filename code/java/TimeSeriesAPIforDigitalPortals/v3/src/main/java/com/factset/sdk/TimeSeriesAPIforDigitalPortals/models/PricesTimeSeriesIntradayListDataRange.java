@@ -92,11 +92,11 @@ public class PricesTimeSeriesIntradayListDataRange implements Serializable {
   }
 
    /**
-   * The ending point of the time range (exclusive). Dates in the future are not allowed.
+   * The ending point of the time range (exclusive). Values in the future are not allowed.
    * @return end
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The ending point of the time range (exclusive). Dates in the future are not allowed.")
+  @ApiModelProperty(required = true, value = "The ending point of the time range (exclusive). Values in the future are not allowed.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

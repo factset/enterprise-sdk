@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityReference service.
 * @module api/EntityReferenceApi
-* @version 0.20.0
 */
 export default class EntityReferenceApi {
 

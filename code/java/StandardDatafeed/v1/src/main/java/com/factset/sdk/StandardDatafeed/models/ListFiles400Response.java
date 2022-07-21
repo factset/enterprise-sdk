@@ -1,6 +1,6 @@
 /*
- * SDF_API
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * SDF Download API
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -33,71 +33,71 @@ import com.factset.sdk.StandardDatafeed.JSON;
  * ListFiles400Response
  */
 @JsonPropertyOrder({
-  ListFiles400Response.JSON_PROPERTY_DATA,
-  ListFiles400Response.JSON_PROPERTY_META
+  ListFiles400Response.JSON_PROPERTY_ID,
+  ListFiles400Response.JSON_PROPERTY_ERROR_MESSAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListFiles400Response implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DATA = "data";
-  private String data;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private String meta;
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
+  private String errorMessage;
 
   public ListFiles400Response() { 
   }
 
-  public ListFiles400Response data(String data) {
-    this.data = data;
+  public ListFiles400Response id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * request id
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @ApiModelProperty(value = "request id")
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getData() {
-    return data;
+  public String getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(String data) {
-    this.data = data;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public ListFiles400Response meta(String meta) {
-    this.meta = meta;
+  public ListFiles400Response errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
     return this;
   }
 
    /**
-   * Get meta
-   * @return meta
+   * message describing the error
+   * @return errorMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_META)
+  @ApiModelProperty(value = "message describing the error")
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getMeta() {
-    return meta;
+  public String getErrorMessage() {
+    return errorMessage;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_META)
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(String meta) {
-    this.meta = meta;
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
 
@@ -113,21 +113,21 @@ public class ListFiles400Response implements Serializable {
       return false;
     }
     ListFiles400Response listFiles400Response = (ListFiles400Response) o;
-    return Objects.equals(this.data, listFiles400Response.data) &&
-        Objects.equals(this.meta, listFiles400Response.meta);
+    return Objects.equals(this.id, listFiles400Response.id) &&
+        Objects.equals(this.errorMessage, listFiles400Response.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta);
+    return Objects.hash(id, errorMessage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListFiles400Response {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

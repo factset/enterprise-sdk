@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsCustomFieldsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsCustomFieldsApi(config);
+
             var contactCustomFieldSaveDto = new ContactCustomFieldSaveDto(); // ContactCustomFieldSaveDto | ContactCustomFieldSaveDto object to save (optional) 
 
             try
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsCustomFieldsApi(config);
+
             var contactCustomFieldId = "contactCustomFieldId_example";  // Guid | contactCustomFieldId to delete associated record
 
             try
@@ -228,6 +230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsCustomFieldsApi(config);
+
             var contactCustomFieldId = "contactCustomFieldId_example";  // Guid | contactCustomFieldId to get associated record
 
             try
@@ -317,6 +320,7 @@ namespace Example
 
             var apiInstance = new ContactsCustomFieldsApi(config);
 
+
             try
             {
                 // Get all the contact custom fields
@@ -398,6 +402,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsCustomFieldsApi(config);
+
             var contactCustomFieldId = "contactCustomFieldId_example";  // Guid | contactCustomFieldId to update associated record
             var operation = new List<Operation>(); // List<Operation> | contactCustomFieldUpdateDto object to update (optional) 
 

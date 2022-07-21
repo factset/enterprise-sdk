@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigChangePassword" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigChangePassword()
+        public ServiceProviderConfigChangePassword(bool supported)
         {
         }
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20046NotationFsymRegional model module.
  * @module model/InlineResponse20046NotationFsymRegional
- * @version 0.10.0
  */
 class InlineResponse20046NotationFsymRegional {
     /**

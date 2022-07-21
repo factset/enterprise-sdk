@@ -18,7 +18,6 @@ import WatchlistPositionDeleteData from './WatchlistPositionDeleteData';
 /**
  * The InlineObject13 model module.
  * @module model/InlineObject13
- * @version 0.9.2
  */
 class InlineObject13 {
     /**

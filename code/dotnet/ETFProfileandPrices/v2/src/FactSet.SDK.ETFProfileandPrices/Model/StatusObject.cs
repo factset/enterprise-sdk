@@ -40,7 +40,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// Initializes a new instance of the <see cref="StatusObject" /> class.
         /// </summary>
         /// <param name="code">The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1). (required).</param>
-        public StatusObject(decimal code = default(decimal))
+        public StatusObject(decimal code)
         {
             this.Code = code;
         }

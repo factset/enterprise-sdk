@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelationshipCategoryListDto model module.
  * @module model/RelationshipCategoryListDto
- * @version 0.20.0
  */
 class RelationshipCategoryListDto {
     /**

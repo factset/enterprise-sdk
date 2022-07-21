@@ -17,7 +17,6 @@ import VendorChartIQTimeSeriesEodListDataAdjustments from './VendorChartIQTimeSe
 /**
  * The PricesTimeSeriesEodSubsampleListData model module.
  * @module model/PricesTimeSeriesEodSubsampleListData
- * @version 0.10.0
  */
 class PricesTimeSeriesEodSubsampleListData {
     /**

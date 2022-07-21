@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundIssuerSelection from './FundNotationScr
 /**
  * The FundNotationScreenerSearchDataFundIssuer model module.
  * @module model/FundNotationScreenerSearchDataFundIssuer
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundIssuer {
     /**

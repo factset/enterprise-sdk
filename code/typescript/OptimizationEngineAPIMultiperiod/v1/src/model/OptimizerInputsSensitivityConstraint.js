@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsSensitivityConstraint model module.
  * @module model/OptimizerInputsSensitivityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsSensitivityConstraint {
     /**

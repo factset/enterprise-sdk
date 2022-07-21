@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetEntity.JSON;
@@ -50,13 +54,13 @@ public class EntitySecurities implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_SECURITY_ID = "fsymSecurityId";
-  private String fsymSecurityId;
+  private JsonNullable<String> fsymSecurityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_LISTING_ID = "fsymListingId";
-  private String fsymListingId;
+  private JsonNullable<String> fsymListingId = JsonNullable.<String>undefined();
 
   /**
    * The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.
@@ -145,27 +149,27 @@ public class EntitySecurities implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_SECURITY_TYPE = "securityType";
-  private SecurityTypeEnum securityType;
+  private JsonNullable<SecurityTypeEnum> securityType = JsonNullable.<SecurityTypeEnum>undefined();
 
   public static final String JSON_PROPERTY_LISTING_EXCHANGE = "listingExchange";
-  private String listingExchange;
+  private JsonNullable<String> listingExchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_NAME = "securityName";
-  private String securityName;
+  private JsonNullable<String> securityName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ENTITY_ID = "fsymEntityId";
-  private String fsymEntityId;
+  private JsonNullable<String> fsymEntityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_TICKER_EXCHANGE = "fsymTickerExchange";
-  private String fsymTickerExchange;
+  private JsonNullable<String> fsymTickerExchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_TICKER_REGION = "fsymTickerRegion";
-  private String fsymTickerRegion;
+  private JsonNullable<String> fsymTickerRegion = JsonNullable.<String>undefined();
 
   /**
    * Indicates if security is active. 1 &#x3D; Active; 0 &#x3D; Inactive.
@@ -198,12 +202,12 @@ public class EntitySecurities implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_ACTIVE_FLAG = "activeFlag";
-  private ActiveFlagEnum activeFlag;
+  private JsonNullable<ActiveFlagEnum> activeFlag = JsonNullable.<ActiveFlagEnum>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -212,7 +216,7 @@ public class EntitySecurities implements Serializable {
   }
 
   public EntitySecurities fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -222,23 +226,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "FactSet Ultimate Parent ID of the Requested Security ID")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public EntitySecurities fsymSecurityId(String fsymSecurityId) {
-    this.fsymSecurityId = fsymSecurityId;
+    this.fsymSecurityId = JsonNullable.<String>of(fsymSecurityId);
     return this;
   }
 
@@ -248,23 +260,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "F3PS31-S", value = "FactSet Security ID (-S).")
-  @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymSecurityId() {
-    return fsymSecurityId;
+        return fsymSecurityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymSecurityId(String fsymSecurityId) {
+
+  public JsonNullable<String> getFsymSecurityId_JsonNullable() {
+    return fsymSecurityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_SECURITY_ID)
+  public void setFsymSecurityId_JsonNullable(JsonNullable<String> fsymSecurityId) {
     this.fsymSecurityId = fsymSecurityId;
+  }
+
+  public void setFsymSecurityId(String fsymSecurityId) {
+    this.fsymSecurityId = JsonNullable.<String>of(fsymSecurityId);
   }
 
 
   public EntitySecurities fsymListingId(String fsymListingId) {
-    this.fsymListingId = fsymListingId;
+    this.fsymListingId = JsonNullable.<String>of(fsymListingId);
     return this;
   }
 
@@ -274,23 +294,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "LVR478-L", value = "FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.")
-  @JsonProperty(JSON_PROPERTY_FSYM_LISTING_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymListingId() {
-    return fsymListingId;
+        return fsymListingId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_LISTING_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymListingId(String fsymListingId) {
+
+  public JsonNullable<String> getFsymListingId_JsonNullable() {
+    return fsymListingId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_LISTING_ID)
+  public void setFsymListingId_JsonNullable(JsonNullable<String> fsymListingId) {
     this.fsymListingId = fsymListingId;
+  }
+
+  public void setFsymListingId(String fsymListingId) {
+    this.fsymListingId = JsonNullable.<String>of(fsymListingId);
   }
 
 
   public EntitySecurities securityType(SecurityTypeEnum securityType) {
-    this.securityType = securityType;
+    this.securityType = JsonNullable.<SecurityTypeEnum>of(securityType);
     return this;
   }
 
@@ -300,23 +328,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BDNT", value = "The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.")
-  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public SecurityTypeEnum getSecurityType() {
-    return securityType;
+        return securityType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityType(SecurityTypeEnum securityType) {
+
+  public JsonNullable<SecurityTypeEnum> getSecurityType_JsonNullable() {
+    return securityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
+  public void setSecurityType_JsonNullable(JsonNullable<SecurityTypeEnum> securityType) {
     this.securityType = securityType;
+  }
+
+  public void setSecurityType(SecurityTypeEnum securityType) {
+    this.securityType = JsonNullable.<SecurityTypeEnum>of(securityType);
   }
 
 
   public EntitySecurities listingExchange(String listingExchange) {
-    this.listingExchange = listingExchange;
+    this.listingExchange = JsonNullable.<String>of(listingExchange);
     return this;
   }
 
@@ -326,23 +362,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "NAS", value = "The securities primary listing exchange.")
-  @JsonProperty(JSON_PROPERTY_LISTING_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getListingExchange() {
-    return listingExchange;
+        return listingExchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LISTING_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setListingExchange(String listingExchange) {
+
+  public JsonNullable<String> getListingExchange_JsonNullable() {
+    return listingExchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LISTING_EXCHANGE)
+  public void setListingExchange_JsonNullable(JsonNullable<String> listingExchange) {
     this.listingExchange = listingExchange;
+  }
+
+  public void setListingExchange(String listingExchange) {
+    this.listingExchange = JsonNullable.<String>of(listingExchange);
   }
 
 
   public EntitySecurities securityName(String securityName) {
-    this.securityName = securityName;
+    this.securityName = JsonNullable.<String>of(securityName);
     return this;
   }
 
@@ -352,23 +396,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Amazon.com, Inc. 1.9% 21-AUG-2020", value = "Security name")
-  @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecurityName() {
-    return securityName;
+        return securityName.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityName(String securityName) {
+
+  public JsonNullable<String> getSecurityName_JsonNullable() {
+    return securityName;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_NAME)
+  public void setSecurityName_JsonNullable(JsonNullable<String> securityName) {
     this.securityName = securityName;
+  }
+
+  public void setSecurityName(String securityName) {
+    this.securityName = JsonNullable.<String>of(securityName);
   }
 
 
   public EntitySecurities fsymEntityId(String fsymEntityId) {
-    this.fsymEntityId = fsymEntityId;
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
     return this;
   }
 
@@ -378,23 +430,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymEntityId() {
-    return fsymEntityId;
+        return fsymEntityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymEntityId(String fsymEntityId) {
+
+  public JsonNullable<String> getFsymEntityId_JsonNullable() {
+    return fsymEntityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
+  public void setFsymEntityId_JsonNullable(JsonNullable<String> fsymEntityId) {
     this.fsymEntityId = fsymEntityId;
+  }
+
+  public void setFsymEntityId(String fsymEntityId) {
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
   }
 
 
   public EntitySecurities fsymTickerExchange(String fsymTickerExchange) {
-    this.fsymTickerExchange = fsymTickerExchange;
+    this.fsymTickerExchange = JsonNullable.<String>of(fsymTickerExchange);
     return this;
   }
 
@@ -404,23 +464,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "AMZN-NAS", value = "The security's ticker-exchange, representing the listing exchange symbol.")
-  @JsonProperty(JSON_PROPERTY_FSYM_TICKER_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymTickerExchange() {
-    return fsymTickerExchange;
+        return fsymTickerExchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_TICKER_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymTickerExchange(String fsymTickerExchange) {
+
+  public JsonNullable<String> getFsymTickerExchange_JsonNullable() {
+    return fsymTickerExchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_TICKER_EXCHANGE)
+  public void setFsymTickerExchange_JsonNullable(JsonNullable<String> fsymTickerExchange) {
     this.fsymTickerExchange = fsymTickerExchange;
+  }
+
+  public void setFsymTickerExchange(String fsymTickerExchange) {
+    this.fsymTickerExchange = JsonNullable.<String>of(fsymTickerExchange);
   }
 
 
   public EntitySecurities fsymTickerRegion(String fsymTickerRegion) {
-    this.fsymTickerRegion = fsymTickerRegion;
+    this.fsymTickerRegion = JsonNullable.<String>of(fsymTickerRegion);
     return this;
   }
 
@@ -430,23 +498,31 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "AMZN-US", value = "The security's regional ticker.")
-  @JsonProperty(JSON_PROPERTY_FSYM_TICKER_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymTickerRegion() {
-    return fsymTickerRegion;
+        return fsymTickerRegion.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_TICKER_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymTickerRegion(String fsymTickerRegion) {
+
+  public JsonNullable<String> getFsymTickerRegion_JsonNullable() {
+    return fsymTickerRegion;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_TICKER_REGION)
+  public void setFsymTickerRegion_JsonNullable(JsonNullable<String> fsymTickerRegion) {
     this.fsymTickerRegion = fsymTickerRegion;
+  }
+
+  public void setFsymTickerRegion(String fsymTickerRegion) {
+    this.fsymTickerRegion = JsonNullable.<String>of(fsymTickerRegion);
   }
 
 
   public EntitySecurities activeFlag(ActiveFlagEnum activeFlag) {
-    this.activeFlag = activeFlag;
+    this.activeFlag = JsonNullable.<ActiveFlagEnum>of(activeFlag);
     return this;
   }
 
@@ -456,18 +532,26 @@ public class EntitySecurities implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "Indicates if security is active. 1 = Active; 0 = Inactive.")
-  @JsonProperty(JSON_PROPERTY_ACTIVE_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ActiveFlagEnum getActiveFlag() {
-    return activeFlag;
+        return activeFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ACTIVE_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setActiveFlag(ActiveFlagEnum activeFlag) {
+
+  public JsonNullable<ActiveFlagEnum> getActiveFlag_JsonNullable() {
+    return activeFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ACTIVE_FLAG)
+  public void setActiveFlag_JsonNullable(JsonNullable<ActiveFlagEnum> activeFlag) {
     this.activeFlag = activeFlag;
+  }
+
+  public void setActiveFlag(ActiveFlagEnum activeFlag) {
+    this.activeFlag = JsonNullable.<ActiveFlagEnum>of(activeFlag);
   }
 
 
@@ -509,22 +593,33 @@ public class EntitySecurities implements Serializable {
       return false;
     }
     EntitySecurities entitySecurities = (EntitySecurities) o;
-    return Objects.equals(this.fsymId, entitySecurities.fsymId) &&
-        Objects.equals(this.fsymSecurityId, entitySecurities.fsymSecurityId) &&
-        Objects.equals(this.fsymListingId, entitySecurities.fsymListingId) &&
-        Objects.equals(this.securityType, entitySecurities.securityType) &&
-        Objects.equals(this.listingExchange, entitySecurities.listingExchange) &&
-        Objects.equals(this.securityName, entitySecurities.securityName) &&
-        Objects.equals(this.fsymEntityId, entitySecurities.fsymEntityId) &&
-        Objects.equals(this.fsymTickerExchange, entitySecurities.fsymTickerExchange) &&
-        Objects.equals(this.fsymTickerRegion, entitySecurities.fsymTickerRegion) &&
-        Objects.equals(this.activeFlag, entitySecurities.activeFlag) &&
+    return equalsNullable(this.fsymId, entitySecurities.fsymId) &&
+        equalsNullable(this.fsymSecurityId, entitySecurities.fsymSecurityId) &&
+        equalsNullable(this.fsymListingId, entitySecurities.fsymListingId) &&
+        equalsNullable(this.securityType, entitySecurities.securityType) &&
+        equalsNullable(this.listingExchange, entitySecurities.listingExchange) &&
+        equalsNullable(this.securityName, entitySecurities.securityName) &&
+        equalsNullable(this.fsymEntityId, entitySecurities.fsymEntityId) &&
+        equalsNullable(this.fsymTickerExchange, entitySecurities.fsymTickerExchange) &&
+        equalsNullable(this.fsymTickerRegion, entitySecurities.fsymTickerRegion) &&
+        equalsNullable(this.activeFlag, entitySecurities.activeFlag) &&
         Objects.equals(this.requestId, entitySecurities.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, fsymSecurityId, fsymListingId, securityType, listingExchange, securityName, fsymEntityId, fsymTickerExchange, fsymTickerRegion, activeFlag, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(fsymSecurityId), hashCodeNullable(fsymListingId), hashCodeNullable(securityType), hashCodeNullable(listingExchange), hashCodeNullable(securityName), hashCodeNullable(fsymEntityId), hashCodeNullable(fsymTickerExchange), hashCodeNullable(fsymTickerRegion), hashCodeNullable(activeFlag), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

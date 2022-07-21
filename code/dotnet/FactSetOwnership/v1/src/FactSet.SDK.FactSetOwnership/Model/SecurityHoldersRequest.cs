@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// <param name="date">Date of holdings expressed in YYYY-MM-DD format..</param>
         /// <param name="topn">Limits number of holdings or holders displayed by the top *n* securities. Default is ALL, or use integer to limit number. (default to &quot;ALL&quot;).</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public SecurityHoldersRequest(List<string> ids = default(List<string>), HolderType holderType = default(HolderType), string date = default(string), string topn = "ALL", string currency = default(string))
+        public SecurityHoldersRequest(List<string> ids,HolderType holderType = default(HolderType), string date = default(string), string topn = "ALL", string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -86,7 +86,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <param name="settlement">Settlement Date.</param>
         /// <param name="calcFromMethod">Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix.</param>
         /// <param name="marketEnvironment">marketEnvironment.</param>
-        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment))
+        public FIJobSettings(string asOfDate,List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment))
         {
             // to ensure "asOfDate" is required (not null)
             if (asOfDate == null) {

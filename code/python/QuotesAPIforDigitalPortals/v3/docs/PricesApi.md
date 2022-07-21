@@ -30,7 +30,8 @@ Current bid and ask prices (best bid / offer) for a notation.  The endpoint is s
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20081 import InlineResponse20081
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,14 +62,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     api_instance = prices_api.PricesApi(api_client)
 
     id = "id_example" # str | Identifier of the notation.
-    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
+    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) (default to 5000.0)
+    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) if omitted the server will use the default value of 5000.0
 
     try:
         # Current bid and ask prices (best bid / offer) for a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_bid_ask_get(id, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
         pprint(api_response)
 
@@ -124,7 +127,8 @@ Current bid and ask prices (best bid / offer) for a list of notations.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20082 import InlineResponse20082
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,14 +161,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ids = [
         "ids_example",
     ] # [str] | List of notations.
-    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
-    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) (default to True)
+    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
+    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Current bid and ask prices (best bid / offer) for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_bid_ask_list(ids, quality=quality, same_quality=same_quality, attributes=attributes)
         pprint(api_response)
 
@@ -220,7 +226,8 @@ Overview of trading on the current trading day, including the latest price, for 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20079 import InlineResponse20079
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -251,14 +258,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     api_instance = prices_api.PricesApi(api_client)
 
     id = "id_example" # str | Identifier of the notation.
-    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
+    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are sent. (optional) (default to 5000.0)
+    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are sent. (optional) if omitted the server will use the default value of 5000.0
 
     try:
         # Overview of trading on the current trading day, including the latest price, for a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_get(id, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
         pprint(api_response)
 
@@ -314,7 +323,8 @@ Overview of trading on the current trading day, including the latest price, for 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20080 import InlineResponse20080
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -347,14 +357,16 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ids = [
         "ids_example",
     ] # [str] | List of notations.
-    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
-    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) (default to True)
+    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
+    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Overview of trading on the current trading day, including the latest price, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_list(ids, quality=quality, same_quality=same_quality, attributes=attributes)
         pprint(api_response)
 
@@ -410,7 +422,8 @@ Orderbook aggregated by price.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20083 import InlineResponse20083
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -441,13 +454,15 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     api_instance = prices_api.PricesApi(api_client)
 
     id = "id_example" # str | Identifier of the notation.
-    quality = "RLT" # str | Quality of the price. (optional) (default to "RLT")
+    quality = "RLT" # str | Quality of the price. (optional) if omitted the server will use the default value of "RLT"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Orderbook aggregated by price.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_orderbook_aggregated_get(id, quality=quality, attributes=attributes)
         pprint(api_response)
 
@@ -502,7 +517,8 @@ Full orderbook
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20084 import InlineResponse20084
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -533,13 +549,15 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     api_instance = prices_api.PricesApi(api_client)
 
     id = "id_example" # str | Identifier of the notation.
-    quality = "RLT" # str | Quality of the price. (optional) (default to "RLT")
+    quality = "RLT" # str | Quality of the price. (optional) if omitted the server will use the default value of "RLT"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Full orderbook
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_orderbook_full_get(id, quality=quality, attributes=attributes)
         pprint(api_response)
 
@@ -594,7 +612,8 @@ Trading schedule event types define the events which may occur during any period
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20086 import InlineResponse20086
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -630,6 +649,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Trading schedule event types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_trading_schedule_event_type_list(attributes=attributes)
         pprint(api_response)
 
@@ -682,8 +703,8 @@ Sequence of market-related events like the opening time or closing time of a mar
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import prices_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20085 import InlineResponse20085
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object21 import InlineObject21
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -739,6 +760,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Sequence of market-related events.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_trading_schedule_event_list(body)
         pprint(api_response)
 

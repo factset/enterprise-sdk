@@ -25,11 +25,11 @@ from fds.sdk.OFDB.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.OFDB.exceptions import ApiException
+from fds.sdk.OFDB.model.create_symbols import CreateSymbols
 from fds.sdk.OFDB.model.database_schema import DatabaseSchema
-from fds.sdk.OFDB.model.inline_object import InlineObject
-from fds.sdk.OFDB.model.inline_object2 import InlineObject2
-from fds.sdk.OFDB.model.inline_object4 import InlineObject4
 from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
+from fds.sdk.OFDB.model.post_datesymbol import PostDatesymbol
+from fds.sdk.OFDB.model.postnewsymboldate import Postnewsymboldate
 from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 
 
@@ -120,12 +120,12 @@ class CreateApi(object):
                 'all': [
                     'path',
                     'date',
-                    'inline_object4',
+                    'postnewsymboldate',
                 ],
                 'required': [
                     'path',
                     'date',
-                    'inline_object4',
+                    'postnewsymboldate',
                 ],
                 'nullable': [
                 ],
@@ -144,8 +144,8 @@ class CreateApi(object):
                         (str,),
                     'date':
                         (int,),
-                    'inline_object4':
-                        (InlineObject4,),
+                    'postnewsymboldate':
+                        (Postnewsymboldate,),
                 },
                 'attribute_map': {
                     'path': 'path',
@@ -154,7 +154,7 @@ class CreateApi(object):
                 'location_map': {
                     'path': 'path',
                     'date': 'path',
-                    'inline_object4': 'body',
+                    'postnewsymboldate': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -187,11 +187,11 @@ class CreateApi(object):
             params_map={
                 'all': [
                     'path',
-                    'inline_object2',
+                    'post_datesymbol',
                 ],
                 'required': [
                     'path',
-                    'inline_object2',
+                    'post_datesymbol',
                 ],
                 'nullable': [
                 ],
@@ -208,15 +208,15 @@ class CreateApi(object):
                 'openapi_types': {
                     'path':
                         (str,),
-                    'inline_object2':
-                        (InlineObject2,),
+                    'post_datesymbol':
+                        (PostDatesymbol,),
                 },
                 'attribute_map': {
                     'path': 'path',
                 },
                 'location_map': {
                     'path': 'path',
-                    'inline_object2': 'body',
+                    'post_datesymbol': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -249,11 +249,11 @@ class CreateApi(object):
             params_map={
                 'all': [
                     'path',
-                    'inline_object',
+                    'create_symbols',
                 ],
                 'required': [
                     'path',
-                    'inline_object',
+                    'create_symbols',
                 ],
                 'nullable': [
                 ],
@@ -270,15 +270,15 @@ class CreateApi(object):
                 'openapi_types': {
                     'path':
                         (str,),
-                    'inline_object':
-                        (InlineObject,),
+                    'create_symbols':
+                        (CreateSymbols,),
                 },
                 'attribute_map': {
                     'path': 'path',
                 },
                 'location_map': {
                     'path': 'path',
-                    'inline_object': 'body',
+                    'create_symbols': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -480,7 +480,7 @@ class CreateApi(object):
         self,
         path,
         date,
-        inline_object4,
+        postnewsymboldate,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_dates_date_symbols_post  # noqa: E501
@@ -491,7 +491,7 @@ class CreateApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object4 (InlineObject4):
+            postnewsymboldate (Postnewsymboldate): Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -526,15 +526,15 @@ class CreateApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object4'] = \
-            inline_object4
+        kwargs['postnewsymboldate'] = \
+            postnewsymboldate
         return self.v1_database_path_dates_date_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_post_with_http_info(
         self,
         path,
         date,
-        inline_object4,
+        postnewsymboldate,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_dates_date_symbols_post  # noqa: E501
@@ -545,7 +545,7 @@ class CreateApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object4 (InlineObject4):
+            postnewsymboldate (Postnewsymboldate): Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -584,15 +584,15 @@ class CreateApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object4'] = \
-            inline_object4
+        kwargs['postnewsymboldate'] = \
+            postnewsymboldate
         return self.v1_database_path_dates_date_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_post_async(
         self,
         path,
         date,
-        inline_object4,
+        postnewsymboldate,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_dates_date_symbols_post  # noqa: E501
@@ -603,7 +603,7 @@ class CreateApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object4 (InlineObject4):
+            postnewsymboldate (Postnewsymboldate): Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -637,15 +637,15 @@ class CreateApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object4'] = \
-            inline_object4
+        kwargs['postnewsymboldate'] = \
+            postnewsymboldate
         return self.v1_database_path_dates_date_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_post_with_http_info_async(
         self,
         path,
         date,
-        inline_object4,
+        postnewsymboldate,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_dates_date_symbols_post  # noqa: E501
@@ -656,7 +656,7 @@ class CreateApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object4 (InlineObject4):
+            postnewsymboldate (Postnewsymboldate): Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -690,14 +690,14 @@ class CreateApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object4'] = \
-            inline_object4
+        kwargs['postnewsymboldate'] = \
+            postnewsymboldate
         return self.v1_database_path_dates_date_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_post(
         self,
         path,
-        inline_object2,
+        post_datesymbol,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_dates_post  # noqa: E501
@@ -707,7 +707,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object2 (InlineObject2):
+            post_datesymbol (PostDatesymbol): Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -740,14 +740,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['path'] = \
             path
-        kwargs['inline_object2'] = \
-            inline_object2
+        kwargs['post_datesymbol'] = \
+            post_datesymbol
         return self.v1_database_path_dates_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_post_with_http_info(
         self,
         path,
-        inline_object2,
+        post_datesymbol,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_dates_post  # noqa: E501
@@ -757,7 +757,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object2 (InlineObject2):
+            post_datesymbol (PostDatesymbol): Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -794,14 +794,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['path'] = \
             path
-        kwargs['inline_object2'] = \
-            inline_object2
+        kwargs['post_datesymbol'] = \
+            post_datesymbol
         return self.v1_database_path_dates_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_post_async(
         self,
         path,
-        inline_object2,
+        post_datesymbol,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_dates_post  # noqa: E501
@@ -811,7 +811,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object2 (InlineObject2):
+            post_datesymbol (PostDatesymbol): Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -843,14 +843,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
             path
-        kwargs['inline_object2'] = \
-            inline_object2
+        kwargs['post_datesymbol'] = \
+            post_datesymbol
         return self.v1_database_path_dates_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_post_with_http_info_async(
         self,
         path,
-        inline_object2,
+        post_datesymbol,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_dates_post  # noqa: E501
@@ -860,7 +860,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object2 (InlineObject2):
+            post_datesymbol (PostDatesymbol): Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -892,14 +892,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
             path
-        kwargs['inline_object2'] = \
-            inline_object2
+        kwargs['post_datesymbol'] = \
+            post_datesymbol
         return self.v1_database_path_dates_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_post(
         self,
         path,
-        inline_object,
+        create_symbols,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_symbols_post  # noqa: E501
@@ -909,7 +909,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object (InlineObject):
+            create_symbols (CreateSymbols): Data for creating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -942,14 +942,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['path'] = \
             path
-        kwargs['inline_object'] = \
-            inline_object
+        kwargs['create_symbols'] = \
+            create_symbols
         return self.v1_database_path_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_post_with_http_info(
         self,
         path,
-        inline_object,
+        create_symbols,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_symbols_post  # noqa: E501
@@ -959,7 +959,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object (InlineObject):
+            create_symbols (CreateSymbols): Data for creating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -996,14 +996,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['path'] = \
             path
-        kwargs['inline_object'] = \
-            inline_object
+        kwargs['create_symbols'] = \
+            create_symbols
         return self.v1_database_path_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_post_async(
         self,
         path,
-        inline_object,
+        create_symbols,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_symbols_post  # noqa: E501
@@ -1013,7 +1013,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object (InlineObject):
+            create_symbols (CreateSymbols): Data for creating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1045,14 +1045,14 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['path'] = \
             path
-        kwargs['inline_object'] = \
-            inline_object
+        kwargs['create_symbols'] = \
+            create_symbols
         return self.v1_database_path_symbols_post_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_post_with_http_info_async(
         self,
         path,
-        inline_object,
+        create_symbols,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_symbols_post  # noqa: E501
@@ -1062,7 +1062,7 @@ class CreateApi(object):
 
         Args:
             path (str): Encode database path
-            inline_object (InlineObject):
+            create_symbols (CreateSymbols): Data for creating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1094,7 +1094,7 @@ class CreateApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
             path
-        kwargs['inline_object'] = \
-            inline_object
+        kwargs['create_symbols'] = \
+            create_symbols
         return self.v1_database_path_symbols_post_endpoint.call_with_http_info(**kwargs)
 

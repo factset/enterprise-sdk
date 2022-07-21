@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
@@ -337,6 +340,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
             var unitId = "unitId_example";  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
 
@@ -401,6 +405,7 @@ This endpoint runs the PA calculation specified in the POST body parameters.  It
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.PAEngine.Api;
@@ -433,6 +438,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pACalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters (optional) 
@@ -519,6 +525,7 @@ This endpoint updates and run the PA calculation specified in the PUT body param
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.PAEngine.Api;
@@ -551,6 +558,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 

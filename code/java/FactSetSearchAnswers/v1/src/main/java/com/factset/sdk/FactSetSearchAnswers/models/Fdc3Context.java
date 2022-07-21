@@ -95,32 +95,6 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize Fdc3Country
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (Fdc3Country.class.equals(Integer.class) || Fdc3Country.class.equals(Long.class) || Fdc3Country.class.equals(Float.class) || Fdc3Country.class.equals(Double.class) || Fdc3Country.class.equals(Boolean.class) || Fdc3Country.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((Fdc3Country.class.equals(Integer.class) || Fdc3Country.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((Fdc3Country.class.equals(Float.class) || Fdc3Country.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (Fdc3Country.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (Fdc3Country.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Country.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'Fdc3Country'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Fdc3Country'", e);
-            }
-
             // deserialize Fdc3Instrument
             try {
                 boolean attemptParsing = true;
@@ -135,7 +109,7 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Instrument.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Fdc3Instrument>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -145,6 +119,32 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'Fdc3Instrument'", e);
+            }
+
+            // deserialize Fdc3Country
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (Fdc3Country.class.equals(Integer.class) || Fdc3Country.class.equals(Long.class) || Fdc3Country.class.equals(Float.class) || Fdc3Country.class.equals(Double.class) || Fdc3Country.class.equals(Boolean.class) || Fdc3Country.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((Fdc3Country.class.equals(Integer.class) || Fdc3Country.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((Fdc3Country.class.equals(Float.class) || Fdc3Country.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (Fdc3Country.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (Fdc3Country.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Fdc3Country>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'Fdc3Country'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'Fdc3Country'", e);
             }
 
             if (match == 1) {
@@ -171,16 +171,14 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
         super("oneOf", Boolean.FALSE);
     }
 
-    public Fdc3Context(Fdc3Country o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public Fdc3Context(Fdc3Instrument o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
+    public Fdc3Context(Fdc3Country o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
     static {
         schemas.put("Fdc3Country", new GenericType<Fdc3Country>() {
         });
@@ -204,12 +202,14 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(Fdc3Country.class, instance, new HashSet<Class<?>>())) {
+        // Fdc3Instrument
+        if (JSON.isInstanceOf(Fdc3Instrument.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(Fdc3Instrument.class, instance, new HashSet<Class<?>>())) {
+        // Fdc3Country
+        if (JSON.isInstanceOf(Fdc3Country.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -229,17 +229,6 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
     }
 
     /**
-     * Get the actual instance of `Fdc3Country`. If the actual instance is not `Fdc3Country`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Fdc3Country`
-     * @throws ClassCastException if the instance is not `Fdc3Country`
-     */
-    public Fdc3Country getFdc3Country() throws ClassCastException {
-        return (Fdc3Country)super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `Fdc3Instrument`. If the actual instance is not `Fdc3Instrument`,
      * the ClassCastException will be thrown.
      *
@@ -249,6 +238,17 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
     public Fdc3Instrument getFdc3Instrument() throws ClassCastException {
         return (Fdc3Instrument)super.getActualInstance();
     }
-
+    
+    /**
+     * Get the actual instance of `Fdc3Country`. If the actual instance is not `Fdc3Country`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Fdc3Country`
+     * @throws ClassCastException if the instance is not `Fdc3Country`
+     */
+    public Fdc3Country getFdc3Country() throws ClassCastException {
+        return (Fdc3Country)super.getActualInstance();
+    }
+    
 }
 

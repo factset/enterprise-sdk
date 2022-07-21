@@ -20,7 +20,6 @@ import ProfileDataStage from './ProfileDataStage';
 /**
  * The ProfileData model module.
  * @module model/ProfileData
- * @version 0.20.0
  */
 class ProfileData {
     /**

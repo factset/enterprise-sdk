@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTimeSeriesIntradayListMetaPagination model module.
  * @module model/PricesTimeSeriesIntradayListMetaPagination
- * @version 0.10.0
  */
 class PricesTimeSeriesIntradayListMetaPagination {
     /**
@@ -70,8 +69,9 @@ PricesTimeSeriesIntradayListMetaPagination.prototype['cursor'] = undefined;
 /**
  * Non-negative maximum number of entries to return.
  * @member {Number} limit
+ * @default 20
  */
-PricesTimeSeriesIntradayListMetaPagination.prototype['limit'] = undefined;
+PricesTimeSeriesIntradayListMetaPagination.prototype['limit'] = 20;
 
 
 

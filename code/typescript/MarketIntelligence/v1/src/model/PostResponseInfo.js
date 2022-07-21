@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PostResponseInfo model module.
  * @module model/PostResponseInfo
- * @version 0.20.0
  */
 class PostResponseInfo {
     /**

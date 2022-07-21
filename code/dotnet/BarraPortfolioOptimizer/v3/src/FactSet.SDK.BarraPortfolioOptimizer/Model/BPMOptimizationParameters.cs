@@ -44,7 +44,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <param name="optimization">optimization.</param>
         /// <param name="account">account.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public BPMOptimizationParameters(BPMOptimizerStrategy strategy = default(BPMOptimizerStrategy), BPMOptimization optimization = default(BPMOptimization), OptimizerAccount account = default(OptimizerAccount), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public BPMOptimizationParameters(BPMOptimizerStrategy strategy, OptimizerOutputTypes outputTypes,BPMOptimization optimization = default(BPMOptimization), OptimizerAccount account = default(OptimizerAccount))
         {
             // to ensure "strategy" is required (not null)
             if (strategy == null) {

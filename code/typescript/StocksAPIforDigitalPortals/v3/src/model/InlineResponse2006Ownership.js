@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006Ownership model module.
  * @module model/InlineResponse2006Ownership
- * @version 0.10.0
  */
 class InlineResponse2006Ownership {
     /**

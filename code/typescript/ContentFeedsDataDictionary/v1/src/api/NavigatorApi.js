@@ -23,7 +23,6 @@ import TableCodeFieldInfoResponse from '../model/TableCodeFieldInfoResponse';
 /**
 * Navigator service.
 * @module api/NavigatorApi
-* @version 0.20.0
 */
 export default class NavigatorApi {
 

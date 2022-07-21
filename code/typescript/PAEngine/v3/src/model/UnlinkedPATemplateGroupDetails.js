@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UnlinkedPATemplateGroupDetails model module.
  * @module model/UnlinkedPATemplateGroupDetails
- * @version 0.20.0
  */
 class UnlinkedPATemplateGroupDetails {
     /**

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.0.2
+  version: 1.1.0
   title: FactSet Fundamentals API
   contact:
     name: FactSet Research Systems
@@ -364,6 +364,10 @@ components:
         Currency code for currency values. For a list of currency ISO codes,
         visit Online Assistant Page
         [OA1470](https://my.apps.factset.com/oa/pages/1470).
+
+
+        Giving input as "DOC" would give the values in reporting currency for
+        the requested ids.
       required: false
       schema:
         type: string
@@ -499,11 +503,12 @@ components:
           - BANK
           - INSURANCE
           - UTILITY
+          - OTHER
       required: false
       description: >
         Sub-Category Filter for the Primary Category Requested. Choose a related
         sub-category for the Category requested-
-          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
           * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
           * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
@@ -526,6 +531,9 @@ components:
         INCOME_STATEMENT_SUPPLEMENTAL:
           summary: INCOME_STATEMENT - SUPPLEMENTAL
           value: SUPPLEMENTAL
+        INCOME_STATEMENT_OTHER:
+          summary: INCOME_STATEMENT - OTHER
+          value: OTHER
         BALANCE_SHEET_ASSETS:
           summary: BALANCE_SHEET - ASSETS
           value: ASSETS
@@ -704,6 +712,7 @@ components:
             FactSet.
           type: string
           example: SJY281-R
+          nullable: true
         metric:
           description: >-
             The requested `metric` input, representing the Fundamental Data
@@ -711,6 +720,7 @@ components:
             /fundamentals/v#/metrics endpoint.
           type: string
           example: FF_SALES
+          nullable: true
         periodicity:
           description: >-
             Periodicity or frequency of the fiscal periods, where ANN = Annual
@@ -731,6 +741,7 @@ components:
             - LTM
             - LTMSG
             - YTD
+          nullable: true
         fiscalPeriod:
           description: >-
             Fiscal Period indicator. Returns an integer representing the fiscal
@@ -739,24 +750,29 @@ components:
             SEMI-CODE: 1-First Semi-annual Period; 2-Second Semi-annual Period.
           type: integer
           example: 4
+          nullable: true
         fiscalYear:
           description: Fiscal year of the reported period in YYYY format.
           type: integer
           example: 2018
+          nullable: true
         fiscalPeriodLength:
           description: Length of fiscal period in days.
           type: integer
           example: 91
+          nullable: true
         fiscalEndDate:
           description: The normalized data the fiscal period ended.
           type: string
           format: date
           example: '2017-12-31'
+          nullable: true
         reportDate:
           description: The date the reported fiscal period actually ended.
           type: string
           format: date
           example: '2017-12-30'
+          nullable: true
         epsReportDate:
           description: >-
             The date the EPS was reported for the requested periodicity. In
@@ -764,6 +780,7 @@ components:
           type: string
           format: date
           example: '2018-02-24'
+          nullable: true
         updateType:
           description: >-
             The update type, where: 1 = Preliminary; 2 = FAST; 3 = Final. For
@@ -771,6 +788,7 @@ components:
             #D13094](https://oa.apps.factset.com/pages/D13094).
           type: integer
           example: 1
+          nullable: true
         updateStatus:
           description: >-
             Update Status Flag: P = Preliminary - The period is updated from a
@@ -780,6 +798,7 @@ components:
             notes to the line items.
           type: string
           example: P
+          nullable: true
         currency:
           description: >-
             Currency code for the data. For a list of currency ISO codes, visit
@@ -787,6 +806,7 @@ components:
             #1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
+          nullable: true
         value:
           description: >-
             Value of the data metric requested. Note that the type of value is
@@ -794,6 +814,7 @@ components:
             could be an object representation of a string or double. 
           type: object
           example: 12375
+          nullable: true
     metricsRequest:
       title: Metrics Request Body
       description: Metrics Request Body
@@ -824,22 +845,26 @@ components:
             `/fundamentals/v#/fundamentals` endpoint.
           type: string
           example: FF_ASSETS
+          nullable: true
         name:
           description: Plain text name of the metric.
           type: string
           example: Total Assets
+          nullable: true
         category:
           description: >-
             Primary Category of metric item, such as, INCOME_STATEMENT,
             BALANCE_SHEET, CASH_FLOW, or RATIOS.
           type: string
           example: BALANCE_SHEET
+          nullable: true
         subcategory:
           description: >-
             Sub-category of metric item, such as ASSETS, SUPPLEMENTAL,
             SHAREHOLDERS_EQUITY, VALUATION, PROFITABILITY, etc.
           type: string
           example: ASSETS
+          nullable: true
         OAPageId:
           description: >-
             The Online Assistant Page ID in D***** format, used to lookup the
@@ -849,6 +874,7 @@ components:
             definition for FF_SALES.
           type: string
           example: D10585
+          nullable: true
         OAurl:
           description: >-
             The Online Assistant Page URL, used to lookup the definition and
@@ -857,10 +883,12 @@ components:
             definition for FF_SALES.
           type: string
           example: https://my.apps.factset.com/oa/pages/D10585
+          nullable: true
         factor:
           description: The factor for the metric (e.g. 1000 = thousands).
           type: integer
           example: 1000000
+          nullable: true
         sdfPackage:
           description: >-
             An indicator for which Standard Data Feed (SDF) package the item is
@@ -871,6 +899,7 @@ components:
             - BASIC
             - ADVANCED
           example: BASIC
+          nullable: true
         dataType:
           description: >
             The data type for the metric. Make note, mixing data types within a
@@ -885,6 +914,7 @@ components:
               * **stringArray** - The difference between STRING and STRINGARRAY is that STRING can only go across a row (one-dimension; horizontal orientation; vertical length=1) whereas STRINGARRAY will return data both across a row and down a column (two-dimensions; vertical orientation). With STRINGARRAY, the number of data points across a row will correspond to the number of companies queried; the number of data points down a column will correspond to the length of the time-series.
           type: string
           example: doubleArray
+          nullable: true
     ids:
       title: Ids
       description: >
@@ -1038,10 +1068,11 @@ components:
         - BANK
         - INSURANCE
         - UTILITY
+        - OTHER
       description: >
         Sub-Category Filter for the Primary Category Requested. Choose a related
         sub-category for the Category requested-
-          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
           * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
           * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
@@ -1183,7 +1214,7 @@ components:
             reportDate: '2017-11-30'
             epsReportDate: '2017-12-19'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 329.141
           - requestId: FDS-US
@@ -1197,7 +1228,7 @@ components:
             reportDate: '2018-02-28'
             epsReportDate: '2018-03-27'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 335.231
     resultOfMultipleIdwithSingleMetricItem:
@@ -1218,7 +1249,7 @@ components:
             reportDate: '2017-11-30'
             epsReportDate: '2017-12-19'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 329.141
           - requestId: FDS-US
@@ -1232,7 +1263,7 @@ components:
             reportDate: '2018-02-28'
             epsReportDate: '2018-03-27'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 335.231
           - requestId: IBM-US
@@ -1246,7 +1277,7 @@ components:
             reportDate: '2017-09-30'
             epsReportDate: '2017-10-17'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 19153
           - requestId: IBM-US
@@ -1260,7 +1291,7 @@ components:
             reportDate: '2017-12-31'
             epsReportDate: '2018-01-18'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 22543
           - requestId: AAPL-US
@@ -1274,7 +1305,7 @@ components:
             reportDate: '2017-09-30'
             epsReportDate: '2017-11-02'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 52574
           - requestId: AAPL-US
@@ -1288,7 +1319,7 @@ components:
             reportDate: '2017-12-30'
             epsReportDate: '2018-02-01'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 88477
     resultOfSingleIdwithMultipleMetricItem:
@@ -1309,7 +1340,7 @@ components:
             reportDate: '2020-05-31'
             epsReportDate: '2020-06-25'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 374.083
           - requestId: FDS
@@ -1323,7 +1354,7 @@ components:
             reportDate: '2020-05-31'
             epsReportDate: '2020-06-25'
             updateType: 3
-            restated: F
+            updateStatus: F
             currency: USD
             value: 31.6769162623484
     postBodyOfSingleIdwithSingleMetricItem:

@@ -77,9 +77,9 @@ public class DebtInstrumentApi {
   /**
    * Fundamental data for a debt instrument.
    * Fundamental data for a debt instrument; any other instrument yields empty values for debt-instrument-specific attributes. Dates are interpreted in the timezone of the issuer.
-   * @param id Identifier of the instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -95,9 +95,9 @@ public class DebtInstrumentApi {
   /**
    * Fundamental data for a debt instrument.
    * Fundamental data for a debt instrument; any other instrument yields empty values for debt-instrument-specific attributes. Dates are interpreted in the timezone of the issuer.
-   * @param id Identifier of the instrument. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -157,7 +157,7 @@ public class DebtInstrumentApi {
   /**
    * Key figures of a debt instrument.
    * Key figures of a debt instrument. The key figures are calculated using delayed prices with an additional delay of 10 minutes after an  update of the debt instrument&#39;s price. Special product features such as the right to a maturity extension, an attached option, or convertibility are not considered for the key figure calculation. Further, a calculation is not performed for perpetual products and for products with variable interest rate.
-   * @param id Identifier of a notation. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
@@ -174,7 +174,7 @@ public class DebtInstrumentApi {
   /**
    * Key figures of a debt instrument.
    * Key figures of a debt instrument. The key figures are calculated using delayed prices with an additional delay of 10 minutes after an  update of the debt instrument&#39;s price. Special product features such as the right to a maturity extension, an attached option, or convertibility are not considered for the key figure calculation. Further, a calculation is not performed for perpetual products and for products with variable interest rate.
-   * @param id Identifier of a notation. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
@@ -234,7 +234,7 @@ public class DebtInstrumentApi {
   /**
    * Search for issuers of debt instruments.
    * Search for issuers of debt instruments. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -243,14 +243,14 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postDebtInstrumentIssuerSearch(InlineObject body) throws ApiException {
-    return postDebtInstrumentIssuerSearchWithHttpInfo(body).getData();
+  public InlineResponse2001 postDebtInstrumentIssuerSearch(InlineObject inlineObject) throws ApiException {
+    return postDebtInstrumentIssuerSearchWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * Search for issuers of debt instruments.
    * Search for issuers of debt instruments. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -259,8 +259,8 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postDebtInstrumentIssuerSearchWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postDebtInstrumentIssuerSearchWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
     // create path and map variables
     String localVarPath = "/debtInstrument/issuer/search";
@@ -302,7 +302,7 @@ public class DebtInstrumentApi {
   /**
    * Screener for debt instruments&#39; notations based on debt instrument-specific parameters.
    * Screener for debt instruments&#39; notations based on debt instrument-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
-   * @param body  (optional)
+   * @param inlineObject1  (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -311,14 +311,14 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 postDebtInstrumentNotationScreenerSearch(InlineObject1 body) throws ApiException {
-    return postDebtInstrumentNotationScreenerSearchWithHttpInfo(body).getData();
+  public InlineResponse2003 postDebtInstrumentNotationScreenerSearch(InlineObject1 inlineObject1) throws ApiException {
+    return postDebtInstrumentNotationScreenerSearchWithHttpInfo(inlineObject1).getData();
   }
 
   /**
    * Screener for debt instruments&#39; notations based on debt instrument-specific parameters.
    * Screener for debt instruments&#39; notations based on debt instrument-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
-   * @param body  (optional)
+   * @param inlineObject1  (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -327,8 +327,8 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> postDebtInstrumentNotationScreenerSearchWithHttpInfo(InlineObject1 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2003> postDebtInstrumentNotationScreenerSearchWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
+    Object localVarPostBody = inlineObject1;
     
     // create path and map variables
     String localVarPath = "/debtInstrument/notation/screener/search";
@@ -370,7 +370,7 @@ public class DebtInstrumentApi {
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search.&#x60;
    * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/debtInstrument/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
-   * @param body  (optional)
+   * @param inlineObject2  (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -379,14 +379,14 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 postDebtInstrumentNotationScreenerValueRangesGet(InlineObject2 body) throws ApiException {
-    return postDebtInstrumentNotationScreenerValueRangesGetWithHttpInfo(body).getData();
+  public InlineResponse2004 postDebtInstrumentNotationScreenerValueRangesGet(InlineObject2 inlineObject2) throws ApiException {
+    return postDebtInstrumentNotationScreenerValueRangesGetWithHttpInfo(inlineObject2).getData();
   }
 
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search.&#x60;
    * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/debtInstrument/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
-   * @param body  (optional)
+   * @param inlineObject2  (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -395,8 +395,8 @@ public class DebtInstrumentApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> postDebtInstrumentNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2004> postDebtInstrumentNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
+    Object localVarPostBody = inlineObject2;
     
     // create path and map variables
     String localVarPath = "/debtInstrument/notation/screener/valueRanges/get";

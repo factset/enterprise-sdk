@@ -17,7 +17,6 @@ import InlineResponse2005DataFundHoldingType from './InlineResponse2005DataFundH
 /**
  * The InlineResponse2005DataFundRegionalExposure model module.
  * @module model/InlineResponse2005DataFundRegionalExposure
- * @version 0.10.0
  */
 class InlineResponse2005DataFundRegionalExposure {
     /**

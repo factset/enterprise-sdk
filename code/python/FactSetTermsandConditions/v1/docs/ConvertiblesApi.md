@@ -28,8 +28,8 @@ Returns Convertible Details for a list of securities, such as -   * Convertible 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_details_response import ConvertibleDetailsResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,6 +63,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible Details for a list of Convertible Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_details(ids)
         pprint(api_response)
 
@@ -120,9 +121,8 @@ Returns Convertible Details for a list of securities, such as -   * Convertible 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_details_response import ConvertibleDetailsResponse
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -158,6 +158,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible Details data for a large list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_details_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 
@@ -215,8 +216,8 @@ Returns Convertible History data for the Fixed Income security, including - * Co
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_history_response import ConvertibleHistoryResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -250,6 +251,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible History data for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_history(ids)
         pprint(api_response)
 
@@ -307,9 +309,8 @@ Returns Convertible History data for a list of Fixed Income securities.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_history_response import ConvertibleHistoryResponse
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -345,6 +346,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible History data for a large list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_history_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 
@@ -402,8 +404,8 @@ Returns Convertible Triggers data for the Fixed Income security including the Co
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_triggers_response import ConvertibleTriggersResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -437,6 +439,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible Triggers data for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_triggers(ids)
         pprint(api_response)
 
@@ -494,9 +497,8 @@ Returns Convertible Triggers data for the Fixed Income security including the Co
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import convertibles_api
-from fds.sdk.FactSetTermsandConditions.model.convertible_triggers_response import ConvertibleTriggersResponse
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -532,6 +534,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Convertible Trigger data for a large list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_convertible_triggers_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 

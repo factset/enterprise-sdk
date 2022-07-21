@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundFlowsAUMApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
@@ -156,6 +157,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundFlowsAUMApi(config);
+
             var aumRequest = new AumRequest(); // AumRequest | The AUM request body, allowing the user to specify a list of ids.
 
             try
@@ -249,6 +251,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundFlowsAUMApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
@@ -350,6 +353,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundFlowsAUMApi(config);
+
             var flowsRequest = new FlowsRequest(); // FlowsRequest | The Fund Flows request body, allowing the user to specify a list of ids.
 
             try

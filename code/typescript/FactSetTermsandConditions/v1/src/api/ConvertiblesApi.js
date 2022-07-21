@@ -22,7 +22,6 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Convertibles service.
 * @module api/ConvertiblesApi
-* @version 0.20.0
 */
 export default class ConvertiblesApi {
 

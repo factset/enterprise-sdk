@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeCustodianBankCurrent from './InlineRes
 /**
  * The InlineResponse2005DataShareClassFeeCustodianBank model module.
  * @module model/InlineResponse2005DataShareClassFeeCustodianBank
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeCustodianBank {
     /**

@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeSwitchingCurrent from './InlineRespons
 /**
  * The InlineResponse2005DataShareClassFeeSwitching model module.
  * @module model/InlineResponse2005DataShareClassFeeSwitching
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeSwitching {
     /**

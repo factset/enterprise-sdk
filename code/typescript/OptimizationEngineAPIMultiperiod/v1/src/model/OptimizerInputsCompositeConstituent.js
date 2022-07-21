@@ -17,7 +17,6 @@ import OptimizerInputsAssetPrice from './OptimizerInputsAssetPrice';
 /**
  * The OptimizerInputsCompositeConstituent model module.
  * @module model/OptimizerInputsCompositeConstituent
- * @version 0.20.0
  */
 class OptimizerInputsCompositeConstituent {
     /**

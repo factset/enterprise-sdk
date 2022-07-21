@@ -7,6 +7,10 @@ README.md
 docs/Active.md
 docs/EntityReference.md
 docs/EntityReferenceApi.md
+docs/EntityReferenceChi.md
+docs/EntityReferenceChiRequest.md
+docs/EntityReferenceChiResponse.md
+docs/EntityReferenceChineseApi.md
 docs/EntityReferenceRequest.md
 docs/EntityReferenceResponse.md
 docs/EntitySecurities.md
@@ -20,6 +24,7 @@ docs/EntityStructureResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Ids.md
+docs/IdsChi.md
 docs/SecurityType.md
 docs/StructureIds.md
 docs/UltimateEntityStructureRequest.md
@@ -29,6 +34,7 @@ fds/__init__.py
 fds/sdk/FactSetEntity/__init__.py
 fds/sdk/FactSetEntity/api/__init__.py
 fds/sdk/FactSetEntity/api/entity_reference_api.py
+fds/sdk/FactSetEntity/api/entity_reference_chinese_api.py
 fds/sdk/FactSetEntity/api/entity_securities_api.py
 fds/sdk/FactSetEntity/api/entity_structure_api.py
 fds/sdk/FactSetEntity/api_client.py
@@ -38,6 +44,9 @@ fds/sdk/FactSetEntity/exceptions.py
 fds/sdk/FactSetEntity/model/__init__.py
 fds/sdk/FactSetEntity/model/active.py
 fds/sdk/FactSetEntity/model/entity_reference.py
+fds/sdk/FactSetEntity/model/entity_reference_chi.py
+fds/sdk/FactSetEntity/model/entity_reference_chi_request.py
+fds/sdk/FactSetEntity/model/entity_reference_chi_response.py
 fds/sdk/FactSetEntity/model/entity_reference_request.py
 fds/sdk/FactSetEntity/model/entity_reference_response.py
 fds/sdk/FactSetEntity/model/entity_securities.py
@@ -49,6 +58,7 @@ fds/sdk/FactSetEntity/model/entity_structure_response.py
 fds/sdk/FactSetEntity/model/error_response.py
 fds/sdk/FactSetEntity/model/error_response_sub_errors.py
 fds/sdk/FactSetEntity/model/ids.py
+fds/sdk/FactSetEntity/model/ids_chi.py
 fds/sdk/FactSetEntity/model/security_type.py
 fds/sdk/FactSetEntity/model/structure_ids.py
 fds/sdk/FactSetEntity/model/ultimate_entity_structure_request.py

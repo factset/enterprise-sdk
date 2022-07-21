@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataSimpleMovingAverageDays20 model module.
  * @module model/InlineResponse2005DataSimpleMovingAverageDays20
- * @version 0.9.2
  */
 class InlineResponse2005DataSimpleMovingAverageDays20 {
     /**

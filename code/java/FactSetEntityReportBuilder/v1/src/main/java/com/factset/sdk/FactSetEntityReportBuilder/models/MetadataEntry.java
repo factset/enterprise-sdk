@@ -106,32 +106,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize Category
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (Category.class.equals(Integer.class) || Category.class.equals(Long.class) || Category.class.equals(Float.class) || Category.class.equals(Double.class) || Category.class.equals(Boolean.class) || Category.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((Category.class.equals(Integer.class) || Category.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((Category.class.equals(Float.class) || Category.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (Category.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (Category.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Category.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'Category'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Category'", e);
-            }
-
             // deserialize CurrencyCode
             try {
                 boolean attemptParsing = true;
@@ -146,7 +120,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CurrencyCode.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<CurrencyCode>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -172,7 +146,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CurrencySymbol.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<CurrencySymbol>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -182,6 +156,84 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'CurrencySymbol'", e);
+            }
+
+            // deserialize Category
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (Category.class.equals(Integer.class) || Category.class.equals(Long.class) || Category.class.equals(Float.class) || Category.class.equals(Double.class) || Category.class.equals(Boolean.class) || Category.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((Category.class.equals(Integer.class) || Category.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((Category.class.equals(Float.class) || Category.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (Category.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (Category.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Category>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'Category'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'Category'", e);
+            }
+
+            // deserialize ValueType
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueType.class.equals(Integer.class) || ValueType.class.equals(Long.class) || ValueType.class.equals(Float.class) || ValueType.class.equals(Double.class) || ValueType.class.equals(Boolean.class) || ValueType.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueType.class.equals(Integer.class) || ValueType.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueType.class.equals(Float.class) || ValueType.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueType.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueType.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueType>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueType'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueType'", e);
+            }
+
+            // deserialize Scale
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (Scale.class.equals(Integer.class) || Scale.class.equals(Long.class) || Scale.class.equals(Float.class) || Scale.class.equals(Double.class) || Scale.class.equals(Boolean.class) || Scale.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((Scale.class.equals(Integer.class) || Scale.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((Scale.class.equals(Float.class) || Scale.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (Scale.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (Scale.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Scale>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'Scale'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'Scale'", e);
             }
 
             // deserialize Description
@@ -198,7 +250,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Description.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Description>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -224,7 +276,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Frequency.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Frequency>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -234,58 +286,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
             } catch (Exception e) {
                 // deserialization failed, continue
                 log.log(Level.FINER, "Input data does not match schema 'Frequency'", e);
-            }
-
-            // deserialize Scale
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (Scale.class.equals(Integer.class) || Scale.class.equals(Long.class) || Scale.class.equals(Float.class) || Scale.class.equals(Double.class) || Scale.class.equals(Boolean.class) || Scale.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((Scale.class.equals(Integer.class) || Scale.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((Scale.class.equals(Float.class) || Scale.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (Scale.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (Scale.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Scale.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'Scale'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Scale'", e);
-            }
-
-            // deserialize ValueType
-            try {
-                boolean attemptParsing = true;
-                // ensure that we respect type coercion as set on the client ObjectMapper
-                if (ValueType.class.equals(Integer.class) || ValueType.class.equals(Long.class) || ValueType.class.equals(Float.class) || ValueType.class.equals(Double.class) || ValueType.class.equals(Boolean.class) || ValueType.class.equals(String.class)) {
-                    attemptParsing = typeCoercion;
-                    if (!attemptParsing) {
-                        attemptParsing |= ((ValueType.class.equals(Integer.class) || ValueType.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((ValueType.class.equals(Float.class) || ValueType.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (ValueType.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (ValueType.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-                    }
-                }
-                if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueType.class);
-                    // TODO: there is no validation against JSON schema constraints
-                    // (min, max, enum, pattern...), this does not perform a strict JSON
-                    // validation, which means the 'match' count may be higher than it should be.
-                    match++;
-                    log.log(Level.FINER, "Input data matches schema 'ValueType'");
-                }
-            } catch (Exception e) {
-                // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'ValueType'", e);
             }
 
             if (match == 1) {
@@ -312,41 +312,34 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
         super("oneOf", Boolean.FALSE);
     }
 
-    public MetadataEntry(Category o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public MetadataEntry(CurrencyCode o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public MetadataEntry(CurrencySymbol o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
-    public MetadataEntry(Description o) {
+    public MetadataEntry(Category o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
-    public MetadataEntry(Frequency o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public MetadataEntry(Scale o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public MetadataEntry(ValueType o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
+    public MetadataEntry(Scale o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public MetadataEntry(Description o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public MetadataEntry(Frequency o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
     static {
         schemas.put("Category", new GenericType<Category>() {
         });
@@ -380,37 +373,44 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (JSON.isInstanceOf(Category.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-
+        // CurrencyCode
         if (JSON.isInstanceOf(CurrencyCode.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // CurrencySymbol
         if (JSON.isInstanceOf(CurrencySymbol.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(Description.class, instance, new HashSet<Class<?>>())) {
+        // Category
+        if (JSON.isInstanceOf(Category.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(Frequency.class, instance, new HashSet<Class<?>>())) {
+        // ValueType
+        if (JSON.isInstanceOf(ValueType.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // Scale
         if (JSON.isInstanceOf(Scale.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (JSON.isInstanceOf(ValueType.class, instance, new HashSet<Class<?>>())) {
+        // Description
+        if (JSON.isInstanceOf(Description.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // Frequency
+        if (JSON.isInstanceOf(Frequency.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -430,17 +430,6 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     }
 
     /**
-     * Get the actual instance of `Category`. If the actual instance is not `Category`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Category`
-     * @throws ClassCastException if the instance is not `Category`
-     */
-    public Category getCategory() throws ClassCastException {
-        return (Category)super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `CurrencyCode`. If the actual instance is not `CurrencyCode`,
      * the ClassCastException will be thrown.
      *
@@ -450,7 +439,7 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencyCode getCurrencyCode() throws ClassCastException {
         return (CurrencyCode)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `CurrencySymbol`. If the actual instance is not `CurrencySymbol`,
      * the ClassCastException will be thrown.
@@ -461,40 +450,18 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public CurrencySymbol getCurrencySymbol() throws ClassCastException {
         return (CurrencySymbol)super.getActualInstance();
     }
-
+    
     /**
-     * Get the actual instance of `Description`. If the actual instance is not `Description`,
+     * Get the actual instance of `Category`. If the actual instance is not `Category`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Description`
-     * @throws ClassCastException if the instance is not `Description`
+     * @return The actual instance of `Category`
+     * @throws ClassCastException if the instance is not `Category`
      */
-    public Description getDescription() throws ClassCastException {
-        return (Description)super.getActualInstance();
+    public Category getCategory() throws ClassCastException {
+        return (Category)super.getActualInstance();
     }
-
-    /**
-     * Get the actual instance of `Frequency`. If the actual instance is not `Frequency`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Frequency`
-     * @throws ClassCastException if the instance is not `Frequency`
-     */
-    public Frequency getFrequency() throws ClassCastException {
-        return (Frequency)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `Scale`. If the actual instance is not `Scale`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Scale`
-     * @throws ClassCastException if the instance is not `Scale`
-     */
-    public Scale getScale() throws ClassCastException {
-        return (Scale)super.getActualInstance();
-    }
-
+    
     /**
      * Get the actual instance of `ValueType`. If the actual instance is not `ValueType`,
      * the ClassCastException will be thrown.
@@ -505,6 +472,39 @@ public class MetadataEntry extends AbstractOpenApiSchema implements Serializable
     public ValueType getValueType() throws ClassCastException {
         return (ValueType)super.getActualInstance();
     }
-
+    
+    /**
+     * Get the actual instance of `Scale`. If the actual instance is not `Scale`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Scale`
+     * @throws ClassCastException if the instance is not `Scale`
+     */
+    public Scale getScale() throws ClassCastException {
+        return (Scale)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `Description`. If the actual instance is not `Description`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Description`
+     * @throws ClassCastException if the instance is not `Description`
+     */
+    public Description getDescription() throws ClassCastException {
+        return (Description)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `Frequency`. If the actual instance is not `Frequency`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Frequency`
+     * @throws ClassCastException if the instance is not `Frequency`
+     */
+    public Frequency getFrequency() throws ClassCastException {
+        return (Frequency)super.getActualInstance();
+    }
+    
 }
 

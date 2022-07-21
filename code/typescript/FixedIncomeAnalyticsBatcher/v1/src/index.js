@@ -51,7 +51,6 @@ import FIABCalculationsApi from './api/FIABCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

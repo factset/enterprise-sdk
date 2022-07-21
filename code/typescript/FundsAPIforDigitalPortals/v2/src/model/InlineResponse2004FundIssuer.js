@@ -17,7 +17,6 @@ import InlineResponse2004FundIssuerCountry from './InlineResponse2004FundIssuerC
 /**
  * The InlineResponse2004FundIssuer model module.
  * @module model/InlineResponse2004FundIssuer
- * @version 0.10.0
  */
 class InlineResponse2004FundIssuer {
     /**

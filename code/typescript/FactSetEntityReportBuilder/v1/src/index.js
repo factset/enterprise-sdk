@@ -65,7 +65,6 @@ import EntityStructureApi from './api/EntityStructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

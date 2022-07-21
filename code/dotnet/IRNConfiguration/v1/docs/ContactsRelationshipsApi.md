@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.ContactsRelationshipsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var relationshipSaveDto = new RelationshipSaveDto(); // RelationshipSaveDto | RelationshipSaveDto object to save (optional) 
 
             try
@@ -139,6 +140,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var relationshipId = "relationshipId_example";  // Guid | relationshipId to delete associated record
 
             try
@@ -227,6 +229,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var relationshipId = "relationshipId_example";  // Guid | relationshipId to update associated record
             var relationshipSaveDto = new RelationshipSaveDto(); // RelationshipSaveDto | RelationshipSaveDto object to update (optional) 
 
@@ -317,6 +320,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsRelationshipsApi(config);
+
             var type = (RelationshipType) "0";  // RelationshipType? |  (optional) 
 
             try

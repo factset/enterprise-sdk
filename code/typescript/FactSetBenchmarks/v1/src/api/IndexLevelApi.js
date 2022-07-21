@@ -24,7 +24,6 @@ import IndexSnapshotResponse from '../model/IndexSnapshotResponse';
 /**
 * IndexLevel service.
 * @module api/IndexLevelApi
-* @version 0.20.0
 */
 export default class IndexLevelApi {
 

@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// </summary>
         /// <param name="requestId">Security identifier used in the request. (required).</param>
         /// <param name="fsymId">FactSet Permanent Security Identifier. (required).</param>
-        public TermsAndConditions(string requestId = default(string), string fsymId = default(string)) : base()
+        public TermsAndConditions(string requestId, string fsymId) : base()
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

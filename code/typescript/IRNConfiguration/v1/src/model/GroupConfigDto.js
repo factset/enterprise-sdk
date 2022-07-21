@@ -17,7 +17,6 @@ import GroupFieldsDto from './GroupFieldsDto';
 /**
  * The GroupConfigDto model module.
  * @module model/GroupConfigDto
- * @version 0.20.0
  */
 class GroupConfigDto {
     /**

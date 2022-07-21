@@ -5,7 +5,7 @@
     <artifactId>quotesapifordigitalportals</artifactId>
     <packaging>jar</packaging>
     <name>quotesapifordigitalportals</name>
-    <version>0.10.0</version>
+    <version>0.10.1</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Quotes API for Digital Portals client library for Java</description>
     <scm>

@@ -24,8 +24,8 @@ This endpoint returns details for a Vault configuration as well as a list of acc
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import configurations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.vault_configuration_root import VaultConfigurationRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault configuration by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_configuration_by_id(id)
         pprint(api_response)
 
@@ -119,8 +120,8 @@ This endpoint returns all the Vault configurations saved in the provided account
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import configurations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.vault_configuration_summary_root import VaultConfigurationSummaryRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +155,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault configurations
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_configurations(account)
         pprint(api_response)
 

@@ -19,7 +19,6 @@ import InlineResponse200BalanceSheetReturnOnEquity from './InlineResponse200Bala
 /**
  * The InlineResponse200BalanceSheet model module.
  * @module model/InlineResponse200BalanceSheet
- * @version 0.10.0
  */
 class InlineResponse200BalanceSheet {
     /**

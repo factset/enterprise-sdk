@@ -1,7 +1,7 @@
 /*
- * SDF_API
+ * SDF Download API
  *
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -35,45 +35,25 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ListSchema200Response" /> class.
         /// </summary>
-        /// <param name="schema">schema name.</param>
-        /// <param name="sequence">version number of the schema.</param>
-        /// <param name="url">pre-signed downloadable url of the schema &amp; sequence.</param>
-        /// <param name="timestamp">time stamp of when the schema-sequence was last updated.</param>
-        public ListSchema200Response(string schema = default(string), int sequence = default(int), string url = default(string), string timestamp = default(string))
+        /// <param name="data">data.</param>
+        /// <param name="meta">meta.</param>
+        public ListSchema200Response(List<ListSchema200ResponseData> data = default(List<ListSchema200ResponseData>), ListSchema200ResponseMeta meta = default(ListSchema200ResponseMeta))
         {
-            this.Schema = schema;
-            this.Sequence = sequence;
-            this.Url = url;
-            this.Timestamp = timestamp;
+            this.Data = data;
+            this.Meta = meta;
         }
 
         /// <summary>
-        /// schema name
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>schema name</value>
-        [DataMember(Name = "schema", EmitDefaultValue = false)]
-        public string Schema { get; set; }
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public List<ListSchema200ResponseData> Data { get; set; }
 
         /// <summary>
-        /// version number of the schema
+        /// Gets or Sets Meta
         /// </summary>
-        /// <value>version number of the schema</value>
-        [DataMember(Name = "sequence", EmitDefaultValue = false)]
-        public int Sequence { get; set; }
-
-        /// <summary>
-        /// pre-signed downloadable url of the schema &amp; sequence
-        /// </summary>
-        /// <value>pre-signed downloadable url of the schema &amp; sequence</value>
-        [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string Url { get; set; }
-
-        /// <summary>
-        /// time stamp of when the schema-sequence was last updated
-        /// </summary>
-        /// <value>time stamp of when the schema-sequence was last updated</value>
-        [DataMember(Name = "timestamp", EmitDefaultValue = false)]
-        public string Timestamp { get; set; }
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public ListSchema200ResponseMeta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,10 +63,8 @@ namespace FactSet.SDK.StandardDatafeed.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ListSchema200Response {\n");
-            sb.Append("  Schema: ").Append(Schema).Append("\n");
-            sb.Append("  Sequence: ").Append(Sequence).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,23 +101,15 @@ namespace FactSet.SDK.StandardDatafeed.Model
             }
             return 
                 (
-                    this.Schema == input.Schema ||
-                    (this.Schema != null &&
-                    this.Schema.Equals(input.Schema))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
-                    this.Sequence == input.Sequence ||
-                    this.Sequence.Equals(input.Sequence)
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
-                    this.Timestamp == input.Timestamp ||
-                    (this.Timestamp != null &&
-                    this.Timestamp.Equals(input.Timestamp))
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -152,18 +122,13 @@ namespace FactSet.SDK.StandardDatafeed.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Schema != null)
+                if (this.Data != null)
                 {
-                    hashCode = (hashCode * 59) + this.Schema.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Sequence.GetHashCode();
-                if (this.Url != null)
+                if (this.Meta != null)
                 {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                if (this.Timestamp != null)
-                {
-                    hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
                 }
                 return hashCode;
             }

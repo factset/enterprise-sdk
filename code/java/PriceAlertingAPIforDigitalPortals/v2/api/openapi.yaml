@@ -1,7 +1,24 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: Prime Developer Trial
-  version: v1
+  description: |
+    The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform. The endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define an upper or lower limit and choose on which price type those limit conditions apply.
+
+    Alerting uses the concepts of triggers and alerts.
+
+    A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument. The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.
+
+    When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.
+
+    An application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach) or it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about the new alert with an update that contains the details on the new alert (push approach).
+
+    The API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.
+
+    See the [Quotes API for Digital Portals](https://developer.factset.com/api-catalog/quotes-api-digital-portals) for access to detailed price information.
+  title: Price Alerting API For Digital Portals
+  version: "2"
+externalDocs:
+  description: Endpoint Reference
+  url: https://endpointreference.mdgms.com
 servers:
 - url: https://api.factset.com/wealth/v1
 security:
@@ -17,22 +34,25 @@ paths:
         at the time of alert creation.
       operationId: get/alerting/prices/basic/alert/get
       parameters:
-      - description: Identifier of the alert.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the alert.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -71,8 +91,10 @@ paths:
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -81,36 +103,45 @@ paths:
         style: form
       - description: Non-negative number of milliseconds to throttle the update rate
           from 0ms to 5000ms. Set to 0 for sending updates immediately.
+        explode: true
         in: query
         name: _subscriptionMinimumInterval
+        required: false
         schema:
-          default: 0.0
+          default: 0
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
           maximum: 5000
           minimum: 0
           type: number
+        style: form
       - description: Starting point as returned in the attributes `pagination.next`
           or `pagination.previous` by a prior invocation of this endpoint, or undefined
           (default).
+        explode: true
         in: query
         name: _paginationCursor
+        required: false
         schema:
           exclusiveMaximum: false
           maxLength: 50
           type: string
+        style: form
       - description: Non-negative maximum number of entries to return.
+        explode: true
         in: query
         name: _paginationLimit
+        required: false
         schema:
-          default: 20.0
+          default: 20
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
           maximum: 500
           minimum: 0
           type: number
+        style: form
       responses:
         "200":
           content:
@@ -138,22 +169,25 @@ paths:
       description: Details of a trigger.
       operationId: get/alerting/prices/basic/trigger/get
       parameters:
-      - description: Identifier of the trigger.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the trigger.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -186,6 +220,7 @@ paths:
     post:
       description: Returns a list of triggers sorted in descending order of creation.
       operationId: post/alerting/prices/basic/trigger/list
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object'
         content:
@@ -197,9 +232,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -222,10 +255,14 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
 components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
   requestBodies:
     inline_object:
       content:
@@ -297,6 +334,7 @@ components:
       description: Limit the attributes returned in the response to the specified
         set.
       items:
+        exclusiveMaximum: false
         maxLength: 100
         type: string
       maxItems: 50
@@ -1018,14 +1056,16 @@ components:
           description: Starting point as returned in the attributes `pagination.next`
             or `pagination.previous` by a prior invocation of this endpoint, or undefined
             (default).
+          exclusiveMaximum: false
           maxLength: 50
           type: string
         limit:
+          default: 20
           description: Non-negative maximum number of entries to return.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
-          maximum: 5E+2
+          maximum: 500
           minimum: 0
           type: number
       type: object
@@ -1039,6 +1079,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -1057,21 +1098,16 @@ components:
         meta:
           $ref: '#/components/schemas/_alerting_prices_basic_trigger_list_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3_range:
       description: Price range for the trigger to monitor.
       example:
-        upperLimit: '{}'
-        lowerLimit: '{}'
+        upperLimit: ""
+        lowerLimit: ""
       properties:
         upperLimit:
           description: Upper limit.
-          type: object
         lowerLimit:
           description: Lower limit.
-          type: object
       type: object
       x-property-sort:
       - upperLimit
@@ -1084,8 +1120,8 @@ components:
           type: trade
           quality: RLT
         range:
-          upperLimit: '{}'
-          lowerLimit: '{}'
+          upperLimit: ""
+          lowerLimit: ""
         comment: comment
         id: id
         creation: creation
@@ -1131,8 +1167,8 @@ components:
             type: trade
             quality: RLT
           range:
-            upperLimit: '{}'
-            lowerLimit: '{}'
+            upperLimit: ""
+            lowerLimit: ""
           comment: comment
           id: id
           creation: creation
@@ -1145,8 +1181,8 @@ components:
             type: trade
             quality: RLT
           range:
-            upperLimit: '{}'
-            lowerLimit: '{}'
+            upperLimit: ""
+            lowerLimit: ""
           comment: comment
           id: id
           creation: creation
@@ -1171,17 +1207,16 @@ components:
           $ref: '#/components/schemas/inline_response_200_1_meta'
       type: object
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-interface-version: 1
-x-documenter-version: 5.38.1
-x-api-version: 2.9.1
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-interface-version: 2
+x-documenter-version: 6.0.1
+x-api-version: 3.3.0
 

@@ -21,7 +21,6 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * FICalculations service.
 * @module api/FICalculationsApi
-* @version 0.20.0
 */
 export default class FICalculationsApi {
 

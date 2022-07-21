@@ -21,7 +21,6 @@ import InlineResponse2006DataFeesPerformance from './InlineResponse2006DataFeesP
 /**
  * The InlineResponse2006DataFees model module.
  * @module model/InlineResponse2006DataFees
- * @version 0.10.0
  */
 class InlineResponse2006DataFees {
     /**

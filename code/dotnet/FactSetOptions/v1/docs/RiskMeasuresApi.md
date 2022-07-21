@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RiskMeasuresApi(config);
+
             var atmImpliedVolatilityRequest = new AtmImpliedVolatilityRequest(); // AtmImpliedVolatilityRequest | 
 
             try
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RiskMeasuresApi(config);
+
             var greeksRequest = new GreeksRequest(); // GreeksRequest | Greeks Request Object
 
             try
@@ -238,6 +240,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RiskMeasuresApi(config);
+
             var impliedVolatilityRequest = new ImpliedVolatilityRequest(); // ImpliedVolatilityRequest | Volatility Request Object
 
             try

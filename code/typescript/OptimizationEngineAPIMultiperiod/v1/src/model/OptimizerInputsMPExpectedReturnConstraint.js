@@ -20,7 +20,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPExpectedReturnConstraint model module.
  * @module model/OptimizerInputsMPExpectedReturnConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPExpectedReturnConstraint {
     /**

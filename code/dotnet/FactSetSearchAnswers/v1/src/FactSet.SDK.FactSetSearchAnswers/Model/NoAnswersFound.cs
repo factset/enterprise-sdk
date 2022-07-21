@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="template">template (required).</param>
         /// <param name="message">message (required).</param>
         /// <param name="querySuggestions">querySuggestions (required).</param>
-        public NoAnswersFound(string template = default(string), string message = default(string), List<string> querySuggestions = default(List<string>))
+        public NoAnswersFound(string template, string message, List<string> querySuggestions)
         {
             // to ensure "template" is required (not null)
             if (template == null) {

@@ -23,7 +23,8 @@ This endpoint lists all the currencies that can be applied to any calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NorthfieldPortfolioOptimizer
 from fds.sdk.NorthfieldPortfolioOptimizer.api import currencies_api
-from fds.sdk.NorthfieldPortfolioOptimizer.model.currency_root import CurrencyRoot
+from fds.sdk.NorthfieldPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client
 
     try:
         # Get currencies
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_currencies()
         pprint(api_response)
 

@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// <param name="topn">Limits number of holdings or holders displayed by the top *n* securities. Default is ALL, or use integer to limit number. (default to &quot;ALL&quot;).</param>
         /// <param name="assetType">assetType.</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public FundHoldingsRequest(List<string> ids = default(List<string>), string date = default(string), string topn = "ALL", AssetType assetType = default(AssetType), string currency = default(string))
+        public FundHoldingsRequest(List<string> ids,string date = default(string), string topn = "ALL", AssetType assetType = default(AssetType), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

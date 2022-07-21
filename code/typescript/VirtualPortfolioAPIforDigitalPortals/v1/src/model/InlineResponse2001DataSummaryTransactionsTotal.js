@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001DataSummaryTransactionsTotal model module.
  * @module model/InlineResponse2001DataSummaryTransactionsTotal
- * @version 0.9.2
  */
 class InlineResponse2001DataSummaryTransactionsTotal {
     /**

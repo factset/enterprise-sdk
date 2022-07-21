@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicTimezoneListDataFilter model module.
  * @module model/BasicTimezoneListDataFilter
- * @version 0.10.0
  */
 class BasicTimezoneListDataFilter {
     /**

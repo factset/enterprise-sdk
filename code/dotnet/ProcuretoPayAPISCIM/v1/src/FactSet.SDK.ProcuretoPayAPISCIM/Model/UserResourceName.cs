@@ -41,7 +41,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// </summary>
         /// <param name="familyName">The family name of the User, or last name in most Western languages (e.g., &#39;Jensen&#39; given the full name &#39;Ms. Barbara J Jensen, III&#39;). (required).</param>
         /// <param name="givenName">The given name of the User, or first name in most Western languages (e.g., &#39;Barbara&#39; given the full name &#39;Ms. Barbara J Jensen, III&#39;). (required).</param>
-        public UserResourceName(string familyName = default(string), string givenName = default(string))
+        public UserResourceName(string familyName, string givenName)
         {
             // to ensure "familyName" is required (not null)
             if (familyName == null) {

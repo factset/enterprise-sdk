@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundIssuerSearchDataMarketExclude model module.
  * @module model/FundIssuerSearchDataMarketExclude
- * @version 0.10.0
  */
 class FundIssuerSearchDataMarketExclude {
     /**

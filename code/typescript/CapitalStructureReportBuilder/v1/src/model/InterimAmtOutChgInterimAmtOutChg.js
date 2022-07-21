@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InterimAmtOutChgInterimAmtOutChg model module.
  * @module model/InterimAmtOutChgInterimAmtOutChg
- * @version 0.20.0
  */
 class InterimAmtOutChgInterimAmtOutChg {
     /**

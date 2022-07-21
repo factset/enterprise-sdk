@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// Initializes a new instance of the <see cref="EntityReferenceRequest" /> class.
         /// </summary>
         /// <param name="ids">Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.  (required).</param>
-        public EntityReferenceRequest(List<string> ids = default(List<string>))
+        public EntityReferenceRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

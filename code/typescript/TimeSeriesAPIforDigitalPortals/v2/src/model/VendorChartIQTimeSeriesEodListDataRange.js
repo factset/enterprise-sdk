@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodListDataRange model module.
  * @module model/VendorChartIQTimeSeriesEodListDataRange
- * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodListDataRange {
     /**

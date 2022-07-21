@@ -28,6 +28,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetRBICS.JSON;
@@ -46,19 +50,19 @@ public class Structure implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_RBICS_ID = "rbicsId";
-  private String rbicsId;
+  private JsonNullable<String> rbicsId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FIRST_DATE = "firstDate";
-  private String firstDate;
+  private JsonNullable<String> firstDate = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_DATE = "lastDate";
-  private String lastDate;
+  private JsonNullable<String> lastDate = JsonNullable.<String>undefined();
 
   public Structure() { 
   }
 
   public Structure rbicsId(String rbicsId) {
-    this.rbicsId = rbicsId;
+    this.rbicsId = JsonNullable.<String>of(rbicsId);
     return this;
   }
 
@@ -68,23 +72,31 @@ public class Structure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "101010101010", value = "RBICS Code for the classification.")
-  @JsonProperty(JSON_PROPERTY_RBICS_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRbicsId() {
-    return rbicsId;
+        return rbicsId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_RBICS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRbicsId(String rbicsId) {
+
+  public JsonNullable<String> getRbicsId_JsonNullable() {
+    return rbicsId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RBICS_ID)
+  public void setRbicsId_JsonNullable(JsonNullable<String> rbicsId) {
     this.rbicsId = rbicsId;
+  }
+
+  public void setRbicsId(String rbicsId) {
+    this.rbicsId = JsonNullable.<String>of(rbicsId);
   }
 
 
   public Structure firstDate(String firstDate) {
-    this.firstDate = firstDate;
+    this.firstDate = JsonNullable.<String>of(firstDate);
     return this;
   }
 
@@ -94,23 +106,31 @@ public class Structure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1945-01-01T00:00:00.000", value = "First date of the classification.")
-  @JsonProperty(JSON_PROPERTY_FIRST_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFirstDate() {
-    return firstDate;
+        return firstDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstDate(String firstDate) {
+
+  public JsonNullable<String> getFirstDate_JsonNullable() {
+    return firstDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_DATE)
+  public void setFirstDate_JsonNullable(JsonNullable<String> firstDate) {
     this.firstDate = firstDate;
+  }
+
+  public void setFirstDate(String firstDate) {
+    this.firstDate = JsonNullable.<String>of(firstDate);
   }
 
 
   public Structure lastDate(String lastDate) {
-    this.lastDate = lastDate;
+    this.lastDate = JsonNullable.<String>of(lastDate);
     return this;
   }
 
@@ -120,18 +140,26 @@ public class Structure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date when the classification became no longer valid. If `null`, the classification is still valid.")
-  @JsonProperty(JSON_PROPERTY_LAST_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getLastDate() {
-    return lastDate;
+        return lastDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastDate(String lastDate) {
+
+  public JsonNullable<String> getLastDate_JsonNullable() {
+    return lastDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_DATE)
+  public void setLastDate_JsonNullable(JsonNullable<String> lastDate) {
     this.lastDate = lastDate;
+  }
+
+  public void setLastDate(String lastDate) {
+    this.lastDate = JsonNullable.<String>of(lastDate);
   }
 
   /**
@@ -184,15 +212,26 @@ public class Structure implements Serializable {
       return false;
     }
     Structure structure = (Structure) o;
-    return Objects.equals(this.rbicsId, structure.rbicsId) &&
-        Objects.equals(this.firstDate, structure.firstDate) &&
-        Objects.equals(this.lastDate, structure.lastDate)&&
+    return equalsNullable(this.rbicsId, structure.rbicsId) &&
+        equalsNullable(this.firstDate, structure.firstDate) &&
+        equalsNullable(this.lastDate, structure.lastDate)&&
         Objects.equals(this.additionalProperties, structure.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(rbicsId, firstDate, lastDate, additionalProperties);
+    return Objects.hash(hashCodeNullable(rbicsId), hashCodeNullable(firstDate), hashCodeNullable(lastDate), additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

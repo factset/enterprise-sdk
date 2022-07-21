@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProductResourceReference model module.
  * @module model/ProductResourceReference
- * @version 0.20.1
  */
 class ProductResourceReference {
     /**

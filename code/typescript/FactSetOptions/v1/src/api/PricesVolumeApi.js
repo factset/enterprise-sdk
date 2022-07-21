@@ -24,7 +24,6 @@ import UnderlyingVolumeResponse from '../model/UnderlyingVolumeResponse';
 /**
 * PricesVolume service.
 * @module api/PricesVolumeApi
-* @version 0.20.0
 */
 export default class PricesVolumeApi {
 

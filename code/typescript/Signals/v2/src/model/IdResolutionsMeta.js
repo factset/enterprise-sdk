@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IdResolutionsMeta model module.
  * @module model/IdResolutionsMeta
- * @version 0.20.0
  */
 class IdResolutionsMeta {
     /**

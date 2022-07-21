@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsVolume model module.
  * @module model/OptionsVolume
- * @version 0.20.0
  */
 class OptionsVolume {
     /**

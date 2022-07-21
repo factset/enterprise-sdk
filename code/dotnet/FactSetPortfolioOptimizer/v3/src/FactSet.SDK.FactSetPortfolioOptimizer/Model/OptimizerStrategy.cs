@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// </summary>
         /// <param name="id">OptimizerStrategy document path (required).</param>
         /// <param name="overrides">overrides.</param>
-        public OptimizerStrategy(string id = default(string), OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
+        public OptimizerStrategy(string id,OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

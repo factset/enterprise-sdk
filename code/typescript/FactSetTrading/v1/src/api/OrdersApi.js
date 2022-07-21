@@ -22,7 +22,6 @@ import EMSReplaceOrdersRoot from '../model/EMSReplaceOrdersRoot';
 /**
 * Orders service.
 * @module api/OrdersApi
-* @version 0.20.0
 */
 export default class OrdersApi {
 

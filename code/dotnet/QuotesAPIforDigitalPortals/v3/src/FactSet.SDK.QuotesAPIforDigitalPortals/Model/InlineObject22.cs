@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject22(NotationSearchByTextData data = default(NotationSearchByTextData), NotationSearchByTextMeta meta = default(NotationSearchByTextMeta))
+        public InlineObject22(NotationSearchByTextData data,NotationSearchByTextMeta meta = default(NotationSearchByTextMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

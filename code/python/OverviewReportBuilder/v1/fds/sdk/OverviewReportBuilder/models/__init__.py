@@ -48,8 +48,14 @@ from fds.sdk.OverviewReportBuilder.model.profile_data_stage import ProfileDataSt
 from fds.sdk.OverviewReportBuilder.model.profile_data_stage_crunchbase_rank import ProfileDataStageCrunchbaseRank
 from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pe_active_firm_number import ProfileDataStagePeActiveFirmNumber
 from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pe_active_firms import ProfileDataStagePeActiveFirms
+from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pevc_latest_post_money_valuation import ProfileDataStagePevcLatestPostMoneyValuation
 from fds.sdk.OverviewReportBuilder.model.profile_data_stage_trade_date_range import ProfileDataStageTradeDateRange
 from fds.sdk.OverviewReportBuilder.model.profile_response import ProfileResponse
+from fds.sdk.OverviewReportBuilder.model.relevance_type import RelevanceType
+from fds.sdk.OverviewReportBuilder.model.relevance_type_relevance_type import RelevanceTypeRelevanceType
+from fds.sdk.OverviewReportBuilder.model.relevance_type_relevance_type_c import RelevanceTypeRelevanceTypeC
+from fds.sdk.OverviewReportBuilder.model.relevance_type_relevance_type_p import RelevanceTypeRelevanceTypeP
+from fds.sdk.OverviewReportBuilder.model.relevance_type_relevance_type_s import RelevanceTypeRelevanceTypeS
 from fds.sdk.OverviewReportBuilder.model.scale import Scale
 from fds.sdk.OverviewReportBuilder.model.scale_scale import ScaleScale
 from fds.sdk.OverviewReportBuilder.model.stach_table_response import StachTableResponse
@@ -57,7 +63,5 @@ from fds.sdk.OverviewReportBuilder.model.transaction_id import TransactionId
 from fds.sdk.OverviewReportBuilder.model.transaction_id_transaction_id import TransactionIdTransactionId
 from fds.sdk.OverviewReportBuilder.model.transaction_type import TransactionType
 from fds.sdk.OverviewReportBuilder.model.transaction_type_transaction_type import TransactionTypeTransactionType
-from fds.sdk.OverviewReportBuilder.model.units import Units
-from fds.sdk.OverviewReportBuilder.model.units_units import UnitsUnits
 from fds.sdk.OverviewReportBuilder.model.value_type import ValueType
 from fds.sdk.OverviewReportBuilder.model.value_type_value_type import ValueTypeValueType

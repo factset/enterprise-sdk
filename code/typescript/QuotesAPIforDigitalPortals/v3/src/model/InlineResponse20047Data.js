@@ -18,7 +18,6 @@ import InlineResponse20047Dataset from './InlineResponse20047Dataset';
 /**
  * The InlineResponse20047Data model module.
  * @module model/InlineResponse20047Data
- * @version 0.10.0
  */
 class InlineResponse20047Data {
     /**

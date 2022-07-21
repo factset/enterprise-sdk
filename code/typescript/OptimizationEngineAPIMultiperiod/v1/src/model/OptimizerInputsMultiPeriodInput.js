@@ -21,7 +21,6 @@ import OptimizerInputsTotalUniverse from './OptimizerInputsTotalUniverse';
 /**
  * The OptimizerInputsMultiPeriodInput model module.
  * @module model/OptimizerInputsMultiPeriodInput
- * @version 0.20.0
  */
 class OptimizerInputsMultiPeriodInput {
     /**

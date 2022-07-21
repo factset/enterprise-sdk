@@ -18,7 +18,6 @@ import FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum fro
 /**
  * The FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1 model module.
  * @module model/FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1 {
     /**

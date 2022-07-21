@@ -18,7 +18,6 @@ import ProfileDataContactPeople from './ProfileDataContactPeople';
 /**
  * The ProfileDataContact model module.
  * @module model/ProfileDataContact
- * @version 0.20.0
  */
 class ProfileDataContact {
     /**

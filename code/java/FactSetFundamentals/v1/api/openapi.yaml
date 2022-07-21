@@ -6,7 +6,7 @@ info:
   description: |
     Gain access to current, comprehensive, and comparative information on securities in worldwide developed and emerging markets. Composed of annual and interim/quarterly data, detailed historical financial statement content, per share data, and calculated ratios, FactSet Fundamentals provides you with the information you need for a global investment perspective.
   title: FactSet Fundamentals API
-  version: 1.0.2
+  version: 1.1.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -157,6 +157,8 @@ paths:
         style: form
       - description: |
           Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+
+          Giving input as "DOC" would give the values in reporting currency for the requested ids.
         explode: true
         in: query
         name: currency
@@ -451,7 +453,7 @@ paths:
         style: form
       - description: |
           Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
-            * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+            * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
             * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
             * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
             * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
@@ -474,6 +476,9 @@ paths:
           INCOME_STATEMENT_SUPPLEMENTAL:
             summary: INCOME_STATEMENT - SUPPLEMENTAL
             value: SUPPLEMENTAL
+          INCOME_STATEMENT_OTHER:
+            summary: INCOME_STATEMENT - OTHER
+            value: OTHER
           BALANCE_SHEET_ASSETS:
             summary: BALANCE_SHEET - ASSETS
             value: ASSETS
@@ -645,6 +650,7 @@ paths:
           - BANK
           - INSURANCE
           - UTILITY
+          - OTHER
           type: string
         style: form
       responses:
@@ -844,7 +850,7 @@ components:
           reportDate: 2017-11-30
           epsReportDate: 2017-12-19
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 329.141
         - requestId: FDS-US
@@ -858,7 +864,7 @@ components:
           reportDate: 2018-02-28
           epsReportDate: 2018-03-27
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 335.231
     resultOfMultipleIdwithSingleMetricItem:
@@ -878,7 +884,7 @@ components:
           reportDate: 2017-11-30
           epsReportDate: 2017-12-19
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 329.141
         - requestId: FDS-US
@@ -892,7 +898,7 @@ components:
           reportDate: 2018-02-28
           epsReportDate: 2018-03-27
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 335.231
         - requestId: IBM-US
@@ -906,7 +912,7 @@ components:
           reportDate: 2017-09-30
           epsReportDate: 2017-10-17
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 19153
         - requestId: IBM-US
@@ -920,7 +926,7 @@ components:
           reportDate: 2017-12-31
           epsReportDate: 2018-01-18
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 22543
         - requestId: AAPL-US
@@ -934,7 +940,7 @@ components:
           reportDate: 2017-09-30
           epsReportDate: 2017-11-02
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 52574
         - requestId: AAPL-US
@@ -948,7 +954,7 @@ components:
           reportDate: 2017-12-30
           epsReportDate: 2018-02-01
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 88477
     resultOfSingleIdwithMultipleMetricItem:
@@ -968,7 +974,7 @@ components:
           reportDate: 2020-05-31
           epsReportDate: 2020-06-25
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 374.083
         - requestId: FDS
@@ -982,7 +988,7 @@ components:
           reportDate: 2020-05-31
           epsReportDate: 2020-06-25
           updateType: 3
-          restated: F
+          updateStatus: F
           currency: USD
           value: 31.6769162623484
     postBodyOfSingleIdwithSingleMetricItem:
@@ -1312,6 +1318,8 @@ components:
     currency:
       description: |
         Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+
+        Giving input as "DOC" would give the values in reporting currency for the requested ids.
       explode: true
       in: query
       name: currency
@@ -1409,7 +1417,7 @@ components:
     subcategory:
       description: |
         Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
-          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
           * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
           * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
@@ -1432,6 +1440,9 @@ components:
         INCOME_STATEMENT_SUPPLEMENTAL:
           summary: INCOME_STATEMENT - SUPPLEMENTAL
           value: SUPPLEMENTAL
+        INCOME_STATEMENT_OTHER:
+          summary: INCOME_STATEMENT - OTHER
+          value: OTHER
         BALANCE_SHEET_ASSETS:
           summary: BALANCE_SHEET - ASSETS
           value: ASSETS
@@ -1603,6 +1614,7 @@ components:
         - BANK
         - INSURANCE
         - UTILITY
+        - OTHER
         type: string
       style: form
   responses:
@@ -1795,12 +1807,14 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         metric:
           description: The requested `metric` input, representing the Fundamental
             Data Item. For a definition of the item please use the /fundamentals/v#/metrics
             endpoint.
           example: FF_SALES
+          nullable: true
           type: string
         periodicity:
           description: Periodicity or frequency of the fiscal periods, where ANN =
@@ -1819,6 +1833,7 @@ components:
           - LTMSG
           - YTD
           example: QTR
+          nullable: true
           type: string
         fiscalPeriod:
           description: 'Fiscal Period indicator. Returns an integer representing the
@@ -1826,35 +1841,42 @@ components:
             1-Fist Quarter; 2-Second Quarter; 3-Third Quarter; 4-Fourth Quarter. SEMI-CODE:
             1-First Semi-annual Period; 2-Second Semi-annual Period.'
           example: 4
+          nullable: true
           type: integer
         fiscalYear:
           description: Fiscal year of the reported period in YYYY format.
           example: 2018
+          nullable: true
           type: integer
         fiscalPeriodLength:
           description: Length of fiscal period in days.
           example: 91
+          nullable: true
           type: integer
         fiscalEndDate:
           description: The normalized data the fiscal period ended.
           example: 2017-12-31
           format: date
+          nullable: true
           type: string
         reportDate:
           description: The date the reported fiscal period actually ended.
           example: 2017-12-30
           format: date
+          nullable: true
           type: string
         epsReportDate:
           description: The date the EPS was reported for the requested periodicity.
             In YYYY-MM-DD format. Unavailable data returned as 0001-01-01.
           example: 2018-02-24
           format: date
+          nullable: true
           type: string
         updateType:
           description: 'The update type, where: 1 = Preliminary; 2 = FAST; 3 = Final.
             For more details, visit [Online Assistant Page #D13094](https://oa.apps.factset.com/pages/D13094).'
           example: 1
+          nullable: true
           type: integer
         updateStatus:
           description: 'Update Status Flag: P = Preliminary - The period is updated
@@ -1863,17 +1885,20 @@ components:
             are available in financial statements including the notes to the line
             items.'
           example: P
+          nullable: true
           type: string
         currency:
           description: 'Currency code for the data. For a list of currency ISO codes,
             visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         value:
           description: 'Value of the data metric requested. Note that the type of
             value is ''object'', and depending on the data metric requested, the value
             could be an object representation of a string or double. '
           example: 12375
+          nullable: true
           type: object
       title: Fundamental Object
       type: object
@@ -1932,20 +1957,24 @@ components:
           description: Metric identifier to be used as `metrics` input in `/fundamentals/v#/fundamentals`
             endpoint.
           example: FF_ASSETS
+          nullable: true
           type: string
         name:
           description: Plain text name of the metric.
           example: Total Assets
+          nullable: true
           type: string
         category:
           description: Primary Category of metric item, such as, INCOME_STATEMENT,
             BALANCE_SHEET, CASH_FLOW, or RATIOS.
           example: BALANCE_SHEET
+          nullable: true
           type: string
         subcategory:
           description: Sub-category of metric item, such as ASSETS, SUPPLEMENTAL,
             SHAREHOLDERS_EQUITY, VALUATION, PROFITABILITY, etc.
           example: ASSETS
+          nullable: true
           type: string
         OAPageId:
           description: The Online Assistant Page ID in D***** format, used to lookup
@@ -1953,16 +1982,19 @@ components:
             for details. For example, https://my.apps.factset.com/oa/pages/D10585
             will give you the definition for FF_SALES.
           example: D10585
+          nullable: true
           type: string
         OAurl:
           description: The Online Assistant Page URL, used to lookup the definition
             and methodology of the requested item. For example, https://my.apps.factset.com/oa/pages/D10585
             will give you the definition for FF_SALES.
           example: https://my.apps.factset.com/oa/pages/D10585
+          nullable: true
           type: string
         factor:
           description: The factor for the metric (e.g. 1000 = thousands).
           example: 1000000
+          nullable: true
           type: integer
         sdfPackage:
           description: An indicator for which Standard Data Feed (SDF) package the
@@ -1972,6 +2004,7 @@ components:
           - BASIC
           - ADVANCED
           example: BASIC
+          nullable: true
           type: string
         dataType:
           description: |
@@ -1984,6 +2017,7 @@ components:
               * **string** - A string value is an ASCII character. A string is a sequence of ASCII characters. String value and text value are synonymous. Function will hold data for multiple time-periods, as well as for many companies (i.e., two-dimensional value). The STRING_ARRAY function returns data using a vertical orientation (e.g., down a column)
               * **stringArray** - The difference between STRING and STRINGARRAY is that STRING can only go across a row (one-dimension; horizontal orientation; vertical length=1) whereas STRINGARRAY will return data both across a row and down a column (two-dimensions; vertical orientation). With STRINGARRAY, the number of data points across a row will correspond to the number of companies queried; the number of data points down a column will correspond to the length of the time-series.
           example: doubleArray
+          nullable: true
           type: string
       title: Metric Object
       type: object
@@ -2094,7 +2128,7 @@ components:
     subcategory:
       description: |
         Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-
-          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL
+          * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL, OTHER
           * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL
           * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL
           * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION
@@ -2144,6 +2178,7 @@ components:
       - BANK
       - INSURANCE
       - UTILITY
+      - OTHER
       example: INCOME_STATEMENT
       title: Sub Category
       type: string

@@ -36,7 +36,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataAnswerData" /> class
-        /// with the <see cref="Answer" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Answer.</param>
         public DataAnswerData(Answer actualInstance)
@@ -48,7 +47,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataAnswerData" /> class
-        /// with the <see cref="AnswerWithoutData" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of AnswerWithoutData.</param>
         public DataAnswerData(AnswerWithoutData actualInstance)
@@ -60,7 +58,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataAnswerData" /> class
-        /// with the <see cref="NoAnswersFound" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of NoAnswersFound.</param>
         public DataAnswerData(NoAnswersFound actualInstance)
@@ -175,7 +172,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(Answer).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Answer>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
                 );
                 newDataAnswerData = new DataAnswerData(parsedValue);
@@ -192,7 +189,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(AnswerWithoutData).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<AnswerWithoutData>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
                 );
                 newDataAnswerData = new DataAnswerData(parsedValue);
@@ -209,7 +206,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(NoAnswersFound).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<NoAnswersFound>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
                 );
                 newDataAnswerData = new DataAnswerData(parsedValue);

@@ -46,7 +46,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Model
         /// <param name="extendedTextValue">extendedTextValue.</param>
         /// <param name="optionValues">optionValues.</param>
         /// <param name="contactIds">contactIds.</param>
-        public CreateCustomSymbolCustomFieldValueDto(string code = default(string), string textValue = default(string), double? numericValue = default(double?), string dateValue = default(string), string extendedTextValue = default(string), List<string> optionValues = default(List<string>), List<Guid> contactIds = default(List<Guid>))
+        public CreateCustomSymbolCustomFieldValueDto(string code,string textValue = default(string), double? numericValue = default(double?), string dateValue = default(string), string extendedTextValue = default(string), List<string> optionValues = default(List<string>), List<Guid> contactIds = default(List<Guid>))
         {
             // to ensure "code" is required (not null)
             if (code == null) {

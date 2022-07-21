@@ -45,8 +45,14 @@ docs/ProfileDataStage.md
 docs/ProfileDataStageCrunchbaseRank.md
 docs/ProfileDataStagePeActiveFirmNumber.md
 docs/ProfileDataStagePeActiveFirms.md
+docs/ProfileDataStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataStageTradeDateRange.md
 docs/ProfileResponse.md
+docs/RelevanceType.md
+docs/RelevanceTypeRelevanceType.md
+docs/RelevanceTypeRelevanceTypeC.md
+docs/RelevanceTypeRelevanceTypeP.md
+docs/RelevanceTypeRelevanceTypeS.md
 docs/Scale.md
 docs/ScaleScale.md
 docs/StachTableResponse.md
@@ -54,8 +60,6 @@ docs/TransactionId.md
 docs/TransactionIdTransactionId.md
 docs/TransactionType.md
 docs/TransactionTypeTransactionType.md
-docs/Units.md
-docs/UnitsUnits.md
 docs/ValueType.md
 docs/ValueTypeValueType.md
 git_push.sh
@@ -125,8 +129,14 @@ src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStage.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStageCrunchbaseRank.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStagePeActiveFirmNumber.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStagePeActiveFirms.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStagePevcLatestPostMoneyValuation.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileDataStageTradeDateRange.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ProfileResponse.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/RelevanceType.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/RelevanceTypeRelevanceType.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/RelevanceTypeRelevanceTypeC.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/RelevanceTypeRelevanceTypeP.java
+src/main/java/com/factset/sdk/OverviewReportBuilder/models/RelevanceTypeRelevanceTypeS.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/Scale.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ScaleScale.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/StachTableResponse.java
@@ -134,7 +144,5 @@ src/main/java/com/factset/sdk/OverviewReportBuilder/models/TransactionId.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/TransactionIdTransactionId.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/TransactionType.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/TransactionTypeTransactionType.java
-src/main/java/com/factset/sdk/OverviewReportBuilder/models/Units.java
-src/main/java/com/factset/sdk/OverviewReportBuilder/models/UnitsUnits.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ValueType.java
 src/main/java/com/factset/sdk/OverviewReportBuilder/models/ValueTypeValueType.java

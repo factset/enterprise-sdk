@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The DataPointMetaAnyOf model module.
  * @module model/DataPointMetaAnyOf
- * @version 0.20.0
  */
 class DataPointMetaAnyOf {
     /**

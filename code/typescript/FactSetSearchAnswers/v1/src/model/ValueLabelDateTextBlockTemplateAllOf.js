@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ValueLabelDateTextBlockTemplateAllOf model module.
  * @module model/ValueLabelDateTextBlockTemplateAllOf
- * @version 0.20.0
  */
 class ValueLabelDateTextBlockTemplateAllOf {
     /**

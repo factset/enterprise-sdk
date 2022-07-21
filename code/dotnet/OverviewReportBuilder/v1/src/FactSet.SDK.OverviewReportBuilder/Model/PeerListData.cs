@@ -41,7 +41,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="name">name (required).</param>
-        public PeerListData(string id = default(string), string name = default(string))
+        public PeerListData(string id, string name)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

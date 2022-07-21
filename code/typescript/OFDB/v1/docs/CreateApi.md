@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDateSymbolsPost
 
-> SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4)
+> SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate)
 
 
 
@@ -121,10 +121,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new CreateApi();
 const path = "path_example"; // String | Encode database path
 const date = 56; // Number | Date in YYYYMMDD format
-const inlineObject4 = new ofdb.InlineObject4(); // InlineObject4 | 
+const postnewsymboldate = new ofdb.Postnewsymboldate(); // Postnewsymboldate | Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4).then(
+apiInstance.v1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
  **date** | **Number**| Date in YYYYMMDD format | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
+ **postnewsymboldate** | [**Postnewsymboldate**](Postnewsymboldate.md)| Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesPost
 
-> SuccessPostResponse v1DatabasePathDatesPost(path, inlineObject2)
+> SuccessPostResponse v1DatabasePathDatesPost(path, postDatesymbol)
 
 
 
@@ -196,10 +196,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CreateApi();
 const path = "path_example"; // String | Encode database path
-const inlineObject2 = new ofdb.InlineObject2(); // InlineObject2 | 
+const postDatesymbol = new ofdb.PostDatesymbol(); // PostDatesymbol | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesPost(path, inlineObject2).then(
+apiInstance.v1DatabasePathDatesPost(path, postDatesymbol).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -219,7 +219,7 @@ apiInstance.v1DatabasePathDatesPost(path, inlineObject2).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
+ **postDatesymbol** | [**PostDatesymbol**](PostDatesymbol.md)| Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. | 
 
 ### Return type
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathSymbolsPost
 
-> SuccessPostResponse v1DatabasePathSymbolsPost(path, inlineObject)
+> SuccessPostResponse v1DatabasePathSymbolsPost(path, createSymbols)
 
 
 
@@ -270,10 +270,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new CreateApi();
 const path = "path_example"; // String | Encode database path
-const inlineObject = new ofdb.InlineObject(); // InlineObject | 
+const createSymbols = {"symbol":"FACTSET","data":[{"date":20200202,"field":"value"}]}; // CreateSymbols | Data for creating symbol in the database
 
 // Call api endpoint
-apiInstance.v1DatabasePathSymbolsPost(path, inlineObject).then(
+apiInstance.v1DatabasePathSymbolsPost(path, createSymbols).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -293,7 +293,7 @@ apiInstance.v1DatabasePathSymbolsPost(path, inlineObject).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **createSymbols** | [**CreateSymbols**](CreateSymbols.md)| Data for creating symbol in the database | 
 
 ### Return type
 

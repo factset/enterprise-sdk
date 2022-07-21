@@ -18,7 +18,6 @@ import InlineResponse200Meta from './InlineResponse200Meta';
 /**
  * The InlineResponse20018 model module.
  * @module model/InlineResponse20018
- * @version 0.9.2
  */
 class InlineResponse20018 {
     /**

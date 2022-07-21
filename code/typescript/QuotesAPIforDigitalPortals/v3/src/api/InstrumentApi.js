@@ -47,7 +47,6 @@ import InlineResponse20087 from '../model/InlineResponse20087';
 /**
 * Instrument service.
 * @module api/InstrumentApi
-* @version 0.10.0
 */
 export default class InstrumentApi {
 

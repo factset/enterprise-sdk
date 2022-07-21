@@ -8,6 +8,10 @@ build.gradle
 build.sbt
 docs/EntityReference.md
 docs/EntityReferenceApi.md
+docs/EntityReferenceChi.md
+docs/EntityReferenceChiRequest.md
+docs/EntityReferenceChiResponse.md
+docs/EntityReferenceChineseApi.md
 docs/EntityReferenceRequest.md
 docs/EntityReferenceResponse.md
 docs/EntitySecurities.md
@@ -45,6 +49,7 @@ src/main/java/com/factset/sdk/FactSetEntity/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetEntity/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetEntity/StringUtil.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntityReferenceApi.java
+src/main/java/com/factset/sdk/FactSetEntity/api/EntityReferenceChineseApi.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntitySecuritiesApi.java
 src/main/java/com/factset/sdk/FactSetEntity/api/EntityStructureApi.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/ApiKeyAuth.java
@@ -56,6 +61,9 @@ src/main/java/com/factset/sdk/FactSetEntity/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetEntity/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetEntity/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReference.java
+src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceChi.java
+src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceChiRequest.java
+src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceChiResponse.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceRequest.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntityReferenceResponse.java
 src/main/java/com/factset/sdk/FactSetEntity/models/EntitySecurities.java

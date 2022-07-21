@@ -42,7 +42,7 @@ namespace FactSet.SDK.Portfolio.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public ModelAccountFieldsRoot(ModelAccountFields data = default(ModelAccountFields), Dictionary<string, string> meta = default(Dictionary<string, string>))
+        public ModelAccountFieldsRoot(ModelAccountFields data,Dictionary<string, string> meta = default(Dictionary<string, string>))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

@@ -17,7 +17,6 @@ import OptionsReferences from './OptionsReferences';
 /**
  * The OptionsReferencesResponse model module.
  * @module model/OptionsReferencesResponse
- * @version 0.20.0
  */
 class OptionsReferencesResponse {
     /**

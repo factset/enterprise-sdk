@@ -30,7 +30,6 @@ import SummariesResponse from '../model/SummariesResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.20.0
 */
 export default class ReferenceApi {
 

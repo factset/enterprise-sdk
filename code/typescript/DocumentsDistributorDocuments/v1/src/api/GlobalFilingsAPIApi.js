@@ -19,7 +19,6 @@ import Status from '../model/Status';
 /**
 * GlobalFilingsAPI service.
 * @module api/GlobalFilingsAPIApi
-* @version 0.20.1
 */
 export default class GlobalFilingsAPIApi {
 

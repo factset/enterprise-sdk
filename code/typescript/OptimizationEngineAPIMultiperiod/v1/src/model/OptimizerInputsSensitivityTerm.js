@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsSensitivityTerm model module.
  * @module model/OptimizerInputsSensitivityTerm
- * @version 0.20.0
  */
 class OptimizerInputsSensitivityTerm {
     /**

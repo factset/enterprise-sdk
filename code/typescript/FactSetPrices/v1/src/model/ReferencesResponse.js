@@ -17,7 +17,6 @@ import References from './References';
 /**
  * The ReferencesResponse model module.
  * @module model/ReferencesResponse
- * @version 0.20.0
  */
 class ReferencesResponse {
     /**

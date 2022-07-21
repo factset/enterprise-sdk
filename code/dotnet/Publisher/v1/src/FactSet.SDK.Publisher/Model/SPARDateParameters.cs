@@ -43,7 +43,7 @@ namespace FactSet.SDK.Publisher.Model
         /// <param name="startdate">Calculation&#39;s start date. (required).</param>
         /// <param name="enddate">Calculation&#39;s end date. (required).</param>
         /// <param name="frequency">Calculation&#39;s frequency. (required).</param>
-        public SPARDateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
+        public SPARDateParameters(string startdate, string enddate, string frequency)
         {
             // to ensure "startdate" is required (not null)
             if (startdate == null) {

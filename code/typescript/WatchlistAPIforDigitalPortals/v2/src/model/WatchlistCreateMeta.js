@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The WatchlistCreateMeta model module.
  * @module model/WatchlistCreateMeta
- * @version 0.9.2
  */
 class WatchlistCreateMeta {
     /**

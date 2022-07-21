@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EMSOrderMetadata model module.
  * @module model/EMSOrderMetadata
- * @version 0.20.0
  */
 class EMSOrderMetadata {
     /**

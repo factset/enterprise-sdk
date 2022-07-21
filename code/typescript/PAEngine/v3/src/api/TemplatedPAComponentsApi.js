@@ -23,7 +23,6 @@ import TemplatedPAComponentUpdateParametersRoot from '../model/TemplatedPACompon
 /**
 * TemplatedPAComponents service.
 * @module api/TemplatedPAComponentsApi
-* @version 0.20.0
 */
 export default class TemplatedPAComponentsApi {
 

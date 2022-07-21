@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataShareClassFeeInitialMinimum model module.
  * @module model/InlineResponse2005DataShareClassFeeInitialMinimum
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeInitialMinimum {
     /**

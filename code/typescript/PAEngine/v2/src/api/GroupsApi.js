@@ -18,7 +18,6 @@ import Group from '../model/Group';
 /**
 * Groups service.
 * @module api/GroupsApi
-* @version 0.8.2
 */
 export default class GroupsApi {
 

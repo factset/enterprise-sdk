@@ -5,7 +5,7 @@
     <artifactId>paengine</artifactId>
     <packaging>jar</packaging>
     <name>paengine</name>
-    <version>0.8.2</version>
+    <version>0.8.3</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>PA Engine client library for Java</description>
     <scm>

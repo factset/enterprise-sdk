@@ -30,8 +30,8 @@ Fetch Microsoft's Adaptive Cards, which includes headlines and event details dat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.error_response import ErrorResponse
-from fds.sdk.Signals.model.event_adaptive_card import EventAdaptiveCard
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +64,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     event_id = "eventId_example" # str | The UUID of the event to return.
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_event_adaptive_card_by_id(event_id)
         pprint(api_response)
 
@@ -118,10 +119,8 @@ Fetch Microsoft's Adaptive Cards, which includes headlines and event details dat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.event_adaptive_cards import EventAdaptiveCards
-from fds.sdk.Signals.model.relevance_score_range import RelevanceScoreRange
-from fds.sdk.Signals.model.date_time_interval import DateTimeInterval
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -156,13 +155,13 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
     updated = DateTimeInterval(
         gt=dateutil_parser('2021-01-01T00:00:00Z'),
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -177,6 +176,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_event_adaptive_cards(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
         pprint(api_response)
 
@@ -189,8 +190,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | **DateTimeInterval**| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -239,8 +240,8 @@ Fetch Signals event headlines plus all additional event details for a single req
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.event_detail import EventDetail
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -273,6 +274,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     event_id = "eventId_example" # str | The UUID of the event to return.
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_event_detail_by_id(event_id)
         pprint(api_response)
 
@@ -327,10 +329,8 @@ Fetch Signals event headlines plus all additional event details based on the fil
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.relevance_score_range import RelevanceScoreRange
-from fds.sdk.Signals.model.date_time_interval import DateTimeInterval
-from fds.sdk.Signals.model.event_details import EventDetails
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -365,13 +365,13 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
     updated = DateTimeInterval(
         gt=dateutil_parser('2021-01-01T00:00:00Z'),
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -386,6 +386,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_event_details(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
         pprint(api_response)
 
@@ -398,8 +400,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | **DateTimeInterval**| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -448,10 +450,8 @@ Fetch FactSet entity IDs for events that match the filtering criteria
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.relevance_score_range import RelevanceScoreRange
-from fds.sdk.Signals.model.events_entities import EventsEntities
-from fds.sdk.Signals.model.date_time_interval import DateTimeInterval
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -486,13 +486,13 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
     updated = DateTimeInterval(
         gt=dateutil_parser('2021-01-01T00:00:00Z'),
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     themes = "themes_example" # str | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
     categories = "categories_example" # str | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
@@ -504,6 +504,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     ) # RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_event_entities(created=created, updated=updated, signal_ids=signal_ids, themes=themes, categories=categories, user_relevance_score=user_relevance_score)
         pprint(api_response)
 
@@ -516,8 +518,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | **DateTimeInterval**| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **themes** | **str**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional]
  **categories** | **str**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
@@ -563,10 +565,8 @@ Fetch Signals event headlines based on the filtering criteria
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.relevance_score_range import RelevanceScoreRange
-from fds.sdk.Signals.model.date_time_interval import DateTimeInterval
-from fds.sdk.Signals.model.error_response import ErrorResponse
-from fds.sdk.Signals.model.event_headlines import EventHeadlines
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -601,13 +601,13 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
     updated = DateTimeInterval(
         gt=dateutil_parser('2021-01-01T00:00:00Z'),
         gte=dateutil_parser('2021-01-01T00:00:00Z'),
         lt=dateutil_parser('2021-01-01T00:00:00Z'),
         lte=dateutil_parser('2021-01-01T00:00:00Z'),
-    ) # DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+    ) # DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
     signal_ids = "dilutionTrigger,freeCashFlow" # str |  (optional)
     ids = "FDS-US,AMZN-US" # str | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
     portfolios = "portfolios_example" # str | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -622,6 +622,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     sort = "-userRelevanceScore,-eventDate" # str | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_event_headlines(created=created, updated=updated, signal_ids=signal_ids, ids=ids, portfolios=portfolios, themes=themes, categories=categories, user_relevance_score=user_relevance_score, sort=sort)
         pprint(api_response)
 
@@ -634,8 +636,8 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | **DateTimeInterval**| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | **DateTimeInterval**| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | **DateTimeInterval**| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | **DateTimeInterval**| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signal_ids** | **str**|  | [optional]
  **ids** | **str**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **str**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -684,8 +686,8 @@ Fetch Signals event headlines plus all additional event details for up to 1000 i
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.event_details import EventDetails
-from fds.sdk.Signals.model.event_request_body import EventRequestBody
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -728,6 +730,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     ) # EventRequestBody | 
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_details(event_request_body)
         pprint(api_response)
 
@@ -780,8 +783,8 @@ Fetch Signals event headlines based on the filtering criteria for up to 1000 ide
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api
-from fds.sdk.Signals.model.event_request_body import EventRequestBody
-from fds.sdk.Signals.model.event_headlines import EventHeadlines
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -824,6 +827,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     ) # EventRequestBody | 
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_event_headlines(event_request_body)
         pprint(api_response)
 

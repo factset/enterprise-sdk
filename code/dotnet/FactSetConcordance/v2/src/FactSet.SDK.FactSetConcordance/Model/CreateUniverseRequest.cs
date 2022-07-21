@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="universeName">Universe name (required).</param>
         /// <param name="universeDescription">Universe description.</param>
         /// <param name="universeType">Universe type.</param>
-        public CreateUniverseRequest(string universeName = default(string), string universeDescription = default(string), string universeType = default(string))
+        public CreateUniverseRequest(string universeName,string universeDescription = default(string), string universeType = default(string))
         {
             // to ensure "universeName" is required (not null)
             if (universeName == null) {

@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SnapshotApi(config);
+
             var snapshotRequest = new SnapshotRequest(); // SnapshotRequest | Snapshot Request Object
 
             try

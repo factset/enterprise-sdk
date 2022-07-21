@@ -17,7 +17,6 @@ import ImpliedVolatility from './ImpliedVolatility';
 /**
  * The ImpliedVolatilityResponse model module.
  * @module model/ImpliedVolatilityResponse
- * @version 0.20.0
  */
 class ImpliedVolatilityResponse {
     /**

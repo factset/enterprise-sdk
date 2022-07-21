@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20046NotationFsymListing model module.
  * @module model/InlineResponse20046NotationFsymListing
- * @version 0.10.0
  */
 class InlineResponse20046NotationFsymListing {
     /**

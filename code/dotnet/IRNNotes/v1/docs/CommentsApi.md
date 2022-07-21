@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNNotes.Api.CommentsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var createCommentDto = new CreateCommentDto(); // CreateCommentDto |  (optional) 
 
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
@@ -241,6 +243,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
 
@@ -331,6 +334,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
             var attachmentId = "attachmentId_example";  // Guid | 
@@ -423,6 +427,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
 
@@ -514,6 +519,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
 
@@ -605,6 +611,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
 
             try
@@ -694,6 +701,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
+
             var noteId = "noteId_example";  // Guid | 
             var commentId = "commentId_example";  // Guid | 
             var operation = new List<Operation>(); // List<Operation> |  (optional) 

@@ -18,7 +18,6 @@ import InlineResponse2004FundRegionalExposureSpecific from './InlineResponse2004
 /**
  * The InlineResponse2004FundRegionalExposure model module.
  * @module model/InlineResponse2004FundRegionalExposure
- * @version 0.10.0
  */
 class InlineResponse2004FundRegionalExposure {
     /**

@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeHandlingMaximum from './InlineResponse
 /**
  * The InlineResponse2005DataShareClassFeeHandling model module.
  * @module model/InlineResponse2005DataShareClassFeeHandling
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeHandling {
     /**

@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint. **NOTE:** The input endDate must come AFTER the input startDate.  (required).</param>
         /// <param name="frequency">frequency.</param>
-        public FactorsRequest(List<string> ids = default(List<string>), List<string> factors = default(List<string>), List<string> factorGroups = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency))
+        public FactorsRequest(List<string> ids, List<string> factors, string startDate, string endDate,List<string> factorGroups = default(List<string>), Frequency frequency = default(Frequency))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20013DataTrackingDifference model module.
  * @module model/InlineResponse20013DataTrackingDifference
- * @version 0.10.0
  */
 class InlineResponse20013DataTrackingDifference {
     /**

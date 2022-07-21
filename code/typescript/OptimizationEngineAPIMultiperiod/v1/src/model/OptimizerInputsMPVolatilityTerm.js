@@ -20,7 +20,6 @@ import OptimizerInputsVolatilityTerm from './OptimizerInputsVolatilityTerm';
 /**
  * The OptimizerInputsMPVolatilityTerm model module.
  * @module model/OptimizerInputsMPVolatilityTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPVolatilityTerm {
     /**

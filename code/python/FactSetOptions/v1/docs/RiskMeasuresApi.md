@@ -25,9 +25,8 @@ Returns weighted average of the implied volatilities from the options listed for
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import risk_measures_api
-from fds.sdk.FactSetOptions.model.atm_implied_volatility_request import AtmImpliedVolatilityRequest
-from fds.sdk.FactSetOptions.model.atm_implied_volatility_response import AtmImpliedVolatilityResponse
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,6 +67,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns the at-the-money (ATM) implied volatility details for the specified underlying security identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_atm_implied_volatility_for_list(atm_implied_volatility_request)
         pprint(api_response)
 
@@ -125,9 +125,8 @@ Returns all the greeks details for the specified option identifier. Greeks provi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import risk_measures_api
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.greeks_response import GreeksResponse
-from fds.sdk.FactSetOptions.model.greeks_request import GreeksRequest
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,6 +167,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns all the Greeks details for the specified option identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_greeks_for_list(greeks_request)
         pprint(api_response)
 
@@ -225,9 +225,8 @@ Returns the Implied Volatility for the specified option across European and Amer
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import risk_measures_api
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.implied_volatility_request import ImpliedVolatilityRequest
-from fds.sdk.FactSetOptions.model.implied_volatility_response import ImpliedVolatilityResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -267,6 +266,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns the implied volatility information for the specified option identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_volatility_for_list(implied_volatility_request)
         pprint(api_response)
 

@@ -26,7 +26,6 @@ import InlineResponse2004EstimatesFirstFiscalYearRatiosPriceSales from './Inline
 /**
  * The InlineResponse2004EstimatesFirstFiscalYearRatios model module.
  * @module model/InlineResponse2004EstimatesFirstFiscalYearRatios
- * @version 0.9.2
  */
 class InlineResponse2004EstimatesFirstFiscalYearRatios {
     /**

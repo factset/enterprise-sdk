@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = FDS;  // string | Company ticker
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = FDS;  // string | Company ticker
 
             try
@@ -236,6 +238,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = FDS;  // string | Company ticker
 
             try
@@ -328,6 +331,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = FDS;  // string | Company ticker
             var topn = 5;  // decimal? | Limits the number of peers returned. (optional) 
 
@@ -383,7 +387,7 @@ Name | Type | Description  | Notes
 
 <a name="transactionsget"></a>
 # **TransactionsGet**
-> StachTableResponse TransactionsGet (string id)
+> StachTableResponse TransactionsGet (string id, string transactionType = null, string financingType = null)
 
 Transactions
 
@@ -422,12 +426,15 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = FDS;  // string | Company ticker
+            var transactionType = ACQUISITION_MERGER;  // string | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional) 
+            var financingType = EQUITY;  // string | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional) 
 
             try
             {
                 // Transactions
-                StachTableResponse result = apiInstance.TransactionsGet(id);
+                StachTableResponse result = apiInstance.TransactionsGet(id, transactionType, financingType);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -446,6 +453,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Company ticker | 
+ **transactionType** | **string**| Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. | [optional] 
+ **financingType** | **string**| Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive | [optional] 
 
 ### Return type
 [**StachTableResponse**](StachTableResponse.md)

@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.20.0"
+__version__ = "0.21.0"
 
 # import ApiClient
 from fds.sdk.FactSetIntradayTickHistory.api_client import ApiClient

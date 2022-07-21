@@ -19,7 +19,6 @@ import PlacementParameters from './PlacementParameters';
 /**
  * The Transactions model module.
  * @module model/Transactions
- * @version 0.20.0
  */
 class Transactions {
     /**

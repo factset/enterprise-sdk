@@ -80,7 +80,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <param name="category">Redemption Price Category - * **CALL** &#x3D; Call prices. * **PUT** &#x3D; Put prices. * **SF** &#x3D; Sinking Fund prices.  (required).</param>
         /// <param name="minAmt">Sinking Fund minimum amount..</param>
         /// <param name="price">Redemption price for the category..</param>
-        public RedemptionPrice(string requestId = default(string), string fsymId = default(string), DateTime date = default(DateTime), CategoryEnum category = default(CategoryEnum), double minAmt = default(double), double price = default(double))
+        public RedemptionPrice(string requestId, string fsymId, DateTime date, CategoryEnum category,double minAmt = default(double), double price = default(double))
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

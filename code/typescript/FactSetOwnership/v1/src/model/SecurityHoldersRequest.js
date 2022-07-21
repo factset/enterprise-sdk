@@ -17,7 +17,6 @@ import HolderType from './HolderType';
 /**
  * The SecurityHoldersRequest model module.
  * @module model/SecurityHoldersRequest
- * @version 0.20.0
  */
 class SecurityHoldersRequest {
     /**

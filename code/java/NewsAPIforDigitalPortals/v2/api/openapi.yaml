@@ -1,7 +1,22 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: Prime Developer Trial
-  version: v1
+  description: "Consume FactSet’s StreetAccount news and 3rd party content through\
+    \ an API that seamlessly integrates with quotes, time series, watchlists, and\
+    \ other Functional APIs.\n\nSearch for news articles from various news distributors\
+    \ and publishers. Incorporate a multitude of search parameters such as region,\
+    \ category, source, article type and provider-specific meta data, to easily filter\
+    \ out the noise.\n\nAll search and list endpoints can be subscribed to receive\
+    \ streamed updates.\n\nNews providers include:\n\n* APA\n* AWP \n* Businesswire\n\
+    * Cercle Finance\n* Direkt News SE\n* Dow Jones News\n* dpa\n* dpa-AFX \n* EUWAX\n\
+    * GlobenewsWire\n* Kauppalehti\n* Midnight Trader\n* MoneyAM\n* newsaktuell\n\
+    * OMX\n* PR Newswire \n* Ritzau Finans\n* StreetAccount News\n* TDN News\n   \
+    \   \nSee the Quotes API for Digital Portals for access to detailed price and\
+    \ performance information, plus basic support for security identifier cross-reference."
+  title: News API For Digital Portals
+  version: "2"
+externalDocs:
+  description: Endpoint Reference
+  url: https://endpointreference.mdgms.com
 servers:
 - url: https://api.factset.com/wealth/v1
 security:
@@ -16,46 +31,56 @@ paths:
       description: Details for a news article.
       operationId: get/news/article/get
       parameters:
-      - description: Identifier of a news article.
+      - explode: true
         in: query
         name: code
         required: true
         schema:
+          description: Identifier of a news article.
           exclusiveMaximum: false
           exclusiveMinimum: false
           maxLength: 128
           minLength: 1
           pattern: ^[0-9A-Za-z+/=:]+$
           type: string
-      - description: If true, media references are included if available.
+        style: form
+      - explode: true
         in: query
         name: includeMedia
+        required: false
         schema:
           default: false
+          description: If true, media references are included if available.
           type: boolean
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -82,6 +107,7 @@ paths:
     post:
       description: List of news articles.
       operationId: post/news/article/list
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object'
         content:
@@ -93,9 +119,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -118,13 +142,13 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/listByChain:
     post:
       description: List news articles of an article chain.
       operationId: post/news/article/listByChain
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_1'
         content:
@@ -135,12 +159,8 @@ paths:
                   $ref: '#/components/schemas/_news_article_listByChain_data'
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -163,7 +183,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/listByIndex:
@@ -171,6 +190,7 @@ paths:
       description: News articles for instruments that are constituents of the given
         indices.
       operationId: post/news/article/listByIndex
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_2'
         content:
@@ -181,12 +201,8 @@ paths:
                   $ref: '#/components/schemas/_news_article_listByIndex_data'
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -209,13 +225,13 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/listByInstrument:
     post:
       description: News articles for instruments.
       operationId: post/news/article/listByInstrument
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_3'
         content:
@@ -226,12 +242,8 @@ paths:
                   $ref: '#/components/schemas/_news_article_listByInstrument_data'
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -254,13 +266,13 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/listByMediaKind:
     post:
       description: List news articles which contain media of specific media kinds.
       operationId: post/news/article/listByMediaKind
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_4'
         content:
@@ -271,12 +283,8 @@ paths:
                   $ref: '#/components/schemas/_news_article_listByMediaKind_data'
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -299,7 +307,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/searchByText:
@@ -310,6 +317,7 @@ paths:
         to true, "exclude" requires the criterion to evaluate to false. A criterion
         is fulfilled when at least one of its values is found.
       operationId: post/news/article/searchByText
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_5'
         content:
@@ -321,9 +329,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_news_article_list_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -346,7 +352,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /news/article/type/get:
@@ -354,38 +359,44 @@ paths:
       description: Details for a news article type.
       operationId: get/news/article/type/get
       parameters:
-      - description: Identifier of a news article type.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of a news article type.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -418,24 +429,29 @@ paths:
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -463,22 +479,25 @@ paths:
       description: Details of a distributor.
       operationId: get/news/distributor/get
       parameters:
-      - description: Identifier of a distributor.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of a distributor.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -512,11 +531,12 @@ paths:
       description: List of distributors.
       operationId: get/news/distributor/list
       parameters:
-      - description: Identifiers of distributors.
-        explode: false
+      - explode: false
         in: query
         name: ids
+        required: false
         schema:
+          description: Identifiers of distributors.
           items:
             format: id32
             type: number
@@ -530,8 +550,10 @@ paths:
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -544,8 +566,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -584,22 +608,25 @@ paths:
       description: Details of a publisher.
       operationId: get/news/publisher/get
       parameters:
-      - description: Identifier of a publisher.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of a publisher.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -633,11 +660,12 @@ paths:
       description: List of publishers.
       operationId: get/news/publisher/list
       parameters:
-      - description: Identifiers of publishers.
-        explode: false
+      - explode: false
         in: query
         name: ids
+        required: false
         schema:
+          description: Identifiers of publishers.
           items:
             format: id32
             type: number
@@ -651,8 +679,10 @@ paths:
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -665,8 +695,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -679,25 +711,31 @@ paths:
           uniqueItems: true
         style: form
       - description: Non-negative number of entries to skip, or 0 (default).
+        explode: true
         in: query
         name: _paginationOffset
+        required: false
         schema:
-          default: 0.0
+          default: 0
           exclusiveMinimum: false
           format: int32
           minimum: 0
           type: number
+        style: form
       - description: Non-negative maximum number of entries to return.
+        explode: true
         in: query
         name: _paginationLimit
+        required: false
         schema:
-          default: 20.0
+          default: 20
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
           maximum: 500
           minimum: 0
           type: number
+        style: form
       responses:
         "200":
           content:
@@ -725,22 +763,25 @@ paths:
       description: List of publishers provided by the given distributor.
       operationId: get/news/publisher/listByDistributor
       parameters:
-      - description: Identifier of a distributor.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of a distributor.
           format: id32
           type: number
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -753,8 +794,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -792,6 +835,7 @@ paths:
     post:
       description: Search for publishers by the name of the publisher.
       operationId: post/news/publisher/searchByName
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_6'
         content:
@@ -802,12 +846,8 @@ paths:
                   $ref: '#/components/schemas/_news_publisher_searchByName_data'
                 meta:
                   $ref: '#/components/schemas/_news_publisher_searchByName_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "200":
@@ -830,40 +870,32 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 1
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
 components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
   requestBodies:
-    inline_object_1:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_1'
-      required: true
     inline_object:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_object'
       required: false
-    inline_object_6:
+    inline_object_1:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_6'
+            $ref: '#/components/schemas/inline_object_1'
       required: true
-    inline_object_5:
+    inline_object_2:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_5'
-      required: false
-    inline_object_4:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_4'
+            $ref: '#/components/schemas/inline_object_2'
       required: true
     inline_object_3:
       content:
@@ -871,11 +903,23 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object_3'
       required: true
-    inline_object_2:
+    inline_object_4:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_2'
+            $ref: '#/components/schemas/inline_object_4'
+      required: true
+    inline_object_5:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_5'
+      required: false
+    inline_object_6:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_6'
       required: true
   responses:
     ErrorResponse:
@@ -941,6 +985,7 @@ components:
       description: Limit the attributes returned in the response to the specified
         set.
       items:
+        exclusiveMaximum: false
         maxLength: 100
         type: string
       maxItems: 50
@@ -1423,6 +1468,7 @@ components:
     _news_article_list_data_filter_range:
       description: Time range for matching the news article's date. At most one of
         the attributes `start` or `end` may be `null`.
+      format: timeRange
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -1584,12 +1630,13 @@ components:
       description: Object defining the subscription attributes.
       properties:
         minimumInterval:
+          default: 0
           description: Non-negative number of milliseconds to throttle the update
             rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
-          maximum: 5E+3
+          maximum: 5000
           minimum: 0
           type: number
       required:
@@ -1604,14 +1651,16 @@ components:
           description: Starting point as returned in the attributes `pagination.next`
             or `pagination.previous` by a prior invocation of this endpoint, or undefined
             (default).
+          exclusiveMaximum: false
           maxLength: 50
           type: string
         limit:
+          default: 20
           description: Non-negative maximum number of entries to return.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
-          maximum: 5E+2
+          maximum: 500
           minimum: 1
           type: number
       type: object
@@ -1625,6 +1674,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -1646,9 +1696,6 @@ components:
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_1_types:
       example:
         id: 0.8008281904610115
@@ -1711,8 +1758,8 @@ components:
           description: Identifier of the category.
           format: id32
           type: number
-          x-positive: true
           x-pushable: true
+          x-positive: true
       type: object
       x-property-sort:
       - id
@@ -1725,8 +1772,8 @@ components:
           description: Identifier of the news article chain.
           format: id64
           type: string
-          x-positive: true
           x-pushable: true
+          x-positive: true
       type: object
       x-property-sort:
       - id
@@ -1766,8 +1813,8 @@ components:
           description: Identifier of the instrument.
           format: id64
           type: string
-          x-positive: true
           x-pushable: true
+          x-positive: true
         fsym:
           $ref: '#/components/schemas/inline_response_200_1_fsym'
       type: object
@@ -1983,12 +2030,7 @@ components:
           $ref: '#/components/schemas/_news_article_listByChain_data'
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_2_data_distributor:
       description: Distributor of the news articles. See endpoint `/news/distributor/list`
         for possible values.
@@ -2232,12 +2274,7 @@ components:
           $ref: '#/components/schemas/_news_article_listByIndex_data'
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     _news_article_listByInstrument_data:
       description: The data member contains the request's primary data.
       properties:
@@ -2265,12 +2302,7 @@ components:
           $ref: '#/components/schemas/_news_article_listByInstrument_data'
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     _news_article_listByMediaKind_data:
       description: The data member contains the request's primary data.
       properties:
@@ -2299,14 +2331,8 @@ components:
           $ref: '#/components/schemas/_news_article_listByMediaKind_data'
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     _news_article_searchByText_data_text_criteria:
-      description: ""
       properties:
         selectionType:
           default: include
@@ -2321,12 +2347,14 @@ components:
         phrases:
           description: Phrases to be used in the criteria.
           items:
+            exclusiveMaximum: true
             maxLength: 100
             type: string
           maxItems: 16
           minItems: 1
           type: array
         minimumMatchScore:
+          default: 0.7
           description: Minimum match score for words in the news article.
           format: real
           type: number
@@ -2566,9 +2594,6 @@ components:
         meta:
           $ref: '#/components/schemas/_news_article_list_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3_data:
       description: Details of a news article type.
       example:
@@ -2701,8 +2726,8 @@ components:
           description: Name of the distributor.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
         delivery:
           $ref: '#/components/schemas/inline_response_200_5_data_delivery'
       type: object
@@ -2804,8 +2829,8 @@ components:
           description: Name of the publisher.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
         distributor:
           $ref: '#/components/schemas/inline_response_200_7_data_distributor'
       type: object
@@ -2871,8 +2896,8 @@ components:
           description: Name of the publisher.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
       type: object
       x-property-sort:
       - id
@@ -2938,6 +2963,8 @@ components:
         searchValue:
           description: Restricts the search to publishers, which match the search
             value. The comparison for a match is case sensitive.
+          exclusiveMaximum: true
+          exclusiveMinimum: false
           maxLength: 50
           minLength: 2
           type: string
@@ -2969,12 +2996,15 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         sort:
+          default:
+          - name
           description: Sortable attributes. The sort order is ascending unless it
             is prefixed with a minus sign, in which case it is descending. A list
             of at most 1 (possibly prefixed) attribute name(s) is allowed.
@@ -2998,24 +3028,18 @@ components:
           $ref: '#/components/schemas/_news_publisher_searchByName_data'
         meta:
           $ref: '#/components/schemas/_news_publisher_searchByName_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-interface-version: 1
-x-documenter-version: 5.38.1
-x-api-version: 2.9.1
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-interface-version: 2
+x-documenter-version: 6.0.1
+x-api-version: 3.3.0
 

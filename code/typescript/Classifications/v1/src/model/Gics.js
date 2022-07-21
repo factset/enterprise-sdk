@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Gics model module.
  * @module model/Gics
- * @version 0.20.0
  */
 class Gics {
     /**

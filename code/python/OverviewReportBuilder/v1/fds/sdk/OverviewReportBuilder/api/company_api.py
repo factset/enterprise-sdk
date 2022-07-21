@@ -287,6 +287,8 @@ class CompanyApi(object):
             params_map={
                 'all': [
                     'id',
+                    'transaction_type',
+                    'financing_type',
                 ],
                 'required': [
                     'id',
@@ -294,6 +296,8 @@ class CompanyApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'transaction_type',
+                    'financing_type',
                 ],
                 'validation': [
                 ]
@@ -302,16 +306,42 @@ class CompanyApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('transaction_type',): {
+
+                        "ACQUISITION_MERGER": "ACQUISITION_MERGER",
+                        "MAJORITY_STAKE": "MAJORITY_STAKE",
+                        "MINORITY_STAKE": "MINORITY_STAKE",
+                        "SPINOFF": "SPINOFF",
+                        "IPO": "IPO",
+                        "FOLLOW_ON": "FOLLOW_ON",
+                        "ST_DEBT": "ST_DEBT",
+                        "NOTES_BONDS": "NOTES_BONDS",
+                        "REVOLVING_CREDIT": "REVOLVING_CREDIT",
+                        "TERM_LOANS": "TERM_LOANS"
+                    },
+                    ('financing_type',): {
+
+                        "DEBT": "DEBT",
+                        "EQUITY": "EQUITY"
+                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
+                    'transaction_type':
+                        (str,),
+                    'financing_type':
+                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'transaction_type': 'transactionType',
+                    'financing_type': 'financingType',
                 },
                 'location_map': {
                     'id': 'query',
+                    'transaction_type': 'query',
+                    'financing_type': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1082,6 +1112,8 @@ class CompanyApi(object):
             id (str): Company ticker
 
         Keyword Args:
+            transaction_type (str): Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.. [optional]
+            financing_type (str): Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1127,6 +1159,8 @@ class CompanyApi(object):
             id (str): Company ticker
 
         Keyword Args:
+            transaction_type (str): Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.. [optional]
+            financing_type (str): Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1176,6 +1210,8 @@ class CompanyApi(object):
             id (str): Company ticker
 
         Keyword Args:
+            transaction_type (str): Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.. [optional]
+            financing_type (str): Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1220,6 +1256,8 @@ class CompanyApi(object):
             id (str): Company ticker
 
         Keyword Args:
+            transaction_type (str): Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive.. [optional]
+            financing_type (str): Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive. [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.

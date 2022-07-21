@@ -17,7 +17,6 @@ import InlineResponse2006DataPropertiesFundAssetsUnderManagementCurrency from '.
 /**
  * The InlineResponse2006DataPropertiesFundAssetsUnderManagementAum model module.
  * @module model/InlineResponse2006DataPropertiesFundAssetsUnderManagementAum
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesFundAssetsUnderManagementAum {
     /**

@@ -18,7 +18,6 @@ import GetReportInfo from '../model/GetReportInfo';
 /**
 * RetrieveReportList service.
 * @module api/RetrieveReportListApi
-* @version 0.20.0
 */
 export default class RetrieveReportListApi {
 

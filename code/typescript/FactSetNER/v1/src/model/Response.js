@@ -17,7 +17,6 @@ import Tag from './Tag';
 /**
  * The Response model module.
  * @module model/Response
- * @version 0.8.2
  */
 class Response {
     /**

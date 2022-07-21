@@ -874,6 +874,199 @@ paths:
       - Entity Structure
       x-contentType: application/json
       x-accepts: application/json
+  /factset-entity/v1/entity-reference-chi:
+    get:
+      description: |
+        Returns entity reference data in Chinese for the requested Id(s). Data points include Business Description and Entity Name in both simplified and traditional Chinese.
+      operationId: getEntityReferenceChi
+      parameters:
+      - description: |
+          The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a single request**</p>
+            *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+                which may lead to exceeding this request line limit of 8KB, its
+                advised for any requests with large request lines to be requested through
+                the respective \"POST\" method.</p>*
+        example:
+        - 05X6LC-E
+        - 062T6N-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 1500
+          minItems: 1
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceChiResponse'
+          description: Fetches Entity Reference data in Chinese for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns entity reference data in Chinese for an individual entity.
+      tags:
+      - Entity Reference Chinese
+      x-accepts: application/json
+    post:
+      description: |
+        Returns entity reference data in Chinese for the requested Id(s). Data points include Business Description and Entity Name in both simplified and traditional Chinese.
+      operationId: getEntityReferenceChiForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entityReferenceChiRequest'
+        description: Request Body to request a list of Entity Reference Chinese objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceChiResponse'
+          description: Fetches Entity Reference data in Chinese for a list of ids.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Returns entity reference data in Chinese for an individual entity.
+      tags:
+      - Entity Reference Chinese
+      x-contentType: application/json
+      x-accepts: application/json
 components:
   examples:
     badRequestDateFormat:
@@ -1070,6 +1263,28 @@ components:
         maximum: 1
         minimum: -1
         type: integer
+      style: form
+    idsChi:
+      description: |
+        The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      example:
+      - 05X6LC-E
+      - 062T6N-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          example: IBM-US
+          type: string
+        maxItems: 1500
+        minItems: 1
+        type: array
       style: form
   responses:
     "400":
@@ -1277,24 +1492,29 @@ components:
           description: Unique FactSet-generated identifier representing an entity
             for the current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
           type: string
         entityProperName:
           description: Name that the entity is commonly referred to as, normalized
             and in proper case.
           example: Amazon.com, Inc.
+          nullable: true
           type: string
         fsymEntityId:
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
           type: string
         ultimateParentId:
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
           type: string
         ultimateParentName:
           description: Name that the ultimate parent entity is commonly referred to
             as, normalized and in proper case."
           example: Amazon.com, Inc.
+          nullable: true
           type: string
         creditParentId:
           description: |
@@ -1304,32 +1524,39 @@ components:
             * If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B).
             * An issuer must have active debt.
           example: 001MF1-E
+          nullable: true
           type: string
         parentEquityId:
           description: The regional parent equity listing id.
           example: MCNYYL-R
+          nullable: true
           type: string
         privateEntityFlag:
           description: Returns 1 if the entity is a Private Company, otherwise, 0.
           example: 0
+          nullable: true
           type: integer
         publicEntityFlag:
           description: Returns 1 if the entity is a Public Company, otherwise, 0.
           example: 1
+          nullable: true
           type: integer
         securityType:
           description: Security type of the identifier, For descriptions of the each
             security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)
           example: SHARE
+          nullable: true
           type: string
         website:
           description: Web page address for the entity
           example: http://www.amazon.com
+          nullable: true
           type: string
         incorporationDate:
           description: Year the entity was incorporated in YYYY-MM-DD format.
           example: 1996-05-28
           format: date
+          nullable: true
           type: string
         countryOfRisk:
           description: |
@@ -1338,10 +1565,12 @@ components:
             * Country of Incorporation
             * Country of Primary Exchange (the country where most liquid equity listings trade)
           example: US
+          nullable: true
           type: string
         incorporationCountry:
           description: ISO Country code where the entity is incorporated
           example: US
+          nullable: true
           type: string
         businessDescription:
           description: Extended business description for the requested entity.
@@ -1356,38 +1585,47 @@ components:
             offerings for start-ups, enterprises, government agencies, and academic
             institutions. The company was founded by Jeffrey P. Bezos in July 1994
             and is headquartered in Seattle, WA.'
+          nullable: true
           type: string
         phone:
           description: The entity's international phone number.
           example: +1.206.266.1000
+          nullable: true
           type: string
         headquartersStreet:
           description: The entity's headquarters street address.
           example: 410 Terry Avenue North
+          nullable: true
           type: string
         headquartersCity:
           description: The entity's headquarters street address.
           example: Seattle
+          nullable: true
           type: string
         headquartersState:
           description: Abbreviated State of company headquarters.
           example: WA
+          nullable: true
           type: string
         headquartersZip:
           description: Zip/Postal Code for entity's headquarters.
           example: 98109-5210
+          nullable: true
           type: string
         headquartersCountry:
           description: Abbreviated (ISO) Country of headquarters.
           example: US
+          nullable: true
           type: string
         emailIR:
           description: Email Address of the Investor Relations Contact
           example: amazon-ir@amazon.com
+          nullable: true
           type: string
         websiteIR:
           description: Website or Page for the Entity's Investor Relations team.
           example: https://ir.aboutamazon.com/overview/default.aspx
+          nullable: true
           type: string
         requestId:
           description: Identifier used in "ids" parameter.  When list of identifiers
@@ -1468,15 +1706,18 @@ components:
         fsymId:
           description: FactSet Ultimate Parent ID of the Requested Security ID
           example: 001MF1-E
+          nullable: true
           type: string
         fsymSecurityId:
           description: FactSet Security ID (-S).
           example: F3PS31-S
+          nullable: true
           type: string
         fsymListingId:
           description: FactSet Listing ID (-L). Corresponds to the listing exchange
             for the requested security. Not applicable for FI instruments.
           example: LVR478-L
+          nullable: true
           type: string
         securityType:
           description: The Security Type Code. Security Type Code details and mapping
@@ -1514,27 +1755,33 @@ components:
           - BLDN
           - CMBS
           example: BDNT
+          nullable: true
           type: string
         listingExchange:
           description: The securities primary listing exchange.
           example: NAS
+          nullable: true
           type: string
         securityName:
           description: Security name
           example: Amazon.com, Inc. 1.9% 21-AUG-2020
+          nullable: true
           type: string
         fsymEntityId:
           description: Unique FactSet-generated identifier representing an entity.
           example: 001MF1-E
+          nullable: true
           type: string
         fsymTickerExchange:
           description: The security's ticker-exchange, representing the listing exchange
             symbol.
           example: AMZN-NAS
+          nullable: true
           type: string
         fsymTickerRegion:
           description: The security's regional ticker.
           example: AMZN-US
+          nullable: true
           type: string
         activeFlag:
           description: Indicates if security is active. 1 = Active; 0 = Inactive.
@@ -1542,6 +1789,7 @@ components:
           - 0
           - 1
           example: 1
+          nullable: true
           type: integer
         requestId:
           description: Identifier used in `ids` parameter.  When list of identifiers
@@ -1629,34 +1877,41 @@ components:
           description: Unique FactSet-generated identifier representing an entity
             for the current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
           type: string
         fsymEntityId:
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
           type: string
         ultimateParentId:
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
           type: string
         parentEntityId:
           description: Within the hierarchy, this id represents the immediate parent
             entity id for the level directly above. Ultimate parent id will return
             a blank string.
           example: 001MF1-E
+          nullable: true
           type: string
         level:
           description: Controls the levels returned in the hierarchy. Use -1 to return
             all levels, or 1-n for a specific level.
           example: 2
+          nullable: true
           type: integer
         inactive:
           description: A flag for inactive securities; whereby 1 = inactive and 0
             = active.
           example: 0
+          nullable: true
           type: integer
         description:
           description: The proper name and entity type for the entity.
           example: Whole Foods Market, Inc. (Subsidiary)
+          nullable: true
           type: string
         requestId:
           description: Identifier used in `ids`.
@@ -1743,40 +1998,150 @@ components:
           description: Unique FactSet-generated identifier representing an entity
             for the current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
           type: string
         fsymEntityId:
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
           type: string
         ultimateParentId:
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
           type: string
         parentEntityId:
           description: Within the hierarchy, this id represents the immediate parent
             entity id for the level directly above. Ultimate parent id will return
             a blank string.
           example: 001MF1-E
+          nullable: true
           type: string
         level:
           description: Level within the ultimate entity structure. This is taken from
             the perspective of the ultimate parent id and the full entity hierarchy.
           example: 3
+          nullable: true
           type: integer
         inactive:
           description: A flag for inactive securities; whereby 1 = inactive and 0
             = active.
           example: 0
+          nullable: true
           type: integer
         description:
           description: The proper name and entity type for the entity.
           example: Whole Foods Market, Inc. (Subsidiary)
+          nullable: true
           type: string
         requestId:
           description: Identifier used in `ids`.
           example: AMZN-US
           type: string
       title: Ultimate Entity Structure
+      type: object
+    entityReferenceChiRequest:
+      description: Entity Reference Request Body
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG and SEDOL are accepted input.
+          example:
+          - 05X6LC-E
+          - 062T6N-E
+          items:
+            type: string
+          maxItems: 1500
+          minItems: 1
+          title: ids
+          type: array
+      required:
+      - ids
+      title: Entity Reference Chinese Request
+      type: object
+    entityReferenceChiResponse:
+      example:
+        data:
+        - traditionalChineseDescription: 百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+          fsymEntityId: 062T6N-E
+          requestId: 062T6N-E
+          fsymId: 062T6N-E
+          simplifiedChineseName: 百川能源股份有限公司
+          entityProperName: Bestsun Energy Co., Ltd.
+          traditionalChineseName: 百川能源股份有限公司
+          simplifiedChineseDescription: 百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+        - traditionalChineseDescription: 百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+          fsymEntityId: 062T6N-E
+          requestId: 062T6N-E
+          fsymId: 062T6N-E
+          simplifiedChineseName: 百川能源股份有限公司
+          entityProperName: Bestsun Energy Co., Ltd.
+          traditionalChineseName: 百川能源股份有限公司
+          simplifiedChineseDescription: 百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+      properties:
+        data:
+          description: Array of Entity Reference objects.
+          items:
+            $ref: '#/components/schemas/entityReferenceChi'
+          type: array
+      title: Entity Reference Chinese Response
+      type: object
+    entityReferenceChi:
+      example:
+        traditionalChineseDescription: 百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+        fsymEntityId: 062T6N-E
+        requestId: 062T6N-E
+        fsymId: 062T6N-E
+        simplifiedChineseName: 百川能源股份有限公司
+        entityProperName: Bestsun Energy Co., Ltd.
+        traditionalChineseName: 百川能源股份有限公司
+        simplifiedChineseDescription: 百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+      properties:
+        fsymId:
+          description: Unique FactSet-generated identifier representing an entity
+            for the current entity identifier (-E)
+          example: 062T6N-E
+          nullable: true
+          type: string
+        fsymEntityId:
+          description: Unique FactSet-generated identifier representing an entity
+          example: 062T6N-E
+          nullable: true
+          type: string
+        simplifiedChineseName:
+          description: The entity name in Simplified Chinese.
+          example: 百川能源股份有限公司
+          nullable: true
+          type: string
+        traditionalChineseName:
+          description: The entity name in Traditional Chinese.
+          example: 百川能源股份有限公司
+          nullable: true
+          type: string
+        entityProperName:
+          description: Name that the entity is commonly referred to as, normalized
+            and in proper case.
+          example: Bestsun Energy Co., Ltd.
+          nullable: true
+          type: string
+        simplifiedChineseDescription:
+          description: Extended business description for the requested entity in Simplified
+            Chinese.
+          example: 百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+          nullable: true
+          type: string
+        traditionalChineseDescription:
+          description: Extended business description for the requested entity in Traditional
+            Chinese.
+          example: 百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+          nullable: true
+          type: string
+        requestId:
+          description: Identifier used in "ids" parameter. When list of identifiers
+            used, they will be parsed and resolved individually.
+          example: 062T6N-E
+          type: string
+      title: Entity Profile
       type: object
     ids:
       description: |
@@ -1832,6 +2197,18 @@ components:
       minimum: -1
       title: active
       type: integer
+    idsChi:
+      description: |
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG and SEDOL are accepted input.
+      example:
+      - 05X6LC-E
+      - 062T6N-E
+      items:
+        type: string
+      maxItems: 1500
+      minItems: 1
+      title: ids
+      type: array
     errorResponse:
       description: error description
       properties:

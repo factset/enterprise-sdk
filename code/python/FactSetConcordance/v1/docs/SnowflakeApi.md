@@ -24,7 +24,8 @@ Finds the best candidate entities matching the given entity name. Additional att
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import snowflake_api
-from fds.sdk.FactSetConcordance.model.snowflake_entity_match_response import SnowflakeEntityMatchResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +62,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Perform an entity match and return a snowflake-friendly response. 1 Name per request.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_snowflake_entity_match(name, country=country, state=state, url=url)
         pprint(api_response)
 
@@ -116,8 +119,8 @@ Finds the best candidate entities matching the given company name. Additional at
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import snowflake_api
-from fds.sdk.FactSetConcordance.model.snowflake_entity_match_request import SnowflakeEntityMatchRequest
-from fds.sdk.FactSetConcordance.model.snowflake_entity_match_response import SnowflakeEntityMatchResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_snowflake_entity_match_for_list(snowflake_entity_match_request)
         pprint(api_response)
 

@@ -23,7 +23,8 @@ This endpoint returns the list of SPAR components in a given SPAR document.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import components_api
-from fds.sdk.SPAREngine.model.component_summary import ComponentSummary
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,11 +54,11 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    document = "Client:Foo" # str | Document Name (default to "Client:Foo")
 
     try:
         # Get SPAR components
-        api_response = api_instance.get_spar_components(document)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_spar_components()
         pprint(api_response)
 
     except fds.sdk.SPAREngine.ApiException as e:

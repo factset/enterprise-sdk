@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
         /// <param name="fields">Private Markets Financials Fields. .</param>
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required).</param>
-        public FinancialsRequest(List<string> ids = default(List<string>), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string))
+        public FinancialsRequest(List<string> ids, string startDate, string endDate,List<string> fields = default(List<string>))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

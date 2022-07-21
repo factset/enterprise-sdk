@@ -17,7 +17,6 @@ import StockNotationRankingIntradayListDataMarketPriority from './StockNotationR
 /**
  * The StockNotationRankingIntradayListDataMarket model module.
  * @module model/StockNotationRankingIntradayListDataMarket
- * @version 0.9.2
  */
 class StockNotationRankingIntradayListDataMarket {
     /**

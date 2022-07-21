@@ -17,7 +17,6 @@ import InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit from
 /**
  * The InlineResponse20062DataCostsAndChargesExPostIncidentalCosts model module.
  * @module model/InlineResponse20062DataCostsAndChargesExPostIncidentalCosts
- * @version 0.10.0
  */
 class InlineResponse20062DataCostsAndChargesExPostIncidentalCosts {
     /**

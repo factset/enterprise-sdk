@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
+
             var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
 
             try

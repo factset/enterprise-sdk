@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataBusinessCrunchbaseCategories model module.
  * @module model/ProfileDataBusinessCrunchbaseCategories
- * @version 0.20.0
  */
 class ProfileDataBusinessCrunchbaseCategories {
     /**

@@ -42,7 +42,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="id">Identifier of the instrument (required).</param>
         /// <param name="fiscalYears">fiscalYears.</param>
         /// <param name="currency">currency (required).</param>
-        public CompanyEstimatesListByInstrumentData(string id = default(string), CompanyEstimatesListByInstrumentDataFiscalYears fiscalYears = default(CompanyEstimatesListByInstrumentDataFiscalYears), CompanyEstimatesListByInstrumentDataCurrency currency = default(CompanyEstimatesListByInstrumentDataCurrency))
+        public CompanyEstimatesListByInstrumentData(string id, CompanyEstimatesListByInstrumentDataCurrency currency,CompanyEstimatesListByInstrumentDataFiscalYears fiscalYears = default(CompanyEstimatesListByInstrumentDataFiscalYears))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

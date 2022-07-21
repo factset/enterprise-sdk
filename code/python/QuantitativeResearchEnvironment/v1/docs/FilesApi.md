@@ -24,7 +24,8 @@ This endpoint takes a file and uploads it
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import files_api
-from fds.sdk.QuantitativeResearchEnvironment.model.file_upload_status import FileUploadStatus
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +61,8 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Starts a file upload
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.analytics_quant_qre_v1_files_server_file_post(server, file, body=body)
         pprint(api_response)
 
@@ -116,7 +119,8 @@ This is the endpoint to check on the progress of a previous upload request.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import files_api
-from fds.sdk.QuantitativeResearchEnvironment.model.file_upload_status import FileUploadStatus
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -150,6 +154,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Get upload status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_files_uploads_id_get(id)
         pprint(api_response)
 

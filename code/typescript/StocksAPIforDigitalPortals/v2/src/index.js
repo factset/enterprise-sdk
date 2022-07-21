@@ -420,7 +420,6 @@ import StockApi from './api/StockApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.2
 */
 export {
     /**

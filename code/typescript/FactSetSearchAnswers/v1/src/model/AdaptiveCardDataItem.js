@@ -17,7 +17,6 @@ import AdaptiveCardWithThumbnail from './AdaptiveCardWithThumbnail';
 /**
  * The AdaptiveCardDataItem model module.
  * @module model/AdaptiveCardDataItem
- * @version 0.20.0
  */
 class AdaptiveCardDataItem {
     /**
@@ -46,6 +45,7 @@ class AdaptiveCardDataItem {
      * @return {module:model/AdaptiveCardDataItem} The populated <code>AdaptiveCardDataItem</code> instance.
      */
     static constructFromObject(data, obj) {
+        // openApiType:object format:
         if (data) {
             obj = obj || new AdaptiveCardDataItem();
             AdaptiveCardWithThumbnail.constructFromObject(data, obj);

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedContactsSettingsDto model module.
  * @module model/RelatedContactsSettingsDto
- * @version 0.20.0
  */
 class RelatedContactsSettingsDto {
     /**

@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-naturallanguageprocessing",
+  "projectVersion": "0.21.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Natural Language Processing client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "naturallanguageprocessing",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/NaturalLanguageProcessing/0.21.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

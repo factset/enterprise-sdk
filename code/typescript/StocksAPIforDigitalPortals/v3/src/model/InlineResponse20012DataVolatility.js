@@ -24,7 +24,6 @@ import InlineResponse20012DataPerformanceEndOfDayYears5 from './InlineResponse20
 /**
  * The InlineResponse20012DataVolatility model module.
  * @module model/InlineResponse20012DataVolatility
- * @version 0.10.0
  */
 class InlineResponse20012DataVolatility {
     /**

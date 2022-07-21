@@ -19,7 +19,6 @@ import InlineResponse20042DataNsin from './InlineResponse20042DataNsin';
 /**
  * The InlineResponse20087Data model module.
  * @module model/InlineResponse20087Data
- * @version 0.10.0
  */
 class InlineResponse20087Data {
     /**

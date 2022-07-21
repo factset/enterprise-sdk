@@ -44,7 +44,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="parentComponentId">Parent component id (required).</param>
         /// <param name="description">Template description.</param>
         /// <param name="content">content.</param>
-        public LinkedPATemplateParameters(string directory = default(string), string parentComponentId = default(string), string description = default(string), TemplateContentTypes content = default(TemplateContentTypes))
+        public LinkedPATemplateParameters(string directory, string parentComponentId,string description = default(string), TemplateContentTypes content = default(TemplateContentTypes))
         {
             // to ensure "directory" is required (not null)
             if (directory == null) {

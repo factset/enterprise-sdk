@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentBackgroundTextTypeListDataFilter model module.
  * @module model/InstrumentBackgroundTextTypeListDataFilter
- * @version 0.10.0
  */
 class InstrumentBackgroundTextTypeListDataFilter {
     /**

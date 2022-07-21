@@ -23,9 +23,8 @@ Gets the latest 25 audio files. Parameters can be used to filter and narrow down
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import events_audio_api
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.error import Error
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.events_audio import EventsAudio
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.events_audio400_response import EventsAudio400Response
+from fds.sdk.DocumentsDistributorCallStreetEvents.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,12 +54,13 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = events_audio_api.EventsAudioApi(api_client)
 
-    sort = "-startDate" # str | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional) (default to "-startDate")
+    sort = "-startDate" # str | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional) if omitted the server will use the default value of "-startDate"
     pagination_limit = 0 # int | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional)
     start_date = dateutil_parser('1970-01-01').date() # date | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: -1 for yesterday)' (optional)
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
     end_date = dateutil_parser('1970-01-01').date() # date | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional)
     report_id = 1 # int | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event (optional)
+    audio_source_id = 1 # int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. (optional)
     ids = "ids_example" # str | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional)
     source_code = "P" # str | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay) (optional)
     file_name = "fileName_example" # str | This parameter is used to filter the data on based on the file name. (optional)
@@ -69,7 +69,9 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
 
     try:
         # Retrieve audio recordings and metadata within FactSet coverage
-        api_response = api_instance.get_docs_distributor_audio_v1_list_files(sort=sort, pagination_limit=pagination_limit, start_date=start_date, pagination_offset=pagination_offset, end_date=end_date, report_id=report_id, ids=ids, source_code=source_code, file_name=file_name, trimmed=trimmed, upload_time=upload_time)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_docs_distributor_audio_v1_list_files(sort=sort, pagination_limit=pagination_limit, start_date=start_date, pagination_offset=pagination_offset, end_date=end_date, report_id=report_id, audio_source_id=audio_source_id, ids=ids, source_code=source_code, file_name=file_name, trimmed=trimmed, upload_time=upload_time)
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
@@ -87,6 +89,7 @@ Name | Type | Description  | Notes
  **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
  **end_date** | **date**| Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) | [optional]
  **report_id** | **int**| Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event | [optional]
+ **audio_source_id** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. | [optional]
  **ids** | **str**| This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier | [optional]
  **source_code** | **str**| This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) | [optional]
  **file_name** | **str**| This parameter is used to filter the data on based on the file name. | [optional]

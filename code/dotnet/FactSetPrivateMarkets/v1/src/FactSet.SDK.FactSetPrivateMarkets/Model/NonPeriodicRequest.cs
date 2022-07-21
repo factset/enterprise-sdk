@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetPrivateMarkets.Model
         /// </summary>
         /// <param name="ids">Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.  (required).</param>
         /// <param name="fields">Private Markets Non-Periodic Fields. .</param>
-        public NonPeriodicRequest(List<string> ids = default(List<string>), List<string> fields = default(List<string>))
+        public NonPeriodicRequest(List<string> ids,List<string> fields = default(List<string>))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

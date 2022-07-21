@@ -18,7 +18,6 @@ import OptimizerInputsRoundlotsConstraint from './OptimizerInputsRoundlotsConstr
 /**
  * The OptimizerInputsMPRoundlotsConstraint model module.
  * @module model/OptimizerInputsMPRoundlotsConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPRoundlotsConstraint {
     /**

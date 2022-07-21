@@ -17,7 +17,6 @@ import FamilyFilter from './FamilyFilter';
 /**
  * The BenchmarkIdListRequest model module.
  * @module model/BenchmarkIdListRequest
- * @version 0.20.0
  */
 class BenchmarkIdListRequest {
     /**

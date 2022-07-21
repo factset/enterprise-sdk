@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.OFDB.models.CreateSymbols;
 import com.factset.sdk.OFDB.models.DatabaseSchema;
-import com.factset.sdk.OFDB.models.InlineObject;
-import com.factset.sdk.OFDB.models.InlineObject2;
-import com.factset.sdk.OFDB.models.InlineObject4;
 import com.factset.sdk.OFDB.models.InlineResponse201;
+import com.factset.sdk.OFDB.models.PostDatesymbol;
+import com.factset.sdk.OFDB.models.Postnewsymboldate;
 import com.factset.sdk.OFDB.models.SuccessPostResponse;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -177,7 +177,7 @@ public class CreateApi {
    * Creates a new symbol for a given date in 3d database(OFDB)
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param inlineObject4  (required)
+   * @param postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -193,8 +193,8 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(String path, Integer date, InlineObject4 inlineObject4) throws ApiException {
-    return v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, inlineObject4).getData();
+  public SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(String path, Integer date, Postnewsymboldate postnewsymboldate) throws ApiException {
+    return v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, postnewsymboldate).getData();
   }
 
   /**
@@ -202,7 +202,7 @@ public class CreateApi {
    * Creates a new symbol for a given date in 3d database(OFDB)
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param inlineObject4  (required)
+   * @param postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -218,8 +218,8 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDateSymbolsPostWithHttpInfo(String path, Integer date, InlineObject4 inlineObject4) throws ApiException {
-    Object localVarPostBody = inlineObject4;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDateSymbolsPostWithHttpInfo(String path, Integer date, Postnewsymboldate postnewsymboldate) throws ApiException {
+    Object localVarPostBody = postnewsymboldate;
     
     // verify the required parameter 'path' is set
     if (path == null) {
@@ -231,9 +231,9 @@ public class CreateApi {
       throw new ApiException(400, "Missing the required parameter 'date' when calling v1DatabasePathDatesDateSymbolsPost");
     }
     
-    // verify the required parameter 'inlineObject4' is set
-    if (inlineObject4 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject4' when calling v1DatabasePathDatesDateSymbolsPost");
+    // verify the required parameter 'postnewsymboldate' is set
+    if (postnewsymboldate == null) {
+      throw new ApiException(400, "Missing the required parameter 'postnewsymboldate' when calling v1DatabasePathDatesDateSymbolsPost");
     }
     
     // create path and map variables
@@ -279,7 +279,7 @@ public class CreateApi {
    * 
    * Creates a new date with single/multiple symbols for a 3d database(OFDB).
    * @param path Encode database path (required)
-   * @param inlineObject2  (required)
+   * @param postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -296,15 +296,15 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesPost(String path, InlineObject2 inlineObject2) throws ApiException {
-    return v1DatabasePathDatesPostWithHttpInfo(path, inlineObject2).getData();
+  public SuccessPostResponse v1DatabasePathDatesPost(String path, PostDatesymbol postDatesymbol) throws ApiException {
+    return v1DatabasePathDatesPostWithHttpInfo(path, postDatesymbol).getData();
   }
 
   /**
    * 
    * Creates a new date with single/multiple symbols for a 3d database(OFDB).
    * @param path Encode database path (required)
-   * @param inlineObject2  (required)
+   * @param postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -321,17 +321,17 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesPostWithHttpInfo(String path, InlineObject2 inlineObject2) throws ApiException {
-    Object localVarPostBody = inlineObject2;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesPostWithHttpInfo(String path, PostDatesymbol postDatesymbol) throws ApiException {
+    Object localVarPostBody = postDatesymbol;
     
     // verify the required parameter 'path' is set
     if (path == null) {
       throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathDatesPost");
     }
     
-    // verify the required parameter 'inlineObject2' is set
-    if (inlineObject2 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject2' when calling v1DatabasePathDatesPost");
+    // verify the required parameter 'postDatesymbol' is set
+    if (postDatesymbol == null) {
+      throw new ApiException(400, "Missing the required parameter 'postDatesymbol' when calling v1DatabasePathDatesPost");
     }
     
     // create path and map variables
@@ -376,7 +376,7 @@ public class CreateApi {
    * 
    * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
-   * @param inlineObject  (required)
+   * @param createSymbols Data for creating symbol in the database (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -393,15 +393,15 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathSymbolsPost(String path, InlineObject inlineObject) throws ApiException {
-    return v1DatabasePathSymbolsPostWithHttpInfo(path, inlineObject).getData();
+  public SuccessPostResponse v1DatabasePathSymbolsPost(String path, CreateSymbols createSymbols) throws ApiException {
+    return v1DatabasePathSymbolsPostWithHttpInfo(path, createSymbols).getData();
   }
 
   /**
    * 
    * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
-   * @param inlineObject  (required)
+   * @param createSymbols Data for creating symbol in the database (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -418,17 +418,17 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathSymbolsPostWithHttpInfo(String path, InlineObject inlineObject) throws ApiException {
-    Object localVarPostBody = inlineObject;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathSymbolsPostWithHttpInfo(String path, CreateSymbols createSymbols) throws ApiException {
+    Object localVarPostBody = createSymbols;
     
     // verify the required parameter 'path' is set
     if (path == null) {
       throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathSymbolsPost");
     }
     
-    // verify the required parameter 'inlineObject' is set
-    if (inlineObject == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject' when calling v1DatabasePathSymbolsPost");
+    // verify the required parameter 'createSymbols' is set
+    if (createSymbols == null) {
+      throw new ApiException(400, "Missing the required parameter 'createSymbols' when calling v1DatabasePathSymbolsPost");
     }
     
     // create path and map variables

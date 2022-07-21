@@ -18,7 +18,6 @@ import InlineResponse200 from '../model/InlineResponse200';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.10.0
 */
 export default class CompanyApi {
 

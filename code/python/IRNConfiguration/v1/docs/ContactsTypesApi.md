@@ -1,6 +1,6 @@
 # fds.sdk.IRNConfiguration.ContactsTypesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,8 +24,8 @@ Create contact types
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.new_item_dto import NewItemDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Create contact types
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_contact_type(body)
         pprint(api_response)
 
@@ -111,7 +112,8 @@ Delete a contact type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,7 +147,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Delete a contact type
+        # example passing only required values which don't have defaults set
         api_instance.delete_contact_type(contact_type_id)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsTypesApi->delete_contact_type: %s\n" % e)
 ```
@@ -196,7 +200,8 @@ Get list of the contact types configured in your group
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___types_api
-from fds.sdk.IRNConfiguration.model.contact_type_dto import ContactTypeDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -229,6 +234,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get list of the contact types configured in your group
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_contact_types()
         pprint(api_response)
 
@@ -276,7 +282,8 @@ Edit a contact type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___types_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -311,7 +318,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Edit a contact type
+        # example passing only required values which don't have defaults set
         api_instance.update_contact_type(contact_type_id, body)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsTypesApi->update_contact_type: %s\n" % e)
 ```

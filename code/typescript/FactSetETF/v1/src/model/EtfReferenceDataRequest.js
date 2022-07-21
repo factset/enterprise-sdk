@@ -17,7 +17,6 @@ import Category from './Category';
 /**
  * The EtfReferenceDataRequest model module.
  * @module model/EtfReferenceDataRequest
- * @version 0.20.0
  */
 class EtfReferenceDataRequest {
     /**

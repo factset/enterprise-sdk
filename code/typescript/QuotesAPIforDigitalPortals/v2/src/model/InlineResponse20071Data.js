@@ -17,7 +17,6 @@ import InlineResponse20070DataRegional from './InlineResponse20070DataRegional';
 /**
  * The InlineResponse20071Data model module.
  * @module model/InlineResponse20071Data
- * @version 0.9.2
  */
 class InlineResponse20071Data {
     /**

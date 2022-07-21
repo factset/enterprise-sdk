@@ -17,7 +17,6 @@ import TemplatedPAComponentPostSummary from './TemplatedPAComponentPostSummary';
 /**
  * The TemplatedPAComponentPostSummaryRoot model module.
  * @module model/TemplatedPAComponentPostSummaryRoot
- * @version 0.20.0
  */
 class TemplatedPAComponentPostSummaryRoot {
     /**

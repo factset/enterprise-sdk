@@ -17,7 +17,6 @@ import VermilionGroupResource from './VermilionGroupResource';
 /**
  * The VermilionGroupResourceList model module.
  * @module model/VermilionGroupResourceList
- * @version 0.20.1
  */
 class VermilionGroupResourceList {
     /**

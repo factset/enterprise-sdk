@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ExtendedTextConfigDto model module.
  * @module model/ExtendedTextConfigDto
- * @version 0.20.0
  */
 class ExtendedTextConfigDto {
     /**

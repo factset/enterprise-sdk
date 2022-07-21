@@ -40,7 +40,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// Initializes a new instance of the <see cref="ContactCustomFieldOptionSaveDto" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        public ContactCustomFieldOptionSaveDto(string name = default(string))
+        public ContactCustomFieldOptionSaveDto(string name)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

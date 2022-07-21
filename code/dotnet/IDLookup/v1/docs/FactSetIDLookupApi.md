@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactSetIDLookupApi(config);
+
             var lookupRequest = new LookupRequest(); // LookupRequest | Post body to lookup any FactSet identifiers
 
             try

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200RatiosPriceCashFlow model module.
  * @module model/InlineResponse200RatiosPriceCashFlow
- * @version 0.10.0
  */
 class InlineResponse200RatiosPriceCashFlow {
     /**

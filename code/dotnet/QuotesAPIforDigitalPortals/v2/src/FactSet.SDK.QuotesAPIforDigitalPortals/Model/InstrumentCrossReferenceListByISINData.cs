@@ -40,7 +40,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InstrumentCrossReferenceListByISINData" /> class.
         /// </summary>
         /// <param name="isins">List of source ISINs to be translated. (required).</param>
-        public InstrumentCrossReferenceListByISINData(List<string> isins = default(List<string>))
+        public InstrumentCrossReferenceListByISINData(List<string> isins)
         {
             // to ensure "isins" is required (not null)
             if (isins == null) {

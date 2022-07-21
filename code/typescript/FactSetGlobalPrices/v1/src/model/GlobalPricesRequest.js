@@ -19,7 +19,6 @@ import Frequency from './Frequency';
 /**
  * The GlobalPricesRequest model module.
  * @module model/GlobalPricesRequest
- * @version 0.20.0
  */
 class GlobalPricesRequest {
     /**

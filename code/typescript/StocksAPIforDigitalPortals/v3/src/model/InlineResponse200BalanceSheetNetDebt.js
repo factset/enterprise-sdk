@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200BalanceSheetNetDebt model module.
  * @module model/InlineResponse200BalanceSheetNetDebt
- * @version 0.10.0
  */
 class InlineResponse200BalanceSheetNetDebt {
     /**

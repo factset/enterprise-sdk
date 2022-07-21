@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PortfolioTransactionDeleteDataTransaction" /> class.
         /// </summary>
         /// <param name="id">Identifier of the transaction. (required).</param>
-        public PortfolioTransactionDeleteDataTransaction(string id = default(string))
+        public PortfolioTransactionDeleteDataTransaction(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

@@ -26,7 +26,6 @@ import InlineResponse20080PreviousClose from './InlineResponse20080PreviousClose
 /**
  * The InlineResponse20080Data model module.
  * @module model/InlineResponse20080Data
- * @version 0.9.2
  */
 class InlineResponse20080Data {
     /**

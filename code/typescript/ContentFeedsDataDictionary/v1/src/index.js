@@ -56,7 +56,6 @@ import NavigatorApi from './api/NavigatorApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

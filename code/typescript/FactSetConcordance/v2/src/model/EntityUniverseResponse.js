@@ -17,7 +17,6 @@ import EntityMapping from './EntityMapping';
 /**
  * The EntityUniverseResponse model module.
  * @module model/EntityUniverseResponse
- * @version 0.20.1
  */
 class EntityUniverseResponse {
     /**

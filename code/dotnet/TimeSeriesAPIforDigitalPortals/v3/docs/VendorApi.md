@@ -1,6 +1,6 @@
 # FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api.VendorApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="postvendorchartiqtimeserieseodlist"></a>
 # **PostVendorChartIQTimeSeriesEodList**
-> InlineResponse200 PostVendorChartIQTimeSeriesEodList (InlineObject body)
+> InlineResponse200 PostVendorChartIQTimeSeriesEodList (InlineObject inlineObject)
 
 End-of-day time series data for a notation.
 
@@ -54,12 +54,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var body = new InlineObject(); // InlineObject | 
+
+            var inlineObject = new InlineObject(); // InlineObject | 
 
             try
             {
                 // End-of-day time series data for a notation.
-                InlineResponse200 result = apiInstance.PostVendorChartIQTimeSeriesEodList(body);
+                InlineResponse200 result = apiInstance.PostVendorChartIQTimeSeriesEodList(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -77,7 +78,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -101,7 +102,7 @@ Name | Type | Description  | Notes
 
 <a name="postvendorchartiqtimeserieseodsubsampleget"></a>
 # **PostVendorChartIQTimeSeriesEodSubsampleGet**
-> InlineResponse2001 PostVendorChartIQTimeSeriesEodSubsampleGet (InlineObject1 body)
+> InlineResponse2001 PostVendorChartIQTimeSeriesEodSubsampleGet (InlineObject1 inlineObject1)
 
 Single subsample end-of-day data for a notation.
 
@@ -142,12 +143,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var body = new InlineObject1(); // InlineObject1 | 
+
+            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
 
             try
             {
                 // Single subsample end-of-day data for a notation.
-                InlineResponse2001 result = apiInstance.PostVendorChartIQTimeSeriesEodSubsampleGet(body);
+                InlineResponse2001 result = apiInstance.PostVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -165,7 +167,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -189,7 +191,7 @@ Name | Type | Description  | Notes
 
 <a name="postvendorchartiqtimeserieseodsubsamplelist"></a>
 # **PostVendorChartIQTimeSeriesEodSubsampleList**
-> InlineResponse2002 PostVendorChartIQTimeSeriesEodSubsampleList (InlineObject2 body)
+> InlineResponse2002 PostVendorChartIQTimeSeriesEodSubsampleList (InlineObject2 inlineObject2)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -230,12 +232,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var body = new InlineObject2(); // InlineObject2 | 
+
+            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
 
             try
             {
                 // Subsampled end-of-day time series data for a notation.
-                InlineResponse2002 result = apiInstance.PostVendorChartIQTimeSeriesEodSubsampleList(body);
+                InlineResponse2002 result = apiInstance.PostVendorChartIQTimeSeriesEodSubsampleList(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -253,7 +256,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -277,7 +280,7 @@ Name | Type | Description  | Notes
 
 <a name="postvendorchartiqtimeseriesintradaysubsampleget"></a>
 # **PostVendorChartIQTimeSeriesIntradaySubsampleGet**
-> InlineResponse2003 PostVendorChartIQTimeSeriesIntradaySubsampleGet (InlineObject3 body)
+> InlineResponse2003 PostVendorChartIQTimeSeriesIntradaySubsampleGet (InlineObject3 inlineObject3)
 
 Single subsample intraday data for a notation.
 
@@ -318,12 +321,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var body = new InlineObject3(); // InlineObject3 | 
+
+            var inlineObject3 = new InlineObject3(); // InlineObject3 | 
 
             try
             {
                 // Single subsample intraday data for a notation.
-                InlineResponse2003 result = apiInstance.PostVendorChartIQTimeSeriesIntradaySubsampleGet(body);
+                InlineResponse2003 result = apiInstance.PostVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -341,7 +345,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -365,7 +369,7 @@ Name | Type | Description  | Notes
 
 <a name="postvendorchartiqtimeseriesintradaysubsamplelist"></a>
 # **PostVendorChartIQTimeSeriesIntradaySubsampleList**
-> InlineResponse2004 PostVendorChartIQTimeSeriesIntradaySubsampleList (InlineObject4 body)
+> InlineResponse2004 PostVendorChartIQTimeSeriesIntradaySubsampleList (InlineObject4 inlineObject4)
 
 Subsampled intraday time series data for a notation.
 
@@ -406,12 +410,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var body = new InlineObject4(); // InlineObject4 | 
+
+            var inlineObject4 = new InlineObject4(); // InlineObject4 | 
 
             try
             {
                 // Subsampled intraday time series data for a notation.
-                InlineResponse2004 result = apiInstance.PostVendorChartIQTimeSeriesIntradaySubsampleList(body);
+                InlineResponse2004 result = apiInstance.PostVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -429,7 +434,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | 
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)

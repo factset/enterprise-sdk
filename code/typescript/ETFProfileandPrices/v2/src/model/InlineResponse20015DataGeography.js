@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20015DataGeography model module.
  * @module model/InlineResponse20015DataGeography
- * @version 0.10.0
  */
 class InlineResponse20015DataGeography {
     /**

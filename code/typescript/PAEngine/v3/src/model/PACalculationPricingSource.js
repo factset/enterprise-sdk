@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PACalculationPricingSource model module.
  * @module model/PACalculationPricingSource
- * @version 0.20.0
  */
 class PACalculationPricingSource {
     /**

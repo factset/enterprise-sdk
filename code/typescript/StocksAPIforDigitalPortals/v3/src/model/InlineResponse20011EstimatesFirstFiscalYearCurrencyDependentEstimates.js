@@ -20,7 +20,6 @@ import InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimatesPerS
 /**
  * The InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimates model module.
  * @module model/InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimates
- * @version 0.10.0
  */
 class InlineResponse20011EstimatesFirstFiscalYearCurrencyDependentEstimates {
     /**

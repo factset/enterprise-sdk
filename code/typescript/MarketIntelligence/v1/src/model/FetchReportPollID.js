@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FetchReportPollID model module.
  * @module model/FetchReportPollID
- * @version 0.20.0
  */
 class FetchReportPollID {
     /**

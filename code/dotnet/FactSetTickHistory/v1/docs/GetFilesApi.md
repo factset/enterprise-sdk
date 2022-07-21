@@ -48,6 +48,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new GetFilesApi(config);
+
             var requestId = "requestId_example";  // string | RequestId returned by request-files endpoint to poll and collect results of the query
             var paginationLimit = 20;  // int? | Specifies the maximum number of results to return per response page (optional)  (default to 20)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)  (default to 0)

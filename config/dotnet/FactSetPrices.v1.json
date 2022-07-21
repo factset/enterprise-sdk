@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetPrices",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{658e3b14-a9ce-5ebe-aae0-5d4d5511c7eb}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetPrices/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetPrices/0.21.0",
   "files": {
     "LICENSE": {}
   },

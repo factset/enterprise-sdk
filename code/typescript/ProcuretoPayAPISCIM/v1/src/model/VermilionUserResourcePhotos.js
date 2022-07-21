@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourcePhotos model module.
  * @module model/VermilionUserResourcePhotos
- * @version 0.20.1
  */
 class VermilionUserResourcePhotos {
     /**

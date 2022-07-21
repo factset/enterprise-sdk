@@ -25,7 +25,6 @@ import UpdateCustomSymbolTypeDto from '../model/UpdateCustomSymbolTypeDto';
 /**
 * CustomSymbolsTypes service.
 * @module api/CustomSymbolsTypesApi
-* @version 0.20.0
 */
 export default class CustomSymbolsTypesApi {
 

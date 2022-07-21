@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassRegistrationCountryRestrict from 
 /**
  * The FundNotationScreenerSearchDataShareClassRegistrationCountry model module.
  * @module model/FundNotationScreenerSearchDataShareClassRegistrationCountry
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassRegistrationCountry {
     /**

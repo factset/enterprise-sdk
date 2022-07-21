@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EventSummary model module.
  * @module model/EventSummary
- * @version 0.20.0
  */
 class EventSummary {
     /**

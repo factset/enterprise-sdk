@@ -27,7 +27,6 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * Vendor service.
 * @module api/VendorApi
-* @version 0.10.0
 */
 export default class VendorApi {
 
@@ -47,14 +46,14 @@ export default class VendorApi {
     /**
      * End-of-day time series data for a notation.
      * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject} inlineObject 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
-    postVendorChartIQTimeSeriesEodListWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodList");
+    postVendorChartIQTimeSeriesEodListWithHttpInfo(inlineObject) {
+      let postBody = inlineObject;
+      // verify the required parameter 'inlineObject' is set
+      if (inlineObject === undefined || inlineObject === null) {
+        throw new Error("Missing the required parameter 'inlineObject' when calling postVendorChartIQTimeSeriesEodList");
       }
 
       let pathParams = {
@@ -83,11 +82,11 @@ export default class VendorApi {
     /**
      * End-of-day time series data for a notation.
      * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject} body 
+     * @param {module:model/InlineObject} inlineObject 
      * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
-    postVendorChartIQTimeSeriesEodList(body) {
-      return this.postVendorChartIQTimeSeriesEodListWithHttpInfo(body)
+    postVendorChartIQTimeSeriesEodList(inlineObject) {
+      return this.postVendorChartIQTimeSeriesEodListWithHttpInfo(inlineObject)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -97,14 +96,14 @@ export default class VendorApi {
     /**
      * Single subsample end-of-day data for a notation.
      * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
-     * @param {module:model/InlineObject1} body 
+     * @param {module:model/InlineObject1} inlineObject1 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
-    postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodSubsampleGet");
+    postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(inlineObject1) {
+      let postBody = inlineObject1;
+      // verify the required parameter 'inlineObject1' is set
+      if (inlineObject1 === undefined || inlineObject1 === null) {
+        throw new Error("Missing the required parameter 'inlineObject1' when calling postVendorChartIQTimeSeriesEodSubsampleGet");
       }
 
       let pathParams = {
@@ -133,11 +132,11 @@ export default class VendorApi {
     /**
      * Single subsample end-of-day data for a notation.
      * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
-     * @param {module:model/InlineObject1} body 
+     * @param {module:model/InlineObject1} inlineObject1 
      * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
-    postVendorChartIQTimeSeriesEodSubsampleGet(body) {
-      return this.postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(body)
+    postVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1) {
+      return this.postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(inlineObject1)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -147,14 +146,14 @@ export default class VendorApi {
     /**
      * Subsampled end-of-day time series data for a notation.
      * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject2} body 
+     * @param {module:model/InlineObject2} inlineObject2 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
-    postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodSubsampleList");
+    postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(inlineObject2) {
+      let postBody = inlineObject2;
+      // verify the required parameter 'inlineObject2' is set
+      if (inlineObject2 === undefined || inlineObject2 === null) {
+        throw new Error("Missing the required parameter 'inlineObject2' when calling postVendorChartIQTimeSeriesEodSubsampleList");
       }
 
       let pathParams = {
@@ -183,11 +182,11 @@ export default class VendorApi {
     /**
      * Subsampled end-of-day time series data for a notation.
      * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject2} body 
+     * @param {module:model/InlineObject2} inlineObject2 
      * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
-    postVendorChartIQTimeSeriesEodSubsampleList(body) {
-      return this.postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(body)
+    postVendorChartIQTimeSeriesEodSubsampleList(inlineObject2) {
+      return this.postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(inlineObject2)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -197,14 +196,14 @@ export default class VendorApi {
     /**
      * Single subsample intraday data for a notation.
      * Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
-     * @param {module:model/InlineObject3} body 
+     * @param {module:model/InlineObject3} inlineObject3 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
-    postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesIntradaySubsampleGet");
+    postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(inlineObject3) {
+      let postBody = inlineObject3;
+      // verify the required parameter 'inlineObject3' is set
+      if (inlineObject3 === undefined || inlineObject3 === null) {
+        throw new Error("Missing the required parameter 'inlineObject3' when calling postVendorChartIQTimeSeriesIntradaySubsampleGet");
       }
 
       let pathParams = {
@@ -233,11 +232,11 @@ export default class VendorApi {
     /**
      * Single subsample intraday data for a notation.
      * Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
-     * @param {module:model/InlineObject3} body 
+     * @param {module:model/InlineObject3} inlineObject3 
      * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
-    postVendorChartIQTimeSeriesIntradaySubsampleGet(body) {
-      return this.postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(body)
+    postVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3) {
+      return this.postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(inlineObject3)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -247,14 +246,14 @@ export default class VendorApi {
     /**
      * Subsampled intraday time series data for a notation.
      * Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject4} body 
+     * @param {module:model/InlineObject4} inlineObject4 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesIntradaySubsampleList");
+    postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(inlineObject4) {
+      let postBody = inlineObject4;
+      // verify the required parameter 'inlineObject4' is set
+      if (inlineObject4 === undefined || inlineObject4 === null) {
+        throw new Error("Missing the required parameter 'inlineObject4' when calling postVendorChartIQTimeSeriesIntradaySubsampleList");
       }
 
       let pathParams = {
@@ -283,11 +282,11 @@ export default class VendorApi {
     /**
      * Subsampled intraday time series data for a notation.
      * Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.<br><br>Pagination to a previous page is not supported and `pagination.previous` is always `null`.
-     * @param {module:model/InlineObject4} body 
+     * @param {module:model/InlineObject4} inlineObject4 
      * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
-    postVendorChartIQTimeSeriesIntradaySubsampleList(body) {
-      return this.postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(body)
+    postVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4) {
+      return this.postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(inlineObject4)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

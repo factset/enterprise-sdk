@@ -192,10 +192,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <param name="id">Identifier of the notation. (required).</param>
         /// <param name="type">Type of the price as configured for the customer. (default to TypeEnum.Trade).</param>
         /// <param name="quality">Quality of the price. (default to QualityEnum.DLY).</param>
-        /// <param name="from">Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed. (required).</param>
+        /// <param name="from">Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed. (required).</param>
         /// <param name="granularity">Subsample granularities suitable for intraday data. (default to GranularityEnum._1h).</param>
         /// <param name="adjustments">adjustments.</param>
-        public VendorChartIQTimeSeriesIntradaySubsampleGetData(string id = default(string), TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, string from = default(string), GranularityEnum? granularity = GranularityEnum._1h, VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments adjustments = default(VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments))
+        public VendorChartIQTimeSeriesIntradaySubsampleGetData(string id, string from,TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, GranularityEnum? granularity = GranularityEnum._1h, VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments adjustments = default(VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments))
         {
             // to ensure "id" is required (not null)
             if (id == null) {
@@ -221,9 +221,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+        /// Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
         /// </summary>
-        /// <value>Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.</value>
+        /// <value>Date and time of the start point of the subsample (inclusive). &#x60;from&#x60; must be aligned to &#x60;granularity&#x60;. That is, the numerical value is an integral multiple of the time span value represented by &#x60;granularity&#x60;. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.</value>
         [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = false)]
         public string From { get; set; }
 

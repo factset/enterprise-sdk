@@ -23,8 +23,8 @@ Debt Capital Structure (DCS)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CapitalStructureReportBuilder
 from fds.sdk.CapitalStructureReportBuilder.api import capital_structure_api
-from fds.sdk.CapitalStructureReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.CapitalStructureReportBuilder.model.response import Response
+from fds.sdk.CapitalStructureReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,10 +55,12 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
 
     id = "FDS" # str | Company ticker
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Debt Capital Structure (DCS)
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_dcs_detail(id, schema=schema)
         pprint(api_response)
 
@@ -117,8 +119,8 @@ Debt Capital Structure (DCS) Summary
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CapitalStructureReportBuilder
 from fds.sdk.CapitalStructureReportBuilder.api import capital_structure_api
-from fds.sdk.CapitalStructureReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.CapitalStructureReportBuilder.model.response import Response
+from fds.sdk.CapitalStructureReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,10 +151,12 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
 
     id = "FDS" # str | Company ticker
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Debt Capital Structure (DCS) Summary
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_dcs_summary(id, schema=schema)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ Source of Capital
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CapitalStructureReportBuilder
 from fds.sdk.CapitalStructureReportBuilder.api import capital_structure_api
-from fds.sdk.CapitalStructureReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.CapitalStructureReportBuilder.model.response import Response
+from fds.sdk.CapitalStructureReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_clien
 
     try:
         # Source of Capital
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_source_of_capital(id)
         pprint(api_response)
 

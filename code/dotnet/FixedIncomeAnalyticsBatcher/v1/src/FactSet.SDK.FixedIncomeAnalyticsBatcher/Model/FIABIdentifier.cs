@@ -41,7 +41,7 @@ namespace FactSet.SDK.FixedIncomeAnalyticsBatcher.Model
         /// Initializes a new instance of the <see cref="FIABIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path. (required).</param>
-        public FIABIdentifier(string id = default(string))
+        public FIABIdentifier(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

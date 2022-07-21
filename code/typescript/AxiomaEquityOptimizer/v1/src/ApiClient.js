@@ -17,7 +17,6 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.8.2
 */
 
 /**
@@ -63,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/AxiomaEquityOptimizer/0.8.2'
+            'User-Agent': 'fds-sdk/javascript/AxiomaEquityOptimizer/0.8.3'
         };
 
         /**
@@ -667,6 +666,11 @@ class ApiClient {
             }
         }
     };
+
+    static setValue(obj, value) {
+        obj.value = value;
+        return obj;
+    }
 }
 
 /**

@@ -54,7 +54,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="relatedRecords">relatedRecords.</param>
         /// <param name="customFieldValues">customFieldValues.</param>
         /// <param name="isPersonal">isPersonal (default to false).</param>
-        public CreateNoteDto(UserSerialDto author = default(UserSerialDto), string title = default(string), string identifier = default(string), string date = default(string), Guid? subjectId = default(Guid?), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), CreateBodyDto body = default(CreateBodyDto), string source = default(string), string link = default(string), List<string> relatedSymbols = default(List<string>), List<Guid> relatedContacts = default(List<Guid>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>), bool isPersonal = false)
+        public CreateNoteDto(UserSerialDto author, string date,string title = default(string), string identifier = default(string), Guid? subjectId = default(Guid?), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), CreateBodyDto body = default(CreateBodyDto), string source = default(string), string link = default(string), List<string> relatedSymbols = default(List<string>), List<Guid> relatedContacts = default(List<Guid>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>), bool isPersonal = false)
         {
             // to ensure "author" is required (not null)
             if (author == null) {

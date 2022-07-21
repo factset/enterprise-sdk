@@ -18,7 +18,6 @@ import SPARIdentifier from './SPARIdentifier';
 /**
  * The SPARCalculationParameters model module.
  * @module model/SPARCalculationParameters
- * @version 0.8.2
  */
 class SPARCalculationParameters {
     /**

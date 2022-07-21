@@ -52,7 +52,6 @@ import GICSApi from './api/GICSApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

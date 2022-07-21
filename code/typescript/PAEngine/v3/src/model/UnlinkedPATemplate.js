@@ -22,7 +22,6 @@ import TemplateContentTypes from './TemplateContentTypes';
 /**
  * The UnlinkedPATemplate model module.
  * @module model/UnlinkedPATemplate
- * @version 0.20.0
  */
 class UnlinkedPATemplate {
     /**

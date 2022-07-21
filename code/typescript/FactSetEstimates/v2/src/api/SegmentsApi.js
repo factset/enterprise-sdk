@@ -20,7 +20,6 @@ import SegmentsResponse from '../model/SegmentsResponse';
 /**
 * Segments service.
 * @module api/SegmentsApi
-* @version 0.20.0
 */
 export default class SegmentsApi {
 

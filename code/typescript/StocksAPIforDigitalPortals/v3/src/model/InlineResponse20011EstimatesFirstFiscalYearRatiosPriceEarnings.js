@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20011EstimatesFirstFiscalYearRatiosPriceEarnings model module.
  * @module model/InlineResponse20011EstimatesFirstFiscalYearRatiosPriceEarnings
- * @version 0.10.0
  */
 class InlineResponse20011EstimatesFirstFiscalYearRatiosPriceEarnings {
     /**

@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
 
@@ -110,7 +111,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathdatesdateput"></a>
 # **V1DatabasePathDatesDatePut**
-> SuccessPostResponse V1DatabasePathDatesDatePut (string path, int date, InlineObject3 inlineObject3)
+> SuccessPostResponse V1DatabasePathDatesDatePut (string path, int date, Modifydatespecific modifydatespecific)
 
 
 
@@ -151,13 +152,14 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
-            var inlineObject3 = new InlineObject3(); // InlineObject3 | 
+            var modifydatespecific = new Modifydatespecific(); // Modifydatespecific | Required data for updating date in the database
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDatePut(path, date, inlineObject3);
+                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDatePut(path, date, modifydatespecific);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -177,7 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| Encode database path | 
  **date** | **int**| Date in YYYYMMDD format | 
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **modifydatespecific** | [**Modifydatespecific**](Modifydatespecific.md)| Required data for updating date in the database | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)
@@ -250,6 +252,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
             var symbol = "symbol_example";  // string | Symbol with in the ofdb
@@ -307,7 +310,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathdatesdatesymbolssymbolput"></a>
 # **V1DatabasePathDatesDateSymbolsSymbolPut**
-> SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut (string path, int date, string symbol, InlineObject5 inlineObject5)
+> SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut (string path, int date, string symbol, Modifysymboldate modifysymboldate)
 
 
 
@@ -348,14 +351,15 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
             var symbol = "symbol_example";  // string | Symbol with in the ofdb
-            var inlineObject5 = new InlineObject5(); // InlineObject5 | 
+            var modifysymboldate = new Modifysymboldate(); // Modifysymboldate | Data for updating symbol in the database
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5);
+                SuccessPostResponse result = apiInstance.V1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -376,7 +380,7 @@ Name | Type | Description  | Notes
  **path** | **string**| Encode database path | 
  **date** | **int**| Date in YYYYMMDD format | 
  **symbol** | **string**| Symbol with in the ofdb | 
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **modifysymboldate** | [**Modifysymboldate**](Modifysymboldate.md)| Data for updating symbol in the database | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)
@@ -448,6 +452,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var symbol = "symbol_example";  // string | Symbol with in the ofdb
 
@@ -503,7 +508,7 @@ Name | Type | Description  | Notes
 
 <a name="v1databasepathsymbolssymbolput"></a>
 # **V1DatabasePathSymbolsSymbolPut**
-> SuccessPostResponse V1DatabasePathSymbolsSymbolPut (string path, string symbol, InlineObject1 inlineObject1)
+> SuccessPostResponse V1DatabasePathSymbolsSymbolPut (string path, string symbol, ModifySymbols modifySymbols)
 
 
 
@@ -544,13 +549,14 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
+
             var path = "path_example";  // string | Encode database path
             var symbol = "symbol_example";  // string | Symbol with in the ofdb
-            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
+            var modifySymbols = new ModifySymbols(); // ModifySymbols | Data for updating symbol in the database
 
             try
             {
-                SuccessPostResponse result = apiInstance.V1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1);
+                SuccessPostResponse result = apiInstance.V1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -570,7 +576,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **string**| Encode database path | 
  **symbol** | **string**| Symbol with in the ofdb | 
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **modifySymbols** | [**ModifySymbols**](ModifySymbols.md)| Data for updating symbol in the database | 
 
 ### Return type
 [**SuccessPostResponse**](SuccessPostResponse.md)

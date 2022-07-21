@@ -60,6 +60,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -244,6 +246,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -338,6 +341,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -432,6 +436,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -526,6 +531,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -620,6 +626,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -714,6 +721,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject(); // InlineObject | 
 
             try
@@ -802,6 +810,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
@@ -890,6 +899,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
@@ -978,6 +988,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try

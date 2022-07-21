@@ -19,7 +19,6 @@ import InlineResponse20011EstimatesThirdFiscalYear from './InlineResponse20011Es
 /**
  * The InlineResponse20011Estimates model module.
  * @module model/InlineResponse20011Estimates
- * @version 0.10.0
  */
 class InlineResponse20011Estimates {
     /**

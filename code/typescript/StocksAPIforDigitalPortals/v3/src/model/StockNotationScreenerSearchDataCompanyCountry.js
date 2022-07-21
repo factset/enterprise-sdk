@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCompanyCountryRestrict from './StockNotati
 /**
  * The StockNotationScreenerSearchDataCompanyCountry model module.
  * @module model/StockNotationScreenerSearchDataCompanyCountry
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCompanyCountry {
     /**

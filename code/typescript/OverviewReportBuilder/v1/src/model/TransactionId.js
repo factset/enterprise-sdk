@@ -17,7 +17,6 @@ import TransactionIdTransactionId from './TransactionIdTransactionId';
 /**
  * The TransactionId model module.
  * @module model/TransactionId
- * @version 0.20.0
  */
 class TransactionId {
     /**

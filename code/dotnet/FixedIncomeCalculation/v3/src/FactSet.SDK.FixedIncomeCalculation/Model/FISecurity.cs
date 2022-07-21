@@ -121,7 +121,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(double calcFromValue, string symbol,string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), string calcFromMethod = default(string), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string discountCurve = default(string))
         {
             this.CalcFromValue = calcFromValue;
             // to ensure "symbol" is required (not null)

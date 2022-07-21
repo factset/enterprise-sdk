@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <param name="text">English plain text to extract named entities from.  Maxiumum of 10,000 characters. (required).</param>
         /// <param name="filterEntities">Drop lower probability entities using machine learning filtering rules (default to true).</param>
         /// <param name="enableIdLookup">Retrieve FactSet IDs for entities (default to true).</param>
-        public Input(string text = default(string), bool filterEntities = true, bool enableIdLookup = true)
+        public Input(string text,bool filterEntities = true, bool enableIdLookup = true)
         {
             // to ensure "text" is required (not null)
             if (text == null) {

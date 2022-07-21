@@ -17,7 +17,6 @@ import EntityFocus from './EntityFocus';
 /**
  * The EntityFocusResponse model module.
  * @module model/EntityFocusResponse
- * @version 0.20.0
  */
 class EntityFocusResponse {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004FundHoldingType model module.
  * @module model/InlineResponse2004FundHoldingType
- * @version 0.10.0
  */
 class InlineResponse2004FundHoldingType {
     /**

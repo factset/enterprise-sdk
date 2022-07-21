@@ -41,7 +41,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// </summary>
         /// <param name="sdf">sdf (required).</param>
         /// <param name="contentApi">contentApi.</param>
-        public NavigatorSourcesResponse(List<Table> sdf = default(List<Table>), List<ApiEndpoint> contentApi = default(List<ApiEndpoint>))
+        public NavigatorSourcesResponse(List<Table> sdf,List<ApiEndpoint> contentApi = default(List<ApiEndpoint>))
         {
             // to ensure "sdf" is required (not null)
             if (sdf == null) {

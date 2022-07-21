@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SymbolRelationshipUpdateDto model module.
  * @module model/SymbolRelationshipUpdateDto
- * @version 0.20.0
  */
 class SymbolRelationshipUpdateDto {
     /**

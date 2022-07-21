@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get AFI optimization status by id endpoint
 
             try
@@ -336,6 +339,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
@@ -399,6 +403,7 @@ This endpoint creates and runs AFI optimization specified in the POST body param
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.AxiomaFixedIncomeOptimizer.Api;
@@ -431,6 +436,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var aFIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters (optional) 
@@ -512,6 +518,7 @@ This endpoint updates and run the AFI optimization specified in the PUT body par
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.AxiomaFixedIncomeOptimizer.Api;
@@ -544,6 +551,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 

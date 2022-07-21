@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta (required).</param>
         /// <param name="errors">errors.</param>
-        public EventHeadlines(List<EventHeadlineDataItem> data = default(List<EventHeadlineDataItem>), EventsMeta meta = default(EventsMeta), List<ErrorItem> errors = default(List<ErrorItem>))
+        public EventHeadlines(List<EventHeadlineDataItem> data, EventsMeta meta,List<ErrorItem> errors = default(List<ErrorItem>))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

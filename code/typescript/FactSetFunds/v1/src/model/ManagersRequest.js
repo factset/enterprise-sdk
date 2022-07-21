@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ManagersRequest model module.
  * @module model/ManagersRequest
- * @version 0.20.0
  */
 class ManagersRequest {
     /**

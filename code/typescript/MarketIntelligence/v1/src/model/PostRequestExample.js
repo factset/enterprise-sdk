@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PostRequestExample model module.
  * @module model/PostRequestExample
- * @version 0.20.0
  */
 class PostRequestExample {
     /**

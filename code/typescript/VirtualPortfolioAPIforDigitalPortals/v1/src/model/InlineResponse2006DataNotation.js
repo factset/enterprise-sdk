@@ -17,7 +17,6 @@ import InlineResponse2006DataNotationPrice from './InlineResponse2006DataNotatio
 /**
  * The InlineResponse2006DataNotation model module.
  * @module model/InlineResponse2006DataNotation
- * @version 0.9.2
  */
 class InlineResponse2006DataNotation {
     /**

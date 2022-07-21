@@ -17,7 +17,6 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.20.0
 */
 
 /**
@@ -33,11 +32,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api-sandbox.factset.com/research/irn') {
+    constructor(basePath = 'https://api.factset.com/research/irn') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api-sandbox.factset.com/research/irn
+         * @default https://api.factset.com/research/irn
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -63,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/IRNCustomSymbols/0.20.0'
+            'User-Agent': 'fds-sdk/javascript/IRNCustomSymbols/0.21.0'
         };
 
         /**
@@ -615,8 +614,12 @@ class ApiClient {
     hostSettings() {
         return [
             {
+              'url': "https://api.factset.com/research/irn",
+              'description': "Production Server",
+            },
+            {
               'url': "https://api-sandbox.factset.com/research/irn",
-              'description': "No description provided",
+              'description': "Sandbox",
             }
       ];
     }
@@ -667,6 +670,11 @@ class ApiClient {
             }
         }
     };
+
+    static setValue(obj, value) {
+        obj.value = value;
+        return obj;
+    }
 }
 
 /**

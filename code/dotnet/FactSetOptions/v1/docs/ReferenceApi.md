@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var optionsDatesRequest = new OptionsDatesRequest(); // OptionsDatesRequest | 
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ReferenceApi(config);
+
             var optionsReferencesRequest = new OptionsReferencesRequest(); // OptionsReferencesRequest | Options Reference Request Body
 
             try

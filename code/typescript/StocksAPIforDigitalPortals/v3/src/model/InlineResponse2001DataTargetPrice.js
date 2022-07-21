@@ -17,7 +17,6 @@ import InlineResponse2001DataTargetPriceCurrency from './InlineResponse2001DataT
 /**
  * The InlineResponse2001DataTargetPrice model module.
  * @module model/InlineResponse2001DataTargetPrice
- * @version 0.10.0
  */
 class InlineResponse2001DataTargetPrice {
     /**

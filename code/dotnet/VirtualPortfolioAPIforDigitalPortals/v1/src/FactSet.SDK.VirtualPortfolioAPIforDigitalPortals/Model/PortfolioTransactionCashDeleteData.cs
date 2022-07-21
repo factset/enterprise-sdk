@@ -41,7 +41,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of the portfolio. (required).</param>
         /// <param name="transaction">transaction (required).</param>
-        public PortfolioTransactionCashDeleteData(string id = default(string), PortfolioTransactionDeleteDataTransaction transaction = default(PortfolioTransactionDeleteDataTransaction))
+        public PortfolioTransactionCashDeleteData(string id, PortfolioTransactionDeleteDataTransaction transaction)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

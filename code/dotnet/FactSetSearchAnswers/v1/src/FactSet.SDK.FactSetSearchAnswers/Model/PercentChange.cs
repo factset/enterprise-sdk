@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// </summary>
         /// <param name="change">change.</param>
         /// <param name="color">color.</param>
-        public PercentChange(string change = default(string), ChangeColor? color = default(ChangeColor?))
+        public PercentChange(string change = default(string), ChangeColor color = default(ChangeColor))
         {
             this.Change = change;
             this.Color = color;

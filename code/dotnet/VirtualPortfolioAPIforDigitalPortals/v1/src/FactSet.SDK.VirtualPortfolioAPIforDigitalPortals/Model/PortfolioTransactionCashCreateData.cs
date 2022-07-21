@@ -42,7 +42,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <param name="id">Identifier of the portfolio. (required).</param>
         /// <param name="time">Date and time of the trade. (required).</param>
         /// <param name="amount">The cash amount being deposited / withdrawn in portfolio‘s base currency. (required).</param>
-        public PortfolioTransactionCashCreateData(string id = default(string), string time = default(string), decimal amount = default(decimal))
+        public PortfolioTransactionCashCreateData(string id, string time, decimal amount)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

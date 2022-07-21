@@ -235,7 +235,7 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/periodicityDetail'
         - $ref: '#/components/parameters/includeAll'
         - $ref: '#/components/parameters/relativeFiscalStart'
         - $ref: '#/components/parameters/relativeFiscalEnd'
@@ -308,7 +308,7 @@ paths:
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
-        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/periodicityDetail'
         - $ref: '#/components/parameters/includeAll'
         - $ref: '#/components/parameters/fiscalPeriodStart'
         - $ref: '#/components/parameters/fiscalPeriodEnd'
@@ -857,6 +857,24 @@ components:
           * **SEMI** - Semi-Annual 
           * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
           * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
+          
+    periodicityDetail:
+      name: periodicity
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+          - SEMI
+        default: ANN
+      description: >
+        The periodicity for the estimates requested, allowing you to fetch
+        Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.
+          * **ANN** - Annual
+          * **QTR** - Quarterly
+          * **SEMI** - Semi-Annual 
     periodicitySurprise:
       name: periodicity
       in: query
@@ -882,8 +900,7 @@ components:
         type: array
         items:
           type: string
-          example:
-            - SALES
+          example: SALES
         minItems: 1
       explode: false
       description: >
@@ -1459,7 +1476,7 @@ components:
         relativeFiscalEnd:
           $ref: '#/components/schemas/relativeFiscalEnd'
         periodicity:
-          $ref: '#/components/schemas/periodicity'
+          $ref: '#/components/schemas/periodicityDetail'
         metrics:
           $ref: '#/components/schemas/metrics'
         currency:
@@ -1608,7 +1625,7 @@ components:
         includeAll:
           $ref: '#/components/schemas/includeAll'
         periodicity:
-          $ref: '#/components/schemas/periodicity'
+          $ref: '#/components/schemas/periodicityDetail'
         fiscalPeriodStart:
           $ref: '#/components/schemas/fiscalPeriodStart'
         fiscalPeriodEnd:
@@ -2202,6 +2219,16 @@ components:
         The periodicity for the estimates, reflecting Annual, Semi-Annual and
         Quarterly Estimates. Next-twelve-months (NTMA) and Last-twelve-months
         (LTMA) also supported.
+    periodicityDetail:
+      type: string
+      enum:
+        - ANN
+        - QTR
+        - SEMI
+      default: ANN
+      description: >-
+        The periodicity for the estimates, reflecting Annual, Semi-Annual and
+        Quarterly Estimates.
     periodicitySurprise:
       type: string
       enum:

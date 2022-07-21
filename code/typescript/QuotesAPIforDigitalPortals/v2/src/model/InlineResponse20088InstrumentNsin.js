@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20088InstrumentNsin model module.
  * @module model/InlineResponse20088InstrumentNsin
- * @version 0.9.2
  */
 class InlineResponse20088InstrumentNsin {
     /**

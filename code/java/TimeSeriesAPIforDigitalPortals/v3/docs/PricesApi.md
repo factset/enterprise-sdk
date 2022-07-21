@@ -1,6 +1,6 @@
 # PricesApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## postPricesTimeSeriesEodList
 
-> InlineResponse2005 postPricesTimeSeriesEodList(body)
+> InlineResponse2005 postPricesTimeSeriesEodList(inlineObject5)
 
 End-of-day time series data for a notation.
 
@@ -55,9 +55,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject5 body = new InlineObject5(); // InlineObject5 | 
+        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
         try {
-            InlineResponse2005 result = apiInstance.postPricesTimeSeriesEodList(body);
+            InlineResponse2005 result = apiInstance.postPricesTimeSeriesEodList(inlineObject5);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -76,7 +76,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  |
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  |
 
 ### Return type
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesEodSubsampleGet
 
-> InlineResponse2006 postPricesTimeSeriesEodSubsampleGet(body)
+> InlineResponse2006 postPricesTimeSeriesEodSubsampleGet(inlineObject6)
 
 Single subsample end-of-day data for a notation.
 
@@ -139,9 +139,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject6 body = new InlineObject6(); // InlineObject6 | 
+        InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
         try {
-            InlineResponse2006 result = apiInstance.postPricesTimeSeriesEodSubsampleGet(body);
+            InlineResponse2006 result = apiInstance.postPricesTimeSeriesEodSubsampleGet(inlineObject6);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -160,7 +160,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  |
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  |
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesEodSubsampleList
 
-> InlineResponse2007 postPricesTimeSeriesEodSubsampleList(body)
+> InlineResponse2007 postPricesTimeSeriesEodSubsampleList(inlineObject7)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -223,9 +223,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject7 body = new InlineObject7(); // InlineObject7 | 
+        InlineObject7 inlineObject7 = new InlineObject7(); // InlineObject7 | 
         try {
-            InlineResponse2007 result = apiInstance.postPricesTimeSeriesEodSubsampleList(body);
+            InlineResponse2007 result = apiInstance.postPricesTimeSeriesEodSubsampleList(inlineObject7);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -244,7 +244,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  |
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  |
 
 ### Return type
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradayList
 
-> InlineResponse2008 postPricesTimeSeriesIntradayList(body)
+> InlineResponse2008 postPricesTimeSeriesIntradayList(inlineObject8)
 
 Intraday time series data for a notation.
 
@@ -307,9 +307,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject8 body = new InlineObject8(); // InlineObject8 | 
+        InlineObject8 inlineObject8 = new InlineObject8(); // InlineObject8 | 
         try {
-            InlineResponse2008 result = apiInstance.postPricesTimeSeriesIntradayList(body);
+            InlineResponse2008 result = apiInstance.postPricesTimeSeriesIntradayList(inlineObject8);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -328,7 +328,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  |
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  |
 
 ### Return type
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradaySubsampleGet
 
-> InlineResponse2009 postPricesTimeSeriesIntradaySubsampleGet(body)
+> InlineResponse2009 postPricesTimeSeriesIntradaySubsampleGet(inlineObject9)
 
 Single subsample intraday data for a notation.
 
@@ -391,9 +391,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject9 body = new InlineObject9(); // InlineObject9 | 
+        InlineObject9 inlineObject9 = new InlineObject9(); // InlineObject9 | 
         try {
-            InlineResponse2009 result = apiInstance.postPricesTimeSeriesIntradaySubsampleGet(body);
+            InlineResponse2009 result = apiInstance.postPricesTimeSeriesIntradaySubsampleGet(inlineObject9);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -412,7 +412,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  |
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  |
 
 ### Return type
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 ## postPricesTimeSeriesIntradaySubsampleList
 
-> InlineResponse20010 postPricesTimeSeriesIntradaySubsampleList(body)
+> InlineResponse20010 postPricesTimeSeriesIntradaySubsampleList(inlineObject10)
 
 Subsampled intraday time series data for a notation.
 
@@ -475,9 +475,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
-        InlineObject10 body = new InlineObject10(); // InlineObject10 | 
+        InlineObject10 inlineObject10 = new InlineObject10(); // InlineObject10 | 
         try {
-            InlineResponse20010 result = apiInstance.postPricesTimeSeriesIntradaySubsampleList(body);
+            InlineResponse20010 result = apiInstance.postPricesTimeSeriesIntradaySubsampleList(inlineObject10);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -496,7 +496,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  |
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  |
 
 ### Return type
 

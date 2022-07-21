@@ -17,7 +17,6 @@ import HighLow from './HighLow';
 /**
  * The HighLowResponse model module.
  * @module model/HighLowResponse
- * @version 0.20.0
  */
 class HighLowResponse {
     /**

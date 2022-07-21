@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentCrossReferenceListByISINData model module.
  * @module model/InstrumentCrossReferenceListByISINData
- * @version 0.9.2
  */
 class InstrumentCrossReferenceListByISINData {
     /**

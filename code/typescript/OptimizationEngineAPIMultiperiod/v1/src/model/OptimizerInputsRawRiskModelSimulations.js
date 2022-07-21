@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsRawRiskModelSimulations model module.
  * @module model/OptimizerInputsRawRiskModelSimulations
- * @version 0.20.0
  */
 class OptimizerInputsRawRiskModelSimulations {
     /**

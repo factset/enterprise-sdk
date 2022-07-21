@@ -127,10 +127,10 @@ public class NewsApi {
   /**
    * Details for a news article.
    * Details for a news article.
-   * @param code Identifier of a news article. (required)
-   * @param includeMedia If true, media references are included if available. (optional, default to false)
+   * @param code  (required)
+   * @param includeMedia  (optional, default to false)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -146,10 +146,10 @@ public class NewsApi {
   /**
    * Details for a news article.
    * Details for a news article.
-   * @param code Identifier of a news article. (required)
-   * @param includeMedia If true, media references are included if available. (optional, default to false)
+   * @param code  (required)
+   * @param includeMedia  (optional, default to false)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -210,9 +210,9 @@ public class NewsApi {
   /**
    * Details for a news article type.
    * Details for a news article type.
-   * @param id Identifier of a news article type. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -228,9 +228,9 @@ public class NewsApi {
   /**
    * Details for a news article type.
    * Details for a news article type.
-   * @param id Identifier of a news article type. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -291,7 +291,7 @@ public class NewsApi {
    * List of news article types.
    * List of news article types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -308,7 +308,7 @@ public class NewsApi {
    * List of news article types.
    * List of news article types.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -362,7 +362,7 @@ public class NewsApi {
   /**
    * Details of a distributor.
    * Details of a distributor.
-   * @param id Identifier of a distributor. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
@@ -379,7 +379,7 @@ public class NewsApi {
   /**
    * Details of a distributor.
    * Details of a distributor.
-   * @param id Identifier of a distributor. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
@@ -439,7 +439,7 @@ public class NewsApi {
   /**
    * List of distributors.
    * List of distributors.
-   * @param ids Identifiers of distributors. (optional)
+   * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse2006
@@ -457,7 +457,7 @@ public class NewsApi {
   /**
    * List of distributors.
    * List of distributors.
-   * @param ids Identifiers of distributors. (optional)
+   * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse2006&gt;
@@ -514,7 +514,7 @@ public class NewsApi {
   /**
    * Details of a publisher.
    * Details of a publisher.
-   * @param id Identifier of a publisher. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse2007
    * @throws ApiException if fails to make API call
@@ -531,7 +531,7 @@ public class NewsApi {
   /**
    * Details of a publisher.
    * Details of a publisher.
-   * @param id Identifier of a publisher. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse2007&gt;
    * @throws ApiException if fails to make API call
@@ -591,11 +591,11 @@ public class NewsApi {
   /**
    * List of publishers.
    * List of publishers.
-   * @param ids Identifiers of publishers. (optional)
+   * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse2008
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -611,11 +611,11 @@ public class NewsApi {
   /**
    * List of publishers.
    * List of publishers.
-   * @param ids Identifiers of publishers. (optional)
+   * @param ids  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
-   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationOffset Non-negative number of entries to skip, or 0 (default). (optional, default to 0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse2008&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -672,7 +672,7 @@ public class NewsApi {
   /**
    * List of publishers provided by the given distributor.
    * List of publishers provided by the given distributor.
-   * @param id Identifier of a distributor. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return InlineResponse2009
@@ -690,7 +690,7 @@ public class NewsApi {
   /**
    * List of publishers provided by the given distributor.
    * List of publishers provided by the given distributor.
-   * @param id Identifier of a distributor. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @param sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional, default to [\&quot;name\&quot;])
    * @return ApiResponse&lt;InlineResponse2009&gt;
@@ -752,7 +752,7 @@ public class NewsApi {
   /**
    * List of news articles.
    * List of news articles.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -761,14 +761,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleList(InlineObject body) throws ApiException {
-    return postNewsArticleListWithHttpInfo(body).getData();
+  public InlineResponse2001 postNewsArticleList(InlineObject inlineObject) throws ApiException {
+    return postNewsArticleListWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * List of news articles.
    * List of news articles.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -777,8 +777,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postNewsArticleListWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
     // create path and map variables
     String localVarPath = "/news/article/list";
@@ -820,7 +820,7 @@ public class NewsApi {
   /**
    * List news articles of an article chain.
    * List news articles of an article chain.
-   * @param body  (required)
+   * @param inlineObject1  (required)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -829,14 +829,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 postNewsArticleListByChain(InlineObject1 body) throws ApiException {
-    return postNewsArticleListByChainWithHttpInfo(body).getData();
+  public InlineResponse2002 postNewsArticleListByChain(InlineObject1 inlineObject1) throws ApiException {
+    return postNewsArticleListByChainWithHttpInfo(inlineObject1).getData();
   }
 
   /**
    * List news articles of an article chain.
    * List news articles of an article chain.
-   * @param body  (required)
+   * @param inlineObject1  (required)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -845,12 +845,12 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> postNewsArticleListByChainWithHttpInfo(InlineObject1 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2002> postNewsArticleListByChainWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
+    Object localVarPostBody = inlineObject1;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNewsArticleListByChain");
+    // verify the required parameter 'inlineObject1' is set
+    if (inlineObject1 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject1' when calling postNewsArticleListByChain");
     }
     
     // create path and map variables
@@ -893,7 +893,7 @@ public class NewsApi {
   /**
    * News articles for instruments that are constituents of the given indices.
    * News articles for instruments that are constituents of the given indices.
-   * @param body  (required)
+   * @param inlineObject2  (required)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -902,14 +902,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByIndex(InlineObject2 body) throws ApiException {
-    return postNewsArticleListByIndexWithHttpInfo(body).getData();
+  public InlineResponse2001 postNewsArticleListByIndex(InlineObject2 inlineObject2) throws ApiException {
+    return postNewsArticleListByIndexWithHttpInfo(inlineObject2).getData();
   }
 
   /**
    * News articles for instruments that are constituents of the given indices.
    * News articles for instruments that are constituents of the given indices.
-   * @param body  (required)
+   * @param inlineObject2  (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -918,12 +918,12 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByIndexWithHttpInfo(InlineObject2 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postNewsArticleListByIndexWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
+    Object localVarPostBody = inlineObject2;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNewsArticleListByIndex");
+    // verify the required parameter 'inlineObject2' is set
+    if (inlineObject2 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject2' when calling postNewsArticleListByIndex");
     }
     
     // create path and map variables
@@ -966,7 +966,7 @@ public class NewsApi {
   /**
    * News articles for instruments.
    * News articles for instruments.
-   * @param body  (required)
+   * @param inlineObject3  (required)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -975,14 +975,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByInstrument(InlineObject3 body) throws ApiException {
-    return postNewsArticleListByInstrumentWithHttpInfo(body).getData();
+  public InlineResponse2001 postNewsArticleListByInstrument(InlineObject3 inlineObject3) throws ApiException {
+    return postNewsArticleListByInstrumentWithHttpInfo(inlineObject3).getData();
   }
 
   /**
    * News articles for instruments.
    * News articles for instruments.
-   * @param body  (required)
+   * @param inlineObject3  (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -991,12 +991,12 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByInstrumentWithHttpInfo(InlineObject3 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postNewsArticleListByInstrumentWithHttpInfo(InlineObject3 inlineObject3) throws ApiException {
+    Object localVarPostBody = inlineObject3;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNewsArticleListByInstrument");
+    // verify the required parameter 'inlineObject3' is set
+    if (inlineObject3 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject3' when calling postNewsArticleListByInstrument");
     }
     
     // create path and map variables
@@ -1039,7 +1039,7 @@ public class NewsApi {
   /**
    * List news articles which contain media of specific media kinds.
    * List news articles which contain media of specific media kinds.
-   * @param body  (required)
+   * @param inlineObject4  (required)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1048,14 +1048,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleListByMediaKind(InlineObject4 body) throws ApiException {
-    return postNewsArticleListByMediaKindWithHttpInfo(body).getData();
+  public InlineResponse2001 postNewsArticleListByMediaKind(InlineObject4 inlineObject4) throws ApiException {
+    return postNewsArticleListByMediaKindWithHttpInfo(inlineObject4).getData();
   }
 
   /**
    * List news articles which contain media of specific media kinds.
    * List news articles which contain media of specific media kinds.
-   * @param body  (required)
+   * @param inlineObject4  (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1064,12 +1064,12 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleListByMediaKindWithHttpInfo(InlineObject4 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postNewsArticleListByMediaKindWithHttpInfo(InlineObject4 inlineObject4) throws ApiException {
+    Object localVarPostBody = inlineObject4;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNewsArticleListByMediaKind");
+    // verify the required parameter 'inlineObject4' is set
+    if (inlineObject4 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject4' when calling postNewsArticleListByMediaKind");
     }
     
     // create path and map variables
@@ -1112,7 +1112,7 @@ public class NewsApi {
   /**
    * Search for news articles using a fulltext search.
    * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \&quot;include\&quot; requires the criterion to evaluate to true, \&quot;exclude\&quot; requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
-   * @param body  (optional)
+   * @param inlineObject5  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1121,14 +1121,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postNewsArticleSearchByText(InlineObject5 body) throws ApiException {
-    return postNewsArticleSearchByTextWithHttpInfo(body).getData();
+  public InlineResponse2001 postNewsArticleSearchByText(InlineObject5 inlineObject5) throws ApiException {
+    return postNewsArticleSearchByTextWithHttpInfo(inlineObject5).getData();
   }
 
   /**
    * Search for news articles using a fulltext search.
    * Search for news articles using a fulltext search. All specified criteria need to be fulfilled for an article to match. Each criterion is handled according to its selectionType; \&quot;include\&quot; requires the criterion to evaluate to true, \&quot;exclude\&quot; requires the criterion to evaluate to false. A criterion is fulfilled when at least one of its values is found.
-   * @param body  (optional)
+   * @param inlineObject5  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1137,8 +1137,8 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postNewsArticleSearchByTextWithHttpInfo(InlineObject5 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postNewsArticleSearchByTextWithHttpInfo(InlineObject5 inlineObject5) throws ApiException {
+    Object localVarPostBody = inlineObject5;
     
     // create path and map variables
     String localVarPath = "/news/article/searchByText";
@@ -1180,7 +1180,7 @@ public class NewsApi {
   /**
    * Search for publishers.
    * Search for publishers by the name of the publisher.
-   * @param body  (required)
+   * @param inlineObject6  (required)
    * @return InlineResponse2009
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1189,14 +1189,14 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2009 postNewsPublisherSearchByName(InlineObject6 body) throws ApiException {
-    return postNewsPublisherSearchByNameWithHttpInfo(body).getData();
+  public InlineResponse2009 postNewsPublisherSearchByName(InlineObject6 inlineObject6) throws ApiException {
+    return postNewsPublisherSearchByNameWithHttpInfo(inlineObject6).getData();
   }
 
   /**
    * Search for publishers.
    * Search for publishers by the name of the publisher.
-   * @param body  (required)
+   * @param inlineObject6  (required)
    * @return ApiResponse&lt;InlineResponse2009&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1205,12 +1205,12 @@ public class NewsApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2009> postNewsPublisherSearchByNameWithHttpInfo(InlineObject6 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2009> postNewsPublisherSearchByNameWithHttpInfo(InlineObject6 inlineObject6) throws ApiException {
+    Object localVarPostBody = inlineObject6;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postNewsPublisherSearchByName");
+    // verify the required parameter 'inlineObject6' is set
+    if (inlineObject6 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject6' when calling postNewsPublisherSearchByName");
     }
     
     // create path and map variables

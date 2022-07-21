@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The DateParametersSummary model module.
  * @module model/DateParametersSummary
- * @version 0.8.2
  */
 class DateParametersSummary {
     /**

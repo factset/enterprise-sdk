@@ -22,7 +22,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Ratings service.
 * @module api/RatingsApi
-* @version 0.20.0
 */
 export default class RatingsApi {
 

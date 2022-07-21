@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
+
             var id = "\"782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53\"";  // string | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
+
             var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
 
             try

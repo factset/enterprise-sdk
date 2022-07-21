@@ -17,7 +17,6 @@ import EMSOrdersCreateResponse from './EMSOrdersCreateResponse';
 /**
  * The EMSOrdersCreateResponseRoot model module.
  * @module model/EMSOrdersCreateResponseRoot
- * @version 0.20.0
  */
 class EMSOrdersCreateResponseRoot {
     /**

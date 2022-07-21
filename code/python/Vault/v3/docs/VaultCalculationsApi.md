@@ -28,7 +28,8 @@ This is the endpoint to cancel a previously submitted calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +63,9 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Cancel Vault calculation by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_calculation_by_id(id)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling VaultCalculationsApi->cancel_calculation_by_id: %s\n" % e)
 ```
@@ -118,8 +121,8 @@ This is the endpoint that returns the calculation parameters passed for a calcul
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.vault_calculation_parameters_root import VaultCalculationParametersRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault calculation parameters by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ This is the endpoint to check on the progress of a previously requested calculat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.calculation_status_root import CalculationStatusRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault calculation status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
 
@@ -305,8 +310,8 @@ This is the endpoint to get the result of a previously requested calculation.  I
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.object_root import ObjectRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,6 +346,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault calculation result by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
         pprint(api_response)
 
@@ -400,10 +406,8 @@ This endpoint runs the Vault calculation specified in the POST body parameters. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.object_root import ObjectRoot
-from fds.sdk.Vault.model.vault_calculation_parameters_root import VaultCalculationParametersRoot
-from fds.sdk.Vault.model.calculation_status_root import CalculationStatusRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -461,6 +465,8 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Create and Run Vault calculation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
         responseWrapper = {
             200: api_response.get_response_200,
@@ -530,10 +536,8 @@ This endpoint updates and run the Vault calculation specified in the PUT body pa
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import vault_calculations_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.object_root import ObjectRoot
-from fds.sdk.Vault.model.vault_calculation_parameters_root import VaultCalculationParametersRoot
-from fds.sdk.Vault.model.calculation_status_root import CalculationStatusRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -592,6 +596,8 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Create or Update Vault calculation and run it.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, vault_calculation_parameters_root=vault_calculation_parameters_root)
         responseWrapper = {
             200: api_response.get_response_200,

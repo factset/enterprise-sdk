@@ -20,7 +20,6 @@ import OptimizerInputsTailRiskTerm from './OptimizerInputsTailRiskTerm';
 /**
  * The OptimizerInputsMPTailRiskTerm model module.
  * @module model/OptimizerInputsMPTailRiskTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPTailRiskTerm {
     /**

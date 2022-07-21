@@ -1,6 +1,6 @@
 # fds.sdk.IRNContacts.ContactsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,9 +29,8 @@ Create a contact
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.new_item_dto import NewItemDto
-from fds.sdk.IRNContacts.model.contact_save_dto import ContactSaveDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -129,6 +128,8 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Create a contact
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_contact(contact_save_dto=contact_save_dto)
         pprint(api_response)
 
@@ -181,7 +182,8 @@ Delete a contact
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -215,7 +217,9 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Delete a contact
+        # example passing only required values which don't have defaults set
         api_instance.delete_contact(contact_id)
+
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsApi->delete_contact: %s\n" % e)
 ```
@@ -266,8 +270,8 @@ Get all custom field and standard field details on a specific contact
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.contact_dto import ContactDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -301,6 +305,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get all custom field and standard field details on a specific contact
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact(contact_id)
         pprint(api_response)
 
@@ -353,8 +358,8 @@ Get a contact’s audit history
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.contact_event_dto import ContactEventDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -388,6 +393,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get a contact’s audit history
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_events(contact_id)
         pprint(api_response)
 
@@ -440,7 +446,8 @@ Get the About field content for a specific contact
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -474,6 +481,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get the About field content for a specific contact
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_notes(contact_id)
         pprint(api_response)
 
@@ -526,8 +534,8 @@ Get all notes and meetings where a specific contact was tagged
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.record_preview_dto import RecordPreviewDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -561,6 +569,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get all notes and meetings where a specific contact was tagged
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_records(contact_id)
         pprint(api_response)
 
@@ -613,8 +622,8 @@ Returns a list of a contact’s relationships
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.contact_relationship_dto import ContactRelationshipDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -648,6 +657,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Returns a list of a contact’s relationships
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_relationships(contact_id)
         pprint(api_response)
 
@@ -700,7 +710,8 @@ Get list of all contacts in your group along with some of their standard field d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.contact_summary_dto import ContactSummaryDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -734,14 +745,16 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
     email_address = "emailAddress_example" # str | Filter results on emailAddress (optional)
     identifier = "identifier_example" # str | Filter results on identifier (optional)
     employer_name = "employerName_example" # str | Filter results on employerName (optional)
-    custom_field_values = False # bool | Includes custom field values in response if true (optional) (default to False)
+    custom_field_values = False # bool | Includes custom field values in response if true (optional) if omitted the server will use the default value of False
     search = "search_example" # str | Filter results on the combination of fullName, emailAddress, identifier and employerName (optional)
     sort = "sort_example" # str |  (optional)
-    include_last_meeting_date = False # bool | If true, returns when they were last tagged as an attendee in an IRN meeting (optional) (default to False)
-    limit = 0 # int | Restrict number of records returned (optional) (default to 0)
+    include_last_meeting_date = False # bool | If true, returns when they were last tagged as an attendee in an IRN meeting (optional) if omitted the server will use the default value of False
+    limit = 0 # int | Restrict number of records returned (optional) if omitted the server will use the default value of 0
 
     try:
         # Get list of all contacts in your group along with some of their standard field data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_contacts(full_name=full_name, email_address=email_address, identifier=identifier, employer_name=employer_name, custom_field_values=custom_field_values, search=search, sort=sort, include_last_meeting_date=include_last_meeting_date, limit=limit)
         pprint(api_response)
 
@@ -800,8 +813,8 @@ Edit a contact’s standard field and custom field data
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.operation import Operation
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -844,7 +857,10 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Edit a contact’s standard field and custom field data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_contact(contact_id, operation=operation)
+
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsApi->patch_contact: %s\n" % e)
 ```

@@ -26,8 +26,8 @@ Returns the data items (along with the products they belong to) that contain at 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.basic_search_request import BasicSearchRequest
-from fds.sdk.ContentFeedsDataDictionary.model.basic_search_response import BasicSearchResponse
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +61,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Returns the data items (along with the products they belong to) that contain at least one of the search terms as a substring of either their name or description.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_basic_search_post(basic_search_request)
         pprint(api_response)
 
@@ -113,7 +114,8 @@ Get the list of data items associated with a product for Navigator.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.data_item import DataItem
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,6 +149,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Get the list of data items associated with a product for Navigator.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_data_items_product_id_get(product_id)
         pprint(api_response)
 
@@ -199,7 +202,8 @@ Get the list of products for Navigator.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.product import Product
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -232,6 +236,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Get the list of products for Navigator.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.navigator_products_get()
         pprint(api_response)
 
@@ -280,7 +285,8 @@ Get a list of sources where the specified data item can be found, for each deliv
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.navigator_sources_response import NavigatorSourcesResponse
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -315,6 +321,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of sources where the specified data item can be found, for each delivery method, filtered to the appearances of the given data item within the specified product.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_sources_data_item_id_get(data_item_id, product_id)
         pprint(api_response)
 
@@ -368,7 +375,8 @@ Get a list of sources by delivery method for the given product_id
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.navigator_sources_response import NavigatorSourcesResponse
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -402,6 +410,7 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of sources by delivery method for the given product_id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.navigator_sources_get(product_id)
         pprint(api_response)
 
@@ -454,7 +463,8 @@ Get the list of fields associated with a table for Navigator, and the code infor
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api
-from fds.sdk.ContentFeedsDataDictionary.model.table_code_field_info_response import TableCodeFieldInfoResponse
+from fds.sdk.ContentFeedsDataDictionary.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -489,6 +499,8 @@ with fds.sdk.ContentFeedsDataDictionary.ApiClient(configuration) as api_client:
 
     try:
         # Get the list of fields associated with a table for Navigator, and the code information for the specified data item, if applicable.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.navigator_table_fields_table_id_get(table_id, data_item_id=data_item_id)
         pprint(api_response)
 

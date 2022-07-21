@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <param name="fsymId">FactSet Company identifier being classified. (required).</param>
         /// <param name="firstDate">First date of the classification. (required).</param>
         /// <param name="lastDate">Date when the classification became no longer valid. (required).</param>
-        public EntityFocus(string requestId = default(string), string fsymId = default(string), string firstDate = default(string), string lastDate = default(string)) : base()
+        public EntityFocus(string requestId, string fsymId, string firstDate, string lastDate) : base()
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {
@@ -83,21 +83,21 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// FactSet Company identifier being classified.
         /// </summary>
         /// <value>FactSet Company identifier being classified.</value>
-        [DataMember(Name = "fsymId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", IsRequired = true, EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// First date of the classification.
         /// </summary>
         /// <value>First date of the classification.</value>
-        [DataMember(Name = "firstDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "firstDate", IsRequired = true, EmitDefaultValue = true)]
         public string FirstDate { get; set; }
 
         /// <summary>
         /// Date when the classification became no longer valid.
         /// </summary>
         /// <value>Date when the classification became no longer valid.</value>
-        [DataMember(Name = "lastDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastDate", IsRequired = true, EmitDefaultValue = true)]
         public string LastDate { get; set; }
 
         /// <summary>

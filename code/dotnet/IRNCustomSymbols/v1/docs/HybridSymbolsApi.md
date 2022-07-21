@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNCustomSymbols.Api.HybridSymbolsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new HybridSymbolsApi(config);
+
             var createStandardSymbolMetadataDto = new CreateStandardSymbolMetadataDto(); // CreateStandardSymbolMetadataDto | createStandardSymbolMetadataDto object to save (optional) 
 
             try
@@ -138,6 +139,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new HybridSymbolsApi(config);
+
             var standardSymbol = "standardSymbol_example";  // string | Standard symbol to get associated customSymbolId
 
             try
@@ -226,6 +228,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new HybridSymbolsApi(config);
+
             var standardSymbolId = "standardSymbolId_example";  // Guid | standardSymbolId to update associated standard symbol
             var operation = new List<Operation>(); // List<Operation> | updateCustomSymbolDto object to update (optional) 
 

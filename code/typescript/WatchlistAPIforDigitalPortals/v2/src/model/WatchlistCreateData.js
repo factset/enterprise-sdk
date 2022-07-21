@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The WatchlistCreateData model module.
  * @module model/WatchlistCreateData
- * @version 0.9.2
  */
 class WatchlistCreateData {
     /**

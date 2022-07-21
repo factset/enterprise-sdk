@@ -17,7 +17,6 @@ import InlineResponse20054DataOccurrenceFrequency from './InlineResponse20054Dat
 /**
  * The InlineResponse20054DataOccurrence model module.
  * @module model/InlineResponse20054DataOccurrence
- * @version 0.10.0
  */
 class InlineResponse20054DataOccurrence {
     /**

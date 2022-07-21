@@ -17,7 +17,6 @@ import FundNotationScreenerValueRangesGetDataPerformanceEndOfDay from './FundNot
 /**
  * The FundNotationScreenerValueRangesGetDataPerformance model module.
  * @module model/FundNotationScreenerValueRangesGetDataPerformance
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetDataPerformance {
     /**

@@ -33,7 +33,8 @@ Holdings of a fund. Only the top 10 holdings with regard to their weighting in t
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,10 +70,12 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["-holdings.weight"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["-holdings.weight"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["-holdings.weight"]
 
     try:
         # Holdings of a fund.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_holding_list_by_instrument(id, attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -127,7 +130,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of one month
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,6 +172,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of one month.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -223,7 +229,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of three mon
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -264,6 +271,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of three months.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -319,7 +328,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of one week.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -360,6 +370,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of one week.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -415,7 +427,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of one year.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -456,6 +469,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of one year.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -511,7 +526,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of three yea
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -552,6 +568,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of three years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -607,7 +625,8 @@ End-of-day (EOD) benchmark key figures of a fund for the time range of five year
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -648,6 +667,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) benchmark key figures of a fund for the time range of five years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -703,7 +724,8 @@ The provided fundamental data comprises share class-specific data and data apply
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -741,6 +763,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Fundamental data for a share class of a fund.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fund_share_class_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -795,8 +819,8 @@ Search for issuers of funds. FactSet does not consolidate the data provided by d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_object import InlineObject
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -894,6 +918,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Search for issuers of funds.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_fund_issuer_search(body=body)
         pprint(api_response)
 
@@ -946,8 +972,8 @@ Screener for notations of share classes of mutual and exchange traded funds (ETF
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_object1 import InlineObject1
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1564,6 +1590,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Screener for notations of share classes of mutual and exchange traded funds based on fund-specific parameters.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_fund_notation_screener_search(body=body)
         pprint(api_response)
 
@@ -1616,8 +1644,8 @@ The endpoint returns the possible values and value ranges for the parameters use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FundsAPIforDigitalPortals
 from fds.sdk.FundsAPIforDigitalPortals.api import fund_api
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_object2 import InlineObject2
-from fds.sdk.FundsAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.FundsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2227,6 +2255,8 @@ with fds.sdk.FundsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/fund/notation/screener/search`.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_fund_notation_screener_value_ranges_get(body=body)
         pprint(api_response)
 

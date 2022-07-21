@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOwnershipReportBuilder.JSON;
@@ -41,13 +45,13 @@ public class FsymIdFsymId implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
   public FsymIdFsymId() { 
   }
 
   public FsymIdFsymId value(String value) {
-    this.value = value;
+    this.value = JsonNullable.<String>of(value);
     return this;
   }
 
@@ -57,18 +61,26 @@ public class FsymIdFsymId implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getValue() {
-    return value;
+        return value.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(String value) {
+
+  public JsonNullable<String> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<String> value) {
     this.value = value;
+  }
+
+  public void setValue(String value) {
+    this.value = JsonNullable.<String>of(value);
   }
 
 
@@ -84,12 +96,23 @@ public class FsymIdFsymId implements Serializable {
       return false;
     }
     FsymIdFsymId fsymIdFsymId = (FsymIdFsymId) o;
-    return Objects.equals(this.value, fsymIdFsymId.value);
+    return equalsNullable(this.value, fsymIdFsymId.value);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(hashCodeNullable(value));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

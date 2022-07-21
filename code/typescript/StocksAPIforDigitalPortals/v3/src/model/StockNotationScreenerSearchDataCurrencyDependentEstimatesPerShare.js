@@ -20,7 +20,6 @@ import StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales fr
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare {
     /**

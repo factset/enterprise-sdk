@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AdaptiveCardWithThumbnail model module.
  * @module model/AdaptiveCardWithThumbnail
- * @version 0.20.0
  */
 class AdaptiveCardWithThumbnail {
     /**

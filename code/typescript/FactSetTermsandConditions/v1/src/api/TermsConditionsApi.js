@@ -21,7 +21,6 @@ import TermsAndConditionsResponse from '../model/TermsAndConditionsResponse';
 /**
 * TermsConditions service.
 * @module api/TermsConditionsApi
-* @version 0.20.0
 */
 export default class TermsConditionsApi {
 

@@ -17,7 +17,6 @@ import InlineResponse2005DataPerformanceEndOfDay from './InlineResponse2005DataP
 /**
  * The InlineResponse2005DataPerformance model module.
  * @module model/InlineResponse2005DataPerformance
- * @version 0.10.0
  */
 class InlineResponse2005DataPerformance {
     /**

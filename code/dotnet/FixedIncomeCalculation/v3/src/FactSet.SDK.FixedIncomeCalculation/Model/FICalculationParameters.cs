@@ -43,7 +43,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <param name="securities">List of securities (required).</param>
         /// <param name="calculations">List of calculations (required).</param>
         /// <param name="jobSettings">jobSettings (required).</param>
-        public FICalculationParameters(List<FISecurity> securities = default(List<FISecurity>), List<string> calculations = default(List<string>), FIJobSettings jobSettings = default(FIJobSettings))
+        public FICalculationParameters(List<FISecurity> securities, List<string> calculations, FIJobSettings jobSettings)
         {
             // to ensure "securities" is required (not null)
             if (securities == null) {

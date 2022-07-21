@@ -51,7 +51,7 @@ namespace FactSet.SDK.DirectStreamingofTransactionMessages.Model
         /// <param name="amount">Quantity of the instrument traded. (required).</param>
         /// <param name="currencyiso">The currency code of cash valued fields, Net Amount and Gross Amount. (required).</param>
         /// <param name="foreignexchangerate">FX rate that can be picked up by PA, multiplied with the cash valued fields, Net, Gross, to allow PA to show transactions in reporting currency..</param>
-        public OrderParameters(string portfolio = default(string), string transactionid = default(string), string symbol = default(string), string description = default(string), string tradetype = default(string), string status = default(string), string tradedate = default(string), float transactionleaves = default(float), float amount = default(float), string currencyiso = default(string), float foreignexchangerate = default(float))
+        public OrderParameters(string portfolio, string transactionid, string symbol, string tradetype, string status, string tradedate, float amount, string currencyiso,string description = default(string), float transactionleaves = default(float), float foreignexchangerate = default(float))
         {
             // to ensure "portfolio" is required (not null)
             if (portfolio == null) {

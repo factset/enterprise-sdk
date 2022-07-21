@@ -17,7 +17,6 @@ import EntityTaskStatus from './EntityTaskStatus';
 /**
  * The EntityTaskStatusResponse model module.
  * @module model/EntityTaskStatusResponse
- * @version 0.20.1
  */
 class EntityTaskStatusResponse {
     /**

@@ -17,7 +17,6 @@ import PeopleDecisions from './PeopleDecisions';
 /**
  * The PeopleDecisionsResponse model module.
  * @module model/PeopleDecisionsResponse
- * @version 0.20.1
  */
 class PeopleDecisionsResponse {
     /**

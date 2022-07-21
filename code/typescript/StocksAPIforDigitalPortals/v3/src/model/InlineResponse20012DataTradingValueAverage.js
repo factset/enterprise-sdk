@@ -18,7 +18,6 @@ import InlineResponse20012DataTradingValueAverageDays5 from './InlineResponse200
 /**
  * The InlineResponse20012DataTradingValueAverage model module.
  * @module model/InlineResponse20012DataTradingValueAverage
- * @version 0.10.0
  */
 class InlineResponse20012DataTradingValueAverage {
     /**

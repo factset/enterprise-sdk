@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.CustomSymbolsTypesApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var saveCustomSymbolTypeDto = new SaveCustomSymbolTypeDto(); // SaveCustomSymbolTypeDto | saveCustomSymbolTypeDto object to save (optional) 
 
             try
@@ -142,6 +143,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var customSymbolTypeId = "customSymbolTypeId_example";  // Guid | customSymbolTypeId to delete associated record
 
             try
@@ -230,6 +232,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var customSymbolTypeId = "customSymbolTypeId_example";  // Guid | customSymbolTypeId to get associated record
 
             try
@@ -319,6 +322,7 @@ namespace Example
 
             var apiInstance = new CustomSymbolsTypesApi(config);
 
+
             try
             {
                 // Get all the custom symbol types
@@ -400,6 +404,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var customSymbolTypeId = "customSymbolTypeId_example";  // Guid | customSymbolTypeId to get associated Custom fileds
 
             try
@@ -488,6 +493,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var customSymbolTypeId = "customSymbolTypeId_example";  // Guid | customSymbolTypeId to update associated record
             var updateCustomSymbolTypeDto = new UpdateCustomSymbolTypeDto(); // UpdateCustomSymbolTypeDto | updateCustomSymbolTypeDto object to update (optional) 
 
@@ -578,6 +584,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsTypesApi(config);
+
             var reorderCustomSymbolTypeDto = new ReorderCustomSymbolTypeDto(); // ReorderCustomSymbolTypeDto |  (optional) 
 
             try

@@ -19,6 +19,7 @@ The `/time-series` endpoint is closely aligned with FactSet’s powerful data re
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.Formula.Api;
@@ -51,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TimeSeriesApi(config);
+
             var formulas = new List<string>(); // List<string> | List of FQL formulas
             var ids = new List<string>(); // List<string> | List of entity identifiers.  The `ids` and `universe` parameters provide two different ways to specify the identifiers for which you want data retrieved. Please enter either the `ids` or `universe` parameter.  (optional) 
             var universe = ;  // string | Screening expression to limit the universe  Please enter either the `ids` or `universe` parameter.  (optional) 
@@ -148,6 +150,7 @@ The `/time-series` endpoint is closely aligned with FactSet’s powerful data re
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.Formula.Api;
@@ -180,6 +183,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TimeSeriesApi(config);
+
             var timeSeriesRequest = new TimeSeriesRequest(); // TimeSeriesRequest | 
 
             try

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **fileName** | **java.util.List&lt;String&gt;** |  |  [optional]
 **trimmed** | **java.util.List&lt;String&gt;** |  |  [optional]
 **uploadTime** | **java.util.List&lt;String&gt;** |  |  [optional]
+**audioSourceId** | **java.util.List&lt;String&gt;** |  |  [optional]
 
 
 ## Implemented Interfaces

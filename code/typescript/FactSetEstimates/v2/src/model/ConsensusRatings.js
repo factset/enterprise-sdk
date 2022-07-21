@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ConsensusRatings model module.
  * @module model/ConsensusRatings
- * @version 0.20.0
  */
 class ConsensusRatings {
     /**

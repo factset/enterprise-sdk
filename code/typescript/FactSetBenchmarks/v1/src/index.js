@@ -73,7 +73,6 @@ import IndexLevelApi from './api/IndexLevelApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

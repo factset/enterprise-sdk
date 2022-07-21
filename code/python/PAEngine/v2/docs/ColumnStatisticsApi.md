@@ -23,7 +23,8 @@ This endpoint lists all the column statistics that can be applied to a PA column
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import column_statistics_api
-from fds.sdk.PAEngine.model.column_statistic import ColumnStatistic
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get PA column statistics
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_column_statistics()
         pprint(api_response)
 

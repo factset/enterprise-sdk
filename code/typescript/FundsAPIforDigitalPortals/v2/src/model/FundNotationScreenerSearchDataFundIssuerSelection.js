@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundIssuerSelectionRestrict from './FundNot
 /**
  * The FundNotationScreenerSearchDataFundIssuerSelection model module.
  * @module model/FundNotationScreenerSearchDataFundIssuerSelection
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundIssuerSelection {
     /**

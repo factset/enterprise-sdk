@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -151,6 +152,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var sameQuality = true;  // bool? | Assure that the prices for all notations are of the same quality. (optional)  (default to true)
@@ -245,6 +247,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -339,6 +342,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var sameQuality = true;  // bool? | Assure that the prices for all notations are of the same quality. (optional)  (default to true)
@@ -433,6 +437,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to RLT)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -525,6 +530,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var quality = "RLT";  // string | Quality of the price. (optional)  (default to RLT)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -617,6 +623,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -705,6 +712,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
+
             var body = new InlineObject21(); // InlineObject21 | 
 
             try

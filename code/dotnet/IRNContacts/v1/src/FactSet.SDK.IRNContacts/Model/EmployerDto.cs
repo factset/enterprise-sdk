@@ -42,7 +42,7 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <param name="id">id (required).</param>
         /// <param name="name">name.</param>
         /// <param name="factsetIdentifier">factsetIdentifier.</param>
-        public EmployerDto(Guid id = default(Guid), string name = default(string), string factsetIdentifier = default(string))
+        public EmployerDto(Guid id,string name = default(string), string factsetIdentifier = default(string))
         {
             this.Id = id;
             this.Name = name;

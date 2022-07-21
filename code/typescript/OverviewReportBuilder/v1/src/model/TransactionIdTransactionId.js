@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TransactionIdTransactionId model module.
  * @module model/TransactionIdTransactionId
- * @version 0.20.0
  */
 class TransactionIdTransactionId {
     /**

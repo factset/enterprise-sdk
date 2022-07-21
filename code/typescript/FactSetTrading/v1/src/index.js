@@ -62,7 +62,6 @@ import OrdersApi from './api/OrdersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

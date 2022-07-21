@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
@@ -162,6 +163,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var fundsPricesRequest = new FundsPricesRequest(); // FundsPricesRequest | The Prices request body, allowing the user to specify a list of ids.
 
             try
@@ -255,6 +257,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
@@ -358,6 +361,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var fundsReturnsRequest = new FundsReturnsRequest(); // FundsReturnsRequest | The Returns request body, allowing the user to specify a list of ids.
 
             try
@@ -451,6 +455,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the `priceFirstDate` found within the /summary endpoint.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
@@ -550,6 +555,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var returnsRangeRequest = new ReturnsRangeRequest(); // ReturnsRangeRequest | The Returns Range request body, allowing the user to specify a list of ids.
 
             try
@@ -643,6 +649,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var date = 2018-12-31;  // string | The date requested for a given date range in YYYY-MM-DD format. The date MUST be equal to or less than the `priceRecentDate` found within the /summary endpoint.  (optional) 
             var dividendAdjust = "DIV";  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
@@ -740,6 +747,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesReturnsApi(config);
+
             var fundsReturnsSnapshotRequest = new FundsReturnsSnapshotRequest(); // FundsReturnsSnapshotRequest | The Returns Snapshot request body, allowing the user to specify a list of ids.
 
             try

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataFundHoldingTypeRestrict model module.
  * @module model/FundNotationScreenerSearchDataFundHoldingTypeRestrict
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundHoldingTypeRestrict {
     /**

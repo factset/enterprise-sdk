@@ -20,7 +20,6 @@ import ColumnSummaryRoot from '../model/ColumnSummaryRoot';
 /**
 * Columns service.
 * @module api/ColumnsApi
-* @version 0.20.0
 */
 export default class ColumnsApi {
 

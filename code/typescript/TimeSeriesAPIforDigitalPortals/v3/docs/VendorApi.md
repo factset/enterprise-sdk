@@ -1,6 +1,6 @@
 # timeseriesapifordigitalportals.VendorApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## postVendorChartIQTimeSeriesEodList
 
-> InlineResponse200 postVendorChartIQTimeSeriesEodList(body)
+> InlineResponse200 postVendorChartIQTimeSeriesEodList(inlineObject)
 
 End-of-day time series data for a notation.
 
@@ -46,10 +46,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VendorApi();
-const body = new timeseriesapifordigitalportals.InlineObject(); // InlineObject | 
+const inlineObject = new timeseriesapifordigitalportals.InlineObject(); // InlineObject | 
 
 // Call api endpoint
-apiInstance.postVendorChartIQTimeSeriesEodList(body).then(
+apiInstance.postVendorChartIQTimeSeriesEodList(inlineObject).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -68,7 +68,7 @@ apiInstance.postVendorChartIQTimeSeriesEodList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesEodSubsampleGet
 
-> InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(body)
+> InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1)
 
 Single subsample end-of-day data for a notation.
 
@@ -118,10 +118,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VendorApi();
-const body = new timeseriesapifordigitalportals.InlineObject1(); // InlineObject1 | 
+const inlineObject1 = new timeseriesapifordigitalportals.InlineObject1(); // InlineObject1 | 
 
 // Call api endpoint
-apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(body).then(
+apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(inlineObject1).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -140,7 +140,7 @@ apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesEodSubsampleList
 
-> InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(body)
+> InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(inlineObject2)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -190,10 +190,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VendorApi();
-const body = new timeseriesapifordigitalportals.InlineObject2(); // InlineObject2 | 
+const inlineObject2 = new timeseriesapifordigitalportals.InlineObject2(); // InlineObject2 | 
 
 // Call api endpoint
-apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(body).then(
+apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(inlineObject2).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -212,7 +212,7 @@ apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesIntradaySubsampleGet
 
-> InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(body)
+> InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3)
 
 Single subsample intraday data for a notation.
 
@@ -262,10 +262,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VendorApi();
-const body = new timeseriesapifordigitalportals.InlineObject3(); // InlineObject3 | 
+const inlineObject3 = new timeseriesapifordigitalportals.InlineObject3(); // InlineObject3 | 
 
 // Call api endpoint
-apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleGet(body).then(
+apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleGet(inlineObject3).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -284,7 +284,7 @@ apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleGet(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## postVendorChartIQTimeSeriesIntradaySubsampleList
 
-> InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(body)
+> InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4)
 
 Subsampled intraday time series data for a notation.
 
@@ -334,10 +334,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new VendorApi();
-const body = new timeseriesapifordigitalportals.InlineObject4(); // InlineObject4 | 
+const inlineObject4 = new timeseriesapifordigitalportals.InlineObject4(); // InlineObject4 | 
 
 // Call api endpoint
-apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(body).then(
+apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(inlineObject4).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -356,7 +356,7 @@ apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | 
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
 

@@ -42,7 +42,7 @@ namespace FactSet.SDK.Symbology.Model
         /// </summary>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. (required).</param>
         /// <param name="symbolType">symbolType.</param>
-        public FactsetTranslationAdvancedRequest(List<string> ids = default(List<string>), GetSymbolType symbolType = default(GetSymbolType))
+        public FactsetTranslationAdvancedRequest(List<string> ids,GetSymbolType symbolType = default(GetSymbolType))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

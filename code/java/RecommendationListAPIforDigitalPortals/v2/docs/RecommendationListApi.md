@@ -56,9 +56,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of the list.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse200 result = apiInstance.getRecommendationListGet(id, attributes, language);
             System.out.println(result);
@@ -79,9 +79,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of the list. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -145,9 +145,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        BigDecimal idRevision = new BigDecimal(78); // BigDecimal | Identifier of the revision.
+        BigDecimal idRevision = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2005 result = apiInstance.getRecommendationListRevisionElementList(idRevision, attributes, language);
             System.out.println(result);
@@ -168,9 +168,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idRevision** | **BigDecimal**| Identifier of the revision. |
+ **idRevision** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -234,9 +234,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of the revision.
+        BigDecimal id = new BigDecimal(78); // BigDecimal | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2002 result = apiInstance.getRecommendationListRevisionGet(id, attributes, language);
             System.out.println(result);
@@ -257,9 +257,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| Identifier of the revision. |
+ **id** | **BigDecimal**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -322,10 +322,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        String idNotation = "idNotation_example"; // String | Restrict the search to revisions containing an element associated with the identified notation.
-        String idInstrument = "idInstrument_example"; // String | Restrict the search to revisions pointing to the identified instrument.
+        String idNotation = "idNotation_example"; // String | 
+        String idInstrument = "idInstrument_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2004 result = apiInstance.getRecommendationListRevisionSearch(idNotation, idInstrument, attributes, language);
             System.out.println(result);
@@ -346,10 +346,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idNotation** | **String**| Restrict the search to revisions containing an element associated with the identified notation. | [optional]
- **idInstrument** | **String**| Restrict the search to revisions pointing to the identified instrument. | [optional]
+ **idNotation** | **String**|  | [optional]
+ **idInstrument** | **String**|  | [optional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -412,10 +412,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        String name = "name_example"; // String | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.
-        Boolean onlyActive = true; // Boolean | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.
+        String name = "name_example"; // String | 
+        Boolean onlyActive = true; // Boolean | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2001 result = apiInstance.getRecommendationListSearch(name, onlyActive, attributes, language);
             System.out.println(result);
@@ -436,10 +436,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. | [optional]
- **onlyActive** | **Boolean**| Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. | [optional]
+ **name** | **String**|  | [optional]
+ **onlyActive** | **Boolean**|  | [optional]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ## postRecommendationListRevisionList
 
-> InlineResponse2003 postRecommendationListRevisionList(body)
+> InlineResponse2003 postRecommendationListRevisionList(inlineObject)
 
 List of revisions of a recommendation list.
 
@@ -502,9 +502,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse2003 result = apiInstance.postRecommendationListRevisionList(body);
+            InlineResponse2003 result = apiInstance.postRecommendationListRevisionList(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -523,7 +523,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  |
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 

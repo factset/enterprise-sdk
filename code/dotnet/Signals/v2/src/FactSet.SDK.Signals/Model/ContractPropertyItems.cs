@@ -41,7 +41,7 @@ namespace FactSet.SDK.Signals.Model
         /// Initializes a new instance of the <see cref="ContractPropertyItems" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        public ContractPropertyItems(string type = default(string))
+        public ContractPropertyItems(string type)
         {
             // to ensure "type" is required (not null)
             if (type == null) {

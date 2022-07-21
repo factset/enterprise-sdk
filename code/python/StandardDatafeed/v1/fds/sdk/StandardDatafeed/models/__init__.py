@@ -9,10 +9,13 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from fds.sdk.StandardDatafeed.model.data import Data
+from fds.sdk.StandardDatafeed.model.dataresponseitems import Dataresponseitems
+from fds.sdk.StandardDatafeed.model.dataresponseitems_related_bundles import DataresponseitemsRelatedBundles
 from fds.sdk.StandardDatafeed.model.list_files200_response import ListFiles200Response
 from fds.sdk.StandardDatafeed.model.list_files400_response import ListFiles400Response
 from fds.sdk.StandardDatafeed.model.list_schema200_response import ListSchema200Response
+from fds.sdk.StandardDatafeed.model.list_schema200_response_data import ListSchema200ResponseData
+from fds.sdk.StandardDatafeed.model.list_schema200_response_meta import ListSchema200ResponseMeta
 from fds.sdk.StandardDatafeed.model.list_schema400_response import ListSchema400Response
 from fds.sdk.StandardDatafeed.model.meta import Meta
 from fds.sdk.StandardDatafeed.model.pagination import Pagination

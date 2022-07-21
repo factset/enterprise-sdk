@@ -46,7 +46,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="dbaName">dbaName.</param>
         /// <param name="crunchbaseCategories">crunchbaseCategories.</param>
         /// <param name="crunchbaseUrl">crunchbaseUrl.</param>
-        public ProfileDataBusiness(ProfileDataBusinessDescription description = default(ProfileDataBusinessDescription), ProfileDataBusinessIndustry industry = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry sector = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry name = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry dbaName = default(ProfileDataBusinessIndustry), ProfileDataBusinessCrunchbaseCategories crunchbaseCategories = default(ProfileDataBusinessCrunchbaseCategories), ProfileDataBusinessCrunchbaseUrl crunchbaseUrl = default(ProfileDataBusinessCrunchbaseUrl))
+        public ProfileDataBusiness(ProfileDataBusinessDescription description, ProfileDataBusinessIndustry industry, ProfileDataBusinessIndustry sector, ProfileDataBusinessIndustry name,ProfileDataBusinessIndustry dbaName = default(ProfileDataBusinessIndustry), ProfileDataBusinessCrunchbaseCategories crunchbaseCategories = default(ProfileDataBusinessCrunchbaseCategories), ProfileDataBusinessCrunchbaseUrl crunchbaseUrl = default(ProfileDataBusinessCrunchbaseUrl))
         {
             // to ensure "description" is required (not null)
             if (description == null) {

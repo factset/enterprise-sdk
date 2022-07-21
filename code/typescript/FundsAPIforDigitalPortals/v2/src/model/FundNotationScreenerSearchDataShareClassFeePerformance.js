@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeePerformanceCurrent from './Fun
 /**
  * The FundNotationScreenerSearchDataShareClassFeePerformance model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeePerformance
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeePerformance {
     /**

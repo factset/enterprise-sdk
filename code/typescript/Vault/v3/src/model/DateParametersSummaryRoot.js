@@ -17,7 +17,6 @@ import DateParametersSummary from './DateParametersSummary';
 /**
  * The DateParametersSummaryRoot model module.
  * @module model/DateParametersSummaryRoot
- * @version 0.20.0
  */
 class DateParametersSummaryRoot {
     /**

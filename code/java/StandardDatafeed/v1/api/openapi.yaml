@@ -3,32 +3,48 @@ info:
   contact:
     email: teammustang@factset.com
     name: Team Mustang
-  description: |
-    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:
-
-    Unable to install 3rd party executables due to Corporate Security policies
-    Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed
-    Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution
-    This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.
-  title: SDF_API
+  description: "The Standard DataFeed (SDF) Download API provides an alternative method\
+    \ for users to request and retrieve SDF packages (schemas & bundles). This service\
+    \ is not a direct replacement and does not have 100% feature parity with the Loader\
+    \ Application. This API provides an alternative for users who are unable to utilize\
+    \ the Loader application due to following reasons:\n  - Inability to install 3rd\
+    \ party executables due to Corporate Security policies  \n  - Inability to utilize\
+    \ the Loader application due to limitations or restrictions with the environment\
+    \ used to consume Standard Datafeed\n  - Clients who are utilizing existing delivery\
+    \ method like FTP, who may want to use a more secured & modern solution  \n\n\
+    \ This API allows users to retrieve\n - SDF packages(excluding Quant Factor Library)\
+    \ they have subscriptions for, going back to August 31, 2021,\n - QFL - Quant\
+    \ Factor Library (Factor Family & Factor Groups) packages they have subscriptions\
+    \ for, going back to January 01, 1995.\n \n Additional parameters are available\
+    \ to filter requests to get the exact files users are looking for.\n \n QFL data\
+    \ is delivered through Content API & Bulk Data API (SDF API)\n - Content API :\
+    \ Provides direct access to FactSet-hosted QFL data.  Suitable for interactive,\
+    \ ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption,\
+    \ i.e. more calls can result in more costs.\n - Bulk Data API : Provides access\
+    \ to download locations of zip files for client download. Suitable for production\
+    \ processes within a client environment. Cost is based on the use case and fixed\
+    \ unless scope changes (same as other SDFs)."
+  title: SDF Download API
   version: "1.0"
 servers:
 - url: https://api.factset.com/bulk-documents/sdf
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
-tags: []
+tags:
+- name: Schema
+- name: SDF and QFL Content Library
 paths:
   /v1/list-schemas:
     get:
       description: |-
-        <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client
+        <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.
 
-        This API provides a downloadable file for the schema & sequence number (version number of schema) specified
+         If schema & sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
       operationId: get-v1-list-schemas
       parameters:
-      - description: 'schema name</p> Default is all schemas & bundles subscribed
-          by the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+      - description: "schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**\n\n\
+          QFL:- To query QFL data, please use value:   **qfl_v1** "
         explode: true
         in: query
         name: schema
@@ -36,9 +52,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Enter the sequence number associated with a schema</p> Provides
-          a pre-signed url to download the respective schema file</p> "**Example:
-          "8" from acta_v1: [8],**'
+      - description: "Version number of a schema\n\nPlease enter the sequence number\
+          \ associated with the schema passed in the request\n**Example: \"8\" from\
+          \ acta_v1: [8],**\n\nQFL:- Enter the sequence number associated with the\
+          \ qfl schema \n\n**Note:** Please pass sequence parameter only while passing\
+          \ the schema parameter in the request"
         explode: true
         in: query
         name: sequence
@@ -67,16 +85,25 @@ paths:
           description: Bad Request
       summary: schemas
       tags:
-      - schema
+      - Schema
       x-accepts: application/json
   /v1/list-files:
     get:
-      description: |
-        <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a> end point provides the delta & full files in a reverse chronological order for all the schemas & bundles subscribed by the client
+      description: "<a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a>\
+        \ end point provides the delta & full files in a reverse chronological order\
+        \ by default for all the schemas & bundles subscribed by the client\n\n\n\
+        \ QFL:-\n   - In case of QFL, <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a>\
+        \ end point provides the \"Historical & Year to Date (YTD)\" data in a reverse\
+        \ chronological order by default for all the factor families & groups subscribed\
+        \ to by the user</p> Provides \"full files\" only for historical bundles[data\
+        \ available from 1995 to previous year], \"full & delta files\" for YTD bundles[data\
+        \ available for current year]\n   \n   If startDate and endDate parameters\
+        \ are not specified in the request, this endpoint returns past 10 days data\
+        \ by default.\n"
       operationId: get-v1-list-files
       parameters:
-      - description: 'schema name</p> Default is all schemas & bundles subscribed
-          by the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+      - description: "schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**\n\n\
+          QFL:- To query QFL data, please use value:   **qfl_v1** "
         explode: true
         in: query
         name: schema
@@ -84,8 +111,12 @@ paths:
         schema:
           type: string
         style: form
-      - description: bundle name</p> Default is all the bundles client is subscribed
-          to</p> **Do not use "schema" parameter** when searching for a specific bundle
+      - description: |-
+          bundle name</p> If this parameter is not passed in the request, all the bundles a client is subscribed to are returned.
+
+          QFL:-
+          - For QFL its the factor group name
+          - If this parameter is not passed in the request, all the the factor families & factor groups subscribed to by the user are returned. - Supports comma separated list of multiple factor groups
         explode: true
         in: query
         name: bundle
@@ -93,9 +124,12 @@ paths:
         schema:
           type: string
         style: form
-      - description: file type = Full or Delta</p> Full files are weekly files generated
-          every weekend (Saturday). **The date range should include weekend dates
-          if requesting for "Full" files**
+      - description: |-
+          file type = Full or Delta</p> Full files are weekly files generated every weekend (Saturday). **The date range should include weekend dates if requesting for "Full" files**
+
+          QFL:- In case of QFL we have
+          - Historical files (1995 to previous year)- Always "Full" . A "Full" file is generated for each year
+          - For YTD (Current year)- "Full" files are weekly files generated every weekend (Saturday). The date range should include weekend dates if requesting for "Full" files
         explode: true
         in: query
         name: type
@@ -106,9 +140,17 @@ paths:
           - delta
           type: string
         style: form
-      - description: The earliest date of the feed file the API should fetch for based
-          on the fileTimestamp.</p> Data requested should be in batches of 10days
-          **(Date range should be less than or equal to 10)**</p>**Date format -  YYYY-MM-DD**
+      - description: |-
+          The earliest date of the feed file the API should fetch for based on the fileTimestamp.</p>
+
+
+          - If schema parameter is not specified in the request, then data requested should be in batches of 10days or less**(Date range should be less than or equal to 10)**
+          - If the schema parameter is specified in the request, date range can be greater than 10 days
+          - If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.
+          - startDate can be absolute- YYYY-MM-DD or relative:-  -1 for yesterday
+
+          QFL:- In case of QFL
+          - Historical files available from 1995-01-01 to 2021-12-31. YTD files are current year files.
         explode: true
         in: query
         name: startDate
@@ -116,8 +158,12 @@ paths:
         schema:
           type: string
         style: form
-      - description: The latest date of the feed file the API should fetch for based
-          on the fileTimestamp</p>**Date format -  YYYY-MM-DD**
+      - description: |-
+          The latest date of the feed file the API should fetch for based on the fileTimestamp
+
+          If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.
+
+          endDate can be in absolute- YYYY-MM-DD or relative date:- 0 for today
         explode: true
         in: query
         name: endDate
@@ -177,14 +223,14 @@ paths:
                 $ref: '#/components/schemas/list-files_400Response'
           description: Bad Request
       tags:
-      - schemas & bundles
+      - SDF and QFL Content Library
       x-accepts: application/json
 components:
   examples:
     list-schema_200ResponseExample:
       summary: Sample Response
       value:
-        schema: acta_v1                         **Example**
+        schema: acta_v1
         sequence: 8
         url: https://fdss3-bulk-data-delivery-sdf.s3.amazonaws.com/schema/acta_v1/8/2020-05-28_14_18_33.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMSAGCE52%2F20210511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210511T170435Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaCXVzLWVhc3QtMSJIMEYCIQD1He0st1G1qElczFiEEG0DVpLHRkTfIyCgA9pUbHmT4wIhAPyz46DpoaSZDfmk%2FZqbG7xUZjZjDyCbr5uBRw5jlz1JKtkBCKr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMODUyNTYyNjIwODcwIgzHhlGrM5TOWg50o9IqrQGOySsSusfChhxaGUj7dfJDMdnJBOJtm6O5pAnVMnzuHhyr%2FLg69QHy%2BmxSO6SdqykHRjuLMnUeNgQ34n75gaLQDe7B%2Bsw9jSZV3NI6O6B2G4Gjga4X7%2Fm1OlKbStb0CgTVjYTjSI4vIMMn1jKmGZvosl9ZSJgpEbeYk5kKG4Kmr%2FXDGbn4C0ZKXbdnWY4yZCaZitNAkJ74hQSxlk7DWBrTKY1QZUT7WBvd3hRXRTCY8uqEBjrfAdcXYNIJmuyJRel22QcGZ24xPyUXJyW9%2B3vbmDQx3QHLyyHZq%2BbKGKt0sphxhfna%2Bu9qdApKhkBbk1N1%2Bv%2FXLvItRG5Y38ZPpy4gj6hgs6h5%2Buay1Esb32f4083L8uBL26NuUDg09odjE6sBpuqkJoTiBMXaKdlHbU0GfrOli2dK46rhDmY6m1jbF2Najd1v5rbDW%2FPRzYnpM638paqbwUev%2FcLgGvRI%2FXuWoNH%2FfhXFCZf9G20BGWWyhuOoq0%2BSL0a4BQkZXHNjiCXQrysuQtonI4NF%2BD%2FfwZtPuD%2BEsJg%3D&X-Amz-Signature=58517963bbb5b77b481ce68df391c7e29166ac330c552c79f4df68cfdd0585ab
         timestamp: 2020-05-28 14:18:33
@@ -197,7 +243,7 @@ components:
       summary: Sample Response
       value:
         data:
-        - type: delta                           **Example**
+        - type: delta
           bundle: fgp_ca_events_am_v1
           schema: fgp_v1
           sequence: "555"
@@ -220,7 +266,10 @@ components:
     list-files_400ResponseExample:
       summary: Sample Response
       value:
-        data: []
+        data:
+          id: xxx
+          error_message: parameterError:sequence must be an int and be within specified
+            limits
         meta:
           pagination:
             total: 0
@@ -231,8 +280,8 @@ components:
             isPartial: false
   parameters:
     schema:
-      description: 'schema name</p> Default is all schemas & bundles subscribed by
-        the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+      description: "schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**\n\nQFL:-\
+        \ To query QFL data, please use value:   **qfl_v1** "
       explode: true
       in: query
       name: schema
@@ -241,9 +290,11 @@ components:
         type: string
       style: form
     sequence:
-      description: 'Enter the sequence number associated with a schema</p> Provides
-        a pre-signed url to download the respective schema file</p> "**Example: "8"
-        from acta_v1: [8],**'
+      description: "Version number of a schema\n\nPlease enter the sequence number\
+        \ associated with the schema passed in the request\n**Example: \"8\" from\
+        \ acta_v1: [8],**\n\nQFL:- Enter the sequence number associated with the qfl\
+        \ schema \n\n**Note:** Please pass sequence parameter only while passing the\
+        \ schema parameter in the request"
       explode: true
       in: query
       name: sequence
@@ -252,8 +303,12 @@ components:
         type: integer
       style: form
     bundle:
-      description: bundle name</p> Default is all the bundles client is subscribed
-        to</p> **Do not use "schema" parameter** when searching for a specific bundle
+      description: |-
+        bundle name</p> If this parameter is not passed in the request, all the bundles a client is subscribed to are returned.
+
+        QFL:-
+        - For QFL its the factor group name
+        - If this parameter is not passed in the request, all the the factor families & factor groups subscribed to by the user are returned. - Supports comma separated list of multiple factor groups
       explode: true
       in: query
       name: bundle
@@ -262,9 +317,12 @@ components:
         type: string
       style: form
     type:
-      description: file type = Full or Delta</p> Full files are weekly files generated
-        every weekend (Saturday). **The date range should include weekend dates if
-        requesting for "Full" files**
+      description: |-
+        file type = Full or Delta</p> Full files are weekly files generated every weekend (Saturday). **The date range should include weekend dates if requesting for "Full" files**
+
+        QFL:- In case of QFL we have
+        - Historical files (1995 to previous year)- Always "Full" . A "Full" file is generated for each year
+        - For YTD (Current year)- "Full" files are weekly files generated every weekend (Saturday). The date range should include weekend dates if requesting for "Full" files
       explode: true
       in: query
       name: type
@@ -276,9 +334,17 @@ components:
         type: string
       style: form
     startDate:
-      description: The earliest date of the feed file the API should fetch for based
-        on the fileTimestamp.</p> Data requested should be in batches of 10days **(Date
-        range should be less than or equal to 10)**</p>**Date format -  YYYY-MM-DD**
+      description: |-
+        The earliest date of the feed file the API should fetch for based on the fileTimestamp.</p>
+
+
+        - If schema parameter is not specified in the request, then data requested should be in batches of 10days or less**(Date range should be less than or equal to 10)**
+        - If the schema parameter is specified in the request, date range can be greater than 10 days
+        - If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.
+        - startDate can be absolute- YYYY-MM-DD or relative:-  -1 for yesterday
+
+        QFL:- In case of QFL
+        - Historical files available from 1995-01-01 to 2021-12-31. YTD files are current year files.
       explode: true
       in: query
       name: startDate
@@ -287,8 +353,12 @@ components:
         type: string
       style: form
     endDate:
-      description: The latest date of the feed file the API should fetch for based
-        on the fileTimestamp</p>**Date format -  YYYY-MM-DD**
+      description: |-
+        The latest date of the feed file the API should fetch for based on the fileTimestamp
+
+        If startDate and endDate parameters are not specified in the request, this endpoint returns past 10 days data by default.
+
+        endDate can be in absolute- YYYY-MM-DD or relative date:- 0 for today
       explode: true
       in: query
       name: endDate
@@ -334,23 +404,30 @@ components:
   schemas:
     list-schema_200Response:
       example:
-        schema: schema
-        sequence: 0
-        url: url
-        timestamp: timestamp
+        data:
+        - schema: schema
+          sequence: 0
+          url: url
+          timestamp: timestamp
+        - schema: schema
+          sequence: 0
+          url: url
+          timestamp: timestamp
+        meta:
+          pagination:
+            total: 6
+            offset: 5
+            is EstimatedTotal: true
+            limit: 1
+          partial:
+            isPartial: true
       properties:
-        schema:
-          description: schema name
-          type: string
-        sequence:
-          description: version number of the schema
-          type: integer
-        url:
-          description: pre-signed downloadable url of the schema & sequence
-          type: string
-        timestamp:
-          description: time stamp of when the schema-sequence was last updated
-          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/list_schema_200Response_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/list_schema_200Response_meta'
     list-schema_400Response:
       properties:
         id:
@@ -363,30 +440,31 @@ components:
       example:
         data:
         - schema: schema
-          sequence: 0
-          related_bundles: related_bundles
+          sequence: sequence
+          related_bundles:
+          - sequence: sequence
+            bundle: bundle
+          - sequence: sequence
+            bundle: bundle
           fileSize: fileSize
           type: type
           bundle: bundle
           url: url
           timestamp: timestamp
         - schema: schema
-          sequence: 0
-          related_bundles: related_bundles
+          sequence: sequence
+          related_bundles:
+          - sequence: sequence
+            bundle: bundle
+          - sequence: sequence
+            bundle: bundle
           fileSize: fileSize
           type: type
           bundle: bundle
           url: url
           timestamp: timestamp
         meta:
-        - pagination:
-            total: 6
-            offset: 5
-            is EstimatedTotal: true
-            limit: 1
-          partial:
-            isPartial: true
-        - pagination:
+          pagination:
             total: 6
             offset: 5
             is EstimatedTotal: true
@@ -396,25 +474,28 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/data'
+            $ref: '#/components/schemas/dataresponseitems'
           type: array
         meta:
-          items:
-            $ref: '#/components/schemas/meta'
-          type: array
-      type: object
+          $ref: '#/components/schemas/list_schema_200Response_meta'
     list-files_400Response:
       properties:
-        data:
+        id:
+          description: request id
           type: string
-        meta:
+        error_message:
+          description: message describing the error
           type: string
-    data:
+    dataresponseitems:
       description: Array of data objects
       example:
         schema: schema
-        sequence: 0
-        related_bundles: related_bundles
+        sequence: sequence
+        related_bundles:
+        - sequence: sequence
+          bundle: bundle
+        - sequence: sequence
+          bundle: bundle
         fileSize: fileSize
         type: type
         bundle: bundle
@@ -425,38 +506,37 @@ components:
           description: file type, full or delta
           type: string
         bundle:
-          description: bundle name
+          description: |-
+            bundle name
+
+            QFL:- For QFL its Factor Group name
           type: string
         schema:
-          description: schema name
+          description: |-
+            schema name
+
+            QFL:- In case of QFL its always qfl_v1
           type: string
         sequence:
           description: full or delta file sequence
-          type: integer
+          type: string
         related_bundles:
           description: bundles related to the sequence number
-          type: string
+          items:
+            $ref: '#/components/schemas/dataresponseitems_related_bundles'
+          type: array
         timestamp:
           description: time stamp of when the bundle was generated
           type: string
         url:
-          description: pre-signed downloadable url
+          description: pre-signed downloadable url, containing the bundle information
           type: string
         fileSize:
           description: file size of the particular bundle
           type: string
-      title: data
       type: object
     meta:
       description: Array of metadata objects
-      example:
-        pagination:
-          total: 6
-          offset: 5
-          is EstimatedTotal: true
-          limit: 1
-        partial:
-          isPartial: true
       properties:
         pagination:
           $ref: '#/components/schemas/pagination'
@@ -476,9 +556,9 @@ components:
           description: Total number of files the API returns for a particular query
           type: integer
         is EstimatedTotal:
-          description: Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to  “False” as the
-            API should always return the exact count
+          description: "Boolean value that represents whether the total count of files\
+            \ returned is exact or an estimate. This is defaulted to  â€œFalseâ€\x9d\
+            \ as the API should always return the exact count"
           type: boolean
         limit:
           description: Number of results returned per page
@@ -489,7 +569,7 @@ components:
             parameter (if used). This value is passed in the _paginationOffset parameter
             to retreieve subsequent results
           type: integer
-      title: pagination
+      title: paginationobjects
       type: object
     partial:
       description: If the value is true, it indicates additional results are available.
@@ -499,7 +579,53 @@ components:
       properties:
         isPartial:
           type: boolean
-      title: isPartial
+      title: isPartialobject
+      type: object
+    list_schema_200Response_data:
+      example:
+        schema: schema
+        sequence: 0
+        url: url
+        timestamp: timestamp
+      properties:
+        schema:
+          description: schema name
+          type: string
+        sequence:
+          description: version number of the schema
+          type: integer
+        url:
+          description: pre-signed downloadable url containing the information of the
+            schema
+          type: string
+        timestamp:
+          description: time stamp of when the schema-sequence was last updated
+          type: string
+      type: object
+    list_schema_200Response_meta:
+      example:
+        pagination:
+          total: 6
+          offset: 5
+          is EstimatedTotal: true
+          limit: 1
+        partial:
+          isPartial: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        partial:
+          $ref: '#/components/schemas/partial'
+      type: object
+    dataresponseitems_related_bundles:
+      example:
+        sequence: sequence
+        bundle: bundle
+      properties:
+        bundle:
+          type: string
+        sequence:
+          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

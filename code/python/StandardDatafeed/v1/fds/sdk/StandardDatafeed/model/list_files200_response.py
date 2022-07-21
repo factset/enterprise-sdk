@@ -1,7 +1,7 @@
 """
-    SDF_API
+    SDF Download API
 
-    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.   # noqa: E501
+    The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: teammustang@factset.com
@@ -31,10 +31,10 @@ from fds.sdk.StandardDatafeed.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StandardDatafeed.model.data import Data
-    from fds.sdk.StandardDatafeed.model.meta import Meta
-    globals()['Data'] = Data
-    globals()['Meta'] = Meta
+    from fds.sdk.StandardDatafeed.model.dataresponseitems import Dataresponseitems
+    from fds.sdk.StandardDatafeed.model.list_schema200_response_meta import ListSchema200ResponseMeta
+    globals()['Dataresponseitems'] = Dataresponseitems
+    globals()['ListSchema200ResponseMeta'] = ListSchema200ResponseMeta
 
 
 class ListFiles200Response(ModelNormal):
@@ -90,8 +90,8 @@ class ListFiles200Response(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([Data],),  # noqa: E501
-            'meta': ([Meta],),  # noqa: E501
+            'data': ([Dataresponseitems],),  # noqa: E501
+            'meta': (ListSchema200ResponseMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -145,8 +145,8 @@ class ListFiles200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([Data]): [optional]  # noqa: E501
-            meta ([Meta]): [optional]  # noqa: E501
+            data ([Dataresponseitems]): [optional]  # noqa: E501
+            meta (ListSchema200ResponseMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class ListFiles200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([Data]): [optional]  # noqa: E501
-            meta ([Meta]): [optional]  # noqa: E501
+            data ([Dataresponseitems]): [optional]  # noqa: E501
+            meta (ListSchema200ResponseMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

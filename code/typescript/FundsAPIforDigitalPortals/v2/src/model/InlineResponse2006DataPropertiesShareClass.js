@@ -19,7 +19,6 @@ import InlineResponse2006DataPropertiesShareClassSavingsPlan from './InlineRespo
 /**
  * The InlineResponse2006DataPropertiesShareClass model module.
  * @module model/InlineResponse2006DataPropertiesShareClass
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesShareClass {
     /**

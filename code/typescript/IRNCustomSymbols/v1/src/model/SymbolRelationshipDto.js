@@ -18,7 +18,6 @@ import SymbolsRelationshipIdNameDto from './SymbolsRelationshipIdNameDto';
 /**
  * The SymbolRelationshipDto model module.
  * @module model/SymbolRelationshipDto
- * @version 0.20.0
  */
 class SymbolRelationshipDto {
     /**

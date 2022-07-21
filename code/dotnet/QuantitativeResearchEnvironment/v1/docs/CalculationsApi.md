@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
@@ -235,6 +237,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
@@ -326,6 +329,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var calculation = new Calculation(); // Calculation |  (optional) 
 
             try

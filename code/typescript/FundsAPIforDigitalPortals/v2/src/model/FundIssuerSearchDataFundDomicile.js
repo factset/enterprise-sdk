@@ -18,7 +18,6 @@ import FundIssuerSearchDataFundDomicileRestrict from './FundIssuerSearchDataFund
 /**
  * The FundIssuerSearchDataFundDomicile model module.
  * @module model/FundIssuerSearchDataFundDomicile
- * @version 0.10.0
  */
 class FundIssuerSearchDataFundDomicile {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="symbol">Market-specific code to identify a notation. (required).</param>
         /// <param name="filter">filter.</param>
-        public NotationCrossReferenceListBySymbolData(string symbol = default(string), NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
+        public NotationCrossReferenceListBySymbolData(string symbol,NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
         {
             // to ensure "symbol" is required (not null)
             if (symbol == null) {

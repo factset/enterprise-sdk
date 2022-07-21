@@ -18,7 +18,6 @@ import NotationSearchByTextDataValidationMarketSelectionRestrict from './Notatio
 /**
  * The NotationSearchByTextDataValidationMarketSelection model module.
  * @module model/NotationSearchByTextDataValidationMarketSelection
- * @version 0.10.0
  */
 class NotationSearchByTextDataValidationMarketSelection {
     /**

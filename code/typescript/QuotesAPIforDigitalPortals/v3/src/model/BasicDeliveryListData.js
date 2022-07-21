@@ -17,7 +17,6 @@ import BasicDeliveryListDataFilter from './BasicDeliveryListDataFilter';
 /**
  * The BasicDeliveryListData model module.
  * @module model/BasicDeliveryListData
- * @version 0.10.0
  */
 class BasicDeliveryListData {
     /**

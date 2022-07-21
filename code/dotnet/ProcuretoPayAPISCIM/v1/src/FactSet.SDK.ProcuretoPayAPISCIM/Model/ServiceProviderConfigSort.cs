@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigSort" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigSort()
+        public ServiceProviderConfigSort(bool supported)
         {
         }
 

@@ -18,7 +18,6 @@ import Transactions from '../model/Transactions';
 /**
 * DSOTM service.
 * @module api/DSOTMApi
-* @version 0.20.0
 */
 export default class DSOTMApi {
 

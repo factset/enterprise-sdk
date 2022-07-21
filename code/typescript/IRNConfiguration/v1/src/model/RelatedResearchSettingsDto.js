@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedResearchSettingsDto model module.
  * @module model/RelatedResearchSettingsDto
- * @version 0.20.0
  */
 class RelatedResearchSettingsDto {
     /**

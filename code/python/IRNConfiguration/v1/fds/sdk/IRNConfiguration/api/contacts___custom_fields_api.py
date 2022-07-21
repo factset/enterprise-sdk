@@ -864,7 +864,7 @@ class ContactsCustomFieldsApi(object):
     def get_contact_custom_fields(
         self,
         **kwargs
-    ) -> [ContactCustomFieldDto]:
+    ) -> typing.List[ContactCustomFieldDto]:
         """Get all the contact custom fields  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -895,7 +895,7 @@ class ContactsCustomFieldsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactCustomFieldDto]
+            typing.List[ContactCustomFieldDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -904,7 +904,7 @@ class ContactsCustomFieldsApi(object):
     def get_contact_custom_fields_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[ContactCustomFieldDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactCustomFieldDto], int, typing.MutableMapping]:
         """Get all the contact custom fields  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -935,7 +935,7 @@ class ContactsCustomFieldsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactCustomFieldDto]
+            typing.List[ContactCustomFieldDto]
                 Response Object
             int
                 Http Status Code
@@ -948,7 +948,7 @@ class ContactsCustomFieldsApi(object):
     def get_contact_custom_fields_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[ContactCustomFieldDto]]":
+    ) -> "ApplyResult[typing.List[ContactCustomFieldDto]]":
         """Get all the contact custom fields  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -979,7 +979,7 @@ class ContactsCustomFieldsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactCustomFieldDto]]
+            ApplyResult[typing.List[ContactCustomFieldDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_contact_custom_fields_endpoint.call_with_http_info(**kwargs)
@@ -987,7 +987,7 @@ class ContactsCustomFieldsApi(object):
     def get_contact_custom_fields_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactCustomFieldDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactCustomFieldDto], int, typing.MutableMapping]]":
         """Get all the contact custom fields  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1018,7 +1018,7 @@ class ContactsCustomFieldsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactCustomFieldDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactCustomFieldDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_contact_custom_fields_endpoint.call_with_http_info(**kwargs)

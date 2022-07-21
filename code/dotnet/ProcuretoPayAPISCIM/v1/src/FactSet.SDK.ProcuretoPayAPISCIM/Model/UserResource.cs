@@ -45,7 +45,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="email">Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. (required).</param>
         /// <param name="urnscimschemasextensionCoreFactset10">urnscimschemasextensionCoreFactset10.</param>
         /// <param name="meta">meta.</param>
-        public UserResource(List<string> schemas = default(List<string>), string externalId = default(string), UserResourceName name = default(UserResourceName), string email = default(string), UserResourceUrnScimSchemasExtensionCoreFactset10 urnscimschemasextensionCoreFactset10 = default(UserResourceUrnScimSchemasExtensionCoreFactset10), UserResourceMeta meta = default(UserResourceMeta))
+        public UserResource(string userName, UserResourceName name, string email,List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), List<UserResourcePhoneNumbers> phoneNumbers = default(List<UserResourcePhoneNumbers>), List<UserResourceGroups> groups = default(List<UserResourceGroups>), UserResourceUrnScimSchemasExtensionCoreFactset10 urnscimschemasextensionCoreFactset10 = default(UserResourceUrnScimSchemasExtensionCoreFactset10), UserResourceMeta meta = default(UserResourceMeta))
         {
             // to ensure "name" is required (not null)
             if (name == null) {

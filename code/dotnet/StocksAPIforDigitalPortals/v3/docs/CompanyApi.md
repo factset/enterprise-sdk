@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var id = "id_example";  // string | Identifier of the instrument representing company shares.Any other instrument yields empty values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -235,6 +237,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -325,6 +328,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var body = new InlineObject(); // InlineObject |  (optional) 
 
             try

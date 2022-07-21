@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataEbitMarginMinimum from './StockNotationScr
 /**
  * The StockNotationScreenerSearchDataReturnOnAssets model module.
  * @module model/StockNotationScreenerSearchDataReturnOnAssets
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataReturnOnAssets {
     /**

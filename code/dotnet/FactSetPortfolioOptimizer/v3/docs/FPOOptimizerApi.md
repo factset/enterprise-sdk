@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get FPO optimization status by id endpoint
             var accept = "accept_example";  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
@@ -338,6 +341,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
 
             try
@@ -401,6 +405,7 @@ This endpoint runs FPO optimization specified in the POST body parameters.      
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetPortfolioOptimizer.Api;
@@ -433,6 +438,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var fPOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Calculation Parameters (optional) 
@@ -514,6 +520,7 @@ This endpoint updates and run the FPO optimization specified in the PUT body par
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetPortfolioOptimizer.Api;
@@ -546,6 +553,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FPOOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 

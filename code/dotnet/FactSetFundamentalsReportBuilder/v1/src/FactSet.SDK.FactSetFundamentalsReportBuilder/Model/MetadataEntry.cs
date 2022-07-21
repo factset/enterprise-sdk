@@ -35,7 +35,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="CurrencyCode" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencyCode.</param>
         public MetadataEntry(CurrencyCode actualInstance)
@@ -47,7 +46,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="CurrencySymbol" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencySymbol.</param>
         public MetadataEntry(CurrencySymbol actualInstance)
@@ -59,7 +57,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Category" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Category.</param>
         public MetadataEntry(Category actualInstance)
@@ -71,7 +68,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="MetricFundamentals" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of MetricFundamentals.</param>
         public MetadataEntry(MetricFundamentals actualInstance)
@@ -83,7 +79,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="ValueType" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ValueType.</param>
         public MetadataEntry(ValueType actualInstance)
@@ -95,7 +90,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Scale" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Scale.</param>
         public MetadataEntry(Scale actualInstance)
@@ -107,7 +101,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Description" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Description.</param>
         public MetadataEntry(Description actualInstance)
@@ -119,7 +112,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Frequency" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Frequency.</param>
         public MetadataEntry(Frequency actualInstance)
@@ -131,7 +123,6 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="ReportStatus" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of ReportStatus.</param>
         public MetadataEntry(ReportStatus actualInstance)
@@ -155,15 +146,27 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             }
             set
             {
-                if (value is Category)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is CurrencyCode)
+                if (value is CurrencyCode)
                 {
                     this._actualInstance = value;
                 }
                 else if (value is CurrencySymbol)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is Category)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is MetricFundamentals)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueType)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is Scale)
                 {
                     this._actualInstance = value;
                 }
@@ -175,25 +178,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
                 {
                     this._actualInstance = value;
                 }
-                else if (value is MetricFundamentals)
-                {
-                    this._actualInstance = value;
-                }
                 else if (value is ReportStatus)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is Scale)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value is ValueType)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Category, CurrencyCode, CurrencySymbol, Description, Frequency, MetricFundamentals, ReportStatus, Scale, ValueType");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: CurrencyCode, CurrencySymbol, Category, MetricFundamentals, ValueType, Scale, Description, Frequency, ReportStatus");
                 }
             }
         }
@@ -330,7 +321,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(CurrencyCode).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<CurrencyCode>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -347,7 +338,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(CurrencySymbol).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<CurrencySymbol>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -364,7 +355,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Category).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Category>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -381,7 +372,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(MetricFundamentals).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<MetricFundamentals>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -398,7 +389,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(ValueType).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ValueType>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -415,7 +406,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Scale).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Scale>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -432,7 +423,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Description).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Description>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -449,7 +440,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(Frequency).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Frequency>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);
@@ -466,7 +457,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 var hasAdditionalProperties = !(typeof(ReportStatus).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<ReportStatus>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
                 );
                 newMetadataEntry = new MetadataEntry(parsedValue);

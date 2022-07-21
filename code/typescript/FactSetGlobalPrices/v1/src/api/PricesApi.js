@@ -20,7 +20,6 @@ import GlobalPricesResponse from '../model/GlobalPricesResponse';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.20.0
 */
 export default class PricesApi {
 

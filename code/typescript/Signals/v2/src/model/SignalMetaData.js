@@ -17,7 +17,6 @@ import SignalMetaDataData from './SignalMetaDataData';
 /**
  * The SignalMetaData model module.
  * @module model/SignalMetaData
- * @version 0.20.0
  */
 class SignalMetaData {
     /**

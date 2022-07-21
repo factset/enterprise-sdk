@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ApprovalLevelConfigDto model module.
  * @module model/ApprovalLevelConfigDto
- * @version 0.20.0
  */
 class ApprovalLevelConfigDto {
     /**

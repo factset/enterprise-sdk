@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesVolumeApi(config);
+
             var optionsPricesRequest = new OptionsPricesRequest(); // OptionsPricesRequest | Options Prices Request Body
 
             try
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesVolumeApi(config);
+
             var optionsVolumeRequest = new OptionsVolumeRequest(); // OptionsVolumeRequest | Volume Request Object
 
             try
@@ -238,6 +240,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesVolumeApi(config);
+
             var underlyingVolumeRequest = new UnderlyingVolumeRequest(); // UnderlyingVolumeRequest | Underlying Volume Request Body
 
             try

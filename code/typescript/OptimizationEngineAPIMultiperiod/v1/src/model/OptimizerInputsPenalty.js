@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsPenalty model module.
  * @module model/OptimizerInputsPenalty
- * @version 0.20.0
  */
 class OptimizerInputsPenalty {
     /**

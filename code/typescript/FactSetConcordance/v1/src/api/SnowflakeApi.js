@@ -19,7 +19,6 @@ import SnowflakeEntityMatchResponse from '../model/SnowflakeEntityMatchResponse'
 /**
 * Snowflake service.
 * @module api/SnowflakeApi
-* @version 0.8.2
 */
 export default class SnowflakeApi {
 

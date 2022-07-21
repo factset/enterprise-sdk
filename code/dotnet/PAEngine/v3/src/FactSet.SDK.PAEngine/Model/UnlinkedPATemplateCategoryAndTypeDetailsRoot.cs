@@ -42,7 +42,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public UnlinkedPATemplateCategoryAndTypeDetailsRoot(UnlinkedPATemplateCategoryAndTypeDetails data = default(UnlinkedPATemplateCategoryAndTypeDetails), Object meta = default(Object))
+        public UnlinkedPATemplateCategoryAndTypeDetailsRoot(UnlinkedPATemplateCategoryAndTypeDetails data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

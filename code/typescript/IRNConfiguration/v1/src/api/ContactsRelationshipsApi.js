@@ -22,7 +22,6 @@ import RelationshipType from '../model/RelationshipType';
 /**
 * ContactsRelationships service.
 * @module api/ContactsRelationshipsApi
-* @version 0.20.0
 */
 export default class ContactsRelationshipsApi {
 

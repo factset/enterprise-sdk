@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PricesTimeSeriesIntradayListData**](PricesTimeSeriesIntradayListData.md) |  | 
+**data** | [**PricesTimeSeriesIntradayListData**](PricesTimeSeriesIntradayListData.md) |  | [optional] 
 **meta** | [**PricesTimeSeriesIntradayListMeta**](PricesTimeSeriesIntradayListMeta.md) |  | [optional] 
 
 

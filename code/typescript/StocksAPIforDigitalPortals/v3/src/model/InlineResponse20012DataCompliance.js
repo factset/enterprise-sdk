@@ -17,7 +17,6 @@ import InlineResponse20012DataComplianceFrance from './InlineResponse20012DataCo
 /**
  * The InlineResponse20012DataCompliance model module.
  * @module model/InlineResponse20012DataCompliance
- * @version 0.10.0
  */
 class InlineResponse20012DataCompliance {
     /**

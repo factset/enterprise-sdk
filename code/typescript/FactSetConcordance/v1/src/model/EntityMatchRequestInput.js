@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityMatchRequestInput model module.
  * @module model/EntityMatchRequestInput
- * @version 0.8.2
  */
 class EntityMatchRequestInput {
     /**

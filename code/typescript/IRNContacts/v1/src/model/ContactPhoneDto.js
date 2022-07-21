@@ -17,7 +17,6 @@ import PhoneNumberTypeDto from './PhoneNumberTypeDto';
 /**
  * The ContactPhoneDto model module.
  * @module model/ContactPhoneDto
- * @version 0.20.0
  */
 class ContactPhoneDto {
     /**

@@ -69,7 +69,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="numberDays">numberDays (required).</param>
         /// <param name="direction">Direction of the crossing. (default to DirectionEnum.Up).</param>
-        public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays numberDays = default(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays), DirectionEnum? direction = DirectionEnum.Up)
+        public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays numberDays,DirectionEnum? direction = DirectionEnum.Up)
         {
             // to ensure "numberDays" is required (not null)
             if (numberDays == null) {

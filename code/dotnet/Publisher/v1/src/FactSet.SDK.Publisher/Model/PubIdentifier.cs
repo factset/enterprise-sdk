@@ -42,7 +42,7 @@ namespace FactSet.SDK.Publisher.Model
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
         /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR or OMS..</param>
-        public PubIdentifier(string id = default(string), string holdingsmode = default(string))
+        public PubIdentifier(string id,string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

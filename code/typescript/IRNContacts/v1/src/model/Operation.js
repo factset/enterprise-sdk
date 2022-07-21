@@ -17,7 +17,6 @@ import OperationType from './OperationType';
 /**
  * The Operation model module.
  * @module model/Operation
- * @version 0.20.0
  */
 class Operation {
     /**

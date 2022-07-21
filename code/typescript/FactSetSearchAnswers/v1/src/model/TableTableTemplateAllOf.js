@@ -17,7 +17,6 @@ import Table from './Table';
 /**
  * The TableTableTemplateAllOf model module.
  * @module model/TableTableTemplateAllOf
- * @version 0.20.0
  */
 class TableTableTemplateAllOf {
     /**

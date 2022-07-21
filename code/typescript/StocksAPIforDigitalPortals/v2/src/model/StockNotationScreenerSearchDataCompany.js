@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataCompanyCountry from './StockNotationScreen
 /**
  * The StockNotationScreenerSearchDataCompany model module.
  * @module model/StockNotationScreenerSearchDataCompany
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataCompany {
     /**

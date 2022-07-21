@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CompanyEstimatesListByInstrumentDataFiscalYears model module.
  * @module model/CompanyEstimatesListByInstrumentDataFiscalYears
- * @version 0.10.0
  */
 class CompanyEstimatesListByInstrumentDataFiscalYears {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NewItemDto model module.
  * @module model/NewItemDto
- * @version 0.20.0
  */
 class NewItemDto {
     /**

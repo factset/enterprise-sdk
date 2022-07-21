@@ -38,7 +38,6 @@ import InlineResponse2011 from '../model/InlineResponse2011';
 /**
 * Portfolio service.
 * @module api/PortfolioApi
-* @version 0.9.2
 */
 export default class PortfolioApi {
 

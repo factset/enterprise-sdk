@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIABDateParameters model module.
  * @module model/FIABDateParameters
- * @version 0.20.0
  */
 class FIABDateParameters {
     /**

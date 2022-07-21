@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosEnterpriseValueEbitda model module.
  * @module model/InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosEnterpriseValueEbitda
- * @version 0.9.2
  */
 class InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosEnterpriseValueEbitda {
     /**

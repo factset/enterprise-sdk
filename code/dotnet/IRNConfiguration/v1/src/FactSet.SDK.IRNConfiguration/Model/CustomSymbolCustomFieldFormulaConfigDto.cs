@@ -41,7 +41,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// </summary>
         /// <param name="formula">formula (required).</param>
         /// <param name="formulaType">formulaType (required).</param>
-        public CustomSymbolCustomFieldFormulaConfigDto(string formula = default(string), string formulaType = default(string))
+        public CustomSymbolCustomFieldFormulaConfigDto(string formula, string formulaType)
         {
             // to ensure "formula" is required (not null)
             if (formula == null) {

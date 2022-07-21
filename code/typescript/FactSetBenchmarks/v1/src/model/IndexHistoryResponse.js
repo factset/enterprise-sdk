@@ -17,7 +17,6 @@ import IndexHistory from './IndexHistory';
 /**
  * The IndexHistoryResponse model module.
  * @module model/IndexHistoryResponse
- * @version 0.20.0
  */
 class IndexHistoryResponse {
     /**

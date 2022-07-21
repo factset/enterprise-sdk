@@ -20,7 +20,6 @@ import ProfileDataBusinessIndustry from './ProfileDataBusinessIndustry';
 /**
  * The ProfileDataBusiness model module.
  * @module model/ProfileDataBusiness
- * @version 0.20.0
  */
 class ProfileDataBusiness {
     /**

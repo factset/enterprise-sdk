@@ -17,7 +17,6 @@ import AccountDirectories from './AccountDirectories';
 /**
  * The AccountDirectoriesRoot model module.
  * @module model/AccountDirectoriesRoot
- * @version 0.20.0
  */
 class AccountDirectoriesRoot {
     /**

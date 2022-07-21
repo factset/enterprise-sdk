@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Checkstatus model module.
  * @module model/Checkstatus
- * @version 0.20.1
  */
 class Checkstatus {
     /**

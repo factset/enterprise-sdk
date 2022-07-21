@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ImpliedVolatility model module.
  * @module model/ImpliedVolatility
- * @version 0.20.0
  */
 class ImpliedVolatility {
     /**

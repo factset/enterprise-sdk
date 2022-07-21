@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsQuantRiskRequestInfo model module.
  * @module model/OptimizerInputsQuantRiskRequestInfo
- * @version 0.20.0
  */
 class OptimizerInputsQuantRiskRequestInfo {
     /**

@@ -26,8 +26,8 @@ Returns ratings from the FactSet Estimates database for current and historical f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import ratings_api
-from fds.sdk.FactSetEstimates.model.consensus_ratings_response import ConsensusRatingsResponse
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,10 +60,12 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
     start_date = "2019-07-30" # str | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
     end_date = "2020-07-30" # str | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) (default to "D")
+    frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
 
     try:
         # Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_consensus_ratings(ids, start_date=start_date, end_date=end_date, frequency=frequency)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Returns ratings from the FactSet Estimates database for current and historical f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import ratings_api
-from fds.sdk.FactSetEstimates.model.consensus_ratings_request import ConsensusRatingsRequest
-from fds.sdk.FactSetEstimates.model.consensus_ratings_response import ConsensusRatingsResponse
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -165,6 +166,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_consensus_ratings_for_list(consensus_ratings_request)
         pprint(api_response)
 
@@ -222,8 +224,8 @@ Retrieves the Broker Level ratings for the requested Id and date range. Ratings 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import ratings_api
-from fds.sdk.FactSetEstimates.model.detail_ratings_response import DetailRatingsResponse
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -259,6 +261,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_detail_ratings(ids, start_date=start_date, end_date=end_date)
         pprint(api_response)
 
@@ -318,9 +322,8 @@ Retrieves the Broker Level ratings for the requested Id and date range. Ratings 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimates
 from fds.sdk.FactSetEstimates.api import ratings_api
-from fds.sdk.FactSetEstimates.model.detail_ratings_response import DetailRatingsResponse
-from fds.sdk.FactSetEstimates.model.error_response import ErrorResponse
-from fds.sdk.FactSetEstimates.model.detail_ratings_request import DetailRatingsRequest
+from fds.sdk.FactSetEstimates.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -358,6 +361,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
 
     try:
         # Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_detail_ratings_for_list(detail_ratings_request)
         pprint(api_response)
 

@@ -18,7 +18,6 @@ import Frequency from '../model/Frequency';
 /**
 * Frequencies service.
 * @module api/FrequenciesApi
-* @version 0.8.2
 */
 export default class FrequenciesApi {
 

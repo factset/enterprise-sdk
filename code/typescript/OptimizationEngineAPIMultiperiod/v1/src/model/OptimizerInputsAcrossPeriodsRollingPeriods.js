@@ -17,7 +17,6 @@ import OptimizerInputsRollingMethodEnum from './OptimizerInputsRollingMethodEnum
 /**
  * The OptimizerInputsAcrossPeriodsRollingPeriods model module.
  * @module model/OptimizerInputsAcrossPeriodsRollingPeriods
- * @version 0.20.0
  */
 class OptimizerInputsAcrossPeriodsRollingPeriods {
     /**

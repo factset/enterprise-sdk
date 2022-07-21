@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDatePut
 
-> SuccessPostResponse v1DatabasePathDatesDatePut(path, date, inlineObject3)
+> SuccessPostResponse v1DatabasePathDatesDatePut(path, date, modifydatespecific)
 
 
 
@@ -123,10 +123,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new ModifyApi();
 const path = "path_example"; // String | Encode database path
 const date = 56; // Number | Date in YYYYMMDD format
-const inlineObject3 = new ofdb.InlineObject3(); // InlineObject3 | 
+const modifydatespecific = new ofdb.Modifydatespecific(); // Modifydatespecific | Required data for updating date in the database
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesDatePut(path, date, inlineObject3).then(
+apiInstance.v1DatabasePathDatesDatePut(path, date, modifydatespecific).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
  **date** | **Number**| Date in YYYYMMDD format | 
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
+ **modifydatespecific** | [**Modifydatespecific**](Modifydatespecific.md)| Required data for updating date in the database | 
 
 ### Return type
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathDatesDateSymbolsSymbolPut
 
-> SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5)
+> SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate)
 
 
 
@@ -276,10 +276,10 @@ const apiInstance = new ModifyApi();
 const path = "path_example"; // String | Encode database path
 const date = 56; // Number | Date in YYYYMMDD format
 const symbol = "symbol_example"; // String | Symbol with in the ofdb
-const inlineObject5 = new ofdb.InlineObject5(); // InlineObject5 | 
+const modifysymboldate = new ofdb.Modifysymboldate(); // Modifysymboldate | Data for updating symbol in the database
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5).then(
+apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
  **path** | **String**| Encode database path | 
  **date** | **Number**| Date in YYYYMMDD format | 
  **symbol** | **String**| Symbol with in the ofdb | 
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
+ **modifysymboldate** | [**Modifysymboldate**](Modifysymboldate.md)| Data for updating symbol in the database | 
 
 ### Return type
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 ## v1DatabasePathSymbolsSymbolPut
 
-> SuccessPostResponse v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1)
+> SuccessPostResponse v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols)
 
 
 
@@ -427,10 +427,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new ModifyApi();
 const path = "path_example"; // String | Encode database path
 const symbol = "symbol_example"; // String | Symbol with in the ofdb
-const inlineObject1 = new ofdb.InlineObject1(); // InlineObject1 | 
+const modifySymbols = {"data":[{"date":20200202,"field":"value"}]}; // ModifySymbols | Data for updating symbol in the database
 
 // Call api endpoint
-apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1).then(
+apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
  **symbol** | **String**| Symbol with in the ofdb | 
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
+ **modifySymbols** | [**ModifySymbols**](ModifySymbols.md)| Data for updating symbol in the database | 
 
 ### Return type
 

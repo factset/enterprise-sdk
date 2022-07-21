@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPLeverageConstraint model module.
  * @module model/OptimizerInputsMPLeverageConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPLeverageConstraint {
     /**

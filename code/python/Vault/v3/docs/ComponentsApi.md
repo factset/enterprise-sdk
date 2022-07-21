@@ -24,8 +24,8 @@ This endpoint returns the default settings of a Vault component.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import components_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.vault_component_root import VaultComponentRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault component by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_component_by_id(id)
         pprint(api_response)
 
@@ -119,8 +120,8 @@ This endpoint returns the list of Vault components in a given Vault document.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import components_api
-from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
-from fds.sdk.Vault.model.component_summary_root import ComponentSummaryRoot
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +155,7 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
 
     try:
         # Get Vault components
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_vault_components(document)
         pprint(api_response)
 

@@ -18,7 +18,6 @@ import InlineResponse2004DataKeyfigures from './InlineResponse2004DataKeyfigures
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.9.2
  */
 class InlineResponse2004Data {
     /**

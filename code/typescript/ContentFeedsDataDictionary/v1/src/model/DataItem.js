@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The DataItem model module.
  * @module model/DataItem
- * @version 0.20.0
  */
 class DataItem {
     /**

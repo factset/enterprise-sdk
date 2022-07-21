@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataIndustryClassificationRestrict from './Sto
 /**
  * The StockNotationScreenerSearchDataIndustryClassification model module.
  * @module model/StockNotationScreenerSearchDataIndustryClassification
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataIndustryClassification {
     /**

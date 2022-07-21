@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UniversesApi(config);
+
             var universeId = 1;  // int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 
             try
@@ -143,6 +144,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UniversesApi(config);
+
             var createUniverseRequest = new CreateUniverseRequest(); // CreateUniverseRequest | A request to create a user's universe
 
             try
@@ -237,6 +239,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UniversesApi(config);
+
             var universeId = 1;  // int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 
             try
@@ -326,6 +329,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UniversesApi(config);
+
             var universeId = 1;  // int? | Universe identifier. *To create a universe, use the `/universe' endpoint.* (optional) 
             var universeType = ENTITY;  // string | Universe Type. (optional) 
 
@@ -417,6 +421,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UniversesApi(config);
+
             var updateUniverseRequest = new UpdateUniverseRequest(); // UpdateUniverseRequest | A request to update a user's universe
 
             try

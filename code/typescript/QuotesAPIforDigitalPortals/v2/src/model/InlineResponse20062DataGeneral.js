@@ -23,7 +23,6 @@ import InlineResponse20062DataGeneralType from './InlineResponse20062DataGeneral
 /**
  * The InlineResponse20062DataGeneral model module.
  * @module model/InlineResponse20062DataGeneral
- * @version 0.9.2
  */
 class InlineResponse20062DataGeneral {
     /**

@@ -50,6 +50,7 @@ nuget install FactSet.SDK.FundsAPIforDigitalPortals
 4. Run the following:
 
 ```csharp
+
 using System;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
@@ -58,7 +59,7 @@ using FactSet.SDK.FundsAPIforDigitalPortals.Client;
 using FactSet.SDK.FundsAPIforDigitalPortals.Model;
 
 namespace Example
-{ 
+{
     public static class GetFundHoldingListByInstrumentExample
     {
         public static async Task Main()
@@ -99,10 +100,10 @@ namespace Example
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
-
         }
     }
 }
+
 ```
 
 ### Using a Proxy

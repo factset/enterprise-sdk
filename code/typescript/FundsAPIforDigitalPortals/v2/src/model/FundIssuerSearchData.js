@@ -20,7 +20,6 @@ import FundIssuerSearchDataShareClass from './FundIssuerSearchDataShareClass';
 /**
  * The FundIssuerSearchData model module.
  * @module model/FundIssuerSearchData
- * @version 0.10.0
  */
 class FundIssuerSearchData {
     /**

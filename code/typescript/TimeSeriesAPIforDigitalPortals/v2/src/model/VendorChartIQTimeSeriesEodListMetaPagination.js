@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodListMetaPagination model module.
  * @module model/VendorChartIQTimeSeriesEodListMetaPagination
- * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodListMetaPagination {
     /**

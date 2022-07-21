@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getDocsDistributorAudioV1ListFiles
 
-> EventsAudio getDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime)
+> EventsAudio getDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, audioSourceId, ids, sourceCode, fileName, trimmed, uploadTime)
 
 Retrieve audio recordings and metadata within FactSet coverage
 
@@ -57,13 +57,14 @@ public class Example {
         Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
         LocalDate endDate = LocalDate.now(); // LocalDate | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today)
         Integer reportId = 56; // Integer | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event
+        Integer audioSourceId = 56; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids.
         String ids = "ids_example"; // String | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier
         String sourceCode = "P"; // String | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay)
         String fileName = "fileName_example"; // String | This parameter is used to filter the data on based on the file name.
         Boolean trimmed = true; // Boolean | This parameters helps to search trimmed audio files
         Integer uploadTime = 56; // Integer | This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime= -1  Maximum is 1 week/168 hours i.e., uploadTime=-168  While using uploadTime, the startDate and endDate parameters will be ignored
         try {
-            EventsAudio result = apiInstance.getDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime);
+            EventsAudio result = apiInstance.getDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, audioSourceId, ids, sourceCode, fileName, trimmed, uploadTime);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -88,6 +89,7 @@ Name | Type | Description  | Notes
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
  **endDate** | **LocalDate**| Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) | [optional]
  **reportId** | **Integer**| Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event | [optional]
+ **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. | [optional]
  **ids** | **String**| This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier | [optional]
  **sourceCode** | **String**| This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) | [optional] [enum: P, W, V, F, I, R]
  **fileName** | **String**| This parameter is used to filter the data on based on the file name. | [optional]

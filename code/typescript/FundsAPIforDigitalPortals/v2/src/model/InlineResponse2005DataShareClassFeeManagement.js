@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeManagementCurrent from './InlineRespon
 /**
  * The InlineResponse2005DataShareClassFeeManagement model module.
  * @module model/InlineResponse2005DataShareClassFeeManagement
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeManagement {
     /**

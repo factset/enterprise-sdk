@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataFinancialReportSemiAnnual model module.
  * @module model/InlineResponse200DataFinancialReportSemiAnnual
- * @version 0.10.0
  */
 class InlineResponse200DataFinancialReportSemiAnnual {
     /**

@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityMatchApi(config);
+
             var name = FactSet;  // string | Name of Entity to match.
             var clientId = abc-123;  // string | A unique identifer supplied by the user. The clientId is recorded to the user's mapped universe.  (optional) 
             var country = US;  // string | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional) 
@@ -162,6 +163,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityMatchApi(config);
+
             var entityMatchRequest = new EntityMatchRequest(); // EntityMatchRequest | A request to match a Entity.
 
             try

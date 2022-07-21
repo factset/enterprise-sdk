@@ -57,7 +57,6 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

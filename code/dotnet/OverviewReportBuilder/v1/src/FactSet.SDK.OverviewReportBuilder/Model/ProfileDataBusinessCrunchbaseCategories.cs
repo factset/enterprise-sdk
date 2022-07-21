@@ -41,7 +41,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="note">note (required).</param>
-        public ProfileDataBusinessCrunchbaseCategories(List<string> value = default(List<string>), string note = default(string))
+        public ProfileDataBusinessCrunchbaseCategories(List<string> value, string note)
         {
             // to ensure "value" is required (not null)
             if (value == null) {

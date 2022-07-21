@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConsensusApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var metrics = new List<string>(); // List<string> | Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
             var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
@@ -162,6 +163,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConsensusApi(config);
+
             var fixedConsensusRequest = new FixedConsensusRequest(); // FixedConsensusRequest | Request object for Estimate Data Items.
 
             try
@@ -255,6 +257,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConsensusApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var metrics = new List<string>(); // List<string> | Requested metrics. Use the /metrics endpoint to return a list of available estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
             var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
@@ -364,6 +367,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConsensusApi(config);
+
             var rollingConsensusRequest = new RollingConsensusRequest(); // RollingConsensusRequest | Request object for Rolling Conensus estimates.
 
             try

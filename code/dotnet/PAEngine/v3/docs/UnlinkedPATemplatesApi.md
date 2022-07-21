@@ -56,6 +56,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(); // UnlinkedPATemplateParametersRoot | Request Parameters
 
             try
@@ -151,6 +152,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
             try
@@ -247,6 +249,7 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
 
+
             try
             {
                 // Get default unlinked PA template types.
@@ -336,6 +339,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var id = "id_example";  // string | Unique identifier for an unlinked PA template type
 
             try
@@ -432,6 +436,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var directory = "\"Personal:UninkedPATemplates/\"";  // string | Get unlinked PA templates in path. (optional)  (default to "Personal:UninkedPATemplates/")
             var category = "\"Weights\"";  // string | Get unlinked PA templates by category. (optional)  (default to "Weights")
 
@@ -529,6 +534,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
             try
@@ -625,6 +631,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
             var unlinkedPATemplateUpdateParametersRoot = new UnlinkedPATemplateUpdateParametersRoot(); // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 

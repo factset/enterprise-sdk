@@ -120,7 +120,7 @@ class CargoApi(object):
         group_id="a4186c50f8e74f979d271dd22298c901",
         object_id="fe875bc4150542dea6bc237663a01a0d",
         **kwargs
-    ) -> [str]:
+    ) -> typing.List[str]:
         """Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.  # noqa: E501
 
         STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/    Optional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.  # noqa: E501
@@ -155,7 +155,7 @@ class CargoApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [str]
+            typing.List[str]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -170,7 +170,7 @@ class CargoApi(object):
         group_id="a4186c50f8e74f979d271dd22298c901",
         object_id="fe875bc4150542dea6bc237663a01a0d",
         **kwargs
-    ) -> typing.Tuple[[str], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[str], int, typing.MutableMapping]:
         """Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.  # noqa: E501
 
         STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/    Optional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.  # noqa: E501
@@ -205,7 +205,7 @@ class CargoApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [str]
+            typing.List[str]
                 Response Object
             int
                 Http Status Code
@@ -224,7 +224,7 @@ class CargoApi(object):
         group_id="a4186c50f8e74f979d271dd22298c901",
         object_id="fe875bc4150542dea6bc237663a01a0d",
         **kwargs
-    ) -> "ApplyResult[[str]]":
+    ) -> "ApplyResult[typing.List[str]]":
         """Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.  # noqa: E501
 
         STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/    Optional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.  # noqa: E501
@@ -259,7 +259,7 @@ class CargoApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[str]]
+            ApplyResult[typing.List[str]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['group_id'] = \
@@ -273,7 +273,7 @@ class CargoApi(object):
         group_id="a4186c50f8e74f979d271dd22298c901",
         object_id="fe875bc4150542dea6bc237663a01a0d",
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[str], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[str], int, typing.MutableMapping]]":
         """Get Cargo endpoint, gets an object given an ID. In this case ID retrieved from Swivel Location header, results in json response body of the report.  # noqa: E501
 
         STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/    Optional request header \"accept-encoding\", with allowed values of \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed.  # noqa: E501
@@ -308,7 +308,7 @@ class CargoApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([str], int, typing.Dict)]
+            ApplyResult[(typing.List[str], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['group_id'] = \

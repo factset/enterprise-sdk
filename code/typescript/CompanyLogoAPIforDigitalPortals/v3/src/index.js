@@ -59,7 +59,6 @@ import CompanyApi from './api/CompanyApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.10.0
 */
 export {
     /**

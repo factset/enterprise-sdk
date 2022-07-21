@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.0
+  version: 1.2.2
   title: FactSet Formula API
   description: >
 
@@ -1674,10 +1674,6 @@ components:
         - type: integer
           nullable: true
           example: 4
-        - type: string
-          nullable: true
-          format: date
-          example: '2021-11-09'
     time_series_timeseries_object:
       title: Time-Series TIMESERIES Result
       description: >-

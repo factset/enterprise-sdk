@@ -49,6 +49,7 @@ const opts = {
   'paginationOffset': 56, // Number | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
   'endDate': new Date("2013-10-20"), // Date | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today)
   'reportId': 56, // Number | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event
+  'audioSourceId': 56, // Number | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids.
   'ids': "ids_example", // String | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier
   'sourceCode': "sourceCode_example", // String | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay)
   'fileName': "fileName_example", // String | This parameter is used to filter the data on based on the file name.
@@ -82,6 +83,7 @@ Name | Type | Description  | Notes
  **paginationOffset** | **Number**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
  **endDate** | **Date**| Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) | [optional] 
  **reportId** | **Number**| Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event | [optional] 
+ **audioSourceId** | **Number**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. | [optional] 
  **ids** | **String**| This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier | [optional] 
  **sourceCode** | **String**| This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) | [optional] 
  **fileName** | **String**| This parameter is used to filter the data on based on the file name. | [optional] 

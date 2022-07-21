@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DocumentsApi(config);
+
             var path = "\"Client:folder1/folder2\"";  // string | The directory to get the documents in (default to "Client:folder1/folder2")
 
             try

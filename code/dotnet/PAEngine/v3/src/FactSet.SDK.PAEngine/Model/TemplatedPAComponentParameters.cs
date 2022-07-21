@@ -44,7 +44,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="parentTemplateId">Parent template id (required).</param>
         /// <param name="description">Component description..</param>
         /// <param name="componentData">componentData.</param>
-        public TemplatedPAComponentParameters(string directory = default(string), string parentTemplateId = default(string), string description = default(string), PAComponentData componentData = default(PAComponentData))
+        public TemplatedPAComponentParameters(string directory, string parentTemplateId,string description = default(string), PAComponentData componentData = default(PAComponentData))
         {
             // to ensure "directory" is required (not null)
             if (directory == null) {

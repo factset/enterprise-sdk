@@ -83,6 +83,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -177,6 +178,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -271,6 +273,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -365,6 +368,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -459,6 +463,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -553,6 +558,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -647,6 +653,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -741,6 +748,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -835,6 +843,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -929,6 +938,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of a security as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1019,6 +1029,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of a security as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1109,6 +1120,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of a security as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1199,6 +1211,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of a security as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1289,6 +1302,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETF defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1379,6 +1393,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -1467,6 +1482,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
             var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
@@ -1559,6 +1575,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
             var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
@@ -1651,6 +1668,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -1739,6 +1757,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1829,6 +1848,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of a security as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1919,6 +1939,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2009,6 +2030,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2099,6 +2121,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2189,6 +2212,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var timePeriod = "1M";  // string | Historice NAV date value. (optional) 
             var calculationType = "I";  // string | Historice NAV date value. (optional) 
@@ -2289,6 +2313,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -2383,6 +2408,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Ticker-region of an ETP as defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2473,6 +2499,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var timePeriod = "YTD";  // string | Time frame of the data. (optional)  (default to YTD)
             var alignment = "month-end";  // string | Indicates the reference point for the historical NAV and price values. (optional)  (default to quarter-end)
@@ -2571,6 +2598,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2661,6 +2689,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var returnType = "price";  // string | Return type. (optional)  (default to price)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -2753,6 +2782,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -2843,6 +2873,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
             var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
@@ -2935,6 +2966,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -3025,6 +3057,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -3115,6 +3148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FactsetApi(config);
+
             var symbol = "symbol_example";  // string | Market symbol of ETP defined by FactSet.
             var timePeriod = "1M";  // string | Time frame of the data. (optional)  (default to 1Y)
             var alignment = "day";  // string | Indicates the reference point for the time series data. (optional) 

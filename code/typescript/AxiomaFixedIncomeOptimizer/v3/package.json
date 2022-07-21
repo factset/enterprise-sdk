@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-axiomafixedincomeoptimizer",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "description": "Axioma Fixed Income Optimizer client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -11,8 +11,14 @@
     "prepare": "npm run build",
     "test": "mocha --require @babel/register --recursive"
   },
+  "homepage": "https://developer.factset.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/factset/enterprise-sdk.git",
+    "directory": "code/typescript/AxiomaFixedIncomeOptimizer/v3"
+  },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "dependencies": {
     "@factset/sdk-utils": "^1.0.0",

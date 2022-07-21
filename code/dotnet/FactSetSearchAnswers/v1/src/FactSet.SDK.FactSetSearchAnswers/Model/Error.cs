@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="links">links.</param>
         /// <param name="detail">detail.</param>
         /// <param name="source">source.</param>
-        public Error(string id = default(string), string code = default(string), string title = default(string), ErrorLink links = default(ErrorLink), string detail = default(string), ErrorSource source = default(ErrorSource))
+        public Error(string id, string code, string title,ErrorLink links = default(ErrorLink), string detail = default(string), ErrorSource source = default(ErrorSource))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

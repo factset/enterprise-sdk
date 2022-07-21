@@ -17,7 +17,6 @@ import InlineResponse20028DataMainCurrency from './InlineResponse20028DataMainCu
 /**
  * The InlineResponse20028Data model module.
  * @module model/InlineResponse20028Data
- * @version 0.10.0
  */
 class InlineResponse20028Data {
     /**

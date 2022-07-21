@@ -17,7 +17,6 @@ import Schema from './Schema';
 /**
  * The SchemaList model module.
  * @module model/SchemaList
- * @version 0.20.1
  */
 class SchemaList {
     /**

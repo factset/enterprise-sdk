@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeOngoingCurrent from './InlineResponse2
 /**
  * The InlineResponse2005DataShareClassFeeOngoing model module.
  * @module model/InlineResponse2005DataShareClassFeeOngoing
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeOngoing {
     /**

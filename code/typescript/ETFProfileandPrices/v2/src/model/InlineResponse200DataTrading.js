@@ -18,7 +18,6 @@ import InlineResponse200DataTradingMedian from './InlineResponse200DataTradingMe
 /**
  * The InlineResponse200DataTrading model module.
  * @module model/InlineResponse200DataTrading
- * @version 0.10.0
  */
 class InlineResponse200DataTrading {
     /**

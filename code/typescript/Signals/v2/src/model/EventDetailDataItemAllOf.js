@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EventDetailDataItemAllOf model module.
  * @module model/EventDetailDataItemAllOf
- * @version 0.20.0
  */
 class EventDetailDataItemAllOf {
     /**

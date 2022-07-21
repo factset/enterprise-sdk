@@ -25,7 +25,6 @@ import InlineResponse20012DataPerformanceEndOfDayYears5 from './InlineResponse20
 /**
  * The InlineResponse20012DataPerformanceEndOfDay model module.
  * @module model/InlineResponse20012DataPerformanceEndOfDay
- * @version 0.10.0
  */
 class InlineResponse20012DataPerformanceEndOfDay {
     /**

@@ -20,7 +20,6 @@ import VaultConfigurationSummaryRoot from '../model/VaultConfigurationSummaryRoo
 /**
 * Configurations service.
 * @module api/ConfigurationsApi
-* @version 0.20.0
 */
 export default class ConfigurationsApi {
 

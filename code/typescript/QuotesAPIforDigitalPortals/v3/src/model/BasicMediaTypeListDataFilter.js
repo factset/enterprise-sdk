@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicMediaTypeListDataFilter model module.
  * @module model/BasicMediaTypeListDataFilter
- * @version 0.10.0
  */
 class BasicMediaTypeListDataFilter {
     /**

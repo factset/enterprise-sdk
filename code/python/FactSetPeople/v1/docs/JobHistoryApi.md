@@ -24,8 +24,8 @@ Returns the `Job` history of the person referenced by the entityId specified in 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import job_history_api
-from fds.sdk.FactSetPeople.model.people_jobs_response import PeopleJobsResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,12 +56,14 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     api_instance = job_history_api.JobHistoryApi(api_client)
 
     ids = ["0DPHLH-E","07MZV9-E"] # [str] | List of FactSet Person Entity identifier.
-    status = "ALL" # str | Select only Jobs with a certain status primary, active, or inactive. (optional) (default to "ALL")
-    level = "DETAIL" # str | Select the level of detail only main Jobs or include other Jobs at a company. (optional) (default to "DETAIL")
-    type = "ALL" # str | Select only Jobs of a certain type board member or employee. (optional) (default to "ALL")
+    status = "ALL" # str | Select only Jobs with a certain status primary, active, or inactive. (optional) if omitted the server will use the default value of "ALL"
+    level = "DETAIL" # str | Select the level of detail only main Jobs or include other Jobs at a company. (optional) if omitted the server will use the default value of "DETAIL"
+    type = "ALL" # str | Select only Jobs of a certain type board member or employee. (optional) if omitted the server will use the default value of "ALL"
 
     try:
         # Returns the Job history of the person.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_jobs(ids, status=status, level=level, type=type)
         pprint(api_response)
 
@@ -122,9 +124,8 @@ Returns the `Job` history of the person referenced by the entityId specified in 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import job_history_api
-from fds.sdk.FactSetPeople.model.people_jobs_response import PeopleJobsResponse
-from fds.sdk.FactSetPeople.model.people_jobs_request import PeopleJobsRequest
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -163,6 +164,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns the Job history for the large list of people.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_jobs_for_list(people_jobs_request)
         pprint(api_response)
 

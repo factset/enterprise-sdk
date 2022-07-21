@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="date">The as of date for the option chain in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint..</param>
         /// <param name="idType">idType.</param>
         /// <param name="exchange">exchange.</param>
-        public ChainsRequest(List<string> ids = default(List<string>), string date = default(string), IdType idType = default(IdType), Exchange exchange = default(Exchange))
+        public ChainsRequest(List<string> ids,string date = default(string), IdType idType = default(IdType), Exchange exchange = default(Exchange))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

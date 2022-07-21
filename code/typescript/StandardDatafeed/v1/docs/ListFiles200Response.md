@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[Data]**](Data.md) |  | [optional] 
-**meta** | [**[Meta]**](Meta.md) |  | [optional] 
+**data** | [**[Dataresponseitems]**](Dataresponseitems.md) |  | [optional] 
+**meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  | [optional] 
 
 

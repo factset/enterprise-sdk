@@ -17,7 +17,6 @@ import InstrumentCompliancePropertyListDataFilter from './InstrumentCompliancePr
 /**
  * The InstrumentCompliancePropertyListData model module.
  * @module model/InstrumentCompliancePropertyListData
- * @version 0.10.0
  */
 class InstrumentCompliancePropertyListData {
     /**

@@ -17,7 +17,6 @@ import InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesE
 /**
  * The InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceEarningsGrowth model module.
  * @module model/InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceEarningsGrowth
- * @version 0.9.2
  */
 class InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceEarningsGrowth {
     /**

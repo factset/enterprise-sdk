@@ -49,7 +49,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="contactLookupValues">contactLookupValues.</param>
         /// <param name="optionValue">optionValue.</param>
         /// <param name="optionValues">optionValues.</param>
-        public CreateCustomFieldValueDto(string code = default(string), int? integerValue = default(int?), string textValue = default(string), string filePathValue = default(string), double? numericValue = default(double?), string dateValue = default(string), string extendedTextValue = default(string), List<Guid> contactLookupValues = default(List<Guid>), string optionValue = default(string), List<string> optionValues = default(List<string>))
+        public CreateCustomFieldValueDto(string code,int? integerValue = default(int?), string textValue = default(string), string filePathValue = default(string), double? numericValue = default(double?), string dateValue = default(string), string extendedTextValue = default(string), List<Guid> contactLookupValues = default(List<Guid>), string optionValue = default(string), List<string> optionValues = default(List<string>))
         {
             // to ensure "code" is required (not null)
             if (code == null) {

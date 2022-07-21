@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IsinHistoryTranslation model module.
  * @module model/IsinHistoryTranslation
- * @version 0.20.0
  */
 class IsinHistoryTranslation {
     /**

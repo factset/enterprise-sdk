@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPNumberOfSellsConstraint model module.
  * @module model/OptimizerInputsMPNumberOfSellsConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPNumberOfSellsConstraint {
     /**

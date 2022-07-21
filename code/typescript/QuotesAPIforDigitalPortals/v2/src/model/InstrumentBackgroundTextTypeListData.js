@@ -17,7 +17,6 @@ import InstrumentBackgroundTextTypeListDataFilter from './InstrumentBackgroundTe
 /**
  * The InstrumentBackgroundTextTypeListData model module.
  * @module model/InstrumentBackgroundTextTypeListData
- * @version 0.9.2
  */
 class InstrumentBackgroundTextTypeListData {
     /**

@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNCustomSymbols.Api.CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
             var symbolRelationshipSaveDto = new List<SymbolRelationshipSaveDto>(); // List<SymbolRelationshipSaveDto> | symbolRelationship object to save (optional) 
 
             try
@@ -139,6 +140,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
             var symbolRelationshipId = "symbolRelationshipId_example";  // Guid | symbolRelationshipId to delete associated record
 
             try
@@ -227,6 +229,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
             var symbol = "symbol_example";  // string | 
             var symbolRelationshipUpdateDto = new List<SymbolRelationshipUpdateDto>(); // List<SymbolRelationshipUpdateDto> | symbolRelationship object to save (optional) 
 
@@ -314,6 +317,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
             var symbolRelationshipId = "symbolRelationshipId_example";  // Guid | symbolRelationshipId to get associated record
 
             try
@@ -402,6 +406,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsRelationshipsApi(config);
+
             var symbolId = "symbolId_example";  // Guid | symbolId to get associated records
 
             try

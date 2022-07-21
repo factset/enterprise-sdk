@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20089TradingValueAverage model module.
  * @module model/InlineResponse20089TradingValueAverage
- * @version 0.9.2
  */
 class InlineResponse20089TradingValueAverage {
     /**

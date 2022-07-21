@@ -17,7 +17,6 @@ import ExchangeScreeningId from './ExchangeScreeningId';
 /**
  * The OptionScreeningRequest model module.
  * @module model/OptionScreeningRequest
- * @version 0.20.0
  */
 class OptionScreeningRequest {
     /**

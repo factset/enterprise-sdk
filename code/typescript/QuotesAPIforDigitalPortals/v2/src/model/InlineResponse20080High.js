@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20080High model module.
  * @module model/InlineResponse20080High
- * @version 0.9.2
  */
 class InlineResponse20080High {
     /**

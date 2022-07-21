@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum model module.
  * @module model/FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1Maximum {
     /**

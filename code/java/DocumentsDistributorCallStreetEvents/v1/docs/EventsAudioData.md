@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **trimmed** | **Boolean** | The trimmed attribute helps identify if the audio is the trimmed version |  [optional]
 **sampleRate** | **BigDecimal** | The number of samples of audio carried per second in Kbps |  [optional]
 **bitrate** | **BigDecimal** | The total number of bits of information stored per second of sound in Kbps |  [optional]
+**audioSourceId** | **Integer** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSource ids. |  [optional]
 
 
 ## Implemented Interfaces

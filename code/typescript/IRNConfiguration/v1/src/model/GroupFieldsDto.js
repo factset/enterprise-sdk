@@ -30,7 +30,6 @@ import TitleSettingsDto from './TitleSettingsDto';
 /**
  * The GroupFieldsDto model module.
  * @module model/GroupFieldsDto
- * @version 0.20.0
  */
 class GroupFieldsDto {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ServiceProviderConfigEtag model module.
  * @module model/ServiceProviderConfigEtag
- * @version 0.20.1
  */
 class ServiceProviderConfigEtag {
     /**

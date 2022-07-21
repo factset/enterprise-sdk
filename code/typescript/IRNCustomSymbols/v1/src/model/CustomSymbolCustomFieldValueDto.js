@@ -17,7 +17,6 @@ import CustomSymbolContact from './CustomSymbolContact';
 /**
  * The CustomSymbolCustomFieldValueDto model module.
  * @module model/CustomSymbolCustomFieldValueDto
- * @version 0.20.0
  */
 class CustomSymbolCustomFieldValueDto {
     /**

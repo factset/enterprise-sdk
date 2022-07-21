@@ -20,7 +20,6 @@ import FactsetTranslationResponse from '../model/FactsetTranslationResponse';
 /**
 * FactSet service.
 * @module api/FactSetApi
-* @version 0.8.2
 */
 export default class FactSetApi {
 

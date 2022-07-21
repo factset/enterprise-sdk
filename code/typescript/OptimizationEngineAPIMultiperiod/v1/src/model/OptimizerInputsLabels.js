@@ -18,7 +18,6 @@ import OptimizerInputsSecurity from './OptimizerInputsSecurity';
 /**
  * The OptimizerInputsLabels model module.
  * @module model/OptimizerInputsLabels
- * @version 0.20.0
  */
 class OptimizerInputsLabels {
     /**

@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataValidationNotationSelectionListRestrict fr
 /**
  * The StockNotationScreenerSearchDataValidationNotationSelectionList model module.
  * @module model/StockNotationScreenerSearchDataValidationNotationSelectionList
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataValidationNotationSelectionList {
     /**

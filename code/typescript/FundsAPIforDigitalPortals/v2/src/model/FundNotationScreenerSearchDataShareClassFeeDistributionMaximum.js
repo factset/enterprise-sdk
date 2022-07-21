@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMinimum from './
 /**
  * The FundNotationScreenerSearchDataShareClassFeeDistributionMaximum model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeDistributionMaximum
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeDistributionMaximum {
     /**

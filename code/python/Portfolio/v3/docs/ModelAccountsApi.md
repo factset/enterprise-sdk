@@ -26,7 +26,8 @@ Create or update an existing model account
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
-from fds.sdk.Portfolio.model.model_account_fields_root import ModelAccountFieldsRoot
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -90,7 +91,10 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
 
     try:
         # Create or update an existing model account
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.create_or_update_model_account(name, model_account_fields_root=model_account_fields_root)
+
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->create_or_update_model_account: %s\n" % e)
 ```
@@ -147,6 +151,8 @@ Delete model account, takes an account path and name and deletes it.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -180,7 +186,9 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
 
     try:
         # Delete model account, takes an account path and name and deletes it.
+        # example passing only required values which don't have defaults set
         api_instance.delete_a_model_account(name)
+
     except fds.sdk.Portfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->delete_a_model_account: %s\n" % e)
 ```
@@ -233,6 +241,8 @@ Get account endpoint, takes an account name, date and returns underlying data fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -264,10 +274,12 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
 
     name = "name_example" # str | The path and filename of the account to get
     date = "date_example" # str | The date for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
         # Get account endpoint, takes an account name, date and returns underlying data for that date
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_account_for_date(name, date, format=format)
         pprint(api_response)
 
@@ -327,6 +339,8 @@ Get account endpoint, takes an account name and returns underlying data
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -359,10 +373,12 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
     name = "name_example" # str | The path and filename of the account to get
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
     date = "date_example" # str | The date for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
         # Get account endpoint, takes an account name and returns underlying data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_account_for_date_and_symbol(name, symbol, date, format=format)
         pprint(api_response)
 
@@ -423,6 +439,8 @@ Get account endpoint, takes an account name, symbol and returns underlying data 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -454,10 +472,12 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
 
     name = "name_example" # str | The path and filename of the account to get
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
 
     try:
         # Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_account_for_symbol(name, symbol, format=format)
         pprint(api_response)
 
@@ -517,6 +537,8 @@ Get account schema endpoint, takes an account name and returns its schema
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api
+from fds.sdk.Portfolio.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -550,6 +572,7 @@ with fds.sdk.Portfolio.ApiClient(configuration) as api_client:
 
     try:
         # Get account schema endpoint, takes an account name and returns its schema
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_account_schema(name)
         pprint(api_response)
 

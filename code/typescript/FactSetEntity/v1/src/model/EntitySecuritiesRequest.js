@@ -17,7 +17,6 @@ import SecurityType from './SecurityType';
 /**
  * The EntitySecuritiesRequest model module.
  * @module model/EntitySecuritiesRequest
- * @version 0.20.0
  */
 class EntitySecuritiesRequest {
     /**

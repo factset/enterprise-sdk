@@ -67,6 +67,7 @@ public class EventsAudioApi {
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
    * @param endDate Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional)
    * @param reportId Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event (optional)
+   * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. (optional)
    * @param ids This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional)
    * @param sourceCode This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) (optional)
    * @param fileName This parameter is used to filter the data on based on the file name. (optional)
@@ -84,8 +85,8 @@ public class EventsAudioApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public EventsAudio getDocsDistributorAudioV1ListFiles(String sort, Integer paginationLimit, LocalDate startDate, Integer paginationOffset, LocalDate endDate, Integer reportId, String ids, String sourceCode, String fileName, Boolean trimmed, Integer uploadTime) throws ApiException {
-    return getDocsDistributorAudioV1ListFilesWithHttpInfo(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime).getData();
+  public EventsAudio getDocsDistributorAudioV1ListFiles(String sort, Integer paginationLimit, LocalDate startDate, Integer paginationOffset, LocalDate endDate, Integer reportId, Integer audioSourceId, String ids, String sourceCode, String fileName, Boolean trimmed, Integer uploadTime) throws ApiException {
+    return getDocsDistributorAudioV1ListFilesWithHttpInfo(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, audioSourceId, ids, sourceCode, fileName, trimmed, uploadTime).getData();
   }
 
   /**
@@ -97,6 +98,7 @@ public class EventsAudioApi {
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
    * @param endDate Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional)
    * @param reportId Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event (optional)
+   * @param audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource ids. (optional)
    * @param ids This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional)
    * @param sourceCode This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P &#x3D; Phone * W &#x3D; Webcast * V &#x3D; Vendor * I &#x3D; Webcast Replay * F &#x3D; Flash - identical to webcast; can merge with \&quot;W\&quot; in the future * R &#x3D; Replay (Phone Replay) (optional)
    * @param fileName This parameter is used to filter the data on based on the file name. (optional)
@@ -114,7 +116,7 @@ public class EventsAudioApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EventsAudio> getDocsDistributorAudioV1ListFilesWithHttpInfo(String sort, Integer paginationLimit, LocalDate startDate, Integer paginationOffset, LocalDate endDate, Integer reportId, String ids, String sourceCode, String fileName, Boolean trimmed, Integer uploadTime) throws ApiException {
+  public ApiResponse<EventsAudio> getDocsDistributorAudioV1ListFilesWithHttpInfo(String sort, Integer paginationLimit, LocalDate startDate, Integer paginationOffset, LocalDate endDate, Integer reportId, Integer audioSourceId, String ids, String sourceCode, String fileName, Boolean trimmed, Integer uploadTime) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -132,6 +134,7 @@ public class EventsAudioApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reportId", reportId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "audioSourceId", audioSourceId));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ids", ids));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sourceCode", sourceCode));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fileName", fileName));

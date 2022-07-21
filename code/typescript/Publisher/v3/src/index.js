@@ -67,7 +67,6 @@ import PutAndCalculateResponseWrapper from './api/PubCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

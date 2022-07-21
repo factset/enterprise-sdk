@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsDiversificationRatioTerm model module.
  * @module model/OptimizerInputsDiversificationRatioTerm
- * @version 0.20.0
  */
 class OptimizerInputsDiversificationRatioTerm {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// Initializes a new instance of the <see cref="CalculationInfoRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public CalculationInfoRoot(CalculationInfo data = default(CalculationInfo))
+        public CalculationInfoRoot(CalculationInfo data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

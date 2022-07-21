@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetESG.Model
         /// <param name="endDate">The end date requested for a given date range in YYYY-MM-DD format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="primaryOnly">Return only primary spotlights when set to true  (default to true).</param>
         /// <param name="isRemoved">This parameter would return the spotlights removed in the response(i.e. Spotlight is marked as Rejected but has a firstApprovedOnDate))when set to &#x60;true&#x60; Only Spotlights that are marked as approved will be returned when set to &#x60;false&#x60;  (default to false).</param>
-        public SasbSpotlightsRequest(List<string> ids = default(List<string>), List<string> categories = default(List<string>), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string), bool primaryOnly = true, bool isRemoved = false)
+        public SasbSpotlightsRequest(List<string> ids,List<string> categories = default(List<string>), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string), bool primaryOnly = true, bool isRemoved = false)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

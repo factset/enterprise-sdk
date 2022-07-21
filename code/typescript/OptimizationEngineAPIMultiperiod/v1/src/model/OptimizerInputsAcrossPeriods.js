@@ -17,7 +17,6 @@ import OptimizerInputsAcrossPeriodsRollingPeriods from './OptimizerInputsAcrossP
 /**
  * The OptimizerInputsAcrossPeriods model module.
  * @module model/OptimizerInputsAcrossPeriods
- * @version 0.20.0
  */
 class OptimizerInputsAcrossPeriods {
     /**

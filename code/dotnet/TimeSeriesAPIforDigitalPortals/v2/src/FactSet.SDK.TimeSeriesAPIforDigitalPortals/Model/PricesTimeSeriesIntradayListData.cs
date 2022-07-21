@@ -146,7 +146,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <param name="quality">Quality of the price. (default to QualityEnum.DLY).</param>
         /// <param name="range">range (required).</param>
         /// <param name="applyTickCorrections">This attribute represents the choice whether to apply insert, update, and delete corrections for individual ticks sent by the exchange or devised by FactSet Digital Solutions GmbH.   If the exchange or FactSet Digital Solutions GmbH decides to correct data, a correction instruction tick is sent shortly (usually on the same trading day) after dissemination of the corresponding original tick (if any). The correction instruction is then applied, yielding a corrected view. For \&quot;insert\&quot; corrections, there is no original tick, and the corrected view contains the inserted tick. For \&quot;update\&quot; corrections, the corrected view contains the updated original tick. For \&quot;delete\&quot; corrections, the original tick is removed from the corrected view. (default to ApplyTickCorrectionsEnum.None).</param>
-        public PricesTimeSeriesIntradayListData(string id = default(string), TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, PricesTimeSeriesIntradayListDataRange range = default(PricesTimeSeriesIntradayListDataRange), ApplyTickCorrectionsEnum? applyTickCorrections = ApplyTickCorrectionsEnum.None)
+        public PricesTimeSeriesIntradayListData(string id, PricesTimeSeriesIntradayListDataRange range,TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, ApplyTickCorrectionsEnum? applyTickCorrections = ApplyTickCorrectionsEnum.None)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

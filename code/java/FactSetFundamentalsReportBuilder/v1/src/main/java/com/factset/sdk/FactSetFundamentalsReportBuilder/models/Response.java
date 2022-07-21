@@ -107,7 +107,7 @@ public class Response implements Serializable {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public java.util.Map<String, String> getMeta() {
     return meta;
@@ -115,7 +115,7 @@ public class Response implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMeta(java.util.Map<String, String> meta) {
     this.meta = meta;
   }

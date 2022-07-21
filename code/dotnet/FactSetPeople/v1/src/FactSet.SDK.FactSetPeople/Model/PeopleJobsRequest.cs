@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <param name="status">status.</param>
         /// <param name="level">level.</param>
         /// <param name="type">type.</param>
-        public PeopleJobsRequest(List<string> ids = default(List<string>), Status status = default(Status), Level level = default(Level), Type type = default(Type))
+        public PeopleJobsRequest(List<string> ids,Status status = default(Status), Level level = default(Level), Type type = default(Type))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

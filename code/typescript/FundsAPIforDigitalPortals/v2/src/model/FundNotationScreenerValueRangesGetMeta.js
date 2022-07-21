@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerValueRangesGetMeta model module.
  * @module model/FundNotationScreenerValueRangesGetMeta
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetMeta {
     /**

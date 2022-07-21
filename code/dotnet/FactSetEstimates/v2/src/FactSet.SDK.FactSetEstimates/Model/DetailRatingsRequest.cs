@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="ids">The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *  (required).</param>
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
-        public DetailRatingsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string))
+        public DetailRatingsRequest(List<string> ids,string startDate = default(string), string endDate = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

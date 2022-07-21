@@ -44,7 +44,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="returnOnAssets">returnOnAssets.</param>
         /// <param name="returnOnEquity">returnOnEquity.</param>
         /// <param name="ratios">ratios.</param>
-        public StockNotationScreenerSearchDataEstimates(StockNotationScreenerSearchDataFiscalYear1 fiscalYear = default(StockNotationScreenerSearchDataFiscalYear1), StockNotationScreenerSearchDataCurrencyDependentEstimates currencyDependentEstimates = default(StockNotationScreenerSearchDataCurrencyDependentEstimates), StockNotationScreenerSearchDataReturnOnAssets1 returnOnAssets = default(StockNotationScreenerSearchDataReturnOnAssets1), StockNotationScreenerSearchDataReturnOnEquity1 returnOnEquity = default(StockNotationScreenerSearchDataReturnOnEquity1), StockNotationScreenerSearchDataRatios1 ratios = default(StockNotationScreenerSearchDataRatios1))
+        public StockNotationScreenerSearchDataEstimates(StockNotationScreenerSearchDataFiscalYear1 fiscalYear,StockNotationScreenerSearchDataCurrencyDependentEstimates currencyDependentEstimates = default(StockNotationScreenerSearchDataCurrencyDependentEstimates), StockNotationScreenerSearchDataReturnOnAssets1 returnOnAssets = default(StockNotationScreenerSearchDataReturnOnAssets1), StockNotationScreenerSearchDataReturnOnEquity1 returnOnEquity = default(StockNotationScreenerSearchDataReturnOnEquity1), StockNotationScreenerSearchDataRatios1 ratios = default(StockNotationScreenerSearchDataRatios1))
         {
             // to ensure "fiscalYear" is required (not null)
             if (fiscalYear == null) {

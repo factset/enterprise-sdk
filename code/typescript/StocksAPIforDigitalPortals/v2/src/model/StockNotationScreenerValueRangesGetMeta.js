@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerValueRangesGetMeta model module.
  * @module model/StockNotationScreenerValueRangesGetMeta
- * @version 0.9.2
  */
 class StockNotationScreenerValueRangesGetMeta {
     /**

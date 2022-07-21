@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TermsAndConditions model module.
  * @module model/TermsAndConditions
- * @version 0.20.0
  */
 class TermsAndConditions {
     /**

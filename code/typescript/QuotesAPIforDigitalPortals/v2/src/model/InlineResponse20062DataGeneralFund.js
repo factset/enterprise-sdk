@@ -17,7 +17,6 @@ import InlineResponse20062DataGeneralFundDomicile from './InlineResponse20062Dat
 /**
  * The InlineResponse20062DataGeneralFund model module.
  * @module model/InlineResponse20062DataGeneralFund
- * @version 0.9.2
  */
 class InlineResponse20062DataGeneralFund {
     /**

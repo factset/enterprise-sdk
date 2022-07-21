@@ -25,9 +25,8 @@ Returns the pricing related information for the specified option identifier. Ite
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import prices__volume_api
-from fds.sdk.FactSetOptions.model.options_prices_request import OptionsPricesRequest
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.options_prices_response import OptionsPricesResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,6 +67,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns the pricing related information for the specified option identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_prices_for_list(options_prices_request)
         pprint(api_response)
 
@@ -125,9 +125,8 @@ Returns the volume details for the specified option identifier for a specified e
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import prices__volume_api
-from fds.sdk.FactSetOptions.model.options_volume_response import OptionsVolumeResponse
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.options_volume_request import OptionsVolumeRequest
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -168,6 +167,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns the volume details for the specified option identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_volume_for_list(options_volume_request)
         pprint(api_response)
 
@@ -225,9 +225,8 @@ Return the Volume and Open Interest details for list of the options for the spec
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import prices__volume_api
-from fds.sdk.FactSetOptions.model.underlying_volume_request import UnderlyingVolumeRequest
-from fds.sdk.FactSetOptions.model.underlying_volume_response import UnderlyingVolumeResponse
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -267,6 +266,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns the aggregate volume and open interest for the list of the options under the specified security identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_underlying_volume_for_list(underlying_volume_request)
         pprint(api_response)
 

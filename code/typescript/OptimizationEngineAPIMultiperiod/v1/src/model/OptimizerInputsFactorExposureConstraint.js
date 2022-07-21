@@ -19,7 +19,6 @@ import OptimizerInputsPenalty from './OptimizerInputsPenalty';
 /**
  * The OptimizerInputsFactorExposureConstraint model module.
  * @module model/OptimizerInputsFactorExposureConstraint
- * @version 0.20.0
  */
 class OptimizerInputsFactorExposureConstraint {
     /**

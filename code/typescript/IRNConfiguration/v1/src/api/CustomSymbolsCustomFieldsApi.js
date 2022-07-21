@@ -22,7 +22,6 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * CustomSymbolsCustomFields service.
 * @module api/CustomSymbolsCustomFieldsApi
-* @version 0.20.0
 */
 export default class CustomSymbolsCustomFieldsApi {
 

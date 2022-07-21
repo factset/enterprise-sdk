@@ -17,7 +17,6 @@ import Frequency from './Frequency';
 /**
  * The FrequencyRoot model module.
  * @module model/FrequencyRoot
- * @version 0.20.0
  */
 class FrequencyRoot {
     /**

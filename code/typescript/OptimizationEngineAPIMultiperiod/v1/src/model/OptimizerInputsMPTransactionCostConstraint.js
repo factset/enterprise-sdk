@@ -19,7 +19,6 @@ import OptimizerInputsTransactionCostConstraint from './OptimizerInputsTransacti
 /**
  * The OptimizerInputsMPTransactionCostConstraint model module.
  * @module model/OptimizerInputsMPTransactionCostConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPTransactionCostConstraint {
     /**

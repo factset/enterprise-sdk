@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20034DataParent model module.
  * @module model/InlineResponse20034DataParent
- * @version 0.10.0
  */
 class InlineResponse20034DataParent {
     /**

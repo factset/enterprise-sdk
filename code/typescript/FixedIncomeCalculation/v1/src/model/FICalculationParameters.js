@@ -18,7 +18,6 @@ import FISecurity from './FISecurity';
 /**
  * The FICalculationParameters model module.
  * @module model/FICalculationParameters
- * @version 0.8.2
  */
 class FICalculationParameters {
     /**

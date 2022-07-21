@@ -23,7 +23,8 @@ This endpoint lists all the frequencies that can be applied to a SPAR calculatio
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import frequencies_api
-from fds.sdk.SPAREngine.model.frequency_root import FrequencyRoot
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Get SPAR frequencies
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_spar_frequencies()
         pprint(api_response)
 

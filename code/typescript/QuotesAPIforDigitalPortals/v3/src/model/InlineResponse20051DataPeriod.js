@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20051DataPeriod model module.
  * @module model/InlineResponse20051DataPeriod
- * @version 0.10.0
  */
 class InlineResponse20051DataPeriod {
     /**

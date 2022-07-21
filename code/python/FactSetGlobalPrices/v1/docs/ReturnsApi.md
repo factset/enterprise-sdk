@@ -24,8 +24,8 @@ Returns for the requested ids and currency for the given dates. Depending on the
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGlobalPrices
 from fds.sdk.FactSetGlobalPrices.api import returns_api
-from fds.sdk.FactSetGlobalPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetGlobalPrices.model.returns_response import ReturnsResponse
+from fds.sdk.FactSetGlobalPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,10 +59,12 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     start_date = "2021-08-27" # str | The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint. 
     end_date = "2021-08-27" # str | The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint. 
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **AD** = Actual Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** =  Actual Quarterly   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **ASA** = Actual Semi-annual   * **CSA** = Calendar Semi-annual   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "D")
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **AD** = Actual Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** =  Actual Quarterly   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **ASA** = Actual Semi-annual   * **CSA** = Calendar Semi-annual   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
 
     try:
         # Gets Returns for a list of `ids` as of given date range.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_returns(ids, start_date, end_date, currency=currency, frequency=frequency)
         pprint(api_response)
 
@@ -124,8 +126,8 @@ Returns for the requested ids and currency for the given dates. Depending on the
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGlobalPrices
 from fds.sdk.FactSetGlobalPrices.api import returns_api
-from fds.sdk.FactSetGlobalPrices.model.returns_request import ReturnsRequest
-from fds.sdk.FactSetGlobalPrices.model.returns_response import ReturnsResponse
+from fds.sdk.FactSetGlobalPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -165,6 +167,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
 
     try:
         # Gets Returns for a list of `ids` as of given date range.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_returns_for_list(returns_request)
         pprint(api_response)
 

@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassLifeCycleIssue from './FundNotati
 /**
  * The FundNotationScreenerSearchDataShareClassLifeCycle model module.
  * @module model/FundNotationScreenerSearchDataShareClassLifeCycle
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassLifeCycle {
     /**

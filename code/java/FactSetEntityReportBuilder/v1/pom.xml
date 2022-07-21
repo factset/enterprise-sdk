@@ -5,7 +5,7 @@
     <artifactId>factsetentityreportbuilder</artifactId>
     <packaging>jar</packaging>
     <name>factsetentityreportbuilder</name>
-    <version>0.20.0</version>
+    <version>0.21.0</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>FactSet Entity Report Builder client library for Java</description>
     <scm>

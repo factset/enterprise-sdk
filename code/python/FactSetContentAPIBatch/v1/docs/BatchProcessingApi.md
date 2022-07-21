@@ -26,9 +26,8 @@ Returns the response data for the underlying batch request that is specified by 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetContentAPIBatch
 from fds.sdk.FactSetContentAPIBatch.api import batch_processing_api
-from fds.sdk.FactSetContentAPIBatch.model.error_response import ErrorResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_data_response import BatchDataResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_status_response import BatchStatusResponse
+from fds.sdk.FactSetContentAPIBatch.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
 
     try:
         # Returns the response for a Batch Request
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_data(id)
         responseWrapper = {
             200: api_response.get_response_200,
@@ -120,10 +120,8 @@ Return the response data for the underlying batch request that is specified by t
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetContentAPIBatch
 from fds.sdk.FactSetContentAPIBatch.api import batch_processing_api
-from fds.sdk.FactSetContentAPIBatch.model.error_response import ErrorResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_data_request import BatchDataRequest
-from fds.sdk.FactSetContentAPIBatch.model.batch_data_response import BatchDataResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_status_response import BatchStatusResponse
+from fds.sdk.FactSetContentAPIBatch.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,6 +157,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
 
     try:
         # Returns the response for a Batch Request
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_data_with_post(batch_data_request)
         responseWrapper = {
             200: api_response.get_response_200,
@@ -217,8 +216,8 @@ Return the status for the underlying batch request that is specified by the id.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetContentAPIBatch
 from fds.sdk.FactSetContentAPIBatch.api import batch_processing_api
-from fds.sdk.FactSetContentAPIBatch.model.error_response import ErrorResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_status_response import BatchStatusResponse
+from fds.sdk.FactSetContentAPIBatch.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -252,6 +251,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
 
     try:
         # Returns the status for a Batch Request
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_status(id)
         pprint(api_response)
 
@@ -306,9 +306,8 @@ Return the status for the underlying batch request that is specified by the id.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetContentAPIBatch
 from fds.sdk.FactSetContentAPIBatch.api import batch_processing_api
-from fds.sdk.FactSetContentAPIBatch.model.error_response import ErrorResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_status_response import BatchStatusResponse
-from fds.sdk.FactSetContentAPIBatch.model.batch_status_request import BatchStatusRequest
+from fds.sdk.FactSetContentAPIBatch.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -344,6 +343,7 @@ with fds.sdk.FactSetContentAPIBatch.ApiClient(configuration) as api_client:
 
     try:
         # Returns the status for a Batch Request
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_batch_status_with_post(batch_status_request)
         pprint(api_response)
 

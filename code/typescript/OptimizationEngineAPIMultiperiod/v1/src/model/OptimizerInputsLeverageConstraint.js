@@ -20,7 +20,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsLeverageConstraint model module.
  * @module model/OptimizerInputsLeverageConstraint
- * @version 0.20.0
  */
 class OptimizerInputsLeverageConstraint {
     /**

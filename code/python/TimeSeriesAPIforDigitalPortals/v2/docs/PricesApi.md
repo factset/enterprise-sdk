@@ -28,7 +28,8 @@ Single subsample intraday data for a notation. The subsample may exceed the enti
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,15 +61,17 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     id = "id_example" # str | Identifier of the notation.
     _from = "from_example" # str | Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
-    type = "trade" # str | Type of the price as configured for the customer. (optional) (default to "trade")
-    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
-    granularity = "1h" # str | Subsample granularities suitable for intraday data. (optional) (default to "1h")
+    type = "trade" # str | Type of the price as configured for the customer. (optional) if omitted the server will use the default value of "trade"
+    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
+    granularity = "1h" # str | Subsample granularities suitable for intraday data. (optional) if omitted the server will use the default value of "1h"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Single subsample intraday data for a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_prices_time_series_intraday_subsample_get(id, _from, type=type, quality=quality, granularity=granularity, attributes=attributes)
         pprint(api_response)
 
@@ -126,8 +129,8 @@ End-of-day time series data for a notation. The resulting time series is always 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object4 import InlineObject4
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -184,6 +187,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # End-of-day time series data for a notation.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_time_series_eod_list(body)
         pprint(api_response)
 
@@ -236,8 +240,8 @@ Single subsample end-of-day data for a notation. The sample is always adjusted f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object5 import InlineObject5
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -290,6 +294,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Single subsample end-of-day data for a notation.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_time_series_eod_subsample_get(body)
         pprint(api_response)
 
@@ -342,8 +347,8 @@ Subsampled end-of-day time series data for a notation. The resulting time series
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object6 import InlineObject6
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -399,6 +404,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Subsampled end-of-day time series data for a notation.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_time_series_eod_subsample_list(body)
         pprint(api_response)
 
@@ -451,8 +457,8 @@ Intraday time series data for a notation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object7 import InlineObject7
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -506,6 +512,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Intraday time series data for a notation.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_time_series_intraday_list(body)
         pprint(api_response)
 
@@ -558,8 +565,8 @@ Subsampled intraday time series data for a notation. If a subsample's time range
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_object8 import InlineObject8
-from fds.sdk.TimeSeriesAPIforDigitalPortals.model.inline_response20010 import InlineResponse20010
+from fds.sdk.TimeSeriesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -613,6 +620,7 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
 
     try:
         # Subsampled intraday time series data for a notation.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_prices_time_series_intraday_subsample_list(body)
         pprint(api_response)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIPrepay model module.
  * @module model/FIPrepay
- * @version 0.20.0
  */
 class FIPrepay {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The MarketValue model module.
  * @module model/MarketValue
- * @version 0.20.0
  */
 class MarketValue {
     /**

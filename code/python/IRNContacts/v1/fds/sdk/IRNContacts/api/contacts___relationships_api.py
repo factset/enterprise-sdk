@@ -697,7 +697,7 @@ class ContactsRelationshipsApi(object):
     def get_all_relationships_tagging_a_contact(
         self,
         **kwargs
-    ) -> [ContactRelationshipTwoSidedDto]:
+    ) -> typing.List[ContactRelationshipTwoSidedDto]:
         """Get all the relationships where the given symbol or contact identifier has been tagged in a relationship  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -731,7 +731,7 @@ class ContactsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRelationshipTwoSidedDto]
+            typing.List[ContactRelationshipTwoSidedDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -740,7 +740,7 @@ class ContactsRelationshipsApi(object):
     def get_all_relationships_tagging_a_contact_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[ContactRelationshipTwoSidedDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactRelationshipTwoSidedDto], int, typing.MutableMapping]:
         """Get all the relationships where the given symbol or contact identifier has been tagged in a relationship  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -774,7 +774,7 @@ class ContactsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRelationshipTwoSidedDto]
+            typing.List[ContactRelationshipTwoSidedDto]
                 Response Object
             int
                 Http Status Code
@@ -787,7 +787,7 @@ class ContactsRelationshipsApi(object):
     def get_all_relationships_tagging_a_contact_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[ContactRelationshipTwoSidedDto]]":
+    ) -> "ApplyResult[typing.List[ContactRelationshipTwoSidedDto]]":
         """Get all the relationships where the given symbol or contact identifier has been tagged in a relationship  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -821,7 +821,7 @@ class ContactsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactRelationshipTwoSidedDto]]
+            ApplyResult[typing.List[ContactRelationshipTwoSidedDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_all_relationships_tagging_a_contact_endpoint.call_with_http_info(**kwargs)
@@ -829,7 +829,7 @@ class ContactsRelationshipsApi(object):
     def get_all_relationships_tagging_a_contact_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactRelationshipTwoSidedDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactRelationshipTwoSidedDto], int, typing.MutableMapping]]":
         """Get all the relationships where the given symbol or contact identifier has been tagged in a relationship  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -863,7 +863,7 @@ class ContactsRelationshipsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactRelationshipTwoSidedDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactRelationshipTwoSidedDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_all_relationships_tagging_a_contact_endpoint.call_with_http_info(**kwargs)

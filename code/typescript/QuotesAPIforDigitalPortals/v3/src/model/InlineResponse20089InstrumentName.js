@@ -17,7 +17,6 @@ import InlineResponse20089InstrumentNameDefault from './InlineResponse20089Instr
 /**
  * The InlineResponse20089InstrumentName model module.
  * @module model/InlineResponse20089InstrumentName
- * @version 0.10.0
  */
 class InlineResponse20089InstrumentName {
     /**

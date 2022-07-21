@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataNotationPrice model module.
  * @module model/InlineResponse2006DataNotationPrice
- * @version 0.9.2
  */
 class InlineResponse2006DataNotationPrice {
     /**

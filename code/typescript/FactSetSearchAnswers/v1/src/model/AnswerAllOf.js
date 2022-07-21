@@ -17,7 +17,6 @@ import TemplateData from './TemplateData';
 /**
  * The AnswerAllOf model module.
  * @module model/AnswerAllOf
- * @version 0.20.0
  */
 class AnswerAllOf {
     /**

@@ -24,7 +24,6 @@ import InlineResponse2006DataType from './InlineResponse2006DataType';
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.10.0
  */
 class InlineResponse2006Data {
     /**

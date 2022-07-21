@@ -17,7 +17,6 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.10.0
 */
 
 /**
@@ -667,6 +666,11 @@ class ApiClient {
             }
         }
     };
+
+    static setValue(obj, value) {
+        obj.value = value;
+        return obj;
+    }
 }
 
 /**

@@ -1,6 +1,6 @@
 # FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api.PricesApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="postpricestimeserieseodlist"></a>
 # **PostPricesTimeSeriesEodList**
-> InlineResponse2005 PostPricesTimeSeriesEodList (InlineObject5 body)
+> InlineResponse2005 PostPricesTimeSeriesEodList (InlineObject5 inlineObject5)
 
 End-of-day time series data for a notation.
 
@@ -55,12 +55,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject5(); // InlineObject5 | 
+
+            var inlineObject5 = new InlineObject5(); // InlineObject5 | 
 
             try
             {
                 // End-of-day time series data for a notation.
-                InlineResponse2005 result = apiInstance.PostPricesTimeSeriesEodList(body);
+                InlineResponse2005 result = apiInstance.PostPricesTimeSeriesEodList(inlineObject5);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -78,7 +79,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | 
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
 
 ### Return type
 [**InlineResponse2005**](InlineResponse2005.md)
@@ -102,7 +103,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestimeserieseodsubsampleget"></a>
 # **PostPricesTimeSeriesEodSubsampleGet**
-> InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet (InlineObject6 body)
+> InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet (InlineObject6 inlineObject6)
 
 Single subsample end-of-day data for a notation.
 
@@ -143,12 +144,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject6(); // InlineObject6 | 
+
+            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
 
             try
             {
                 // Single subsample end-of-day data for a notation.
-                InlineResponse2006 result = apiInstance.PostPricesTimeSeriesEodSubsampleGet(body);
+                InlineResponse2006 result = apiInstance.PostPricesTimeSeriesEodSubsampleGet(inlineObject6);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -166,7 +168,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 [**InlineResponse2006**](InlineResponse2006.md)
@@ -190,7 +192,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestimeserieseodsubsamplelist"></a>
 # **PostPricesTimeSeriesEodSubsampleList**
-> InlineResponse2007 PostPricesTimeSeriesEodSubsampleList (InlineObject7 body)
+> InlineResponse2007 PostPricesTimeSeriesEodSubsampleList (InlineObject7 inlineObject7)
 
 Subsampled end-of-day time series data for a notation.
 
@@ -231,12 +233,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject7(); // InlineObject7 | 
+
+            var inlineObject7 = new InlineObject7(); // InlineObject7 | 
 
             try
             {
                 // Subsampled end-of-day time series data for a notation.
-                InlineResponse2007 result = apiInstance.PostPricesTimeSeriesEodSubsampleList(body);
+                InlineResponse2007 result = apiInstance.PostPricesTimeSeriesEodSubsampleList(inlineObject7);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -254,7 +257,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | 
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 [**InlineResponse2007**](InlineResponse2007.md)
@@ -278,7 +281,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestimeseriesintradaylist"></a>
 # **PostPricesTimeSeriesIntradayList**
-> InlineResponse2008 PostPricesTimeSeriesIntradayList (InlineObject8 body)
+> InlineResponse2008 PostPricesTimeSeriesIntradayList (InlineObject8 inlineObject8)
 
 Intraday time series data for a notation.
 
@@ -319,12 +322,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject8(); // InlineObject8 | 
+
+            var inlineObject8 = new InlineObject8(); // InlineObject8 | 
 
             try
             {
                 // Intraday time series data for a notation.
-                InlineResponse2008 result = apiInstance.PostPricesTimeSeriesIntradayList(body);
+                InlineResponse2008 result = apiInstance.PostPricesTimeSeriesIntradayList(inlineObject8);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -342,7 +346,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | 
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 [**InlineResponse2008**](InlineResponse2008.md)
@@ -366,7 +370,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestimeseriesintradaysubsampleget"></a>
 # **PostPricesTimeSeriesIntradaySubsampleGet**
-> InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet (InlineObject9 body)
+> InlineResponse2009 PostPricesTimeSeriesIntradaySubsampleGet (InlineObject9 inlineObject9)
 
 Single subsample intraday data for a notation.
 
@@ -407,12 +411,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject9(); // InlineObject9 | 
+
+            var inlineObject9 = new InlineObject9(); // InlineObject9 | 
 
             try
             {
                 // Single subsample intraday data for a notation.
-                InlineResponse2009 result = apiInstance.PostPricesTimeSeriesIntradaySubsampleGet(body);
+                InlineResponse2009 result = apiInstance.PostPricesTimeSeriesIntradaySubsampleGet(inlineObject9);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -430,7 +435,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 [**InlineResponse2009**](InlineResponse2009.md)
@@ -454,7 +459,7 @@ Name | Type | Description  | Notes
 
 <a name="postpricestimeseriesintradaysubsamplelist"></a>
 # **PostPricesTimeSeriesIntradaySubsampleList**
-> InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList (InlineObject10 body)
+> InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList (InlineObject10 inlineObject10)
 
 Subsampled intraday time series data for a notation.
 
@@ -495,12 +500,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var body = new InlineObject10(); // InlineObject10 | 
+
+            var inlineObject10 = new InlineObject10(); // InlineObject10 | 
 
             try
             {
                 // Subsampled intraday time series data for a notation.
-                InlineResponse20010 result = apiInstance.PostPricesTimeSeriesIntradaySubsampleList(body);
+                InlineResponse20010 result = apiInstance.PostPricesTimeSeriesIntradaySubsampleList(inlineObject10);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -518,7 +524,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | 
 
 ### Return type
 [**InlineResponse20010**](InlineResponse20010.md)

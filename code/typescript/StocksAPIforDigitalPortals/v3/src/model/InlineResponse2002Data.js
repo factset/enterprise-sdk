@@ -18,7 +18,6 @@ import InlineResponse2002Recommendation from './InlineResponse2002Recommendation
 /**
  * The InlineResponse2002Data model module.
  * @module model/InlineResponse2002Data
- * @version 0.10.0
  */
 class InlineResponse2002Data {
     /**

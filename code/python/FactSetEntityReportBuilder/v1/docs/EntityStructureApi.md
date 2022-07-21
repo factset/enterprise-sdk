@@ -23,8 +23,8 @@ Returns full entity tree for table and tree display
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntityReportBuilder
 from fds.sdk.FactSetEntityReportBuilder.api import entity_structure_api
-from fds.sdk.FactSetEntityReportBuilder.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntityReportBuilder.model.response import Response
+from fds.sdk.FactSetEntityReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,10 +55,12 @@ with fds.sdk.FactSetEntityReportBuilder.ApiClient(configuration) as api_client:
     api_instance = entity_structure_api.EntityStructureApi(api_client)
 
     id = "FDS" # str | Company ticker
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns - tree - Entities are represented as tree nodes returned in a flat structure, where each parent node contains a children attribute pointing to its child nodes  (optional) (default to "table_parent_child_columns")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns - tree - Entities are represented as tree nodes returned in a flat structure, where each parent node contains a children attribute pointing to its child nodes  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Entity structure
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_structure_structure(id, schema=schema)
         pprint(api_response)
 

@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="calendar">calendar.</param>
         /// <param name="adjust">adjust.</param>
-        public GlobalPricesRequest(List<string> ids = default(List<string>), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), Adjust adjust = default(Adjust))
+        public GlobalPricesRequest(List<string> ids, string startDate, string endDate,List<string> fields = default(List<string>), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), Adjust adjust = default(Adjust))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

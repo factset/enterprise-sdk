@@ -26,8 +26,8 @@ Returns all active or inactive entities below the requested entity id.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_structure_api
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntity.model.entity_structure_response import EntityStructureResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,11 +58,13 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     api_instance = entity_structure_api.EntityStructureApi(api_client)
 
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) (default to -1)
-    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) (default to -1)
+    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) if omitted the server will use the default value of -1
+    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) if omitted the server will use the default value of -1
 
     try:
         # Returns all active or inactive entities and respective levels below the requested entity id.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_structure(ids, level=level, active=active)
         pprint(api_response)
 
@@ -122,8 +124,8 @@ Returns full ultimate entity structure including ultimate parent and all subordi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_structure_api
-from fds.sdk.FactSetEntity.model.ultimate_entity_structure_response import UltimateEntityStructureResponse
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,11 +156,13 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     api_instance = entity_structure_api.EntityStructureApi(api_client)
 
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) (default to -1)
-    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) (default to -1)
+    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) if omitted the server will use the default value of -1
+    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) if omitted the server will use the default value of -1
 
     try:
         # Returns the full ultimate parent entity hiearachy. Control levels and active status of underlying entities.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_ultimate_entity_structure(ids, level=level, active=active)
         pprint(api_response)
 
@@ -218,9 +222,8 @@ Returns all active or inactive entities and respective levels below the requeste
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_structure_api
-from fds.sdk.FactSetEntity.model.entity_structure_request import EntityStructureRequest
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntity.model.entity_structure_response import EntityStructureResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,6 +261,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
 
     try:
         # Returns all active or inactive entities below the requested entity id.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_structure(entity_structure_request)
         pprint(api_response)
 
@@ -315,9 +319,8 @@ Returns all active or inactive entities and respective levels below the requeste
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_structure_api
-from fds.sdk.FactSetEntity.model.ultimate_entity_structure_request import UltimateEntityStructureRequest
-from fds.sdk.FactSetEntity.model.ultimate_entity_structure_response import UltimateEntityStructureResponse
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -355,6 +358,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
 
     try:
         # Returns all active or inactive entities and respective levels below the requested entity id.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_ultimate_entity_structure(ultimate_entity_structure_request)
         pprint(api_response)
 

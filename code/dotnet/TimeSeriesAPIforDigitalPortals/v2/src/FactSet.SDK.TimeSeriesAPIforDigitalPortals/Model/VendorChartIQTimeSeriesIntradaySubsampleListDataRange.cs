@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most. (required).</param>
         /// <param name="end">The ending point of the time range (exclusive). Dates in the future are not allowed. (required).</param>
-        public VendorChartIQTimeSeriesIntradaySubsampleListDataRange(string start = default(string), string end = default(string))
+        public VendorChartIQTimeSeriesIntradaySubsampleListDataRange(string start, string end)
         {
             // to ensure "start" is required (not null)
             if (start == null) {

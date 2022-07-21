@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="label">label.</param>
         /// <param name="date">date.</param>
         /// <param name="blurb">blurb.</param>
-        public ValueLabelDateTextBlockTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), string date = default(string), string blurb = default(string))
+        public ValueLabelDateTextBlockTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), string date = default(string), string blurb = default(string))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareBookValue model module.
  * @module model/InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareBookValue
- * @version 0.10.0
  */
 class InlineResponse20012DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareBookValue {
     /**

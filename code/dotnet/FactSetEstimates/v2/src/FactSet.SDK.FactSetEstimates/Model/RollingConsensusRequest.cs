@@ -49,7 +49,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results..</param>
         /// <param name="periodicity">periodicity.</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public RollingConsensusRequest(List<string> ids = default(List<string>), List<string> metrics = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), Periodicity periodicity = default(Periodicity), string currency = default(string))
+        public RollingConsensusRequest(List<string> ids, List<string> metrics,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), Periodicity periodicity = default(Periodicity), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

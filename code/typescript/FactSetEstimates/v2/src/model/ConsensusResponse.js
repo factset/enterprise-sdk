@@ -17,7 +17,6 @@ import ConsensusEstimate from './ConsensusEstimate';
 /**
  * The ConsensusResponse model module.
  * @module model/ConsensusResponse
- * @version 0.20.0
  */
 class ConsensusResponse {
     /**

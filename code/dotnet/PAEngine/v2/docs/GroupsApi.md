@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
 
+
             try
             {
                 // Get PA groups

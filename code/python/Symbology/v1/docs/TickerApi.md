@@ -26,9 +26,8 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import ticker_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.ticker_history_translation_response import TickerHistoryTranslationResponse
-from fds.sdk.Symbology.model.ticker_history_translation_request import TickerHistoryTranslationRequest
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_ticker_history(ticker_history_translation_request)
         pprint(api_response)
 
@@ -122,9 +122,8 @@ Returns the full history of Ticker-Exchange or Ticker-Region changes for a reque
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import ticker_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.ticker_translation_response import TickerTranslationResponse
-from fds.sdk.Symbology.model.ticker_translation_request import TickerTranslationRequest
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -162,6 +161,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Returns the Ticker-Exchange or Ticker-Region for a given security.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_ticker(ticker_translation_request)
         pprint(api_response)
 
@@ -219,8 +219,8 @@ Return the full history of Ticker changes for a given market security or FactSet
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import ticker_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.ticker_history_translation_response import TickerHistoryTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -251,10 +251,12 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     api_instance = ticker_api.TickerApi(api_client)
 
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-    ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) (default to "REGION")
+    ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) if omitted the server will use the default value of "REGION"
 
     try:
         # Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.ticker_history(ids, ticker_type=ticker_type)
         pprint(api_response)
 
@@ -313,8 +315,8 @@ Returns the Ticker-Exchange or Ticker-Region for a given security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import ticker_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.ticker_translation_response import TickerTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -345,11 +347,13 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     api_instance = ticker_api.TickerApi(api_client)
 
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-    ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) (default to "REGION")
+    ticker_type = "REGION" # str | Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (optional) if omitted the server will use the default value of "REGION"
     as_of_date = "2010-01-01" # str | As-Of date for historical symbol request in YYYY-MM-DD format. (optional)
 
     try:
         # Returns the Ticker-Exchange or Ticker-Region for a given security.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.translate_ticker(ids, ticker_type=ticker_type, as_of_date=as_of_date)
         pprint(api_response)
 

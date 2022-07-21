@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityFocus model module.
  * @module model/EntityFocus
- * @version 0.20.0
  */
 class EntityFocus {
     /**

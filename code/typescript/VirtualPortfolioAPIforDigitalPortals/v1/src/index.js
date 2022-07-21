@@ -154,7 +154,6 @@ import WatchlistApi from './api/WatchlistApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.2
 */
 export {
     /**

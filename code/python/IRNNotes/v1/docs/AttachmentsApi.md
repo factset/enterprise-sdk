@@ -1,6 +1,6 @@
 # fds.sdk.IRNNotes.AttachmentsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,8 +24,8 @@ Create an attachment for an existing note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import attachments_api
-from fds.sdk.IRNNotes.model.new_item_dto import NewItemDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +60,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Create an attachment for an existing note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_attachment(note_id, file)
         pprint(api_response)
 
@@ -113,7 +114,8 @@ Download an attachment from a Note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import attachments_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,7 +150,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Download an attachment from a Note
+        # example passing only required values which don't have defaults set
         api_instance.download_attachment(note_id, attachment_id)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
 ```
@@ -200,8 +204,8 @@ Get all the attachments belonging to a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import attachments_api
-from fds.sdk.IRNNotes.model.attachment_summary_dto import AttachmentSummaryDto
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -235,6 +239,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get all the attachments belonging to a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_attachments(note_id)
         pprint(api_response)
 
@@ -287,7 +292,8 @@ Delete attachment from note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import attachments_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -322,7 +328,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Delete attachment from note
+        # example passing only required values which don't have defaults set
         api_instance.soft_delete_note_attachment(note_id, attachment_id)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->soft_delete_note_attachment: %s\n" % e)
 ```

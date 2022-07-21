@@ -18,7 +18,6 @@ import RankedTableEntity from './RankedTableEntity';
 /**
  * The RankedTableRow model module.
  * @module model/RankedTableRow
- * @version 0.20.0
  */
 class RankedTableRow {
     /**

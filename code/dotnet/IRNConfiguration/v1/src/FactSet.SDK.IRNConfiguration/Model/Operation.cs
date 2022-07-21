@@ -45,7 +45,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="op">op.</param>
         /// <param name="from">from.</param>
         /// <param name="value">value.</param>
-        public Operation(OperationType? operationType = default(OperationType?), string path = default(string), string op = default(string), string from = default(string), Object value = default(Object))
+        public Operation(OperationType operationType = default(OperationType), string path = default(string), string op = default(string), string from = default(string), Object value = default(Object))
         {
             this.OperationType = operationType;
             this.Path = path;

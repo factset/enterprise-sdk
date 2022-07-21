@@ -17,7 +17,6 @@ import ModelAccountAdditionalField from './ModelAccountAdditionalField';
 /**
  * The ModelAccountFields model module.
  * @module model/ModelAccountFields
- * @version 0.20.0
  */
 class ModelAccountFields {
     /**

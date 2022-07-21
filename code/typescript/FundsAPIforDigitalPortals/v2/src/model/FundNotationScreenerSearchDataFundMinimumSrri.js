@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataFundMinimumSrri model module.
  * @module model/FundNotationScreenerSearchDataFundMinimumSrri
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundMinimumSrri {
     /**

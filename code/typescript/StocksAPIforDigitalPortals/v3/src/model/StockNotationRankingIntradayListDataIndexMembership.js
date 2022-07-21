@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationRankingIntradayListDataIndexMembership model module.
  * @module model/StockNotationRankingIntradayListDataIndexMembership
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataIndexMembership {
     /**

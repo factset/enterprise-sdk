@@ -41,7 +41,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// Initializes a new instance of the <see cref="AccountDirectoriesRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public AccountDirectoriesRoot(AccountDirectories data = default(AccountDirectories))
+        public AccountDirectoriesRoot(AccountDirectories data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

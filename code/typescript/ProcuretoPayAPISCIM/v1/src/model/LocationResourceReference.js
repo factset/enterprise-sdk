@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationResourceReference model module.
  * @module model/LocationResourceReference
- * @version 0.20.1
  */
 class LocationResourceReference {
     /**

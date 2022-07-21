@@ -141,7 +141,7 @@ class SwivelApi(object):
         tile_id="tile0",
         account_id="LARGE_CORE",
         **kwargs
-    ) -> [str]:
+    ) -> typing.List[str]:
         """Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.  # noqa: E501
 
         Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.  # noqa: E501
@@ -179,7 +179,7 @@ class SwivelApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [str]
+            typing.List[str]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -203,7 +203,7 @@ class SwivelApi(object):
         tile_id="tile0",
         account_id="LARGE_CORE",
         **kwargs
-    ) -> typing.Tuple[[str], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[str], int, typing.MutableMapping]:
         """Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.  # noqa: E501
 
         Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.  # noqa: E501
@@ -241,7 +241,7 @@ class SwivelApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [str]
+            typing.List[str]
                 Response Object
             int
                 Http Status Code
@@ -269,7 +269,7 @@ class SwivelApi(object):
         tile_id="tile0",
         account_id="LARGE_CORE",
         **kwargs
-    ) -> "ApplyResult[[str]]":
+    ) -> "ApplyResult[typing.List[str]]":
         """Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.  # noqa: E501
 
         Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.  # noqa: E501
@@ -307,7 +307,7 @@ class SwivelApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[str]]
+            ApplyResult[typing.List[str]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['pub_doc'] = \
@@ -330,7 +330,7 @@ class SwivelApi(object):
         tile_id="tile0",
         account_id="LARGE_CORE",
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[str], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[str], int, typing.MutableMapping]]":
         """Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.  # noqa: E501
 
         Note: Due to Swagger UI functionality, the redirect is automatically followed when using 'Try it out', so instead of the 302 Header response, a 200 is returned with the Cargo response Body.  # noqa: E501
@@ -368,7 +368,7 @@ class SwivelApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([str], int, typing.Dict)]
+            ApplyResult[(typing.List[str], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['pub_doc'] = \

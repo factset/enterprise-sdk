@@ -20,7 +20,6 @@ import FundNotationScreenerValueRangesGetDataPerformance from './FundNotationScr
 /**
  * The FundNotationScreenerValueRangesGetData model module.
  * @module model/FundNotationScreenerValueRangesGetData
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetData {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="types">List of trading schedule event types to return. See endpoint &#x60;/prices/tradingSchedule/event/type/list&#x60; for valid values. (required).</param>
         /// <param name="range">range (required).</param>
-        public PricesTradingScheduleEventListDataFilter(List<decimal> types = default(List<decimal>), PricesTradingScheduleEventListDataFilterRange range = default(PricesTradingScheduleEventListDataFilterRange))
+        public PricesTradingScheduleEventListDataFilter(List<decimal> types, PricesTradingScheduleEventListDataFilterRange range)
         {
             // to ensure "types" is required (not null)
             if (types == null) {

@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMatchApi(config);
+
             var entity = Microsoft;  // string | Entity the person is associated with. It is used to filter the candidates before taking a match decision. Can be entity ID or name. The supported entity types match the what is supported via the /company match.
             var personName = Bill Gates;  // string | Name of Person to match. (optional) 
             var salutation = Mr;  // string | Title in person's name. This parameter should not be provided when the person name is provided as the input. (optional) 
@@ -156,6 +157,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMatchApi(config);
+
             var peopleMatchRequest = new PeopleMatchRequest(); // PeopleMatchRequest | A request to People match.
 
             try

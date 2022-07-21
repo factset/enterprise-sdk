@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// </summary>
         /// <param name="investorId">Investor Id.</param>
         /// <param name="orders">orders (required).</param>
-        public EMSOrders(string investorId = default(string), List<EMSOrder> orders = default(List<EMSOrder>))
+        public EMSOrders(List<EMSOrder> orders,string investorId = default(string))
         {
             // to ensure "orders" is required (not null)
             if (orders == null) {

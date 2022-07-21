@@ -54,9 +54,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse200 result = apiInstance.getDebtInstrumentGet(id, attributes, language);
             System.out.println(result);
@@ -77,9 +77,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -142,7 +142,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse2002 result = apiInstance.getDebtInstrumentKeyFiguresNotationGet(id, attributes);
@@ -164,7 +164,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ## postDebtInstrumentIssuerSearch
 
-> InlineResponse2001 postDebtInstrumentIssuerSearch(body)
+> InlineResponse2001 postDebtInstrumentIssuerSearch(inlineObject)
 
 Search for issuers of debt instruments.
 
@@ -228,9 +228,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse2001 result = apiInstance.postDebtInstrumentIssuerSearch(body);
+            InlineResponse2001 result = apiInstance.postDebtInstrumentIssuerSearch(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -249,7 +249,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ## postDebtInstrumentNotationScreenerSearch
 
-> InlineResponse2003 postDebtInstrumentNotationScreenerSearch(body)
+> InlineResponse2003 postDebtInstrumentNotationScreenerSearch(inlineObject1)
 
 Screener for debt instruments&#39; notations based on debt instrument-specific parameters.
 
@@ -312,9 +312,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2003 result = apiInstance.postDebtInstrumentNotationScreenerSearch(body);
+            InlineResponse2003 result = apiInstance.postDebtInstrumentNotationScreenerSearch(inlineObject1);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -333,7 +333,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 ## postDebtInstrumentNotationScreenerValueRangesGet
 
-> InlineResponse2004 postDebtInstrumentNotationScreenerValueRangesGet(body)
+> InlineResponse2004 postDebtInstrumentNotationScreenerValueRangesGet(inlineObject2)
 
 Possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search.&#x60;
 
@@ -396,9 +396,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2004 result = apiInstance.postDebtInstrumentNotationScreenerValueRangesGet(body);
+            InlineResponse2004 result = apiInstance.postDebtInstrumentNotationScreenerValueRangesGet(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -417,7 +417,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 

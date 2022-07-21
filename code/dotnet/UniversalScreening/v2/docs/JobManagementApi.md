@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new JobManagementApi(config);
+
             var id = "id_example";  // string | Unique identifier for a screen calculation job
 
             try
@@ -142,6 +143,7 @@ namespace Example
 
             var apiInstance = new JobManagementApi(config);
 
+
             try
             {
                 apiInstance.DeleteAllActiveJobs();
@@ -226,6 +228,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new JobManagementApi(config);
+
 
             try
             {

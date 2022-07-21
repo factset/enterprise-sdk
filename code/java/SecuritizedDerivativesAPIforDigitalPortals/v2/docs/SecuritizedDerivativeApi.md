@@ -141,9 +141,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse200 result = apiInstance.getSecuritizedDerivativeGet(id, attributes, language);
             System.out.println(result);
@@ -164,9 +164,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -241,9 +241,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        String id = "id_example"; // String | Identifier of a notation.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2003 result = apiInstance.getSecuritizedDerivativeKeyFiguresNotationGet(id, attributes, language);
             System.out.println(result);
@@ -264,9 +264,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -329,9 +329,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
             InlineResponse2007 result = apiInstance.getSecuritizedDerivativeUnderlyingList(id, attributes, language);
             System.out.println(result);
@@ -352,9 +352,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 ## postSecuritizedDerivativeIssuerSearch
 
-> InlineResponse2002 postSecuritizedDerivativeIssuerSearch(body)
+> InlineResponse2002 postSecuritizedDerivativeIssuerSearch(inlineObject)
 
 Search for issuers of securitized derivatives.
 
@@ -417,9 +417,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse2002 result = apiInstance.postSecuritizedDerivativeIssuerSearch(body);
+            InlineResponse2002 result = apiInstance.postSecuritizedDerivativeIssuerSearch(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -438,7 +438,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
 
 ## postSecuritizedDerivativeNotationRankingIntradayList
 
-> InlineResponse2004 postSecuritizedDerivativeNotationRankingIntradayList(body)
+> InlineResponse2004 postSecuritizedDerivativeNotationRankingIntradayList(inlineObject1)
 
 Ranking of securitized derivatives&#39; notations using intraday figures.
 
@@ -509,9 +509,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse2004 result = apiInstance.postSecuritizedDerivativeNotationRankingIntradayList(body);
+            InlineResponse2004 result = apiInstance.postSecuritizedDerivativeNotationRankingIntradayList(inlineObject1);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -530,7 +530,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 
 ## postSecuritizedDerivativeNotationScreenerSearch
 
-> InlineResponse2006 postSecuritizedDerivativeNotationScreenerSearch(body)
+> InlineResponse2006 postSecuritizedDerivativeNotationScreenerSearch(inlineObject3)
 
 Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters.
 
@@ -599,9 +599,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse2006 result = apiInstance.postSecuritizedDerivativeNotationScreenerSearch(body);
+            InlineResponse2006 result = apiInstance.postSecuritizedDerivativeNotationScreenerSearch(inlineObject3);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -620,7 +620,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type
 
@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ## postSecuritizedDerivativeNotationScreenerValueRangesGet
 
-> InlineResponse2005 postSecuritizedDerivativeNotationScreenerValueRangesGet(body)
+> InlineResponse2005 postSecuritizedDerivativeNotationScreenerValueRangesGet(inlineObject2)
 
 Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
 
@@ -689,9 +689,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2005 result = apiInstance.postSecuritizedDerivativeNotationScreenerValueRangesGet(body);
+            InlineResponse2005 result = apiInstance.postSecuritizedDerivativeNotationScreenerValueRangesGet(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -710,7 +710,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 

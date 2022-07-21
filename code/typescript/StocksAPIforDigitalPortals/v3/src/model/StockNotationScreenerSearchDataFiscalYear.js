@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataFiscalYear model module.
  * @module model/StockNotationScreenerSearchDataFiscalYear
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataFiscalYear {
     /**

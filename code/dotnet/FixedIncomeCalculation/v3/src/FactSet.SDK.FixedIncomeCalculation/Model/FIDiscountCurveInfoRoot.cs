@@ -42,7 +42,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public FIDiscountCurveInfoRoot(Dictionary<string, FIDiscountCurveInfo> data = default(Dictionary<string, FIDiscountCurveInfo>), Object meta = default(Object))
+        public FIDiscountCurveInfoRoot(Dictionary<string, FIDiscountCurveInfo> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

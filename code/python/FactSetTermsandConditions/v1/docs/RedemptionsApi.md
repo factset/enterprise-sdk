@@ -24,8 +24,8 @@ Returns Redemption Prices for the Fixed Income security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import redemptions_api
-from fds.sdk.FactSetTermsandConditions.model.redemption_prices_response import RedemptionPricesResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,11 +56,11 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     api_instance = redemptions_api.RedemptionsApi(api_client)
 
     ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-    categories = "ALL" # str | Filters the list of Redemption Prices Categories -   * **CALL** = Call prices.   * **PUT** = Put prices.   * **SF** = Sinking Fund prices.  (default to "ALL")
 
     try:
         # Return Redemption Prices for a Fixed Income security.
-        api_response = api_instance.get_fixed_income_redemption_prices(ids, categories)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_fixed_income_redemption_prices(ids, )
         pprint(api_response)
 
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
@@ -118,9 +118,8 @@ Returns Redemption Prices for a list of Fixed Income securities.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import redemptions_api
-from fds.sdk.FactSetTermsandConditions.model.redemption_prices_request import RedemptionPricesRequest
-from fds.sdk.FactSetTermsandConditions.model.redemption_prices_response import RedemptionPricesResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,6 +158,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Redemption Prices for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_income_redemption_prices_for_list(redemption_prices_request)
         pprint(api_response)
 

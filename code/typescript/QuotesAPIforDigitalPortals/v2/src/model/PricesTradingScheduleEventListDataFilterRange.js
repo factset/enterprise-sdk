@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTradingScheduleEventListDataFilterRange model module.
  * @module model/PricesTradingScheduleEventListDataFilterRange
- * @version 0.9.2
  */
 class PricesTradingScheduleEventListDataFilterRange {
     /**

@@ -19,7 +19,6 @@ import InlineResponse20051DataInterestRateType from './InlineResponse20051DataIn
 /**
  * The InlineResponse20051DataInterestRate model module.
  * @module model/InlineResponse20051DataInterestRate
- * @version 0.10.0
  */
 class InlineResponse20051DataInterestRate {
     /**

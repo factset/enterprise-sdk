@@ -19,7 +19,6 @@ import OptimizerInputsSensitivityTerm from './OptimizerInputsSensitivityTerm';
 /**
  * The OptimizerInputsMPSensitivityTerm model module.
  * @module model/OptimizerInputsMPSensitivityTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPSensitivityTerm {
     /**

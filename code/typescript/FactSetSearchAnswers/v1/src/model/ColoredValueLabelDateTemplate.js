@@ -21,7 +21,6 @@ import TemplateWithLinks from './TemplateWithLinks';
 /**
  * The ColoredValueLabelDateTemplate model module.
  * @module model/ColoredValueLabelDateTemplate
- * @version 0.20.0
  */
 class ColoredValueLabelDateTemplate {
     /**

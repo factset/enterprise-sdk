@@ -18,7 +18,6 @@ import OptimizerInputsQuantRiskRequestInfo from './OptimizerInputsQuantRiskReque
 /**
  * The OptimizerInputsQuantRiskModel model module.
  * @module model/OptimizerInputsQuantRiskModel
- * @version 0.20.0
  */
 class OptimizerInputsQuantRiskModel {
     /**

@@ -17,7 +17,6 @@ import IsinTranslation from './IsinTranslation';
 /**
  * The IsinTranslationResponse model module.
  * @module model/IsinTranslationResponse
- * @version 0.8.2
  */
 class IsinTranslationResponse {
     /**

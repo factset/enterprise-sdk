@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SdgScores model module.
  * @module model/SdgScores
- * @version 0.20.0
  */
 class SdgScores {
     /**

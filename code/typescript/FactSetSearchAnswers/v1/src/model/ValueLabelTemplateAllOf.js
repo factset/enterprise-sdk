@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ValueLabelTemplateAllOf model module.
  * @module model/ValueLabelTemplateAllOf
- * @version 0.20.0
  */
 class ValueLabelTemplateAllOf {
     /**

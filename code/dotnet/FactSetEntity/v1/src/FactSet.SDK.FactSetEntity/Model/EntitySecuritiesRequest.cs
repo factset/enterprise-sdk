@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// </summary>
         /// <param name="ids">Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.  (required).</param>
         /// <param name="securityType">securityType.</param>
-        public EntitySecuritiesRequest(List<string> ids = default(List<string>), SecurityType securityType = default(SecurityType))
+        public EntitySecuritiesRequest(List<string> ids,SecurityType securityType = default(SecurityType))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

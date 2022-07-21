@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var eventId = "eventId_example";  // Guid | The UUID of the event to return.
 
             try
@@ -146,8 +147,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+
+            var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
             var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -176,8 +178,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -251,6 +253,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var eventId = "eventId_example";  // Guid | The UUID of the event to return.
 
             try
@@ -340,8 +343,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+
+            var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
             var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -370,8 +374,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -445,8 +449,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+
+            var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
@@ -472,8 +477,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **themes** | **string**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional] 
  **categories** | **string**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional] 
@@ -544,8 +549,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
-            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
+
+            var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
+            var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
             var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
             var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
@@ -574,8 +580,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional] 
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional] 
  **signalIds** | **string**|  | [optional] 
  **ids** | **string**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional] 
  **portfolios** | **string**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional] 
@@ -649,6 +655,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var eventRequestBody = new EventRequestBody(); // EventRequestBody | 
 
             try
@@ -736,6 +743,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
+
             var eventRequestBody = new EventRequestBody(); // EventRequestBody | 
 
             try

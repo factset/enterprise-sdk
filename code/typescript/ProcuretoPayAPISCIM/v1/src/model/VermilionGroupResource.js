@@ -18,7 +18,6 @@ import VermilionGroupResourceMeta from './VermilionGroupResourceMeta';
 /**
  * The VermilionGroupResource model module.
  * @module model/VermilionGroupResource
- * @version 0.20.1
  */
 class VermilionGroupResource {
     /**

@@ -475,10 +475,13 @@ info:
 
     Calculate and return the results of your saved Universal Screens.
   title: Universal Screening API
-  version: 1.0.2
+  version: 2.0.2
 openapi: 3.0.2
 servers:
   - url: https://api.factset.com/universal-screening
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
 externalDocs:
   description: Read more about STACH 2.0's column organized schema
   url: https://factset.github.io/stachschema/#/v2/ColumnOrganized
@@ -618,6 +621,3 @@ paths:
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
         - Screening Operations
-security:
-  - FactSetApiKey: []
-  - FactSetOAuth2: []

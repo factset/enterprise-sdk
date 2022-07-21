@@ -19,7 +19,6 @@ import PAPricingSourceRoot from '../model/PAPricingSourceRoot';
 /**
 * PricingSources service.
 * @module api/PricingSourcesApi
-* @version 0.20.0
 */
 export default class PricingSourcesApi {
 

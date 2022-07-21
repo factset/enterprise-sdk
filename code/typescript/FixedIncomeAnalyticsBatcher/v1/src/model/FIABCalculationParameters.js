@@ -18,7 +18,6 @@ import FIABIdentifier from './FIABIdentifier';
 /**
  * The FIABCalculationParameters model module.
  * @module model/FIABCalculationParameters
- * @version 0.20.0
  */
 class FIABCalculationParameters {
     /**

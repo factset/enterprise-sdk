@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="isin">International Securities Identification Number. (required).</param>
         /// <param name="filter">filter.</param>
-        public NotationCrossReferenceListByISINData(string isin = default(string), NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
+        public NotationCrossReferenceListByISINData(string isin,NotationCrossReferenceListByInstrumentDataFilter filter = default(NotationCrossReferenceListByInstrumentDataFilter))
         {
             // to ensure "isin" is required (not null)
             if (isin == null) {

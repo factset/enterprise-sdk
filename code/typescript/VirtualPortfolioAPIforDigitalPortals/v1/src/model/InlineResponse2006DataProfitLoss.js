@@ -18,7 +18,6 @@ import InlineResponse2001DataProfitLossToday from './InlineResponse2001DataProfi
 /**
  * The InlineResponse2006DataProfitLoss model module.
  * @module model/InlineResponse2006DataProfitLoss
- * @version 0.9.2
  */
 class InlineResponse2006DataProfitLoss {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ContractFieldsSummary model module.
  * @module model/ContractFieldsSummary
- * @version 0.20.0
  */
 class ContractFieldsSummary {
     /**

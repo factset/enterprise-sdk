@@ -47,7 +47,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="hideDates">hideDates (required) (default to false).</param>
         /// <param name="hideComment">hideComment (required) (default to false).</param>
         /// <param name="hideCompany">hideCompany (required) (default to false).</param>
-        public RelationshipSaveDto(Guid relationshipCategoryId = default(Guid), string relationshipCode = default(string), string bidirectionalName = default(string), string leftToRightName = default(string), string rightToLeftName = default(string), bool hideDates = false, bool hideComment = false, bool hideCompany = false)
+        public RelationshipSaveDto(Guid relationshipCategoryId, bool hideDates, bool hideComment, bool hideCompany,string relationshipCode = default(string), string bidirectionalName = default(string), string leftToRightName = default(string), string rightToLeftName = default(string))
         {
             this.RelationshipCategoryId = relationshipCategoryId;
             this.HideDates = hideDates;

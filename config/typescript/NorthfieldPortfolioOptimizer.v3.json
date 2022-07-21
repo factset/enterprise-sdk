@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-northfieldportfoliooptimizer",
-  "projectVersion": "0.20.0",
+  "projectVersion": "0.21.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Northfield Portfolio Optimizer client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "northfieldportfoliooptimizer",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/NorthfieldPortfolioOptimizer/0.20.0",
+  "httpUserAgent": "fds-sdk/javascript/NorthfieldPortfolioOptimizer/0.21.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

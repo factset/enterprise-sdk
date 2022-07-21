@@ -17,7 +17,6 @@ import BasicTimezoneListDataFilter from './BasicTimezoneListDataFilter';
 /**
  * The BasicTimezoneListData model module.
  * @module model/BasicTimezoneListData
- * @version 0.9.2
  */
 class BasicTimezoneListData {
     /**

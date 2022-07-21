@@ -45,7 +45,7 @@ namespace FactSet.SDK.Classifications.Model
         /// <param name="endDate">Requested end date for Range expressed in YYYY-MM-DD format..</param>
         /// <param name="frequency">frequency.</param>
         /// <param name="calendar">calendar.</param>
-        public GicsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Calendar calendar = default(Calendar))
+        public GicsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

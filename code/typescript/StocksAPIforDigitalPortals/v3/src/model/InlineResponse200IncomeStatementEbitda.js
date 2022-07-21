@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200IncomeStatementEbitda model module.
  * @module model/InlineResponse200IncomeStatementEbitda
- * @version 0.10.0
  */
 class InlineResponse200IncomeStatementEbitda {
     /**

@@ -25,8 +25,8 @@ Retrieves the `Decision` objects for an People Task (taskId). The decisions do n
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_match___bulk_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_decisions_response import PeopleDecisionsResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,11 +57,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = people_match___bulk_api.PeopleMatchBulkApi(api_client)
 
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /people-task endpoint.
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
 
     try:
         # Get the decisions of matches for the requested taskId.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_decisions(task_id, offset=offset, limit=limit)
         pprint(api_response)
 
@@ -121,8 +123,8 @@ The \"Bulk\" workflow allows the user to create a People Concordance Task. Uploa
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_match___bulk_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_task_response import PeopleTaskResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,6 +169,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Create a People Concordance Task.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_task_for_list(universe_id, task_name, input_file, client_id_column, entity_column, first_name_column=first_name_column, last_name_column=last_name_column, middle_name_column=middle_name_column, person_name_column=person_name_column, priority_column=priority_column, salutation_column=salutation_column, suffix_column=suffix_column)
         pprint(api_response)
 
@@ -235,8 +239,8 @@ Pulls the **status** for ALL the People Tasks submitted by a client within the l
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_match___bulk_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_task_status_response import PeopleTaskStatusResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -267,7 +271,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = people_match___bulk_api.PeopleMatchBulkApi(api_client)
 
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /people-task endpoint. (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
     status = [
         "PENDING",
@@ -275,6 +279,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Get the Status of the People Tasks.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_task_status(task_id=task_id, offset=offset, limit=limit, status=status)
         pprint(api_response)
 

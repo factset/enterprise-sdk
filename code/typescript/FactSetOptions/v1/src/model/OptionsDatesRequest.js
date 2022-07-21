@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsDatesRequest model module.
  * @module model/OptionsDatesRequest
- * @version 0.20.0
  */
 class OptionsDatesRequest {
     /**

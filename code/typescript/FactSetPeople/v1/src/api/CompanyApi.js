@@ -26,7 +26,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.20.0
 */
 export default class CompanyApi {
 

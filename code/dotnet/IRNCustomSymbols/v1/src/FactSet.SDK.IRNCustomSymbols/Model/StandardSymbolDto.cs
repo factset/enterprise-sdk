@@ -40,7 +40,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Model
         /// Initializes a new instance of the <see cref="StandardSymbolDto" /> class.
         /// </summary>
         /// <param name="standardSymbol">standardSymbol (required).</param>
-        public StandardSymbolDto(string standardSymbol = default(string))
+        public StandardSymbolDto(string standardSymbol)
         {
             // to ensure "standardSymbol" is required (not null)
             if (standardSymbol == null) {

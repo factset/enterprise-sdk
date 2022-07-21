@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetESG.Model
         /// <param name="date">Ending date for the period requested expressed in YYYY-MM-DD format. (required).</param>
         /// <param name="fsymId">FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). (required).</param>
         /// <param name="requestId">Identifier that was used for the request. (required).</param>
-        public Spotlights(DateTime date = default(DateTime), string fsymId = default(string), string requestId = default(string)) : base()
+        public Spotlights(DateTime date, string fsymId, string requestId) : base()
         {
             this.Date = date;
             // to ensure "fsymId" is required (not null)

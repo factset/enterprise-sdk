@@ -17,7 +17,6 @@ import InlineResponse20060LegalEntitiesBackgroundTextsType from './InlineRespons
 /**
  * The InlineResponse20060LegalEntitiesBackgroundTexts model module.
  * @module model/InlineResponse20060LegalEntitiesBackgroundTexts
- * @version 0.9.2
  */
 class InlineResponse20060LegalEntitiesBackgroundTexts {
     /**

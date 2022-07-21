@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OwnershipApi(config);
+
             var id = FDS;  // string | Company or Fund Identifier
             var assetType = "EQUITY";  // string | Controls the Asset Type of the data returned (optional)  (default to EQUITY)
             var holderType = "ALL_HOLDERS";  // string | Controls the Holder Type of the data returned (optional)  (default to INSTITUTIONS)

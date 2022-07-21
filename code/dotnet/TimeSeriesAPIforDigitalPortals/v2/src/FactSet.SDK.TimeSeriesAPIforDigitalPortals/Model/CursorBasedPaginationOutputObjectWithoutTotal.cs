@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="next">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null. (required).</param>
         /// <param name="previous">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null. (required).</param>
-        public CursorBasedPaginationOutputObjectWithoutTotal(string next = default(string), string previous = default(string))
+        public CursorBasedPaginationOutputObjectWithoutTotal(string next, string previous)
         {
             // to ensure "next" is required (not null)
             if (next == null) {

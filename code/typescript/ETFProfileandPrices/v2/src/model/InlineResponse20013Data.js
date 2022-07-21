@@ -21,7 +21,6 @@ import InlineResponse20013DataTrackingDifference from './InlineResponse20013Data
 /**
  * The InlineResponse20013Data model module.
  * @module model/InlineResponse20013Data
- * @version 0.10.0
  */
 class InlineResponse20013Data {
     /**

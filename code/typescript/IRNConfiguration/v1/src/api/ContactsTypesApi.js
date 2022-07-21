@@ -20,7 +20,6 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * ContactsTypes service.
 * @module api/ContactsTypesApi
-* @version 0.20.0
 */
 export default class ContactsTypesApi {
 

@@ -17,7 +17,6 @@ import FundIssuerSearchDataFundDomicile from './FundIssuerSearchDataFundDomicile
 /**
  * The FundIssuerSearchDataFund model module.
  * @module model/FundIssuerSearchDataFund
- * @version 0.10.0
  */
 class FundIssuerSearchDataFund {
     /**

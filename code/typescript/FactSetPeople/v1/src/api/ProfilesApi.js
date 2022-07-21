@@ -20,7 +20,6 @@ import PeopleProfilesResponse from '../model/PeopleProfilesResponse';
 /**
 * Profiles service.
 * @module api/ProfilesApi
-* @version 0.20.0
 */
 export default class ProfilesApi {
 

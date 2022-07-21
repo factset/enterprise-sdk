@@ -19,7 +19,6 @@ import ContractProperty from './ContractProperty';
 /**
  * The ContractFields model module.
  * @module model/ContractFields
- * @version 0.20.0
  */
 class ContractFields {
     /**

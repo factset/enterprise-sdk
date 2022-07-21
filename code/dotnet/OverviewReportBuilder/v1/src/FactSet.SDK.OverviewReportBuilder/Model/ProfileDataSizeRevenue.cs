@@ -42,7 +42,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="label">label (required).</param>
         /// <param name="value">value (required).</param>
         /// <param name="meta">meta.</param>
-        public ProfileDataSizeRevenue(string label = default(string), decimal? value = default(decimal?), DataPointMeta meta = default(DataPointMeta))
+        public ProfileDataSizeRevenue(string label, decimal? value,DataPointMeta meta = default(DataPointMeta))
         {
             // to ensure "label" is required (not null)
             if (label == null) {

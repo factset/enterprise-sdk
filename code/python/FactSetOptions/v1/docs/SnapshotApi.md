@@ -23,9 +23,8 @@ Returns all the profile information for the list of identifiers for a specific d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import snapshot_api
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.snapshot_request import SnapshotRequest
-from fds.sdk.FactSetOptions.model.snapshot_response import SnapshotResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +63,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns all the profile information for the list of identifiers as of a specific date
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_snapshot_for_list(snapshot_request)
         pprint(api_response)
 

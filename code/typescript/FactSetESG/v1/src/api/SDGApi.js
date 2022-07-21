@@ -20,7 +20,6 @@ import SdgScoresResponse from '../model/SdgScoresResponse';
 /**
 * SDG service.
 * @module api/SDGApi
-* @version 0.20.0
 */
 export default class SDGApi {
 

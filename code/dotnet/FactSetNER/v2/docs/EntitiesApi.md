@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntitiesApi(config);
+
             var payload = new Input(); // Input | 
 
             try

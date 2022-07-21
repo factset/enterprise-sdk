@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ModelAccountAdditionalField model module.
  * @module model/ModelAccountAdditionalField
- * @version 0.20.0
  */
 class ModelAccountAdditionalField {
     /**

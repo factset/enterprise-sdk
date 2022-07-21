@@ -18,7 +18,6 @@ import InlineResponse20025DataOptionAdjustedSpread from './InlineResponse20025Da
 /**
  * The InlineResponse20025Data model module.
  * @module model/InlineResponse20025Data
- * @version 0.10.0
  */
 class InlineResponse20025Data {
     /**

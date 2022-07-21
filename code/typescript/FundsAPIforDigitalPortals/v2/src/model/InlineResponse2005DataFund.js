@@ -25,7 +25,6 @@ import InlineResponse2005DataFundSrri from './InlineResponse2005DataFundSrri';
 /**
  * The InlineResponse2005DataFund model module.
  * @module model/InlineResponse2005DataFund
- * @version 0.10.0
  */
 class InlineResponse2005DataFund {
     /**

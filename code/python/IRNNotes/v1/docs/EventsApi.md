@@ -1,6 +1,6 @@
 # fds.sdk.IRNNotes.EventsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,8 @@ Get all the record events in the specified date range filtered on the given type
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import events_api
-from fds.sdk.IRNNotes.model.event_snippet_dto import EventSnippetDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +62,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get all the record events in the specified date range filtered on the given types
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_all_events(start_date, end_date=end_date, types=types)
         pprint(api_response)
 
@@ -114,8 +117,8 @@ Get all the record events that belong to a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import events_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.record_event_summary_dto import RecordEventSummaryDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,6 +152,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get all the record events that belong to a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_events(note_id)
         pprint(api_response)
 
@@ -201,8 +205,8 @@ Get details of a record event of a note
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import events_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
-from fds.sdk.IRNNotes.model.note_event_dto import NoteEventDto
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -237,6 +241,7 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get details of a record event of a note
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_record_event(note_id, record_event_id)
         pprint(api_response)
 

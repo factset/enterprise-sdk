@@ -18,7 +18,6 @@ import InlineResponse2002Status from './InlineResponse2002Status';
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.10.0
  */
 class InlineResponse2003Data {
     /**

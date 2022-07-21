@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Getfiles model module.
  * @module model/Getfiles
- * @version 0.20.1
  */
 class Getfiles {
     /**

@@ -18,7 +18,6 @@ import InlineResponse20066DataValueUnit from './InlineResponse20066DataValueUnit
 /**
  * The InlineResponse20070DataNotation model module.
  * @module model/InlineResponse20070DataNotation
- * @version 0.10.0
  */
 class InlineResponse20070DataNotation {
     /**

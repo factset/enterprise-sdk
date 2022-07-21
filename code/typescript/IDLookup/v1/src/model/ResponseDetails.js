@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ResponseDetails model module.
  * @module model/ResponseDetails
- * @version 0.20.0
  */
 class ResponseDetails {
     /**

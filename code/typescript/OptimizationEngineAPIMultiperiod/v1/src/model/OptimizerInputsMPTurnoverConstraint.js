@@ -19,7 +19,6 @@ import OptimizerInputsTurnoverConstraint from './OptimizerInputsTurnoverConstrai
 /**
  * The OptimizerInputsMPTurnoverConstraint model module.
  * @module model/OptimizerInputsMPTurnoverConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPTurnoverConstraint {
     /**

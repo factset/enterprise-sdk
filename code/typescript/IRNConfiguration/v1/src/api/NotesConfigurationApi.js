@@ -29,7 +29,6 @@ import UserConfigDto from '../model/UserConfigDto';
 /**
 * NotesConfiguration service.
 * @module api/NotesConfigurationApi
-* @version 0.20.0
 */
 export default class NotesConfigurationApi {
 

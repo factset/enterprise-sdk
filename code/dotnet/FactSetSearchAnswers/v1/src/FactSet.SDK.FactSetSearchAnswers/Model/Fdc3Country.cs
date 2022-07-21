@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="type">type (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="id">id.</param>
-        public Fdc3Country(string type = default(string), string name = default(string), CountryID id = default(CountryID))
+        public Fdc3Country(string type, string name,CountryID id = default(CountryID))
         {
             // to ensure "type" is required (not null)
             if (type == null) {

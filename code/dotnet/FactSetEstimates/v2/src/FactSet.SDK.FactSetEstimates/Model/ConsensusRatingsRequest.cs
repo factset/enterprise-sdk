@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this #endpoint. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="frequency">frequency.</param>
-        public ConsensusRatingsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency))
+        public ConsensusRatingsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

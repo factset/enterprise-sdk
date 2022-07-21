@@ -18,7 +18,6 @@ import InlineResponse2006DataPropertiesShareClass from './InlineResponse2006Data
 /**
  * The InlineResponse2006DataProperties model module.
  * @module model/InlineResponse2006DataProperties
- * @version 0.10.0
  */
 class InlineResponse2006DataProperties {
     /**

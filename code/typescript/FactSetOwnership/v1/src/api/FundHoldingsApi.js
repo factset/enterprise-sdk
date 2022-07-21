@@ -20,7 +20,6 @@ import FundHoldingsResponse from '../model/FundHoldingsResponse';
 /**
 * FundHoldings service.
 * @module api/FundHoldingsApi
-* @version 0.20.0
 */
 export default class FundHoldingsApi {
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Partial model module.
  * @module model/Partial
- * @version 0.20.0
  */
 class Partial {
     /**

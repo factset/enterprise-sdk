@@ -17,7 +17,6 @@ import OptionScreening from './OptionScreening';
 /**
  * The OptionScreeningResponse model module.
  * @module model/OptionScreeningResponse
- * @version 0.20.0
  */
 class OptionScreeningResponse {
     /**

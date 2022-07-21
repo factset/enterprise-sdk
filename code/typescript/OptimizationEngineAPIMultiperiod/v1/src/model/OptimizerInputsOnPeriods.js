@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsOnPeriods model module.
  * @module model/OptimizerInputsOnPeriods
- * @version 0.20.0
  */
 class OptimizerInputsOnPeriods {
     /**

@@ -17,7 +17,6 @@ import StockNotationScreenerSearchMetaPagination from './StockNotationScreenerSe
 /**
  * The StockNotationScreenerSearchMeta model module.
  * @module model/StockNotationScreenerSearchMeta
- * @version 0.10.0
  */
 class StockNotationScreenerSearchMeta {
     /**

@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetESG.Model
         /// <param name="fsymId">FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E). (required).</param>
         /// <param name="requestId">Identifier that was used for the request. (required).</param>
         /// <param name="scoreType">The name of the specific SDG Score type being shown in the response. This will be represented by the scoreTypes input: PULSE, INSIGHT, MOMENTUM, ART_VOL_TTM, CAT_VOL_TTM, or DYNAMIC_MAT. (required).</param>
-        public SdgScores(DateTime date = default(DateTime), string fsymId = default(string), string requestId = default(string), string scoreType = default(string)) : base()
+        public SdgScores(DateTime date, string fsymId, string requestId, string scoreType) : base()
         {
             this.Date = date;
             // to ensure "fsymId" is required (not null)

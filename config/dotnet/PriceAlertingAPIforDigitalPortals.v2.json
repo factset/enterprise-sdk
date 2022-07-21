@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.PriceAlertingAPIforDigitalPortals",
-  "packageVersion": "0.10.0",
+  "packageVersion": "0.10.2",
   "packageGuid": "{eb14a0cd-4d6b-591a-a70f-d4c9070d42c3}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/PriceAlertingAPIforDigitalPortals/0.10.0",
+  "httpUserAgent": "fds-sdk/dotnet/PriceAlertingAPIforDigitalPortals/0.10.2",
   "files": {
     "LICENSE": {}
   },

@@ -24,8 +24,8 @@ Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import helper_api
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.benchmark_id_list_response import BenchmarkIdListResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,8 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_benchmark_ids(family_filter=family_filter)
         pprint(api_response)
 
@@ -116,9 +118,8 @@ Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import helper_api
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
-from fds.sdk.FactSetBenchmarks.model.benchmark_id_list_response import BenchmarkIdListResponse
-from fds.sdk.FactSetBenchmarks.model.benchmark_id_list_request import BenchmarkIdListRequest
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +155,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_ids_for_list(benchmark_id_list_request)
         pprint(api_response)
 

@@ -24,8 +24,8 @@ Gets security ownership details and activity for the requested security identifi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOwnership
 from fds.sdk.FactSetOwnership.api import security_holders_api
-from fds.sdk.FactSetOwnership.model.security_holders_response import SecurityHoldersResponse
-from fds.sdk.FactSetOwnership.model.error_response import ErrorResponse
+from fds.sdk.FactSetOwnership.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,13 +56,15 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     api_instance = security_holders_api.SecurityHoldersApi(api_client)
 
     ids = ["FDS-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
-    holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) (default to "F")
-    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) (default to "ALL")
+    holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) if omitted the server will use the default value of "F"
+    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
         # Get security ownership data for requested security identifers.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Gets security ownership details and activity for the requested security identifi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOwnership
 from fds.sdk.FactSetOwnership.api import security_holders_api
-from fds.sdk.FactSetOwnership.model.security_holders_response import SecurityHoldersResponse
-from fds.sdk.FactSetOwnership.model.security_holders_request import SecurityHoldersRequest
-from fds.sdk.FactSetOwnership.model.error_response import ErrorResponse
+from fds.sdk.FactSetOwnership.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,6 +167,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
 
     try:
         # Get security ownership data for a list of requested securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_security_holders(security_holders_request)
         pprint(api_response)
 

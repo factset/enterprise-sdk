@@ -18,7 +18,6 @@ import NotationSearchByTextDataValidationPricesPrevious from './NotationSearchBy
 /**
  * The NotationSearchByTextDataValidationPrices model module.
  * @module model/NotationSearchByTextDataValidationPrices
- * @version 0.9.2
  */
 class NotationSearchByTextDataValidationPrices {
     /**

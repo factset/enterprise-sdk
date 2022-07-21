@@ -23,7 +23,8 @@ This endpoint takes the transactions data and pushes them into FactSet's systems
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DirectStreamingofTransactionMessages
 from fds.sdk.DirectStreamingofTransactionMessages.api import dsotm_api
-from fds.sdk.DirectStreamingofTransactionMessages.model.transactions import Transactions
+from fds.sdk.DirectStreamingofTransactionMessages.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -109,7 +110,10 @@ with fds.sdk.DirectStreamingofTransactionMessages.ApiClient(configuration) as ap
 
     try:
         # Push transactions data into FactSet's systems.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.send_transactions(transactions=transactions)
+
     except fds.sdk.DirectStreamingofTransactionMessages.ApiException as e:
         print("Exception when calling DSOTMApi->send_transactions: %s\n" % e)
 ```

@@ -18,7 +18,6 @@ import ErrorObjectSource from './ErrorObjectSource';
 /**
  * The ErrorObject model module.
  * @module model/ErrorObject
- * @version 0.20.0
  */
 class ErrorObject {
     /**

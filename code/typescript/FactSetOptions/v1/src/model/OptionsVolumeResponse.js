@@ -17,7 +17,6 @@ import OptionsVolume from './OptionsVolume';
 /**
  * The OptionsVolumeResponse model module.
  * @module model/OptionsVolumeResponse
- * @version 0.20.0
  */
 class OptionsVolumeResponse {
     /**

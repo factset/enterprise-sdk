@@ -20,7 +20,6 @@ import HighLowResponse from '../model/HighLowResponse';
 /**
 * HighLow service.
 * @module api/HighLowApi
-* @version 0.20.0
 */
 export default class HighLowApi {
 

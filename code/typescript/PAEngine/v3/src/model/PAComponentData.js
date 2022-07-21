@@ -21,7 +21,6 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PAComponentData model module.
  * @module model/PAComponentData
- * @version 0.20.0
  */
 class PAComponentData {
     /**

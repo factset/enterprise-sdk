@@ -53,7 +53,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
-            var id = "id_example";  // string | Identifier of the alert.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -77,7 +78,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the alert. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -143,10 +144,11 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var subscriptionMinimumInterval = 0.0MD;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0.0M)
+            var subscriptionMinimumInterval = 0MD;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0M)
             var paginationCursor = "paginationCursor_example";  // string | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional) 
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
@@ -170,9 +172,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **subscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0.0M]
+ **subscriptionMinimumInterval** | **decimal?**| Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. | [optional] [default to 0M]
  **paginationCursor** | **string**| Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). | [optional] 
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -237,7 +239,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
-            var id = "id_example";  // string | Identifier of the trigger.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -261,7 +264,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the trigger. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -286,7 +289,7 @@ Name | Type | Description  | Notes
 
 <a name="postalertingpricesbasictriggerlist"></a>
 # **PostAlertingPricesBasicTriggerList**
-> InlineResponse2003 PostAlertingPricesBasicTriggerList (InlineObject body = null)
+> InlineResponse2003 PostAlertingPricesBasicTriggerList (InlineObject inlineObject = null)
 
 List of triggers.
 
@@ -327,12 +330,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
-            var body = new InlineObject(); // InlineObject |  (optional) 
+
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
 
             try
             {
                 // List of triggers.
-                InlineResponse2003 result = apiInstance.PostAlertingPricesBasicTriggerList(body);
+                InlineResponse2003 result = apiInstance.PostAlertingPricesBasicTriggerList(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -350,7 +354,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)

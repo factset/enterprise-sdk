@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="exchange">exchange.</param>
         /// <param name="period">The period for the options to calculate at the money volatility. Below are the available periods -  * No Limit - (0) * One Month - (1) * Two Months - (2) * Three Months - (3) * Four Months - (4) * Five Months - (5) * Six Months - (6) (default to 0).</param>
-        public AtmImpliedVolatilityRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Exchange exchange = default(Exchange), int period = 0)
+        public AtmImpliedVolatilityRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Exchange exchange = default(Exchange), int period = 0)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

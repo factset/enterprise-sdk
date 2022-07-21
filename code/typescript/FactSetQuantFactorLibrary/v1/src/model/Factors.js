@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Factors model module.
  * @module model/Factors
- * @version 0.20.0
  */
 class Factors {
     /**

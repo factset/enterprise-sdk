@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200PerShareEarnings model module.
  * @module model/InlineResponse200PerShareEarnings
- * @version 0.10.0
  */
 class InlineResponse200PerShareEarnings {
     /**

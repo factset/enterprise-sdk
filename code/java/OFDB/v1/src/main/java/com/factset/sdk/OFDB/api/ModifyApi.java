@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.OFDB.models.InlineObject1;
-import com.factset.sdk.OFDB.models.InlineObject3;
-import com.factset.sdk.OFDB.models.InlineObject5;
+import com.factset.sdk.OFDB.models.ModifySymbols;
+import com.factset.sdk.OFDB.models.Modifydatespecific;
+import com.factset.sdk.OFDB.models.Modifysymboldate;
 import com.factset.sdk.OFDB.models.SuccessPostResponse;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -204,7 +204,7 @@ public class ModifyApi {
    * Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param inlineObject3  (required)
+   * @param modifydatespecific Required data for updating date in the database (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -221,8 +221,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesDatePut(String path, Integer date, InlineObject3 inlineObject3) throws ApiException {
-    return v1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3).getData();
+  public SuccessPostResponse v1DatabasePathDatesDatePut(String path, Integer date, Modifydatespecific modifydatespecific) throws ApiException {
+    return v1DatabasePathDatesDatePutWithHttpInfo(path, date, modifydatespecific).getData();
   }
 
   /**
@@ -230,7 +230,7 @@ public class ModifyApi {
    * Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param inlineObject3  (required)
+   * @param modifydatespecific Required data for updating date in the database (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -247,8 +247,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDatePutWithHttpInfo(String path, Integer date, InlineObject3 inlineObject3) throws ApiException {
-    Object localVarPostBody = inlineObject3;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDatePutWithHttpInfo(String path, Integer date, Modifydatespecific modifydatespecific) throws ApiException {
+    Object localVarPostBody = modifydatespecific;
     
     // verify the required parameter 'path' is set
     if (path == null) {
@@ -260,9 +260,9 @@ public class ModifyApi {
       throw new ApiException(400, "Missing the required parameter 'date' when calling v1DatabasePathDatesDatePut");
     }
     
-    // verify the required parameter 'inlineObject3' is set
-    if (inlineObject3 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject3' when calling v1DatabasePathDatesDatePut");
+    // verify the required parameter 'modifydatespecific' is set
+    if (modifydatespecific == null) {
+      throw new ApiException(400, "Missing the required parameter 'modifydatespecific' when calling v1DatabasePathDatesDatePut");
     }
     
     // create path and map variables
@@ -414,7 +414,7 @@ public class ModifyApi {
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
    * @param symbol Symbol with in the ofdb (required)
-   * @param inlineObject5  (required)
+   * @param modifysymboldate Data for updating symbol in the database (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -430,8 +430,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(String path, Integer date, String symbol, InlineObject5 inlineObject5) throws ApiException {
-    return v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5).getData();
+  public SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(String path, Integer date, String symbol, Modifysymboldate modifysymboldate) throws ApiException {
+    return v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, modifysymboldate).getData();
   }
 
   /**
@@ -440,7 +440,7 @@ public class ModifyApi {
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
    * @param symbol Symbol with in the ofdb (required)
-   * @param inlineObject5  (required)
+   * @param modifysymboldate Data for updating symbol in the database (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -456,8 +456,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(String path, Integer date, String symbol, InlineObject5 inlineObject5) throws ApiException {
-    Object localVarPostBody = inlineObject5;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(String path, Integer date, String symbol, Modifysymboldate modifysymboldate) throws ApiException {
+    Object localVarPostBody = modifysymboldate;
     
     // verify the required parameter 'path' is set
     if (path == null) {
@@ -474,9 +474,9 @@ public class ModifyApi {
       throw new ApiException(400, "Missing the required parameter 'symbol' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
     }
     
-    // verify the required parameter 'inlineObject5' is set
-    if (inlineObject5 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject5' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
+    // verify the required parameter 'modifysymboldate' is set
+    if (modifysymboldate == null) {
+      throw new ApiException(400, "Missing the required parameter 'modifysymboldate' when calling v1DatabasePathDatesDateSymbolsSymbolPut");
     }
     
     // create path and map variables
@@ -620,7 +620,7 @@ public class ModifyApi {
    * Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
    * @param path Encode database path (required)
    * @param symbol Symbol with in the ofdb (required)
-   * @param inlineObject1  (required)
+   * @param modifySymbols Data for updating symbol in the database (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -637,8 +637,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathSymbolsSymbolPut(String path, String symbol, InlineObject1 inlineObject1) throws ApiException {
-    return v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1).getData();
+  public SuccessPostResponse v1DatabasePathSymbolsSymbolPut(String path, String symbol, ModifySymbols modifySymbols) throws ApiException {
+    return v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, modifySymbols).getData();
   }
 
   /**
@@ -646,7 +646,7 @@ public class ModifyApi {
    * Updates an existing symbol field value for single/multiple dates or adds a new symbol/date within a symbol if not present in 3d database(OFDB). Updates an existing symbol field value or adds a new symbol if not present in the 2d database(OFDB)
    * @param path Encode database path (required)
    * @param symbol Symbol with in the ofdb (required)
-   * @param inlineObject1  (required)
+   * @param modifySymbols Data for updating symbol in the database (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -663,8 +663,8 @@ public class ModifyApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathSymbolsSymbolPutWithHttpInfo(String path, String symbol, InlineObject1 inlineObject1) throws ApiException {
-    Object localVarPostBody = inlineObject1;
+  public ApiResponse<SuccessPostResponse> v1DatabasePathSymbolsSymbolPutWithHttpInfo(String path, String symbol, ModifySymbols modifySymbols) throws ApiException {
+    Object localVarPostBody = modifySymbols;
     
     // verify the required parameter 'path' is set
     if (path == null) {
@@ -676,9 +676,9 @@ public class ModifyApi {
       throw new ApiException(400, "Missing the required parameter 'symbol' when calling v1DatabasePathSymbolsSymbolPut");
     }
     
-    // verify the required parameter 'inlineObject1' is set
-    if (inlineObject1 == null) {
-      throw new ApiException(400, "Missing the required parameter 'inlineObject1' when calling v1DatabasePathSymbolsSymbolPut");
+    // verify the required parameter 'modifySymbols' is set
+    if (modifySymbols == null) {
+      throw new ApiException(400, "Missing the required parameter 'modifySymbols' when calling v1DatabasePathSymbolsSymbolPut");
     }
     
     // create path and map variables

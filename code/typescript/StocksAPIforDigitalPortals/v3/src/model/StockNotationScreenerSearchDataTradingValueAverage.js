@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataTradingValueAverageDays5 from './StockNota
 /**
  * The StockNotationScreenerSearchDataTradingValueAverage model module.
  * @module model/StockNotationScreenerSearchDataTradingValueAverage
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataTradingValueAverage {
     /**

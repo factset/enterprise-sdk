@@ -43,7 +43,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="id">User&#39;s FactSet account OR benchmark id. (required).</param>
         /// <param name="returntype">Benchmark return type..</param>
         /// <param name="prefix">Benchmark prefix..</param>
-        public SPARIdentifier(string id = default(string), string returntype = default(string), string prefix = default(string))
+        public SPARIdentifier(string id,string returntype = default(string), string prefix = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

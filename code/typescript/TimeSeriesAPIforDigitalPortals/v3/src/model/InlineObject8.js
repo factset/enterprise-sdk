@@ -18,17 +18,15 @@ import PricesTimeSeriesIntradayListMeta from './PricesTimeSeriesIntradayListMeta
 /**
  * The InlineObject8 model module.
  * @module model/InlineObject8
- * @version 0.10.0
  */
 class InlineObject8 {
     /**
      * Constructs a new <code>InlineObject8</code>.
      * @alias module:model/InlineObject8
-     * @param data {module:model/PricesTimeSeriesIntradayListData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject8.initialize(this, data);
+        InlineObject8.initialize(this);
     }
 
     /**
@@ -36,8 +34,7 @@ class InlineObject8 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**

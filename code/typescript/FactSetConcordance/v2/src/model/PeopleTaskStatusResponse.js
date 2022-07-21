@@ -17,7 +17,6 @@ import PeopleTaskStatus from './PeopleTaskStatus';
 /**
  * The PeopleTaskStatusResponse model module.
  * @module model/PeopleTaskStatusResponse
- * @version 0.20.1
  */
 class PeopleTaskStatusResponse {
     /**

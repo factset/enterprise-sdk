@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.CustomSymbolsCustomFieldsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsCustomFieldsApi(config);
+
             var createCustomSymbolCustomFieldDto = new CreateCustomSymbolCustomFieldDto(); // CreateCustomSymbolCustomFieldDto | createCustomSymbolCustomFieldDto object to save (optional) 
 
             try
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsCustomFieldsApi(config);
+
             var customSymbolCustomFieldId = "customSymbolCustomFieldId_example";  // Guid | customSymbolCustomFieldId to delete associated record
 
             try
@@ -228,6 +230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsCustomFieldsApi(config);
+
             var customSymbolCustomFieldId = "customSymbolCustomFieldId_example";  // Guid | customSymbolCustomFieldId to get associated record
 
             try
@@ -317,6 +320,7 @@ namespace Example
 
             var apiInstance = new CustomSymbolsCustomFieldsApi(config);
 
+
             try
             {
                 // Get all the Custom symbol custom fields
@@ -398,6 +402,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CustomSymbolsCustomFieldsApi(config);
+
             var customSymbolCustomFieldId = "customSymbolCustomFieldId_example";  // Guid | customSymbolCustomFieldId to update associated record
             var operation = new List<Operation>(); // List<Operation> | customSymbolCustomFieldUpdateDto object to update (optional) 
 

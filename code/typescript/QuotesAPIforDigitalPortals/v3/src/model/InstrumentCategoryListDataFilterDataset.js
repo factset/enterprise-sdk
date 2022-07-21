@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentCategoryListDataFilterDataset model module.
  * @module model/InstrumentCategoryListDataFilterDataset
- * @version 0.10.0
  */
 class InstrumentCategoryListDataFilterDataset {
     /**

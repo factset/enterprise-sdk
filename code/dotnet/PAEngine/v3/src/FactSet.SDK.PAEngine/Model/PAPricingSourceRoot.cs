@@ -42,7 +42,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public PAPricingSourceRoot(Dictionary<string, PAPricingSource> data = default(Dictionary<string, PAPricingSource>), Object meta = default(Object))
+        public PAPricingSourceRoot(Dictionary<string, PAPricingSource> data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

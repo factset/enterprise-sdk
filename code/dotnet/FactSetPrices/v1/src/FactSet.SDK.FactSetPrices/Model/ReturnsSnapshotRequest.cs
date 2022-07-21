@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="calendar">calendar.</param>
         /// <param name="dividendAdjust">dividendAdjust.</param>
-        public ReturnsSnapshotRequest(List<string> ids = default(List<string>), string date = default(string), string currency = default(string), Calendar calendar = default(Calendar), DividendAdjustSnapshot dividendAdjust = default(DividendAdjustSnapshot))
+        public ReturnsSnapshotRequest(List<string> ids,string date = default(string), string currency = default(string), Calendar calendar = default(Calendar), DividendAdjustSnapshot dividendAdjust = default(DividendAdjustSnapshot))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

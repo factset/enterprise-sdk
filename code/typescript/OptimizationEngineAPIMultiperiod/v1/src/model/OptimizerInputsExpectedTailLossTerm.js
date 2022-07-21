@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsExpectedTailLossTerm model module.
  * @module model/OptimizerInputsExpectedTailLossTerm
- * @version 0.20.0
  */
 class OptimizerInputsExpectedTailLossTerm {
     /**

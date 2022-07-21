@@ -17,7 +17,6 @@ import BasicMarketListMetaPagination from './BasicMarketListMetaPagination';
 /**
  * The BasicMicOperatingListMeta model module.
  * @module model/BasicMicOperatingListMeta
- * @version 0.10.0
  */
 class BasicMicOperatingListMeta {
     /**

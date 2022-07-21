@@ -55,6 +55,8 @@ paths:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -189,6 +191,8 @@ paths:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -315,6 +319,8 @@ paths:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -443,6 +449,8 @@ paths:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -539,6 +547,40 @@ paths:
           example: FDS
           type: string
         style: form
+      - description: Filters response to return only this type of transaction. If
+          not specified, returns all transactions. Values are not case sensitive.
+        explode: true
+        in: query
+        name: transactionType
+        required: false
+        schema:
+          enum:
+          - ACQUISITION_MERGER
+          - MAJORITY_STAKE
+          - MINORITY_STAKE
+          - SPINOFF
+          - IPO
+          - FOLLOW_ON
+          - ST_DEBT
+          - NOTES_BONDS
+          - REVOLVING_CREDIT
+          - TERM_LOANS
+          example: ACQUISITION_MERGER
+          type: string
+        style: form
+      - description: Filters response to return transactions of this financing type.
+          If not specified, returns all transactions. Values are not case sensitive
+        explode: true
+        in: query
+        name: financingType
+        required: false
+        schema:
+          enum:
+          - DEBT
+          - EQUITY
+          example: EQUITY
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -546,6 +588,10 @@ paths:
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/default200TransactionsResponse'
+                transactionType200ResponseExample:
+                  $ref: '#/components/examples/transactionType200Response'
+                financingType200ResponseExample:
+                  $ref: '#/components/examples/financingType200Response'
                 noDataresponse:
                   $ref: '#/components/examples/noData200TransactionsResponse'
               schema:
@@ -571,6 +617,8 @@ paths:
                   $ref: '#/components/examples/unsupportedEntityParameterError'
                 parameterErrorTopn:
                   $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorView:
+                  $ref: '#/components/examples/parameterErrorView'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. For further assistance, file an issue under "Workflow
@@ -747,38 +795,71 @@ components:
                   type: string
                 - id: lineItem5
                   type: string
+                - id: lineItem6
+                  type: string
+                - id: lineItem7
+                  type: string
               headersDefinition:
                 columns: []
               data:
                 rows:
                 - cells:
                   - null
+                  - Aug '16
+                  - Aug '17
+                  - Aug '18
                   - Aug '19
                   - Aug '20
                   - Aug '21
-                  - Aug '22
+                  rowType: Header
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                    "4":
+                      source: PRIMARY
+                      columnIndex: 4
+                    "5":
+                      source: PRIMARY
+                      columnIndex: 5
+                    "6":
+                      source: PRIMARY
+                      columnIndex: 6
                 - cells:
                   - Sales
+                  - "1127.092000"
+                  - "1221.179000"
+                  - "1350.145000"
                   - "1435.351000"
                   - "1494.111000"
                   - "1591.445000"
-                  - "1725.152344"
                   rowMetadata:
                     metric:
                       value: FIN
-                    units:
-                      value: M
+                    scale:
+                      value: 6
                 - cells:
                   - EBITDA
+                  - "398.079000"
+                  - "421.412000"
+                  - "437.783000"
                   - "500.292000"
                   - "558.515000"
                   - "581.364000"
-                  - "622.972717"
                   rowMetadata:
                     metric:
                       value: FIN
-                    category:
-                      value: M
+                    scale:
+                      value: 6
                 tableMetadata:
                   currencyCode:
                     value: USD
@@ -800,7 +881,15 @@ components:
                   "4":
                     items:
                       category:
-                        value: ESTIMATE
+                        value: ACTUAL
+                  "5":
+                    items:
+                      category:
+                        value: ACTUAL
+                  "6":
+                    items:
+                      category:
+                        value: ACTUAL
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -972,20 +1061,20 @@ components:
             main:
               definition:
                 columns:
-                - id: lineItem1
+                - id: c_transaction_date
                   type: string
                   isDimension: true
-                - id: lineItem2
+                - id: c_transaction_type
                   type: string
                   isDimension: true
-                - id: lineItem3
+                - id: c_transaction_description
                   type: real
                   isDimension: true
-                - id: lineItem4
+                - id: c_transaction_amount
                   type: string
                   isDimension: true
-                - id: lineItem5
-                  type: real
+                - id: c_transaction_status
+                  type: string
                   isDimension: true
               headersDefinition:
                 columns: []
@@ -997,9 +1086,23 @@ components:
                   - Description
                   - Amount
                   - Status
-                  rowMetadata:
-                    category:
-                      value: DETAIL
+                  rowType: Header
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                    "4":
+                      source: PRIMARY
+                      columnIndex: 4
                 - cells:
                   - "20211013"
                   - Acquisition / Merger
@@ -1007,9 +1110,9 @@ components:
                   - 51
                   - Complete
                   rowMetadata:
-                    category:
+                    transactionType:
                       value: DETAIL
-                    dealId:
+                    transactionId:
                       value: 4071979MM
                 - cells:
                   - "20210714"
@@ -1018,15 +1121,370 @@ components:
                   - null
                   - Complete
                   rowMetadata:
-                    category:
+                    transactionType:
                       value: DETAIL
-                    dealId:
+                    transactionId:
                       value: 4054178MM
                 tableMetadata:
                   currencyCode:
                     value: USD
                   currencySymbol:
                     value: $
+            details:
+              definition:
+                columns:
+                - id: c_id
+                  type: string
+                  isDimension: true
+                - id: c_gross_proceeds
+                  type: real
+                  isDimension: true
+                - id: c_overallotment
+                  type: real
+                  isDimension: true
+                - id: c_total
+                  type: real
+                  isDimension: true
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                - cells:
+                  - Transaction ID
+                  - Gross Proceeds Excl. Overallotment
+                  - Overallotment Amount Exercised
+                  - Gross Proceeds Inc. Overallotment
+                  rowType: Header
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  c_gross_proceeds:
+                    items:
+                      scale:
+                        value: 6
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    transactionType200Response:
+      summary: transactionType=NOTES_BONDS response
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              headersDefinition:
+                columns: []
+              definition:
+                columns:
+                - id: c_transaction_date
+                  type: string
+                - id: c_transaction_type
+                  type: string
+                - id: c_transaction_description
+                  type: string
+                - id: c_transaction_amount
+                  type: string
+                - id: c_transaction_status
+                  type: string
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Date
+                  - Type
+                  - Description
+                  - Amount
+                  - Status
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                    "4":
+                      source: PRIMARY
+                      columnIndex: 4
+                - cells:
+                  - "20220301"
+                  - Notes/Bonds
+                  - FactSet Research Systems Inc. 3.450% 01-MAR-2032
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Notes/Bonds
+                    transactionId:
+                      value: 303075AB
+                - cells:
+                  - "20220301"
+                  - Notes/Bonds
+                  - FactSet Research Systems Inc. 2.900% 01-MAR-2027
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Notes/Bonds
+                    transactionId:
+                      value: 303075AA
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  c_transaction_amount:
+                    items:
+                      scale:
+                        value: 6
+            details:
+              headersDefinition:
+                columns: []
+              definition:
+                columns:
+                - id: c_id
+                  type: string
+                - id: c_gross_proceeds
+                  type: real
+                - id: c_overallotment
+                  type: real
+                - id: c_total
+                  type: real
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Transaction ID
+                  - Gross Proceeds Excl. Overallotment
+                  - Overallotment Amount Exercised
+                  - Gross Proceeds Inc. Overallotment
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  c_gross_proceeds:
+                    items:
+                      scale:
+                        value: 6
+                  c_overallotment:
+                    items:
+                      scale:
+                        value: 6
+                  c_total:
+                    items:
+                      scale:
+                        value: 6
+    financingType200Response:
+      summary: financingType=DEBT response
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              headersDefinition:
+                columns: []
+              definition:
+                columns:
+                - id: c_transaction_date
+                  type: string
+                - id: c_transaction_type
+                  type: string
+                - id: c_transaction_description
+                  type: string
+                - id: c_transaction_amount
+                  type: string
+                - id: c_transaction_status
+                  type: string
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Date
+                  - Type
+                  - Description
+                  - Amount
+                  - Status
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                    "4":
+                      source: PRIMARY
+                      columnIndex: 4
+                - cells:
+                  - "20220523"
+                  - ST Debt
+                  - FactSet Research Systems Inc. 1.908% 22-NOV-2022
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: ST Debt
+                    transactionId:
+                      value: 06945PLN
+                - cells:
+                  - "20220301"
+                  - Notes/Bonds
+                  - FactSet Research Systems Inc. 3.450% 01-MAR-2032
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Notes/Bonds
+                    transactionId:
+                      value: 303075AB
+                - cells:
+                  - "20220301"
+                  - Notes/Bonds
+                  - FactSet Research Systems Inc. 2.900% 01-MAR-2027
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Notes/Bonds
+                    transactionId:
+                      value: 303075AA
+                - cells:
+                  - "20220301"
+                  - Term Loans
+                  - Senior Unsecured Term Loan
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Term Loans
+                    transactionId:
+                      value: FDS1R53Q
+                - cells:
+                  - "20220301"
+                  - Revolving Credit
+                  - FactSet Research Systems Inc. Revolver/Standard 01-MAR-2027
+                  - null
+                  - New Issue
+                  rowMetadata:
+                    transactionType:
+                      value: Revolving Credit
+                    transactionId:
+                      value: FDS1R56X
+                - cells:
+                  - "20190329"
+                  - Revolving Credit
+                  - Senior Unsec. Revolving Credit Facility - PNC Bank National Association
+                  - 575
+                  - Terminated
+                  rowMetadata:
+                    transactionType:
+                      value: Revolving Credit
+                    transactionId:
+                      value: FDS0YFY41
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  c_transaction_amount:
+                    items:
+                      scale:
+                        value: 6
+            details:
+              headersDefinition:
+                columns: []
+              definition:
+                columns:
+                - id: c_id
+                  type: string
+                - id: c_gross_proceeds
+                  type: real
+                - id: c_overallotment
+                  type: real
+                - id: c_total
+                  type: real
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Transaction ID
+                  - Gross Proceeds Excl. Overallotment
+                  - Overallotment Amount Exercised
+                  - Gross Proceeds Inc. Overallotment
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  c_gross_proceeds:
+                    items:
+                      scale:
+                        value: 6
+                  c_overallotment:
+                    items:
+                      scale:
+                        value: 6
+                  c_total:
+                    items:
+                      scale:
+                        value: 6
         meta:
           requestId: FDS-US
           fsymId: SQFMK3-R
@@ -1039,20 +1497,20 @@ components:
             main:
               definition:
                 columns:
-                - id: lineItem1
+                - id: c_transaction_date
                   type: string
                   isDimension: true
-                - id: lineItem2
+                - id: c_transaction_type
                   type: string
                   isDimension: true
-                - id: lineItem3
+                - id: c_transaction_description
                   type: real
                   isDimension: true
-                - id: lineItem4
+                - id: c_transaction_amount
                   type: string
                   isDimension: true
-                - id: lineItem5
-                  type: real
+                - id: c_transaction_status
+                  type: string
                   isDimension: true
               headersDefinition:
                 columns: []
@@ -1064,14 +1522,81 @@ components:
                   - Description
                   - Amount
                   - Status
-                  rowMetadata:
-                    category:
-                      value: DETAIL
+                  rowType: Header
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                    "4":
+                      source: PRIMARY
+                      columnIndex: 4
                 tableMetadata:
                   currencyCode:
                     value: null
                   currencySymbol:
                     value: null
+                columnMetadata:
+                  c_transaction_amount:
+                    items:
+                      scale:
+                        value: 6
+            details:
+              definition:
+                columns:
+                - id: c_id
+                  type: string
+                  isDimension: true
+                - id: c_gross_proceeds
+                  type: real
+                  isDimension: true
+                - id: c_overallotment
+                  type: real
+                  isDimension: true
+                - id: c_total
+                  type: real
+                  isDimension: true
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                - cells:
+                  - Transaction ID
+                  - Gross Proceeds Excl. Overallotment
+                  - Overallotment Amount Exercised
+                  - Gross Proceeds Inc. Overallotment
+                  rowType: Header
+                  headerCellDetails:
+                    "0":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "1":
+                      source: PRIMARY
+                      columnIndex: 1
+                    "2":
+                      source: PRIMARY
+                      columnIndex: 2
+                    "3":
+                      source: PRIMARY
+                      columnIndex: 3
+                tableMetadata:
+                  currencyCode:
+                    value: null
+                  currencySymbol:
+                    value: null
+                columnMetaData:
+                  c_gross_proceeds:
+                    items:
+                      scale:
+                        value: 6
         meta:
           requestId: 07ZXHF-E
           fsymId: null
@@ -1112,6 +1637,14 @@ components:
         - id: 39314614-e607-465a-ba95-5bb79c362e23
           code: parameterError
           title: 'Invalid parameter: ''topn'''
+    parameterErrorView:
+      summary: view parameter error
+      value:
+        errors:
+        - id: 3838f112-ed5a-4d9d-b0c7-3594d8eab0ed
+          code: parameterError
+          title: 'Invalid parameter: ''view''. Accepted values include: ''FINANCIAL'',
+            ''VALUATION'', ''CAPITALIZATION'', ''MARGINS'' or ''PERFORMANCE'''
   headers:
     xDataDirectRequestKey:
       description: FactSet request ID
@@ -1206,6 +1739,10 @@ components:
           examples:
             default200ResponseExample:
               $ref: '#/components/examples/default200TransactionsResponse'
+            transactionType200ResponseExample:
+              $ref: '#/components/examples/transactionType200Response'
+            financingType200ResponseExample:
+              $ref: '#/components/examples/financingType200Response'
             noDataresponse:
               $ref: '#/components/examples/noData200TransactionsResponse'
           schema:
@@ -1231,6 +1768,8 @@ components:
               $ref: '#/components/examples/unsupportedEntityParameterError'
             parameterErrorTopn:
               $ref: '#/components/examples/parameterErrorTopn'
+            parameterErrorView:
+              $ref: '#/components/examples/parameterErrorView'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
       description: Bad Request. For further assistance, file an issue under "Workflow
@@ -1378,11 +1917,11 @@ components:
           stage:
             crunchbaseRank:
               note: note
-              value: 5.637376656633329
+              value: 7.061401241503109
             vcLastRound:
               value: value
             peActiveFirmNumber:
-              value: 5.962133916683182
+              value: 2.3021358869347655
             peActiveAcqAmt:
               value: 6.027456183070403
             vcLastRoundDate:
@@ -1390,9 +1929,10 @@ components:
             foundedYear:
               value: value
             pevcLatestPostMoneyValuation:
-              value: 6.027456183070403
-            peActiveInvestmentNumber:
+              asOfDate: 5.637376656633329
               value: 5.962133916683182
+            peActiveInvestmentNumber:
+              value: 2.3021358869347655
             peActiveAcqDate:
               value: value
             exchangePrimary:
@@ -1409,7 +1949,7 @@ components:
             - name:
                 value: value
             vcLastRoundInvestorNumber:
-              value: 5.962133916683182
+              value: 2.3021358869347655
             vcLastRoundAmt:
               value: 6.027456183070403
             tradeDateRange:
@@ -1492,11 +2032,11 @@ components:
         stage:
           crunchbaseRank:
             note: note
-            value: 5.637376656633329
+            value: 7.061401241503109
           vcLastRound:
             value: value
           peActiveFirmNumber:
-            value: 5.962133916683182
+            value: 2.3021358869347655
           peActiveAcqAmt:
             value: 6.027456183070403
           vcLastRoundDate:
@@ -1504,9 +2044,10 @@ components:
           foundedYear:
             value: value
           pevcLatestPostMoneyValuation:
-            value: 6.027456183070403
-          peActiveInvestmentNumber:
+            asOfDate: 5.637376656633329
             value: 5.962133916683182
+          peActiveInvestmentNumber:
+            value: 2.3021358869347655
           peActiveAcqDate:
             value: value
           exchangePrimary:
@@ -1523,7 +2064,7 @@ components:
           - name:
               value: value
           vcLastRoundInvestorNumber:
-            value: 5.962133916683182
+            value: 2.3021358869347655
           vcLastRoundAmt:
             value: 6.027456183070403
           tradeDateRange:
@@ -1657,10 +2198,10 @@ components:
       - $ref: '#/components/schemas/description'
       - $ref: '#/components/schemas/frequency'
       - $ref: '#/components/schemas/metric'
+      - $ref: '#/components/schemas/relevanceType'
       - $ref: '#/components/schemas/scale'
       - $ref: '#/components/schemas/transactionId'
       - $ref: '#/components/schemas/transactionType'
-      - $ref: '#/components/schemas/units'
       - $ref: '#/components/schemas/valueType'
       type: object
     category:
@@ -1693,6 +2234,11 @@ components:
         metric:
           $ref: '#/components/schemas/metric_metric'
       type: object
+    relevanceType:
+      properties:
+        relevanceType:
+          $ref: '#/components/schemas/relevanceType_relevanceType'
+      type: object
     scale:
       properties:
         scale:
@@ -1707,11 +2253,6 @@ components:
       properties:
         transactionType:
           $ref: '#/components/schemas/transactionType_transactionType'
-      type: object
-    units:
-      properties:
-        units:
-          $ref: '#/components/schemas/units_units'
       type: object
     valueType:
       properties:
@@ -1982,9 +2523,26 @@ components:
         end:
           $ref: '#/components/schemas/ProfileData_business_industry'
       type: object
+    ProfileData_stage_pevcLatestPostMoneyValuation:
+      example:
+        asOfDate: 5.637376656633329
+        value: 5.962133916683182
+      properties:
+        value:
+          nullable: true
+          type: number
+        asOfDate:
+          nullable: true
+          type: number
+        meta:
+          $ref: '#/components/schemas/DataPointMeta'
+      required:
+      - asOfDate
+      - value
+      type: object
     ProfileData_stage_peActiveFirmNumber:
       example:
-        value: 5.962133916683182
+        value: 2.3021358869347655
       properties:
         value:
           type: number
@@ -2004,7 +2562,7 @@ components:
     ProfileData_stage_crunchbaseRank:
       example:
         note: note
-        value: 5.637376656633329
+        value: 7.061401241503109
       properties:
         value:
           type: number
@@ -2018,11 +2576,11 @@ components:
       example:
         crunchbaseRank:
           note: note
-          value: 5.637376656633329
+          value: 7.061401241503109
         vcLastRound:
           value: value
         peActiveFirmNumber:
-          value: 5.962133916683182
+          value: 2.3021358869347655
         peActiveAcqAmt:
           value: 6.027456183070403
         vcLastRoundDate:
@@ -2030,9 +2588,10 @@ components:
         foundedYear:
           value: value
         pevcLatestPostMoneyValuation:
-          value: 6.027456183070403
-        peActiveInvestmentNumber:
+          asOfDate: 5.637376656633329
           value: 5.962133916683182
+        peActiveInvestmentNumber:
+          value: 2.3021358869347655
         peActiveAcqDate:
           value: value
         exchangePrimary:
@@ -2049,7 +2608,7 @@ components:
         - name:
             value: value
         vcLastRoundInvestorNumber:
-          value: 5.962133916683182
+          value: 2.3021358869347655
         vcLastRoundAmt:
           value: 6.027456183070403
         tradeDateRange:
@@ -2067,7 +2626,7 @@ components:
         pevcBacking:
           $ref: '#/components/schemas/ProfileData_business_industry'
         pevcLatestPostMoneyValuation:
-          $ref: '#/components/schemas/ProfileData_size_ev'
+          $ref: '#/components/schemas/ProfileData_stage_pevcLatestPostMoneyValuation'
         peActiveFirmNumber:
           $ref: '#/components/schemas/ProfileData_stage_peActiveFirmNumber'
         peActiveInvestmentNumber:
@@ -2202,14 +2761,41 @@ components:
         Describes the entity's financial metrics category
         - FIN - Financial; Numerical value taken from an entity's financial statements.
         - RAT - Ratio; A relative magnitude of two or more selected numerical values taken from an entity's financial statements.
-
-        Exception: units = A (Actual) in combination with metric = RAT (Ratio) should be treated similarly as units = RATIO; the value is returned in the same format.
       properties:
         value:
           enum:
           - FIN
           - RAT
           type: string
+      type: object
+    relevanceType_relevanceType_C:
+      properties:
+        value:
+          default: Customer
+          type: string
+      type: object
+    relevanceType_relevanceType_P:
+      properties:
+        value:
+          default: Partner
+          type: string
+      type: object
+    relevanceType_relevanceType_S:
+      properties:
+        value:
+          default: Supplier
+          type: string
+      type: object
+    relevanceType_relevanceType:
+      description: |
+        Relevance type of company. Only applicable in /supply-chain-relationship.
+      properties:
+        C:
+          $ref: '#/components/schemas/relevanceType_relevanceType_C'
+        P:
+          $ref: '#/components/schemas/relevanceType_relevanceType_P'
+        S:
+          $ref: '#/components/schemas/relevanceType_relevanceType_S'
       type: object
     scale_scale:
       description: |
@@ -2229,26 +2815,14 @@ components:
       description: |
         Type of transaction. Only used in /transactions. Allowed values:
         - "MA" (Mergers and Acquisitions)
+        - "IPO" (Initial Public Offering)
+        - "Follow-On" (Follow-On Public Offer)
       properties:
         value:
           enum:
           - MA
-          type: string
-      type: object
-    units_units:
-      description: |
-        Represents the scale for the data, expresses the quantity.
-
-        Exception: units = A (Actual) in combination with metric = RAT (Ratio) should be treated similarly as units = RATIO; the value is returned in the same format.
-      properties:
-        value:
-          enum:
-          - A (Actual)
-          - B (Billions)
-          - M (Millions)
-          - PCT (Percent)
-          - RATIO (Ratio)
-          - T (Thousands)
+          - IPO
+          - Follow-On
           type: string
       type: object
     valueType_valueType:

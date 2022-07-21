@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ExecutionParameters model module.
  * @module model/ExecutionParameters
- * @version 0.20.0
  */
 class ExecutionParameters {
     /**

@@ -25,7 +25,6 @@ import StockNotationRankingIntradayListDataPrices from './StockNotationRankingIn
 /**
  * The StockNotationRankingIntradayListData model module.
  * @module model/StockNotationRankingIntradayListData
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListData {
     /**

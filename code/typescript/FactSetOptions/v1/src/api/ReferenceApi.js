@@ -22,7 +22,6 @@ import OptionsReferencesResponse from '../model/OptionsReferencesResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.20.0
 */
 export default class ReferenceApi {
 

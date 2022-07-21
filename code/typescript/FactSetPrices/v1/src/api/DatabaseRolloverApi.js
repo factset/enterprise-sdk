@@ -19,7 +19,6 @@ import RolloverResponse from '../model/RolloverResponse';
 /**
 * DatabaseRollover service.
 * @module api/DatabaseRolloverApi
-* @version 0.20.0
 */
 export default class DatabaseRolloverApi {
 

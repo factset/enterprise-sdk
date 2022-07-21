@@ -19,7 +19,6 @@ import InlineResponse200IncomeStatementSales from './InlineResponse200IncomeStat
 /**
  * The InlineResponse200IncomeStatement model module.
  * @module model/InlineResponse200IncomeStatement
- * @version 0.10.0
  */
 class InlineResponse200IncomeStatement {
     /**

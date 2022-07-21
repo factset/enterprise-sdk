@@ -19,7 +19,6 @@ import OptimizerOutputsMultiPeriodOutput from '../model/OptimizerOutputsMultiPer
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.20.0
 */
 export default class DefaultApi {
 

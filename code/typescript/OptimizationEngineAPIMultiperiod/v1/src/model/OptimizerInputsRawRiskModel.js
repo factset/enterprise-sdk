@@ -17,7 +17,6 @@ import OptimizerInputsRawRiskModelSimulations from './OptimizerInputsRawRiskMode
 /**
  * The OptimizerInputsRawRiskModel model module.
  * @module model/OptimizerInputsRawRiskModel
- * @version 0.20.0
  */
 class OptimizerInputsRawRiskModel {
     /**

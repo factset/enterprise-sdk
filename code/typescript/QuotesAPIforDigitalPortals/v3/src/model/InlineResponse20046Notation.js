@@ -18,7 +18,6 @@ import InlineResponse20046NotationInstrument from './InlineResponse20046Notation
 /**
  * The InlineResponse20046Notation model module.
  * @module model/InlineResponse20046Notation
- * @version 0.10.0
  */
 class InlineResponse20046Notation {
     /**

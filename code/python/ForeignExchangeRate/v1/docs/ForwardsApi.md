@@ -24,8 +24,8 @@ Forward rates are provided in 80+ currencies against the U.S. dollar, British po
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ForeignExchangeRate
 from fds.sdk.ForeignExchangeRate.api import forwards_api
-from fds.sdk.ForeignExchangeRate.model.error_response import ErrorResponse
-from fds.sdk.ForeignExchangeRate.model.forwards_response import ForwardsResponse
+from fds.sdk.ForeignExchangeRate.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,13 +56,15 @@ with fds.sdk.ForeignExchangeRate.ApiClient(configuration) as api_client:
     api_instance = forwards_api.ForwardsApi(api_client)
 
     ids = ["USDGBP"] # [str] | The currency pair requested in the format of a ISO {source}{target}. For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
-    forward_period = "ON" # str | Bid, offer, and mid rates are available for the following 11 time periods.  * ON - Overnight  * TN - Tomorrow Next  * SW - One Week (Spot Week)  * 1M - One Month  * 2M - Two Months  * 3M - Three Months  * 6M - Six Months  * 9M - Nine Months  * 1Y - One Year  * 2Y - Two Years  * 5Y - Five Years  (optional) (default to "1M")
+    forward_period = "ON" # str | Bid, offer, and mid rates are available for the following 11 time periods.  * ON - Overnight  * TN - Tomorrow Next  * SW - One Week (Spot Week)  * 1M - One Month  * 2M - Two Months  * 3M - Three Months  * 6M - Six Months  * 9M - Nine Months  * 1Y - One Year  * 2Y - Two Years  * 5Y - Five Years  (optional) if omitted the server will use the default value of "1M"
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.  (optional)
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "D")
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
 
     try:
         # Gets Forwards for a list of currency pairs
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fx_forwards(ids, forward_period=forward_period, start_date=start_date, end_date=end_date, frequency=frequency)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Forward rates are provided in 80+ currencies against the U.S. dollar, British po
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ForeignExchangeRate
 from fds.sdk.ForeignExchangeRate.api import forwards_api
-from fds.sdk.ForeignExchangeRate.model.error_response import ErrorResponse
-from fds.sdk.ForeignExchangeRate.model.forwards_response import ForwardsResponse
-from fds.sdk.ForeignExchangeRate.model.forwards_request import ForwardsRequest
+from fds.sdk.ForeignExchangeRate.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,6 +167,7 @@ with fds.sdk.ForeignExchangeRate.ApiClient(configuration) as api_client:
 
     try:
         # Gets Forwards for a list of currency pairs
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fx_forwards_for_list(forwards_request)
         pprint(api_response)
 

@@ -19,7 +19,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPGeneralLinearTerm model module.
  * @module model/OptimizerInputsMPGeneralLinearTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPGeneralLinearTerm {
     /**

@@ -50,21 +50,21 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// RBICS Code for the classification.
         /// </summary>
         /// <value>RBICS Code for the classification.</value>
-        [DataMember(Name = "rbicsId", EmitDefaultValue = false)]
+        [DataMember(Name = "rbicsId", EmitDefaultValue = true)]
         public string RbicsId { get; set; }
 
         /// <summary>
         /// First date of the classification.
         /// </summary>
         /// <value>First date of the classification.</value>
-        [DataMember(Name = "firstDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstDate", EmitDefaultValue = true)]
         public string FirstDate { get; set; }
 
         /// <summary>
         /// Date when the classification became no longer valid. If &#x60;null&#x60;, the classification is still valid.
         /// </summary>
         /// <value>Date when the classification became no longer valid. If &#x60;null&#x60;, the classification is still valid.</value>
-        [DataMember(Name = "lastDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastDate", EmitDefaultValue = true)]
         public string LastDate { get; set; }
 
         /// <summary>

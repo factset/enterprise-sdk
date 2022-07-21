@@ -17,7 +17,6 @@ import SfdrPai from './SfdrPai';
 /**
  * The SfdrPaiResponse model module.
  * @module model/SfdrPaiResponse
- * @version 0.20.0
  */
 class SfdrPaiResponse {
     /**

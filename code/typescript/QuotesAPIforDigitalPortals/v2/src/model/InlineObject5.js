@@ -18,7 +18,6 @@ import BasicTimezoneListData from './BasicTimezoneListData';
 /**
  * The InlineObject5 model module.
  * @module model/InlineObject5
- * @version 0.9.2
  */
 class InlineObject5 {
     /**

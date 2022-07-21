@@ -17,7 +17,6 @@ import OptimizerOutputsPeriods from './OptimizerOutputsPeriods';
 /**
  * The OptimizerOutputsMultiPeriodOutput model module.
  * @module model/OptimizerOutputsMultiPeriodOutput
- * @version 0.20.0
  */
 class OptimizerOutputsMultiPeriodOutput {
     /**

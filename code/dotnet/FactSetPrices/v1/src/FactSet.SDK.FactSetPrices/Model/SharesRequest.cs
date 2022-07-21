@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="calendar">calendar.</param>
         /// <param name="splitAdjust">splitAdjust.</param>
-        public SharesRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Calendar calendar = default(Calendar), SplitAdjust splitAdjust = default(SplitAdjust))
+        public SharesRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), Calendar calendar = default(Calendar), SplitAdjust splitAdjust = default(SplitAdjust))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

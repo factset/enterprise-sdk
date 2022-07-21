@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataValidationMarketPriority model module.
  * @module model/FundNotationScreenerSearchDataValidationMarketPriority
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationMarketPriority {
     /**

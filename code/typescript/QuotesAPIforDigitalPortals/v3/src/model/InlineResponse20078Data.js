@@ -17,7 +17,6 @@ import InlineResponse20078DataMarket from './InlineResponse20078DataMarket';
 /**
  * The InlineResponse20078Data model module.
  * @module model/InlineResponse20078Data
- * @version 0.10.0
  */
 class InlineResponse20078Data {
     /**

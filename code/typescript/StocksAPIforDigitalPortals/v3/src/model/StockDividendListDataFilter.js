@@ -18,7 +18,6 @@ import StockDividendListDataFilterType from './StockDividendListDataFilterType';
 /**
  * The StockDividendListDataFilter model module.
  * @module model/StockDividendListDataFilter
- * @version 0.10.0
  */
 class StockDividendListDataFilter {
     /**

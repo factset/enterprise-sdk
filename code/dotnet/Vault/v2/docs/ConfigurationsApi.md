@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
+
             var id = "\"E522DF7D-C286-4EF1-AE34-0AA104AF602F\"";  // string | Vault configuration id to get the details of (default to "E522DF7D-C286-4EF1-AE34-0AA104AF602F")
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
+
             var account = "\"Client:Foo/Bar/myaccount.acct\"";  // string | Required account query parameter to filter configurations for a specific account (default to "Client:Foo/Bar/myaccount.acct")
 
             try

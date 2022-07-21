@@ -18,7 +18,6 @@ import OptimizerInputsValueReference from './OptimizerInputsValueReference';
 /**
  * The OptimizerInputsLookupTables model module.
  * @module model/OptimizerInputsLookupTables
- * @version 0.20.0
  */
 class OptimizerInputsLookupTables {
     /**

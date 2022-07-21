@@ -25,8 +25,8 @@ Need to plug-in the jobID got from /request-files into /check-status endpoint
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
-from fds.sdk.DocumentsDistributorDocuments.model.checkstatus_response import CheckstatusResponse
-from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
+from fds.sdk.DocumentsDistributorDocuments.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +60,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 
     try:
         # Returns the status and percentDone of the requested jobID
+        # example passing only required values which don't have defaults set
         api_response = api_instance.asynch_streetaccount_v1_check_status_get(job_id)
         pprint(api_response)
 
@@ -113,8 +114,8 @@ Need to plug-in the jobID got from /request-files into /check-status endpoint
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
-from fds.sdk.DocumentsDistributorDocuments.model.getfiles_response import GetfilesResponse
-from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
+from fds.sdk.DocumentsDistributorDocuments.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,6 +149,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 
     try:
         # Returns the SA XML files for the specified daterange
+        # example passing only required values which don't have defaults set
         api_response = api_instance.asynch_streetaccount_v1_get_files_get(job_id)
         pprint(api_response)
 
@@ -201,8 +203,8 @@ Give the startDate and endDate parameters as request parameters in the /request-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import street_account_xml_api_api
-from fds.sdk.DocumentsDistributorDocuments.model.requestfiles_response import RequestfilesResponse
-from fds.sdk.DocumentsDistributorDocuments.model.street_account_status import StreetAccountStatus
+from fds.sdk.DocumentsDistributorDocuments.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -237,6 +239,7 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 
     try:
         # Returns the jobID
+        # example passing only required values which don't have defaults set
         api_response = api_instance.asynch_streetaccount_v1_request_files_get(start_date, end_date)
         pprint(api_response)
 

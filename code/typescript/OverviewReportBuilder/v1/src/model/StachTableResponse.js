@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StachTableResponse model module.
  * @module model/StachTableResponse
- * @version 0.20.0
  */
 class StachTableResponse {
     /**

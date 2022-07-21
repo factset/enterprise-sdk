@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="SchemaSubAttributes" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public SchemaSubAttributes()
+        public SchemaSubAttributes(string name, string type, bool multiValued,string description = default(string), bool required = default(bool), List<string> canonicalValues = default(List<string>), bool caseExact = default(bool), string mutability = default(string), string returned = default(string), string uniqueness = default(string), List<string> referenceTypes = default(List<string>))
         {
         }
 

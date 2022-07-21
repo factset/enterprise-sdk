@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PricesTimeSeriesEodSubsampleListData**](PricesTimeSeriesEodSubsampleListData.md) |  | 
+**data** | [**PricesTimeSeriesEodSubsampleListData**](PricesTimeSeriesEodSubsampleListData.md) |  |  [optional]
 **meta** | [**VendorChartIQTimeSeriesEodListMeta**](VendorChartIQTimeSeriesEodListMeta.md) |  |  [optional]
 
 

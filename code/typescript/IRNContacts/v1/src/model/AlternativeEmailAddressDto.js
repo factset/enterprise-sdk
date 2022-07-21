@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AlternativeEmailAddressDto model module.
  * @module model/AlternativeEmailAddressDto
- * @version 0.20.0
  */
 class AlternativeEmailAddressDto {
     /**

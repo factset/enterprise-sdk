@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RequestFilesApi(config);
+
             var startDate = 2021-01-01;  // DateTime | The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
             var endDate = 2021-01-31;  // DateTime | The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
             var ticker = IBM,F,AAPL,GOOG;  // string | any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional) 

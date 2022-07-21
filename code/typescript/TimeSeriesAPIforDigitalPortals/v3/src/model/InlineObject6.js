@@ -18,17 +18,15 @@ import VendorChartIQTimeSeriesEodSubsampleGetMeta from './VendorChartIQTimeSerie
 /**
  * The InlineObject6 model module.
  * @module model/InlineObject6
- * @version 0.10.0
  */
 class InlineObject6 {
     /**
      * Constructs a new <code>InlineObject6</code>.
      * @alias module:model/InlineObject6
-     * @param data {module:model/PricesTimeSeriesEodSubsampleGetData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject6.initialize(this, data);
+        InlineObject6.initialize(this);
     }
 
     /**
@@ -36,8 +34,7 @@ class InlineObject6 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**

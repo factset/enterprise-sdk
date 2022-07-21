@@ -57,7 +57,6 @@ import NonPeriodicApi from './api/NonPeriodicApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

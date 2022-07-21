@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Spotlights model module.
  * @module model/Spotlights
- * @version 0.20.0
  */
 class Spotlights {
     /**

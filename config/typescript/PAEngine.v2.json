@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-paengine",
-  "projectVersion": "0.8.2",
+  "projectVersion": "0.8.3",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "PA Engine client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "paengine",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/PAEngine/0.8.2",
+  "httpUserAgent": "fds-sdk/javascript/PAEngine/0.8.3",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

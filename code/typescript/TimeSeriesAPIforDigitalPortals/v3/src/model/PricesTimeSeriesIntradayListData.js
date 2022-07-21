@@ -18,7 +18,6 @@ import VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments from './Vendor
 /**
  * The PricesTimeSeriesIntradayListData model module.
  * @module model/PricesTimeSeriesIntradayListData
- * @version 0.10.0
  */
 class PricesTimeSeriesIntradayListData {
     /**

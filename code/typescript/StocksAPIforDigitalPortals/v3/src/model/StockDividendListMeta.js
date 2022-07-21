@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockDividendListMeta model module.
  * @module model/StockDividendListMeta
- * @version 0.10.0
  */
 class StockDividendListMeta {
     /**

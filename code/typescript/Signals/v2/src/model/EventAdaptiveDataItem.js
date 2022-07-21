@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The EventAdaptiveDataItem model module.
  * @module model/EventAdaptiveDataItem
- * @version 0.20.0
  */
 class EventAdaptiveDataItem {
     /**

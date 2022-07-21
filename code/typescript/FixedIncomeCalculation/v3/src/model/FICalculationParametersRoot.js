@@ -18,7 +18,6 @@ import FICalculationParameters from './FICalculationParameters';
 /**
  * The FICalculationParametersRoot model module.
  * @module model/FICalculationParametersRoot
- * @version 0.20.0
  */
 class FICalculationParametersRoot {
     /**

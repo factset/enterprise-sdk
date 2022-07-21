@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **description** | [**DescriptionDescription**](DescriptionDescription.md) |  | [optional] 
 **frequency** | [**FrequencyFrequency**](FrequencyFrequency.md) |  | [optional] 
 **metric** | [**MetricMetric**](MetricMetric.md) |  | [optional] 
+**relevanceType** | [**RelevanceTypeRelevanceType**](RelevanceTypeRelevanceType.md) |  | [optional] 
 **scale** | [**ScaleScale**](ScaleScale.md) |  | [optional] 
 **transactionId** | [**TransactionIdTransactionId**](TransactionIdTransactionId.md) |  | [optional] 
 **transactionType** | [**TransactionTypeTransactionType**](TransactionTypeTransactionType.md) |  | [optional] 
-**units** | [**UnitsUnits**](UnitsUnits.md) |  | [optional] 
 **valueType** | [**ValueTypeValueType**](ValueTypeValueType.md) |  | [optional] 
 
 

@@ -21,7 +21,8 @@ Request returns a quote at the specified time
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetIntradayTickHistory
 from fds.sdk.FactSetIntradayTickHistory.api import quote_at_time_api
-from fds.sdk.FactSetIntradayTickHistory.model.tickhistory_response import TickhistoryResponse
+from fds.sdk.FactSetIntradayTickHistory.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,10 +55,12 @@ with fds.sdk.FactSetIntradayTickHistory.ApiClient(configuration) as api_client:
     id = "id_example" # str | Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA
     date = "date_example" # str | Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days (optional)
     time = "time_example" # str | Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional)
-    format = "XML" # str | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional) (default to "XML")
+    format = "XML" # str | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional) if omitted the server will use the default value of "XML"
 
     try:
         # Request returns a quote at the specified time
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.tick_history_qat_get(id, date=date, time=time, format=format)
         pprint(api_response)
 

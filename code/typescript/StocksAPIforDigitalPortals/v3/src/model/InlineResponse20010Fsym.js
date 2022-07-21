@@ -18,7 +18,6 @@ import InlineResponse20010FsymRegional from './InlineResponse20010FsymRegional';
 /**
  * The InlineResponse20010Fsym model module.
  * @module model/InlineResponse20010Fsym
- * @version 0.10.0
  */
 class InlineResponse20010Fsym {
     /**

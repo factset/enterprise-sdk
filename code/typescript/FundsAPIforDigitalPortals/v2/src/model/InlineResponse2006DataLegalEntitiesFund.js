@@ -17,7 +17,6 @@ import InlineResponse2006DataLegalEntitiesFundDomicile from './InlineResponse200
 /**
  * The InlineResponse2006DataLegalEntitiesFund model module.
  * @module model/InlineResponse2006DataLegalEntitiesFund
- * @version 0.10.0
  */
 class InlineResponse2006DataLegalEntitiesFund {
     /**

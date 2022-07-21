@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketRiskToleranceGermany model module.
  * @module model/InlineResponse20062DataTargetMarketRiskToleranceGermany
- * @version 0.10.0
  */
 class InlineResponse20062DataTargetMarketRiskToleranceGermany {
     /**

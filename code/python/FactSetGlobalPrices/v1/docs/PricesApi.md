@@ -24,8 +24,8 @@ Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade Count, and Tu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGlobalPrices
 from fds.sdk.FactSetGlobalPrices.api import prices_api
-from fds.sdk.FactSetGlobalPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
+from fds.sdk.FactSetGlobalPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,14 +58,16 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
     ids = ["AAPL-USA"] # [str] | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  50 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     start_date = "2021-08-27" # str | The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint. 
     end_date = "2021-08-27" # str | The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint. 
-    fields = ["price","priceOpen","priceHigh","priceLow","volume"] # [str] | Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.   |field|description|   |---|---|   |price|Closing Price|   |priceOpen|Opening Price|   |priceHigh|High Price|   |priceLow|Low Price|   |volume|Volume|   |turnover|Total Trade Value for the Day|   |tradeCount|Number of Trades|   |vwap|Volume Weighted Average Price|  (optional) (default to ["price","priceOpen","priceHigh","priceLow","volume","turnover","tradeCount","vwap","currency"])
-    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **AD** = Actual Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** =  Actual Quarterly   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **ASA** = Actual Semi-annual   * **CSA** = Calendar Semi-annual   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) (default to "D")
-    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) (default to "FIVEDAY")
+    fields = ["price","priceOpen","priceHigh","priceLow","volume"] # [str] | Request available pricing data fields to be included in the response. Default is all fields. All responses will include the _fsymId_, _date_, and _currency_ fields.   |field|description|   |---|---|   |price|Closing Price|   |priceOpen|Opening Price|   |priceHigh|High Price|   |priceLow|Low Price|   |volume|Volume|   |turnover|Total Trade Value for the Day|   |tradeCount|Number of Trades|   |vwap|Volume Weighted Average Price|  (optional) if omitted the server will use the default value of ["price","priceOpen","priceHigh","priceLow","volume","turnover","tradeCount","vwap","currency"]
+    frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **AD** = Actual Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** =  Actual Quarterly   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **ASA** = Actual Semi-annual   * **CSA** = Calendar Semi-annual   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
+    calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-    adjust = "SPLIT" # str | Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.   * **UNSPLIT** = No Adjustments.  (optional) (default to "SPLIT")
+    adjust = "SPLIT" # str | Controls the split and spinoff adjustments for the prices.   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPLIT_SPINOFF** = Splits & Spinoff Adjusted.   * **UNSPLIT** = No Adjustments.  (optional) if omitted the server will use the default value of "SPLIT"
 
     try:
         # Gets end-of-day Open, High, Low, Close for a list of securities.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_gpd_prices(ids, start_date, end_date, fields=fields, frequency=frequency, calendar=calendar, currency=currency, adjust=adjust)
         pprint(api_response)
 
@@ -130,8 +132,8 @@ Gets security prices', Open, High, Low, Close, Volume, VWAP, Trade Count, and Tu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGlobalPrices
 from fds.sdk.FactSetGlobalPrices.api import prices_api
-from fds.sdk.FactSetGlobalPrices.model.global_prices_request import GlobalPricesRequest
-from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
+from fds.sdk.FactSetGlobalPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -174,6 +176,7 @@ with fds.sdk.FactSetGlobalPrices.ApiClient(configuration) as api_client:
 
     try:
         # Requests end-of-day Open, High, Low, Close for a large list of securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_prices_for_list(global_prices_request)
         pprint(api_response)
 

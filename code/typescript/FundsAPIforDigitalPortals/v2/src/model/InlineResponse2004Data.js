@@ -24,7 +24,6 @@ import InlineResponse2004ShareClass from './InlineResponse2004ShareClass';
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.10.0
  */
 class InlineResponse2004Data {
     /**

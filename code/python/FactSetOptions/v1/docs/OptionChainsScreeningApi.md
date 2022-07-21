@@ -24,9 +24,8 @@ Returns all the underlying option identifiers for the underlying security identi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import option_chains__screening_api
-from fds.sdk.FactSetOptions.model.chains_request import ChainsRequest
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.chains_response import ChainsResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns all the underlying option identifiers for the specified underlying Security identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_chains_for_list(chains_request)
         pprint(api_response)
 
@@ -122,9 +122,8 @@ Returns all the option identifiers based on the conditions provided as input in 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import option_chains__screening_api
-from fds.sdk.FactSetOptions.model.option_screening_response import OptionScreeningResponse
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.option_screening_request import OptionScreeningRequest
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,6 +166,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns all the option identifiers based on the conditions provided as input in the request
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_screening_for_list(option_screening_request)
         pprint(api_response)
 

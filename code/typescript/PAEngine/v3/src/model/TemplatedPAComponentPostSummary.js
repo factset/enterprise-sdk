@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TemplatedPAComponentPostSummary model module.
  * @module model/TemplatedPAComponentPostSummary
- * @version 0.20.0
  */
 class TemplatedPAComponentPostSummary {
     /**

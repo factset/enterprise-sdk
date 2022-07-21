@@ -48,7 +48,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="formulaConfig">formulaConfig.</param>
         /// <param name="optionsConfig">optionsConfig.</param>
         /// <param name="customSymbolTypes">customSymbolTypes (required).</param>
-        public CreateCustomSymbolCustomFieldDto(string code = default(string), string name = default(string), string type = default(string), bool isHidden = false, bool isMandatory = false, bool isShownInInfobox = true, CustomSymbolCustomFieldFormulaConfigDto formulaConfig = default(CustomSymbolCustomFieldFormulaConfigDto), List<string> optionsConfig = default(List<string>), List<Guid> customSymbolTypes = default(List<Guid>))
+        public CreateCustomSymbolCustomFieldDto(string code, string name, string type, bool isHidden, bool isMandatory, bool isShownInInfobox, List<Guid> customSymbolTypes,CustomSymbolCustomFieldFormulaConfigDto formulaConfig = default(CustomSymbolCustomFieldFormulaConfigDto), List<string> optionsConfig = default(List<string>))
         {
             // to ensure "code" is required (not null)
             if (code == null) {

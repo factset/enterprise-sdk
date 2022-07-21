@@ -42,7 +42,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public ObjectRoot(Object data = default(Object), Object meta = default(Object))
+        public ObjectRoot(Object data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

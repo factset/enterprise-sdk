@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20032DataMaxCapitalGainsRate model module.
  * @module model/InlineResponse20032DataMaxCapitalGainsRate
- * @version 0.10.0
  */
 class InlineResponse20032DataMaxCapitalGainsRate {
     /**

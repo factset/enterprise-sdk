@@ -19,7 +19,6 @@ import Response from '../model/Response';
 /**
 * EstimateTables service.
 * @module api/EstimateTablesApi
-* @version 0.20.0
 */
 export default class EstimateTablesApi {
 

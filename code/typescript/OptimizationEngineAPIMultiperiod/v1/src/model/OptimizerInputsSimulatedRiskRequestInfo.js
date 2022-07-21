@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsSimulatedRiskRequestInfo model module.
  * @module model/OptimizerInputsSimulatedRiskRequestInfo
- * @version 0.20.0
  */
 class OptimizerInputsSimulatedRiskRequestInfo {
     /**

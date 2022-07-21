@@ -17,7 +17,6 @@ import FactsetTranslationAdvanced from './FactsetTranslationAdvanced';
 /**
  * The FactsetTranslationAdvancedResponse model module.
  * @module model/FactsetTranslationAdvancedResponse
- * @version 0.20.0
  */
 class FactsetTranslationAdvancedResponse {
     /**

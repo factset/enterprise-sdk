@@ -17,7 +17,6 @@ import OptimizerInputsEObjectiveRiskTypeEnum from './OptimizerInputsEObjectiveRi
 /**
  * The OptimizerInputsRiskParityTerm model module.
  * @module model/OptimizerInputsRiskParityTerm
- * @version 0.20.0
  */
 class OptimizerInputsRiskParityTerm {
     /**

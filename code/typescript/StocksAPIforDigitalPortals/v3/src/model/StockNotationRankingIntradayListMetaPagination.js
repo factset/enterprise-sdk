@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationRankingIntradayListMetaPagination model module.
  * @module model/StockNotationRankingIntradayListMetaPagination
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListMetaPagination {
     /**

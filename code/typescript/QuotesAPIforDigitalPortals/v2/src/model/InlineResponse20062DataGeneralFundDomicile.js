@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataGeneralFundDomicile model module.
  * @module model/InlineResponse20062DataGeneralFundDomicile
- * @version 0.9.2
  */
 class InlineResponse20062DataGeneralFundDomicile {
     /**

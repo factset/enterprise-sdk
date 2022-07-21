@@ -18,7 +18,6 @@ import IdType from './IdType';
 /**
  * The ChainsRequest model module.
  * @module model/ChainsRequest
- * @version 0.20.0
  */
 class ChainsRequest {
     /**

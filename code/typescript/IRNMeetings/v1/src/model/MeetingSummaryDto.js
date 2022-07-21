@@ -19,7 +19,6 @@ import LocationDto from './LocationDto';
 /**
  * The MeetingSummaryDto model module.
  * @module model/MeetingSummaryDto
- * @version 0.20.0
  */
 class MeetingSummaryDto {
     /**

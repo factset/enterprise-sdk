@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioTransactionCashCreateData model module.
  * @module model/PortfolioTransactionCashCreateData
- * @version 0.9.2
  */
 class PortfolioTransactionCashCreateData {
     /**

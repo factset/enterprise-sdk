@@ -43,7 +43,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="contact">contact (required).</param>
         /// <param name="size">size (required).</param>
         /// <param name="stage">stage (required).</param>
-        public ProfileData(ProfileDataBusiness business = default(ProfileDataBusiness), ProfileDataContact contact = default(ProfileDataContact), ProfileDataSize size = default(ProfileDataSize), ProfileDataStage stage = default(ProfileDataStage))
+        public ProfileData(ProfileDataBusiness business, ProfileDataContact contact, ProfileDataSize size, ProfileDataStage stage)
         {
             // to ensure "business" is required (not null)
             if (business == null) {

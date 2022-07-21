@@ -11,6 +11,9 @@
 
 from fds.sdk.FactSetEntity.model.active import Active
 from fds.sdk.FactSetEntity.model.entity_reference import EntityReference
+from fds.sdk.FactSetEntity.model.entity_reference_chi import EntityReferenceChi
+from fds.sdk.FactSetEntity.model.entity_reference_chi_request import EntityReferenceChiRequest
+from fds.sdk.FactSetEntity.model.entity_reference_chi_response import EntityReferenceChiResponse
 from fds.sdk.FactSetEntity.model.entity_reference_request import EntityReferenceRequest
 from fds.sdk.FactSetEntity.model.entity_reference_response import EntityReferenceResponse
 from fds.sdk.FactSetEntity.model.entity_securities import EntitySecurities
@@ -22,6 +25,7 @@ from fds.sdk.FactSetEntity.model.entity_structure_response import EntityStructur
 from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
 from fds.sdk.FactSetEntity.model.error_response_sub_errors import ErrorResponseSubErrors
 from fds.sdk.FactSetEntity.model.ids import Ids
+from fds.sdk.FactSetEntity.model.ids_chi import IdsChi
 from fds.sdk.FactSetEntity.model.security_type import SecurityType
 from fds.sdk.FactSetEntity.model.structure_ids import StructureIds
 from fds.sdk.FactSetEntity.model.ultimate_entity_structure_request import UltimateEntityStructureRequest

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedRecordsDto model module.
  * @module model/RelatedRecordsDto
- * @version 0.20.0
  */
 class RelatedRecordsDto {
     /**

@@ -24,8 +24,8 @@ Returns Use of Proceeds for the Fixed Income security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import use_of_proceeds_api
-from fds.sdk.FactSetTermsandConditions.model.use_of_proceeds_response import UseOfProceedsResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Use of Proceeds for a Fixed Income security.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_income_use_of_proceeds(ids)
         pprint(api_response)
 
@@ -116,9 +117,8 @@ Returns Use of Proceeds for a list of Fixed Income securities.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import use_of_proceeds_api
-from fds.sdk.FactSetTermsandConditions.model.use_of_proceeds_response import UseOfProceedsResponse
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Use of Proceeds for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fixed_income_use_of_proceeds_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 

@@ -123,10 +123,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SecuritizedDerivativeApi();
-const id = "id_example"; // String | Identifier of the instrument.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -149,9 +149,9 @@ apiInstance.getSecuritizedDerivativeGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -201,10 +201,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SecuritizedDerivativeApi();
-const id = "id_example"; // String | Identifier of a notation.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -227,9 +227,9 @@ apiInstance.getSecuritizedDerivativeKeyFiguresNotationGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of a notation. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -279,10 +279,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new SecuritizedDerivativeApi();
-const id = "id_example"; // String | Identifier of an instrument.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -305,9 +305,9 @@ apiInstance.getSecuritizedDerivativeUnderlyingList(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -358,7 +358,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecuritizedDerivativeApi();
 const opts = {
-  'body': new securitizedderivativesapifordigitalportals.InlineObject() // InlineObject | 
+  'inlineObject': new securitizedderivativesapifordigitalportals.InlineObject() // InlineObject | 
 };
 
 // Call api endpoint
@@ -381,7 +381,7 @@ apiInstance.postSecuritizedDerivativeIssuerSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 
@@ -432,7 +432,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecuritizedDerivativeApi();
 const opts = {
-  'body': new securitizedderivativesapifordigitalportals.InlineObject1() // InlineObject1 | 
+  'inlineObject1': new securitizedderivativesapifordigitalportals.InlineObject1() // InlineObject1 | 
 };
 
 // Call api endpoint
@@ -455,7 +455,7 @@ apiInstance.postSecuritizedDerivativeNotationRankingIntradayList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 
@@ -506,7 +506,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecuritizedDerivativeApi();
 const opts = {
-  'body': new securitizedderivativesapifordigitalportals.InlineObject3() // InlineObject3 | 
+  'inlineObject3': new securitizedderivativesapifordigitalportals.InlineObject3() // InlineObject3 | 
 };
 
 // Call api endpoint
@@ -529,7 +529,7 @@ apiInstance.postSecuritizedDerivativeNotationScreenerSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
 
@@ -580,7 +580,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecuritizedDerivativeApi();
 const opts = {
-  'body': new securitizedderivativesapifordigitalportals.InlineObject2() // InlineObject2 | 
+  'inlineObject2': new securitizedderivativesapifordigitalportals.InlineObject2() // InlineObject2 | 
 };
 
 // Call api endpoint
@@ -603,7 +603,7 @@ apiInstance.postSecuritizedDerivativeNotationScreenerValueRangesGet(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 

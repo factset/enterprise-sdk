@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="WatchlistCreateData" /> class.
         /// </summary>
         /// <param name="name">Name of the watchlist. (required).</param>
-        public WatchlistCreateData(string name = default(string))
+        public WatchlistCreateData(string name)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

@@ -11,10 +11,10 @@ Restricted metadata entries. Restricts the possible key in the following STACH s
 * [Description](Description.md)
 * [Frequency](Frequency.md)
 * [Metric](Metric.md)
+* [RelevanceType](RelevanceType.md)
 * [Scale](Scale.md)
 * [TransactionId](TransactionId.md)
 * [TransactionType](TransactionType.md)
-* [Units](Units.md)
 * [ValueType](ValueType.md)
 
 ## Example
@@ -27,10 +27,10 @@ import com.factset.sdk.OverviewReportBuilder.models.CurrencySymbol;
 import com.factset.sdk.OverviewReportBuilder.models.Description;
 import com.factset.sdk.OverviewReportBuilder.models.Frequency;
 import com.factset.sdk.OverviewReportBuilder.models.Metric;
+import com.factset.sdk.OverviewReportBuilder.models.RelevanceType;
 import com.factset.sdk.OverviewReportBuilder.models.Scale;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionId;
 import com.factset.sdk.OverviewReportBuilder.models.TransactionType;
-import com.factset.sdk.OverviewReportBuilder.models.Units;
 import com.factset.sdk.OverviewReportBuilder.models.ValueType;
 
 public class Example {
@@ -79,6 +79,13 @@ public class Example {
         // to get back the Metric set earlier
         Metric testMetric = (Metric) exampleMetadataEntry.getActualInstance();
 
+        // create a new RelevanceType
+        RelevanceType exampleRelevanceType = new RelevanceType();
+        // set MetadataEntry to RelevanceType
+        exampleMetadataEntry.setActualInstance(exampleRelevanceType);
+        // to get back the RelevanceType set earlier
+        RelevanceType testRelevanceType = (RelevanceType) exampleMetadataEntry.getActualInstance();
+
         // create a new Scale
         Scale exampleScale = new Scale();
         // set MetadataEntry to Scale
@@ -99,13 +106,6 @@ public class Example {
         exampleMetadataEntry.setActualInstance(exampleTransactionType);
         // to get back the TransactionType set earlier
         TransactionType testTransactionType = (TransactionType) exampleMetadataEntry.getActualInstance();
-
-        // create a new Units
-        Units exampleUnits = new Units();
-        // set MetadataEntry to Units
-        exampleMetadataEntry.setActualInstance(exampleUnits);
-        // to get back the Units set earlier
-        Units testUnits = (Units) exampleMetadataEntry.getActualInstance();
 
         // create a new ValueType
         ValueType exampleValueType = new ValueType();

@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">The ISO3 currency control for the requested option identifier. For a list of Currency ISOs, visit - [OA 1470](https://my.apps.factset.com/oa/pages/1470) .</param>
         /// <param name="calendar">calendar.</param>
-        public OptionsPricesRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar))
+        public OptionsPricesRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

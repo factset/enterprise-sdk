@@ -272,7 +272,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="conditionThree">conditionThree.</param>
         /// <param name="conditionThreeValue">conditionThreeValue.</param>
         /// <param name="date">date.</param>
-        public OptionScreeningRequest(ExchangeScreeningId ids = default(ExchangeScreeningId), ConditionOneEnum conditionOne = default(ConditionOneEnum), string conditionOneValue = default(string), ConditionTwoEnum? conditionTwo = default(ConditionTwoEnum?), string conditionTwoValue = default(string), ConditionThreeEnum? conditionThree = default(ConditionThreeEnum?), string conditionThreeValue = default(string), string date = default(string))
+        public OptionScreeningRequest(ExchangeScreeningId ids, ConditionOneEnum conditionOne, string conditionOneValue,ConditionTwoEnum? conditionTwo = default(ConditionTwoEnum?), string conditionTwoValue = default(string), ConditionThreeEnum? conditionThree = default(ConditionThreeEnum?), string conditionThreeValue = default(string), string date = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -17,7 +17,6 @@ import Contract from './Contract';
 /**
  * The SignalDefinitionData model module.
  * @module model/SignalDefinitionData
- * @version 0.20.0
  */
 class SignalDefinitionData {
     /**

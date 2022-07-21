@@ -20,7 +20,6 @@ import SignalMetaData from '../model/SignalMetaData';
 /**
 * Metadata service.
 * @module api/MetadataApi
-* @version 0.20.0
 */
 export default class MetadataApi {
 

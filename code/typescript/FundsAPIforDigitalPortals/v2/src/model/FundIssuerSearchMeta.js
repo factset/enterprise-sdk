@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundIssuerSearchMeta model module.
  * @module model/FundIssuerSearchMeta
- * @version 0.10.0
  */
 class FundIssuerSearchMeta {
     /**

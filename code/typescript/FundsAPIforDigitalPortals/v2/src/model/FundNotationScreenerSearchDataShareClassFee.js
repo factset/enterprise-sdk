@@ -28,7 +28,6 @@ import FundNotationScreenerSearchDataShareClassFeeSwitching from './FundNotation
 /**
  * The FundNotationScreenerSearchDataShareClassFee model module.
  * @module model/FundNotationScreenerSearchDataShareClassFee
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFee {
     /**

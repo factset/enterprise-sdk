@@ -56,11 +56,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const code = "code_example"; // String | Identifier of a news article.
+const code = "code_example"; // String | 
 const opts = {
-  'includeMedia': false, // Boolean | If true, media references are included if available.
+  'includeMedia': false, // Boolean | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -83,10 +83,10 @@ apiInstance.getNewsArticleGet(code, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Identifier of a news article. | 
- **includeMedia** | **Boolean**| If true, media references are included if available. | [optional] [default to false]
+ **code** | **String**|  | 
+ **includeMedia** | **Boolean**|  | [optional] [default to false]
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -136,10 +136,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const id = 3.4; // Number | Identifier of a news article type.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -162,9 +162,9 @@ apiInstance.getNewsArticleTypeGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a news article type. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -216,7 +216,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new NewsApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -240,7 +240,7 @@ apiInstance.getNewsArticleTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -290,7 +290,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const id = 3.4; // Number | Identifier of a distributor.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -315,7 +315,7 @@ apiInstance.getNewsDistributorGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a distributor. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -367,7 +367,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'ids': [null], // [Number] | Identifiers of distributors.
+  'ids': [null], // [Number] | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
 };
@@ -392,7 +392,7 @@ apiInstance.getNewsDistributorList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[Number]**](Number.md)| Identifiers of distributors. | [optional] 
+ **ids** | [**[Number]**](Number.md)|  | [optional] 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
@@ -444,7 +444,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const id = 3.4; // Number | Identifier of a publisher.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -469,7 +469,7 @@ apiInstance.getNewsPublisherGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a publisher. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -521,11 +521,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'ids': [null], // [Number] | Identifiers of publishers.
+  'ids': [null], // [Number] | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
   'sort': ["null"], // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-  'paginationOffset': 0.0, // Number | Non-negative number of entries to skip, or 0 (default).
-  'paginationLimit': 20.0 // Number | Non-negative maximum number of entries to return.
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
@@ -548,11 +548,11 @@ apiInstance.getNewsPublisherList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[Number]**](Number.md)| Identifiers of publishers. | [optional] 
+ **ids** | [**[Number]**](Number.md)|  | [optional] 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
- **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
@@ -602,7 +602,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const id = 3.4; // Number | Identifier of a distributor.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
   'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
@@ -628,7 +628,7 @@ apiInstance.getNewsPublisherListByDistributor(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of a distributor. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
@@ -681,7 +681,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'body': new newsapifordigitalportals.InlineObject() // InlineObject | 
+  'inlineObject': new newsapifordigitalportals.InlineObject() // InlineObject | 
 };
 
 // Call api endpoint
@@ -704,7 +704,7 @@ apiInstance.postNewsArticleList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByChain
 
-> InlineResponse2002 postNewsArticleListByChain(body)
+> InlineResponse2002 postNewsArticleListByChain(inlineObject1)
 
 List news articles of an article chain.
 
@@ -754,10 +754,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const body = new newsapifordigitalportals.InlineObject1(); // InlineObject1 | 
+const inlineObject1 = new newsapifordigitalportals.InlineObject1(); // InlineObject1 | 
 
 // Call api endpoint
-apiInstance.postNewsArticleListByChain(body).then(
+apiInstance.postNewsArticleListByChain(inlineObject1).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -776,7 +776,7 @@ apiInstance.postNewsArticleListByChain(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
 
@@ -794,7 +794,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByIndex
 
-> InlineResponse2001 postNewsArticleListByIndex(body)
+> InlineResponse2001 postNewsArticleListByIndex(inlineObject2)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -826,10 +826,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const body = new newsapifordigitalportals.InlineObject2(); // InlineObject2 | 
+const inlineObject2 = new newsapifordigitalportals.InlineObject2(); // InlineObject2 | 
 
 // Call api endpoint
-apiInstance.postNewsArticleListByIndex(body).then(
+apiInstance.postNewsArticleListByIndex(inlineObject2).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -848,7 +848,7 @@ apiInstance.postNewsArticleListByIndex(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
 
@@ -866,7 +866,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByInstrument
 
-> InlineResponse2001 postNewsArticleListByInstrument(body)
+> InlineResponse2001 postNewsArticleListByInstrument(inlineObject3)
 
 News articles for instruments.
 
@@ -898,10 +898,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const body = new newsapifordigitalportals.InlineObject3(); // InlineObject3 | 
+const inlineObject3 = new newsapifordigitalportals.InlineObject3(); // InlineObject3 | 
 
 // Call api endpoint
-apiInstance.postNewsArticleListByInstrument(body).then(
+apiInstance.postNewsArticleListByInstrument(inlineObject3).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -920,7 +920,7 @@ apiInstance.postNewsArticleListByInstrument(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
 
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 
 ## postNewsArticleListByMediaKind
 
-> InlineResponse2001 postNewsArticleListByMediaKind(body)
+> InlineResponse2001 postNewsArticleListByMediaKind(inlineObject4)
 
 List news articles which contain media of specific media kinds.
 
@@ -970,10 +970,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const body = new newsapifordigitalportals.InlineObject4(); // InlineObject4 | 
+const inlineObject4 = new newsapifordigitalportals.InlineObject4(); // InlineObject4 | 
 
 // Call api endpoint
-apiInstance.postNewsArticleListByMediaKind(body).then(
+apiInstance.postNewsArticleListByMediaKind(inlineObject4).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -992,7 +992,7 @@ apiInstance.postNewsArticleListByMediaKind(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | 
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
 
@@ -1043,7 +1043,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new NewsApi();
 const opts = {
-  'body': new newsapifordigitalportals.InlineObject5() // InlineObject5 | 
+  'inlineObject5': new newsapifordigitalportals.InlineObject5() // InlineObject5 | 
 };
 
 // Call api endpoint
@@ -1066,7 +1066,7 @@ apiInstance.postNewsArticleSearchByText(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
 
@@ -1084,7 +1084,7 @@ Name | Type | Description  | Notes
 
 ## postNewsPublisherSearchByName
 
-> InlineResponse2009 postNewsPublisherSearchByName(body)
+> InlineResponse2009 postNewsPublisherSearchByName(inlineObject6)
 
 Search for publishers.
 
@@ -1116,10 +1116,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NewsApi();
-const body = new newsapifordigitalportals.InlineObject6(); // InlineObject6 | 
+const inlineObject6 = new newsapifordigitalportals.InlineObject6(); // InlineObject6 | 
 
 // Call api endpoint
-apiInstance.postNewsPublisherSearchByName(body).then(
+apiInstance.postNewsPublisherSearchByName(inlineObject6).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1138,7 +1138,7 @@ apiInstance.postNewsPublisherSearchByName(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 

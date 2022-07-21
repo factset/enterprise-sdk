@@ -17,7 +17,6 @@ import OptimizerInputsCompositeConstituent from './OptimizerInputsCompositeConst
 /**
  * The OptimizerInputsCompositeAsset model module.
  * @module model/OptimizerInputsCompositeAsset
- * @version 0.20.0
  */
 class OptimizerInputsCompositeAsset {
     /**

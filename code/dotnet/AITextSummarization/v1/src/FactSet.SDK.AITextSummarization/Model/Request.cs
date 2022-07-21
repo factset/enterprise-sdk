@@ -40,7 +40,7 @@ namespace FactSet.SDK.AITextSummarization.Model
         /// Initializes a new instance of the <see cref="Request" /> class.
         /// </summary>
         /// <param name="text">The text that needs to be summarized. (required).</param>
-        public Request(string text = default(string))
+        public Request(string text)
         {
             // to ensure "text" is required (not null)
             if (text == null) {

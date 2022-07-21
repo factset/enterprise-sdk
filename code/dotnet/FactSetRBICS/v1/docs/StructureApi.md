@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StructureApi(config);
+
             var rbicsIds = new List<string>(); // List<string> | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  (optional) 
             var level = 1;  // int? | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |- --|- --|- --|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  (optional) 
             var includeNames = true;  // bool? | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional)  (default to true)
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StructureApi(config);
+
             var structureRequest = new StructureRequest(); // StructureRequest | Request Body to request a list of RBICS Structure objects.
 
             try

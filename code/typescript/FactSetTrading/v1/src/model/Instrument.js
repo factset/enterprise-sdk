@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Instrument model module.
  * @module model/Instrument
- * @version 0.20.0
  */
 class Instrument {
     /**

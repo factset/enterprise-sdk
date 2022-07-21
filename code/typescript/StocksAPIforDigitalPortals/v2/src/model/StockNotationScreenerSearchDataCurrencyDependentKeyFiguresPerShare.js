@@ -21,7 +21,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales f
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare {
     /**

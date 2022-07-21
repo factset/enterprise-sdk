@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The HighLow model module.
  * @module model/HighLow
- * @version 0.20.0
  */
 class HighLow {
     /**

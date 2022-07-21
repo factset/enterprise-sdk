@@ -17,7 +17,6 @@ import OptionsDates from './OptionsDates';
 /**
  * The OptionsDatesResponse model module.
  * @module model/OptionsDatesResponse
- * @version 0.20.0
  */
 class OptionsDatesResponse {
     /**

@@ -20,7 +20,6 @@ import InlineResponse20014DataServiceProvider from './InlineResponse20014DataSer
 /**
  * The InlineResponse20014Data model module.
  * @module model/InlineResponse20014Data
- * @version 0.10.0
  */
 class InlineResponse20014Data {
     /**

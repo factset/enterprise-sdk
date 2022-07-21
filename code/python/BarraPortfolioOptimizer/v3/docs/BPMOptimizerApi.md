@@ -28,7 +28,8 @@ This is the endpoint to cancel a previously submitted optimization.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +63,9 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Cancel BPM optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_optimization_by_id(id)
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->cancel_optimization_by_id: %s\n" % e)
 ```
@@ -118,8 +121,8 @@ This is the endpoint that returns the optimization parameters passed for an opti
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.bpm_optimization_parameters_root import BPMOptimizationParametersRoot
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get BPM optimization parameters by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_parameters(id)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ This is the endpoint to get the result of a previously requested optimization.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.BarraPortfolioOptimizer.model.object_root import ObjectRoot
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get BPM optimization result by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_result(id)
         pprint(api_response)
 
@@ -304,8 +309,8 @@ This is the endpoint to check on the progress of a previously requested optimiza
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.BarraPortfolioOptimizer.model.object_root import ObjectRoot
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -339,6 +344,7 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get BPM optimization status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_optimization_status_by_id(id)
         pprint(api_response)
 
@@ -398,10 +404,8 @@ This endpoint creates and runs BPM optimization specified in the POST body param
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.calculation_info_root import CalculationInfoRoot
-from fds.sdk.BarraPortfolioOptimizer.model.bpm_optimization_parameters_root import BPMOptimizationParametersRoot
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.BarraPortfolioOptimizer.model.object_root import ObjectRoot
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -493,6 +497,8 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Create and Run BPM optimization
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, bpm_optimization_parameters_root=bpm_optimization_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,
@@ -560,10 +566,8 @@ This endpoint updates and run the BPM optimization specified in the PUT body par
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import bpm_optimizer_api
-from fds.sdk.BarraPortfolioOptimizer.model.calculation_info_root import CalculationInfoRoot
-from fds.sdk.BarraPortfolioOptimizer.model.bpm_optimization_parameters_root import BPMOptimizationParametersRoot
-from fds.sdk.BarraPortfolioOptimizer.model.client_error_response import ClientErrorResponse
-from fds.sdk.BarraPortfolioOptimizer.model.object_root import ObjectRoot
+from fds.sdk.BarraPortfolioOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -656,6 +660,8 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Create or Update BPM optimization and run it.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, bpm_optimization_parameters_root=bpm_optimization_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,

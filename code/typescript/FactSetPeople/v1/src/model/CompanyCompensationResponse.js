@@ -17,7 +17,6 @@ import CompanyCompensation from './CompanyCompensation';
 /**
  * The CompanyCompensationResponse model module.
  * @module model/CompanyCompensationResponse
- * @version 0.20.0
  */
 class CompanyCompensationResponse {
     /**

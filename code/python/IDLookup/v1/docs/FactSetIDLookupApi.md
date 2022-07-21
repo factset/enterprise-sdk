@@ -23,9 +23,8 @@ Service will accept request in JSON formatted request body. The request is sent 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IDLookup
 from fds.sdk.IDLookup.api import fact_set_id_lookup_api
-from fds.sdk.IDLookup.model.lookup_request import LookupRequest
-from fds.sdk.IDLookup.model.lookup_response import LookupResponse
-from fds.sdk.IDLookup.model.error_response import ErrorResponse
+from fds.sdk.IDLookup.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -87,6 +86,7 @@ with fds.sdk.IDLookup.ApiClient(configuration) as api_client:
 
     try:
         # Search funtionality to return tickers, company names and unique identifiers for FactSet data
+        # example passing only required values which don't have defaults set
         api_response = api_instance.search_companyname(lookup_request)
         pprint(api_response)
 

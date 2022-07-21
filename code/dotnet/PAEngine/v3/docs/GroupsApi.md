@@ -52,6 +52,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
 
+
             try
             {
                 // Get PA grouping frequencies
@@ -141,6 +142,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new GroupsApi(config);
+
 
             try
             {

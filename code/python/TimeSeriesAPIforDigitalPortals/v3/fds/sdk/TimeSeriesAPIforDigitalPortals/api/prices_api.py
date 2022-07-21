@@ -69,10 +69,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object5',
                 ],
                 'required': [
-                    'body',
+                    'inline_object5',
                 ],
                 'nullable': [
                 ],
@@ -87,13 +87,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object5':
                         (InlineObject5,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object5': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -125,10 +125,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object6',
                 ],
                 'required': [
-                    'body',
+                    'inline_object6',
                 ],
                 'nullable': [
                 ],
@@ -143,13 +143,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object6':
                         (InlineObject6,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object6': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -181,10 +181,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object7',
                 ],
                 'required': [
-                    'body',
+                    'inline_object7',
                 ],
                 'nullable': [
                 ],
@@ -199,13 +199,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object7':
                         (InlineObject7,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object7': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -237,10 +237,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object8',
                 ],
                 'required': [
-                    'body',
+                    'inline_object8',
                 ],
                 'nullable': [
                 ],
@@ -255,13 +255,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object8':
                         (InlineObject8,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object8': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -293,10 +293,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object9',
                 ],
                 'required': [
-                    'body',
+                    'inline_object9',
                 ],
                 'nullable': [
                 ],
@@ -311,13 +311,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object9':
                         (InlineObject9,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object9': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -349,10 +349,10 @@ class PricesApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object10',
                 ],
                 'required': [
-                    'body',
+                    'inline_object10',
                 ],
                 'nullable': [
                 ],
@@ -367,13 +367,13 @@ class PricesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
+                    'inline_object10':
                         (InlineObject10,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object10': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -403,7 +403,7 @@ class PricesApi(object):
 
     def post_prices_time_series_eod_list(
         self,
-        body,
+        inline_object5,
         **kwargs
     ) -> InlineResponse2005:
         """End-of-day time series data for a notation.  # noqa: E501
@@ -412,7 +412,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject5):
+            inline_object5 (InlineObject5):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -443,13 +443,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object5'] = \
+            inline_object5
         return self.post_prices_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_list_with_http_info(
         self,
-        body,
+        inline_object5,
         **kwargs
     ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day time series data for a notation.  # noqa: E501
@@ -458,7 +458,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject5):
+            inline_object5 (InlineObject5):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -493,13 +493,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object5'] = \
+            inline_object5
         return self.post_prices_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_list_async(
         self,
-        body,
+        inline_object5,
         **kwargs
     ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day time series data for a notation.  # noqa: E501
@@ -508,7 +508,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject5):
+            inline_object5 (InlineObject5):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -538,13 +538,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object5'] = \
+            inline_object5
         return self.post_prices_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_list_with_http_info_async(
         self,
-        body,
+        inline_object5,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day time series data for a notation.  # noqa: E501
@@ -553,7 +553,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject5):
+            inline_object5 (InlineObject5):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -583,13 +583,13 @@ class PricesApi(object):
             ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object5'] = \
+            inline_object5
         return self.post_prices_time_series_eod_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_get(
         self,
-        body,
+        inline_object6,
         **kwargs
     ) -> InlineResponse2006:
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -598,7 +598,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject6):
+            inline_object6 (InlineObject6):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -629,13 +629,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object6'] = \
+            inline_object6
         return self.post_prices_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_get_with_http_info(
         self,
-        body,
+        inline_object6,
         **kwargs
     ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -644,7 +644,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject6):
+            inline_object6 (InlineObject6):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -679,13 +679,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object6'] = \
+            inline_object6
         return self.post_prices_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_get_async(
         self,
-        body,
+        inline_object6,
         **kwargs
     ) -> "ApplyResult[InlineResponse2006]":
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -694,7 +694,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject6):
+            inline_object6 (InlineObject6):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -724,13 +724,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse2006]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object6'] = \
+            inline_object6
         return self.post_prices_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_get_with_http_info_async(
         self,
-        body,
+        inline_object6,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
         """Single subsample end-of-day data for a notation.  # noqa: E501
@@ -739,7 +739,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject6):
+            inline_object6 (InlineObject6):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -769,13 +769,13 @@ class PricesApi(object):
             ApplyResult[(InlineResponse2006, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object6'] = \
+            inline_object6
         return self.post_prices_time_series_eod_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_list(
         self,
-        body,
+        inline_object7,
         **kwargs
     ) -> InlineResponse2007:
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -784,7 +784,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject7):
+            inline_object7 (InlineObject7):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -815,13 +815,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object7'] = \
+            inline_object7
         return self.post_prices_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_list_with_http_info(
         self,
-        body,
+        inline_object7,
         **kwargs
     ) -> typing.Tuple[InlineResponse2007, int, typing.MutableMapping]:
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -830,7 +830,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject7):
+            inline_object7 (InlineObject7):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -865,13 +865,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object7'] = \
+            inline_object7
         return self.post_prices_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_list_async(
         self,
-        body,
+        inline_object7,
         **kwargs
     ) -> "ApplyResult[InlineResponse2007]":
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -880,7 +880,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject7):
+            inline_object7 (InlineObject7):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -910,13 +910,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse2007]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object7'] = \
+            inline_object7
         return self.post_prices_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_eod_subsample_list_with_http_info_async(
         self,
-        body,
+        inline_object7,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2007, int, typing.MutableMapping]]":
         """Subsampled end-of-day time series data for a notation.  # noqa: E501
@@ -925,7 +925,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject7):
+            inline_object7 (InlineObject7):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -955,13 +955,13 @@ class PricesApi(object):
             ApplyResult[(InlineResponse2007, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object7'] = \
+            inline_object7
         return self.post_prices_time_series_eod_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_list(
         self,
-        body,
+        inline_object8,
         **kwargs
     ) -> InlineResponse2008:
         """Intraday time series data for a notation.  # noqa: E501
@@ -970,7 +970,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject8):
+            inline_object8 (InlineObject8):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1001,13 +1001,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object8'] = \
+            inline_object8
         return self.post_prices_time_series_intraday_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_list_with_http_info(
         self,
-        body,
+        inline_object8,
         **kwargs
     ) -> typing.Tuple[InlineResponse2008, int, typing.MutableMapping]:
         """Intraday time series data for a notation.  # noqa: E501
@@ -1016,7 +1016,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject8):
+            inline_object8 (InlineObject8):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1051,13 +1051,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object8'] = \
+            inline_object8
         return self.post_prices_time_series_intraday_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_list_async(
         self,
-        body,
+        inline_object8,
         **kwargs
     ) -> "ApplyResult[InlineResponse2008]":
         """Intraday time series data for a notation.  # noqa: E501
@@ -1066,7 +1066,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject8):
+            inline_object8 (InlineObject8):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1096,13 +1096,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse2008]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object8'] = \
+            inline_object8
         return self.post_prices_time_series_intraday_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_list_with_http_info_async(
         self,
-        body,
+        inline_object8,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2008, int, typing.MutableMapping]]":
         """Intraday time series data for a notation.  # noqa: E501
@@ -1111,7 +1111,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject8):
+            inline_object8 (InlineObject8):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1141,13 +1141,13 @@ class PricesApi(object):
             ApplyResult[(InlineResponse2008, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object8'] = \
+            inline_object8
         return self.post_prices_time_series_intraday_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_get(
         self,
-        body,
+        inline_object9,
         **kwargs
     ) -> InlineResponse2009:
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1156,7 +1156,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject9):
+            inline_object9 (InlineObject9):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1187,13 +1187,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object9'] = \
+            inline_object9
         return self.post_prices_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_get_with_http_info(
         self,
-        body,
+        inline_object9,
         **kwargs
     ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1202,7 +1202,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject9):
+            inline_object9 (InlineObject9):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1237,13 +1237,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object9'] = \
+            inline_object9
         return self.post_prices_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_get_async(
         self,
-        body,
+        inline_object9,
         **kwargs
     ) -> "ApplyResult[InlineResponse2009]":
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1252,7 +1252,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject9):
+            inline_object9 (InlineObject9):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1282,13 +1282,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse2009]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object9'] = \
+            inline_object9
         return self.post_prices_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_get_with_http_info_async(
         self,
-        body,
+        inline_object9,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
         """Single subsample intraday data for a notation.  # noqa: E501
@@ -1297,7 +1297,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject9):
+            inline_object9 (InlineObject9):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1327,13 +1327,13 @@ class PricesApi(object):
             ApplyResult[(InlineResponse2009, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object9'] = \
+            inline_object9
         return self.post_prices_time_series_intraday_subsample_get_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_list(
         self,
-        body,
+        inline_object10,
         **kwargs
     ) -> InlineResponse20010:
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1342,7 +1342,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject10):
+            inline_object10 (InlineObject10):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1373,13 +1373,13 @@ class PricesApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object10'] = \
+            inline_object10
         return self.post_prices_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_list_with_http_info(
         self,
-        body,
+        inline_object10,
         **kwargs
     ) -> typing.Tuple[InlineResponse20010, int, typing.MutableMapping]:
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1388,7 +1388,7 @@ class PricesApi(object):
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            body (InlineObject10):
+            inline_object10 (InlineObject10):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1423,13 +1423,13 @@ class PricesApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object10'] = \
+            inline_object10
         return self.post_prices_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_list_async(
         self,
-        body,
+        inline_object10,
         **kwargs
     ) -> "ApplyResult[InlineResponse20010]":
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1438,7 +1438,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            body (InlineObject10):
+            inline_object10 (InlineObject10):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1468,13 +1468,13 @@ class PricesApi(object):
             ApplyResult[InlineResponse20010]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object10'] = \
+            inline_object10
         return self.post_prices_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 
     def post_prices_time_series_intraday_subsample_list_with_http_info_async(
         self,
-        body,
+        inline_object10,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse20010, int, typing.MutableMapping]]":
         """Subsampled intraday time series data for a notation.  # noqa: E501
@@ -1483,7 +1483,7 @@ class PricesApi(object):
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            body (InlineObject10):
+            inline_object10 (InlineObject10):
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1513,7 +1513,7 @@ class PricesApi(object):
             ApplyResult[(InlineResponse20010, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
+        kwargs['inline_object10'] = \
+            inline_object10
         return self.post_prices_time_series_intraday_subsample_list_endpoint.call_with_http_info(**kwargs)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataShareClassRegistrationCountryRestrict model module.
  * @module model/FundNotationScreenerSearchDataShareClassRegistrationCountryRestrict
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassRegistrationCountryRestrict {
     /**

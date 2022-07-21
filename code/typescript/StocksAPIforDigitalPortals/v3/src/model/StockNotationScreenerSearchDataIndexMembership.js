@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataIndexMembership model module.
  * @module model/StockNotationScreenerSearchDataIndexMembership
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataIndexMembership {
     /**

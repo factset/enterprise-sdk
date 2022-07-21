@@ -26,7 +26,6 @@ import RecordPreviewDto from '../model/RecordPreviewDto';
 /**
 * Contacts service.
 * @module api/ContactsApi
-* @version 0.20.0
 */
 export default class ContactsApi {
 

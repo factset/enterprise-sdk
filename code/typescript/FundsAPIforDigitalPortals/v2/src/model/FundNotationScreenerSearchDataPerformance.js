@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataPerformanceEndOfDay from './FundNotationScr
 /**
  * The FundNotationScreenerSearchDataPerformance model module.
  * @module model/FundNotationScreenerSearchDataPerformance
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataPerformance {
     /**

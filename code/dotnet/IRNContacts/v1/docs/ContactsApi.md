@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNContacts.Api.ContactsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -56,6 +56,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactSaveDto = new ContactSaveDto(); // ContactSaveDto | contactSaveDto object to save (optional) 
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to delete associated record
 
             try
@@ -232,6 +234,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to get associated record
 
             try
@@ -320,6 +323,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to get associated records
 
             try
@@ -408,6 +412,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId of associated record
 
             try
@@ -496,6 +501,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to get associated records
 
             try
@@ -584,6 +590,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to get associated records
 
             try
@@ -672,6 +679,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var fullName = "fullName_example";  // string | Filter results on fullName (optional) 
             var emailAddress = "emailAddress_example";  // string | Filter results on emailAddress (optional) 
             var identifier = "identifier_example";  // string | Filter results on identifier (optional) 
@@ -774,6 +782,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ContactsApi(config);
+
             var contactId = "contactId_example";  // Guid | contactId to update associated record
             var operation = new List<Operation>(); // List<Operation> | contactSaveDtoPatch object to update (optional) 
 

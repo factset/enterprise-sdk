@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004Nsin model module.
  * @module model/InlineResponse2004Nsin
- * @version 0.9.2
  */
 class InlineResponse2004Nsin {
     /**

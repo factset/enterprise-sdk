@@ -45,7 +45,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <param name="benchmark">benchmark.</param>
         /// <param name="dates">dates.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters), string currencyisocode = default(string))
+        public SPARCalculationParameters(string componentid,List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters), string currencyisocode = default(string))
         {
             // to ensure "componentid" is required (not null)
             if (componentid == null) {

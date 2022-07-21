@@ -18,7 +18,6 @@ import InlineResponse2003Type from './InlineResponse2003Type';
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.10.0
  */
 class InlineResponse2003Data {
     /**

@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPHoldingsThresholdConstraint model module.
  * @module model/OptimizerInputsMPHoldingsThresholdConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPHoldingsThresholdConstraint {
     /**

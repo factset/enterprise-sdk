@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20054DataDayCountConvention model module.
  * @module model/InlineResponse20054DataDayCountConvention
- * @version 0.9.2
  */
 class InlineResponse20054DataDayCountConvention {
     /**

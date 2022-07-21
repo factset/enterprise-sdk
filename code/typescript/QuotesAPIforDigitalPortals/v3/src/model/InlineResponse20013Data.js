@@ -17,7 +17,6 @@ import InlineResponse20013Kind from './InlineResponse20013Kind';
 /**
  * The InlineResponse20013Data model module.
  * @module model/InlineResponse20013Data
- * @version 0.10.0
  */
 class InlineResponse20013Data {
     /**

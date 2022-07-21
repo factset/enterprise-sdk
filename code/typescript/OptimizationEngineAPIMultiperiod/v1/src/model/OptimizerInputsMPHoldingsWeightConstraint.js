@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPHoldingsWeightConstraint model module.
  * @module model/OptimizerInputsMPHoldingsWeightConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPHoldingsWeightConstraint {
     /**

@@ -531,7 +531,6 @@ import PricesApi from './api/PricesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.10.0
 */
 export {
     /**

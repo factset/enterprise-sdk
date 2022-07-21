@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="frequency">frequency.</param>
-        public PricesFixedIncomeRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), FrequencyFi frequency = default(FrequencyFi))
+        public PricesFixedIncomeRequest(List<string> ids,string startDate = default(string), string endDate = default(string), FrequencyFi frequency = default(FrequencyFi))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

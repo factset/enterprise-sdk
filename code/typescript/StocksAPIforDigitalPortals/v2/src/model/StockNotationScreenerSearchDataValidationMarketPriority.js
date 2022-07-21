@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataValidationMarketPriority model module.
  * @module model/StockNotationScreenerSearchDataValidationMarketPriority
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataValidationMarketPriority {
     /**

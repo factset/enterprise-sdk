@@ -41,7 +41,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="total">Total number of entries in the result set. (required).</param>
         /// <param name="isEstimatedTotal">Flag indicating that the value of \&quot;total\&quot; is estimated. (required).</param>
-        public OffsetBasedPaginationOutputObject(decimal total = default(decimal), bool isEstimatedTotal = default(bool))
+        public OffsetBasedPaginationOutputObject(decimal total, bool isEstimatedTotal)
         {
             this.Total = total;
             this.IsEstimatedTotal = isEstimatedTotal;

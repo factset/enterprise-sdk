@@ -1,0 +1,269 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: ai@factset.com
+  description: APIs that leverage Natural Language Processing to help extract meaningful
+    data from unstructured text
+  title: Natural Language Processing API
+  version: 1.0.0
+servers:
+- url: https://api.factset.com
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: AI Themes
+  name: themes
+paths:
+  /cognitive/nlp/v1/themes:
+    post:
+      description: "This endpoint extracts themes from unstructured text. Each theme\
+        \ (`themeText`) is also given a score (`themeScore`). This score shows the\
+        \ relevancy of the theme within the text. \nExample Output:\n```json\n{\n\
+        \  \"data\": [\n  {\n    \"themeText\": \"home entertainment results\",\n\
+        \    \"themeScore\": 0.92\n  },\n  {\n    \"themeText\": \".....\",\n    \"\
+        themeScore\": .....\n  }]\n}\n```\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThemeParametersRoot'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThemesRoot'
+          description: Expected response, generated themes
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              example: cb87799eadc14d9fba25c09fb639171d
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsRoot'
+          description: The browser (or proxy) sent a request that this server could
+            not understand.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "401":
+          description: The server could not verify that you are authorized to access
+            the URL requested. You either supplied the wrong credentials (e.g. a bad
+            password), or your browser doesn't understand how to supply the credentials
+            required.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "403":
+          description: You don't have the permission to access the requested resource.
+            It is either read-protected or not readable by the server.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorsRoot'
+          description: The requested URL was not found on the server. If you entered
+            the URL manually please check your spelling and try again.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "500":
+          description: The server encountered an internal error and was unable to
+            complete your request. Either the server is overloaded or there is an
+            error in the application.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+        "503":
+          description: The server is temporarily unable to service your request due
+            to maintenance downtime or capacity problems. Please try again later.
+          headers:
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an API request.
+              explode: false
+              schema:
+                description: Key to uniquely identify an API request.
+                type: string
+              style: simple
+      summary: POST request to extract themes from text
+      tags:
+      - themes
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ThemeParameters:
+      additionalProperties: false
+      example:
+        text: 'Studio Entertainment: At Studio Entertainment, operating income decreased
+          in the quarter due to lower theatrical distribution and home entertainment
+          results. Worldwide theatrical results continued to be adversely impacted
+          by COVID-19, as theaters were closed in many key markets both domestically
+          and internationally. With no significant worldwide theatrical releases in
+          the quarter, we faced a difficult comparison against the strong performance
+          of The Lion King and Toy Story 4 in the prior-year quarter. Operating Results:
+          On our last earnings call, we said that we expected Q4 operating results
+          of our DTC businesses to improve by approximately $100mm relative to the
+          prior-year quarter. Our results came in better than that guidance, with
+          operating income at our DTC businesses improving by approximately $300mm
+          vs. the prior year due to better-than-expected performance across all three
+          of our streaming services. I will note that we do not plan to further update
+          any of our subscriber numbers until our Investor Day on December 10 At our
+          International Channels, lower results were due to lower affiliate and advertising
+          revenues, partially offset by a decrease in cost.'
+      properties:
+        text:
+          description: Text from which themes will be extracted
+          example: 'Studio Entertainment: At Studio Entertainment, operating income
+            decreased in the quarter due to lower theatrical distribution and home
+            entertainment results. Worldwide theatrical results continued to be adversely
+            impacted by COVID-19, as theaters were closed in many key markets both
+            domestically and internationally. With no significant worldwide theatrical
+            releases in the quarter, we faced a difficult comparison against the strong
+            performance of The Lion King and Toy Story 4 in the prior-year quarter.
+            Operating Results: On our last earnings call, we said that we expected
+            Q4 operating results of our DTC businesses to improve by approximately
+            $100mm relative to the prior-year quarter. Our results came in better
+            than that guidance, with operating income at our DTC businesses improving
+            by approximately $300mm vs. the prior year due to better-than-expected
+            performance across all three of our streaming services. I will note that
+            we do not plan to further update any of our subscriber numbers until our
+            Investor Day on December 10 At our International Channels, lower results
+            were due to lower affiliate and advertising revenues, partially offset
+            by a decrease in cost.'
+          type: string
+      required:
+      - text
+      type: object
+    ThemeParametersRoot:
+      additionalProperties: false
+      example:
+        data:
+          text: 'Studio Entertainment: At Studio Entertainment, operating income decreased
+            in the quarter due to lower theatrical distribution and home entertainment
+            results. Worldwide theatrical results continued to be adversely impacted
+            by COVID-19, as theaters were closed in many key markets both domestically
+            and internationally. With no significant worldwide theatrical releases
+            in the quarter, we faced a difficult comparison against the strong performance
+            of The Lion King and Toy Story 4 in the prior-year quarter. Operating
+            Results: On our last earnings call, we said that we expected Q4 operating
+            results of our DTC businesses to improve by approximately $100mm relative
+            to the prior-year quarter. Our results came in better than that guidance,
+            with operating income at our DTC businesses improving by approximately
+            $300mm vs. the prior year due to better-than-expected performance across
+            all three of our streaming services. I will note that we do not plan to
+            further update any of our subscriber numbers until our Investor Day on
+            December 10 At our International Channels, lower results were due to lower
+            affiliate and advertising revenues, partially offset by a decrease in
+            cost.'
+        meta: '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/ThemeParameters'
+        meta:
+          type: object
+      required:
+      - data
+      type: object
+    Error:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        detail:
+          type: string
+      type: object
+    ErrorsRoot:
+      additionalProperties: false
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+    ThemesRoot:
+      additionalProperties: false
+      example:
+        data:
+        - themeScore: 0.92
+          themeText: home entertainment results
+        - themeScore: 0.92
+          themeText: home entertainment results
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Theme'
+          type: array
+        meta:
+          type: object
+      required:
+      - data
+      type: object
+    Theme:
+      example:
+        themeScore: 0.92
+        themeText: home entertainment results
+      properties:
+        themeText:
+          description: Extracted theme text
+          example: home entertainment results
+          type: string
+        themeScore:
+          description: Extracted theme score
+          example: 0.92
+          type: number
+      required:
+      - themeScore
+      - themeText
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

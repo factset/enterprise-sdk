@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets model module.
  * @module model/InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets
- * @version 0.9.2
  */
 class InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets {
     /**

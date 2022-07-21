@@ -34,8 +34,8 @@ Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.benchmark_details_response import BenchmarkDetailsResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,6 +69,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get the Fund's Primary and Segment Benchmark Details
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_benchmark_details(ids)
         pprint(api_response)
 
@@ -126,9 +127,8 @@ Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.benchmark_details_response import BenchmarkDetailsResponse
-from fds.sdk.FactSetFunds.model.benchmark_details_request import BenchmarkDetailsRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -164,6 +164,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get the Fund's Primary and Segment Benchmark details for large list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_benchmark_details_for_list(benchmark_details_request)
         pprint(api_response)
 
@@ -221,8 +222,8 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.classifications_response import ClassificationsResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -256,6 +257,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get basic Fund Classifications
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_classifications(ids)
         pprint(api_response)
 
@@ -313,9 +315,8 @@ Fetch basic fund classification data, such as Asset Class, Category, Focus, Nich
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.classifications_response import ClassificationsResponse
-from fds.sdk.FactSetFunds.model.classifications_request import ClassificationsRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -351,6 +352,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get basic Fund Classifications for a large list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_classifications_for_list(classifications_request)
         pprint(api_response)
 
@@ -408,8 +410,8 @@ Fetch the Fund's Costs, Investment minimums and Risk, and Fees. This subcategory
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.costs_fees_response import CostsFeesResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -441,10 +443,12 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     date = "2019-12-31" # str | The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
         # Get the Fund's Costs, Investment minimums and Risk, and Fees.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_funds_costs_fees(ids, date=date, currency=currency)
         pprint(api_response)
 
@@ -504,9 +508,8 @@ Fetch the Fund's Costs, Investment minimums and Risk, and Fees. Data Items inclu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.costs_fees_request import CostsFeesRequest
-from fds.sdk.FactSetFunds.model.costs_fees_response import CostsFeesResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -544,6 +547,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get the Fund's Costs, Investment minimums and Risk, and Fees for large list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_costs_fees_for_list(costs_fees_request)
         pprint(api_response)
 
@@ -601,8 +605,8 @@ Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. NOTE - 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.managers_response import ManagersResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -636,6 +640,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Fund Managers and related details for a list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_managers(ids)
         pprint(api_response)
 
@@ -693,9 +698,8 @@ Fetch basic Fund manager details, such as Title, Phone, Job Id and Name.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.managers_request import ManagersRequest
-from fds.sdk.FactSetFunds.model.managers_response import ManagersResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -731,6 +735,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Fund Managers and related details for a large list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_managers_for_list(managers_request)
         pprint(api_response)
 
@@ -788,8 +793,8 @@ Fetch basic reference data for the requested fund(s), including countryDomicile,
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.summaries_response import SummariesResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -823,6 +828,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get basic reference summary data for a Fund.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_summary(ids)
         pprint(api_response)
 
@@ -880,9 +886,8 @@ Fetch basic reference data for the requested fund(s), including countryDomicile,
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.summaries_response import SummariesResponse
-from fds.sdk.FactSetFunds.model.summaries_request import SummariesRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -918,6 +923,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get basic reference data for a large list of Fund ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_funds_summary_for_list(summaries_request)
         pprint(api_response)
 
@@ -975,8 +981,8 @@ Fetch the five related fund share classes. Fund share classes can be related if 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.related_funds_response import RelatedFundsResponse
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1010,6 +1016,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Related Funds for a list of Fund ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_related_funds(ids)
         pprint(api_response)
 
@@ -1067,9 +1074,8 @@ Fetch the five related fund share classes. Fund share classes can be related if 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import reference_api
-from fds.sdk.FactSetFunds.model.related_funds_response import RelatedFundsResponse
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.related_funds_request import RelatedFundsRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1105,6 +1111,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Related Funds for a large list of Fund ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_related_funds_for_list(related_funds_request)
         pprint(api_response)
 

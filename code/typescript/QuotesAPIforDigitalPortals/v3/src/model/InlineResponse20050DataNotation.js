@@ -19,7 +19,6 @@ import InlineResponse20050DataNotationOperatingMIC from './InlineResponse20050Da
 /**
  * The InlineResponse20050DataNotation model module.
  * @module model/InlineResponse20050DataNotation
- * @version 0.10.0
  */
 class InlineResponse20050DataNotation {
     /**

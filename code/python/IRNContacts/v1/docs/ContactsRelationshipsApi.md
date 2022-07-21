@@ -1,6 +1,6 @@
 # fds.sdk.IRNContacts.ContactsRelationshipsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,9 +25,8 @@ Create a contact relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts___relationships_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.new_item_dto import NewItemDto
-from fds.sdk.IRNContacts.model.contact_relationship_two_sided_save_dto import ContactRelationshipTwoSidedSaveDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -72,6 +71,8 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Create a contact relationship
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_contact_relationship(contact_relationship_two_sided_save_dto=contact_relationship_two_sided_save_dto)
         pprint(api_response)
 
@@ -124,7 +125,8 @@ Delete a contact relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts___relationships_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -158,7 +160,9 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Delete a contact relationship
+        # example passing only required values which don't have defaults set
         api_instance.delete_contact_relationship(contact_relationship_id)
+
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->delete_contact_relationship: %s\n" % e)
 ```
@@ -209,8 +213,8 @@ Get all the relationships where the given symbol or contact identifier has been 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts___relationships_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.contact_relationship_two_sided_dto import ContactRelationshipTwoSidedDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,8 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get all the relationships where the given symbol or contact identifier has been tagged in a relationship
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_all_relationships_tagging_a_contact(symbol=symbol, contact_id=contact_id, relationship_id=relationship_id)
         pprint(api_response)
 
@@ -299,8 +305,8 @@ Get details on a specific contact relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts___relationships_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.contact_relationship_two_sided_dto import ContactRelationshipTwoSidedDto
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -334,6 +340,7 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Get details on a specific contact relationship
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_contact_relationship(contact_relationship_id)
         pprint(api_response)
 
@@ -386,8 +393,8 @@ Update a contact relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNContacts
 from fds.sdk.IRNContacts.api import contacts___relationships_api
-from fds.sdk.IRNContacts.model.problem_details import ProblemDetails
-from fds.sdk.IRNContacts.model.operation import Operation
+from fds.sdk.IRNContacts.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -430,7 +437,10 @@ with fds.sdk.IRNContacts.ApiClient(configuration) as api_client:
 
     try:
         # Update a contact relationship
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_contact_relationship(contact_relationship_id, operation=operation)
+
     except fds.sdk.IRNContacts.ApiException as e:
         print("Exception when calling ContactsRelationshipsApi->patch_contact_relationship: %s\n" % e)
 ```

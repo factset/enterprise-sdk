@@ -22,6 +22,7 @@ import com.factset.sdk.OverviewReportBuilder.models.ProfileDataSizeEv;
 import com.factset.sdk.OverviewReportBuilder.models.ProfileDataStageCrunchbaseRank;
 import com.factset.sdk.OverviewReportBuilder.models.ProfileDataStagePeActiveFirmNumber;
 import com.factset.sdk.OverviewReportBuilder.models.ProfileDataStagePeActiveFirms;
+import com.factset.sdk.OverviewReportBuilder.models.ProfileDataStagePevcLatestPostMoneyValuation;
 import com.factset.sdk.OverviewReportBuilder.models.ProfileDataStageTradeDateRange;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -74,7 +75,7 @@ public class ProfileDataStage implements Serializable {
   private ProfileDataBusinessIndustry pevcBacking;
 
   public static final String JSON_PROPERTY_PEVC_LATEST_POST_MONEY_VALUATION = "pevcLatestPostMoneyValuation";
-  private ProfileDataSizeEv pevcLatestPostMoneyValuation;
+  private ProfileDataStagePevcLatestPostMoneyValuation pevcLatestPostMoneyValuation;
 
   public static final String JSON_PROPERTY_PE_ACTIVE_FIRM_NUMBER = "peActiveFirmNumber";
   private ProfileDataStagePeActiveFirmNumber peActiveFirmNumber;
@@ -233,7 +234,7 @@ public class ProfileDataStage implements Serializable {
   }
 
 
-  public ProfileDataStage pevcLatestPostMoneyValuation(ProfileDataSizeEv pevcLatestPostMoneyValuation) {
+  public ProfileDataStage pevcLatestPostMoneyValuation(ProfileDataStagePevcLatestPostMoneyValuation pevcLatestPostMoneyValuation) {
     this.pevcLatestPostMoneyValuation = pevcLatestPostMoneyValuation;
     return this;
   }
@@ -247,14 +248,14 @@ public class ProfileDataStage implements Serializable {
   @JsonProperty(JSON_PROPERTY_PEVC_LATEST_POST_MONEY_VALUATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ProfileDataSizeEv getPevcLatestPostMoneyValuation() {
+  public ProfileDataStagePevcLatestPostMoneyValuation getPevcLatestPostMoneyValuation() {
     return pevcLatestPostMoneyValuation;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PEVC_LATEST_POST_MONEY_VALUATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPevcLatestPostMoneyValuation(ProfileDataSizeEv pevcLatestPostMoneyValuation) {
+  public void setPevcLatestPostMoneyValuation(ProfileDataStagePevcLatestPostMoneyValuation pevcLatestPostMoneyValuation) {
     this.pevcLatestPostMoneyValuation = pevcLatestPostMoneyValuation;
   }
 

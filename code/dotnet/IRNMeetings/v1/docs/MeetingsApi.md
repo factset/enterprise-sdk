@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNMeetings.Api.MeetingsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
+
             var createMeetingDto = new CreateMeetingDto(); // CreateMeetingDto | Note: The organizer property is deprecated in favor of organizerId (optional) 
 
             try
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | 
 
             try
@@ -228,6 +230,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
@@ -316,6 +319,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
+
             var start = "start_example";  // string | StartDate (optional) 
             var end = "end_example";  // string | EndDate (optional) 
             var identifiers = new List<string>(); // List<string> | Set of identifiers to filter on (optional) 
@@ -413,6 +417,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
             var updateMeetingDto = new UpdateMeetingDto(); // UpdateMeetingDto | Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional) 
 

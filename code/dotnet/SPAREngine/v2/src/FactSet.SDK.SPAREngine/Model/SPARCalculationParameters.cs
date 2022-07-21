@@ -44,7 +44,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <param name="accounts">List of accounts for SPAR calculation..</param>
         /// <param name="benchmark">benchmark.</param>
         /// <param name="dates">dates.</param>
-        public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters))
+        public SPARCalculationParameters(string componentid,List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters))
         {
             // to ensure "componentid" is required (not null)
             if (componentid == null) {

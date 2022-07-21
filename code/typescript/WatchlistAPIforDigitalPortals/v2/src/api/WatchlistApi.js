@@ -28,7 +28,6 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * Watchlist service.
 * @module api/WatchlistApi
-* @version 0.9.2
 */
 export default class WatchlistApi {
 

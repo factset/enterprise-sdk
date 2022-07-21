@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TitledTextBlock model module.
  * @module model/TitledTextBlock
- * @version 0.20.0
  */
 class TitledTextBlock {
     /**

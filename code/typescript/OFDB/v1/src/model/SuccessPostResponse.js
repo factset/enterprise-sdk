@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SuccessPostResponse model module.
  * @module model/SuccessPostResponse
- * @version 0.9.2
  */
 class SuccessPostResponse {
     /**

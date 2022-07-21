@@ -17,7 +17,6 @@ import MetricMetric from './MetricMetric';
 /**
  * The Metric model module.
  * @module model/Metric
- * @version 0.20.0
  */
 class Metric {
     /**

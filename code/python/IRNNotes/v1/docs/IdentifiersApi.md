@@ -1,6 +1,6 @@
 # fds.sdk.IRNNotes.IdentifiersApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,8 @@ Get all the identifier details for given identifiers
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import identifiers_api
-from fds.sdk.IRNNotes.model.problem_details import ProblemDetails
+from fds.sdk.IRNNotes.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,6 +56,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
     try:
         # Get all the identifier details for given identifiers
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_identifiers(identifiers=identifiers)
         pprint(api_response)
 

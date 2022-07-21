@@ -18,7 +18,6 @@ import OptimizerInputsPortfolio from './OptimizerInputsPortfolio';
 /**
  * The OptimizerInputsPortfolios model module.
  * @module model/OptimizerInputsPortfolios
- * @version 0.20.0
  */
 class OptimizerInputsPortfolios {
     /**

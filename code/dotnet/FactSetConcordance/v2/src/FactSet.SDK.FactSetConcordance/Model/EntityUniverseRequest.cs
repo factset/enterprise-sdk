@@ -79,7 +79,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="limit">Limits the number of records in the response..</param>
         /// <param name="mapStatus">Filter by the EPeople Decisions that have the specified mapStatus, where -       * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)       * UNMAPPED - The requested Entity Name is unmapped by FactSet.       * INDETERMINATE - The requested Entity Name was unable to make a mapping. .</param>
         /// <param name="clientId">fetch only the mappings that has client id included in the specified list..</param>
-        public EntityUniverseRequest(int universeId = default(int), int offset = default(int), int limit = default(int), List<MapStatusEnum> mapStatus = default(List<MapStatusEnum>), List<string> clientId = default(List<string>))
+        public EntityUniverseRequest(int universeId,int offset = default(int), int limit = default(int), List<MapStatusEnum> mapStatus = default(List<MapStatusEnum>), List<string> clientId = default(List<string>))
         {
             this.UniverseId = universeId;
             this.Offset = offset;

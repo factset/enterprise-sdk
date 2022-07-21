@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerStrategyOverrides model module.
  * @module model/OptimizerStrategyOverrides
- * @version 0.8.2
  */
 class OptimizerStrategyOverrides {
     /**

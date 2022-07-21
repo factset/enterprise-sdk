@@ -18,7 +18,6 @@ import InlineResponse20046Type from './InlineResponse20046Type';
 /**
  * The InlineResponse20046Data model module.
  * @module model/InlineResponse20046Data
- * @version 0.9.2
  */
 class InlineResponse20046Data {
     /**

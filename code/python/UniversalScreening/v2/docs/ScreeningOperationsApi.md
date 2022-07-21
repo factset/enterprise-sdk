@@ -26,9 +26,8 @@ Retrieve results of complete screen calculation. Screens with more than 10,000 r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import screening_operations_api
-from fds.sdk.UniversalScreening.model.resource_status_response import ResourceStatusResponse
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
-from fds.sdk.UniversalScreening.model.paginated_calculation_response import PaginatedCalculationResponse
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,6 +62,8 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     pagination_cursor = 1 # int | Paging index (Initial request may omit) (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_calculate_results(id, pagination_limit=pagination_limit, pagination_cursor=pagination_cursor)
         pprint(api_response)
 
@@ -123,8 +124,8 @@ Polls the job with a given screen ID and returns job status
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import screening_operations_api
-from fds.sdk.UniversalScreening.model.resource_status_response import ResourceStatusResponse
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +158,7 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     id = "id_example" # str | Unique identifier for a screen calculation job
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.poll_calculate(id)
         pprint(api_response)
 
@@ -214,9 +216,8 @@ Begins archive of screen to OFDB. Subject to rate limiting by serial.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import screening_operations_api
-from fds.sdk.UniversalScreening.model.resource_status_response import ResourceStatusResponse
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
-from fds.sdk.UniversalScreening.model.screen_archive_ofdb_parameters import ScreenArchiveOFDBParameters
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -271,6 +272,8 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     ) # ScreenArchiveOFDBParameters | Data required for an archive to OFDB request (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.submit_archive_ofdb(screen_archive_ofdb_parameters=screen_archive_ofdb_parameters)
         pprint(api_response)
 
@@ -327,9 +330,8 @@ Begins calculation of screen. Subject to rate limiting by serial.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import screening_operations_api
-from fds.sdk.UniversalScreening.model.resource_status_response import ResourceStatusResponse
-from fds.sdk.UniversalScreening.model.error_array import ErrorArray
-from fds.sdk.UniversalScreening.model.screen_calc_parameters import ScreenCalcParameters
+from fds.sdk.UniversalScreening.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -371,6 +373,8 @@ with fds.sdk.UniversalScreening.ApiClient(configuration) as api_client:
     ) # ScreenCalcParameters | Data required for a calculation request (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.submit_calculate(screen_calc_parameters=screen_calc_parameters)
         pprint(api_response)
 

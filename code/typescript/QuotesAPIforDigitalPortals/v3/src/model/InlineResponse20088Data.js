@@ -19,7 +19,6 @@ import InlineResponse20088Price from './InlineResponse20088Price';
 /**
  * The InlineResponse20088Data model module.
  * @module model/InlineResponse20088Data
- * @version 0.10.0
  */
 class InlineResponse20088Data {
     /**

@@ -62,7 +62,7 @@ class PricesTimeSeriesIntradayListMetaPagination(ModelNormal):
             'max_length': 50,
         },
         ('limit',): {
-            'inclusive_maximum': 5E+2,
+            'inclusive_maximum': 500,
             'inclusive_minimum': 0,
         },
     }
@@ -144,7 +144,7 @@ class PricesTimeSeriesIntradayListMetaPagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cursor (str): Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional]  # noqa: E501
+            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class PricesTimeSeriesIntradayListMetaPagination(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cursor (str): Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional]  # noqa: E501
+            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

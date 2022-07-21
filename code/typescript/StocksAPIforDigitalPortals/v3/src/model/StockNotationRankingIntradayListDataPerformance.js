@@ -17,7 +17,6 @@ import StockNotationRankingIntradayListDataPerformanceRelative from './StockNota
 /**
  * The StockNotationRankingIntradayListDataPerformance model module.
  * @module model/StockNotationRankingIntradayListDataPerformance
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListDataPerformance {
     /**

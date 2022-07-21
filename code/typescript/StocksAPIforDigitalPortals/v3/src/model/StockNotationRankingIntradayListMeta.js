@@ -17,7 +17,6 @@ import StockNotationRankingIntradayListMetaPagination from './StockNotationRanki
 /**
  * The StockNotationRankingIntradayListMeta model module.
  * @module model/StockNotationRankingIntradayListMeta
- * @version 0.10.0
  */
 class StockNotationRankingIntradayListMeta {
     /**

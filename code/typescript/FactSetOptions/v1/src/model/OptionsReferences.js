@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsReferences model module.
  * @module model/OptionsReferences
- * @version 0.20.0
  */
 class OptionsReferences {
     /**

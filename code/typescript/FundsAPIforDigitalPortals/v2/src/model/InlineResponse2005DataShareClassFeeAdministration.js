@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeAdministrationMaximum from './InlineRe
 /**
  * The InlineResponse2005DataShareClassFeeAdministration model module.
  * @module model/InlineResponse2005DataShareClassFeeAdministration
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeAdministration {
     /**

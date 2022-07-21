@@ -21,7 +21,6 @@ import FundNotationScreenerSearchDataValidationPrices from './FundNotationScreen
 /**
  * The FundNotationScreenerSearchDataValidation model module.
  * @module model/FundNotationScreenerSearchDataValidation
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidation {
     /**

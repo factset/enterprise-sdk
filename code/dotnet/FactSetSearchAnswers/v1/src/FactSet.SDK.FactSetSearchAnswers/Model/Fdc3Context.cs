@@ -36,7 +36,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Fdc3Context" /> class
-        /// with the <see cref="Fdc3Instrument" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Fdc3Instrument.</param>
         public Fdc3Context(Fdc3Instrument actualInstance)
@@ -48,7 +47,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Fdc3Context" /> class
-        /// with the <see cref="Fdc3Country" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Fdc3Country.</param>
         public Fdc3Context(Fdc3Country actualInstance)
@@ -72,17 +70,17 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value is Fdc3Country)
+                if (value is Fdc3Instrument)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is Fdc3Instrument)
+                else if (value is Fdc3Country)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fdc3Country, Fdc3Instrument");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fdc3Instrument, Fdc3Country");
                 }
             }
         }
@@ -149,7 +147,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(Fdc3Instrument).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Fdc3Instrument>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? Fdc3Context.AdditionalPropertiesSerializerSettings : Fdc3Context.SerializerSettings
                 );
                 newFdc3Context = new Fdc3Context(parsedValue);
@@ -166,7 +164,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(Fdc3Country).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<Fdc3Country>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? Fdc3Context.AdditionalPropertiesSerializerSettings : Fdc3Context.SerializerSettings
                 );
                 newFdc3Context = new Fdc3Context(parsedValue);

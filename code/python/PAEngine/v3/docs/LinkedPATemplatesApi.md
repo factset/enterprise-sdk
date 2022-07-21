@@ -27,9 +27,8 @@ This endpoint creates a template from an **existing portfolio analysis tile**, a
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
-from fds.sdk.PAEngine.model.linked_pa_template_post_summary_root import LinkedPATemplatePostSummaryRoot
-from fds.sdk.PAEngine.model.linked_pa_template_parameters_root import LinkedPATemplateParametersRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -81,6 +80,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Create a linked PA template
+        # example passing only required values which don't have defaults set
         api_response = api_instance.create_linked_pa_templates(linked_pa_template_parameters_root)
         pprint(api_response)
 
@@ -141,7 +141,8 @@ This endpoint deletes an existing linked PA template.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,11 +172,12 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
     try:
         # Delete a linked PA template.
-        api_instance.delete_linked_pa_templates(id)
+        # example passing only required values which don't have defaults set
+        api_instance.delete_linked_pa_templates()
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling LinkedPATemplatesApi->delete_linked_pa_templates: %s\n" % e)
 ```
@@ -233,8 +235,8 @@ This endpoint returns the list of linked PA templates in given path.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
-from fds.sdk.PAEngine.model.linked_pa_template_summary_root import LinkedPATemplateSummaryRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -264,12 +266,14 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
-    directory = "Personal:LinkedPATemplates/" # str | Get linked PA templates in path. (optional) (default to "Personal:LinkedPATemplates/")
+    directory = "Personal:LinkedPATemplates/" # str | Get linked PA templates in path. (optional) if omitted the server will use the default value of "Personal:LinkedPATemplates/"
     document_directory = "documentDirectory_example" # str | Get linked PA templates for documents in document path (optional)
     document_name = "documentName_example" # str | Get linked PA templates for documents by document name (optional)
 
     try:
         # Get linked PA templates
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_linked_pa_templates(directory=directory, document_directory=document_directory, document_name=document_name)
         pprint(api_response)
 
@@ -332,8 +336,8 @@ This endpoint fetches the linked PA template settings.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
-from fds.sdk.PAEngine.model.linked_pa_template_root import LinkedPATemplateRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -363,11 +367,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
     try:
         # Get linked PA template by id
-        api_response = api_instance.get_linked_pa_templates_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_linked_pa_templates_by_id()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -427,9 +431,8 @@ This endpoint allows the user to change the request body and description from an
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import linked_pa_templates_api
-from fds.sdk.PAEngine.model.linked_pa_template_update_parameters_root import LinkedPATemplateUpdateParametersRoot
-from fds.sdk.PAEngine.model.linked_pa_template_post_summary_root import LinkedPATemplatePostSummaryRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -459,7 +462,6 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = linked_pa_templates_api.LinkedPATemplatesApi(api_client)
 
-    id = "01234567890123456789012345678901" # str | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
     linked_pa_template_update_parameters_root = LinkedPATemplateUpdateParametersRoot(
         data=LinkedPATemplateUpdateParameters(
             parent_component_id="parent_component_id_example",
@@ -481,7 +483,8 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Update a linked PA template
-        api_response = api_instance.update_linked_pa_templates(id, linked_pa_template_update_parameters_root)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.update_linked_pa_templates(linked_pa_template_update_parameters_root)
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

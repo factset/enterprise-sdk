@@ -17,7 +17,6 @@ import UnderlyingVolume from './UnderlyingVolume';
 /**
  * The UnderlyingVolumeResponse model module.
  * @module model/UnderlyingVolumeResponse
- * @version 0.20.0
  */
 class UnderlyingVolumeResponse {
     /**

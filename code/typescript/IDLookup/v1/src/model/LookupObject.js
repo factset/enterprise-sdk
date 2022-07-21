@@ -17,7 +17,6 @@ import FilterParams from './FilterParams';
 /**
  * The LookupObject model module.
  * @module model/LookupObject
- * @version 0.20.0
  */
 class LookupObject {
     /**

@@ -19,7 +19,6 @@ import Response from '../model/Response';
 /**
 * Entities service.
 * @module api/EntitiesApi
-* @version 0.8.2
 */
 export default class EntitiesApi {
 

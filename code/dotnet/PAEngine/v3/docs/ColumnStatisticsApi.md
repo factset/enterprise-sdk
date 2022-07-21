@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new ColumnStatisticsApi(config);
 
+
             try
             {
                 // Get PA column statistics

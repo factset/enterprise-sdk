@@ -44,7 +44,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="type">type (required).</param>
         /// <param name="optional">optional.</param>
         /// <param name="items">items.</param>
-        public ContractProperty(string description = default(string), string type = default(string), bool optional = default(bool), ContractPropertyItems items = default(ContractPropertyItems))
+        public ContractProperty(string description, string type,bool optional = default(bool), ContractPropertyItems items = default(ContractPropertyItems))
         {
             // to ensure "description" is required (not null)
             if (description == null) {

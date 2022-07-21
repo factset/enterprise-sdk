@@ -63,6 +63,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -153,6 +154,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -247,6 +249,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -341,6 +344,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -435,6 +439,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -529,6 +534,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -623,6 +629,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -717,6 +724,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of the instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -809,6 +817,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -899,6 +908,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var snapshots = new List<string>(); // List<string> | Choice of historic snapshots for aggregated recommendations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -991,6 +1001,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject1(); // InlineObject1 | 
 
             try
@@ -1079,6 +1090,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
@@ -1167,6 +1179,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
@@ -1255,6 +1268,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
+
             var body = new InlineObject4(); // InlineObject4 |  (optional) 
 
             try

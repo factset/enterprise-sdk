@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20055DataValidity model module.
  * @module model/InlineResponse20055DataValidity
- * @version 0.10.0
  */
 class InlineResponse20055DataValidity {
     /**

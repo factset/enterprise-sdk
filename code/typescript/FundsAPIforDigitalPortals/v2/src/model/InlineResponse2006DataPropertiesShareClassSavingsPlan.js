@@ -18,7 +18,6 @@ import InlineResponse2006DataPropertiesShareClassFrequency from './InlineRespons
 /**
  * The InlineResponse2006DataPropertiesShareClassSavingsPlan model module.
  * @module model/InlineResponse2006DataPropertiesShareClassSavingsPlan
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesShareClassSavingsPlan {
     /**

@@ -83,5 +83,7 @@
 
 * `UTILITY` (value: `"UTILITY"`)
 
+* `OTHER` (value: `"OTHER"`)
+
 
 

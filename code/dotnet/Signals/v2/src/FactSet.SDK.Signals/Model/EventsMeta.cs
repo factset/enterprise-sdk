@@ -45,7 +45,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="pagination">pagination.</param>
         /// <param name="idResolutions">idResolutions (required).</param>
         /// <param name="dateRange">dateRange (required).</param>
-        public EventsMeta(Guid signalRequestId = default(Guid), List<string> sort = default(List<string>), EventsMetaPagination pagination = default(EventsMetaPagination), IdResolutionsMeta idResolutions = default(IdResolutionsMeta), EventsMetaDateRange dateRange = default(EventsMetaDateRange))
+        public EventsMeta(Guid signalRequestId, IdResolutionsMeta idResolutions, EventsMetaDateRange dateRange,List<string> sort = default(List<string>), EventsMetaPagination pagination = default(EventsMetaPagination))
         {
             this.SignalRequestId = signalRequestId;
             // to ensure "idResolutions" is required (not null)

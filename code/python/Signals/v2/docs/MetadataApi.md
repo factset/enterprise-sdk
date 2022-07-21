@@ -26,8 +26,8 @@ Fetch a list of available signal categories
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import metadata_api
-from fds.sdk.Signals.model.signal_meta_data import SignalMetaData
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_categories()
         pprint(api_response)
 
@@ -109,8 +110,8 @@ Fetch a list of all active signals
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import metadata_api
-from fds.sdk.Signals.model.signal_meta_data import SignalMetaData
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -142,6 +143,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_data_dictionary()
         pprint(api_response)
 
@@ -192,8 +194,8 @@ Fetch the metadata and contract for the requested signal
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import metadata_api
-from fds.sdk.Signals.model.error_response import ErrorResponse
-from fds.sdk.Signals.model.signal_definition import SignalDefinition
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -226,6 +228,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
     signal_id = "dilutionTrigger" # str | 
 
     try:
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_data_dictionary_by_id(signal_id)
         pprint(api_response)
 
@@ -280,8 +283,8 @@ Fetch a list of available signal themes
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import metadata_api
-from fds.sdk.Signals.model.signal_meta_data import SignalMetaData
-from fds.sdk.Signals.model.error_response import ErrorResponse
+from fds.sdk.Signals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -313,6 +316,7 @@ with fds.sdk.Signals.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_themes()
         pprint(api_response)
 

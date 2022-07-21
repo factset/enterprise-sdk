@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FilesApi(config);
+
             var server = "server_example";  // string | The server to upload the file to. Either `interactive` or `batch`.
             var file = "file_example";  // string | The file name to upload the file to. Existing directory can be specified.
             var body = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FilesApi(config);
+
             var id = "id_example";  // string | From url, provided by location header or response body in the upload start endpoint
 
             try

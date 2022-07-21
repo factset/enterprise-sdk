@@ -21,7 +21,6 @@ import InlineResponse20062DataTargetMarketRiskToleranceSrri from './InlineRespon
 /**
  * The InlineResponse20062DataTargetMarketRiskTolerance model module.
  * @module model/InlineResponse20062DataTargetMarketRiskTolerance
- * @version 0.10.0
  */
 class InlineResponse20062DataTargetMarketRiskTolerance {
     /**

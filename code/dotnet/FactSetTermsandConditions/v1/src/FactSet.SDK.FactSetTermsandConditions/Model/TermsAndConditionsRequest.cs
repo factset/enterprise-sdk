@@ -83,7 +83,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*.  (required).</param>
         /// <param name="fields">List of Terms and Conditions data items..</param>
         /// <param name="categories">Selects the Fixed Income metrics by major category - * **SECURITY_DETAILS** &#x3D; Detailed information about the security. * **COUPON_DETAILS** &#x3D; Coupon details. * **CONVERTIBLE_FEATURES** &#x3D; Features of convertible instruments. * **REDEMPTION_OPTIONS** &#x3D; Redemption options. .</param>
-        public TermsAndConditionsRequest(List<string> ids = default(List<string>), List<string> fields = default(List<string>), List<CategoriesEnum> categories = default(List<CategoriesEnum>))
+        public TermsAndConditionsRequest(List<string> ids,List<string> fields = default(List<string>), List<CategoriesEnum> categories = default(List<CategoriesEnum>))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

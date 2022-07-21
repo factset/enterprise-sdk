@@ -23,8 +23,8 @@ This endpoint lists all the discount curves that can be applied to a FI calculat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import discount_curves_api
-from fds.sdk.FixedIncomeCalculation.model.fi_discount_curve_info_root import FIDiscountCurveInfoRoot
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,6 +58,8 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Get Discount Curves
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_all_fi_discount_curves(currency=currency)
         pprint(api_response)
 

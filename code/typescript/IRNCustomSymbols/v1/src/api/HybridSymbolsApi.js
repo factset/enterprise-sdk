@@ -21,7 +21,6 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * HybridSymbols service.
 * @module api/HybridSymbolsApi
-* @version 0.20.0
 */
 export default class HybridSymbolsApi {
 

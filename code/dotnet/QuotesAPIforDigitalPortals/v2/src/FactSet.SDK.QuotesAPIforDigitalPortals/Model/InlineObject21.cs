@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject21(PricesTradingScheduleEventListData data = default(PricesTradingScheduleEventListData), PricesTradingScheduleEventListMeta meta = default(PricesTradingScheduleEventListMeta))
+        public InlineObject21(PricesTradingScheduleEventListData data,PricesTradingScheduleEventListMeta meta = default(PricesTradingScheduleEventListMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

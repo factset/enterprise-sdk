@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetEntity.JSON;
@@ -47,25 +51,25 @@ public class UtlimateEntityStructure implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ENTITY_ID = "fsymEntityId";
-  private String fsymEntityId;
+  private JsonNullable<String> fsymEntityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ULTIMATE_PARENT_ID = "ultimateParentId";
-  private String ultimateParentId;
+  private JsonNullable<String> ultimateParentId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PARENT_ENTITY_ID = "parentEntityId";
-  private String parentEntityId;
+  private JsonNullable<String> parentEntityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LEVEL = "level";
-  private Integer level;
+  private JsonNullable<Integer> level = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_INACTIVE = "inactive";
-  private Integer inactive;
+  private JsonNullable<Integer> inactive = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -74,7 +78,7 @@ public class UtlimateEntityStructure implements Serializable {
   }
 
   public UtlimateEntityStructure fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -84,23 +88,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public UtlimateEntityStructure fsymEntityId(String fsymEntityId) {
-    this.fsymEntityId = fsymEntityId;
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
     return this;
   }
 
@@ -110,23 +122,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Unique FactSet-generated identifier representing an entity")
-  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymEntityId() {
-    return fsymEntityId;
+        return fsymEntityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymEntityId(String fsymEntityId) {
+
+  public JsonNullable<String> getFsymEntityId_JsonNullable() {
+    return fsymEntityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ENTITY_ID)
+  public void setFsymEntityId_JsonNullable(JsonNullable<String> fsymEntityId) {
     this.fsymEntityId = fsymEntityId;
+  }
+
+  public void setFsymEntityId(String fsymEntityId) {
+    this.fsymEntityId = JsonNullable.<String>of(fsymEntityId);
   }
 
 
   public UtlimateEntityStructure ultimateParentId(String ultimateParentId) {
-    this.ultimateParentId = ultimateParentId;
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
     return this;
   }
 
@@ -136,23 +156,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "The ultimate parent id of the entity.")
-  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUltimateParentId() {
-    return ultimateParentId;
+        return ultimateParentId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUltimateParentId(String ultimateParentId) {
+
+  public JsonNullable<String> getUltimateParentId_JsonNullable() {
+    return ultimateParentId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ULTIMATE_PARENT_ID)
+  public void setUltimateParentId_JsonNullable(JsonNullable<String> ultimateParentId) {
     this.ultimateParentId = ultimateParentId;
+  }
+
+  public void setUltimateParentId(String ultimateParentId) {
+    this.ultimateParentId = JsonNullable.<String>of(ultimateParentId);
   }
 
 
   public UtlimateEntityStructure parentEntityId(String parentEntityId) {
-    this.parentEntityId = parentEntityId;
+    this.parentEntityId = JsonNullable.<String>of(parentEntityId);
     return this;
   }
 
@@ -162,23 +190,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "001MF1-E", value = "Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.")
-  @JsonProperty(JSON_PROPERTY_PARENT_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getParentEntityId() {
-    return parentEntityId;
+        return parentEntityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PARENT_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentEntityId(String parentEntityId) {
+
+  public JsonNullable<String> getParentEntityId_JsonNullable() {
+    return parentEntityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PARENT_ENTITY_ID)
+  public void setParentEntityId_JsonNullable(JsonNullable<String> parentEntityId) {
     this.parentEntityId = parentEntityId;
+  }
+
+  public void setParentEntityId(String parentEntityId) {
+    this.parentEntityId = JsonNullable.<String>of(parentEntityId);
   }
 
 
   public UtlimateEntityStructure level(Integer level) {
-    this.level = level;
+    this.level = JsonNullable.<Integer>of(level);
     return this;
   }
 
@@ -188,23 +224,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3", value = "Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.")
-  @JsonProperty(JSON_PROPERTY_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getLevel() {
-    return level;
+        return level.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLevel(Integer level) {
+
+  public JsonNullable<Integer> getLevel_JsonNullable() {
+    return level;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LEVEL)
+  public void setLevel_JsonNullable(JsonNullable<Integer> level) {
     this.level = level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = JsonNullable.<Integer>of(level);
   }
 
 
   public UtlimateEntityStructure inactive(Integer inactive) {
-    this.inactive = inactive;
+    this.inactive = JsonNullable.<Integer>of(inactive);
     return this;
   }
 
@@ -214,23 +258,31 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "A flag for inactive securities; whereby 1 = inactive and 0 = active.")
-  @JsonProperty(JSON_PROPERTY_INACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getInactive() {
-    return inactive;
+        return inactive.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_INACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInactive(Integer inactive) {
+
+  public JsonNullable<Integer> getInactive_JsonNullable() {
+    return inactive;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INACTIVE)
+  public void setInactive_JsonNullable(JsonNullable<Integer> inactive) {
     this.inactive = inactive;
+  }
+
+  public void setInactive(Integer inactive) {
+    this.inactive = JsonNullable.<Integer>of(inactive);
   }
 
 
   public UtlimateEntityStructure description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -240,18 +292,26 @@ public class UtlimateEntityStructure implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Whole Foods Market, Inc. (Subsidiary)", value = "The proper name and entity type for the entity.")
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
@@ -293,19 +353,30 @@ public class UtlimateEntityStructure implements Serializable {
       return false;
     }
     UtlimateEntityStructure utlimateEntityStructure = (UtlimateEntityStructure) o;
-    return Objects.equals(this.fsymId, utlimateEntityStructure.fsymId) &&
-        Objects.equals(this.fsymEntityId, utlimateEntityStructure.fsymEntityId) &&
-        Objects.equals(this.ultimateParentId, utlimateEntityStructure.ultimateParentId) &&
-        Objects.equals(this.parentEntityId, utlimateEntityStructure.parentEntityId) &&
-        Objects.equals(this.level, utlimateEntityStructure.level) &&
-        Objects.equals(this.inactive, utlimateEntityStructure.inactive) &&
-        Objects.equals(this.description, utlimateEntityStructure.description) &&
+    return equalsNullable(this.fsymId, utlimateEntityStructure.fsymId) &&
+        equalsNullable(this.fsymEntityId, utlimateEntityStructure.fsymEntityId) &&
+        equalsNullable(this.ultimateParentId, utlimateEntityStructure.ultimateParentId) &&
+        equalsNullable(this.parentEntityId, utlimateEntityStructure.parentEntityId) &&
+        equalsNullable(this.level, utlimateEntityStructure.level) &&
+        equalsNullable(this.inactive, utlimateEntityStructure.inactive) &&
+        equalsNullable(this.description, utlimateEntityStructure.description) &&
         Objects.equals(this.requestId, utlimateEntityStructure.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, fsymEntityId, ultimateParentId, parentEntityId, level, inactive, description, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(fsymEntityId), hashCodeNullable(ultimateParentId), hashCodeNullable(parentEntityId), hashCodeNullable(level), hashCodeNullable(inactive), hashCodeNullable(description), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

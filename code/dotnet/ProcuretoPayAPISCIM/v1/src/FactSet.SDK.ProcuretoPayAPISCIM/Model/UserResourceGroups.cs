@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="UserResourceGroups" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public UserResourceGroups()
+        public UserResourceGroups(string value = default(string), string _ref = default(string), string display = default(string))
         {
         }
 

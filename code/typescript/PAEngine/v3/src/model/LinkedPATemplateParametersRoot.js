@@ -17,7 +17,6 @@ import LinkedPATemplateParameters from './LinkedPATemplateParameters';
 /**
  * The LinkedPATemplateParametersRoot model module.
  * @module model/LinkedPATemplateParametersRoot
- * @version 0.20.0
  */
 class LinkedPATemplateParametersRoot {
     /**

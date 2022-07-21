@@ -17,7 +17,6 @@ import EntityMapping from './EntityMapping';
 /**
  * The EntityResponse model module.
  * @module model/EntityResponse
- * @version 0.20.1
  */
 class EntityResponse {
     /**

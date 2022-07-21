@@ -17,7 +17,6 @@ import Country from './Country';
 /**
  * The CountryResponse model module.
  * @module model/CountryResponse
- * @version 0.20.0
  */
 class CountryResponse {
     /**

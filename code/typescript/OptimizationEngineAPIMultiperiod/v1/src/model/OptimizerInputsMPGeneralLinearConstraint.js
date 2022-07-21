@@ -19,7 +19,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPGeneralLinearConstraint model module.
  * @module model/OptimizerInputsMPGeneralLinearConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPGeneralLinearConstraint {
     /**

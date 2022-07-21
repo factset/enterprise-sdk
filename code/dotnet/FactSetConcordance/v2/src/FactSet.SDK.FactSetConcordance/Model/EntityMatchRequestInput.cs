@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="country">ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). .</param>
         /// <param name="state">Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.Two character state or province code to filter on. .</param>
         /// <param name="url">URL corresponding to the entity name that is used when evaluating candidates for a match. .</param>
-        public EntityMatchRequestInput(string name = default(string), string clientId = default(string), string country = default(string), string state = default(string), string url = default(string))
+        public EntityMatchRequestInput(string name,string clientId = default(string), string country = default(string), string state = default(string), string url = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null) {

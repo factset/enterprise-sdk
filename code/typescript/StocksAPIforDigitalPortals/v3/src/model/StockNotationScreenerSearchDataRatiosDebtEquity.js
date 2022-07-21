@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatiosDebtEquity model module.
  * @module model/StockNotationScreenerSearchDataRatiosDebtEquity
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatiosDebtEquity {
     /**

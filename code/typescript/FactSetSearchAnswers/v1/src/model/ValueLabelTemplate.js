@@ -20,7 +20,6 @@ import ValueLabelTemplateAllOf from './ValueLabelTemplateAllOf';
 /**
  * The ValueLabelTemplate model module.
  * @module model/ValueLabelTemplate
- * @version 0.20.0
  */
 class ValueLabelTemplate {
     /**

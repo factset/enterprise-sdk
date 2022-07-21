@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject(VendorChartIQTimeSeriesEodListData data = default(VendorChartIQTimeSeriesEodListData), VendorChartIQTimeSeriesEodListMeta meta = default(VendorChartIQTimeSeriesEodListMeta))
+        public InlineObject(VendorChartIQTimeSeriesEodListData data,VendorChartIQTimeSeriesEodListMeta meta = default(VendorChartIQTimeSeriesEodListMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

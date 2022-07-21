@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta (required).</param>
         /// <param name="errors">errors.</param>
-        public EventAdaptiveCards(List<EventAdaptiveDataItem> data = default(List<EventAdaptiveDataItem>), EventMeta meta = default(EventMeta), List<ErrorItem> errors = default(List<ErrorItem>))
+        public EventAdaptiveCards(List<EventAdaptiveDataItem> data, EventMeta meta,List<ErrorItem> errors = default(List<ErrorItem>))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

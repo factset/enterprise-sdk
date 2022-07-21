@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The DateSettingsDto model module.
  * @module model/DateSettingsDto
- * @version 0.20.0
  */
 class DateSettingsDto {
     /**

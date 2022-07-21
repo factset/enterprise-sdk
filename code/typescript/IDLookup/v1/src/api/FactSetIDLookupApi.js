@@ -20,7 +20,6 @@ import LookupResponse from '../model/LookupResponse';
 /**
 * FactSetIDLookup service.
 * @module api/FactSetIDLookupApi
-* @version 0.20.0
 */
 export default class FactSetIDLookupApi {
 

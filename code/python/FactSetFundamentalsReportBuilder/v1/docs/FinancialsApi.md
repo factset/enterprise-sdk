@@ -25,8 +25,8 @@ Returns a standardized Balance Sheet based on industry.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentalsReportBuilder
 from fds.sdk.FactSetFundamentalsReportBuilder.api import financials_api
-from fds.sdk.FactSetFundamentalsReportBuilder.model.response import Response
-from fds.sdk.FactSetFundamentalsReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetFundamentalsReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,13 +57,15 @@ with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_cl
     api_instance = financials_api.FinancialsApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
         # Balance Sheet
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_financials_balance_sheet(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
 
@@ -127,8 +129,8 @@ Returns a standardized Cash Flow based on industry.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentalsReportBuilder
 from fds.sdk.FactSetFundamentalsReportBuilder.api import financials_api
-from fds.sdk.FactSetFundamentalsReportBuilder.model.response import Response
-from fds.sdk.FactSetFundamentalsReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetFundamentalsReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,13 +161,15 @@ with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_cl
     api_instance = financials_api.FinancialsApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
         # Cash Flow
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_financials_cash_flow(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
 
@@ -229,8 +233,8 @@ Returns a standardized Income Statement based on industry.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentalsReportBuilder
 from fds.sdk.FactSetFundamentalsReportBuilder.api import financials_api
-from fds.sdk.FactSetFundamentalsReportBuilder.model.response import Response
-from fds.sdk.FactSetFundamentalsReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetFundamentalsReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -261,13 +265,15 @@ with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_cl
     api_instance = financials_api.FinancialsApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
 
     try:
         # Income Statement
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_financials_income_statement(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
 

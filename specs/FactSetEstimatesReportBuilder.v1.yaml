@@ -1,0 +1,1113 @@
+openapi: 3.0.3
+info:
+  title: FactSet Estimates Report Builder
+  description: ''
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  version: 1.0.0
+servers:
+  - url: https://api.factset.com/report/estimates/v1
+externalDocs:
+  description: Read more about STACH 2.0's row organized schema
+  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+tags:
+  - name: All Estimates
+  - name: Estimate Tables
+paths:
+  /income-statement:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesIncomeStatement
+      summary: Income Statement
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for Income Statement line items.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /balance-sheet:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesBalanceSheet
+      summary: Balance Sheet
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for Balance Sheet line items.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /cash-flow:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesCashFlow
+      summary: Cash Flow
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for Cash Flow line items.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /per-share:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesPerShare
+      summary: Per Share
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for Per Share line items.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /industry-metrics:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesIndustryMetrics
+      summary: Industry Metrics
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for industry-specific metrics.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /product-segments:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesProductSegments
+      summary: Product Segments
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for line items broken down by product and business.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /geographic-segments:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesGeographicSegments
+      summary: Geographic Segments
+      description: >-
+        Returns historical and future period broker estimate consensus in a
+        statement format for line items broken down geographically.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /valuation:
+    get:
+      tags:
+        - All Estimates
+      operationId: getEstimatesValuation
+      summary: Valuation
+      description: >-
+        Returns valuation ratios in a statement format calculated from
+        historical and future period broker estimate consensus.
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/periodicityParameter'
+        - $ref: '#/components/parameters/schemaParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStach'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /table:
+    get:
+      tags:
+        - Estimate Tables
+      operationId: getEstimateTablesTable
+      summary: Interim/Annual Estimate Table
+      description: >-
+        Returns a timeseries grid of Interim and Annual data for a single line
+        item
+      parameters:
+        - $ref: '#/components/parameters/idParameter'
+        - $ref: '#/components/parameters/metricParameter'
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKStachTable'
+        '400':
+          $ref: '#/components/responses/400BadRequest-table'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    idParameter:
+      name: id
+      in: query
+      description: Company Ticker
+      required: true
+      schema:
+        type: string
+        example: FDS
+    periodicityParameter:
+      name: periodicity
+      in: query
+      description: Periodicity or frequency of the fiscal periods.
+      required: false
+      schema:
+        type: string
+        enum:
+          - ANN
+          - QTR
+          - SEMI
+          - CAL
+        default: ANN
+    metricParameter:
+      name: metric
+      in: query
+      description: >-
+        Requested metric. For more details, visit [Online Assitant Page
+        #15034](https://oa.apps.factset.com/pages/15034).
+      required: false
+      schema:
+        type: string
+        example: EPS
+    schemaParameter:
+      name: schema
+      in: query
+      description: >
+        The schema that the data is returned as. The following are descriptions
+        for the accepted values:
+
+        - table_group_level - STACH 2.0 row organized package format with
+        parent-child relationships represented using STACH group level cell
+        metadata
+
+        - table_parent_child_columns - STACH 2.0 row organized package format
+        with parent-child relationships represented using STACH parent-child
+        columns
+      required: false
+      schema:
+        type: string
+        enum:
+          - table_group_level
+          - table_parent_child_columns
+        default: table_parent_child_columns
+  responses:
+    200OKStach:
+      description: >-
+        Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+        Api-Supported-Versions:
+          schema:
+            type: string
+          description: Supported API versions (semantic versioning)
+        Api-Version:
+          schema:
+            type: string
+          description: API version (semantic versioning)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+          examples:
+            groupLevelResponse:
+              $ref: '#/components/examples/groupLevelResponse'
+            parentChildColumnsResponse:
+              $ref: '#/components/examples/parentChildColumnsResponse'
+    200OKStachTable:
+      description: >-
+        Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+        Api-Supported-Versions:
+          schema:
+            type: string
+          description: Supported API versions (semantic versioning)
+        Api-Version:
+          schema:
+            type: string
+          description: API version (semantic versioning)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+          examples:
+            default200Response:
+              $ref: '#/components/examples/default200Response'
+    400BadRequest:
+      description: >-
+        Bad Request. For further assistance, file an issue under "Workflow &
+        Throttling - 400 or 429 Response" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+        Api-Supported-Versions:
+          schema:
+            type: string
+          description: Supported API versions (semantic versioning)
+        Api-Version:
+          schema:
+            type: string
+          description: API version (semantic versioning)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            parameterErrorPeriodicity:
+              $ref: '#/components/examples/parameterErrorPeriodicity'
+    400BadRequest-table:
+      description: >-
+        Bad Request. For further assistance, file an issue under "Workflow &
+        Throttling - 400 or 429 Response" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+        Api-Supported-Versions:
+          schema:
+            type: string
+          description: Supported API versions (semantic versioning)
+        Api-Version:
+          schema:
+            type: string
+          description: API version (semantic versioning)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            parameterErrorMetric:
+              $ref: '#/components/examples/parameterErrorMetric'
+    401Unauthorized:
+      description: >-
+        Missing or invalid authentication. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For further assistance, file an issue under "Connectivty - 401 or
+        403 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+    403Forbidden:
+      description: >-
+        User is forbidden access with current credentials. Reach out to your
+        local FactSet Account Manager for assistance, or file an issue under
+        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            notAuthorized:
+              $ref: '#/components/examples/notAuthorized'
+    404NotFound:
+      description: >-
+        Not found. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
+    429TooManyRequests:
+      description: >-
+        Too many requests - this API is rate-limited to 20 requests per second.
+        For further assistance, file an issue under "Workflow & Throttling - 400
+        or 429 Response" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+    500InternalServerError:
+      description: >-
+        Server error. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            genericServerError:
+              $ref: '#/components/examples/genericServerError'
+    503ServiceUnavailable:
+      description: >-
+        Service unavailable. Typically a timeout, or result of a rejected
+        request to prevent service overload. For further assistance, file an
+        issue under "Performance - 404 and 500 Responses" using `Report Issue`
+        at the top of this page, including the X-DataDirect-Request-Key from the
+        header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+  examples:
+    parentChildColumnsResponse:
+      summary: (sample table parent child columns response)
+      description: Subset of rows and columns for an example response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem
+                    isDimension: true
+                    type: string
+                  - id: lineItemChild1
+                    isDimension: true
+                    parentId: lineItem
+                    type: string
+                  - id: period1
+                    type: real
+                  - id: period2
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: dates_display
+                    isDimension: true
+                    type: string
+                  - id: dates_value
+                    isDimension: true
+                    isHidden: true
+                    type: string
+              data:
+                rows:
+                  - rowType: Header
+                    cells:
+                      - null
+                      - null
+                      - Aug' 15
+                      - Aug' 16
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: PRIMARY
+                        columnIndex: 1
+                      '2':
+                        source: HEADERS
+                        columnIndex: 0
+                      '3':
+                        source: HEADERS
+                        columnIndex: 0
+                  - rowType: Header
+                    cells:
+                      - null
+                      - null
+                      - '20150831'
+                      - '20160831'
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: PRIMARY
+                        columnIndex: 1
+                      '2':
+                        source: HEADERS
+                        columnIndex: 1
+                      '3':
+                        source: HEADERS
+                        columnIndex: 1
+                  - cells:
+                      - Net Income
+                      - null
+                      - 241.050995
+                      - 264.675995
+                    rowMetadata:
+                      metricEstimates:
+                        value: NET_INC
+                      category:
+                        value: MAIN
+                  - cells:
+                      - Net Income
+                      - Net Income - Non GAAP
+                      - 236.781006
+                      - 264.675995
+                    rowMetadata:
+                      metricEstimates:
+                        value: NETBG
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - Net Income
+                      - Net Income - GAAP
+                      - 241.050995
+                      - 338.815002
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                columnMetadata:
+                  period1:
+                    items:
+                      category:
+                        value: ACTUAL
+                  period2:
+                    items:
+                      category:
+                        value: ACTUAL
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
+          schema: table_parent_child_columns
+    groupLevelResponse:
+      summary: (sample table group level columns response)
+      description: Subset of rows and columns for an example response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem
+                    isDimension: true
+                    type: string
+                  - id: period1
+                    type: real
+                  - id: period2
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: dates_display
+                    isDimension: true
+                    type: string
+                  - id: dates_value
+                    isDimension: true
+                    isHidden: true
+                    type: string
+              data:
+                rows:
+                  - rowType: Header
+                    cells:
+                      - null
+                      - Aug' 15
+                      - Aug' 16
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: HEADERS
+                        columnIndex: 0
+                      '2':
+                        source: HEADERS
+                        columnIndex: 0
+                  - rowType: Header
+                    cells:
+                      - null
+                      - '20150831'
+                      - '20160831'
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: HEADERS
+                        columnIndex: 1
+                      '2':
+                        source: HEADERS
+                        columnIndex: 1
+                  - cells:
+                      - Net Income
+                      - 241.050995
+                      - 264.675995
+                    rowMetadata:
+                      metricEstimates:
+                        value: NET_INC
+                      category:
+                        value: MAIN
+                  - cells:
+                      - Net Income - Non GAAP
+                      - 236.781006
+                      - 264.675995
+                    cellDetails:
+                      '0':
+                        groupLevel: '1'
+                    rowMetadata:
+                      metricEstimates:
+                        value: NETBG
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - Net Income - GAAP
+                      - 241.050995
+                      - 338.815002
+                    cellDetails:
+                      '0':
+                        groupLevel: '1'
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                columnMetadata:
+                  period1:
+                    items:
+                      category:
+                        value: ACTUAL
+                  period2:
+                    items:
+                      category:
+                        value: ACTUAL
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
+          schema: table_group_level
+    default200Response:
+      summary: (dummy data)
+      description: Subset of rows and columns for an example response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: fy_ending
+                    type: string
+                  - id: period -4
+                    type: real
+                  - id: period -3
+                    type: real
+              headersDefinition:
+                columns:
+                  - id: dates_display
+                    isDimension: true
+                    type: string
+                  - id: dates_value
+                    isDimension: true
+                    isHidden: true
+                    type: string
+              data:
+                rows:
+                  - rowType: Header
+                    cells:
+                      - null
+                      - Aug' 16
+                      - Aug' 17
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: HEADERS
+                        columnIndex: 0
+                      '2':
+                        source: HEADERS
+                        columnIndex: 0
+                  - rowType: Header
+                    cells:
+                      - null
+                      - '20160831'
+                      - '20170831'
+                    headerCellDetails:
+                      '0':
+                        source: PRIMARY
+                        columnIndex: 0
+                      '1':
+                        source: HEADERS
+                        columnIndex: 1
+                      '2':
+                        source: HEADERS
+                        columnIndex: 1
+                  - cells:
+                      - Q1 (Nov)
+                      - 1.44
+                      - 1.75
+                  - cells:
+                      - Q2 (Feb)
+                      - 1.59
+                      - 1.81
+                  - cells:
+                      - Q3 (May)
+                      - 1.64
+                      - 1.85
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: genericServerError
+            title: Unexpected error processing request
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Missing required parameter(s): ''id'''
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid parameter(s): ''id'''
+    parameterErrorPeriodicity:
+      summary: periodicity parameter error
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid parameter: ''periodicity'''
+    parameterErrorMetric:
+      summary: metric parameter error
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid metric parameter value: ''SALES2'''
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: endpointNotFound
+            title: The requested endpoint does not exist.
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: notAuthorized
+            title: >-
+              User is forbidden access with current credentials. For access,
+              contact your FactSet sales representative
+  schemas:
+    Response:
+      type: object
+      properties:
+        data:
+          title: STACH
+          description: Returns a STACH 2.0 row organized package
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      additionalProperties:
+        type: string
+        nullable: true
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+        links:
+          type: object
+          properties:
+            about:
+              type: string
+        detail:
+          type: string
+        source:
+          type: object
+          properties:
+            parameter:
+              type: string
+    MetadataEntry:
+      type: object
+      description: >
+        Restricted metadata entries. Restricts the possible key in the following
+        STACH schema:
+
+        - RowOrganizedPackage.CellDetail.CellMetadataEntry
+
+        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
+
+        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
+
+        - RowOrganizedPackage.Row.RowMetadataEntry
+
+        - RowOrganizedPackage.TableData.TableMetadataEntry
+
+
+        And sets restrictions on the possible values for a MetadataItem.
+      oneOf:
+        - $ref: '#/components/schemas/currencyCode'
+        - $ref: '#/components/schemas/currencySymbol'
+        - $ref: '#/components/schemas/category'
+        - $ref: '#/components/schemas/metricEstimates'
+        - $ref: '#/components/schemas/valueType'
+        - $ref: '#/components/schemas/scale'
+        - $ref: '#/components/schemas/description'
+        - $ref: '#/components/schemas/frequency'
+    currencyCode:
+      type: object
+      properties:
+        currencyCode:
+          type: object
+          description: Code for data currency
+          properties:
+            value:
+              type: string
+    currencySymbol:
+      type: object
+      properties:
+        currencySymbol:
+          type: object
+          description: Symbol for data currency
+          properties:
+            value:
+              type: string
+    metricEstimates:
+      type: object
+      properties:
+        metricEstimates:
+          type: object
+          description: >-
+            A unique identifier for the line item. The metric can also be used
+            with single item requests from the FactSet Estimates API.
+          properties:
+            value:
+              type: string
+    category:
+      type: object
+      properties:
+        category:
+          type: object
+          description: >
+            Describes data based on source or kind of value
+
+            - ACTUAL - Historical data collected directly from a press release
+            or a median consensus from brokers after a report date.
+
+            - ESTIMATE - Forward looking average of broker estimates within a
+            specific time horizon.
+
+            - GUIDANCE - Forward looking indication or estimate of future
+            performance issued by the company itself.
+
+            - DETAIL - Indicates data that is more granular and may be secondary
+            in focus.
+
+            - MAIN - Indicates data is of more impactful or higher importance
+            and may want to be emphasized.
+
+            - SECTION - Indicates data that is used in sectioning rows in group
+            level STACH format.
+          properties:
+            value:
+              type: string
+              enum:
+                - ACTUAL
+                - ESTIMATE
+                - GUIDANCE
+                - EXCLUDED
+                - CHANGE
+                - DETAIL
+                - MAIN
+                - SECTION
+    valueType:
+      type: object
+      properties:
+        valueType:
+          type: object
+          description: Describes how to interpret numbers
+          properties:
+            value:
+              type: string
+              enum:
+                - PERCENTAGE
+                - RATIO
+                - TREND
+                - RANGE
+    scale:
+      type: object
+      properties:
+        scale:
+          type: object
+          description: >
+            Integer power of 10 to which numbers have been scaled. For example:
+            6 implies millions.
+
+            Default is 0.
+          properties:
+            value:
+              type: integer
+    description:
+      type: object
+      properties:
+        description:
+          type: object
+          description: Text describing the data
+          properties:
+            value:
+              type: string
+    frequency:
+      type: object
+      properties:
+        frequency:
+          type: object
+          description: |
+            String with frequency of a data series. Allowed values:
+            - "D" (daily)
+            - "W" (weekly)
+            - "AW" (actual weekly)
+            - "M" (monthly)
+            - "AM" (actual monthly)
+            - "Q" (quarterly)
+            - "FQ" (fiscal quarterly)
+            - "CQ" (calendar quarterly)
+            - "AQ" (actual quarterly)
+            - "Y" (yearly)
+            - "FY" (fiscal yearly)
+            - "CY" (calendar yearly)
+            - "AY" (actual yearly)
+            - "MTD" (month-to-date)
+            - "QTD" (quarter-to-date)
+            - "YTD" (year-to-date)
+            - "FYTD" (fiscal-year-to-date)
+            - "CYTD" (calendar-year-to-date)
+          properties:
+            value:
+              type: string
+              enum:
+                - D
+                - W
+                - AW
+                - M
+                - AM
+                - Q
+                - FQ
+                - CQ
+                - AQ
+                - 'Y'
+                - FY
+                - CY
+                - AY
+                - MTD
+                - QTD
+                - YTD
+                - FYTD
+                - CYTD

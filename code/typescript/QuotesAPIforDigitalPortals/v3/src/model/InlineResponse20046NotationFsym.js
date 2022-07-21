@@ -18,7 +18,6 @@ import InlineResponse20046NotationFsymRegional from './InlineResponse20046Notati
 /**
  * The InlineResponse20046NotationFsym model module.
  * @module model/InlineResponse20046NotationFsym
- * @version 0.10.0
  */
 class InlineResponse20046NotationFsym {
     /**

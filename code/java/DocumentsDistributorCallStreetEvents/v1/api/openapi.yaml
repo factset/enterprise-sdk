@@ -16,7 +16,7 @@ info:
     \ language processing or machine learning. It can also be used to complement analysis\
     \ using FactSet's transcripts service."
   title: Documents Distributor - CallStreet Events
-  version: 3.0.0
+  version: 1.0.0
 servers:
 - url: https://api.factset.com
 security:
@@ -96,6 +96,18 @@ paths:
         explode: true
         in: query
         name: reportId
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Unique ID for an Internal recording specific to reportID. For
+          example, ReportID X would have multiple recordings from different source
+          (phone or webcast or vendor or replay). One ReportID can have multiple AudioSource
+          ids.
+        explode: true
+        in: query
+        name: audioSourceId
         required: false
         schema:
           format: int32
@@ -191,6 +203,7 @@ paths:
                       trimmed: false
                       sampleRate: 22
                       bitrate: 32
+                      audioSourceId: 3256781
                     meta:
                       sort:
                       - -startDate
@@ -244,6 +257,8 @@ paths:
                         - true/false
                         uploadTime:
                         - integer from -1 to -168
+                        audioSourceId:
+                        - integer
               schema:
                 $ref: '#/components/schemas/Events-Audio-400-Response'
           description: Bad Request
@@ -1635,6 +1650,7 @@ components:
         - fileName: fileName
           ticker: ticker
           reportId: 5
+          audioSourceId: 9
           endOffsetSeconds: 6.027456183070403
           entityId: entityId
           bitrate: 7.061401241503109
@@ -1651,6 +1667,7 @@ components:
         - fileName: fileName
           ticker: ticker
           reportId: 5
+          audioSourceId: 9
           endOffsetSeconds: 6.027456183070403
           entityId: entityId
           bitrate: 7.061401241503109
@@ -1666,9 +1683,9 @@ components:
           trimmed: true
         meta:
           pagination:
-            total: 9
-            offset: 2
-            limit: 3
+            total: 3
+            offset: 4
+            limit: 2
             isEstimatedTotal: true
           sort:
           - sort
@@ -2111,6 +2128,7 @@ components:
         fileName: fileName
         ticker: ticker
         reportId: 5
+        audioSourceId: 9
         endOffsetSeconds: 6.027456183070403
         entityId: entityId
         bitrate: 7.061401241503109
@@ -2188,13 +2206,19 @@ components:
           description: The total number of bits of information stored per second of
             sound in Kbps
           type: number
+        audioSourceId:
+          description: Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different source
+            (Phone or Webcast or Vendor or Replay). One ReportID can have multiple
+            AudioSource ids.
+          type: integer
       type: object
     Events_Audio_meta_pagination:
       description: "\t\nList of pagination objects"
       example:
-        total: 9
-        offset: 2
-        limit: 3
+        total: 3
+        offset: 4
+        limit: 2
         isEstimatedTotal: true
       properties:
         total:
@@ -2218,9 +2242,9 @@ components:
     Events_Audio_meta:
       example:
         pagination:
-          total: 9
-          offset: 2
-          limit: 3
+          total: 3
+          offset: 4
+          limit: 2
           isEstimatedTotal: true
         sort:
         - sort
@@ -2281,6 +2305,10 @@ components:
             type: string
           type: array
         uploadTime:
+          items:
+            type: string
+          type: array
+        audioSourceId:
           items:
             type: string
           type: array

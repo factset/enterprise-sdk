@@ -1015,7 +1015,7 @@ class CustomSymbolsApi(object):
         self,
         custom_symbol_id,
         **kwargs
-    ) -> [RecordPreviewDto]:
+    ) -> typing.List[RecordPreviewDto]:
         """Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1048,7 +1048,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordPreviewDto]
+            typing.List[RecordPreviewDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1060,7 +1060,7 @@ class CustomSymbolsApi(object):
         self,
         custom_symbol_id,
         **kwargs
-    ) -> typing.Tuple[[RecordPreviewDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[RecordPreviewDto], int, typing.MutableMapping]:
         """Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1093,7 +1093,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordPreviewDto]
+            typing.List[RecordPreviewDto]
                 Response Object
             int
                 Http Status Code
@@ -1109,7 +1109,7 @@ class CustomSymbolsApi(object):
         self,
         custom_symbol_id,
         **kwargs
-    ) -> "ApplyResult[[RecordPreviewDto]]":
+    ) -> "ApplyResult[typing.List[RecordPreviewDto]]":
         """Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1142,7 +1142,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[RecordPreviewDto]]
+            ApplyResult[typing.List[RecordPreviewDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['custom_symbol_id'] = \
@@ -1153,7 +1153,7 @@ class CustomSymbolsApi(object):
         self,
         custom_symbol_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[RecordPreviewDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[RecordPreviewDto], int, typing.MutableMapping]]":
         """Get all notes and meetings where a specific customSymbol was tagged as primary or related identifier  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1186,7 +1186,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([RecordPreviewDto], int, typing.Dict)]
+            ApplyResult[(typing.List[RecordPreviewDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['custom_symbol_id'] = \
@@ -1196,7 +1196,7 @@ class CustomSymbolsApi(object):
     def get_custom_symbols(
         self,
         **kwargs
-    ) -> [CustomSymbolDto]:
+    ) -> typing.List[CustomSymbolDto]:
         """Get list of all custom symbols in your group along with some of their standard field and custom fields data  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1232,7 +1232,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolDto]
+            typing.List[CustomSymbolDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1241,7 +1241,7 @@ class CustomSymbolsApi(object):
     def get_custom_symbols_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[CustomSymbolDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[CustomSymbolDto], int, typing.MutableMapping]:
         """Get list of all custom symbols in your group along with some of their standard field and custom fields data  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1277,7 +1277,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomSymbolDto]
+            typing.List[CustomSymbolDto]
                 Response Object
             int
                 Http Status Code
@@ -1290,7 +1290,7 @@ class CustomSymbolsApi(object):
     def get_custom_symbols_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[CustomSymbolDto]]":
+    ) -> "ApplyResult[typing.List[CustomSymbolDto]]":
         """Get list of all custom symbols in your group along with some of their standard field and custom fields data  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1326,7 +1326,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[CustomSymbolDto]]
+            ApplyResult[typing.List[CustomSymbolDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_custom_symbols_endpoint.call_with_http_info(**kwargs)
@@ -1334,7 +1334,7 @@ class CustomSymbolsApi(object):
     def get_custom_symbols_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[CustomSymbolDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[CustomSymbolDto], int, typing.MutableMapping]]":
         """Get list of all custom symbols in your group along with some of their standard field and custom fields data  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1370,7 +1370,7 @@ class CustomSymbolsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([CustomSymbolDto], int, typing.Dict)]
+            ApplyResult[(typing.List[CustomSymbolDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_symbols_endpoint.call_with_http_info(**kwargs)

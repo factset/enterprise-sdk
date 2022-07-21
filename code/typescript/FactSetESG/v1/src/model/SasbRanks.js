@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SasbRanks model module.
  * @module model/SasbRanks
- * @version 0.20.0
  */
 class SasbRanks {
     /**

@@ -17,7 +17,6 @@ import CustomFieldValueDto from './CustomFieldValueDto';
 /**
  * The NoteSummaryDto model module.
  * @module model/NoteSummaryDto
- * @version 0.20.0
  */
 class NoteSummaryDto {
     /**

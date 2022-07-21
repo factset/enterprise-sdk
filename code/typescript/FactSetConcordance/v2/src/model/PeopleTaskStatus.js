@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleTaskStatus model module.
  * @module model/PeopleTaskStatus
- * @version 0.20.1
  */
 class PeopleTaskStatus {
     /**

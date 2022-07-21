@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMinimum from './
 /**
  * The FundNotationScreenerSearchDataShareClassFeeSwitchingCurrent model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeSwitchingCurrent
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeSwitchingCurrent {
     /**

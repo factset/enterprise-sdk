@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TermsAndConditionsScalarRequest model module.
  * @module model/TermsAndConditionsScalarRequest
- * @version 0.20.0
  */
 class TermsAndConditionsScalarRequest {
     /**

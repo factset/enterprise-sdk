@@ -40,7 +40,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// Initializes a new instance of the <see cref="ProfileDataStagePeActiveFirms" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        public ProfileDataStagePeActiveFirms(ProfileDataBusinessIndustry name = default(ProfileDataBusinessIndustry))
+        public ProfileDataStagePeActiveFirms(ProfileDataBusinessIndustry name)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

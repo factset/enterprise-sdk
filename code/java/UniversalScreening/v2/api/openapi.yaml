@@ -4,7 +4,7 @@ info:
     Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.
     Calculate and return the results of your saved Universal Screens.
   title: Universal Screening API
-  version: 1.0.2
+  version: 2.0.2
 externalDocs:
   description: Read more about STACH 2.0's column organized schema
   url: https://factset.github.io/stachschema/#/v2/ColumnOrganized

@@ -24,7 +24,8 @@ This endpoint returns details for a Vault configuration as well as a list of acc
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import configurations_api
-from fds.sdk.Vault.model.vault_configuration import VaultConfiguration
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,11 +55,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
 
-    id = "E522DF7D-C286-4EF1-AE34-0AA104AF602F" # str | Vault configuration id to get the details of (default to "E522DF7D-C286-4EF1-AE34-0AA104AF602F")
 
     try:
         # Get Vault configuration by id
-        api_response = api_instance.get_vault_configuration_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_vault_configuration_by_id()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:
@@ -118,7 +119,8 @@ This endpoint returns all the Vault configurations saved in the provided account
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import configurations_api
-from fds.sdk.Vault.model.vault_configuration_summary import VaultConfigurationSummary
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,11 +150,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
 
-    account = "Client:Foo/Bar/myaccount.acct" # str | Required account query parameter to filter configurations for a specific account (default to "Client:Foo/Bar/myaccount.acct")
 
     try:
         # Get Vault configurations
-        api_response = api_instance.get_vault_configurations(account)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_vault_configurations()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

@@ -110,7 +110,7 @@ public class EntityFocus implements Serializable {
    * FactSet Company identifier being classified.
    * @return fsymId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "000C7F-E", required = true, value = "FactSet Company identifier being classified.")
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -136,7 +136,7 @@ public class EntityFocus implements Serializable {
    * First date of the classification.
    * @return firstDate
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2008-08-26T00:00:00.000", required = true, value = "First date of the classification.")
   @JsonProperty(JSON_PROPERTY_FIRST_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -162,7 +162,7 @@ public class EntityFocus implements Serializable {
    * Date when the classification became no longer valid.
    * @return lastDate
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @ApiModelProperty(example = "2016-09-07T14:00:00.000", required = true, value = "Date when the classification became no longer valid.")
   @JsonProperty(JSON_PROPERTY_LAST_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

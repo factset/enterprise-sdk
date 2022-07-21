@@ -19,7 +19,6 @@ import MetricsResponse from '../model/MetricsResponse';
 /**
 * DataItems service.
 * @module api/DataItemsApi
-* @version 0.20.0
 */
 export default class DataItemsApi {
 

@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassFeeOngoingCurrentMinimum from './
 /**
  * The FundNotationScreenerSearchDataPerformanceEndOfDayMonth1 model module.
  * @module model/FundNotationScreenerSearchDataPerformanceEndOfDayMonth1
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataPerformanceEndOfDayMonth1 {
     /**

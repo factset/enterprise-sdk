@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetEstimates",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{400b5367-9eb9-599a-8a6c-6af8dd3f1b3d}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimates/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetEstimates/0.21.0",
   "files": {
     "LICENSE": {}
   },

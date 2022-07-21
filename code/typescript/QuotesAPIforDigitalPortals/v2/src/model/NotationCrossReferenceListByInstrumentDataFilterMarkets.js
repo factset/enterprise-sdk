@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationCrossReferenceListByInstrumentDataFilterMarkets model module.
  * @module model/NotationCrossReferenceListByInstrumentDataFilterMarkets
- * @version 0.9.2
  */
 class NotationCrossReferenceListByInstrumentDataFilterMarkets {
     /**

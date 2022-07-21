@@ -30,8 +30,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,11 +62,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Balance Sheet
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_balance_sheet(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -128,8 +130,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,11 +162,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Cash Flow
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_cash_flow(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -226,8 +230,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,11 +262,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Geographic Segments
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_geographic_segments(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -324,8 +330,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -356,11 +362,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Income Statement
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_income_statement(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -422,8 +430,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -454,11 +462,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Industry Metrics
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_industry_metrics(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -520,8 +530,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -552,11 +562,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Per Share
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_per_share(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -618,8 +630,8 @@ Returns historical and future period broker estimate consensus in a statement fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -650,11 +662,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Product Segments
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_product_segments(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 
@@ -716,8 +730,8 @@ Returns valuation ratios in a statement format calculated from historical and fu
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import all_estimates_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -748,11 +762,13 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
 
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
 
     try:
         # Valuation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimates_valuation(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
 

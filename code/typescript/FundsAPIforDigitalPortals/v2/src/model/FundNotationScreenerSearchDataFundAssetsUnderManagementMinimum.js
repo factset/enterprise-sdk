@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataFundAssetsUnderManagementMinimum model module.
  * @module model/FundNotationScreenerSearchDataFundAssetsUnderManagementMinimum
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundAssetsUnderManagementMinimum {
     /**

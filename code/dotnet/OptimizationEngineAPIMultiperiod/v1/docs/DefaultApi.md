@@ -48,6 +48,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DefaultApi(config);
+
             var multiPeriodInput = new OptimizerInputsMultiPeriodInput(); // OptimizerInputsMultiPeriodInput | Multiperiod protobuf input (optional) 
 
             try

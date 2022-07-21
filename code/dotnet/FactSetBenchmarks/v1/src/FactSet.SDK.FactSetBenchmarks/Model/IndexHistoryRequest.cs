@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetBenchmarks.Model
         /// <param name="hedgeType">hedgeType.</param>
         /// <param name="currency">Currency for response..</param>
         /// <param name="calendar">calendar.</param>
-        public IndexHistoryRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), ReturnType returnType = default(ReturnType), HedgeType hedgeType = default(HedgeType), string currency = default(string), Calendar calendar = default(Calendar))
+        public IndexHistoryRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), ReturnType returnType = default(ReturnType), HedgeType hedgeType = default(HedgeType), string currency = default(string), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

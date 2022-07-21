@@ -17,7 +17,6 @@ import ColoredValue from './ColoredValue';
 /**
  * The ColoredValueLabelDateTemplateAllOf model module.
  * @module model/ColoredValueLabelDateTemplateAllOf
- * @version 0.20.0
  */
 class ColoredValueLabelDateTemplateAllOf {
     /**

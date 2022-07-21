@@ -26,7 +26,6 @@ import ReturnsRangeResponse from '../model/ReturnsRangeResponse';
 /**
 * PricesReturns service.
 * @module api/PricesReturnsApi
-* @version 0.20.0
 */
 export default class PricesReturnsApi {
 

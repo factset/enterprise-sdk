@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NavigatorApi(config);
+
             var basicSearchRequest = new BasicSearchRequest(); // BasicSearchRequest | A list of search terms (each term must be at least two characters).
 
             try
@@ -141,6 +142,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NavigatorApi(config);
+
             var productId = "productId_example";  // string | The id for the Product to fetch the list of data items for.
 
             try
@@ -230,6 +232,7 @@ namespace Example
 
             var apiInstance = new NavigatorApi(config);
 
+
             try
             {
                 // Get the list of products for Navigator.
@@ -312,6 +315,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NavigatorApi(config);
+
             var dataItemId = "dataItemId_example";  // string | The id for the DataItem to fetch the sources for.
             var productId = "productId_example";  // string | The id for the Product to filter down the sources returned on.
 
@@ -402,6 +406,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NavigatorApi(config);
+
             var productId = "productId_example";  // string | The id for the Product to filter down the sources returned on.
 
             try
@@ -490,6 +495,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NavigatorApi(config);
+
             var tableId = "tableId_example";  // string | The id for the Table to fetch the fields for.
             var dataItemId = "dataItemId_example";  // string | The id for the DataItem. This is required in case the data item is represented as a code in Standard DataFeeds. (optional) 
 

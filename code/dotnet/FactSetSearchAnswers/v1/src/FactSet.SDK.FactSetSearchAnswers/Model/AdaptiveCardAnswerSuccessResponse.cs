@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="AdaptiveCardAnswerSuccessResponse" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public AdaptiveCardAnswerSuccessResponse(List<AdaptiveCardDataItem> data = default(List<AdaptiveCardDataItem>))
+        public AdaptiveCardAnswerSuccessResponse(List<AdaptiveCardDataItem> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

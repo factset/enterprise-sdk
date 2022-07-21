@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeSwitchingCurrent from './FundN
 /**
  * The FundNotationScreenerSearchDataShareClassFeeSwitching model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeSwitching
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeSwitching {
     /**

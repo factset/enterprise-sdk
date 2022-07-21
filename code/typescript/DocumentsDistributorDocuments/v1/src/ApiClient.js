@@ -17,7 +17,6 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.20.1
 */
 
 /**
@@ -63,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/DocumentsDistributorDocuments/0.20.1'
+            'User-Agent': 'fds-sdk/javascript/DocumentsDistributorDocuments/0.21.0'
         };
 
         /**
@@ -667,6 +666,11 @@ class ApiClient {
             }
         }
     };
+
+    static setValue(obj, value) {
+        obj.value = value;
+        return obj;
+    }
 }
 
 /**

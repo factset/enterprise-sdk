@@ -21,7 +21,6 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * AXPOptimizer service.
 * @module api/AXPOptimizerApi
-* @version 0.20.0
 */
 export default class AXPOptimizerApi {
 

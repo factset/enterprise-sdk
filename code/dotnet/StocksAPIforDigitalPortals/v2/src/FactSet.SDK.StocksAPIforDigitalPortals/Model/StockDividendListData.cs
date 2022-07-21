@@ -41,7 +41,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of an instrument. (required).</param>
         /// <param name="filter">filter.</param>
-        public StockDividendListData(string id = default(string), StockDividendListDataFilter filter = default(StockDividendListDataFilter))
+        public StockDividendListData(string id,StockDividendListDataFilter filter = default(StockDividendListDataFilter))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

@@ -1,7 +1,7 @@
 /*
- * SDF_API
+ * SDF Download API
  *
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -32,11 +32,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// schemas
         /// </summary>
         /// <remarks>
-        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ListSchema200Response</returns>
         ListSchema200Response GetV1ListSchemas(string schema = default(string), int? sequence = default(int?));
 
@@ -44,11 +44,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// schemas
         /// </summary>
         /// <remarks>
-        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ApiResponse of ListSchema200Response</returns>
         ApiResponse<ListSchema200Response> GetV1ListSchemasWithHttpInfo(string schema = default(string), int? sequence = default(int?));
         #endregion Synchronous Operations
@@ -64,11 +64,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// schemas
         /// </summary>
         /// <remarks>
-        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchema200Response</returns>
         System.Threading.Tasks.Task<ListSchema200Response> GetV1ListSchemasAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -77,11 +77,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// schemas
         /// </summary>
         /// <remarks>
-        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchema200Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListSchema200Response>> GetV1ListSchemasWithHttpInfoAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -220,11 +220,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         }
 
         /// <summary>
-        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ListSchema200Response</returns>
         public ListSchema200Response GetV1ListSchemas(string schema = default(string), int? sequence = default(int?))
         {
@@ -233,11 +233,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         }
 
         /// <summary>
-        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ApiResponse of ListSchema200Response</returns>
         public ApiResponse<ListSchema200Response> GetV1ListSchemasWithHttpInfo(string schema = default(string), int? sequence = default(int?))
         {
@@ -309,11 +309,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         }
 
         /// <summary>
-        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchema200Response</returns>
         public async System.Threading.Tasks.Task<ListSchema200Response>GetV1ListSchemasAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -323,11 +323,11 @@ namespace FactSet.SDK.StandardDatafeed.Api
         }
 
         /// <summary>
-        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema &amp; sequence number (version number of schema) specified
+        /// schemas &lt;a href&#x3D;https://api.factset.com/bulk-documents/sdf/v1/list-schemas&gt;List-Schemas&lt;/a&gt; helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema &amp; sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="schema">schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** (optional)</param>
-        /// <param name="sequence">Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** (optional)</param>
+        /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchema200Response)</returns>
 

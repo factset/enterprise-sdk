@@ -20,7 +20,6 @@ import UseOfProceedsResponse from '../model/UseOfProceedsResponse';
 /**
 * UseOfProceeds service.
 * @module api/UseOfProceedsApi
-* @version 0.20.0
 */
 export default class UseOfProceedsApi {
 

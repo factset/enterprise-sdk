@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FileUploadStatus model module.
  * @module model/FileUploadStatus
- * @version 0.20.0
  */
 class FileUploadStatus {
     /**

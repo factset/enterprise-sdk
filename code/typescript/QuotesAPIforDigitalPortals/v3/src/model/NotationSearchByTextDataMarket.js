@@ -17,7 +17,6 @@ import NotationSearchByTextDataMarketOrder from './NotationSearchByTextDataMarke
 /**
  * The NotationSearchByTextDataMarket model module.
  * @module model/NotationSearchByTextDataMarket
- * @version 0.10.0
  */
 class NotationSearchByTextDataMarket {
     /**

@@ -23,8 +23,8 @@ Holders of a company or fund
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOwnershipReportBuilder
 from fds.sdk.FactSetOwnershipReportBuilder.api import ownership_api
-from fds.sdk.FactSetOwnershipReportBuilder.model.response import Response
-from fds.sdk.FactSetOwnershipReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetOwnershipReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,13 +55,15 @@ with fds.sdk.FactSetOwnershipReportBuilder.ApiClient(configuration) as api_clien
     api_instance = ownership_api.OwnershipApi(api_client)
 
     id = "FDS" # str | Company or Fund Identifier
-    asset_type = "EQUITY" # str | Controls the Asset Type of the data returned (optional) (default to "EQUITY")
-    holder_type = "INSTITUTIONS" # str | Controls the Holder Type of the data returned (optional) (default to "INSTITUTIONS")
+    asset_type = "EQUITY" # str | Controls the Asset Type of the data returned (optional) if omitted the server will use the default value of "EQUITY"
+    holder_type = "INSTITUTIONS" # str | Controls the Holder Type of the data returned (optional) if omitted the server will use the default value of "INSTITUTIONS"
     topn = "ALL" # str | Limits the number of holders returned based on their Market Value position in the security.   Default is ALL, otherwise use a valid number above 0.  (optional)
     date = "2019-12-31" # str | Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates. (optional)
 
     try:
         # Holders of a company or fund
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_ownership_holders(id, asset_type=asset_type, holder_type=holder_type, topn=topn, date=date)
         pprint(api_response)
 

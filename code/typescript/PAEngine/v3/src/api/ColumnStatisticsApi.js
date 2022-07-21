@@ -18,7 +18,6 @@ import ColumnStatisticRoot from '../model/ColumnStatisticRoot';
 /**
 * ColumnStatistics service.
 * @module api/ColumnStatisticsApi
-* @version 0.20.0
 */
 export default class ColumnStatisticsApi {
 

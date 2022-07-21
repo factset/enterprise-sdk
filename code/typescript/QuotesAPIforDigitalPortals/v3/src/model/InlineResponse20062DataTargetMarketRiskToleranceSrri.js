@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketRiskToleranceSrri model module.
  * @module model/InlineResponse20062DataTargetMarketRiskToleranceSrri
- * @version 0.10.0
  */
 class InlineResponse20062DataTargetMarketRiskToleranceSrri {
     /**

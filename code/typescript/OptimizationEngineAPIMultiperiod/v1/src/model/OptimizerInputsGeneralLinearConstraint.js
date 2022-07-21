@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsGeneralLinearConstraint model module.
  * @module model/OptimizerInputsGeneralLinearConstraint
- * @version 0.20.0
  */
 class OptimizerInputsGeneralLinearConstraint {
     /**

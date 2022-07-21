@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AnswersApi(config);
+
             var query = "query_example";  // string | Query for desired answer (e.g., \"fds price\")
             var includeThumbnail = false;  // bool? | Includes thumbnail of Adaptive Card in response (optional)  (default to false)
             var disableNoAnswerResponses = true;  // bool? | Disables no-result answer responses (no-results and answer without data) (optional)  (default to true)
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AnswersApi(config);
+
             var query = "query_example";  // string | Query for desired answer (e.g., \"fds price\")
 
             try

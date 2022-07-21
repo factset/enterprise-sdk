@@ -143,8 +143,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
         String signalIds = "dilutionTrigger,freeCashFlow"; // String | 
         String ids = "FDS-US,AMZN-US"; // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
         String portfolios = "portfolios_example"; // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -172,8 +172,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signalIds** | **String**|  | [optional]
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -331,8 +331,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
         String signalIds = "dilutionTrigger,freeCashFlow"; // String | 
         String ids = "FDS-US,AMZN-US"; // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
         String portfolios = "portfolios_example"; // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -360,8 +360,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signalIds** | **String**|  | [optional]
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]
@@ -433,8 +433,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
         String signalIds = "dilutionTrigger,freeCashFlow"; // String | 
         String themes = "themes_example"; // String | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.
         String categories = "categories_example"; // String | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.
@@ -459,8 +459,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signalIds** | **String**|  | [optional]
  **themes** | **String**| Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. | [optional]
  **categories** | **String**| Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. | [optional]
@@ -529,8 +529,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EventsApi apiInstance = new EventsApi(defaultClient);
-        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
-        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.
+        DateTimeInterval updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.
         String signalIds = "dilutionTrigger,freeCashFlow"; // String | 
         String ids = "FDS-US,AMZN-US"; // String | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.
         String portfolios = "portfolios_example"; // String | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
@@ -558,8 +558,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
- **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
+ **created** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. | [optional]
+ **updated** | [**DateTimeInterval**](DateTimeInterval.md)| A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. | [optional]
  **signalIds** | **String**|  | [optional]
  **ids** | **String**| Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. | [optional]
  **portfolios** | **String**| Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb | [optional]

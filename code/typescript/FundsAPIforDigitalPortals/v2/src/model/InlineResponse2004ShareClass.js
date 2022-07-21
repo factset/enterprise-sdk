@@ -22,7 +22,6 @@ import InlineResponse2004ShareClassRegistrationCountry from './InlineResponse200
 /**
  * The InlineResponse2004ShareClass model module.
  * @module model/InlineResponse2004ShareClass
- * @version 0.10.0
  */
 class InlineResponse2004ShareClass {
     /**

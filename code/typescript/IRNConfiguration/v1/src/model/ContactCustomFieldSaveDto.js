@@ -19,7 +19,6 @@ import ContactCustomFieldType from './ContactCustomFieldType';
 /**
  * The ContactCustomFieldSaveDto model module.
  * @module model/ContactCustomFieldSaveDto
- * @version 0.20.0
  */
 class ContactCustomFieldSaveDto {
     /**

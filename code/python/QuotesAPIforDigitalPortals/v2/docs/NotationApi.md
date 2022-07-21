@@ -51,7 +51,8 @@ Retrieve FactSet identifiers for a given notation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20069 import InlineResponse20069
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -88,6 +89,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve FactSet identifiers for a given notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_cross_reference_fact_set_identifier_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -141,7 +144,8 @@ Translate a FactSet market symbol to a notation. This symbol is also known as TI
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20066 import InlineResponse20066
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -179,6 +183,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Translate a FactSet market symbol to a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_cross_reference_get_by_fact_set_market_symbol(fact_set_market_symbol, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -233,7 +239,8 @@ Basic data for a notation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20064 import InlineResponse20064
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -271,6 +278,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Basic data for a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -325,7 +334,8 @@ End-of-day (EOD) key figures for the time range of one month.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -362,6 +372,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one month.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_1_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -415,7 +427,8 @@ End-of-day (EOD) key figures for the time range of one month, for a list of nota
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -454,6 +467,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one month, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_1_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -507,7 +522,8 @@ End-of-day (EOD) key figures for the time range of three months.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -544,6 +560,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of three months.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_3_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -597,7 +615,8 @@ End-of-day (EOD) key figures for the time range of three months, for a list of n
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -636,6 +655,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of three months, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_3_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -689,7 +710,8 @@ End-of-day (EOD) key figures for the time range of six months.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -726,6 +748,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of six months.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_6_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -779,7 +803,8 @@ End-of-day (EOD) key figures for the time range of six months, for a list of not
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -818,6 +843,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of six months, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_month_6_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -871,7 +898,8 @@ End-of-day (EOD) key figures for the time range of one week.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -908,6 +936,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one week.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_week_1_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -961,7 +991,8 @@ End-of-day (EOD) key figures for the time range of one week, for a list of notat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1000,6 +1031,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one week, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_week_1_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -1053,7 +1086,8 @@ End-of-day (EOD) key figures for the time range of one year.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20072 import InlineResponse20072
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1090,6 +1124,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one year.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_1_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1143,7 +1179,8 @@ End-of-day (EOD) key figures for the time range of one year, for a list of notat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20073 import InlineResponse20073
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1182,6 +1219,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of one year, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_1_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -1235,7 +1274,8 @@ End-of-day (EOD) key figures for the time range of three years.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1272,6 +1312,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of three years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_3_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1325,7 +1367,8 @@ End-of-day (EOD) key figures for the time range of three years, for a list of no
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1364,6 +1407,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of three years, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_3_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -1417,7 +1462,8 @@ End-of-day (EOD) key figures for the time range of five years.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20074 import InlineResponse20074
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1454,6 +1500,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of five years.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_5_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1507,7 +1555,8 @@ End-of-day (EOD) key figures for the time range of five years, for a list of not
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20075 import InlineResponse20075
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1546,6 +1595,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range of five years, for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_5_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -1599,7 +1650,8 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD). The time ran
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20076 import InlineResponse20076
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1636,6 +1688,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range year-to-date (YTD)..
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_to_date_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1689,7 +1743,8 @@ End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list o
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20077 import InlineResponse20077
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1728,6 +1783,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # End-of-day (EOD) key figures for the time range year-to-date (YTD), for a list of notations..
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_key_figures_year_to_date_list(ids, attributes=attributes)
         pprint(api_response)
 
@@ -1781,7 +1838,8 @@ Basic data for a list of notations.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20065 import InlineResponse20065
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1821,6 +1879,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Basic data for a list of notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_list(ids, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1875,7 +1935,8 @@ Search for a notation whose ISIN, specified NSINs, name, or symbol match the sea
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20088 import InlineResponse20088
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1910,17 +1971,19 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         "wkn",
     ] # [str] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
     asset_class = "index" # str | A parameter to limit the output to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active notations. (optional) (default to True)
-    popularity = False # bool | If true, the results are sorted by descending popularity. (optional) (default to False)
+    only_active = True # bool | If true, restricts the result to active notations. (optional) if omitted the server will use the default value of True
+    popularity = False # bool | If true, the results are sorted by descending popularity. (optional) if omitted the server will use the default value of False
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Basic search for notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_search_basic(search_value, nsins=nsins, asset_class=asset_class, only_active=only_active, popularity=popularity, attributes=attributes, language=language, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -1981,7 +2044,8 @@ Search for notations whose ISIN, specified NSINs, name, or symbol match the sear
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20090 import InlineResponse20090
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2021,16 +2085,18 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     asset_class = [
         "index",
     ] # [str] | Limits the results to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active notations. (optional) (default to True)
+    only_active = True # bool | If true, restricts the result to active notations. (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Basic search for notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_search_by_text_ranked_by_volume(search_value, id_markets=id_markets, nsins=nsins, asset_class=asset_class, only_active=only_active, attributes=attributes, language=language, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -2091,7 +2157,8 @@ Intraday trading status of a notation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20078 import InlineResponse20078
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2122,13 +2189,15 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     api_instance = notation_api.NotationApi(api_client)
 
     id = "id_example" # str | Identifier of a notation.
-    quality = "DLY" # str | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional) (default to "DLY")
+    quality = "DLY" # str | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional) if omitted the server will use the default value of "DLY"
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Intraday trading status of a notation.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_notation_status_get(id, quality=quality, attributes=attributes)
         pprint(api_response)
 
@@ -2183,8 +2252,8 @@ Retrieve a list of notations for a given FactSet identifier.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object19 import InlineObject19
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20070 import InlineResponse20070
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2228,6 +2297,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a list of notations for a given FactSet identifier.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_fact_set_identifier(body)
         pprint(api_response)
 
@@ -2280,8 +2350,8 @@ Retrieve a list of FactSet identifiers for a given instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object20 import InlineObject20
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20071 import InlineResponse20071
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2325,6 +2395,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a list of FactSet identifiers for a given instrument.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_notation_cross_reference_fact_set_identifier_list_by_instrument(body)
         pprint(api_response)
 
@@ -2377,8 +2448,8 @@ List of entitled notations.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067 import InlineResponse20067
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object16 import InlineObject16
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2435,6 +2506,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of entitled notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_notation_cross_reference_list_by_instrument(body=body)
         pprint(api_response)
 
@@ -2487,8 +2560,8 @@ List of entitled notations.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object17 import InlineObject17
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20067 import InlineResponse20067
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2545,6 +2618,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of entitled notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_notation_cross_reference_list_by_isin(body=body)
         pprint(api_response)
 
@@ -2597,8 +2672,8 @@ List of entitled notations. Symbols are not globally unique; therefore, a given 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object18 import InlineObject18
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20068 import InlineResponse20068
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2655,6 +2730,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of entitled notations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_notation_cross_reference_list_by_symbol(body=body)
         pprint(api_response)
 
@@ -2707,8 +2784,8 @@ Text-based search for notations in selected identifier and name attributes accor
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import notation_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20089 import InlineResponse20089
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object22 import InlineObject22
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2837,6 +2914,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Text-based search for notations.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_notation_search_by_text(body)
         pprint(api_response)
 

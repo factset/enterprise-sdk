@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ScreeningOperationsApi(config);
+
             var id = "id_example";  // string | Unique identifier for a screen calculation job
             var paginationLimit = 56;  // int? | Page size limit (minumum 1000, default 10,000, maximum 100,000) (optional) 
             var paginationCursor = 56;  // int? | Paging index (Initial request may omit) (optional) 
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ScreeningOperationsApi(config);
+
             var id = "id_example";  // string | Unique identifier for a screen calculation job
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ScreeningOperationsApi(config);
+
             var screenArchiveOFDBParameters = new ScreenArchiveOFDBParameters(); // ScreenArchiveOFDBParameters | Data required for an archive to OFDB request (optional) 
 
             try
@@ -333,6 +336,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ScreeningOperationsApi(config);
+
             var screenCalcParameters = new ScreenCalcParameters(); // ScreenCalcParameters | Data required for a calculation request (optional) 
 
             try

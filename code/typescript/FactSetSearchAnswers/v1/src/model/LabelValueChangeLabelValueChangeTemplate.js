@@ -21,7 +21,6 @@ import ValueChange from './ValueChange';
 /**
  * The LabelValueChangeLabelValueChangeTemplate model module.
  * @module model/LabelValueChangeLabelValueChangeTemplate
- * @version 0.20.0
  */
 class LabelValueChangeLabelValueChangeTemplate {
     /**

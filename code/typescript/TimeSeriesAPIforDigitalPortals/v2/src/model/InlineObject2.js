@@ -18,7 +18,6 @@ import VendorChartIQTimeSeriesEodSubsampleListData from './VendorChartIQTimeSeri
 /**
  * The InlineObject2 model module.
  * @module model/InlineObject2
- * @version 0.9.2
  */
 class InlineObject2 {
     /**

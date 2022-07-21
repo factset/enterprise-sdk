@@ -71,7 +71,7 @@ public class AlertingApi {
   /**
    * Details of an alert.
    * Details of an alert. The details include the trigger definition at the time of alert creation.
-   * @param id Identifier of the alert. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
@@ -88,7 +88,7 @@ public class AlertingApi {
   /**
    * Details of an alert.
    * Details of an alert. The details include the trigger definition at the time of alert creation.
-   * @param id Identifier of the alert. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
@@ -149,9 +149,9 @@ public class AlertingApi {
    * List of alerts.
    * List of alerts in descending order of creation.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0.0)
+   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
    * @param paginationCursor Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -168,9 +168,9 @@ public class AlertingApi {
    * List of alerts.
    * List of alerts in descending order of creation.
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0.0)
+   * @param subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional, default to 0)
    * @param paginationCursor Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)
-   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20.0)
+   * @param paginationLimit Non-negative maximum number of entries to return. (optional, default to 20)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -226,7 +226,7 @@ public class AlertingApi {
   /**
    * Details of a trigger.
    * Details of a trigger.
-   * @param id Identifier of the trigger. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
@@ -243,7 +243,7 @@ public class AlertingApi {
   /**
    * Details of a trigger.
    * Details of a trigger.
-   * @param id Identifier of the trigger. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
@@ -303,7 +303,7 @@ public class AlertingApi {
   /**
    * List of triggers.
    * Returns a list of triggers sorted in descending order of creation.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -312,14 +312,14 @@ public class AlertingApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 postAlertingPricesBasicTriggerList(InlineObject body) throws ApiException {
-    return postAlertingPricesBasicTriggerListWithHttpInfo(body).getData();
+  public InlineResponse2003 postAlertingPricesBasicTriggerList(InlineObject inlineObject) throws ApiException {
+    return postAlertingPricesBasicTriggerListWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * List of triggers.
    * Returns a list of triggers sorted in descending order of creation.
-   * @param body  (optional)
+   * @param inlineObject  (optional)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -328,8 +328,8 @@ public class AlertingApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> postAlertingPricesBasicTriggerListWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2003> postAlertingPricesBasicTriggerListWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
     // create path and map variables
     String localVarPath = "/alerting/prices/basic/trigger/list";

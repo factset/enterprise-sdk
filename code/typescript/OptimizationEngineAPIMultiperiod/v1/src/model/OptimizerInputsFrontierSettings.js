@@ -17,7 +17,6 @@ import OptimizerInputsRange from './OptimizerInputsRange';
 /**
  * The OptimizerInputsFrontierSettings model module.
  * @module model/OptimizerInputsFrontierSettings
- * @version 0.20.0
  */
 class OptimizerInputsFrontierSettings {
     /**

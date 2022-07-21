@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TradeDateRange** | [**ProfileDataStageTradeDateRange**](ProfileDataStageTradeDateRange.md) |  | 
 **FoundedYear** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
 **PevcBacking** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | 
-**PevcLatestPostMoneyValuation** | [**ProfileDataSizeEv**](ProfileDataSizeEv.md) |  | [optional] 
+**PevcLatestPostMoneyValuation** | [**ProfileDataStagePevcLatestPostMoneyValuation**](ProfileDataStagePevcLatestPostMoneyValuation.md) |  | [optional] 
 **PeActiveFirmNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  | [optional] 
 **PeActiveInvestmentNumber** | [**ProfileDataStagePeActiveFirmNumber**](ProfileDataStagePeActiveFirmNumber.md) |  | [optional] 
 **PeLastInvestmentDate** | [**ProfileDataBusinessIndustry**](ProfileDataBusinessIndustry.md) |  | [optional] 

@@ -30,7 +30,6 @@ import ValueTypeValueType from './ValueTypeValueType';
 /**
  * The MetadataEntry model module.
  * @module model/MetadataEntry
- * @version 0.20.0
  */
 class MetadataEntry {
     /**

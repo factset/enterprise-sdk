@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomFieldValueDto model module.
  * @module model/CustomFieldValueDto
- * @version 0.20.0
  */
 class CustomFieldValueDto {
     /**

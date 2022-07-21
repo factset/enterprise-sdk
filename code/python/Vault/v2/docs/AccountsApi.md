@@ -23,7 +23,8 @@ This endpoint looks up all ACCT and ACTM files and sub-directories in a given di
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import accounts_api
-from fds.sdk.Vault.model.account_directories import AccountDirectories
+from fds.sdk.Vault.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,11 +54,11 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = accounts_api.AccountsApi(api_client)
 
-    path = "Client:Foo/Bar" # str | The directory to get the accounts and sub-directories in (default to "Client:Foo/Bar")
 
     try:
         # Get accounts and sub-directories in a directory
-        api_response = api_instance.get_accounts(path)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_accounts()
         pprint(api_response)
 
     except fds.sdk.Vault.ApiException as e:

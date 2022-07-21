@@ -23,7 +23,8 @@ URLs of transparent company logos in different sizes. A small square logo is 31x
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CompanyLogoAPIforDigitalPortals
 from fds.sdk.CompanyLogoAPIforDigitalPortals.api import company_api
-from fds.sdk.CompanyLogoAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.CompanyLogoAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +61,8 @@ with fds.sdk.CompanyLogoAPIforDigitalPortals.ApiClient(configuration) as api_cli
 
     try:
         # URLs of company logos.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_logo_get_by_instrument(id, attributes=attributes)
         pprint(api_response)
 

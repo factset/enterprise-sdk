@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetGlobalPrices.Model
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids. .</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="cancelledDividend">cancelledDividend.</param>
-        public CorporateActionsRequest(List<string> ids = default(List<string>), EventCategory eventCategory = default(EventCategory), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string), string currency = default(string), CancelledDividend cancelledDividend = default(CancelledDividend))
+        public CorporateActionsRequest(List<string> ids,EventCategory eventCategory = default(EventCategory), List<string> fields = default(List<string>), string startDate = default(string), string endDate = default(string), string currency = default(string), CancelledDividend cancelledDividend = default(CancelledDividend))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

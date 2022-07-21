@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
@@ -337,6 +340,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
             var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
             var accept = "accept_example";  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
@@ -403,6 +407,7 @@ This endpoint runs the Pub calculation specified in the POST body parameters.  I
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.Publisher.Api;
@@ -435,6 +440,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
@@ -521,6 +527,7 @@ This endpoint updates and run the Pub calculation specified in the PUT body para
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.Publisher.Api;
@@ -553,6 +560,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 

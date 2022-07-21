@@ -18,7 +18,6 @@ import InlineResponse20012DataSimpleMovingAverageTradingDaysSinceCrossoverSma50v
 /**
  * The InlineResponse20012DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 model module.
  * @module model/InlineResponse20012DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200
- * @version 0.10.0
  */
 class InlineResponse20012DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 {
     /**

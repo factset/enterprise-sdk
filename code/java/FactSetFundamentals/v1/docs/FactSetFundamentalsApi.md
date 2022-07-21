@@ -57,7 +57,7 @@ public class Example {
         String periodicity = "ANN"; // String | Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **LTM**  = Last Twelve Months,   * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),   * **YTD** = Year-to-date. 
         String fiscalPeriodStart = "2017-09-01"; // String | Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. 
         String fiscalPeriodEnd = "2018-03-01"; // String | Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. 
-        String currency = "LOCAL"; // String | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). 
+        String currency = "LOCAL"; // String | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids. 
         String restated = "RP"; // String | Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data 
         try {
             FundamentalsResponse result = apiInstance.getFdsFundamentals(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated);
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
  **periodicity** | **String**| Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **LTM**  &#x3D; Last Twelve Months,   * **LTMSG** &#x3D; Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),   * **YTD** &#x3D; Year-to-date.  | [optional] [default to QTR] [enum: ANN, ANN_R, QTR, QTR_R, SEMI, LTM, LTMSG, YTD]
  **fiscalPeriodStart** | **String**| Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  | [optional]
  **fiscalPeriodEnd** | **String**| Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  | [optional]
- **currency** | **String**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  | [optional] [default to LOCAL]
+ **currency** | **String**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  | [optional] [default to LOCAL]
  **restated** | **String**| Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  | [optional] [default to RP] [enum: RP, RF]
 
 ### Return type

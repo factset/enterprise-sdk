@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentCategoryListMeta model module.
  * @module model/InstrumentCategoryListMeta
- * @version 0.9.2
  */
 class InstrumentCategoryListMeta {
     /**

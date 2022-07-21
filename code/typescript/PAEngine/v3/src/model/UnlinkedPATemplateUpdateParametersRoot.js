@@ -17,7 +17,6 @@ import UnlinkedPATemplateUpdateParameters from './UnlinkedPATemplateUpdateParame
 /**
  * The UnlinkedPATemplateUpdateParametersRoot model module.
  * @module model/UnlinkedPATemplateUpdateParametersRoot
- * @version 0.20.0
  */
 class UnlinkedPATemplateUpdateParametersRoot {
     /**

@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="date">The as of date for the option chain in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint..</param>
         /// <param name="currency">The ISO3 currency control for the requested option identifier. For a list of Currency ISOs, visit - [OA 1470](https://my.apps.factset.com/oa/pages/1470) .</param>
         /// <param name="calendar">calendar.</param>
-        public SnapshotRequest(List<string> ids = default(List<string>), string date = default(string), string currency = default(string), Calendar calendar = default(Calendar))
+        public SnapshotRequest(List<string> ids,string date = default(string), string currency = default(string), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactIdNameDto model module.
  * @module model/ContactIdNameDto
- * @version 0.20.0
  */
 class ContactIdNameDto {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NumericConfigDto model module.
  * @module model/NumericConfigDto
- * @version 0.20.0
  */
 class NumericConfigDto {
     /**

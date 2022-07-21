@@ -17,7 +17,6 @@ import BenchmarkRatios from './BenchmarkRatios';
 /**
  * The BenchmarkRatiosResponse model module.
  * @module model/BenchmarkRatiosResponse
- * @version 0.20.0
  */
 class BenchmarkRatiosResponse {
     /**

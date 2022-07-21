@@ -24,8 +24,8 @@ Returns Issue Size data for the Fixed Income security.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import issue_size_api
-from fds.sdk.FactSetTermsandConditions.model.issue_size_response import IssueSizeResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Issue Size data for a list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_issue_size(ids)
         pprint(api_response)
 
@@ -116,9 +117,8 @@ Returns Issue Size data for a list of Fixed Income securities.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import issue_size_api
-from fds.sdk.FactSetTermsandConditions.model.terms_and_conditions_scalar_request import TermsAndConditionsScalarRequest
-from fds.sdk.FactSetTermsandConditions.model.issue_size_response import IssueSizeResponse
-from fds.sdk.FactSetTermsandConditions.model.error_response import ErrorResponse
+from fds.sdk.FactSetTermsandConditions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
 
     try:
         # Return Issue Size data for a large list of Fixed Income securities.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_issue_size_for_list(terms_and_conditions_scalar_request)
         pprint(api_response)
 

@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNConfiguration.Api.NotesConfigurationApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -58,6 +58,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
 
             try
             {
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -228,6 +230,7 @@ namespace Example
 
             var apiInstance = new NotesConfigurationApi(config);
 
+
             try
             {
                 ClientSalesRepresentativeDto result = apiInstance.GetClientsSalesRepresentative();
@@ -309,6 +312,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -397,6 +401,7 @@ namespace Example
 
             var apiInstance = new NotesConfigurationApi(config);
 
+
             try
             {
                 // Get Group details
@@ -478,6 +483,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
 
             try
             {
@@ -561,6 +567,7 @@ namespace Example
 
             var apiInstance = new NotesConfigurationApi(config);
 
+
             try
             {
                 // Get all Sentiments
@@ -642,6 +649,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var subjectId = "subjectId_example";  // Guid | Id
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
@@ -732,6 +740,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
             try
@@ -819,6 +828,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var teamId = "teamId_example";  // Guid | Id
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
@@ -909,6 +919,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesConfigurationApi(config);
+
             var xIRNIgnorePermissions = false;  // bool? |  (optional)  (default to false)
 
             try

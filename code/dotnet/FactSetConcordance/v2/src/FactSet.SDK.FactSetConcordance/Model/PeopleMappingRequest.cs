@@ -51,7 +51,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="clientSuffix">Used to indicate the suffix for the person&#39;s name.</param>
         /// <param name="personId">A unique identifier used to identify a person..</param>
         /// <param name="universeId">A unique identifier supplied to a person to save the data into his/her universe. (required).</param>
-        public PeopleMappingRequest(string clientEntity = default(string), string clientFirstName = default(string), string clientId = default(string), string clientLastName = default(string), string clientMiddleName = default(string), string clientPersonName = default(string), string clientPriority = default(string), string clientSalutation = default(string), string clientSuffix = default(string), string personId = default(string), int universeId = default(int))
+        public PeopleMappingRequest(string clientId, int universeId,string clientEntity = default(string), string clientFirstName = default(string), string clientLastName = default(string), string clientMiddleName = default(string), string clientPersonName = default(string), string clientPriority = default(string), string clientSalutation = default(string), string clientSuffix = default(string), string personId = default(string))
         {
             // to ensure "clientId" is required (not null)
             if (clientId == null) {

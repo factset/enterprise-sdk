@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesEodSubsampleGetDataInterval model module.
  * @module model/VendorChartIQTimeSeriesEodSubsampleGetDataInterval
- * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodSubsampleGetDataInterval {
     /**

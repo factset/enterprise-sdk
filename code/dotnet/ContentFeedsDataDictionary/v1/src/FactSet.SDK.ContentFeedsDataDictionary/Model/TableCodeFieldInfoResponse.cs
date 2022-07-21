@@ -42,7 +42,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// <param name="codeInfo">codeInfo (required).</param>
         /// <param name="fields">fields (required).</param>
         /// <param name="entitled">entitled.</param>
-        public TableCodeFieldInfoResponse(TableCodeInfo codeInfo = default(TableCodeInfo), List<TableField> fields = default(List<TableField>), bool entitled = default(bool))
+        public TableCodeFieldInfoResponse(TableCodeInfo codeInfo, List<TableField> fields,bool entitled = default(bool))
         {
             // to ensure "codeInfo" is required (not null)
             if (codeInfo == null) {

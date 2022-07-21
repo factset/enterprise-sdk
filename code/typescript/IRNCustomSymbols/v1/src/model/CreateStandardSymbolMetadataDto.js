@@ -17,7 +17,6 @@ import CreateCustomSymbolCustomFieldValueDto from './CreateCustomSymbolCustomFie
 /**
  * The CreateStandardSymbolMetadataDto model module.
  * @module model/CreateStandardSymbolMetadataDto
- * @version 0.20.0
  */
 class CreateStandardSymbolMetadataDto {
     /**

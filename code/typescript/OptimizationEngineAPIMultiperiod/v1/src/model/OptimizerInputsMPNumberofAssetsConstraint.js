@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPNumberofAssetsConstraint model module.
  * @module model/OptimizerInputsMPNumberofAssetsConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPNumberofAssetsConstraint {
     /**

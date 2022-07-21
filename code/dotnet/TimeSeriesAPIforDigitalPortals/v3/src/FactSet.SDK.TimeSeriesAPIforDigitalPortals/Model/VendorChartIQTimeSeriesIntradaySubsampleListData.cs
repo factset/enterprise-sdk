@@ -195,7 +195,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <param name="range">range (required).</param>
         /// <param name="granularity">Subsample granularities suitable for intraday data. (default to GranularityEnum._1h).</param>
         /// <param name="adjustments">adjustments.</param>
-        public VendorChartIQTimeSeriesIntradaySubsampleListData(string id = default(string), TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, VendorChartIQTimeSeriesIntradaySubsampleListDataRange range = default(VendorChartIQTimeSeriesIntradaySubsampleListDataRange), GranularityEnum? granularity = GranularityEnum._1h, VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments adjustments = default(VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments))
+        public VendorChartIQTimeSeriesIntradaySubsampleListData(string id, VendorChartIQTimeSeriesIntradaySubsampleListDataRange range,TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, GranularityEnum? granularity = GranularityEnum._1h, VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments adjustments = default(VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

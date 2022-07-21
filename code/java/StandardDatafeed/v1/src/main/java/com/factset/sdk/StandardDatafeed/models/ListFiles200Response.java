@@ -1,6 +1,6 @@
 /*
- * SDF_API
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * SDF Download API
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StandardDatafeed.models.Data;
-import com.factset.sdk.StandardDatafeed.models.Meta;
+import com.factset.sdk.StandardDatafeed.models.Dataresponseitems;
+import com.factset.sdk.StandardDatafeed.models.ListSchema200ResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,20 +43,20 @@ public class ListFiles200Response implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<Data> data = null;
+  private java.util.List<Dataresponseitems> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private java.util.List<Meta> meta = null;
+  private ListSchema200ResponseMeta meta;
 
   public ListFiles200Response() { 
   }
 
-  public ListFiles200Response data(java.util.List<Data> data) {
+  public ListFiles200Response data(java.util.List<Dataresponseitems> data) {
     this.data = data;
     return this;
   }
 
-  public ListFiles200Response addDataItem(Data dataItem) {
+  public ListFiles200Response addDataItem(Dataresponseitems dataItem) {
     if (this.data == null) {
       this.data = new java.util.ArrayList<>();
     }
@@ -73,28 +73,20 @@ public class ListFiles200Response implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Data> getData() {
+  public java.util.List<Dataresponseitems> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<Data> data) {
+  public void setData(java.util.List<Dataresponseitems> data) {
     this.data = data;
   }
 
 
-  public ListFiles200Response meta(java.util.List<Meta> meta) {
+  public ListFiles200Response meta(ListSchema200ResponseMeta meta) {
     this.meta = meta;
-    return this;
-  }
-
-  public ListFiles200Response addMetaItem(Meta metaItem) {
-    if (this.meta == null) {
-      this.meta = new java.util.ArrayList<>();
-    }
-    this.meta.add(metaItem);
     return this;
   }
 
@@ -107,14 +99,14 @@ public class ListFiles200Response implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<Meta> getMeta() {
+  public ListSchema200ResponseMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(java.util.List<Meta> meta) {
+  public void setMeta(ListSchema200ResponseMeta meta) {
     this.meta = meta;
   }
 

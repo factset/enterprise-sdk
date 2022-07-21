@@ -45,7 +45,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="peerName">peerName.</param>
         /// <param name="hideDates">hideDates (required) (default to true).</param>
         /// <param name="hideComment">hideComment (required) (default to true).</param>
-        public SymbolsRelationShipSaveDto(string relationshipCode = default(string), string parentToChildName = default(string), string childToParentName = default(string), string peerName = default(string), bool hideDates = true, bool hideComment = true)
+        public SymbolsRelationShipSaveDto(bool hideDates, bool hideComment,string relationshipCode = default(string), string parentToChildName = default(string), string childToParentName = default(string), string peerName = default(string))
         {
             this.HideDates = hideDates;
             this.HideComment = hideComment;

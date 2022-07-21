@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20014DataCounterParty model module.
  * @module model/InlineResponse20014DataCounterParty
- * @version 0.10.0
  */
 class InlineResponse20014DataCounterParty {
     /**

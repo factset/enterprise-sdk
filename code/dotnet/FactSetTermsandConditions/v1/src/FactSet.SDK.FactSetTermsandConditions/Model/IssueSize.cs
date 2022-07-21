@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <param name="outAmtChange">Amount Outstanding Action Amount.</param>
         /// <param name="outAmtChangePrice">Price - Amount Outstanding Action.</param>
         /// <param name="outAmtChangeType">Amount Outstanding Action Type.</param>
-        public IssueSize(string requestId = default(string), string fsymId = default(string), DateTime outAmtEffDate = default(DateTime), string outAmtCurrency = default(string), double outAmt = default(double), double outAmtChange = default(double), double outAmtChangePrice = default(double), string outAmtChangeType = default(string))
+        public IssueSize(string requestId, string fsymId,DateTime outAmtEffDate = default(DateTime), string outAmtCurrency = default(string), double outAmt = default(double), double outAmtChange = default(double), double outAmtChangePrice = default(double), string outAmtChangeType = default(string))
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataPerformanceEndOfDayYears5 model module.
  * @module model/InlineResponse2005DataPerformanceEndOfDayYears5
- * @version 0.10.0
  */
 class InlineResponse2005DataPerformanceEndOfDayYears5 {
     /**

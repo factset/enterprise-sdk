@@ -17,7 +17,6 @@ import InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit from
 /**
  * The InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost
- * @version 0.9.2
  */
 class InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost {
     /**

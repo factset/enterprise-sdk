@@ -74,7 +74,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <param name="id">Identifier of the portfolio. (required).</param>
         /// <param name="range">range (required).</param>
         /// <param name="resolution">resolution (default to ResolutionEnum.Daily).</param>
-        public PortfolioEvaluationListData(string id = default(string), PortfolioEvaluationListDataRange range = default(PortfolioEvaluationListDataRange), ResolutionEnum? resolution = ResolutionEnum.Daily)
+        public PortfolioEvaluationListData(string id, PortfolioEvaluationListDataRange range,ResolutionEnum? resolution = ResolutionEnum.Daily)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

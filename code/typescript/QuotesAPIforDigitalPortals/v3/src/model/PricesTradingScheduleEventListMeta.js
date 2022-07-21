@@ -17,7 +17,6 @@ import PricesTradingScheduleEventListMetaPagination from './PricesTradingSchedul
 /**
  * The PricesTradingScheduleEventListMeta model module.
  * @module model/PricesTradingScheduleEventListMeta
- * @version 0.10.0
  */
 class PricesTradingScheduleEventListMeta {
     /**

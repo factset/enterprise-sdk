@@ -18,7 +18,6 @@ import ReportDataHeader from '../model/ReportDataHeader';
 /**
 * RetrieveRefreshedData service.
 * @module api/RetrieveRefreshedDataApi
-* @version 0.20.0
 */
 export default class RetrieveRefreshedDataApi {
 

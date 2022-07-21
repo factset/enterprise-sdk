@@ -43,7 +43,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <param name="ebit">ebit.</param>
         /// <param name="ebitda">ebitda.</param>
         /// <param name="perShare">perShare.</param>
-        public StockNotationScreenerSearchDataCurrencyDependentEstimates(StockNotationScreenerSearchDataCurrencyDependentEstimatesCurrency currency = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesCurrency), StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit ebit = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit), StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda ebitda = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda), StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare perShare = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare))
+        public StockNotationScreenerSearchDataCurrencyDependentEstimates(StockNotationScreenerSearchDataCurrencyDependentEstimatesCurrency currency,StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit ebit = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit), StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda ebitda = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitda), StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare perShare = default(StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShare))
         {
             // to ensure "currency" is required (not null)
             if (currency == null) {

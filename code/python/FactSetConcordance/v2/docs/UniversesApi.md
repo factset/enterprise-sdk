@@ -27,8 +27,8 @@ Get the total number of mappings in a universe, as well as the number of mapped,
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import universes_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.entity_universe_statistics_response import EntityUniverseStatisticsResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +62,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Get statistics on a given universe
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_universe_statistics(universe_id)
         pprint(api_response)
 
@@ -115,9 +116,8 @@ Create a new universe that is distinct from any existing universe
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import universes_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.create_universe_request import CreateUniverseRequest
-from fds.sdk.FactSetConcordance.model.universe_meta_response import UniverseMetaResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -155,6 +155,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Create a new universe
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_universe_for_list(create_universe_request)
         pprint(api_response)
 
@@ -213,8 +214,8 @@ Get the total number of mappings in a universe, as well as the number of mapped,
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import universes_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.universe_statistics_response import UniverseStatisticsResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -248,6 +249,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Get statistics on a given universe
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_universe_statistics(universe_id)
         pprint(api_response)
 
@@ -301,8 +303,8 @@ Fetch information on active universes for the current user. Optionally filter fo
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import universes_api
-from fds.sdk.FactSetConcordance.model.universes_response import UniversesResponse
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -337,6 +339,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Fetch metadata for universes
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_universes(universe_id=universe_id, universe_type=universe_type)
         pprint(api_response)
 
@@ -391,9 +395,8 @@ Update metadata for an existing universe
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import universes_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.update_universe_request import UpdateUniverseRequest
-from fds.sdk.FactSetConcordance.model.universe_meta_response import UniverseMetaResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -431,6 +434,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Update metadata for an existing universe
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_update_universe_for_list(update_universe_request)
         pprint(api_response)
 

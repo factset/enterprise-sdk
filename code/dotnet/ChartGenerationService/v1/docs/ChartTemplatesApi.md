@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new ChartTemplatesApi(config);
 
+
             try
             {
                 // Get a list of chart categories
@@ -135,6 +136,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ChartTemplatesApi(config);
+
             var categories = "categories_example";  // string | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional) 
             var type = json;  // string | return type of the response (optional) 
 
@@ -224,6 +226,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ChartTemplatesApi(config);
+
             var chart = Equity/RSI;  // string | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
             var ids = FDS,AAPL;  // string | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional) 
             var sd = -1Y;  // string | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 

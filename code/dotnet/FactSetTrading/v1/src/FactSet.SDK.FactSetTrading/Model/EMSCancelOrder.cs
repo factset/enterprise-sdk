@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Initializes a new instance of the <see cref="EMSCancelOrder" /> class.
         /// </summary>
         /// <param name="originalOrderId">originalOrderId (required).</param>
-        public EMSCancelOrder(string originalOrderId = default(string))
+        public EMSCancelOrder(string originalOrderId)
         {
             // to ensure "originalOrderId" is required (not null)
             if (originalOrderId == null) {

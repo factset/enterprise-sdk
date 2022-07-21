@@ -23,6 +23,8 @@ Note: Due to Swagger UI functionality, the redirect is automatically followed wh
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AnalyticsDatastore
 from fds.sdk.AnalyticsDatastore.api import swivel_api
+from fds.sdk.AnalyticsDatastore.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,15 +54,11 @@ with fds.sdk.AnalyticsDatastore.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = swivel_api.SwivelApi(api_client)
 
-    pub_doc = "Analytics_Datastore" # str | The publisher document containing the report (default to "Analytics_Datastore")
-    asset_name = "ADS_Demo.PA3" # str | The PA/SPAR asset name and extension (default to "ADS_Demo.PA3")
-    report_id = "report7" # str | The PA/SPAR report ID (default to "report7")
-    tile_id = "tile0" # str | The PA/SPAR tile ID (default to "tile0")
-    account_id = "LARGE_CORE" # str | The account ID (default to "LARGE_CORE")
 
     try:
         # Get Swivel endpoint, takes report parameter inputs and returns the Cargo location for the specified report via a 302 redirect.
-        api_response = api_instance.get_swivel_endpoint(pub_doc, asset_name, report_id, tile_id, account_id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_swivel_endpoint()
         pprint(api_response)
 
     except fds.sdk.AnalyticsDatastore.ApiException as e:

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegerConfigDto model module.
  * @module model/IntegerConfigDto
- * @version 0.20.0
  */
 class IntegerConfigDto {
     /**

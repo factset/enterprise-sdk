@@ -17,7 +17,6 @@ import InlineResponse2006DataPropertiesFundAssetsUnderManagementAum from './Inli
 /**
  * The InlineResponse2006DataPropertiesFundAssetsUnderManagement model module.
  * @module model/InlineResponse2006DataPropertiesFundAssetsUnderManagement
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesFundAssetsUnderManagement {
     /**

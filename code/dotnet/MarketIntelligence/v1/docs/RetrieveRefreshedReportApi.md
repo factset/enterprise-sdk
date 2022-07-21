@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RetrieveRefreshedReportApi(config);
+
             var reportId = "reportId_example";  // string | example: 65ba6dd63fb366464646426d0b
 
             try

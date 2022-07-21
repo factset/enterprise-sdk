@@ -18,7 +18,6 @@ import PortfolioTransactionCreateDataParentTransaction from './PortfolioTransact
 /**
  * The PortfolioTransactionCreateData model module.
  * @module model/PortfolioTransactionCreateData
- * @version 0.9.2
  */
 class PortfolioTransactionCreateData {
     /**

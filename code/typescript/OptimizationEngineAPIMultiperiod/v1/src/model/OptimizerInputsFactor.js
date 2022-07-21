@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsFactor model module.
  * @module model/OptimizerInputsFactor
- * @version 0.20.0
  */
 class OptimizerInputsFactor {
     /**

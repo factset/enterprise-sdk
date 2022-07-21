@@ -21,7 +21,6 @@ import SymbolsRelationshipDto from '../model/SymbolsRelationshipDto';
 /**
 * CustomSymbolsRelationships service.
 * @module api/CustomSymbolsRelationshipsApi
-* @version 0.20.0
 */
 export default class CustomSymbolsRelationshipsApi {
 

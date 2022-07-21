@@ -43,7 +43,7 @@ namespace FactSet.SDK.Signals.Model
         /// <param name="requestId">The id that was requested, ticker, cusip, factset entity id etc. (required).</param>
         /// <param name="signalId">Signal Id for this event. (required).</param>
         /// <param name="adaptiveCard">A JSON object that&#39;s compliant with MS adaptive card schema. (required).</param>
-        public EventAdaptiveDataItem(string requestId = default(string), string signalId = default(string), Dictionary<string, Object> adaptiveCard = default(Dictionary<string, Object>))
+        public EventAdaptiveDataItem(string requestId, string signalId, Dictionary<string, Object> adaptiveCard)
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

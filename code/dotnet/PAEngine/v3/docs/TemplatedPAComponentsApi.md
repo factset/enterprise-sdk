@@ -54,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
+
             var templatedPAComponentParametersRoot = new TemplatedPAComponentParametersRoot(); // TemplatedPAComponentParametersRoot | Request Parameters
 
             try
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
 
             try
@@ -245,6 +247,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
 
             try
@@ -341,6 +344,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
+
             var directory = "\"Personal:TemplatedPAComponents/\"";  // string | Get templated PA components in path (default to "Personal:TemplatedPAComponents/")
 
             try
@@ -436,6 +440,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
+
             var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
             var templatedPAComponentUpdateParametersRoot = new TemplatedPAComponentUpdateParametersRoot(); // TemplatedPAComponentUpdateParametersRoot | Request Parameters
 

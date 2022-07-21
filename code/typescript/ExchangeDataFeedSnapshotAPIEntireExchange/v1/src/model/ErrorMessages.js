@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ErrorMessages model module.
  * @module model/ErrorMessages
- * @version 0.20.0
  */
 class ErrorMessages {
     /**

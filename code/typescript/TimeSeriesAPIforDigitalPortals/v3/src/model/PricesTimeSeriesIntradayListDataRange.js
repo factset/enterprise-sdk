@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTimeSeriesIntradayListDataRange model module.
  * @module model/PricesTimeSeriesIntradayListDataRange
- * @version 0.10.0
  */
 class PricesTimeSeriesIntradayListDataRange {
     /**
@@ -24,7 +23,7 @@ class PricesTimeSeriesIntradayListDataRange {
      * Date and time range for the time series.
      * @alias module:model/PricesTimeSeriesIntradayListDataRange
      * @param start {String} The starting point of the time range (inclusive). The data accessible in the past is limited to a few weeks at most.
-     * @param end {String} The ending point of the time range (exclusive). Dates in the future are not allowed.
+     * @param end {String} The ending point of the time range (exclusive). Values in the future are not allowed.
      */
     constructor(start, end) { 
         
@@ -72,7 +71,7 @@ class PricesTimeSeriesIntradayListDataRange {
 PricesTimeSeriesIntradayListDataRange.prototype['start'] = undefined;
 
 /**
- * The ending point of the time range (exclusive). Dates in the future are not allowed.
+ * The ending point of the time range (exclusive). Values in the future are not allowed.
  * @member {String} end
  */
 PricesTimeSeriesIntradayListDataRange.prototype['end'] = undefined;

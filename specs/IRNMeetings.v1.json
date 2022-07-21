@@ -7,7 +7,12 @@
   },
   "servers": [
     {
-      "url": "https://api-sandbox.factset.com/research/irn"
+      "url": "https://api.factset.com/research/irn",
+      "description": "Production Server"
+    },
+    {
+      "url": "https://api-sandbox.factset.com/research/irn",
+      "description": "Sandbox"
     }
   ],
   "paths": {

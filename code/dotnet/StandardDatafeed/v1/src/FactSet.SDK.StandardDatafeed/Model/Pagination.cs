@@ -1,7 +1,7 @@
 /*
- * SDF_API
+ * SDF Download API
  *
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -36,7 +36,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// Initializes a new instance of the <see cref="Pagination" /> class.
         /// </summary>
         /// <param name="total">Total number of files the API returns for a particular query.</param>
-        /// <param name="isEstimatedTotal">Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count.</param>
+        /// <param name="isEstimatedTotal">Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  â€œFalseâ€ as the API should always return the exact count.</param>
         /// <param name="limit">Number of results returned per page.</param>
         /// <param name="offset">The flag indicating the position in the results array if additional results are available beyond the default value or the value in paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retreieve subsequent results.</param>
         public Pagination(int total = default(int), bool isEstimatedTotal = default(bool), int limit = default(int), int offset = default(int))
@@ -55,9 +55,9 @@ namespace FactSet.SDK.StandardDatafeed.Model
         public int Total { get; set; }
 
         /// <summary>
-        /// Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count
+        /// Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  â€œFalseâ€ as the API should always return the exact count
         /// </summary>
-        /// <value>Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count</value>
+        /// <value>Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  â€œFalseâ€ as the API should always return the exact count</value>
         [DataMember(Name = "is EstimatedTotal", EmitDefaultValue = true)]
         public bool IsEstimatedTotal { get; set; }
 

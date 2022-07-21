@@ -45,7 +45,7 @@ namespace FactSet.SDK.FixedIncomeAnalyticsBatcher.Model
         /// <param name="dates">dates (required).</param>
         /// <param name="msl">Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar).</param>
         /// <param name="fisettingsdocument">FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar).</param>
-        public FIABCalculationParameters(string fiabdocument = default(string), FIABIdentifier account = default(FIABIdentifier), FIABDateParameters dates = default(FIABDateParameters), string msl = default(string), string fisettingsdocument = default(string))
+        public FIABCalculationParameters(FIABIdentifier account, FIABDateParameters dates,string fiabdocument = default(string), string msl = default(string), string fisettingsdocument = default(string))
         {
             // to ensure "account" is required (not null)
             if (account == null) {

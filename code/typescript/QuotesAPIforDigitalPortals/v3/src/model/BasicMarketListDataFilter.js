@@ -17,7 +17,6 @@ import BasicMarketListDataFilterMarkets from './BasicMarketListDataFilterMarkets
 /**
  * The BasicMarketListDataFilter model module.
  * @module model/BasicMarketListDataFilter
- * @version 0.10.0
  */
 class BasicMarketListDataFilter {
     /**

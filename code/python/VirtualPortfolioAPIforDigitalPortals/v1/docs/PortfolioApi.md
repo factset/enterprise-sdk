@@ -36,8 +36,8 @@ Create a portfolio.  Certain error conditions yield errors as follows:   |Error 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response201 import InlineResponse201
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -83,6 +83,7 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Create a portfolio.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.portfolio_create_post(body)
         pprint(api_response)
 
@@ -135,8 +136,8 @@ Delete a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -179,6 +180,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Delete a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_delete_post(body=body)
         pprint(api_response)
 
@@ -231,8 +234,8 @@ Performs an evaluation over a period of time and returns portfolio key figures f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -280,6 +283,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Evaluate a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_evaluation_list_post(body=body)
         pprint(api_response)
 
@@ -332,7 +337,8 @@ Details of a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -369,6 +375,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Details of a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_get_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -422,7 +430,8 @@ List of portfolios with keyfigures.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -457,10 +466,12 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of portfolios with keyfigures.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -514,8 +525,8 @@ Modify a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object2 import InlineObject2
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -559,6 +570,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Modify a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_modify_post(body=body)
         pprint(api_response)
 
@@ -611,7 +624,8 @@ List of portfolios.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -646,10 +660,12 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of portfolios.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_name_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -703,7 +719,8 @@ List all positions of a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -740,6 +757,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # List all positions of a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_position_list_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -793,8 +812,8 @@ Add a cash transaction to a portfolio.  Certain error conditions yield errors as
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object7 import InlineObject7
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2011 import InlineResponse2011
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -839,6 +858,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Add a cash transaction to a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_cash_create_post(body=body)
         pprint(api_response)
 
@@ -891,8 +912,8 @@ Delete a cash transaction.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object8 import InlineObject8
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -938,6 +959,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Delete a cash transaction.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_cash_delete_post(body=body)
         pprint(api_response)
 
@@ -990,8 +1013,8 @@ Add a transaction to a portfolio.  Certain error conditions yield errors as foll
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2011 import InlineResponse2011
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1046,6 +1069,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Add a transaction to a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_create_post(body=body)
         pprint(api_response)
 
@@ -1098,8 +1123,8 @@ Delete a transaction of a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object5 import InlineObject5
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1148,6 +1173,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Delete a transaction of a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_delete_post(body=body)
         pprint(api_response)
 
@@ -1200,7 +1227,8 @@ List of transactions in a portfolio.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1237,6 +1265,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # List of transactions in a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_list_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -1290,8 +1320,8 @@ Modify a transaction in a portfolio.  Certain error conditions yield errors as f
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.VirtualPortfolioAPIforDigitalPortals
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.api import portfolio_api
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
-from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model.inline_object6 import InlineObject6
+from fds.sdk.VirtualPortfolioAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1345,6 +1375,8 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
 
     try:
         # Modify a transaction in a portfolio.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.portfolio_transaction_modify_post(body=body)
         pprint(api_response)
 

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PartialOutputObject model module.
  * @module model/PartialOutputObject
- * @version 0.9.2
  */
 class PartialOutputObject {
     /**

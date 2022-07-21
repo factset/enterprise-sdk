@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <param name="identifier">identifier.</param>
         /// <param name="name">name.</param>
         /// <param name="type">type.</param>
-        public RelationshipSymbolSummaryDto(string identifier = default(string), string name = default(string), SymbolType? type = default(SymbolType?))
+        public RelationshipSymbolSummaryDto(string identifier = default(string), string name = default(string), SymbolType type = default(SymbolType))
         {
             this.Identifier = identifier;
             this.Name = name;

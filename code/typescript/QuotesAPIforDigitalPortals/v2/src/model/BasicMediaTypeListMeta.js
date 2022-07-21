@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicMediaTypeListMeta model module.
  * @module model/BasicMediaTypeListMeta
- * @version 0.9.2
  */
 class BasicMediaTypeListMeta {
     /**

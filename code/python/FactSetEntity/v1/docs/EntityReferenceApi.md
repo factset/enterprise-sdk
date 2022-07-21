@@ -24,8 +24,8 @@ Returns an Entity reference profile for the requested Entity Id(s). Data points 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_reference_api
-from fds.sdk.FactSetEntity.model.entity_reference_response import EntityReferenceResponse
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
 
     try:
         # Returns an entity reference profiles for an individual entity
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_entity_references(ids)
         pprint(api_response)
 
@@ -116,9 +117,8 @@ Returns an entity reference object for the requested entity ids. Data points inc
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_reference_api
-from fds.sdk.FactSetEntity.model.entity_reference_response import EntityReferenceResponse
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntity.model.entity_reference_request import EntityReferenceRequest
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
 
     try:
         # Returns an entity reference data for a list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_references(entity_reference_request)
         pprint(api_response)
 

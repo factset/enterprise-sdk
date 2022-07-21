@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateUniverseRequest model module.
  * @module model/CreateUniverseRequest
- * @version 0.20.1
  */
 class CreateUniverseRequest {
     /**

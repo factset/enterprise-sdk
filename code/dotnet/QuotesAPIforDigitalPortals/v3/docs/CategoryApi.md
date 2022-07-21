@@ -60,6 +60,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var idCategory = 8.14D;  // decimal | Identifier of a category.
             var idCategoryDataset = 8.14D;  // decimal | Identifier of a category dataset.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -338,6 +341,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -430,6 +434,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var ids = new List<decimal>(); // List<decimal> | List of categories belonging to the same category system.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -522,6 +527,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category level. See attribute `levels` in endpoint `/category/system/get` for valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -618,6 +624,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -714,6 +721,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -806,6 +814,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a category system. See endpoint `/category/system/list` for valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -898,6 +907,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var idType = 8.14D;  // decimal? | Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values. (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -990,6 +1000,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CategoryApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 

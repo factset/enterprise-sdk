@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricFundamentalsMetricFundamentals model module.
  * @module model/MetricFundamentalsMetricFundamentals
- * @version 0.20.0
  */
 class MetricFundamentalsMetricFundamentals {
     /**

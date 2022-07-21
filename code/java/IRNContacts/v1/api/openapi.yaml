@@ -4,7 +4,10 @@ info:
   title: IRN API v1
   version: "1"
 servers:
-- url: https://api-sandbox.factset.com/research/irn
+- description: Production Server
+  url: https://api.factset.com/research/irn
+- description: Sandbox
+  url: https://api-sandbox.factset.com/research/irn
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []

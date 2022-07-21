@@ -176,7 +176,7 @@ class EventsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> [RecordEventSummaryDto]:
+    ) -> typing.List[RecordEventSummaryDto]:
         """Get all the record events that belong to a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -209,7 +209,7 @@ class EventsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordEventSummaryDto]
+            typing.List[RecordEventSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -221,7 +221,7 @@ class EventsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> typing.Tuple[[RecordEventSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[RecordEventSummaryDto], int, typing.MutableMapping]:
         """Get all the record events that belong to a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -254,7 +254,7 @@ class EventsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordEventSummaryDto]
+            typing.List[RecordEventSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -270,7 +270,7 @@ class EventsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> "ApplyResult[[RecordEventSummaryDto]]":
+    ) -> "ApplyResult[typing.List[RecordEventSummaryDto]]":
         """Get all the record events that belong to a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -303,7 +303,7 @@ class EventsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[RecordEventSummaryDto]]
+            ApplyResult[typing.List[RecordEventSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['meeting_id'] = \
@@ -314,7 +314,7 @@ class EventsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[RecordEventSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[RecordEventSummaryDto], int, typing.MutableMapping]]":
         """Get all the record events that belong to a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -347,7 +347,7 @@ class EventsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([RecordEventSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[RecordEventSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['meeting_id'] = \

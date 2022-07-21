@@ -23,7 +23,8 @@ This endpoint looks up all PA3 documents and sub-directories in a given director
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import documents_api
-from fds.sdk.PAEngine.model.document_directories import DocumentDirectories
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,11 +54,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    path = "Client:folder1/folder2" # str | The directory to get the documents and sub-directories in (default to "Client:folder1/folder2")
 
     try:
         # Get PA3 documents and sub-directories in a directory
-        api_response = api_instance.get_pa3_documents(path)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_pa3_documents()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:

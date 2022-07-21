@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataLegalEntitiesFundDomicile model module.
  * @module model/InlineResponse2006DataLegalEntitiesFundDomicile
- * @version 0.10.0
  */
 class InlineResponse2006DataLegalEntitiesFundDomicile {
     /**

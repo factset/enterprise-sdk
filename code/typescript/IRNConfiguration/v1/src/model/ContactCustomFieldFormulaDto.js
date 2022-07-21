@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactCustomFieldFormulaDto model module.
  * @module model/ContactCustomFieldFormulaDto
- * @version 0.20.0
  */
 class ContactCustomFieldFormulaDto {
     /**

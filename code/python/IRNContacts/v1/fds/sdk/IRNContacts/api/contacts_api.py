@@ -1134,7 +1134,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> [ContactEventDto]:
+    ) -> typing.List[ContactEventDto]:
         """Get a contact’s audit history  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1167,7 +1167,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactEventDto]
+            typing.List[ContactEventDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1179,7 +1179,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> typing.Tuple[[ContactEventDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactEventDto], int, typing.MutableMapping]:
         """Get a contact’s audit history  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1212,7 +1212,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactEventDto]
+            typing.List[ContactEventDto]
                 Response Object
             int
                 Http Status Code
@@ -1228,7 +1228,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[[ContactEventDto]]":
+    ) -> "ApplyResult[typing.List[ContactEventDto]]":
         """Get a contact’s audit history  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1261,7 +1261,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactEventDto]]
+            ApplyResult[typing.List[ContactEventDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['contact_id'] = \
@@ -1272,7 +1272,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactEventDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactEventDto], int, typing.MutableMapping]]":
         """Get a contact’s audit history  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1305,7 +1305,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactEventDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactEventDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['contact_id'] = \
@@ -1498,7 +1498,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> [RecordPreviewDto]:
+    ) -> typing.List[RecordPreviewDto]:
         """Get all notes and meetings where a specific contact was tagged  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1531,7 +1531,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordPreviewDto]
+            typing.List[RecordPreviewDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1543,7 +1543,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> typing.Tuple[[RecordPreviewDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[RecordPreviewDto], int, typing.MutableMapping]:
         """Get all notes and meetings where a specific contact was tagged  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1576,7 +1576,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecordPreviewDto]
+            typing.List[RecordPreviewDto]
                 Response Object
             int
                 Http Status Code
@@ -1592,7 +1592,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[[RecordPreviewDto]]":
+    ) -> "ApplyResult[typing.List[RecordPreviewDto]]":
         """Get all notes and meetings where a specific contact was tagged  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1625,7 +1625,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[RecordPreviewDto]]
+            ApplyResult[typing.List[RecordPreviewDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['contact_id'] = \
@@ -1636,7 +1636,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[RecordPreviewDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[RecordPreviewDto], int, typing.MutableMapping]]":
         """Get all notes and meetings where a specific contact was tagged  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1669,7 +1669,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([RecordPreviewDto], int, typing.Dict)]
+            ApplyResult[(typing.List[RecordPreviewDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['contact_id'] = \
@@ -1680,7 +1680,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> [ContactRelationshipDto]:
+    ) -> typing.List[ContactRelationshipDto]:
         """Returns a list of a contact’s relationships  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1713,7 +1713,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRelationshipDto]
+            typing.List[ContactRelationshipDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1725,7 +1725,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> typing.Tuple[[ContactRelationshipDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactRelationshipDto], int, typing.MutableMapping]:
         """Returns a list of a contact’s relationships  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1758,7 +1758,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactRelationshipDto]
+            typing.List[ContactRelationshipDto]
                 Response Object
             int
                 Http Status Code
@@ -1774,7 +1774,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[[ContactRelationshipDto]]":
+    ) -> "ApplyResult[typing.List[ContactRelationshipDto]]":
         """Returns a list of a contact’s relationships  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1807,7 +1807,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactRelationshipDto]]
+            ApplyResult[typing.List[ContactRelationshipDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['contact_id'] = \
@@ -1818,7 +1818,7 @@ class ContactsApi(object):
         self,
         contact_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactRelationshipDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactRelationshipDto], int, typing.MutableMapping]]":
         """Returns a list of a contact’s relationships  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1851,7 +1851,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactRelationshipDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactRelationshipDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['contact_id'] = \
@@ -1861,7 +1861,7 @@ class ContactsApi(object):
     def get_contacts(
         self,
         **kwargs
-    ) -> [ContactSummaryDto]:
+    ) -> typing.List[ContactSummaryDto]:
         """Get list of all contacts in your group along with some of their standard field data  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1901,7 +1901,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactSummaryDto]
+            typing.List[ContactSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1910,7 +1910,7 @@ class ContactsApi(object):
     def get_contacts_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[ContactSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[ContactSummaryDto], int, typing.MutableMapping]:
         """Get list of all contacts in your group along with some of their standard field data  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1950,7 +1950,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [ContactSummaryDto]
+            typing.List[ContactSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -1963,7 +1963,7 @@ class ContactsApi(object):
     def get_contacts_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[ContactSummaryDto]]":
+    ) -> "ApplyResult[typing.List[ContactSummaryDto]]":
         """Get list of all contacts in your group along with some of their standard field data  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2003,7 +2003,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[ContactSummaryDto]]
+            ApplyResult[typing.List[ContactSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_contacts_endpoint.call_with_http_info(**kwargs)
@@ -2011,7 +2011,7 @@ class ContactsApi(object):
     def get_contacts_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[ContactSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[ContactSummaryDto], int, typing.MutableMapping]]":
         """Get list of all contacts in your group along with some of their standard field data  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2051,7 +2051,7 @@ class ContactsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([ContactSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[ContactSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_contacts_endpoint.call_with_http_info(**kwargs)

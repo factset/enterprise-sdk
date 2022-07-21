@@ -57,6 +57,7 @@ class EntitySecurities(ModelNormal):
 
     allowed_values = {
         ('security_type',): {
+            'None': None,
             'SHARE': "SHARE",
             'PREFEQ': "PREFEQ",
             'MF_C': "MF_C",
@@ -89,8 +90,9 @@ class EntitySecurities(ModelNormal):
             'CMBS': "CMBS",
         },
         ('active_flag',): {
-            '0': 0,
-            '1': 1,
+            'None': None,
+            '0': "0",
+            '1': "1",
         },
     }
 
@@ -118,16 +120,16 @@ class EntitySecurities(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'fsym_security_id': (str,),  # noqa: E501
-            'fsym_listing_id': (str,),  # noqa: E501
-            'security_type': (str,),  # noqa: E501
-            'listing_exchange': (str,),  # noqa: E501
-            'security_name': (str,),  # noqa: E501
-            'fsym_entity_id': (str,),  # noqa: E501
-            'fsym_ticker_exchange': (str,),  # noqa: E501
-            'fsym_ticker_region': (str,),  # noqa: E501
-            'active_flag': (int,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'fsym_security_id': (str, none_type,),  # noqa: E501
+            'fsym_listing_id': (str, none_type,),  # noqa: E501
+            'security_type': (str, none_type,),  # noqa: E501
+            'listing_exchange': (str, none_type,),  # noqa: E501
+            'security_name': (str, none_type,),  # noqa: E501
+            'fsym_entity_id': (str, none_type,),  # noqa: E501
+            'fsym_ticker_exchange': (str, none_type,),  # noqa: E501
+            'fsym_ticker_region': (str, none_type,),  # noqa: E501
+            'active_flag': (int, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -191,16 +193,16 @@ class EntitySecurities(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet Ultimate Parent ID of the Requested Security ID. [optional]  # noqa: E501
-            fsym_security_id (str): FactSet Security ID (-S).. [optional]  # noqa: E501
-            fsym_listing_id (str): FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.. [optional]  # noqa: E501
-            security_type (str): The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.. [optional]  # noqa: E501
-            listing_exchange (str): The securities primary listing exchange.. [optional]  # noqa: E501
-            security_name (str): Security name. [optional]  # noqa: E501
-            fsym_entity_id (str): Unique FactSet-generated identifier representing an entity.. [optional]  # noqa: E501
-            fsym_ticker_exchange (str): The security's ticker-exchange, representing the listing exchange symbol.. [optional]  # noqa: E501
-            fsym_ticker_region (str): The security's regional ticker.. [optional]  # noqa: E501
-            active_flag (int): Indicates if security is active. 1 = Active; 0 = Inactive.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet Ultimate Parent ID of the Requested Security ID. [optional]  # noqa: E501
+            fsym_security_id (str, none_type): FactSet Security ID (-S).. [optional]  # noqa: E501
+            fsym_listing_id (str, none_type): FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.. [optional]  # noqa: E501
+            security_type (str, none_type): The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.. [optional]  # noqa: E501
+            listing_exchange (str, none_type): The securities primary listing exchange.. [optional]  # noqa: E501
+            security_name (str, none_type): Security name. [optional]  # noqa: E501
+            fsym_entity_id (str, none_type): Unique FactSet-generated identifier representing an entity.. [optional]  # noqa: E501
+            fsym_ticker_exchange (str, none_type): The security's ticker-exchange, representing the listing exchange symbol.. [optional]  # noqa: E501
+            fsym_ticker_region (str, none_type): The security's regional ticker.. [optional]  # noqa: E501
+            active_flag (int, none_type): Indicates if security is active. 1 = Active; 0 = Inactive.. [optional]  # noqa: E501
             request_id (str): Identifier used in `ids` parameter.  When list of identifiers used, they will be parsed and resolved individually.. [optional]  # noqa: E501
         """
 
@@ -283,16 +285,16 @@ class EntitySecurities(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet Ultimate Parent ID of the Requested Security ID. [optional]  # noqa: E501
-            fsym_security_id (str): FactSet Security ID (-S).. [optional]  # noqa: E501
-            fsym_listing_id (str): FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.. [optional]  # noqa: E501
-            security_type (str): The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.. [optional]  # noqa: E501
-            listing_exchange (str): The securities primary listing exchange.. [optional]  # noqa: E501
-            security_name (str): Security name. [optional]  # noqa: E501
-            fsym_entity_id (str): Unique FactSet-generated identifier representing an entity.. [optional]  # noqa: E501
-            fsym_ticker_exchange (str): The security's ticker-exchange, representing the listing exchange symbol.. [optional]  # noqa: E501
-            fsym_ticker_region (str): The security's regional ticker.. [optional]  # noqa: E501
-            active_flag (int): Indicates if security is active. 1 = Active; 0 = Inactive.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet Ultimate Parent ID of the Requested Security ID. [optional]  # noqa: E501
+            fsym_security_id (str, none_type): FactSet Security ID (-S).. [optional]  # noqa: E501
+            fsym_listing_id (str, none_type): FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.. [optional]  # noqa: E501
+            security_type (str, none_type): The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.. [optional]  # noqa: E501
+            listing_exchange (str, none_type): The securities primary listing exchange.. [optional]  # noqa: E501
+            security_name (str, none_type): Security name. [optional]  # noqa: E501
+            fsym_entity_id (str, none_type): Unique FactSet-generated identifier representing an entity.. [optional]  # noqa: E501
+            fsym_ticker_exchange (str, none_type): The security's ticker-exchange, representing the listing exchange symbol.. [optional]  # noqa: E501
+            fsym_ticker_region (str, none_type): The security's regional ticker.. [optional]  # noqa: E501
+            active_flag (int, none_type): Indicates if security is active. 1 = Active; 0 = Inactive.. [optional]  # noqa: E501
             request_id (str): Identifier used in `ids` parameter.  When list of identifiers used, they will be parsed and resolved individually.. [optional]  # noqa: E501
         """
 

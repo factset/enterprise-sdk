@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedFundsRequest model module.
  * @module model/RelatedFundsRequest
- * @version 0.20.0
  */
 class RelatedFundsRequest {
     /**

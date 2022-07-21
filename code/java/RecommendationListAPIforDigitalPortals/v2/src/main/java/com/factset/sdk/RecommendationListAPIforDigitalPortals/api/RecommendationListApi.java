@@ -81,9 +81,9 @@ public class RecommendationListApi {
   /**
    * Attributes of a single list.
    * Attributes of a single list, including data about its active revision.
-   * @param id Identifier of the list. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -99,9 +99,9 @@ public class RecommendationListApi {
   /**
    * Attributes of a single list.
    * Attributes of a single list, including data about its active revision.
-   * @param id Identifier of the list. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -161,9 +161,9 @@ public class RecommendationListApi {
   /**
    * List of elements of a given revision.
    * List of elements of a given revision.
-   * @param idRevision Identifier of the revision. (required)
+   * @param idRevision  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -179,9 +179,9 @@ public class RecommendationListApi {
   /**
    * List of elements of a given revision.
    * List of elements of a given revision.
-   * @param idRevision Identifier of the revision. (required)
+   * @param idRevision  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -241,9 +241,9 @@ public class RecommendationListApi {
   /**
    * Attributes of a single revision.
    * Attributes of a single revision.
-   * @param id Identifier of the revision. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -259,9 +259,9 @@ public class RecommendationListApi {
   /**
    * Attributes of a single revision.
    * Attributes of a single revision.
-   * @param id Identifier of the revision. (required)
+   * @param id  (required)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -321,10 +321,10 @@ public class RecommendationListApi {
   /**
    * Search for revisions of a recommendation list.
    * Search for revisions of a recommendation list.
-   * @param idNotation Restrict the search to revisions containing an element associated with the identified notation. (optional)
-   * @param idInstrument Restrict the search to revisions pointing to the identified instrument. (optional)
+   * @param idNotation  (optional)
+   * @param idInstrument  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -340,10 +340,10 @@ public class RecommendationListApi {
   /**
    * Search for revisions of a recommendation list.
    * Search for revisions of a recommendation list.
-   * @param idNotation Restrict the search to revisions containing an element associated with the identified notation. (optional)
-   * @param idInstrument Restrict the search to revisions pointing to the identified instrument. (optional)
+   * @param idNotation  (optional)
+   * @param idInstrument  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -399,10 +399,10 @@ public class RecommendationListApi {
   /**
    * Search for recommendation lists.
    * Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).
-   * @param name Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional)
-   * @param onlyActive Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional)
+   * @param name  (optional)
+   * @param onlyActive  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -418,10 +418,10 @@ public class RecommendationListApi {
   /**
    * Search for recommendation lists.
    * Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).
-   * @param name Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional)
-   * @param onlyActive Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional)
+   * @param name  (optional)
+   * @param onlyActive  (optional)
    * @param attributes Limit the attributes returned in the response to the specified set. (optional)
-   * @param language ISO 639-1 code of the language. (optional)
+   * @param language  (optional)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -477,7 +477,7 @@ public class RecommendationListApi {
   /**
    * List of revisions of a recommendation list.
    * List of revisions of a recommendation list, excluding the elements of each revision.
-   * @param body  (required)
+   * @param inlineObject  (required)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -486,14 +486,14 @@ public class RecommendationListApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 postRecommendationListRevisionList(InlineObject body) throws ApiException {
-    return postRecommendationListRevisionListWithHttpInfo(body).getData();
+  public InlineResponse2003 postRecommendationListRevisionList(InlineObject inlineObject) throws ApiException {
+    return postRecommendationListRevisionListWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * List of revisions of a recommendation list.
    * List of revisions of a recommendation list, excluding the elements of each revision.
-   * @param body  (required)
+   * @param inlineObject  (required)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -502,12 +502,12 @@ public class RecommendationListApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> postRecommendationListRevisionListWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2003> postRecommendationListRevisionListWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postRecommendationListRevisionList");
+    // verify the required parameter 'inlineObject' is set
+    if (inlineObject == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject' when calling postRecommendationListRevisionList");
     }
     
     // create path and map variables

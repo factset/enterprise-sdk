@@ -48,7 +48,8 @@ Background texts of an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20044 import InlineResponse20044
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -86,6 +87,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Background texts of an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_background_text_list_by_instrument(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -140,7 +143,8 @@ Compliance properties of an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20049 import InlineResponse20049
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -178,6 +182,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Compliance properties of an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_compliance_property_list_by_instrument(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -232,7 +238,8 @@ Composite instrument and its components.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20050 import InlineResponse20050
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -270,6 +277,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Composite instrument and its components.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_composite_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -324,7 +333,8 @@ List of day count convention types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20052 import InlineResponse20052
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -361,6 +371,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of day count convention types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_coupon_day_count_convention_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -414,7 +426,8 @@ List of interest rate types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20053 import InlineResponse20053
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -451,6 +464,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of interest rate types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_coupon_interest_rate_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -504,7 +519,8 @@ Interest rate details for selected periods of an interest-bearing instrument; an
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20054 import InlineResponse20054
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -542,6 +558,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Interest rate details for selected periods of an interest-bearing instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_coupon_key_data_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -596,7 +614,8 @@ List of coupons for an interest-bearing instrument; any other instrument yields 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20051 import InlineResponse20051
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -634,6 +653,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of coupons for an interest-bearing instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_coupon_list(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -688,7 +709,8 @@ Translate a given ISIN to the respective most recent instrument identifier, retr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20055 import InlineResponse20055
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -725,6 +747,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Translate ISIN to instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_cross_reference_get_by_isin(isin, attributes=attributes)
         pprint(api_response)
 
@@ -778,7 +802,8 @@ Translate a given WKN to the respective most recent instrument identifier, retri
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20055 import InlineResponse20055
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -815,6 +840,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Translate WKN to instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_cross_reference_get_by_wkn(wkn, attributes=attributes)
         pprint(api_response)
 
@@ -868,7 +895,8 @@ Retrieve the complete translation history of a given ISIN to the respective inst
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20058 import InlineResponse20058
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -902,11 +930,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) (default to 10.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10.0
 
     try:
         # ISIN to instrument translation history.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_cross_reference_history_get_by_isin(isin, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -962,7 +992,8 @@ Retrieve the complete translation history of a given WKN to the respective instr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20058 import InlineResponse20058
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -996,11 +1027,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) (default to 10.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 10.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 10.0
 
     try:
         # WKN to instrument translation history.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_cross_reference_history_get_by_wkn(wkn, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -1056,7 +1089,8 @@ Retrieve an exchange rate instrument identifier using the identifier of the main
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20059 import InlineResponse20059
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1095,6 +1129,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an exchange rate instrument identifier.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_exchange_rate_get(target, source, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1150,7 +1186,8 @@ Retrieve an exchange rate instrument identifier using the ISO 4217 code of the m
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20059 import InlineResponse20059
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1189,6 +1226,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an exchange rate instrument identifier.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_exchange_rate_get_by_iso_code(target, source, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1244,7 +1283,8 @@ Basic data for an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20042 import InlineResponse20042
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1282,6 +1322,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Basic data for an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1336,7 +1378,8 @@ Basic data for an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20043 import InlineResponse20043
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1374,6 +1417,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Basic data for an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_get_by_notation(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1428,7 +1473,8 @@ Role-specific background texts of legal entities related to an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20060 import InlineResponse20060
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1466,6 +1512,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Role-specific background texts of legal entities related to an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_legal_entity_background_text_list_by_instrument(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1520,7 +1568,8 @@ Role-specic compliance properties of legal entities related to an instrument.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20061 import InlineResponse20061
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1558,6 +1607,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Role-specific compliance properties of legal entities related to an instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_legal_entity_compliance_property_list_by_instrument(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1612,7 +1663,8 @@ MiFID II data for a specified financial instrument. The instruments governed by 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20062 import InlineResponse20062
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1650,6 +1702,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # MiFID II data for a financial instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_mifid_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -1704,7 +1758,8 @@ Search for instruments whose ISIN, specified NSINs, or name match the search val
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20087 import InlineResponse20087
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1739,16 +1794,18 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         "wkn",
     ] # [str] | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional)
     asset_class = "index" # str | A parameter to limit the output to a particular asset class. (optional)
-    only_active = True # bool | If true, restricts the result to active instruments. (optional) (default to True)
+    only_active = True # bool | If true, restricts the result to active instruments. (optional) if omitted the server will use the default value of True
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # Basic search for instruments.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_instrument_search_basic(search_value, nsins=nsins, asset_class=asset_class, only_active=only_active, attributes=attributes, language=language, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -1808,8 +1865,8 @@ List of background text types for instruments.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20045 import InlineResponse20045
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object9 import InlineObject9
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1857,6 +1914,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of background text types for instruments.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_instrument_background_text_type_list(body=body)
         pprint(api_response)
 
@@ -1909,8 +1968,8 @@ Provides a list of benchmark notations for a selected financial instrument, opti
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20046 import InlineResponse20046
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object10 import InlineObject10
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1959,6 +2018,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of benchmarks of a financial instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_instrument_benchmark_list(body=body)
         pprint(api_response)
 
@@ -2011,8 +2072,8 @@ List of categories assigned to a specific instrument the application is entitled
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20047 import InlineResponse20047
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object11 import InlineObject11
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2064,6 +2125,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of categories assigned to a specific instrument the application is entitled to see.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_instrument_category_list(body=body)
         pprint(api_response)
 
@@ -2116,8 +2179,8 @@ List of compliance properties for instruments.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20048 import InlineResponse20048
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object12 import InlineObject12
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2165,6 +2228,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of compliance properties for instruments.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_instrument_compliance_property_list(body=body)
         pprint(api_response)
 
@@ -2217,8 +2282,8 @@ Translate a given list of ISINs to the respective most recent instrument identif
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20056 import InlineResponse20056
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object13 import InlineObject13
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2263,6 +2328,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Translate a list of ISINs to instruments.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_instrument_cross_reference_list_by_isin(body)
         pprint(api_response)
 
@@ -2315,8 +2381,8 @@ Translate a given list of WKNs to the respective most recent instrument identifi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20057 import InlineResponse20057
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object14 import InlineObject14
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2361,6 +2427,7 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Translate a list of WKNs to instruments.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_instrument_cross_reference_list_by_wkn(body)
         pprint(api_response)
 
@@ -2413,8 +2480,8 @@ List of rating grades for a list of instruments. The list can be restricted to r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import instrument_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20063 import InlineResponse20063
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_object15 import InlineObject15
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -2466,6 +2533,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of rating grades for a list of instruments.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_instrument_rating_grade_list(body=body)
         pprint(api_response)
 

@@ -23,7 +23,6 @@ import UpdateMeetingDto from '../model/UpdateMeetingDto';
 /**
 * Meetings service.
 * @module api/MeetingsApi
-* @version 0.20.0
 */
 export default class MeetingsApi {
 

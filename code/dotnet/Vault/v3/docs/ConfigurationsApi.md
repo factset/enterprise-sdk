@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
+
             var id = "id_example";  // string | Vault configuration id to get the details of
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
+
             var account = "account_example";  // string | Required account query parameter to filter configurations for a specific account
 
             try

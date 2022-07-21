@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda model module.
  * @module model/StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda {
     /**

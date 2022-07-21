@@ -26,8 +26,14 @@ tags:
 paths:
   /factset-rbics/v1/entity-focus:
     get:
-      description: |
-        Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.
+      description: "Gets RBICS classifications for the Focus industry for a short\
+        \ list of companies. Full history is included if _date_ parameter is not specified.\n\
+        \  \n  RBICS Focus offers a single-sector mapping of about 48,000 of the most\
+        \ liquid and publicly-traded companies based on their primary lines of business;\
+        \ it uses revenues as the key factor in determining a company’s primary line\
+        \ of business, by mapping a company to the lowest-level sector from which\
+        \ it derives 50% or more of its revenues.\n\n  The RBICS Extended Universe\
+        \ – Industry Group is not currently supported through the RBICS API. \n"
       operationId: getRbicsEntityFocus
       parameters:
       - description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
@@ -175,8 +181,15 @@ paths:
       - Entity Focus
       x-accepts: application/json
     post:
-      description: |
-        Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.
+      description: "Gets RBICS classifications for the Focus industry for a long list\
+        \ of companies. Full history is included if _date_ parameter is not specified.\n\
+        \          \n  RBICS Focus offers a single-sector mapping of about 48,000\
+        \ of the most liquid and publicly-traded companies based on their primary\
+        \ lines of business; it uses revenues as the key factor in determining a company’\
+        s primary line of business, by mapping a company to the lowest-level sector\
+        \ from which it derives 50% or more of its revenues.\n\n  The RBICS Extended\
+        \ Universe – Industry Group is not currently supported through the RBICS API.\
+        \ \n"
       operationId: getRbicsEntityFocusForList
       requestBody:
         content:
@@ -894,16 +907,19 @@ components:
         fsymId:
           description: FactSet Company identifier being classified.
           example: 000C7F-E
+          nullable: true
           type: string
         firstDate:
           description: First date of the classification.
           example: 2008-08-26T00:00:00.000
           format: datetime
+          nullable: true
           type: string
         lastDate:
           description: Date when the classification became no longer valid.
           example: 2016-09-07T14:00:00.000
           format: datetime
+          nullable: true
           type: string
       required:
       - firstDate
@@ -984,16 +1000,19 @@ components:
         rbicsId:
           description: RBICS Code for the classification.
           example: "101010101010"
+          nullable: true
           type: string
         firstDate:
           description: First date of the classification.
           example: 1945-01-01T00:00:00.000
           format: datetime
+          nullable: true
           type: string
         lastDate:
           description: Date when the classification became no longer valid. If `null`,
             the classification is still valid.
           format: datetime
+          nullable: true
           type: string
       title: Structure
       type: object

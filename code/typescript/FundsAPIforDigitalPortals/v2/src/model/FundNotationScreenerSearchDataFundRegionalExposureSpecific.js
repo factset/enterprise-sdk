@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundHoldingTypeRestrict from './FundNotatio
 /**
  * The FundNotationScreenerSearchDataFundRegionalExposureSpecific model module.
  * @module model/FundNotationScreenerSearchDataFundRegionalExposureSpecific
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundRegionalExposureSpecific {
     /**

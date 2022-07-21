@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetETF.Model
         /// </summary>
         /// <param name="requestId">Security identifier used in the request. (required).</param>
         /// <param name="fsymId">FactSet Permanent Security Identifier. (required).</param>
-        public EtfReferenceData(string requestId = default(string), string fsymId = default(string)) : base()
+        public EtfReferenceData(string requestId, string fsymId) : base()
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

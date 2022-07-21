@@ -17,7 +17,6 @@ import BPMOptimizerStrategyOverrides from './BPMOptimizerStrategyOverrides';
 /**
  * The BPMOptimizerStrategy model module.
  * @module model/BPMOptimizerStrategy
- * @version 0.20.0
  */
 class BPMOptimizerStrategy {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The GetReportInfo model module.
  * @module model/GetReportInfo
- * @version 0.20.0
  */
 class GetReportInfo {
     /**

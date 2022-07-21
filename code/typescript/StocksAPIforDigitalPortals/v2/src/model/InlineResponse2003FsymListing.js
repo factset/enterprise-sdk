@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003FsymListing model module.
  * @module model/InlineResponse2003FsymListing
- * @version 0.9.2
  */
 class InlineResponse2003FsymListing {
     /**

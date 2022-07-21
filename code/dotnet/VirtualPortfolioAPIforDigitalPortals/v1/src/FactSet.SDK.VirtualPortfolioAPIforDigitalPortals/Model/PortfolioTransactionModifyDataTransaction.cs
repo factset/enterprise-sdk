@@ -46,7 +46,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <param name="price">Purchase price..</param>
         /// <param name="charges">Charges accrued in portfolio&#39;s base currency..</param>
         /// <param name="exchangeRate">The exchange rate between the notation&#39;s currency and the portfolio currency..</param>
-        public PortfolioTransactionModifyDataTransaction(string id = default(string), PortfolioTransactionDeleteDataNotation notation = default(PortfolioTransactionDeleteDataNotation), string time = default(string), decimal numberShares = default(decimal), decimal price = default(decimal), decimal charges = default(decimal), decimal exchangeRate = default(decimal))
+        public PortfolioTransactionModifyDataTransaction(string id,PortfolioTransactionDeleteDataNotation notation = default(PortfolioTransactionDeleteDataNotation), string time = default(string), decimal numberShares = default(decimal), decimal price = default(decimal), decimal charges = default(decimal), decimal exchangeRate = default(decimal))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

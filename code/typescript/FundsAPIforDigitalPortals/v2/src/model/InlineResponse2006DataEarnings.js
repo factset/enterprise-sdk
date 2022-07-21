@@ -18,7 +18,6 @@ import InlineResponse2006DataEarningsValue from './InlineResponse2006DataEarning
 /**
  * The InlineResponse2006DataEarnings model module.
  * @module model/InlineResponse2006DataEarnings
- * @version 0.10.0
  */
 class InlineResponse2006DataEarnings {
     /**

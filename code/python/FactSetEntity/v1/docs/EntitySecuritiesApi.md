@@ -24,8 +24,8 @@ Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_securities_api
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntity.model.entity_securities_response import EntitySecuritiesResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,10 +56,12 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     api_instance = entity_securities_api.EntitySecuritiesApi(api_client)
 
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    security_type = "EQ" # str | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional) (default to "EQ")
+    security_type = "EQ" # str | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional) if omitted the server will use the default value of "EQ"
 
     try:
         # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_entity_securities(ids, security_type=security_type)
         pprint(api_response)
 
@@ -118,9 +120,8 @@ Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_securities_api
-from fds.sdk.FactSetEntity.model.entity_securities_request import EntitySecuritiesRequest
-from fds.sdk.FactSetEntity.model.error_response import ErrorResponse
-from fds.sdk.FactSetEntity.model.entity_securities_response import EntitySecuritiesResponse
+from fds.sdk.FactSetEntity.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +158,7 @@ with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
 
     try:
         # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.post_entity_securities(entity_securities_request)
         pprint(api_response)
 

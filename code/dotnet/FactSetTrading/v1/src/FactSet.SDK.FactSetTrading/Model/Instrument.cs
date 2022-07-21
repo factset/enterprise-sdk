@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// <param name="securityDescription">Security Description.</param>
         /// <param name="maturityMonthYear">Maturity month year.</param>
         /// <param name="maturityDay">Maturity day.</param>
-        public Instrument(string symbol = default(string), string securityType = default(string), string cfiCode = default(string), string securityExchange = default(string), string issuer = default(string), string securityDescription = default(string), string maturityMonthYear = default(string), string maturityDay = default(string))
+        public Instrument(string symbol,string securityType = default(string), string cfiCode = default(string), string securityExchange = default(string), string issuer = default(string), string securityDescription = default(string), string maturityMonthYear = default(string), string maturityDay = default(string))
         {
             // to ensure "symbol" is required (not null)
             if (symbol == null) {

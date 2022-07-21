@@ -18,7 +18,6 @@ import Frequency from './Frequency';
 /**
  * The UnderlyingVolumeRequest model module.
  * @module model/UnderlyingVolumeRequest
- * @version 0.20.0
  */
 class UnderlyingVolumeRequest {
     /**

@@ -56,7 +56,6 @@ import RequestFilesApi from './api/RequestFilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

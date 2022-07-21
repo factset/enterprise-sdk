@@ -24,8 +24,8 @@ Get the funds active status, share class status, and database availability. Most
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import helper_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.statuses_response import StatusesResponse
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get Fund's current status and database availability
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_statuses(ids)
         pprint(api_response)
 
@@ -116,9 +117,8 @@ Get the funds active status, share class status, and database availability. Most
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFunds
 from fds.sdk.FactSetFunds.api import helper_api
-from fds.sdk.FactSetFunds.model.error_response import ErrorResponse
-from fds.sdk.FactSetFunds.model.statuses_response import StatusesResponse
-from fds.sdk.FactSetFunds.model.statuses_request import StatusesRequest
+from fds.sdk.FactSetFunds.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     try:
         # Get Fund's current status and database availability for large list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_statuses_for_list(statuses_request)
         pprint(api_response)
 

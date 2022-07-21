@@ -848,8 +848,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -898,8 +898,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -952,8 +952,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1001,8 +1001,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1236,8 +1236,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1286,8 +1286,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1340,8 +1340,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1389,8 +1389,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1438,8 +1438,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             themes (str): Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.. [optional]
             categories (str): Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.. [optional]
@@ -1485,8 +1485,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             themes (str): Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.. [optional]
             categories (str): Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.. [optional]
@@ -1536,8 +1536,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             themes (str): Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.. [optional]
             categories (str): Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.. [optional]
@@ -1582,8 +1582,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             themes (str): Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes.. [optional]
             categories (str): Comma delimited string of category ids. Full list of signal categories can be viewed at /categories.. [optional]
@@ -1628,8 +1628,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1678,8 +1678,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1732,8 +1732,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]
@@ -1781,8 +1781,8 @@ class EventsApi(object):
 
 
         Keyword Args:
-            created (DateTimeInterval): A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
-            updated (DateTimeInterval): A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
+            created (DateTimeInterval): A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.. [optional]
+            updated (DateTimeInterval): A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.. [optional]
             signal_ids (str): [optional]
             ids (str): Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.. [optional]
             portfolios (str): Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb. [optional]

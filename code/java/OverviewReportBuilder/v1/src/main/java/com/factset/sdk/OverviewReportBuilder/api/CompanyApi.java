@@ -432,6 +432,8 @@ public class CompanyApi {
    * Transactions
    * 
    * @param id Company ticker (required)
+   * @param transactionType Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)
+   * @param financingType Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)
    * @return StachTableResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -446,14 +448,16 @@ public class CompanyApi {
        <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public StachTableResponse transactionsGet(String id) throws ApiException {
-    return transactionsGetWithHttpInfo(id).getData();
+  public StachTableResponse transactionsGet(String id, String transactionType, String financingType) throws ApiException {
+    return transactionsGetWithHttpInfo(id, transactionType, financingType).getData();
   }
 
   /**
    * Transactions
    * 
    * @param id Company ticker (required)
+   * @param transactionType Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional)
+   * @param financingType Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional)
    * @return ApiResponse&lt;StachTableResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -468,7 +472,7 @@ public class CompanyApi {
        <tr><td> 503 </td><td> Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under \&quot;Performance - 404 and 500 Responses\&quot; using &#x60;Report Issue&#x60; at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<StachTableResponse> transactionsGetWithHttpInfo(String id) throws ApiException {
+  public ApiResponse<StachTableResponse> transactionsGetWithHttpInfo(String id, String transactionType, String financingType) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -486,6 +490,8 @@ public class CompanyApi {
     java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionType", transactionType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "financingType", financingType));
 
     
     

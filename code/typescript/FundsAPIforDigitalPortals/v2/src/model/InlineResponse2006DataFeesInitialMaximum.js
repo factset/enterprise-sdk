@@ -17,7 +17,6 @@ import InlineResponse2006DataFeesInitialCountry1 from './InlineResponse2006DataF
 /**
  * The InlineResponse2006DataFeesInitialMaximum model module.
  * @module model/InlineResponse2006DataFeesInitialMaximum
- * @version 0.10.0
  */
 class InlineResponse2006DataFeesInitialMaximum {
     /**

@@ -1,6 +1,6 @@
 # fds.sdk.IRNCustomSymbols.HybridSymbolsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,9 +23,8 @@ Create standard symbol metadata
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import hybrid_symbols_api
-from fds.sdk.IRNCustomSymbols.model.new_item_dto import NewItemDto
-from fds.sdk.IRNCustomSymbols.model.create_standard_symbol_metadata_dto import CreateStandardSymbolMetadataDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -85,6 +84,8 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Create standard symbol metadata
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_standard_symbol_metadata(create_standard_symbol_metadata_dto=create_standard_symbol_metadata_dto)
         pprint(api_response)
 
@@ -137,7 +138,8 @@ Get all custom field and standard field details on a specific standard symbol
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import hybrid_symbols_api
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,6 +173,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Get all custom field and standard field details on a specific standard symbol
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_standard_symbol_metadata_guid(standard_symbol)
         pprint(api_response)
 
@@ -223,8 +226,8 @@ Edit a standard symbol’s standard field and custom field data
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import hybrid_symbols_api
-from fds.sdk.IRNCustomSymbols.model.operation import Operation
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -267,7 +270,10 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Edit a standard symbol’s standard field and custom field data
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.patch_standard_symbol(standard_symbol_id, operation=operation)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling HybridSymbolsApi->patch_standard_symbol: %s\n" % e)
 ```

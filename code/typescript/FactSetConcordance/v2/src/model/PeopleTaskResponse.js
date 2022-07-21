@@ -17,7 +17,6 @@ import PeopleTask from './PeopleTask';
 /**
  * The PeopleTaskResponse model module.
  * @module model/PeopleTaskResponse
- * @version 0.20.1
  */
 class PeopleTaskResponse {
     /**

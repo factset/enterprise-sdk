@@ -17,7 +17,6 @@ import ProfileDataBusinessIndustry from './ProfileDataBusinessIndustry';
 /**
  * The ProfileDataContactPeople model module.
  * @module model/ProfileDataContactPeople
- * @version 0.20.0
  */
 class ProfileDataContactPeople {
     /**

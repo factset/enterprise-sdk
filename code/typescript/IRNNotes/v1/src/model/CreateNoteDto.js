@@ -20,7 +20,6 @@ import UserSerialDto from './UserSerialDto';
 /**
  * The CreateNoteDto model module.
  * @module model/CreateNoteDto
- * @version 0.20.0
  */
 class CreateNoteDto {
     /**

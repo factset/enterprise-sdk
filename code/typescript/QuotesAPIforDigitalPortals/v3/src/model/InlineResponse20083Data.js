@@ -17,7 +17,6 @@ import InlineResponse20083DataAsks from './InlineResponse20083DataAsks';
 /**
  * The InlineResponse20083Data model module.
  * @module model/InlineResponse20083Data
- * @version 0.10.0
  */
 class InlineResponse20083Data {
     /**

@@ -17,7 +17,6 @@ import Chains from './Chains';
 /**
  * The ChainsResponse model module.
  * @module model/ChainsResponse
- * @version 0.20.0
  */
 class ChainsResponse {
     /**

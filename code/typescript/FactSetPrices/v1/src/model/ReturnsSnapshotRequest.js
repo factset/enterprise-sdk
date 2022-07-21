@@ -18,7 +18,6 @@ import DividendAdjustSnapshot from './DividendAdjustSnapshot';
 /**
  * The ReturnsSnapshotRequest model module.
  * @module model/ReturnsSnapshotRequest
- * @version 0.20.0
  */
 class ReturnsSnapshotRequest {
     /**

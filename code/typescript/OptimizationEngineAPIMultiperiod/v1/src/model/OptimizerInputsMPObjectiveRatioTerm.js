@@ -21,7 +21,6 @@ import OptimizerInputsSharpeRatioTerm from './OptimizerInputsSharpeRatioTerm';
 /**
  * The OptimizerInputsMPObjectiveRatioTerm model module.
  * @module model/OptimizerInputsMPObjectiveRatioTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPObjectiveRatioTerm {
     /**

@@ -23,7 +23,8 @@ Endpoint to retrieve raw data in JSON format for a particular Market Intelligenc
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.MarketIntelligence
 from fds.sdk.MarketIntelligence.api import retrieve_refreshed_data_api
-from fds.sdk.MarketIntelligence.model.report_data_header import ReportDataHeader
+from fds.sdk.MarketIntelligence.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,6 +58,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve data for desired report.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_data_poll_id_result_get(poll_id)
         pprint(api_response)
 

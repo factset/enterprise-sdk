@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ReturnType model module.
  * @module model/ReturnType
- * @version 0.20.0
  */
 class ReturnType {
     /**

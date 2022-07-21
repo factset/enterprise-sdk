@@ -17,7 +17,6 @@ import RecordChangeDto from './RecordChangeDto';
 /**
  * The MeetingEventDto model module.
  * @module model/MeetingEventDto
- * @version 0.20.0
  */
 class MeetingEventDto {
     /**

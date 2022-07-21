@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsDiversificationConstraint model module.
  * @module model/OptimizerInputsDiversificationConstraint
- * @version 0.20.0
  */
 class OptimizerInputsDiversificationConstraint {
     /**

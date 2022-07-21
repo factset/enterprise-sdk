@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIABCalculationStatusSummary model module.
  * @module model/FIABCalculationStatusSummary
- * @version 0.20.0
  */
 class FIABCalculationStatusSummary {
     /**

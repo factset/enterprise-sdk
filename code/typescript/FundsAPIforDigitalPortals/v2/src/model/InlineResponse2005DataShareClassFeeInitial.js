@@ -19,7 +19,6 @@ import InlineResponse2005DataShareClassFeeInitialMinimum from './InlineResponse2
 /**
  * The InlineResponse2005DataShareClassFeeInitial model module.
  * @module model/InlineResponse2005DataShareClassFeeInitial
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeInitial {
     /**

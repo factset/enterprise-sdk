@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsExpectedReturn model module.
  * @module model/OptimizerInputsExpectedReturn
- * @version 0.20.0
  */
 class OptimizerInputsExpectedReturn {
     /**

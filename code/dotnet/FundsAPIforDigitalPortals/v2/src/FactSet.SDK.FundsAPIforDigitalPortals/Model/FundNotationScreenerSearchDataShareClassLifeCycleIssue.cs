@@ -41,7 +41,7 @@ namespace FactSet.SDK.FundsAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">The starting point of the date range (inclusive), or &#x60;null&#x60; to indicate that the date range extends indefinitely into the past. (required).</param>
         /// <param name="end">The ending point of the date range (exclusive), or &#x60;null&#x60; to indicate that the date range extends indefinitely into the future. (required).</param>
-        public FundNotationScreenerSearchDataShareClassLifeCycleIssue(DateTime start = default(DateTime), DateTime end = default(DateTime))
+        public FundNotationScreenerSearchDataShareClassLifeCycleIssue(DateTime start, DateTime end)
         {
             this.Start = start;
             this.End = end;

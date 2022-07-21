@@ -19,7 +19,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTailRiskTerm model module.
  * @module model/OptimizerInputsTailRiskTerm
- * @version 0.20.0
  */
 class OptimizerInputsTailRiskTerm {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20085DataRange model module.
  * @module model/InlineResponse20085DataRange
- * @version 0.10.0
  */
 class InlineResponse20085DataRange {
     /**

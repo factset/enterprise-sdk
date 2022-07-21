@@ -42,7 +42,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// </summary>
         /// <param name="yieldCurveDate">yieldCurveDate (required).</param>
         /// <param name="partialDurationMonths">partialDurationMonths.</param>
-        public FIJobSettings(string yieldCurveDate = default(string), List<int> partialDurationMonths = default(List<int>))
+        public FIJobSettings(string yieldCurveDate,List<int> partialDurationMonths = default(List<int>))
         {
             // to ensure "yieldCurveDate" is required (not null)
             if (yieldCurveDate == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataShareClassFeeRedemptionMaximum model module.
  * @module model/InlineResponse2005DataShareClassFeeRedemptionMaximum
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeRedemptionMaximum {
     /**

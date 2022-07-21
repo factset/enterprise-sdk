@@ -27,7 +27,8 @@ Fundamental data for a debt instrument; any other instrument yields empty values
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.BondsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,14 +58,16 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of the instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Fundamental data for a debt instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_debt_instrument_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -77,9 +80,9 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -119,7 +122,8 @@ Key figures of a debt instrument. The key figures are calculated using delayed p
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.BondsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,13 +153,15 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Key figures of a debt instrument.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_debt_instrument_key_figures_notation_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -168,7 +174,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -209,8 +215,8 @@ Search for issuers of debt instruments. FactSet does not consolidate the data pr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_object import InlineObject
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.BondsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -240,7 +246,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=DebtInstrumentIssuerSearchData(
             name=DebtInstrumentIssuerSearchDataName(
                 search_value="BA#$!T?W$sYJ4ha$7S$3Bm",
@@ -272,7 +278,9 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Search for issuers of debt instruments.
-        api_response = api_instance.post_debt_instrument_issuer_search(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_debt_instrument_issuer_search(inline_object=inline_object)
         pprint(api_response)
 
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
@@ -284,7 +292,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -324,8 +332,8 @@ Screener for debt instruments' notations based on debt instrument-specific param
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.BondsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -355,7 +363,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
 
-    body = InlineObject1(
+    inline_object1 = InlineObject1(
         data=DebtInstrumentNotationScreenerSearchData(
             validation=DebtInstrumentNotationScreenerSearchDataValidation(
                 only_active=True,
@@ -679,19 +687,19 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "valueUnit.code",
-            ],
+            sort=["instrument.name"],
             pagination=DebtInstrumentNotationScreenerSearchMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject1 |  (optional)
 
     try:
         # Screener for debt instruments' notations based on debt instrument-specific parameters.
-        api_response = api_instance.post_debt_instrument_notation_screener_search(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_debt_instrument_notation_screener_search(inline_object1=inline_object1)
         pprint(api_response)
 
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
@@ -703,7 +711,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -743,8 +751,8 @@ The endpoint returns the possible values and value ranges for the parameters use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_object2 import InlineObject2
-from fds.sdk.BondsAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.BondsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -774,7 +782,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
 
-    body = InlineObject2(
+    inline_object2 = InlineObject2(
         data=DebtInstrumentNotationScreenerValueRangesGetData(
             validation=DebtInstrumentNotationScreenerSearchDataValidation(
                 only_active=True,
@@ -1108,7 +1116,9 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/debtInstrument/notation/screener/search.`
-        api_response = api_instance.post_debt_instrument_notation_screener_value_ranges_get(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_debt_instrument_notation_screener_value_ranges_get(inline_object2=inline_object2)
         pprint(api_response)
 
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
@@ -1120,7 +1130,7 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 

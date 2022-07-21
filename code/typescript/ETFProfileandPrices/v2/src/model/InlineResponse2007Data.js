@@ -17,7 +17,6 @@ import InlineResponse2007DataClassifications from './InlineResponse2007DataClass
 /**
  * The InlineResponse2007Data model module.
  * @module model/InlineResponse2007Data
- * @version 0.10.0
  */
 class InlineResponse2007Data {
     /**

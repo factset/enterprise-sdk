@@ -18,7 +18,6 @@ import NotationSearchByTextDataValidationMarketSelection from './NotationSearchB
 /**
  * The NotationSearchByTextDataValidationMarket model module.
  * @module model/NotationSearchByTextDataValidationMarket
- * @version 0.10.0
  */
 class NotationSearchByTextDataValidationMarket {
     /**

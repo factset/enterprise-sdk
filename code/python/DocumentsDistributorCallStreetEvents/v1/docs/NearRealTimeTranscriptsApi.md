@@ -26,9 +26,8 @@ Returns the active calls happening at the moment
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import near_real_time_transcripts_api
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.error import Error
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_calls import NRTCalls
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_calls400_response import NRTCalls400Response
+from fds.sdk.DocumentsDistributorCallStreetEvents.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +57,7 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     # Create an instance of the API class
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
-    sort = "-startDate" # str | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used (optional) (default to "-startDate")
+    sort = "-startDate" # str | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used (optional) if omitted the server will use the default value of "-startDate"
     report_id = 1 # int | Unique identifier for an event (optional)
     audio_source_id = 1 # int | Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids. (optional)
     entity_id = "entityId_example" # str | Factset entity level identifier for the company hosting the event (optional)
@@ -69,6 +68,8 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
 
     try:
         # Returns the active calls happening at the moment
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_calls(sort=sort, report_id=report_id, audio_source_id=audio_source_id, entity_id=entity_id, ticker=ticker, call_status=call_status, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 
@@ -132,9 +133,8 @@ Returns the  indexed transcript data  in small increments throughout the duratio
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import near_real_time_transcripts_api
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.indexed_nrt import IndexedNRT
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets400_response import NRTSnippets400Response
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.error import Error
+from fds.sdk.DocumentsDistributorCallStreetEvents.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -171,6 +171,8 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
 
     try:
         # Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_indexed_nrt(audio_source_id, report_id=report_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 
@@ -230,9 +232,8 @@ Returns the latest snippets from an active call
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import near_real_time_transcripts_api
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets import NRTSnippets
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets400_response import NRTSnippets400Response
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.error import Error
+from fds.sdk.DocumentsDistributorCallStreetEvents.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -269,6 +270,8 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
 
     try:
         # Returns the latest transcript snippets from an active call
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_list_snippets(audio_source_id, report_id=report_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 
@@ -328,9 +331,8 @@ Returns the latest speakerIds with the cosine scores(confidence scores) generate
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import near_real_time_transcripts_api
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.error import Error
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_speakerids400_response import NRTSpeakerids400Response
-from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_speakerids import NRTSpeakerids
+from fds.sdk.DocumentsDistributorCallStreetEvents.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -361,12 +363,14 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     api_instance = near_real_time_transcripts_api.NearRealTimeTranscriptsApi(api_client)
 
     audio_source_id = 1 # int | The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids. 
-    sort = "startDate" # str | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used (optional) (default to "startDate")
+    sort = "startDate" # str | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used (optional) if omitted the server will use the default value of "startDate"
     pagination_limit = 0 # int | Specifies the number of results to return per page.[ Min=0 ; Max=500 ] (optional)
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
 
     try:
         # Returns the latest speakerIds with the confidence scores generated for an active call.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_bulk_documents_nrt_v1_speakerids(audio_source_id, sort=sort, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 

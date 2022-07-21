@@ -21,7 +21,6 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Coupons service.
 * @module api/CouponsApi
-* @version 0.20.0
 */
 export default class CouponsApi {
 

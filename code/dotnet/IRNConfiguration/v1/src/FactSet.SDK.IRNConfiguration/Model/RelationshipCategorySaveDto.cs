@@ -42,7 +42,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="categoryName">categoryName (required).</param>
         /// <param name="isContactToContact">isContactToContact (default to false).</param>
         /// <param name="isContactToSymbol">isContactToSymbol (default to false).</param>
-        public RelationshipCategorySaveDto(string categoryName = default(string), bool isContactToContact = false, bool isContactToSymbol = false)
+        public RelationshipCategorySaveDto(string categoryName,bool isContactToContact = false, bool isContactToSymbol = false)
         {
             // to ensure "categoryName" is required (not null)
             if (categoryName == null) {

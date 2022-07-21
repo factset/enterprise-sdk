@@ -530,7 +530,6 @@ import PricesApi from './api/PricesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.2
 */
 export {
     /**

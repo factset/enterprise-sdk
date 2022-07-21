@@ -18,7 +18,6 @@ import FundIssuerSearchDataShareClassRegistrationCountryRestrict from './FundIss
 /**
  * The FundIssuerSearchDataShareClassRegistrationCountry model module.
  * @module model/FundIssuerSearchDataShareClassRegistrationCountry
- * @version 0.10.0
  */
 class FundIssuerSearchDataShareClassRegistrationCountry {
     /**

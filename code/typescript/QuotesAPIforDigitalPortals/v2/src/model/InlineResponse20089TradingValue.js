@@ -17,7 +17,6 @@ import InlineResponse20089TradingValueAverage from './InlineResponse20089Trading
 /**
  * The InlineResponse20089TradingValue model module.
  * @module model/InlineResponse20089TradingValue
- * @version 0.9.2
  */
 class InlineResponse20089TradingValue {
     /**

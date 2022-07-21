@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.AxiomaEquityOptimizer",
   "projectName": "fds.sdk.AxiomaEquityOptimizer",
-  "packageVersion": "0.8.2",
+  "packageVersion": "0.8.3",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Axioma Equity Optimizer client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/AxiomaEquityOptimizer/v1",
-  "httpUserAgent": "fds-sdk/python/AxiomaEquityOptimizer/0.8.2",
+  "httpUserAgent": "fds-sdk/python/AxiomaEquityOptimizer/0.8.3",
   "files": {
     "LICENSE": {}
   }

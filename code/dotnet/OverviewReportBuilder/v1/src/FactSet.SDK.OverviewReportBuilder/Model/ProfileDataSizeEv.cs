@@ -41,7 +41,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="meta">meta.</param>
-        public ProfileDataSizeEv(decimal? value = default(decimal?), DataPointMeta meta = default(DataPointMeta))
+        public ProfileDataSizeEv(decimal? value,DataPointMeta meta = default(DataPointMeta))
         {
             // to ensure "value" is required (not null)
             if (value == null) {

@@ -81,6 +81,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -169,6 +170,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -259,6 +261,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -349,6 +352,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a language.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -441,6 +445,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var code = "code_example";  // string | ISO 639-1 code of the language.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -533,6 +538,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -625,6 +631,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a market.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -717,6 +724,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -809,6 +817,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -901,6 +910,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -989,6 +999,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a continent.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1081,6 +1092,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -1173,6 +1185,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a country.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1265,6 +1278,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var code = "code_example";  // string | ISO 3166-1 alpha-2 code of a country.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1357,6 +1371,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -1449,6 +1464,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a region.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1541,6 +1557,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -1633,6 +1650,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a timezone. An invalid or unsupported identifier will result in an error.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1723,6 +1741,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var name = "name_example";  // string | Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1813,6 +1832,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -1905,6 +1925,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a fractional currency.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1997,6 +2018,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -2089,6 +2111,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var id = 8.14D;  // decimal | Identifier of a value unit.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -2181,6 +2204,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject(); // InlineObject |  (optional) 
 
             try
@@ -2269,6 +2293,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
@@ -2357,6 +2382,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
@@ -2445,6 +2471,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
@@ -2533,6 +2560,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject4(); // InlineObject4 |  (optional) 
 
             try
@@ -2621,6 +2649,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try
@@ -2709,6 +2738,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject7(); // InlineObject7 |  (optional) 
 
             try
@@ -2797,6 +2827,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject8(); // InlineObject8 |  (optional) 
 
             try
@@ -2885,6 +2916,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BasicApi(config);
+
             var body = new InlineObject6(); // InlineObject6 |  (optional) 
 
             try

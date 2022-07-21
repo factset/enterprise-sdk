@@ -17,7 +17,6 @@ import StatusObject from './StatusObject';
 /**
  * The ErrorMetaObject model module.
  * @module model/ErrorMetaObject
- * @version 0.10.0
  */
 class ErrorMetaObject {
     /**

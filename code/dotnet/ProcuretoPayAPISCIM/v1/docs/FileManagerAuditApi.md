@@ -49,6 +49,7 @@ namespace Example
 
             var apiInstance = new FileManagerAuditApi(config);
 
+
             try
             {
                 // Get File Manager audit data.

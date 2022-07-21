@@ -18,7 +18,6 @@ import Frequency from './Frequency';
 /**
  * The OptionsPricesRequest model module.
  * @module model/OptionsPricesRequest
- * @version 0.20.0
  */
 class OptionsPricesRequest {
     /**

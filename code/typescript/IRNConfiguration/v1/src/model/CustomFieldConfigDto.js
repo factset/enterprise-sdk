@@ -21,7 +21,6 @@ import OptionsConfigDto from './OptionsConfigDto';
 /**
  * The CustomFieldConfigDto model module.
  * @module model/CustomFieldConfigDto
- * @version 0.20.0
  */
 class CustomFieldConfigDto {
     /**

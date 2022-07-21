@@ -17,7 +17,6 @@ import SchemaSubAttributes from './SchemaSubAttributes';
 /**
  * The SchemaAttributes model module.
  * @module model/SchemaAttributes
- * @version 0.20.1
  */
 class SchemaAttributes {
     /**

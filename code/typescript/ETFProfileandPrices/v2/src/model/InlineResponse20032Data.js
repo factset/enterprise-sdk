@@ -18,7 +18,6 @@ import InlineResponse20032DataMaxCapitalGainsRate from './InlineResponse20032Dat
 /**
  * The InlineResponse20032Data model module.
  * @module model/InlineResponse20032Data
- * @version 0.10.0
  */
 class InlineResponse20032Data {
     /**

@@ -24,8 +24,8 @@ Get a list of locations.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import locations_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.location_resource_list import LocationResourceList
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -63,6 +63,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of locations.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.locations_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
         pprint(api_response)
 
@@ -121,8 +123,8 @@ Get a location.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import locations_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.location_resource import LocationResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -156,6 +158,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a location.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.locations_id_get(id)
         pprint(api_response)
 
@@ -210,9 +213,8 @@ Patch a location (add, replace, or remove attributes of a location.)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import locations_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.patch import Patch
-from fds.sdk.ProcuretoPayAPISCIM.model.location_resource import LocationResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,6 +260,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Patch a location (add, replace, or remove attributes of a location.)
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.locations_id_patch(id, patch=patch)
         pprint(api_response)
 
@@ -313,8 +317,8 @@ Replace a location.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import locations_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.location_resource import LocationResource
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -353,6 +357,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Replace a location.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.locations_id_put(id, location_resource)
         pprint(api_response)
 

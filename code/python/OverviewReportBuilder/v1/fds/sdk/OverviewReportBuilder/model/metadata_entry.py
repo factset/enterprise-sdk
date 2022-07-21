@@ -42,14 +42,14 @@ def lazy_import():
     from fds.sdk.OverviewReportBuilder.model.frequency_frequency import FrequencyFrequency
     from fds.sdk.OverviewReportBuilder.model.metric import Metric
     from fds.sdk.OverviewReportBuilder.model.metric_metric import MetricMetric
+    from fds.sdk.OverviewReportBuilder.model.relevance_type import RelevanceType
+    from fds.sdk.OverviewReportBuilder.model.relevance_type_relevance_type import RelevanceTypeRelevanceType
     from fds.sdk.OverviewReportBuilder.model.scale import Scale
     from fds.sdk.OverviewReportBuilder.model.scale_scale import ScaleScale
     from fds.sdk.OverviewReportBuilder.model.transaction_id import TransactionId
     from fds.sdk.OverviewReportBuilder.model.transaction_id_transaction_id import TransactionIdTransactionId
     from fds.sdk.OverviewReportBuilder.model.transaction_type import TransactionType
     from fds.sdk.OverviewReportBuilder.model.transaction_type_transaction_type import TransactionTypeTransactionType
-    from fds.sdk.OverviewReportBuilder.model.units import Units
-    from fds.sdk.OverviewReportBuilder.model.units_units import UnitsUnits
     from fds.sdk.OverviewReportBuilder.model.value_type import ValueType
     from fds.sdk.OverviewReportBuilder.model.value_type_value_type import ValueTypeValueType
     globals()['Category'] = Category
@@ -64,14 +64,14 @@ def lazy_import():
     globals()['FrequencyFrequency'] = FrequencyFrequency
     globals()['Metric'] = Metric
     globals()['MetricMetric'] = MetricMetric
+    globals()['RelevanceType'] = RelevanceType
+    globals()['RelevanceTypeRelevanceType'] = RelevanceTypeRelevanceType
     globals()['Scale'] = Scale
     globals()['ScaleScale'] = ScaleScale
     globals()['TransactionId'] = TransactionId
     globals()['TransactionIdTransactionId'] = TransactionIdTransactionId
     globals()['TransactionType'] = TransactionType
     globals()['TransactionTypeTransactionType'] = TransactionTypeTransactionType
-    globals()['Units'] = Units
-    globals()['UnitsUnits'] = UnitsUnits
     globals()['ValueType'] = ValueType
     globals()['ValueTypeValueType'] = ValueTypeValueType
 
@@ -135,10 +135,10 @@ class MetadataEntry(ModelComposed):
             'description': (DescriptionDescription,),  # noqa: E501
             'frequency': (FrequencyFrequency,),  # noqa: E501
             'metric': (MetricMetric,),  # noqa: E501
+            'relevance_type': (RelevanceTypeRelevanceType,),  # noqa: E501
             'scale': (ScaleScale,),  # noqa: E501
             'transaction_id': (TransactionIdTransactionId,),  # noqa: E501
             'transaction_type': (TransactionTypeTransactionType,),  # noqa: E501
-            'units': (UnitsUnits,),  # noqa: E501
             'value_type': (ValueTypeValueType,),  # noqa: E501
         }
 
@@ -154,10 +154,10 @@ class MetadataEntry(ModelComposed):
         'description': 'description',  # noqa: E501
         'frequency': 'frequency',  # noqa: E501
         'metric': 'metric',  # noqa: E501
+        'relevance_type': 'relevanceType',  # noqa: E501
         'scale': 'scale',  # noqa: E501
         'transaction_id': 'transactionId',  # noqa: E501
         'transaction_type': 'transactionType',  # noqa: E501
-        'units': 'units',  # noqa: E501
         'value_type': 'valueType',  # noqa: E501
     }
 
@@ -206,10 +206,10 @@ class MetadataEntry(ModelComposed):
             description (DescriptionDescription): [optional]  # noqa: E501
             frequency (FrequencyFrequency): [optional]  # noqa: E501
             metric (MetricMetric): [optional]  # noqa: E501
+            relevance_type (RelevanceTypeRelevanceType): [optional]  # noqa: E501
             scale (ScaleScale): [optional]  # noqa: E501
             transaction_id (TransactionIdTransactionId): [optional]  # noqa: E501
             transaction_type (TransactionTypeTransactionType): [optional]  # noqa: E501
-            units (UnitsUnits): [optional]  # noqa: E501
             value_type (ValueTypeValueType): [optional]  # noqa: E501
         """
 
@@ -316,10 +316,10 @@ class MetadataEntry(ModelComposed):
             description (DescriptionDescription): [optional]  # noqa: E501
             frequency (FrequencyFrequency): [optional]  # noqa: E501
             metric (MetricMetric): [optional]  # noqa: E501
+            relevance_type (RelevanceTypeRelevanceType): [optional]  # noqa: E501
             scale (ScaleScale): [optional]  # noqa: E501
             transaction_id (TransactionIdTransactionId): [optional]  # noqa: E501
             transaction_type (TransactionTypeTransactionType): [optional]  # noqa: E501
-            units (UnitsUnits): [optional]  # noqa: E501
             value_type (ValueTypeValueType): [optional]  # noqa: E501
         """
 
@@ -394,10 +394,10 @@ class MetadataEntry(ModelComposed):
               Description,
               Frequency,
               Metric,
+              RelevanceType,
               Scale,
               TransactionId,
               TransactionType,
-              Units,
               ValueType,
           ],
         }

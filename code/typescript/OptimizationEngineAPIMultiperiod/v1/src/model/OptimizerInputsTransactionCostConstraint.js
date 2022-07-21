@@ -21,7 +21,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTransactionCostConstraint model module.
  * @module model/OptimizerInputsTransactionCostConstraint
- * @version 0.20.0
  */
 class OptimizerInputsTransactionCostConstraint {
     /**

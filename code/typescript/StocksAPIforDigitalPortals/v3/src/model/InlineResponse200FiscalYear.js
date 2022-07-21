@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200FiscalYear model module.
  * @module model/InlineResponse200FiscalYear
- * @version 0.10.0
  */
 class InlineResponse200FiscalYear {
     /**

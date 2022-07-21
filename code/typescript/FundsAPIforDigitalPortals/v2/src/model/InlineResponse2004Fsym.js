@@ -18,7 +18,6 @@ import InlineResponse2004FsymRegional from './InlineResponse2004FsymRegional';
 /**
  * The InlineResponse2004Fsym model module.
  * @module model/InlineResponse2004Fsym
- * @version 0.10.0
  */
 class InlineResponse2004Fsym {
     /**

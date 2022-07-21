@@ -44,7 +44,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Model
         /// <param name="startDate">The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. .</param>
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. .</param>
         /// <param name="frequency">frequency.</param>
-        public SpotsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency))
+        public SpotsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

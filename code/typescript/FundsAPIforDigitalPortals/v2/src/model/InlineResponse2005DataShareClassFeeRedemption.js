@@ -18,7 +18,6 @@ import InlineResponse2005DataShareClassFeeRedemptionMaximum from './InlineRespon
 /**
  * The InlineResponse2005DataShareClassFeeRedemption model module.
  * @module model/InlineResponse2005DataShareClassFeeRedemption
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeRedemption {
     /**

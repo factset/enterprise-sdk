@@ -17,7 +17,6 @@ import InlineResponse20079DataLatestPerformance from './InlineResponse20079DataL
 /**
  * The InlineResponse20079DataLatest model module.
  * @module model/InlineResponse20079DataLatest
- * @version 0.10.0
  */
 class InlineResponse20079DataLatest {
     /**

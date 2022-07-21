@@ -32,7 +32,7 @@ info:
 
     [https://api.factset.com/formula-api/v1/spec](https://api.factset.com/formula-api/v1/spec)
   title: FactSet Formula API
-  version: 1.2.0
+  version: 1.2.2
 servers:
 - description: Production
   url: https://api.factset.com/formula-api
@@ -4689,10 +4689,6 @@ components:
       - example: 4
         nullable: true
         type: integer
-      - example: 2021-11-09
-        format: date
-        nullable: true
-        type: string
       title: Time-Series SCALAR Result
     time_series_timeseries_object:
       description: The `result` attribute in the Time-Series Non-Flattened Response

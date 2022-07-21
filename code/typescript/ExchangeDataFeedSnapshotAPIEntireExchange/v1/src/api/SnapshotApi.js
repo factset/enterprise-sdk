@@ -19,7 +19,6 @@ import InlineResponse200 from '../model/InlineResponse200';
 /**
 * Snapshot service.
 * @module api/SnapshotApi
-* @version 0.20.0
 */
 export default class SnapshotApi {
 

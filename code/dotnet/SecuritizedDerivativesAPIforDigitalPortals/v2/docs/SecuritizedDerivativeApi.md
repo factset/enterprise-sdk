@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -145,9 +146,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = "id_example";  // string | Identifier of the instrument.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -170,9 +172,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -237,9 +239,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = "id_example";  // string | Identifier of a notation.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -262,9 +265,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of a notation. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -329,9 +332,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = "id_example";  // string | Identifier of an instrument.
+
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -354,9 +358,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2007**](InlineResponse2007.md)
@@ -380,7 +384,7 @@ Name | Type | Description  | Notes
 
 <a name="postsecuritizedderivativeissuersearch"></a>
 # **PostSecuritizedDerivativeIssuerSearch**
-> InlineResponse2002 PostSecuritizedDerivativeIssuerSearch (InlineObject body = null)
+> InlineResponse2002 PostSecuritizedDerivativeIssuerSearch (InlineObject inlineObject = null)
 
 Search for issuers of securitized derivatives.
 
@@ -421,12 +425,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var body = new InlineObject(); // InlineObject |  (optional) 
+
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
 
             try
             {
                 // Search for issuers of securitized derivatives.
-                InlineResponse2002 result = apiInstance.PostSecuritizedDerivativeIssuerSearch(body);
+                InlineResponse2002 result = apiInstance.PostSecuritizedDerivativeIssuerSearch(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -444,7 +449,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -468,7 +473,7 @@ Name | Type | Description  | Notes
 
 <a name="postsecuritizedderivativenotationrankingintradaylist"></a>
 # **PostSecuritizedDerivativeNotationRankingIntradayList**
-> InlineResponse2004 PostSecuritizedDerivativeNotationRankingIntradayList (InlineObject1 body = null)
+> InlineResponse2004 PostSecuritizedDerivativeNotationRankingIntradayList (InlineObject1 inlineObject1 = null)
 
 Ranking of securitized derivatives' notations using intraday figures.
 
@@ -509,12 +514,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var body = new InlineObject1(); // InlineObject1 |  (optional) 
+
+            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
             {
                 // Ranking of securitized derivatives' notations using intraday figures.
-                InlineResponse2004 result = apiInstance.PostSecuritizedDerivativeNotationRankingIntradayList(body);
+                InlineResponse2004 result = apiInstance.PostSecuritizedDerivativeNotationRankingIntradayList(inlineObject1);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -532,7 +538,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -556,7 +562,7 @@ Name | Type | Description  | Notes
 
 <a name="postsecuritizedderivativenotationscreenersearch"></a>
 # **PostSecuritizedDerivativeNotationScreenerSearch**
-> InlineResponse2006 PostSecuritizedDerivativeNotationScreenerSearch (InlineObject3 body = null)
+> InlineResponse2006 PostSecuritizedDerivativeNotationScreenerSearch (InlineObject3 inlineObject3 = null)
 
 Screener for securitized derivatives's notations based on securitized derivatives-specific parameters.
 
@@ -597,12 +603,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var body = new InlineObject3(); // InlineObject3 |  (optional) 
+
+            var inlineObject3 = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
             {
                 // Screener for securitized derivatives's notations based on securitized derivatives-specific parameters.
-                InlineResponse2006 result = apiInstance.PostSecuritizedDerivativeNotationScreenerSearch(body);
+                InlineResponse2006 result = apiInstance.PostSecuritizedDerivativeNotationScreenerSearch(inlineObject3);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -620,7 +627,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2006**](InlineResponse2006.md)
@@ -644,7 +651,7 @@ Name | Type | Description  | Notes
 
 <a name="postsecuritizedderivativenotationscreenervaluerangesget"></a>
 # **PostSecuritizedDerivativeNotationScreenerValueRangesGet**
-> InlineResponse2005 PostSecuritizedDerivativeNotationScreenerValueRangesGet (InlineObject2 body = null)
+> InlineResponse2005 PostSecuritizedDerivativeNotationScreenerValueRangesGet (InlineObject2 inlineObject2 = null)
 
 Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
 
@@ -685,12 +692,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var body = new InlineObject2(); // InlineObject2 |  (optional) 
+
+            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
             {
                 // Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
-                InlineResponse2005 result = apiInstance.PostSecuritizedDerivativeNotationScreenerValueRangesGet(body);
+                InlineResponse2005 result = apiInstance.PostSecuritizedDerivativeNotationScreenerValueRangesGet(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -708,7 +716,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2005**](InlineResponse2005.md)

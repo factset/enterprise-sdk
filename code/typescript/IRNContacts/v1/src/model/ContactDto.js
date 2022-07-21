@@ -23,7 +23,6 @@ import EmployerDto from './EmployerDto';
 /**
  * The ContactDto model module.
  * @module model/ContactDto
- * @version 0.20.0
  */
 class ContactDto {
     /**

@@ -111,7 +111,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="attributes">List of attributes to be searched in. The value &#x60;allEntitled&#x60; cannot appear with any other value..</param>
         /// <param name="value">Full-text search string. It may be enclosed in double quotes (\&quot;). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \&quot; daimler\&quot;. If only two characters are submitted, the search is executed as an exact search. (required).</param>
-        public NotationSearchByTextDataText(List<AttributesEnum> attributes = default(List<AttributesEnum>), string value = default(string))
+        public NotationSearchByTextDataText(string value,List<AttributesEnum> attributes = default(List<AttributesEnum>))
         {
             // to ensure "value" is required (not null)
             if (value == null) {

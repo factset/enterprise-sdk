@@ -44,8 +44,14 @@ docs/ProfileDataStage.md
 docs/ProfileDataStageCrunchbaseRank.md
 docs/ProfileDataStagePeActiveFirmNumber.md
 docs/ProfileDataStagePeActiveFirms.md
+docs/ProfileDataStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataStageTradeDateRange.md
 docs/ProfileResponse.md
+docs/RelevanceType.md
+docs/RelevanceTypeRelevanceType.md
+docs/RelevanceTypeRelevanceTypeC.md
+docs/RelevanceTypeRelevanceTypeP.md
+docs/RelevanceTypeRelevanceTypeS.md
 docs/Scale.md
 docs/ScaleScale.md
 docs/StachTableResponse.md
@@ -53,8 +59,6 @@ docs/TransactionId.md
 docs/TransactionIdTransactionId.md
 docs/TransactionType.md
 docs/TransactionTypeTransactionType.md
-docs/Units.md
-docs/UnitsUnits.md
 docs/ValueType.md
 docs/ValueTypeValueType.md
 fds/__init__.py
@@ -105,8 +109,14 @@ fds/sdk/OverviewReportBuilder/model/profile_data_stage.py
 fds/sdk/OverviewReportBuilder/model/profile_data_stage_crunchbase_rank.py
 fds/sdk/OverviewReportBuilder/model/profile_data_stage_pe_active_firm_number.py
 fds/sdk/OverviewReportBuilder/model/profile_data_stage_pe_active_firms.py
+fds/sdk/OverviewReportBuilder/model/profile_data_stage_pevc_latest_post_money_valuation.py
 fds/sdk/OverviewReportBuilder/model/profile_data_stage_trade_date_range.py
 fds/sdk/OverviewReportBuilder/model/profile_response.py
+fds/sdk/OverviewReportBuilder/model/relevance_type.py
+fds/sdk/OverviewReportBuilder/model/relevance_type_relevance_type.py
+fds/sdk/OverviewReportBuilder/model/relevance_type_relevance_type_c.py
+fds/sdk/OverviewReportBuilder/model/relevance_type_relevance_type_p.py
+fds/sdk/OverviewReportBuilder/model/relevance_type_relevance_type_s.py
 fds/sdk/OverviewReportBuilder/model/scale.py
 fds/sdk/OverviewReportBuilder/model/scale_scale.py
 fds/sdk/OverviewReportBuilder/model/stach_table_response.py
@@ -114,8 +124,6 @@ fds/sdk/OverviewReportBuilder/model/transaction_id.py
 fds/sdk/OverviewReportBuilder/model/transaction_id_transaction_id.py
 fds/sdk/OverviewReportBuilder/model/transaction_type.py
 fds/sdk/OverviewReportBuilder/model/transaction_type_transaction_type.py
-fds/sdk/OverviewReportBuilder/model/units.py
-fds/sdk/OverviewReportBuilder/model/units_units.py
 fds/sdk/OverviewReportBuilder/model/value_type.py
 fds/sdk/OverviewReportBuilder/model/value_type_value_type.py
 fds/sdk/OverviewReportBuilder/model_utils.py

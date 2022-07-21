@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CouponSchedules model module.
  * @module model/CouponSchedules
- * @version 0.20.0
  */
 class CouponSchedules {
     /**

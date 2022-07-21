@@ -64,10 +64,11 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var code = "code_example";  // string | Identifier of a news article.
-            var includeMedia = false;  // bool? | If true, media references are included if available. (optional)  (default to false)
+
+            var code = "code_example";  // string | 
+            var includeMedia = false;  // bool? |  (optional)  (default to false)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -90,10 +91,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **string**| Identifier of a news article. | 
- **includeMedia** | **bool?**| If true, media references are included if available. | [optional] [default to false]
+ **code** | **string**|  | 
+ **includeMedia** | **bool?**|  | [optional] [default to false]
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -158,9 +159,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14D;  // decimal | Identifier of a news article type.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -183,9 +185,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a news article type. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -250,8 +252,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
@@ -275,7 +278,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -340,7 +343,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14D;  // decimal | Identifier of a distributor.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -364,7 +368,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a distributor. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -430,7 +434,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var ids = new List<decimal>(); // List<decimal> | Identifiers of distributors. (optional) 
+
+            var ids = new List<decimal>(); // List<decimal> |  (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -455,7 +460,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;decimal&gt;**](decimal.md)| Identifiers of distributors. | [optional] 
+ **ids** | [**List&lt;decimal&gt;**](decimal.md)|  | [optional] 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
@@ -522,7 +527,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14D;  // decimal | Identifier of a publisher.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -546,7 +552,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a publisher. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -612,11 +618,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var ids = new List<decimal>(); // List<decimal> | Identifiers of publishers. (optional) 
+
+            var ids = new List<decimal>(); // List<decimal> |  (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var paginationOffset = 0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0M)
+            var paginationLimit = 20MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20M)
 
             try
             {
@@ -639,11 +646,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;decimal&gt;**](decimal.md)| Identifiers of publishers. | [optional] 
+ **ids** | [**List&lt;decimal&gt;**](decimal.md)|  | [optional] 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0M]
+ **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20M]
 
 ### Return type
 [**InlineResponse2008**](InlineResponse2008.md)
@@ -708,7 +715,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14D;  // decimal | Identifier of a distributor.
+
+            var id = 8.14D;  // decimal | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -733,7 +741,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **decimal**| Identifier of a distributor. | 
+ **id** | **decimal**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
@@ -759,7 +767,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelist"></a>
 # **PostNewsArticleList**
-> InlineResponse2001 PostNewsArticleList (InlineObject body = null)
+> InlineResponse2001 PostNewsArticleList (InlineObject inlineObject = null)
 
 List of news articles.
 
@@ -800,12 +808,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject(); // InlineObject |  (optional) 
+
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
 
             try
             {
                 // List of news articles.
-                InlineResponse2001 result = apiInstance.PostNewsArticleList(body);
+                InlineResponse2001 result = apiInstance.PostNewsArticleList(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -823,7 +832,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -847,7 +856,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbychain"></a>
 # **PostNewsArticleListByChain**
-> InlineResponse2002 PostNewsArticleListByChain (InlineObject1 body)
+> InlineResponse2002 PostNewsArticleListByChain (InlineObject1 inlineObject1)
 
 List news articles of an article chain.
 
@@ -888,12 +897,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject1(); // InlineObject1 | 
+
+            var inlineObject1 = new InlineObject1(); // InlineObject1 | 
 
             try
             {
                 // List news articles of an article chain.
-                InlineResponse2002 result = apiInstance.PostNewsArticleListByChain(body);
+                InlineResponse2002 result = apiInstance.PostNewsArticleListByChain(inlineObject1);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -911,7 +921,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -935,7 +945,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbyindex"></a>
 # **PostNewsArticleListByIndex**
-> InlineResponse2001 PostNewsArticleListByIndex (InlineObject2 body)
+> InlineResponse2001 PostNewsArticleListByIndex (InlineObject2 inlineObject2)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -976,12 +986,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject2(); // InlineObject2 | 
+
+            var inlineObject2 = new InlineObject2(); // InlineObject2 | 
 
             try
             {
                 // News articles for instruments that are constituents of the given indices.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByIndex(body);
+                InlineResponse2001 result = apiInstance.PostNewsArticleListByIndex(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -999,7 +1010,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1023,7 +1034,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbyinstrument"></a>
 # **PostNewsArticleListByInstrument**
-> InlineResponse2001 PostNewsArticleListByInstrument (InlineObject3 body)
+> InlineResponse2001 PostNewsArticleListByInstrument (InlineObject3 inlineObject3)
 
 News articles for instruments.
 
@@ -1064,12 +1075,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject3(); // InlineObject3 | 
+
+            var inlineObject3 = new InlineObject3(); // InlineObject3 | 
 
             try
             {
                 // News articles for instruments.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByInstrument(body);
+                InlineResponse2001 result = apiInstance.PostNewsArticleListByInstrument(inlineObject3);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1087,7 +1099,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1111,7 +1123,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlelistbymediakind"></a>
 # **PostNewsArticleListByMediaKind**
-> InlineResponse2001 PostNewsArticleListByMediaKind (InlineObject4 body)
+> InlineResponse2001 PostNewsArticleListByMediaKind (InlineObject4 inlineObject4)
 
 List news articles which contain media of specific media kinds.
 
@@ -1152,12 +1164,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject4(); // InlineObject4 | 
+
+            var inlineObject4 = new InlineObject4(); // InlineObject4 | 
 
             try
             {
                 // List news articles which contain media of specific media kinds.
-                InlineResponse2001 result = apiInstance.PostNewsArticleListByMediaKind(body);
+                InlineResponse2001 result = apiInstance.PostNewsArticleListByMediaKind(inlineObject4);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1175,7 +1188,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | 
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1199,7 +1212,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewsarticlesearchbytext"></a>
 # **PostNewsArticleSearchByText**
-> InlineResponse2001 PostNewsArticleSearchByText (InlineObject5 body = null)
+> InlineResponse2001 PostNewsArticleSearchByText (InlineObject5 inlineObject5 = null)
 
 Search for news articles using a fulltext search.
 
@@ -1240,12 +1253,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject5(); // InlineObject5 |  (optional) 
+
+            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try
             {
                 // Search for news articles using a fulltext search.
-                InlineResponse2001 result = apiInstance.PostNewsArticleSearchByText(body);
+                InlineResponse2001 result = apiInstance.PostNewsArticleSearchByText(inlineObject5);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1263,7 +1277,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -1287,7 +1301,7 @@ Name | Type | Description  | Notes
 
 <a name="postnewspublishersearchbyname"></a>
 # **PostNewsPublisherSearchByName**
-> InlineResponse2009 PostNewsPublisherSearchByName (InlineObject6 body)
+> InlineResponse2009 PostNewsPublisherSearchByName (InlineObject6 inlineObject6)
 
 Search for publishers.
 
@@ -1328,12 +1342,13 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var body = new InlineObject6(); // InlineObject6 | 
+
+            var inlineObject6 = new InlineObject6(); // InlineObject6 | 
 
             try
             {
                 // Search for publishers.
-                InlineResponse2009 result = apiInstance.PostNewsPublisherSearchByName(body);
+                InlineResponse2009 result = apiInstance.PostNewsPublisherSearchByName(inlineObject6);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1351,7 +1366,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 [**InlineResponse2009**](InlineResponse2009.md)

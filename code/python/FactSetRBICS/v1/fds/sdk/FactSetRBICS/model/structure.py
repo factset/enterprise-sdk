@@ -82,9 +82,9 @@ class Structure(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'rbics_id': (str,),  # noqa: E501
-            'first_date': (str,),  # noqa: E501
-            'last_date': (str,),  # noqa: E501
+            'rbics_id': (str, none_type,),  # noqa: E501
+            'first_date': (str, none_type,),  # noqa: E501
+            'last_date': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,9 +139,9 @@ class Structure(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rbics_id (str): RBICS Code for the classification.. [optional]  # noqa: E501
-            first_date (str): First date of the classification.. [optional]  # noqa: E501
-            last_date (str): Date when the classification became no longer valid. If `null`, the classification is still valid.. [optional]  # noqa: E501
+            rbics_id (str, none_type): RBICS Code for the classification.. [optional]  # noqa: E501
+            first_date (str, none_type): First date of the classification.. [optional]  # noqa: E501
+            last_date (str, none_type): Date when the classification became no longer valid. If `null`, the classification is still valid.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,9 +223,9 @@ class Structure(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            rbics_id (str): RBICS Code for the classification.. [optional]  # noqa: E501
-            first_date (str): First date of the classification.. [optional]  # noqa: E501
-            last_date (str): Date when the classification became no longer valid. If `null`, the classification is still valid.. [optional]  # noqa: E501
+            rbics_id (str, none_type): RBICS Code for the classification.. [optional]  # noqa: E501
+            first_date (str, none_type): First date of the classification.. [optional]  # noqa: E501
+            last_date (str, none_type): Date when the classification became no longer valid. If `null`, the classification is still valid.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

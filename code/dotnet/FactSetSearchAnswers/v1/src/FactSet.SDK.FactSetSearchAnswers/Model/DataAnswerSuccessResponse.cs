@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="DataAnswerSuccessResponse" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public DataAnswerSuccessResponse(DataAnswerData data = default(DataAnswerData))
+        public DataAnswerSuccessResponse(DataAnswerData data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

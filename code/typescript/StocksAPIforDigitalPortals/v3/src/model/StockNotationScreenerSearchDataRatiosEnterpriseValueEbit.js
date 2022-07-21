@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRatiosEnterpriseValueEbit model module.
  * @module model/StockNotationScreenerSearchDataRatiosEnterpriseValueEbit
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatiosEnterpriseValueEbit {
     /**

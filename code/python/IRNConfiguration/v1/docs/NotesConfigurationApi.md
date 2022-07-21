@@ -1,6 +1,6 @@
 # fds.sdk.IRNConfiguration.NotesConfigurationApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,8 @@ Get all assigned FactSet users
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.user_config_dto import UserConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +65,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get all assigned FactSet users
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_assigned_fact_set_users()
         pprint(api_response)
 
@@ -111,8 +113,8 @@ Get all Authors
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.author_config_dto import AuthorConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -142,10 +144,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Authors
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_authors(x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 
@@ -197,8 +201,8 @@ Name | Type | Description  | Notes
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.client_sales_representative_dto import ClientSalesRepresentativeDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -230,6 +234,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
 
     try:
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_clients_sales_representative()
         pprint(api_response)
 
@@ -278,8 +283,8 @@ Get all Custom Fields
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.custom_field_config_dto import CustomFieldConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -309,10 +314,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Custom Fields
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_custom_fields(x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 
@@ -364,7 +371,8 @@ Get Group details
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.group_config_dto import GroupConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -397,6 +405,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get Group details
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_group()
         pprint(api_response)
 
@@ -444,7 +453,8 @@ Get all Recommendations
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.recommendation_config_dto import RecommendationConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -477,6 +487,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get all Recommendations
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_recommendations()
         pprint(api_response)
 
@@ -524,7 +535,8 @@ Get all Sentiments
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.sentiment_config_dto import SentimentConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -557,6 +569,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get all Sentiments
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_sentiments()
         pprint(api_response)
 
@@ -604,8 +617,8 @@ Get Subject details for the given Id provided
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.subject_config_dto import SubjectConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -636,10 +649,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
     subject_id = "subjectId_example" # str | Id
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get Subject details for the given Id provided
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_subject(subject_id, x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 
@@ -693,8 +708,8 @@ Get all Subjects
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.subject_summary_dto import SubjectSummaryDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -724,10 +739,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Subjects
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_subjects(x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 
@@ -779,8 +796,8 @@ Get Team details for the given Id provided
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.team_config_dto import TeamConfigDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -811,10 +828,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
     team_id = "teamId_example" # str | Id
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get Team details for the given Id provided
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_team(team_id, x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 
@@ -868,8 +887,8 @@ Get all Teams
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import notes___configuration_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.team_summary_dto import TeamSummaryDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -899,10 +918,12 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes___configuration_api.NotesConfigurationApi(api_client)
 
-    x_irn_ignore_permissions = False # bool |  (optional) (default to False)
+    x_irn_ignore_permissions = False # bool |  (optional) if omitted the server will use the default value of False
 
     try:
         # Get all Teams
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_teams(x_irn_ignore_permissions=x_irn_ignore_permissions)
         pprint(api_response)
 

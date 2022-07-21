@@ -17,7 +17,6 @@ import Shares from './Shares';
 /**
  * The SharesResponse model module.
  * @module model/SharesResponse
- * @version 0.20.0
  */
 class SharesResponse {
     /**

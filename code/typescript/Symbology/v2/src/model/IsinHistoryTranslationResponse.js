@@ -17,7 +17,6 @@ import IsinHistoryTranslation from './IsinHistoryTranslation';
 /**
  * The IsinHistoryTranslationResponse model module.
  * @module model/IsinHistoryTranslationResponse
- * @version 0.20.0
  */
 class IsinHistoryTranslationResponse {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004Functions model module.
  * @module model/InlineResponse2004Functions
- * @version 0.10.0
  */
 class InlineResponse2004Functions {
     /**

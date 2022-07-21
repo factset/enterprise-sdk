@@ -22,7 +22,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * CUSIP service.
 * @module api/CUSIPApi
-* @version 0.8.2
 */
 export default class CUSIPApi {
 

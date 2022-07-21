@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ReportContent model module.
  * @module model/ReportContent
- * @version 0.20.0
  */
 class ReportContent {
     /**

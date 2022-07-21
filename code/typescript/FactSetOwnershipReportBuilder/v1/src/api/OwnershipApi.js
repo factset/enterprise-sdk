@@ -19,7 +19,6 @@ import Response from '../model/Response';
 /**
 * Ownership service.
 * @module api/OwnershipApi
-* @version 0.20.0
 */
 export default class OwnershipApi {
 

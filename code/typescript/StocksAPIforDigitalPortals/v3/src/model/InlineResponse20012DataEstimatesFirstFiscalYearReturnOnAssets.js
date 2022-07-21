@@ -17,7 +17,6 @@ import InlineResponse20012DataEstimatesFirstFiscalYearCurrencyDependentEstimates
 /**
  * The InlineResponse20012DataEstimatesFirstFiscalYearReturnOnAssets model module.
  * @module model/InlineResponse20012DataEstimatesFirstFiscalYearReturnOnAssets
- * @version 0.10.0
  */
 class InlineResponse20012DataEstimatesFirstFiscalYearReturnOnAssets {
     /**

@@ -18,7 +18,6 @@ import InlineResponse2007Data from './InlineResponse2007Data';
 /**
  * The InlineResponse2007 model module.
  * @module model/InlineResponse2007
- * @version 0.10.0
  */
 class InlineResponse2007 {
     /**

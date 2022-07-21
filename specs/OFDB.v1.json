@@ -213,18 +213,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "symbol": {
-                    "type": "string",
-                    "description": "Name of the symbol and unique to this database"
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {},
-                    "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
-                  }
-                }
+                "$ref": "#/components/schemas/createSymbols"
               },
               "examples": {
                 "3dOFDB": {
@@ -305,15 +294,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "description": "Any arbitary set of fields that are provided while creating the ofdb and their values date field is important for 3d ofdbs.",
-                "properties": {
-                  "data": {
-                    "type": "array",
-                    "items": {},
-                    "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
-                  }
-                }
+                "$ref": "#/components/schemas/modifySymbols"
               },
               "examples": {
                 "3dOFDB": {
@@ -536,25 +517,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "date": {
-                    "type": "string",
-                    "description": "Date unique to the database.",
-                    "example": 20200730
-                  },
-                  "data": {
-                    "type": "array",
-                    "items": {},
-                    "description": "symbol has to be provided to save the date with atleast one iterative field.",
-                    "example": [
-                      {
-                        "symbol": "FACTSET",
-                        "field": "VALUE"
-                      }
-                    ]
+                "$ref": "#/components/schemas/postDatesymbol",
+                "example": [
+                  {
+                    "symbol": "FACTSET",
+                    "field": "VALUE"
                   }
-                }
+                ]
               }
             }
           }
@@ -610,21 +579,13 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "description": "Set of fields along with symbol is mandatory to update the date.",
-                "properties": {
-                  "data": {
-                    "type": "array",
-                    "items": {},
-                    "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field",
-                    "example": [
-                      {
-                        "symbol": "FACTSET",
-                        "field1": "VALUE"
-                      }
-                    ]
+                "$ref": "#/components/schemas/modifydatespecific",
+                "example": [
+                  {
+                    "symbol": "FACTSET",
+                    "field1": "VALUE"
                   }
-                }
+                ]
               }
             }
           }
@@ -720,21 +681,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "symbol": {
-                    "type": "string",
-                    "description": "Name of the symbol and unique to this database",
-                    "example": "FACTSET"
-                  },
-                  "data": {
-                    "type": "object",
-                    "description": "At least one iterative field is required",
-                    "example": {
-                      "field1": "value"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/postnewsymboldate"
               }
             }
           }
@@ -790,16 +737,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "description": "Any arbitary set of fields that are provided while creating the ofdb and their values.",
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "example": {
-                      "field1": "VALUE"
-                    }
-                  }
-                }
+                "$ref": "#/components/schemas/modifysymboldate"
               }
             }
           }
@@ -1143,19 +1081,80 @@
       }
     },
     "schemas": {
-      "createDatabaseResponse": {
+      "createSymbols": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
+          "symbol": {
+            "type": "string",
+            "description": "Names of the symbol and unique to this database"
+          },
+          "data": {
+            "type": "array",
+            "items": {},
+            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
           }
         }
       },
-      "Ofdb": {
+      "postDatesymbol": {
         "type": "object",
         "properties": {
-          "username": {
-            "type": "string"
+          "date": {
+            "type": "string",
+            "description": "Date unique to the database.",
+            "example": 20200730
+          },
+          "data": {
+            "type": "array",
+            "items": {},
+            "description": "symbol has to be provided to save the date with atleast one iterative field."
+          }
+        }
+      },
+      "modifydatespecific": {
+        "type": "object",
+        "description": "Set of fields along with symbol is mandatory to update the date.",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {},
+            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
+          }
+        }
+      },
+      "postnewsymboldate": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Name of the symbol and unique to this database",
+            "example": "FACTSET"
+          },
+          "data": {
+            "type": "object",
+            "description": "At least one iterative field is required",
+            "example": {
+              "field1": "value"
+            }
+          }
+        }
+      },
+      "modifysymboldate": {
+        "type": "object",
+        "description": "Any arbitary set of fields that are provided while creating the ofdb and their values.",
+        "properties": {
+          "data": {
+            "type": "object"
+          }
+        }
+      },
+      "modifySymbols": {
+        "type": "object",
+        "description": "Any arbitary set of fields that are provided while creating the ofdb and their values date field is important for 3d ofdbs.",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {},
+            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
           }
         }
       },
@@ -1169,28 +1168,6 @@
         "type": "array",
         "items": {
           "type": "integer"
-        }
-      },
-      "Data": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "symbol": {
-              "type": "object",
-              "properties": {
-                "date": {
-                  "type": "string"
-                },
-                "field1": {
-                  "type": "string"
-                },
-                "field2": {
-                  "type": "string"
-                }
-              }
-            }
-          }
         }
       },
       "Fields": {

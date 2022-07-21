@@ -24,8 +24,8 @@ Gets the entire history of splits for a given list of identifiers. Information r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import splits_api
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.splits_response import SplitsResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Gets full history of security Splits for a list of `ids`
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_splits(ids)
         pprint(api_response)
 
@@ -116,9 +117,8 @@ Gets the entire history of splits for a given list of identifiers. Information r
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrices
 from fds.sdk.FactSetPrices.api import splits_api
-from fds.sdk.FactSetPrices.model.splits_request import SplitsRequest
-from fds.sdk.FactSetPrices.model.error_response import ErrorResponse
-from fds.sdk.FactSetPrices.model.splits_response import SplitsResponse
+from fds.sdk.FactSetPrices.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.FactSetPrices.ApiClient(configuration) as api_client:
 
     try:
         # Requests splits for a list of `ids`
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_security_splits_for_list(splits_request)
         pprint(api_response)
 

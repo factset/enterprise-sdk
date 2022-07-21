@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">The starting point of the date range (inclusive). (required).</param>
         /// <param name="end">The ending point of the date range (exclusive). (required).</param>
-        public VendorChartIQTimeSeriesEodListDataRange(DateTime start = default(DateTime), DateTime end = default(DateTime))
+        public VendorChartIQTimeSeriesEodListDataRange(DateTime start, DateTime end)
         {
             this.Start = start;
             this.End = end;

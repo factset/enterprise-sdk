@@ -60,6 +60,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument of a fund share class.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -246,6 +248,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -340,6 +343,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -434,6 +438,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -528,6 +533,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -622,6 +628,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -716,6 +723,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var id = "id_example";  // string | Identifier of the instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -808,6 +816,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var body = new InlineObject(); // InlineObject |  (optional) 
 
             try
@@ -896,6 +905,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
@@ -984,6 +994,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FundApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try

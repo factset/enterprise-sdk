@@ -17,7 +17,6 @@ import DescriptionDescription from './DescriptionDescription';
 /**
  * The Description model module.
  * @module model/Description
- * @version 0.20.0
  */
 class Description {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of an instrument. (required).</param>
         /// <param name="filter">filter.</param>
-        public InstrumentCategoryListData(string id = default(string), InstrumentCategoryListDataFilter filter = default(InstrumentCategoryListDataFilter))
+        public InstrumentCategoryListData(string id,InstrumentCategoryListDataFilter filter = default(InstrumentCategoryListDataFilter))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

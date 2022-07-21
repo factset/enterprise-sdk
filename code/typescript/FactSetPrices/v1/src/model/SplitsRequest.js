@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SplitsRequest model module.
  * @module model/SplitsRequest
- * @version 0.20.0
  */
 class SplitsRequest {
     /**

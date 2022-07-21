@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <param name="ids">Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.  (required).</param>
         /// <param name="level">Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (default to -1).</param>
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (default to -1).</param>
-        public UltimateEntityStructureRequest(List<string> ids = default(List<string>), int level = -1, int active = -1)
+        public UltimateEntityStructureRequest(List<string> ids,int level = -1, int active = -1)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20038DataCategories model module.
  * @module model/InlineResponse20038DataCategories
- * @version 0.9.2
  */
 class InlineResponse20038DataCategories {
     /**

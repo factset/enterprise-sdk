@@ -19,7 +19,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsLimitTailRiskConstraint model module.
  * @module model/OptimizerInputsLimitTailRiskConstraint
- * @version 0.20.0
  */
 class OptimizerInputsLimitTailRiskConstraint {
     /**

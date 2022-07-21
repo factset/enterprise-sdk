@@ -17,7 +17,6 @@ import PatchOperations from './PatchOperations';
 /**
  * The Patch model module.
  * @module model/Patch
- * @version 0.20.1
  */
 class Patch {
     /**

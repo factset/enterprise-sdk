@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFeeDistributionMaximum from './InlineResp
 /**
  * The InlineResponse2005DataShareClassFeeDistribution model module.
  * @module model/InlineResponse2005DataShareClassFeeDistribution
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFeeDistribution {
     /**

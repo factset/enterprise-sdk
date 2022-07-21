@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioTransactionDeleteDataNotation model module.
  * @module model/PortfolioTransactionDeleteDataNotation
- * @version 0.9.2
  */
 class PortfolioTransactionDeleteDataNotation {
     /**

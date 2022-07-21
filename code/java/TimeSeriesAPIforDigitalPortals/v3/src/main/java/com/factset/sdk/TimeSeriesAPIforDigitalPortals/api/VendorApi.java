@@ -79,7 +79,7 @@ public class VendorApi {
   /**
    * End-of-day time series data for a notation.
    * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject  (required)
    * @return InlineResponse200
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -88,14 +88,14 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse200 postVendorChartIQTimeSeriesEodList(InlineObject body) throws ApiException {
-    return postVendorChartIQTimeSeriesEodListWithHttpInfo(body).getData();
+  public InlineResponse200 postVendorChartIQTimeSeriesEodList(InlineObject inlineObject) throws ApiException {
+    return postVendorChartIQTimeSeriesEodListWithHttpInfo(inlineObject).getData();
   }
 
   /**
    * End-of-day time series data for a notation.
    * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject  (required)
    * @return ApiResponse&lt;InlineResponse200&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -104,12 +104,12 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse200> postVendorChartIQTimeSeriesEodListWithHttpInfo(InlineObject body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse200> postVendorChartIQTimeSeriesEodListWithHttpInfo(InlineObject inlineObject) throws ApiException {
+    Object localVarPostBody = inlineObject;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodList");
+    // verify the required parameter 'inlineObject' is set
+    if (inlineObject == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject' when calling postVendorChartIQTimeSeriesEodList");
     }
     
     // create path and map variables
@@ -152,7 +152,7 @@ public class VendorApi {
   /**
    * Single subsample end-of-day data for a notation.
    * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
-   * @param body  (required)
+   * @param inlineObject1  (required)
    * @return InlineResponse2001
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -161,14 +161,14 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(InlineObject1 body) throws ApiException {
-    return postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(body).getData();
+  public InlineResponse2001 postVendorChartIQTimeSeriesEodSubsampleGet(InlineObject1 inlineObject1) throws ApiException {
+    return postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(inlineObject1).getData();
   }
 
   /**
    * Single subsample end-of-day data for a notation.
    * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
-   * @param body  (required)
+   * @param inlineObject1  (required)
    * @return ApiResponse&lt;InlineResponse2001&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -177,12 +177,12 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2001> postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject1 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2001> postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject1 inlineObject1) throws ApiException {
+    Object localVarPostBody = inlineObject1;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodSubsampleGet");
+    // verify the required parameter 'inlineObject1' is set
+    if (inlineObject1 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject1' when calling postVendorChartIQTimeSeriesEodSubsampleGet");
     }
     
     // create path and map variables
@@ -225,7 +225,7 @@ public class VendorApi {
   /**
    * Subsampled end-of-day time series data for a notation.
    * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject2  (required)
    * @return InlineResponse2002
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -234,14 +234,14 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(InlineObject2 body) throws ApiException {
-    return postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(body).getData();
+  public InlineResponse2002 postVendorChartIQTimeSeriesEodSubsampleList(InlineObject2 inlineObject2) throws ApiException {
+    return postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(inlineObject2).getData();
   }
 
   /**
    * Subsampled end-of-day time series data for a notation.
    * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample&#39;s date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject2  (required)
    * @return ApiResponse&lt;InlineResponse2002&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -250,12 +250,12 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2002> postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(InlineObject2 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2002> postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(InlineObject2 inlineObject2) throws ApiException {
+    Object localVarPostBody = inlineObject2;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesEodSubsampleList");
+    // verify the required parameter 'inlineObject2' is set
+    if (inlineObject2 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject2' when calling postVendorChartIQTimeSeriesEodSubsampleList");
     }
     
     // create path and map variables
@@ -298,7 +298,7 @@ public class VendorApi {
   /**
    * Single subsample intraday data for a notation.
    * Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
-   * @param body  (required)
+   * @param inlineObject3  (required)
    * @return InlineResponse2003
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -307,14 +307,14 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(InlineObject3 body) throws ApiException {
-    return postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(body).getData();
+  public InlineResponse2003 postVendorChartIQTimeSeriesIntradaySubsampleGet(InlineObject3 inlineObject3) throws ApiException {
+    return postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(inlineObject3).getData();
   }
 
   /**
    * Single subsample intraday data for a notation.
    * Single subsample intraday data for a notation. The subsample may exceed the entitled time range, but will be based only on ticks that are in the entitled range.
-   * @param body  (required)
+   * @param inlineObject3  (required)
    * @return ApiResponse&lt;InlineResponse2003&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -323,12 +323,12 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2003> postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject3 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2003> postVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(InlineObject3 inlineObject3) throws ApiException {
+    Object localVarPostBody = inlineObject3;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesIntradaySubsampleGet");
+    // verify the required parameter 'inlineObject3' is set
+    if (inlineObject3 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject3' when calling postVendorChartIQTimeSeriesIntradaySubsampleGet");
     }
     
     // create path and map variables
@@ -371,7 +371,7 @@ public class VendorApi {
   /**
    * Subsampled intraday time series data for a notation.
    * Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject4  (required)
    * @return InlineResponse2004
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -380,14 +380,14 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(InlineObject4 body) throws ApiException {
-    return postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(body).getData();
+  public InlineResponse2004 postVendorChartIQTimeSeriesIntradaySubsampleList(InlineObject4 inlineObject4) throws ApiException {
+    return postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(inlineObject4).getData();
   }
 
   /**
    * Subsampled intraday time series data for a notation.
    * Subsampled intraday time series data for a notation. If a subsample&#39;s time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.&lt;br&gt;&lt;br&gt;Pagination to a previous page is not supported and &#x60;pagination.previous&#x60; is always &#x60;null&#x60;.
-   * @param body  (required)
+   * @param inlineObject4  (required)
    * @return ApiResponse&lt;InlineResponse2004&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -396,12 +396,12 @@ public class VendorApi {
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse2004> postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject4 body) throws ApiException {
-    Object localVarPostBody = body;
+  public ApiResponse<InlineResponse2004> postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject4 inlineObject4) throws ApiException {
+    Object localVarPostBody = inlineObject4;
     
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling postVendorChartIQTimeSeriesIntradaySubsampleList");
+    // verify the required parameter 'inlineObject4' is set
+    if (inlineObject4 == null) {
+      throw new ApiException(400, "Missing the required parameter 'inlineObject4' when calling postVendorChartIQTimeSeriesIntradaySubsampleList");
     }
     
     // create path and map variables

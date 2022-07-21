@@ -17,7 +17,6 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.10.0
 */
 
 /**
@@ -33,11 +32,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://api.factset.com/wealth/v1') {
+    constructor(basePath = 'https://api.factset.com/wealth/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://api.factset.com/wealth/v1
+         * @default https://api.factset.com/wealth/v1
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -63,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.10.0'
+            'User-Agent': 'fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.10.1'
         };
 
         /**
@@ -615,7 +614,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "//api.factset.com/wealth/v1",
+              'url': "https://api.factset.com/wealth/v1",
               'description': "No description provided",
             }
       ];
@@ -667,6 +666,11 @@ class ApiClient {
             }
         }
     };
+
+    static setValue(obj, value) {
+        obj.value = value;
+        return obj;
+    }
 }
 
 /**

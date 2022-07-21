@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="Schema" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public Schema()
+        public Schema(string id, string name, List<SchemaAttributes> attributes,string description = default(string))
         {
         }
 

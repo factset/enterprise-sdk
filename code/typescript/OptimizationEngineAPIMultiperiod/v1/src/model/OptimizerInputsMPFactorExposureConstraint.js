@@ -19,7 +19,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPFactorExposureConstraint model module.
  * @module model/OptimizerInputsMPFactorExposureConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPFactorExposureConstraint {
     /**

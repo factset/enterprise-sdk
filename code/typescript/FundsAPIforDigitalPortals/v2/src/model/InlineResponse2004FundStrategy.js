@@ -19,7 +19,6 @@ import InlineResponse2004FundStrategyLevel3 from './InlineResponse2004FundStrate
 /**
  * The InlineResponse2004FundStrategy model module.
  * @module model/InlineResponse2004FundStrategy
- * @version 0.10.0
  */
 class InlineResponse2004FundStrategy {
     /**

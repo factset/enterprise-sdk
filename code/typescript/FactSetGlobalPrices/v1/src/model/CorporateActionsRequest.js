@@ -18,7 +18,6 @@ import EventCategory from './EventCategory';
 /**
  * The CorporateActionsRequest model module.
  * @module model/CorporateActionsRequest
- * @version 0.20.0
  */
 class CorporateActionsRequest {
     /**

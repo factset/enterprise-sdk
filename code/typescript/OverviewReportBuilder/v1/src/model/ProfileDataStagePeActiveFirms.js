@@ -17,7 +17,6 @@ import ProfileDataBusinessIndustry from './ProfileDataBusinessIndustry';
 /**
  * The ProfileDataStagePeActiveFirms model module.
  * @module model/ProfileDataStagePeActiveFirms
- * @version 0.20.0
  */
 class ProfileDataStagePeActiveFirms {
     /**

@@ -17,7 +17,6 @@ import InlineResponse20014DataGearingLeverage from './InlineResponse20014DataGea
 /**
  * The InlineResponse20014DataGearing model module.
  * @module model/InlineResponse20014DataGearing
- * @version 0.10.0
  */
 class InlineResponse20014DataGearing {
     /**

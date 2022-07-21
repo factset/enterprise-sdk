@@ -65,7 +65,6 @@ import SnowflakeApi from './api/SnowflakeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

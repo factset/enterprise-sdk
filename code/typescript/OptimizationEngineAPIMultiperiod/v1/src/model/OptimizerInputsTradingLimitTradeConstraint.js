@@ -22,7 +22,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTradingLimitTradeConstraint model module.
  * @module model/OptimizerInputsTradingLimitTradeConstraint
- * @version 0.20.0
  */
 class OptimizerInputsTradingLimitTradeConstraint {
     /**

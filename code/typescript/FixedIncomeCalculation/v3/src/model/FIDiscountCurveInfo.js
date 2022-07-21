@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIDiscountCurveInfo model module.
  * @module model/FIDiscountCurveInfo
- * @version 0.20.0
  */
 class FIDiscountCurveInfo {
     /**

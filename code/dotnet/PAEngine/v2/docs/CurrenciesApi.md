@@ -51,6 +51,7 @@ namespace Example
 
             var apiInstance = new CurrenciesApi(config);
 
+
             try
             {
                 // Get PA currencies

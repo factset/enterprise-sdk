@@ -40,7 +40,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// Initializes a new instance of the <see cref="ProfileDataStagePeActiveFirmNumber" /> class.
         /// </summary>
         /// <param name="value">value (required).</param>
-        public ProfileDataStagePeActiveFirmNumber(decimal value = default(decimal))
+        public ProfileDataStagePeActiveFirmNumber(decimal value)
         {
             this.Value = value;
         }

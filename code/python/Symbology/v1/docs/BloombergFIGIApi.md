@@ -24,9 +24,8 @@ Returns the current security, composite, and regional identifiers from Bloomberg
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import bloomberg_figi_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.bloomberg_translation_response import BloombergTranslationResponse
-from fds.sdk.Symbology.model.bloomberg_translation_request import BloombergTranslationRequest
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into Bloomberg Identifiers.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_bloomberg(bloomberg_translation_request)
         pprint(api_response)
 
@@ -119,8 +119,8 @@ Returns the current security, composite, regional Bloomberg (FIGI) unique identi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import bloomberg_figi_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.bloomberg_translation_response import BloombergTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +154,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate FactSet symbols into Bloomberg Identifiers.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.translate_bloomberg(ids)
         pprint(api_response)
 

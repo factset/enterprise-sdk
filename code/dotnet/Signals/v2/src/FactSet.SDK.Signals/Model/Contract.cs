@@ -42,7 +42,7 @@ namespace FactSet.SDK.Signals.Model
         /// </summary>
         /// <param name="fields">fields (required).</param>
         /// <param name="version">version (required).</param>
-        public Contract(ContractFields fields = default(ContractFields), string version = default(string))
+        public Contract(ContractFields fields, string version)
         {
             // to ensure "fields" is required (not null)
             if (fields == null) {

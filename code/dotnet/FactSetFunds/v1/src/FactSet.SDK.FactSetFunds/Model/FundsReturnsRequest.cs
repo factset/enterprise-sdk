@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">The ISO3 currency control for the requested fund. (default to &quot;LOCAL&quot;).</param>
         /// <param name="dividendAdjust">dividendAdjust.</param>
-        public FundsReturnsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", DividendAdjust dividendAdjust = default(DividendAdjust))
+        public FundsReturnsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", DividendAdjust dividendAdjust = default(DividendAdjust))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

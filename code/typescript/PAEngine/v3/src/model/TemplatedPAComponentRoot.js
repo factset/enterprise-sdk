@@ -17,7 +17,6 @@ import TemplatedPAComponent from './TemplatedPAComponent';
 /**
  * The TemplatedPAComponentRoot model module.
  * @module model/TemplatedPAComponentRoot
- * @version 0.20.0
  */
 class TemplatedPAComponentRoot {
     /**

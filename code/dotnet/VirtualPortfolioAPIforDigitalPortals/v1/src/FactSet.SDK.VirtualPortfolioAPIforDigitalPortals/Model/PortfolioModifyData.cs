@@ -41,7 +41,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of the portfolio. (required).</param>
         /// <param name="name">Name of the portfolio. (required).</param>
-        public PortfolioModifyData(string id = default(string), string name = default(string))
+        public PortfolioModifyData(string id, string name)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

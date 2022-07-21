@@ -17,7 +17,6 @@ import TemplateContentTypes from './TemplateContentTypes';
 /**
  * The LinkedPATemplateParameters model module.
  * @module model/LinkedPATemplateParameters
- * @version 0.20.0
  */
 class LinkedPATemplateParameters {
     /**

@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.FactSetBenchmarks",
   "projectName": "fds.sdk.FactSetBenchmarks",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "FactSet Benchmarks client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetBenchmarks/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetBenchmarks/0.20.0",
+  "httpUserAgent": "fds-sdk/python/FactSetBenchmarks/0.21.0",
   "files": {
     "LICENSE": {}
   }

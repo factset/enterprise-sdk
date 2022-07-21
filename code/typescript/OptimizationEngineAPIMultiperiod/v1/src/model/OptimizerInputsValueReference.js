@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsValueReference model module.
  * @module model/OptimizerInputsValueReference
- * @version 0.20.0
  */
 class OptimizerInputsValueReference {
     /**

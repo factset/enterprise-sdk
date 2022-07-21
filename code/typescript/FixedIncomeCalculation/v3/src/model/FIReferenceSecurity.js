@@ -17,7 +17,6 @@ import FIReferencePrepay from './FIReferencePrepay';
 /**
  * The FIReferenceSecurity model module.
  * @module model/FIReferenceSecurity
- * @version 0.20.0
  */
 class FIReferenceSecurity {
     /**

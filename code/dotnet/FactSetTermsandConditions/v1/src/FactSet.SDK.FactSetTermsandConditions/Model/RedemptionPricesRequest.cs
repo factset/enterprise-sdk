@@ -82,7 +82,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// </summary>
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*.  (required).</param>
         /// <param name="categories">Filters the list of Redemption Prices Categories -   * **CALL** &#x3D; Call prices.   * **PUT** &#x3D; Put prices.   * **SF** &#x3D; Sinking Fund prices.  (required).</param>
-        public RedemptionPricesRequest(List<string> ids = default(List<string>), CategoriesEnum categories = default(CategoriesEnum))
+        public RedemptionPricesRequest(List<string> ids, CategoriesEnum categories)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

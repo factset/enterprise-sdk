@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="headline">headline (required).</param>
         /// <param name="footer">footer.</param>
         /// <param name="fdc3Context">fdc3Context.</param>
-        public Template(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context))
+        public Template(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

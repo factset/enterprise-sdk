@@ -1,7 +1,7 @@
 """
-    SDF_API
+    SDF Download API
 
-    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.   # noqa: E501
+    The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: teammustang@factset.com
@@ -29,6 +29,12 @@ from fds.sdk.StandardDatafeed.model_utils import (  # noqa: F401
 )
 from fds.sdk.StandardDatafeed.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.StandardDatafeed.model.list_schema200_response_data import ListSchema200ResponseData
+    from fds.sdk.StandardDatafeed.model.list_schema200_response_meta import ListSchema200ResponseMeta
+    globals()['ListSchema200ResponseData'] = ListSchema200ResponseData
+    globals()['ListSchema200ResponseMeta'] = ListSchema200ResponseMeta
 
 
 class ListSchema200Response(ModelNormal):
@@ -67,6 +73,7 @@ class ListSchema200Response(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -81,11 +88,10 @@ class ListSchema200Response(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'schema': (str,),  # noqa: E501
-            'sequence': (int,),  # noqa: E501
-            'url': (str,),  # noqa: E501
-            'timestamp': (str,),  # noqa: E501
+            'data': ([ListSchema200ResponseData],),  # noqa: E501
+            'meta': (ListSchema200ResponseMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +100,8 @@ class ListSchema200Response(ModelNormal):
 
 
     attribute_map = {
-        'schema': 'schema',  # noqa: E501
-        'sequence': 'sequence',  # noqa: E501
-        'url': 'url',  # noqa: E501
-        'timestamp': 'timestamp',  # noqa: E501
+        'data': 'data',  # noqa: E501
+        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,10 +145,8 @@ class ListSchema200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schema (str): schema name. [optional]  # noqa: E501
-            sequence (int): version number of the schema. [optional]  # noqa: E501
-            url (str): pre-signed downloadable url of the schema & sequence. [optional]  # noqa: E501
-            timestamp (str): time stamp of when the schema-sequence was last updated. [optional]  # noqa: E501
+            data ([ListSchema200ResponseData]): [optional]  # noqa: E501
+            meta (ListSchema200ResponseMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,10 +228,8 @@ class ListSchema200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            schema (str): schema name. [optional]  # noqa: E501
-            sequence (int): version number of the schema. [optional]  # noqa: E501
-            url (str): pre-signed downloadable url of the schema & sequence. [optional]  # noqa: E501
-            timestamp (str): time stamp of when the schema-sequence was last updated. [optional]  # noqa: E501
+            data ([ListSchema200ResponseData]): [optional]  # noqa: E501
+            meta (ListSchema200ResponseMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerInputsSpecificPoints model module.
  * @module model/OptimizerInputsSpecificPoints
- * @version 0.20.0
  */
 class OptimizerInputsSpecificPoints {
     /**

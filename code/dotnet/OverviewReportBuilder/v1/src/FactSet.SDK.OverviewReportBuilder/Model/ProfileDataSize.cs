@@ -43,7 +43,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="ev">ev (required).</param>
         /// <param name="mcap">mcap (required).</param>
         /// <param name="revenue">revenue (required).</param>
-        public ProfileDataSize(ProfileDataSizeEmployeeNumber employeeNumber = default(ProfileDataSizeEmployeeNumber), ProfileDataSizeEv ev = default(ProfileDataSizeEv), ProfileDataSizeEv mcap = default(ProfileDataSizeEv), ProfileDataSizeRevenue revenue = default(ProfileDataSizeRevenue))
+        public ProfileDataSize(ProfileDataSizeEmployeeNumber employeeNumber, ProfileDataSizeEv ev, ProfileDataSizeEv mcap, ProfileDataSizeRevenue revenue)
         {
             // to ensure "employeeNumber" is required (not null)
             if (employeeNumber == null) {

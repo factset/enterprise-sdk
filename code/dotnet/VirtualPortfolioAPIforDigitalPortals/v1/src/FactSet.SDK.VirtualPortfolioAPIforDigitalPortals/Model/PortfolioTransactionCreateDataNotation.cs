@@ -40,7 +40,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="PortfolioTransactionCreateDataNotation" /> class.
         /// </summary>
         /// <param name="id">Identifier of the notation. (required).</param>
-        public PortfolioTransactionCreateDataNotation(string id = default(string))
+        public PortfolioTransactionCreateDataNotation(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

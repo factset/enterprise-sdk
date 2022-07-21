@@ -17,7 +17,6 @@ import BasicSearchResponseResults from './BasicSearchResponseResults';
 /**
  * The BasicSearchResponse model module.
  * @module model/BasicSearchResponse
- * @version 0.20.0
  */
 class BasicSearchResponse {
     /**

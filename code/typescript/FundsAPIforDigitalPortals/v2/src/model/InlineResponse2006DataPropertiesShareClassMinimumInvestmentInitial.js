@@ -17,7 +17,6 @@ import InlineResponse2006DataPropertiesShareClassMinimumInvestmentCurrency from 
 /**
  * The InlineResponse2006DataPropertiesShareClassMinimumInvestmentInitial model module.
  * @module model/InlineResponse2006DataPropertiesShareClassMinimumInvestmentInitial
- * @version 0.10.0
  */
 class InlineResponse2006DataPropertiesShareClassMinimumInvestmentInitial {
     /**

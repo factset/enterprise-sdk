@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RatingsApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var endDate = 2020-07-30;  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RatingsApi(config);
+
             var consensusRatingsRequest = new ConsensusRatingsRequest(); // ConsensusRatingsRequest | Request object for Estimate Data Items.
 
             try
@@ -245,6 +247,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RatingsApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
             var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var endDate = 2020-07-30;  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
@@ -342,6 +345,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RatingsApi(config);
+
             var detailRatingsRequest = new DetailRatingsRequest(); // DetailRatingsRequest | Request object for Detail Reatings Data Items.
 
             try

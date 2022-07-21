@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="fdc3Context">fdc3Context.</param>
         /// <param name="percentChange">percentChange.</param>
         /// <param name="label">label.</param>
-        public PercentChangeLabelTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), PercentChange percentChange = default(PercentChange), string label = default(string))
+        public PercentChangeLabelTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), PercentChange percentChange = default(PercentChange), string label = default(string))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

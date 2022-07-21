@@ -18,7 +18,6 @@ import InlineResponse20069DataRegional from './InlineResponse20069DataRegional';
 /**
  * The InlineResponse20069Data model module.
  * @module model/InlineResponse20069Data
- * @version 0.10.0
  */
 class InlineResponse20069Data {
     /**

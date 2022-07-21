@@ -18,7 +18,6 @@ import FICalculationParameters from '../model/FICalculationParameters';
 /**
 * FICalculations service.
 * @module api/FICalculationsApi
-* @version 0.8.2
 */
 export default class FICalculationsApi {
 

@@ -17,7 +17,6 @@ import MbType from './MbType';
 /**
  * The CompanyStatsRequest model module.
  * @module model/CompanyStatsRequest
- * @version 0.20.0
  */
 class CompanyStatsRequest {
     /**

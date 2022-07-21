@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelevanceScoreRange model module.
  * @module model/RelevanceScoreRange
- * @version 0.20.0
  */
 class RelevanceScoreRange {
     /**

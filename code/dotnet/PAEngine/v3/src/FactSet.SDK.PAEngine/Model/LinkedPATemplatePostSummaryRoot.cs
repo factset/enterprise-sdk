@@ -42,7 +42,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public LinkedPATemplatePostSummaryRoot(LinkedPATemplatePostSummary data = default(LinkedPATemplatePostSummary), Object meta = default(Object))
+        public LinkedPATemplatePostSummaryRoot(LinkedPATemplatePostSummary data,Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

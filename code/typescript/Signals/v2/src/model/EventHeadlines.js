@@ -19,7 +19,6 @@ import EventsMeta from './EventsMeta';
 /**
  * The EventHeadlines model module.
  * @module model/EventHeadlines
- * @version 0.20.0
  */
 class EventHeadlines {
     /**

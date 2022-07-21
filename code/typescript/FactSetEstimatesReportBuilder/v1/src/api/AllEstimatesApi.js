@@ -19,7 +19,6 @@ import Response from '../model/Response';
 /**
 * AllEstimates service.
 * @module api/AllEstimatesApi
-* @version 0.20.0
 */
 export default class AllEstimatesApi {
 

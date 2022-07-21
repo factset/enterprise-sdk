@@ -41,7 +41,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// Initializes a new instance of the <see cref="CurrencyRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public CurrencyRoot(Dictionary<string, Currency> data = default(Dictionary<string, Currency>))
+        public CurrencyRoot(Dictionary<string, Currency> data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

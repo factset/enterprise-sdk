@@ -17,7 +17,6 @@ import CustomSymbolCustomFieldFormulaConfigDto from './CustomSymbolCustomFieldFo
 /**
  * The CreateCustomSymbolCustomFieldDto model module.
  * @module model/CreateCustomSymbolCustomFieldDto
- * @version 0.20.0
  */
 class CreateCustomSymbolCustomFieldDto {
     /**

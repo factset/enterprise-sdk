@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceSettingsDto model module.
  * @module model/SourceSettingsDto
- * @version 0.20.0
  */
 class SourceSettingsDto {
     /**

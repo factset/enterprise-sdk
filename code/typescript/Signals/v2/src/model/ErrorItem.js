@@ -17,7 +17,6 @@ import ErrorItemSource from './ErrorItemSource';
 /**
  * The ErrorItem model module.
  * @module model/ErrorItem
- * @version 0.20.0
  */
 class ErrorItem {
     /**

@@ -52,7 +52,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="dueDiligenceSymbolEntityType">dueDiligenceSymbolEntityType.</param>
         /// <param name="subTypes">subTypes.</param>
         /// <param name="customFieldIds">customFieldIds.</param>
-        public SaveCustomSymbolTypeDto(string name = default(string), bool hideAddressField = default(bool), bool hideSymbolSubtype = default(bool), bool isDefault = false, EntityType? dueDiligenceSymbolEntityType = default(EntityType?), List<string> subTypes = default(List<string>), List<Guid> customFieldIds = default(List<Guid>))
+        public SaveCustomSymbolTypeDto(string name,bool hideAddressField = default(bool), bool hideSymbolSubtype = default(bool), bool isDefault = false, EntityType dueDiligenceSymbolEntityType = default(EntityType), List<string> subTypes = default(List<string>), List<Guid> customFieldIds = default(List<Guid>))
         {
             // to ensure "name" is required (not null)
             if (name == null) {

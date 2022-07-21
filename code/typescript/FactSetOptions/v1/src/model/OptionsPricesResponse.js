@@ -17,7 +17,6 @@ import OptionsPrices from './OptionsPrices';
 /**
  * The OptionsPricesResponse model module.
  * @module model/OptionsPricesResponse
- * @version 0.20.0
  */
 class OptionsPricesResponse {
     /**

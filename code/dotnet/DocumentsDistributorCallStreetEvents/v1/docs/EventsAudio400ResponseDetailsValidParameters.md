@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **FileName** | **List&lt;string&gt;** |  | [optional] 
 **Trimmed** | **List&lt;string&gt;** |  | [optional] 
 **UploadTime** | **List&lt;string&gt;** |  | [optional] 
+**AudioSourceId** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

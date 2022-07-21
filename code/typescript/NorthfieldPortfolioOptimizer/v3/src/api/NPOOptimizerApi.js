@@ -21,7 +21,6 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * NPOOptimizer service.
 * @module api/NPOOptimizerApi
-* @version 0.20.0
 */
 export default class NPOOptimizerApi {
 

@@ -17,7 +17,6 @@ import SPARIdentifier from './SPARIdentifier';
 /**
  * The SPARBenchmark model module.
  * @module model/SPARBenchmark
- * @version 0.20.0
  */
 class SPARBenchmark {
     /**

@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataSimpleMovingAverageDays200 model module.
  * @module model/StockNotationScreenerSearchDataSimpleMovingAverageDays200
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataSimpleMovingAverageDays200 {
     /**

@@ -24,8 +24,8 @@ This endpoint returns the default settings of a PA column.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import columns_api
-from fds.sdk.PAEngine.model.column_root import ColumnRoot
-from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,11 +55,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
 
-    id = "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5" # str | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
 
     try:
         # Get PA column settings
-        api_response = api_instance.get_pa_column_by_id(id)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_pa_column_by_id()
         pprint(api_response)
 
     except fds.sdk.PAEngine.ApiException as e:
@@ -119,7 +119,8 @@ This endpoint lists all the PA columns that can be applied to a calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import columns_api
-from fds.sdk.PAEngine.model.column_summary_root import ColumnSummaryRoot
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,12 +150,14 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
 
-    name = "" # str | Column name (optional) (default to "")
-    category = "" # str | Column category (optional) (default to "")
-    directory = "" # str | The directory to get the columns in (optional) (default to "")
+    name = "" # str | Column name (optional) if omitted the server will use the default value of ""
+    category = "" # str | Column category (optional) if omitted the server will use the default value of ""
+    directory = "" # str | The directory to get the columns in (optional) if omitted the server will use the default value of ""
 
     try:
         # Get PA columns
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_pa_columns(name=name, category=category, directory=directory)
         pprint(api_response)
 

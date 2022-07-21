@@ -19,7 +19,6 @@ import InlineResponse20054DataOccurrence from './InlineResponse20054DataOccurren
 /**
  * The InlineResponse20054Data model module.
  * @module model/InlineResponse20054Data
- * @version 0.10.0
  */
 class InlineResponse20054Data {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PAIdentifier model module.
  * @module model/PAIdentifier
- * @version 0.8.2
  */
 class PAIdentifier {
     /**

@@ -19,7 +19,6 @@ import PAComponent from '../model/PAComponent';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.2
 */
 export default class ComponentsApi {
 

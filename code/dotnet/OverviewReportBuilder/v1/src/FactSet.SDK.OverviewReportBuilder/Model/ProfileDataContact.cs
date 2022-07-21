@@ -48,7 +48,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="website">website (required).</param>
         /// <param name="email">email (required).</param>
         /// <param name="people">people.</param>
-        public ProfileDataContact(ProfileDataBusinessIndustry address = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry city = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry phone = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry stateProvince = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry zip = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry country = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry website = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry email = default(ProfileDataBusinessIndustry), List<ProfileDataContactPeople> people = default(List<ProfileDataContactPeople>))
+        public ProfileDataContact(ProfileDataBusinessIndustry address, ProfileDataBusinessIndustry city, ProfileDataBusinessIndustry phone, ProfileDataBusinessIndustry stateProvince, ProfileDataBusinessIndustry zip, ProfileDataBusinessIndustry country, ProfileDataBusinessIndustry website, ProfileDataBusinessIndustry email,List<ProfileDataContactPeople> people = default(List<ProfileDataContactPeople>))
         {
             // to ensure "address" is required (not null)
             if (address == null) {

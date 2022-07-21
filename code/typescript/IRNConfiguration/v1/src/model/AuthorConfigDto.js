@@ -17,7 +17,6 @@ import TeamSummaryDto from './TeamSummaryDto';
 /**
  * The AuthorConfigDto model module.
  * @module model/AuthorConfigDto
- * @version 0.20.0
  */
 class AuthorConfigDto {
     /**

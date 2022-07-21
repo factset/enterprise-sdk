@@ -17,7 +17,6 @@ import Structure from './Structure';
 /**
  * The StructureResponse model module.
  * @module model/StructureResponse
- * @version 0.20.0
  */
 class StructureResponse {
     /**

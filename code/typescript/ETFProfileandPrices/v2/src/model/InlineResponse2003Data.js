@@ -17,7 +17,6 @@ import InlineResponse2003DataCurrencies from './InlineResponse2003DataCurrencies
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.10.0
  */
 class InlineResponse2003Data {
     /**

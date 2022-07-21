@@ -17,7 +17,6 @@ import AFIOptimizationParameters from './AFIOptimizationParameters';
 /**
  * The AFIOptimizationParametersRoot model module.
  * @module model/AFIOptimizationParametersRoot
- * @version 0.20.0
  */
 class AFIOptimizationParametersRoot {
     /**

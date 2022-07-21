@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**VendorChartIQTimeSeriesIntradaySubsampleGetData**](VendorChartIQTimeSeriesIntradaySubsampleGetData.md) |  | 
+**data** | [**VendorChartIQTimeSeriesIntradaySubsampleGetData**](VendorChartIQTimeSeriesIntradaySubsampleGetData.md) |  |  [optional]
 **meta** | [**VendorChartIQTimeSeriesEodSubsampleGetMeta**](VendorChartIQTimeSeriesEodSubsampleGetMeta.md) |  |  [optional]
 
 

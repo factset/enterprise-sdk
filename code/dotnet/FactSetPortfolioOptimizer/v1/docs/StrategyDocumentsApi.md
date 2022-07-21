@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StrategyDocumentsApi(config);
+
             var path = "\"\"";  // string | The directory to get the strategy documents and sub-directories in (default to "")
 
             try

@@ -34,19 +34,10 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject1" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineObject1() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
         public InlineObject1(VendorChartIQTimeSeriesEodSubsampleGetData data = default(VendorChartIQTimeSeriesEodSubsampleGetData), VendorChartIQTimeSeriesEodSubsampleGetMeta meta = default(VendorChartIQTimeSeriesEodSubsampleGetMeta))
         {
-            // to ensure "data" is required (not null)
-            if (data == null) {
-                throw new ArgumentNullException("data is a required property for InlineObject1 and cannot be null");
-            }
             this.Data = data;
             this.Meta = meta;
         }
@@ -54,7 +45,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public VendorChartIQTimeSeriesEodSubsampleGetData Data { get; set; }
 
         /// <summary>

@@ -57,6 +57,8 @@ class TransactionTypeTransactionType(ModelNormal):
     allowed_values = {
         ('value',): {
             'MA': "MA",
+            'IPO': "IPO",
+            'FOLLOW-ON': "Follow-On",
         },
     }
 
@@ -137,7 +139,7 @@ class TransactionTypeTransactionType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional] if omitted the server will use the default value of "MA"  # noqa: E501
+            value (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,7 +221,7 @@ class TransactionTypeTransactionType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str): [optional] if omitted the server will use the default value of "MA"  # noqa: E501
+            value (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

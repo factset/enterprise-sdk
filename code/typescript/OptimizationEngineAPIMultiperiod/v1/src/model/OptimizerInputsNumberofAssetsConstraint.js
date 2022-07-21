@@ -19,7 +19,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsNumberofAssetsConstraint model module.
  * @module model/OptimizerInputsNumberofAssetsConstraint
- * @version 0.20.0
  */
 class OptimizerInputsNumberofAssetsConstraint {
     /**

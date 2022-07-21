@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The ProfileDataStageCrunchbaseRank model module.
  * @module model/ProfileDataStageCrunchbaseRank
- * @version 0.20.0
  */
 class ProfileDataStageCrunchbaseRank {
     /**

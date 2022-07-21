@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataFundComplianceAnd model module.
  * @module model/FundNotationScreenerSearchDataFundComplianceAnd
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundComplianceAnd {
     /**

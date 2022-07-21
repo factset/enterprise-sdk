@@ -17,7 +17,6 @@ import InlineResponse2009NotationInstrument from './InlineResponse2009NotationIn
 /**
  * The InlineResponse2009Notation model module.
  * @module model/InlineResponse2009Notation
- * @version 0.10.0
  */
 class InlineResponse2009Notation {
     /**

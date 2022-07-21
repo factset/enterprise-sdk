@@ -1,6 +1,6 @@
 /*
- * SDF_API
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * SDF Download API
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.StandardDatafeed.models.ListSchema200ResponseData;
+import com.factset.sdk.StandardDatafeed.models.ListSchema200ResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,131 +35,79 @@ import com.factset.sdk.StandardDatafeed.JSON;
  * ListSchema200Response
  */
 @JsonPropertyOrder({
-  ListSchema200Response.JSON_PROPERTY_SCHEMA,
-  ListSchema200Response.JSON_PROPERTY_SEQUENCE,
-  ListSchema200Response.JSON_PROPERTY_URL,
-  ListSchema200Response.JSON_PROPERTY_TIMESTAMP
+  ListSchema200Response.JSON_PROPERTY_DATA,
+  ListSchema200Response.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListSchema200Response implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SCHEMA = "schema";
-  private String schema;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private java.util.List<ListSchema200ResponseData> data = null;
 
-  public static final String JSON_PROPERTY_SEQUENCE = "sequence";
-  private Integer sequence;
-
-  public static final String JSON_PROPERTY_URL = "url";
-  private String url;
-
-  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  private String timestamp;
+  public static final String JSON_PROPERTY_META = "meta";
+  private ListSchema200ResponseMeta meta;
 
   public ListSchema200Response() { 
   }
 
-  public ListSchema200Response schema(String schema) {
-    this.schema = schema;
+  public ListSchema200Response data(java.util.List<ListSchema200ResponseData> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListSchema200Response addDataItem(ListSchema200ResponseData dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * schema name
-   * @return schema
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "schema name")
-  @JsonProperty(JSON_PROPERTY_SCHEMA)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSchema() {
-    return schema;
+  public java.util.List<ListSchema200ResponseData> getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCHEMA)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchema(String schema) {
-    this.schema = schema;
+  public void setData(java.util.List<ListSchema200ResponseData> data) {
+    this.data = data;
   }
 
 
-  public ListSchema200Response sequence(Integer sequence) {
-    this.sequence = sequence;
+  public ListSchema200Response meta(ListSchema200ResponseMeta meta) {
+    this.meta = meta;
     return this;
   }
 
    /**
-   * version number of the schema
-   * @return sequence
+   * Get meta
+   * @return meta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "version number of the schema")
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getSequence() {
-    return sequence;
+  public ListSchema200ResponseMeta getMeta() {
+    return meta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SEQUENCE)
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSequence(Integer sequence) {
-    this.sequence = sequence;
-  }
-
-
-  public ListSchema200Response url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * pre-signed downloadable url of the schema &amp; sequence
-   * @return url
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "pre-signed downloadable url of the schema & sequence")
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getUrl() {
-    return url;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-
-  public ListSchema200Response timestamp(String timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-   /**
-   * time stamp of when the schema-sequence was last updated
-   * @return timestamp
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "time stamp of when the schema-sequence was last updated")
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getTimestamp() {
-    return timestamp;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
+  public void setMeta(ListSchema200ResponseMeta meta) {
+    this.meta = meta;
   }
 
 
@@ -173,25 +123,21 @@ public class ListSchema200Response implements Serializable {
       return false;
     }
     ListSchema200Response listSchema200Response = (ListSchema200Response) o;
-    return Objects.equals(this.schema, listSchema200Response.schema) &&
-        Objects.equals(this.sequence, listSchema200Response.sequence) &&
-        Objects.equals(this.url, listSchema200Response.url) &&
-        Objects.equals(this.timestamp, listSchema200Response.timestamp);
+    return Objects.equals(this.data, listSchema200Response.data) &&
+        Objects.equals(this.meta, listSchema200Response.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schema, sequence, url, timestamp);
+    return Objects.hash(data, meta);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSchema200Response {\n");
-    sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
-    sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,8 @@ List of barrier types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -66,6 +67,8 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
     try:
         # List of barrier types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_securitized_derivative_barrier_type_list(attributes=attributes)
         pprint(api_response)
 
@@ -118,7 +121,8 @@ Fundamental data for a single securitized derivative. Dates are interpreted in t
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,14 +152,16 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    id = "id_example" # str | Identifier of the instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Fundamental data for a single securitized derivative.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_securitized_derivative_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -168,9 +174,9 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -210,7 +216,8 @@ Notation-based key figures of a securitized derivative. Not all key figures are 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -240,14 +247,16 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    id = "id_example" # str | Identifier of a notation.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Notation-based key figures of a securitized derivative.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_securitized_derivative_key_figures_notation_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -260,9 +269,9 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of a notation. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -302,7 +311,8 @@ Provides details regarding the underlyings, their respective barriers and relate
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -332,14 +342,16 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of underlyings with barrier and cash flow information.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_securitized_derivative_underlying_list(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -352,9 +364,9 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -394,8 +406,8 @@ Search for issuers of securitized derivatives, including issuer groups, which do
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -425,7 +437,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=SecuritizedDerivativeIssuerSearchData(
             role="issuerGroup",
             name=SecuritizedDerivativeIssuerSearchDataName(
@@ -472,7 +484,9 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
     try:
         # Search for issuers of securitized derivatives.
-        api_response = api_instance.post_securitized_derivative_issuer_search(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_securitized_derivative_issuer_search(inline_object=inline_object)
         pprint(api_response)
 
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
@@ -484,7 +498,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -524,8 +538,8 @@ Ranking of securitized derivatives' notations using intraday figures. The result
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -555,7 +569,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    body = InlineObject1(
+    inline_object1 = InlineObject1(
         data=SecuritizedDerivativeNotationRankingIntradayListData(
             prices=SecuritizedDerivativeNotationRankingIntradayListDataPrices(
                 quality="DLY",
@@ -646,19 +660,19 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "trade.performance.absolute",
-            ],
+            sort=["-trade.performance.relative"],
             pagination=SecuritizedDerivativeNotationRankingIntradayListMetaPagination(
                 offset=0,
-                limit=0,
+                limit=10,
             ),
         ),
     ) # InlineObject1 |  (optional)
 
     try:
         # Ranking of securitized derivatives' notations using intraday figures.
-        api_response = api_instance.post_securitized_derivative_notation_ranking_intraday_list(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_securitized_derivative_notation_ranking_intraday_list(inline_object1=inline_object1)
         pprint(api_response)
 
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
@@ -670,7 +684,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -710,8 +724,8 @@ Screener for securitized derivatives's notations based on securitized derivative
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -741,7 +755,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    body = InlineObject3(
+    inline_object3 = InlineObject3(
         data=SecuritizedDerivativeNotationScreenerSearchData(
             validation=SecuritizedDerivativeNotationScreenerSearchDataValidation(
                 only_active=True,
@@ -1579,19 +1593,19 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "symbol",
-            ],
+            sort=["instrument.name"],
             pagination=SecuritizedDerivativeNotationScreenerSearchMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
     ) # InlineObject3 |  (optional)
 
     try:
         # Screener for securitized derivatives's notations based on securitized derivatives-specific parameters.
-        api_response = api_instance.post_securitized_derivative_notation_screener_search(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_securitized_derivative_notation_screener_search(inline_object3=inline_object3)
         pprint(api_response)
 
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
@@ -1603,7 +1617,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type
 
@@ -1643,8 +1657,8 @@ The endpoint returns the possible values and value ranges for the parameters use
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_object2 import InlineObject2
-from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1674,7 +1688,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
 
-    body = InlineObject2(
+    inline_object2 = InlineObject2(
         data=SecuritizedDerivativeNotationScreenerValueRangesGetData(
             validation=SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation(
                 only_active=True,
@@ -2517,7 +2531,9 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
-        api_response = api_instance.post_securitized_derivative_notation_screener_value_ranges_get(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_securitized_derivative_notation_screener_value_ranges_get(inline_object2=inline_object2)
         pprint(api_response)
 
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
@@ -2529,7 +2545,7 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 

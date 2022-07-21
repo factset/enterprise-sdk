@@ -17,7 +17,6 @@ import InlineResponse2001DataSummaryTransactionsTotal from './InlineResponse2001
 /**
  * The InlineResponse2002SummaryTransactions model module.
  * @module model/InlineResponse2002SummaryTransactions
- * @version 0.9.2
  */
 class InlineResponse2002SummaryTransactions {
     /**

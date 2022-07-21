@@ -47,10 +47,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new RecommendationListApi();
-const id = 3.4; // Number | Identifier of the list.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -73,9 +73,9 @@ apiInstance.getRecommendationListGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of the list. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -125,10 +125,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new RecommendationListApi();
-const idRevision = 3.4; // Number | Identifier of the revision.
+const idRevision = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -151,9 +151,9 @@ apiInstance.getRecommendationListRevisionElementList(idRevision, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idRevision** | **Number**| Identifier of the revision. | 
+ **idRevision** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -203,10 +203,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new RecommendationListApi();
-const id = 3.4; // Number | Identifier of the revision.
+const id = 3.4; // Number | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -229,9 +229,9 @@ apiInstance.getRecommendationListRevisionGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| Identifier of the revision. | 
+ **id** | **Number**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -282,10 +282,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new RecommendationListApi();
 const opts = {
-  'idNotation': "idNotation_example", // String | Restrict the search to revisions containing an element associated with the identified notation.
-  'idInstrument': "idInstrument_example", // String | Restrict the search to revisions pointing to the identified instrument.
+  'idNotation': "idNotation_example", // String | 
+  'idInstrument': "idInstrument_example", // String | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -308,10 +308,10 @@ apiInstance.getRecommendationListRevisionSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **idNotation** | **String**| Restrict the search to revisions containing an element associated with the identified notation. | [optional] 
- **idInstrument** | **String**| Restrict the search to revisions pointing to the identified instrument. | [optional] 
+ **idNotation** | **String**|  | [optional] 
+ **idInstrument** | **String**|  | [optional] 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -362,10 +362,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new RecommendationListApi();
 const opts = {
-  'name': "name_example", // String | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.
-  'onlyActive': true, // Boolean | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.
+  'name': "name_example", // String | 
+  'onlyActive': true, // Boolean | 
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -388,10 +388,10 @@ apiInstance.getRecommendationListSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. | [optional] 
- **onlyActive** | **Boolean**| Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. | [optional] 
+ **name** | **String**|  | [optional] 
+ **onlyActive** | **Boolean**|  | [optional] 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ## postRecommendationListRevisionList
 
-> InlineResponse2003 postRecommendationListRevisionList(body)
+> InlineResponse2003 postRecommendationListRevisionList(inlineObject)
 
 List of revisions of a recommendation list.
 
@@ -441,10 +441,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new RecommendationListApi();
-const body = new recommendationlistapifordigitalportals.InlineObject(); // InlineObject | 
+const inlineObject = new recommendationlistapifordigitalportals.InlineObject(); // InlineObject | 
 
 // Call api endpoint
-apiInstance.postRecommendationListRevisionList(body).then(
+apiInstance.postRecommendationListRevisionList(inlineObject).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -463,7 +463,7 @@ apiInstance.postRecommendationListRevisionList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 

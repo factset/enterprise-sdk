@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BenchmarkConstituent model module.
  * @module model/BenchmarkConstituent
- * @version 0.20.0
  */
 class BenchmarkConstituent {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PricesTimeSeriesIntradayListDataRange model module.
  * @module model/PricesTimeSeriesIntradayListDataRange
- * @version 0.9.2
  */
 class PricesTimeSeriesIntradayListDataRange {
     /**

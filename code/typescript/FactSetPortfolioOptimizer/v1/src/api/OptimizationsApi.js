@@ -18,7 +18,6 @@ import FPOOptimizationParameters from '../model/FPOOptimizationParameters';
 /**
 * Optimizations service.
 * @module api/OptimizationsApi
-* @version 0.8.2
 */
 export default class OptimizationsApi {
 

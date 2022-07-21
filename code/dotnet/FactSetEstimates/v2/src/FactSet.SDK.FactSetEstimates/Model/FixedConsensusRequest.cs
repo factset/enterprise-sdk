@@ -49,7 +49,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="fiscalPeriodEnd">Fiscal period end expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Month-end** - MM/YYYY (e.g., 11/2019)   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) .</param>
         /// <param name="periodicity">periodicity.</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public FixedConsensusRequest(List<string> ids = default(List<string>), List<string> metrics = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), Periodicity periodicity = default(Periodicity), string currency = default(string))
+        public FixedConsensusRequest(List<string> ids, List<string> metrics,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), Periodicity periodicity = default(Periodicity), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

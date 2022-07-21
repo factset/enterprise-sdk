@@ -110,7 +110,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Answer.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Answer>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -136,7 +136,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AnswerWithoutData.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<AnswerWithoutData>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -162,7 +162,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(NoAnswersFound.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<NoAnswersFound>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
@@ -202,17 +202,14 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public DataAnswerData(AnswerWithoutData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     public DataAnswerData(NoAnswersFound o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
-
     static {
         schemas.put("Answer", new GenericType<Answer>() {
         });
@@ -238,16 +235,19 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
      */
     @Override
     public void setActualInstance(Object instance) {
+        // Answer
         if (JSON.isInstanceOf(Answer.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // AnswerWithoutData
         if (JSON.isInstanceOf(AnswerWithoutData.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        // NoAnswersFound
         if (JSON.isInstanceOf(NoAnswersFound.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
@@ -277,7 +277,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public Answer getAnswer() throws ClassCastException {
         return (Answer)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `AnswerWithoutData`. If the actual instance is not `AnswerWithoutData`,
      * the ClassCastException will be thrown.
@@ -288,7 +288,7 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public AnswerWithoutData getAnswerWithoutData() throws ClassCastException {
         return (AnswerWithoutData)super.getActualInstance();
     }
-
+    
     /**
      * Get the actual instance of `NoAnswersFound`. If the actual instance is not `NoAnswersFound`,
      * the ClassCastException will be thrown.
@@ -299,6 +299,6 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     public NoAnswersFound getNoAnswersFound() throws ClassCastException {
         return (NoAnswersFound)super.getActualInstance();
     }
-
+    
 }
 

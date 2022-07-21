@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FixedIncomeBenchmarkConstituentsRequest model module.
  * @module model/FixedIncomeBenchmarkConstituentsRequest
- * @version 0.20.0
  */
 class FixedIncomeBenchmarkConstituentsRequest {
     /**

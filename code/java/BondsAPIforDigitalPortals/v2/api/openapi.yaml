@@ -1,7 +1,33 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: Prime Developer Trial
-  version: v1
+  description: "Search for fixed income instruments, using a criteria-based screener.\
+    \ The API provides also fundamental data and key figures, basic interest rate\
+    \ information and derived coupon lists.\n\nAvailable search criteria include:\n\
+    \n* validation: filter for only active listings, by price quality and latest/previous\
+    \ available price dates\n* traded markets: filter and indicate a market priority\
+    \ for the validation\n* important dates in and features of the life cycle of the\
+    \ fixed income instruments\n* filter by issuer, its country of registration and\
+    \ the issued volume\n* coupon data: occurrence and frequency of coupon payments,\
+    \ current interest rate range\n* yield and yield to maturity range, spread\n*\
+    \ Macaulay duration\n* sensitivity ranges: base point value, modified duration,\
+    \ elasticity, convexity\n* cash flow for all transactions over a certain time\
+    \ range: sum or average\n* country-specific attributes: for Germany: is eligible\
+    \ for trustees\n      \nThe key figures are calculated using delayed prices with\
+    \ an additional delay of 10 minutes after an update of the debt instrument's price.\n\
+    Special product features such as the right to a maturity extension, an attached\
+    \ option, or convertibility are not considered for the key figure calculation.\
+    \ Further, a calculation is not performed for perpetual products and for products\
+    \ with variable interest rate.\n\nThis API is fully integrated with the corresponding\
+    \ Quotes API, allowing access to detailed price and performance information of\
+    \ instruments, as well as basic security identifier cross-reference. For direct\
+    \ access to price histories, please refer to the Time Series API for Digital Portals.\n\
+    \nSimilar criteria based screener APIs exist for equity instruments and securitized\
+    \ derivatives: See the Stocks API and the Securitized Derivatives API for details."
+  title: Bonds API For Digital Portals
+  version: "2"
+externalDocs:
+  description: Endpoint Reference
+  url: https://endpointreference.mdgms.com
 servers:
 - url: https://api.factset.com/wealth/v1
 security:
@@ -18,38 +44,44 @@ paths:
         in the timezone of the issuer.
       operationId: get/debtInstrument/get
       parameters:
-      - description: Identifier of the instrument.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the instrument.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
-      - description: ISO 639-1 code of the language.
+      - explode: true
         in: query
         name: _language
+        required: false
         schema:
+          description: ISO 639-1 code of the language.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: isoLanguage
           maxLength: 2
           minLength: 2
           type: string
+        style: form
       responses:
         "200":
           content:
@@ -79,6 +111,7 @@ paths:
         more than one identifier for a given issuer. The response is limited to 100
         results.
       operationId: post/debtInstrument/issuer/search
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object'
         content:
@@ -90,9 +123,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_debtInstrument_issuer_search_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -115,7 +146,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /debtInstrument/keyFigures/notation/get:
@@ -128,22 +158,25 @@ paths:
         perpetual products and for products with variable interest rate.
       operationId: get/debtInstrument/keyFigures/notation/get
       parameters:
-      - description: Identifier of a notation.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of a notation.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -180,6 +213,7 @@ paths:
         and no market priority has been specified, only the notation with the highest
         trading volume, averaged over one month, is considered.
       operationId: post/debtInstrument/notation/screener/search
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_1'
         content:
@@ -191,9 +225,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_debtInstrument_notation_screener_search_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -217,7 +249,6 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
   /debtInstrument/notation/screener/valueRanges/get:
@@ -232,6 +263,7 @@ paths:
         market priority has been specified, only the notation with the highest trading
         volume, averaged over one month, is considered.
       operationId: post/debtInstrument/notation/screener/valueRanges/get
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_2'
         content:
@@ -243,9 +275,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -269,22 +299,26 @@ paths:
       x-no-merge: false
       x-maxSortParameterCount: 10
       x-supportsPermissionDeniedResponse: false
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
 components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
   requestBodies:
-    inline_object_1:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_1'
-      required: false
     inline_object:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_object'
+      required: false
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
       required: false
     inline_object_2:
       content:
@@ -356,6 +390,7 @@ components:
       description: Limit the attributes returned in the response to the specified
         set.
       items:
+        exclusiveMaximum: false
         maxLength: 100
         type: string
       maxItems: 50
@@ -1030,6 +1065,8 @@ components:
       properties:
         searchValue:
           description: Text string to be searched for.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           maxLength: 100
           minLength: 3
           pattern: ^[ -!#-&(-+--/0-:=?-Za-zw"]*$
@@ -1122,6 +1159,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -1137,9 +1175,6 @@ components:
         meta:
           $ref: '#/components/schemas/_debtInstrument_issuer_search_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_1_data:
       example:
         name: name
@@ -1737,6 +1772,7 @@ components:
       - categorization
     _debtInstrument_notation_screener_search_data_lifeCycle_issue:
       description: Date range of the issue date.
+      format: dateRange
       properties:
         start:
           description: The starting point of the date range (inclusive), or `null`
@@ -1754,12 +1790,13 @@ components:
       - end
       - start
       type: object
+      x-isClosedInterval: true
       x-property-sort:
       - start
       - end
-      x-isClosedInterval: true
     _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_date:
       description: Date range of the maturity date.
+      format: dateRange
       properties:
         start:
           description: The starting point of the date range (inclusive), or `null`
@@ -1777,10 +1814,10 @@ components:
       - end
       - start
       type: object
+      x-isClosedInterval: true
       x-property-sort:
       - start
       - end
-      x-isClosedInterval: true
     _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum:
       description: The minimum of the range, or `null` to indicate that there is no
         minimum.
@@ -1819,6 +1856,7 @@ components:
       x-allowNullValue: true
     _debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears:
       description: Value range for the remaining term to maturity expressed in years.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2088,6 +2126,7 @@ components:
       - volume
     _debtInstrument_notation_screener_search_data_tradingVolume_otc_minimum:
       description: Value range for the minimum trading volume.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2241,6 +2280,7 @@ components:
         annualized if the payment frequency is not "annually". Not available for debt
         instruments with a current interest rate type other than "fixed rate" (`id=2`)
         or "step/reset" (`id=5`).
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2277,6 +2317,7 @@ components:
       description: Value range for the current yield, which is the next annual interest
         payment divided by the price. If the coupon period is different than a year,
         the interest payment is annualized.
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2289,6 +2330,7 @@ components:
     _debtInstrument_notation_screener_search_data_yield_toMaturity:
       description: Value range for the yield to maturity, which is the annual rate
         of return, assuming the instrument is held until maturity.
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2302,6 +2344,7 @@ components:
       description: Value range for the credit spread (the difference in yield to maturity)
         between a debt instrument and its benchmark bond. See endpoint `/instrument/benchmark/list`
         for the benchmark bond.
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2328,6 +2371,7 @@ components:
     _debtInstrument_notation_screener_search_data_macaulayDuration:
       description: Value range for the Macaulay duration, which is the average period
         (in years) of capital commitment.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2344,6 +2388,7 @@ components:
         percent (1/100 of a percent). The unit of the base point value is the value
         unit of the notation, thus the parameter `validation.valueUnit.restrict.ids`
         must be set to exactly one value unit in order to use the parameter.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2357,6 +2402,7 @@ components:
       description: Value range for the modified duration, which is the percentage
         change of the debt instrument's price for a one percent change (nominally,
         not relatively) of the prevailing market interest rate.
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2370,6 +2416,7 @@ components:
       description: Value range for the yield elasticity, which is the ratio of the
         percentage change of the debt instrument's price for a one percent change
         (relatively, not nominally) of the prevailing market interest rate.
+      format: relativeValueRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_coupon_currentInterestRate_value_minimum'
@@ -2382,6 +2429,7 @@ components:
     _debtInstrument_notation_screener_search_data_sensitivities_convexity:
       description: Value range for the convexity, which is a measure for the change
         of the modified duration as the prevailing market interest rate changes.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2411,6 +2459,7 @@ components:
       - convexity
     _debtInstrument_notation_screener_search_data_tradedValue_days30_sum:
       description: Value range for the sum of the cash flow.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2422,6 +2471,7 @@ components:
       - maximum
     _debtInstrument_notation_screener_search_data_tradedValue_days30_average:
       description: Value range for the average daily cash flow.
+      format: realRange
       properties:
         minimum:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_data_lifeCycle_maturity_restriction_remainingTermYears_minimum'
@@ -2504,17 +2554,19 @@ components:
       description: Pagination attributes for the offset-based pagination strategy.
       properties:
         offset:
+          default: 0
           description: Non-negative number of entries to skip, or 0 (default).
           exclusiveMinimum: false
           format: int32
           minimum: 0
           type: number
         limit:
+          default: 20
           description: Non-negative maximum number of entries to return.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int32
-          maximum: 5E+2
+          maximum: 500
           minimum: 0
           type: number
       type: object
@@ -2528,6 +2580,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -2542,6 +2595,8 @@ components:
           minLength: 2
           type: string
         sort:
+          default:
+          - instrument.name
           description: Sortable attributes. The sort order is ascending unless it
             is prefixed with a minus sign, in which case it is descending. A list
             of at most 10 (possibly prefixed) attribute name(s) is allowed.
@@ -2634,9 +2689,6 @@ components:
         meta:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_search_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3_valueUnit:
       description: Value unit of the notation such as a main or fractional currency
         for equities, a percentage for debt instruments, or points for indices. See
@@ -3339,8 +3391,8 @@ components:
           format: localizedString
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
         shortName:
           description: Short name of the instrument.
           format: localizedString
@@ -3992,6 +4044,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -4016,9 +4069,6 @@ components:
         meta:
           $ref: '#/components/schemas/_debtInstrument_notation_screener_valueRanges_get_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_4_data_valueUnit:
       example:
         code: code
@@ -4486,6 +4536,7 @@ components:
       example:
         maximum: 5.025004791520295
         minimum: 4.965218492984954
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -4674,6 +4725,7 @@ components:
       example:
         maximum: 3.5571952270680973
         minimum: 6.438423552598547
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4756,6 +4808,7 @@ components:
       example:
         maximum: 1.284659006116532
         minimum: 6.965117697638846
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4775,6 +4828,7 @@ components:
       example:
         maximum: 6.778324963048013
         minimum: 2.8841621266687802
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4795,6 +4849,7 @@ components:
       example:
         maximum: 5.944895607614016
         minimum: 6.878052220127876
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4838,6 +4893,7 @@ components:
       example:
         maximum: 3.353193347011243
         minimum: 6.704019297950036
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -4861,6 +4917,7 @@ components:
       example:
         maximum: 7.143538047012306
         minimum: 3.0937452626664474
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -4881,6 +4938,7 @@ components:
       example:
         maximum: 7.058770351582356
         minimum: 0.8851374739011653
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4901,6 +4959,7 @@ components:
       example:
         maximum: 0.10263654006109402
         minimum: 6.519180951018382
+      format: relativeValueRange
       properties:
         minimum:
           description: Minimum value.
@@ -4920,6 +4979,7 @@ components:
       example:
         maximum: 8.969578798196912
         minimum: 4.652396432933246
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -4969,6 +5029,7 @@ components:
       example:
         maximum: 3.0205796992916243
         minimum: 7.740351818741173
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -4987,6 +5048,7 @@ components:
       example:
         maximum: 7.04836565559697
         minimum: 3.0576100241049344
+      format: realRange
       properties:
         minimum:
           description: Minimum value.
@@ -5488,17 +5550,16 @@ components:
           $ref: '#/components/schemas/inline_response_200_meta'
       type: object
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-interface-version: 1
-x-documenter-version: 5.38.1
-x-api-version: 2.9.1
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-interface-version: 2
+x-documenter-version: 6.0.1
+x-api-version: 3.3.0
 

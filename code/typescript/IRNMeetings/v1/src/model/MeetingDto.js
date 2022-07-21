@@ -20,7 +20,6 @@ import RelatedRecordsDto from './RelatedRecordsDto';
 /**
  * The MeetingDto model module.
  * @module model/MeetingDto
- * @version 0.20.0
  */
 class MeetingDto {
     /**

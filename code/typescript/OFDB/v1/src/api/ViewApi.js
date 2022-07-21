@@ -17,7 +17,6 @@ import ApiClient from "../ApiClient";
 /**
 * View service.
 * @module api/ViewApi
-* @version 0.9.2
 */
 export default class ViewApi {
 

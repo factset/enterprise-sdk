@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetContentAPIBatch.Model
         /// Initializes a new instance of the <see cref="BatchDataRequest" /> class.
         /// </summary>
         /// <param name="id">Batch Request identifier. (required).</param>
-        public BatchDataRequest(Guid id = default(Guid))
+        public BatchDataRequest(Guid id)
         {
             this.Id = id;
         }

@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var id = "id_example";  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
             try
@@ -147,6 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var id = "id_example";  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
             try
@@ -244,6 +246,7 @@ namespace Example
 
             var apiInstance = new CalculationsApi(config);
 
+
             try
             {
                 // Get all calculation statuses
@@ -333,6 +336,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
+
             var calculation = new Calculation(); // Calculation |  (optional) 
 
             try

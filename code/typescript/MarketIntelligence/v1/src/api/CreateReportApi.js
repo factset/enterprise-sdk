@@ -19,7 +19,6 @@ import PostResponseInfo from '../model/PostResponseInfo';
 /**
 * CreateReport service.
 * @module api/CreateReportApi
-* @version 0.20.0
 */
 export default class CreateReportApi {
 

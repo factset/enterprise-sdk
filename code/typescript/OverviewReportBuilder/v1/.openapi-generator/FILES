@@ -43,8 +43,14 @@ docs/ProfileDataStage.md
 docs/ProfileDataStageCrunchbaseRank.md
 docs/ProfileDataStagePeActiveFirmNumber.md
 docs/ProfileDataStagePeActiveFirms.md
+docs/ProfileDataStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataStageTradeDateRange.md
 docs/ProfileResponse.md
+docs/RelevanceType.md
+docs/RelevanceTypeRelevanceType.md
+docs/RelevanceTypeRelevanceTypeC.md
+docs/RelevanceTypeRelevanceTypeP.md
+docs/RelevanceTypeRelevanceTypeS.md
 docs/Scale.md
 docs/ScaleScale.md
 docs/StachTableResponse.md
@@ -52,8 +58,6 @@ docs/TransactionId.md
 docs/TransactionIdTransactionId.md
 docs/TransactionType.md
 docs/TransactionTypeTransactionType.md
-docs/Units.md
-docs/UnitsUnits.md
 docs/ValueType.md
 docs/ValueTypeValueType.md
 git_push.sh
@@ -100,8 +104,14 @@ src/model/ProfileDataStage.js
 src/model/ProfileDataStageCrunchbaseRank.js
 src/model/ProfileDataStagePeActiveFirmNumber.js
 src/model/ProfileDataStagePeActiveFirms.js
+src/model/ProfileDataStagePevcLatestPostMoneyValuation.js
 src/model/ProfileDataStageTradeDateRange.js
 src/model/ProfileResponse.js
+src/model/RelevanceType.js
+src/model/RelevanceTypeRelevanceType.js
+src/model/RelevanceTypeRelevanceTypeC.js
+src/model/RelevanceTypeRelevanceTypeP.js
+src/model/RelevanceTypeRelevanceTypeS.js
 src/model/Scale.js
 src/model/ScaleScale.js
 src/model/StachTableResponse.js
@@ -109,7 +119,5 @@ src/model/TransactionId.js
 src/model/TransactionIdTransactionId.js
 src/model/TransactionType.js
 src/model/TransactionTypeTransactionType.js
-src/model/Units.js
-src/model/UnitsUnits.js
 src/model/ValueType.js
 src/model/ValueTypeValueType.js

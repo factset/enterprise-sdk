@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// </summary>
         /// <param name="universeId">The universe to save this mapping to. (required).</param>
         /// <param name="clientId">A unique identifier supplied by the user. ClientId is saved to the user&#39;s Concordance universe and will be used as the identifier for that entity within the universe. (required).</param>
-        public EntityMappingDeleteRequest(int universeId = default(int), List<string> clientId = default(List<string>))
+        public EntityMappingDeleteRequest(int universeId, List<string> clientId)
         {
             this.UniverseId = universeId;
             // to ensure "clientId" is required (not null)

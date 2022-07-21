@@ -24,9 +24,8 @@ Returns all relevant dates such as  for the specified Option identifier. Data It
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import reference_api
-from fds.sdk.FactSetOptions.model.options_dates_request import OptionsDatesRequest
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.options_dates_response import OptionsDatesResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,6 +61,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns option security dates such as expiration and trade.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_dates_for_list(options_dates_request)
         pprint(api_response)
 
@@ -119,9 +119,8 @@ Returns basic reference details for the options. Data items include -  * Name * 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOptions
 from fds.sdk.FactSetOptions.api import reference_api
-from fds.sdk.FactSetOptions.model.error_response import ErrorResponse
-from fds.sdk.FactSetOptions.model.options_references_request import OptionsReferencesRequest
-from fds.sdk.FactSetOptions.model.options_references_response import OptionsReferencesResponse
+from fds.sdk.FactSetOptions.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +156,7 @@ with fds.sdk.FactSetOptions.ApiClient(configuration) as api_client:
 
     try:
         # Returns basic reference details for the options such as currency, exchange, symbols, flags and more
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_options_references_for_list(options_references_request)
         pprint(api_response)
 

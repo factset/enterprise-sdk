@@ -25,6 +25,8 @@ This is the endpoint to cancel a previously submitted optimization. Instead of d
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaEquityOptimizer
 from fds.sdk.AxiomaEquityOptimizer.api import optimizations_api
+from fds.sdk.AxiomaEquityOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +60,9 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Cancel Axioma optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_axioma_optimization_by_id(id)
+
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->cancel_axioma_optimization_by_id: %s\n" % e)
 ```
@@ -114,6 +118,8 @@ This is the endpoint to check on the progress of a previously requested optimiza
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaEquityOptimizer
 from fds.sdk.AxiomaEquityOptimizer.api import optimizations_api
+from fds.sdk.AxiomaEquityOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -147,7 +153,9 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Get Axioma optimization by id
+        # example passing only required values which don't have defaults set
         api_instance.get_axioma_optimization_by_id(id)
+
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->get_axioma_optimization_by_id: %s\n" % e)
 ```
@@ -204,7 +212,8 @@ This endpoint runs Axioma optimization specified in the POST body parameters.  I
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AxiomaEquityOptimizer
 from fds.sdk.AxiomaEquityOptimizer.api import optimizations_api
-from fds.sdk.AxiomaEquityOptimizer.model.axioma_equity_optimization_parameters import AxiomaEquityOptimizationParameters
+from fds.sdk.AxiomaEquityOptimizer.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -283,7 +292,10 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
 
     try:
         # Run Axioma optimization
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.run_axioma_optimization(axioma_equity_optimization_parameters=axioma_equity_optimization_parameters)
+
     except fds.sdk.AxiomaEquityOptimizer.ApiException as e:
         print("Exception when calling OptimizationsApi->run_axioma_optimization: %s\n" % e)
 ```

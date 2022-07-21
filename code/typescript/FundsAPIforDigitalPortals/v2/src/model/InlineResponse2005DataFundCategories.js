@@ -17,7 +17,6 @@ import InlineResponse2005DataFundParent from './InlineResponse2005DataFundParent
 /**
  * The InlineResponse2005DataFundCategories model module.
  * @module model/InlineResponse2005DataFundCategories
- * @version 0.10.0
  */
 class InlineResponse2005DataFundCategories {
     /**

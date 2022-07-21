@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// Initializes a new instance of the <see cref="TermsAndConditionsScalarRequest" /> class.
         /// </summary>
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*.  (required).</param>
-        public TermsAndConditionsScalarRequest(List<string> ids = default(List<string>))
+        public TermsAndConditionsScalarRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

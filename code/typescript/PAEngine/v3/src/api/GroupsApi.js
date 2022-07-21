@@ -19,7 +19,6 @@ import GroupRoot from '../model/GroupRoot';
 /**
 * Groups service.
 * @module api/GroupsApi
-* @version 0.20.0
 */
 export default class GroupsApi {
 

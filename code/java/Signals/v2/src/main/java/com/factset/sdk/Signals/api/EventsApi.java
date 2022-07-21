@@ -181,8 +181,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -207,8 +207,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Microsoft&#39;s Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -356,8 +356,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Signals event headlines plus all additional event details based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -382,8 +382,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Signals event headlines plus all additional event details based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -453,8 +453,8 @@ public class EventsApi {
   /**
    * 
    * Fetch FactSet entity IDs for events that match the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
    * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
@@ -476,8 +476,8 @@ public class EventsApi {
   /**
    * 
    * Fetch FactSet entity IDs for events that match the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param themes Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional)
    * @param categories Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional)
@@ -541,8 +541,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Signals event headlines based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)
@@ -567,8 +567,8 @@ public class EventsApi {
   /**
    * 
    * Fetch Signals event headlines based on the filtering criteria
-   * @param created A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
-   * @param updated A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param created A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional)
+   * @param updated A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional)
    * @param signalIds  (optional)
    * @param ids Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional)
    * @param portfolios Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional)

@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SFDRApi(config);
+
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  1500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total  length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var feelback = false;  // bool? | This parameter would return the latest PAI data based on the indicators or the subtopics requested. This parameter should not be used in conjuction with `fiscalPeriodStart` and `fiscalPeriodEnd`   (optional)  (default to false)
             var fiscalPeriodStart = 2020;  // string | Fiscal period start is expressed in YYYY formats. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.  (optional) 
@@ -155,6 +156,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SFDRApi(config);
+
             var sfdrPaiRequest = new SfdrPaiRequest(); // SfdrPaiRequest | The request body, allows the user to specify a list of ids, date range(Annual), and PAI Indicators
 
             try

@@ -17,7 +17,6 @@ import PeerListData from './PeerListData';
 /**
  * The PeerListObject model module.
  * @module model/PeerListObject
- * @version 0.20.0
  */
 class PeerListObject {
     /**

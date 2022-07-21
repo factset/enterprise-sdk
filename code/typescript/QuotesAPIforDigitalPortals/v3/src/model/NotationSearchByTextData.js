@@ -21,7 +21,6 @@ import NotationSearchByTextDataValidation from './NotationSearchByTextDataValida
 /**
  * The NotationSearchByTextData model module.
  * @module model/NotationSearchByTextData
- * @version 0.10.0
  */
 class NotationSearchByTextData {
     /**

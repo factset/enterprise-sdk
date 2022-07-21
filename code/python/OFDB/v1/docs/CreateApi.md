@@ -26,8 +26,8 @@ Creates a 2d or 3d database(OFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import create_api
-from fds.sdk.OFDB.model.database_schema import DatabaseSchema
-from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,6 +74,8 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     ) # DatabaseSchema |  (optional)
 
     try:
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_database(database_schema=database_schema)
         pprint(api_response)
 
@@ -118,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_dates_date_symbols_post**
-> SuccessPostResponse v1_database_path_dates_date_symbols_post(path, date, inline_object4)
+> SuccessPostResponse v1_database_path_dates_date_symbols_post(path, date, postnewsymboldate)
 
 
 
@@ -133,8 +135,8 @@ Creates a new symbol for a given date in 3d database(OFDB)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import create_api
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
-from fds.sdk.OFDB.model.inline_object4 import InlineObject4
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,13 +168,14 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
-    inline_object4 = InlineObject4(
+    postnewsymboldate = Postnewsymboldate(
         symbol="FACTSET",
         data={},
-    ) # InlineObject4 | 
+    ) # Postnewsymboldate | Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
 
     try:
-        api_response = api_instance.v1_database_path_dates_date_symbols_post(path, date, inline_object4)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_dates_date_symbols_post(path, date, postnewsymboldate)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -186,7 +189,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Encode database path |
  **date** | **int**| Date in YYYYMMDD format |
- **inline_object4** | [**InlineObject4**](InlineObject4.md)|  |
+ **postnewsymboldate** | [**Postnewsymboldate**](Postnewsymboldate.md)| Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. |
 
 ### Return type
 
@@ -218,7 +221,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_dates_post**
-> SuccessPostResponse v1_database_path_dates_post(path, inline_object2)
+> SuccessPostResponse v1_database_path_dates_post(path, post_datesymbol)
 
 
 
@@ -233,8 +236,8 @@ Creates a new date with single/multiple symbols for a 3d database(OFDB).
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import create_api
-from fds.sdk.OFDB.model.inline_object2 import InlineObject2
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -265,13 +268,16 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     api_instance = create_api.CreateApi(api_client)
 
     path = "path_example" # str | Encode database path
-    inline_object2 = InlineObject2(
+    post_datesymbol = PostDatesymbol(
         date="20200730",
-        data=[{"symbol":"FACTSET","field":"VALUE"}],
-    ) # InlineObject2 | 
+        data=[
+            None,
+        ],
+    ) # PostDatesymbol | Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
 
     try:
-        api_response = api_instance.v1_database_path_dates_post(path, inline_object2)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_dates_post(path, post_datesymbol)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -284,7 +290,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Encode database path |
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
+ **post_datesymbol** | [**PostDatesymbol**](PostDatesymbol.md)| Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. |
 
 ### Return type
 
@@ -317,7 +323,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_database_path_symbols_post**
-> SuccessPostResponse v1_database_path_symbols_post(path, inline_object)
+> SuccessPostResponse v1_database_path_symbols_post(path, create_symbols)
 
 
 
@@ -332,8 +338,8 @@ Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OFDB
 from fds.sdk.OFDB.api import create_api
-from fds.sdk.OFDB.model.inline_object import InlineObject
-from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
+from fds.sdk.OFDB.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -364,15 +370,16 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     api_instance = create_api.CreateApi(api_client)
 
     path = "path_example" # str | Encode database path
-    inline_object = InlineObject(
+    create_symbols = CreateSymbols(
         symbol="symbol_example",
         data=[
             None,
         ],
-    ) # InlineObject | 
+    ) # CreateSymbols | Data for creating symbol in the database
 
     try:
-        api_response = api_instance.v1_database_path_symbols_post(path, inline_object)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.v1_database_path_symbols_post(path, create_symbols)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
@@ -385,7 +392,7 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **str**| Encode database path |
- **inline_object** | [**InlineObject**](InlineObject.md)|  |
+ **create_symbols** | [**CreateSymbols**](CreateSymbols.md)| Data for creating symbol in the database |
 
 ### Return type
 

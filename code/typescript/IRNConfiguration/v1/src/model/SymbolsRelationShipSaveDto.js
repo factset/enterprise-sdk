@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The SymbolsRelationShipSaveDto model module.
  * @module model/SymbolsRelationShipSaveDto
- * @version 0.20.0
  */
 class SymbolsRelationShipSaveDto {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LinkSettingsDto model module.
  * @module model/LinkSettingsDto
- * @version 0.20.0
  */
 class LinkSettingsDto {
     /**

@@ -41,7 +41,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="snapshot">Is the component type snapshot or subperiod..</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        public PAComponent(string id = default(string), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
+        public PAComponent(string id = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Currencyisocode = currencyisocode;

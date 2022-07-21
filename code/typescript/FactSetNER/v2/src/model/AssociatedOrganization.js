@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AssociatedOrganization model module.
  * @module model/AssociatedOrganization
- * @version 0.20.0
  */
 class AssociatedOrganization {
     /**

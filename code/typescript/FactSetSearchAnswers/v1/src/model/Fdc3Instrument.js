@@ -17,7 +17,6 @@ import InstrumentID from './InstrumentID';
 /**
  * The Fdc3Instrument model module.
  * @module model/Fdc3Instrument
- * @version 0.20.0
  */
 class Fdc3Instrument {
     /**

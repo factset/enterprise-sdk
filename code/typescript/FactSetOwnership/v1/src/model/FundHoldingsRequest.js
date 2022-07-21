@@ -17,7 +17,6 @@ import AssetType from './AssetType';
 /**
  * The FundHoldingsRequest model module.
  * @module model/FundHoldingsRequest
- * @version 0.20.0
  */
 class FundHoldingsRequest {
     /**

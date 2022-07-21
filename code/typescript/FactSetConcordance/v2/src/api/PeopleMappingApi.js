@@ -24,7 +24,6 @@ import PeopleUniverseResponse from '../model/PeopleUniverseResponse';
 /**
 * PeopleMapping service.
 * @module api/PeopleMappingApi
-* @version 0.20.1
 */
 export default class PeopleMappingApi {
 

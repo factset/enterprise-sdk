@@ -18,7 +18,6 @@ import PeriodicityDetail from './PeriodicityDetail';
 /**
  * The FixedDetailRequest model module.
  * @module model/FixedDetailRequest
- * @version 0.20.0
  */
 class FixedDetailRequest {
     /**

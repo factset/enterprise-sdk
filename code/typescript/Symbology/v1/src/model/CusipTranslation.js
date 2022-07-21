@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CusipTranslation model module.
  * @module model/CusipTranslation
- * @version 0.8.2
  */
 class CusipTranslation {
     /**

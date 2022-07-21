@@ -50,7 +50,7 @@ namespace FactSet.SDK.IRNCustomSymbols.Model
         /// <param name="postalCode">postalCode.</param>
         /// <param name="country">country.</param>
         /// <param name="customFieldValues">customFieldValues.</param>
-        public CreateStandardSymbolMetadataDto(string standardSymbol = default(string), string description = default(string), Guid typeId = default(Guid), Guid subTypeId = default(Guid), string googleMapsPlaceId = default(string), string formattedAddress = default(string), string city = default(string), string stateProvince = default(string), string postalCode = default(string), string country = default(string), List<CreateCustomSymbolCustomFieldValueDto> customFieldValues = default(List<CreateCustomSymbolCustomFieldValueDto>))
+        public CreateStandardSymbolMetadataDto(string standardSymbol,string description = default(string), Guid typeId = default(Guid), Guid subTypeId = default(Guid), string googleMapsPlaceId = default(string), string formattedAddress = default(string), string city = default(string), string stateProvince = default(string), string postalCode = default(string), string country = default(string), List<CreateCustomSymbolCustomFieldValueDto> customFieldValues = default(List<CreateCustomSymbolCustomFieldValueDto>))
         {
             // to ensure "standardSymbol" is required (not null)
             if (standardSymbol == null) {

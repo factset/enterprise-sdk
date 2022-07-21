@@ -23,7 +23,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTurnoverConstraint model module.
  * @module model/OptimizerInputsTurnoverConstraint
- * @version 0.20.0
  */
 class OptimizerInputsTurnoverConstraint {
     /**

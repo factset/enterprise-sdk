@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LookupLimit model module.
  * @module model/LookupLimit
- * @version 0.20.0
  */
 class LookupLimit {
     /**

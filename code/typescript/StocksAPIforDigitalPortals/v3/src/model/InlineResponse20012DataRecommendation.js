@@ -18,7 +18,6 @@ import InlineResponse20012DataRecommendationCounts from './InlineResponse20012Da
 /**
  * The InlineResponse20012DataRecommendation model module.
  * @module model/InlineResponse20012DataRecommendation
- * @version 0.10.0
  */
 class InlineResponse20012DataRecommendation {
     /**

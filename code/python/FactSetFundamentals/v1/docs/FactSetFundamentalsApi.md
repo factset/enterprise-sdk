@@ -24,8 +24,8 @@ Retrieves FactSet Fundamental standardized data for an individual security. Use 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentals
 from fds.sdk.FactSetFundamentals.api import fact_set_fundamentals_api
-from fds.sdk.FactSetFundamentals.model.fundamentals_response import FundamentalsResponse
-from fds.sdk.FactSetFundamentals.model.error_response import ErrorResponse
+from fds.sdk.FactSetFundamentals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,14 +57,16 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
 
     ids = ["FDS-US"] # [str] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted as input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     metrics = ["FF_SALES"] # [str] | Requested List of Financial Statement Items or Ratios. Use /metrics endpoint for a complete list of available FF_* metric items. <p>*When requesting multiple metrics, you cannot mix metric data types (e.g. strings and floats). Please use /metrics endpoints for context on metric dataType to avoid null data.*</p> <p>***metrics limit** =  1600 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of metrics, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **LTM**  = Last Twelve Months,   * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),   * **YTD** = Year-to-date.  (optional) (default to "QTR")
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods, where   * **ANN**  = Annual - Original,   * **ANN_R** = Annual - Latest - *Includes Restatements*,   * **QTR**  = Quarterly - Original,   * **QTR_R** = Quarterly - Latest - *Includes Restatements*,   * **SEMI** = Semi-Annual,   * **LTM**  = Last Twelve Months,   * **LTMSG** = Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),   * **YTD** = Year-to-date.  (optional) if omitted the server will use the default value of "QTR"
     fiscal_period_start = "2017-09-01" # str | Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  (optional)
     fiscal_period_end = "2018-03-01" # str | Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  (optional)
-    currency = "USD" # str | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
-    restated = "RP" # str | Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data  (optional) (default to "RP")
+    currency = "USD" # str | Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \"DOC\" would give the values in reporting currency for the requested ids.  (optional) if omitted the server will use the default value of "LOCAL"
+    restated = "RP" # str | Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data  (optional) if omitted the server will use the default value of "RP"
 
     try:
         # Returns the Company Fundamental Data.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fds_fundamentals(ids, metrics, periodicity=periodicity, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, currency=currency, restated=restated)
         pprint(api_response)
 
@@ -82,7 +84,7 @@ Name | Type | Description  | Notes
  **periodicity** | **str**| Periodicity or frequency of the fiscal periods, where   * **ANN**  &#x3D; Annual - Original,   * **ANN_R** &#x3D; Annual - Latest - *Includes Restatements*,   * **QTR**  &#x3D; Quarterly - Original,   * **QTR_R** &#x3D; Quarterly - Latest - *Includes Restatements*,   * **SEMI** &#x3D; Semi-Annual,   * **LTM**  &#x3D; Last Twelve Months,   * **LTMSG** &#x3D; Last Twelve Months Global [OA17959](https://my.apps.factset.com/oa/pages/17959),   * **YTD** &#x3D; Year-to-date.  | [optional] if omitted the server will use the default value of "QTR"
  **fiscal_period_start** | **str**| Fiscal period start expressed as YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  | [optional]
  **fiscal_period_end** | **str**| Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution.  | [optional]
- **currency** | **str**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  | [optional] if omitted the server will use the default value of "LOCAL"
+ **currency** | **str**| Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  Giving input as \&quot;DOC\&quot; would give the values in reporting currency for the requested ids.  | [optional] if omitted the server will use the default value of "LOCAL"
  **restated** | **str**| Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  | [optional] if omitted the server will use the default value of "RP"
 
 ### Return type
@@ -128,9 +130,8 @@ Retrieves FactSet Fundamental standardized data for an individual security. Use 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentals
 from fds.sdk.FactSetFundamentals.api import fact_set_fundamentals_api
-from fds.sdk.FactSetFundamentals.model.fundamentals_request import FundamentalsRequest
-from fds.sdk.FactSetFundamentals.model.fundamentals_response import FundamentalsResponse
-from fds.sdk.FactSetFundamentals.model.error_response import ErrorResponse
+from fds.sdk.FactSetFundamentals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -172,6 +173,7 @@ with fds.sdk.FactSetFundamentals.ApiClient(configuration) as api_client:
 
     try:
         # Returns the Company Fundamental Data.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fds_fundamentals_for_list(fundamentals_request)
         pprint(api_response)
 

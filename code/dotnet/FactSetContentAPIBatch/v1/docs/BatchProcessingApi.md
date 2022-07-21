@@ -21,6 +21,7 @@ Returns the response data for the underlying batch request that is specified by 
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetContentAPIBatch.Api;
@@ -53,6 +54,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BatchProcessingApi(config);
+
             var id = "id_example";  // Guid | Batch Request identifier.
 
             try
@@ -123,6 +125,7 @@ Return the response data for the underlying batch request that is specified by t
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetContentAPIBatch.Api;
@@ -155,6 +158,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BatchProcessingApi(config);
+
             var batchDataRequest = new BatchDataRequest(); // BatchDataRequest | Batch Data Request Post Body
 
             try
@@ -257,6 +261,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BatchProcessingApi(config);
+
             var id = "id_example";  // Guid | Batch Request identifier.
 
             try
@@ -347,6 +352,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BatchProcessingApi(config);
+
             var batchStatusRequest = new BatchStatusRequest(); // BatchStatusRequest | Batch Status Request Post Body
 
             try

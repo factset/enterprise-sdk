@@ -12,16 +12,14 @@
  */
 
 import ApiClient from './ApiClient';
-import CreateDatabaseResponse from './model/CreateDatabaseResponse';
+import CreateSymbols from './model/CreateSymbols';
 import DatabaseSchema from './model/DatabaseSchema';
-import InlineObject from './model/InlineObject';
-import InlineObject1 from './model/InlineObject1';
-import InlineObject2 from './model/InlineObject2';
-import InlineObject3 from './model/InlineObject3';
-import InlineObject4 from './model/InlineObject4';
-import InlineObject5 from './model/InlineObject5';
 import InlineResponse201 from './model/InlineResponse201';
-import Ofdb from './model/Ofdb';
+import ModifySymbols from './model/ModifySymbols';
+import Modifydatespecific from './model/Modifydatespecific';
+import Modifysymboldate from './model/Modifysymboldate';
+import PostDatesymbol from './model/PostDatesymbol';
+import Postnewsymboldate from './model/Postnewsymboldate';
 import SuccessPostResponse from './model/SuccessPostResponse';
 
 import CreateApi from './api/CreateApi';
@@ -58,7 +56,6 @@ import ViewApi from './api/ViewApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.2
 */
 export {
     /**
@@ -68,10 +65,10 @@ export {
     ApiClient,
 
     /**
-     * The CreateDatabaseResponse model constructor.
-     * @property {module:model/CreateDatabaseResponse}
+     * The CreateSymbols model constructor.
+     * @property {module:model/CreateSymbols}
      */
-    CreateDatabaseResponse,
+    CreateSymbols,
 
     /**
      * The DatabaseSchema model constructor.
@@ -80,52 +77,40 @@ export {
     DatabaseSchema,
 
     /**
-     * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
-     */
-    InlineObject,
-
-    /**
-     * The InlineObject1 model constructor.
-     * @property {module:model/InlineObject1}
-     */
-    InlineObject1,
-
-    /**
-     * The InlineObject2 model constructor.
-     * @property {module:model/InlineObject2}
-     */
-    InlineObject2,
-
-    /**
-     * The InlineObject3 model constructor.
-     * @property {module:model/InlineObject3}
-     */
-    InlineObject3,
-
-    /**
-     * The InlineObject4 model constructor.
-     * @property {module:model/InlineObject4}
-     */
-    InlineObject4,
-
-    /**
-     * The InlineObject5 model constructor.
-     * @property {module:model/InlineObject5}
-     */
-    InlineObject5,
-
-    /**
      * The InlineResponse201 model constructor.
      * @property {module:model/InlineResponse201}
      */
     InlineResponse201,
 
     /**
-     * The Ofdb model constructor.
-     * @property {module:model/Ofdb}
+     * The ModifySymbols model constructor.
+     * @property {module:model/ModifySymbols}
      */
-    Ofdb,
+    ModifySymbols,
+
+    /**
+     * The Modifydatespecific model constructor.
+     * @property {module:model/Modifydatespecific}
+     */
+    Modifydatespecific,
+
+    /**
+     * The Modifysymboldate model constructor.
+     * @property {module:model/Modifysymboldate}
+     */
+    Modifysymboldate,
+
+    /**
+     * The PostDatesymbol model constructor.
+     * @property {module:model/PostDatesymbol}
+     */
+    PostDatesymbol,
+
+    /**
+     * The Postnewsymboldate model constructor.
+     * @property {module:model/Postnewsymboldate}
+     */
+    Postnewsymboldate,
 
     /**
      * The SuccessPostResponse model constructor.

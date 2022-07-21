@@ -21,7 +21,6 @@ import StockNotationScreenerSearchDataReturnOnEquity1 from './StockNotationScree
 /**
  * The StockNotationScreenerSearchDataEstimates model module.
  * @module model/StockNotationScreenerSearchDataEstimates
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataEstimates {
     /**

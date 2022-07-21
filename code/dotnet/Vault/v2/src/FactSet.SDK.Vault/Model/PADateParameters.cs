@@ -43,7 +43,7 @@ namespace FactSet.SDK.Vault.Model
         /// <param name="startdate">Calculation&#39;s start date..</param>
         /// <param name="enddate">Calculation&#39;s end date. (required).</param>
         /// <param name="frequency">Calculation&#39;s frequency. (required).</param>
-        public PADateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
+        public PADateParameters(string enddate, string frequency,string startdate = default(string))
         {
             // to ensure "enddate" is required (not null)
             if (enddate == null) {

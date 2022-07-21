@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BloombergFIGIApi(config);
+
             var bloombergTranslationRequest = new BloombergTranslationRequest(); // BloombergTranslationRequest | Request Body for Bloomberg FIGIs.
 
             try
@@ -144,6 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new BloombergFIGIApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
             try

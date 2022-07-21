@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="ServiceProviderConfigBulk" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public ServiceProviderConfigBulk()
+        public ServiceProviderConfigBulk(bool supported, int maxOperations, int maxPayloadSize)
         {
         }
 

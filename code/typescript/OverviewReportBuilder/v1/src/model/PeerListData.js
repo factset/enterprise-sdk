@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeerListData model module.
  * @module model/PeerListData
- * @version 0.20.0
  */
 class PeerListData {
     /**

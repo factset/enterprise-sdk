@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **String** |  |  [optional]
-**meta** | **String** |  |  [optional]
+**id** | **String** | request id |  [optional]
+**errorMessage** | **String** | message describing the error |  [optional]
 
 
 ## Implemented Interfaces

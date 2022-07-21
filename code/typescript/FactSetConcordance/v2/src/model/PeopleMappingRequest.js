@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PeopleMappingRequest model module.
  * @module model/PeopleMappingRequest
- * @version 0.20.1
  */
 class PeopleMappingRequest {
     /**

@@ -29,7 +29,6 @@ import StockNotationScreenerSearchDataVolatility from './StockNotationScreenerSe
 /**
  * The StockNotationScreenerSearchData model module.
  * @module model/StockNotationScreenerSearchData
- * @version 0.10.0
  */
 class StockNotationScreenerSearchData {
     /**

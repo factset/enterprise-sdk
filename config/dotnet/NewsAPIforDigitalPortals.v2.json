@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.NewsAPIforDigitalPortals",
-  "packageVersion": "0.10.0",
+  "packageVersion": "0.10.1",
   "packageGuid": "{32e01c8a-d954-54b7-ac97-ae90235b356b}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/NewsAPIforDigitalPortals/0.10.0",
+  "httpUserAgent": "fds-sdk/dotnet/NewsAPIforDigitalPortals/0.10.1",
   "files": {
     "LICENSE": {}
   },

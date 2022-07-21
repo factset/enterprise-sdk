@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean from './Sto
 /**
  * The StockNotationScreenerSearchDataRatios1EnterpriseValueEbit model module.
  * @module model/StockNotationScreenerSearchDataRatios1EnterpriseValueEbit
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRatios1EnterpriseValueEbit {
     /**

@@ -17,7 +17,6 @@ import PricesTimeSeriesIntradayListDataRange from './PricesTimeSeriesIntradayLis
 /**
  * The PricesTimeSeriesIntradayListData model module.
  * @module model/PricesTimeSeriesIntradayListData
- * @version 0.9.2
  */
 class PricesTimeSeriesIntradayListData {
     /**

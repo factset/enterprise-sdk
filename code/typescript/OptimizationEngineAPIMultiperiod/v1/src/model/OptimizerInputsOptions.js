@@ -17,7 +17,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsOptions model module.
  * @module model/OptimizerInputsOptions
- * @version 0.20.0
  */
 class OptimizerInputsOptions {
     /**

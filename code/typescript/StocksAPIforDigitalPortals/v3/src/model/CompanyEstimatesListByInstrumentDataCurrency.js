@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CompanyEstimatesListByInstrumentDataCurrency model module.
  * @module model/CompanyEstimatesListByInstrumentDataCurrency
- * @version 0.10.0
  */
 class CompanyEstimatesListByInstrumentDataCurrency {
     /**

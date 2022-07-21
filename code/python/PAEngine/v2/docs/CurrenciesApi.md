@@ -23,7 +23,8 @@ This endpoint lists all the PA currencies that can be applied to a calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import currencies_api
-from fds.sdk.PAEngine.model.currency import Currency
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get PA currencies
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_currencies()
         pprint(api_response)
 

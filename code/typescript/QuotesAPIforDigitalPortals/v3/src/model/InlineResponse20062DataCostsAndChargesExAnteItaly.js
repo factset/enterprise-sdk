@@ -18,7 +18,6 @@ import InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedExitCo
 /**
  * The InlineResponse20062DataCostsAndChargesExAnteItaly model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnteItaly
- * @version 0.10.0
  */
 class InlineResponse20062DataCostsAndChargesExAnteItaly {
     /**

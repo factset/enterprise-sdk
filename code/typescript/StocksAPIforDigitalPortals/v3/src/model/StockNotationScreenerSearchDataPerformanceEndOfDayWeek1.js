@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataEbitMarginMinimum from './StockNotationScr
 /**
  * The StockNotationScreenerSearchDataPerformanceEndOfDayWeek1 model module.
  * @module model/StockNotationScreenerSearchDataPerformanceEndOfDayWeek1
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataPerformanceEndOfDayWeek1 {
     /**

@@ -24,8 +24,8 @@ Finds the best people candidates matching the given name. <p>**Max of 1 Name per
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_match_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_matches_response import PeopleMatchesResponse
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +65,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Find potential people matches given a person's name.People matches can be retrieved using person's name and other attributes like firstname, middlename and lastname.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_people_match(entity, person_name=person_name, salutation=salutation, first_name=first_name, middle_name=middle_name, last_name=last_name, suffix=suffix)
         pprint(api_response)
 
@@ -128,9 +130,8 @@ Finds the best candidate people matching the given people names. Additional attr
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetConcordance
 from fds.sdk.FactSetConcordance.api import people_match_api
-from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
-from fds.sdk.FactSetConcordance.model.people_matches_response import PeopleMatchesResponse
-from fds.sdk.FactSetConcordance.model.people_match_request import PeopleMatchRequest
+from fds.sdk.FactSetConcordance.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -178,6 +179,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
 
     try:
         # Find potential people matches given a person's name.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_people_match_for_list(people_match_request)
         pprint(api_response)
 

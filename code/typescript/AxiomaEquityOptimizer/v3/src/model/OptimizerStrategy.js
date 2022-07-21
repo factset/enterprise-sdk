@@ -17,7 +17,6 @@ import OptimizerStrategyOverrides from './OptimizerStrategyOverrides';
 /**
  * The OptimizerStrategy model module.
  * @module model/OptimizerStrategy
- * @version 0.20.0
  */
 class OptimizerStrategy {
     /**

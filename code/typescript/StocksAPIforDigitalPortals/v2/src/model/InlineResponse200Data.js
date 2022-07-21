@@ -21,7 +21,6 @@ import InlineResponse200Type from './InlineResponse200Type';
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.9.2
  */
 class InlineResponse200Data {
     /**

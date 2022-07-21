@@ -18,7 +18,6 @@ import Meta from './Meta';
 /**
  * The GetFilesResponse model module.
  * @module model/GetFilesResponse
- * @version 0.20.0
  */
 class GetFilesResponse {
     /**

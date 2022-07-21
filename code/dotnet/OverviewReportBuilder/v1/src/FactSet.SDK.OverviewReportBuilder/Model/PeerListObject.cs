@@ -40,7 +40,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// Initializes a new instance of the <see cref="PeerListObject" /> class.
         /// </summary>
         /// <param name="peers">peers (required).</param>
-        public PeerListObject(List<PeerListData> peers = default(List<PeerListData>))
+        public PeerListObject(List<PeerListData> peers)
         {
             // to ensure "peers" is required (not null)
             if (peers == null) {

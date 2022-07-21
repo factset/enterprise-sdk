@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VermilionUserResourceName model module.
  * @module model/VermilionUserResourceName
- * @version 0.20.1
  */
 class VermilionUserResourceName {
     /**

@@ -23,7 +23,6 @@ import LinkedPATemplateUpdateParametersRoot from '../model/LinkedPATemplateUpdat
 /**
 * LinkedPATemplates service.
 * @module api/LinkedPATemplatesApi
-* @version 0.20.0
 */
 export default class LinkedPATemplatesApi {
 

@@ -17,7 +17,6 @@ import EntityType from './EntityType';
 /**
  * The SaveCustomSymbolTypeDto model module.
  * @module model/SaveCustomSymbolTypeDto
- * @version 0.20.0
  */
 class SaveCustomSymbolTypeDto {
     /**

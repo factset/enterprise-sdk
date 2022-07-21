@@ -42,7 +42,7 @@ namespace FactSet.SDK.OverviewReportBuilder.Model
         /// <param name="title">title (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="id">id (required).</param>
-        public ProfileDataContactPeople(ProfileDataBusinessIndustry title = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry name = default(ProfileDataBusinessIndustry), ProfileDataBusinessIndustry id = default(ProfileDataBusinessIndustry))
+        public ProfileDataContactPeople(ProfileDataBusinessIndustry title, ProfileDataBusinessIndustry name, ProfileDataBusinessIndustry id)
         {
             // to ensure "title" is required (not null)
             if (title == null) {

@@ -75,6 +75,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -167,6 +168,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -259,6 +261,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of a composite instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -351,6 +354,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -441,6 +445,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
@@ -531,6 +536,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -623,6 +629,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -715,6 +722,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var isin = "isin_example";  // string | Source ISIN to be translated.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -805,6 +813,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var wkn = "wkn_example";  // string | Source WKN to be translated.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -895,6 +904,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var isin = "isin_example";  // string | Source ISIN to be translated.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -989,6 +999,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var wkn = "wkn_example";  // string | Source WKN to be translated.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -1083,6 +1094,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var target = 8.14D;  // decimal | Identifier of the target main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
             var source = 8.14D;  // decimal | Identifier of the source main currency. See endpoint `/basic/valueUnit/currency/main/list` for valid values.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -1177,6 +1189,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var target = "target_example";  // string | ISO 4217 code of the target main currency.
             var source = "source_example";  // string | ISO 4217 code of the source main currency.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -1271,6 +1284,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1363,6 +1377,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of a notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1455,6 +1470,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1547,6 +1563,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1639,6 +1656,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var id = "id_example";  // string | Identifier of the instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1731,6 +1749,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var searchValue = "searchValue_example";  // string | The search value of the instruments searching for. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
             var nsins = new List<string>(); // List<string> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional) 
             var assetClass = "index";  // string | A parameter to limit the output to a particular asset class. (optional) 
@@ -1833,6 +1852,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject9(); // InlineObject9 |  (optional) 
 
             try
@@ -1921,6 +1941,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject10(); // InlineObject10 |  (optional) 
 
             try
@@ -2009,6 +2030,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject11(); // InlineObject11 |  (optional) 
 
             try
@@ -2097,6 +2119,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject12(); // InlineObject12 |  (optional) 
 
             try
@@ -2185,6 +2208,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject13(); // InlineObject13 | 
 
             try
@@ -2273,6 +2297,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject14(); // InlineObject14 | 
 
             try
@@ -2361,6 +2386,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new InstrumentApi(config);
+
             var body = new InlineObject15(); // InlineObject15 |  (optional) 
 
             try

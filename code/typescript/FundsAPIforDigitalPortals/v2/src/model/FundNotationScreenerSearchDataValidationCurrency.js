@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataValidationCurrencyRestrict from './FundNota
 /**
  * The FundNotationScreenerSearchDataValidationCurrency model module.
  * @module model/FundNotationScreenerSearchDataValidationCurrency
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationCurrency {
     /**

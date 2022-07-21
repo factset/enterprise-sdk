@@ -176,7 +176,6 @@ import FactsetApi from './api/FactsetApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.10.0
 */
 export {
     /**

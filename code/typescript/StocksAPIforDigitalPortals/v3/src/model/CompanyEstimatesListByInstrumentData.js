@@ -18,7 +18,6 @@ import CompanyEstimatesListByInstrumentDataFiscalYears from './CompanyEstimatesL
 /**
  * The CompanyEstimatesListByInstrumentData model module.
  * @module model/CompanyEstimatesListByInstrumentData
- * @version 0.10.0
  */
 class CompanyEstimatesListByInstrumentData {
     /**

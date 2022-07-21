@@ -18,7 +18,6 @@ import OptimizerInputsTradeThresholdConstraint from './OptimizerInputsTradeThres
 /**
  * The OptimizerInputsMPTradeThresholdConstraint model module.
  * @module model/OptimizerInputsMPTradeThresholdConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPTradeThresholdConstraint {
     /**

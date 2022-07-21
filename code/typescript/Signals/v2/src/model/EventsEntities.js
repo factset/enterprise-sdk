@@ -18,7 +18,6 @@ import ScreenMeta from './ScreenMeta';
 /**
  * The EventsEntities model module.
  * @module model/EventsEntities
- * @version 0.20.0
  */
 class EventsEntities {
     /**

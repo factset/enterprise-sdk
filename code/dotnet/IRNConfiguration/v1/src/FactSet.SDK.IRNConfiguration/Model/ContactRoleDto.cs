@@ -41,7 +41,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="name">name (required).</param>
-        public ContactRoleDto(Guid id = default(Guid), string name = default(string))
+        public ContactRoleDto(Guid id, string name)
         {
             this.Id = id;
             // to ensure "name" is required (not null)

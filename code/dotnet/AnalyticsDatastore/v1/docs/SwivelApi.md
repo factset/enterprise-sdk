@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SwivelApi(config);
+
             var pubDoc = "\"Analytics_Datastore\"";  // string | The publisher document containing the report (default to "Analytics_Datastore")
             var assetName = "\"ADS_Demo.PA3\"";  // string | The PA/SPAR asset name and extension (default to "ADS_Demo.PA3")
             var reportId = "\"report7\"";  // string | The PA/SPAR report ID (default to "report7")

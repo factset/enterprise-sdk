@@ -30,7 +30,6 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Stock service.
 * @module api/StockApi
-* @version 0.10.0
 */
 export default class StockApi {
 

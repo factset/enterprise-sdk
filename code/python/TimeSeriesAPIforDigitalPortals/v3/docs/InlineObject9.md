@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**VendorChartIQTimeSeriesIntradaySubsampleGetData**](VendorChartIQTimeSeriesIntradaySubsampleGetData.md) |  | 
+**data** | [**VendorChartIQTimeSeriesIntradaySubsampleGetData**](VendorChartIQTimeSeriesIntradaySubsampleGetData.md) |  | [optional] 
 **meta** | [**VendorChartIQTimeSeriesEodSubsampleGetMeta**](VendorChartIQTimeSeriesEodSubsampleGetMeta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -17,7 +17,6 @@ import ContactEventUpdateDto from './ContactEventUpdateDto';
 /**
  * The ContactEventDto model module.
  * @module model/ContactEventDto
- * @version 0.20.0
  */
 class ContactEventDto {
     /**

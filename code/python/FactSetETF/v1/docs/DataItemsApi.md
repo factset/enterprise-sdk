@@ -23,8 +23,8 @@ Returns a list of available metrics that can be used in the `metrics` parameter 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetETF
 from fds.sdk.FactSetETF.api import data_items_api
-from fds.sdk.FactSetETF.model.metrics_response import MetricsResponse
-from fds.sdk.FactSetETF.model.category import Category
+from fds.sdk.FactSetETF.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,6 +58,8 @@ with fds.sdk.FactSetETF.ApiClient(configuration) as api_client:
 
     try:
         # Available ETF metrics
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_etf_metrics(category=category)
         pprint(api_response)
 

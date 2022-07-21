@@ -94,7 +94,6 @@ import ReferenceApi from './api/ReferenceApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

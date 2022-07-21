@@ -19,7 +19,6 @@ import OptimizerInputsSimulatedRiskModel from './OptimizerInputsSimulatedRiskMod
 /**
  * The OptimizerInputsRiskModel model module.
  * @module model/OptimizerInputsRiskModel
- * @version 0.20.0
  */
 class OptimizerInputsRiskModel {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RankedTableEntity model module.
  * @module model/RankedTableEntity
- * @version 0.20.0
  */
 class RankedTableEntity {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20015DataNestedRegions model module.
  * @module model/InlineResponse20015DataNestedRegions
- * @version 0.10.0
  */
 class InlineResponse20015DataNestedRegions {
     /**

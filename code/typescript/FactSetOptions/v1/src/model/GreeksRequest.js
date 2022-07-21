@@ -19,7 +19,6 @@ import PriceType from './PriceType';
 /**
  * The GreeksRequest model module.
  * @module model/GreeksRequest
- * @version 0.20.0
  */
 class GreeksRequest {
     /**

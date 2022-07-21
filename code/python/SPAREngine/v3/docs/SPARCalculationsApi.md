@@ -28,7 +28,8 @@ This is the endpoint to cancel a previously submitted calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +63,9 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Cancel SPAR calculation
+        # example passing only required values which don't have defaults set
         api_instance.cancel_calculation_by_id(id)
+
     except fds.sdk.SPAREngine.ApiException as e:
         print("Exception when calling SPARCalculationsApi->cancel_calculation_by_id: %s\n" % e)
 ```
@@ -118,8 +121,8 @@ This is the endpoint that returns the calculation parameters passed for a calcul
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.spar_calculation_parameters_root import SPARCalculationParametersRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Get SPAR calculation parameters by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ This is the endpoint to check on the progress of a previously requested calculat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.calculation_status_root import CalculationStatusRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Get SPAR calculation status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
 
@@ -305,8 +310,8 @@ This is the endpoint to get the result of a previously requested calculation.  I
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.object_root import ObjectRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,6 +346,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Get SPAR calculation result by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
         pprint(api_response)
 
@@ -400,10 +406,8 @@ This endpoint runs the SPAR calculation specified in the POST body parameters.  
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.object_root import ObjectRoot
-from fds.sdk.SPAREngine.model.spar_calculation_parameters_root import SPARCalculationParametersRoot
-from fds.sdk.SPAREngine.model.calculation_status_root import CalculationStatusRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -469,6 +473,8 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Create and Run SPAR calculation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, spar_calculation_parameters_root=spar_calculation_parameters_root)
         responseWrapper = {
             200: api_response.get_response_200,
@@ -538,10 +544,8 @@ This endpoint updates and run the SPAR calculation specified in the PUT body par
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SPAREngine
 from fds.sdk.SPAREngine.api import spar_calculations_api
-from fds.sdk.SPAREngine.model.object_root import ObjectRoot
-from fds.sdk.SPAREngine.model.spar_calculation_parameters_root import SPARCalculationParametersRoot
-from fds.sdk.SPAREngine.model.calculation_status_root import CalculationStatusRoot
-from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
+from fds.sdk.SPAREngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -608,6 +612,8 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
     try:
         # Create or Update SPAR calculation and run it.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, spar_calculation_parameters_root=spar_calculation_parameters_root)
         responseWrapper = {
             200: api_response.get_response_200,

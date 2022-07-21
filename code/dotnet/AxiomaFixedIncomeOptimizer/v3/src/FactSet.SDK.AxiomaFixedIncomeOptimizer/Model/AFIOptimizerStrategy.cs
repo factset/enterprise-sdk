@@ -42,7 +42,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// </summary>
         /// <param name="overrides">overrides.</param>
         /// <param name="id">OptimizerStrategy document path (required).</param>
-        public AFIOptimizerStrategy(AFIOptimizerStrategyOverrides overrides = default(AFIOptimizerStrategyOverrides), string id = default(string))
+        public AFIOptimizerStrategy(string id,AFIOptimizerStrategyOverrides overrides = default(AFIOptimizerStrategyOverrides))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**NewsArticleListByChainData**](NewsArticleListByChainData.md) |  | 
+**data** | [**NewsArticleListByChainData**](NewsArticleListByChainData.md) |  | [optional] 
 **meta** | [**NewsArticleListMeta**](NewsArticleListMeta.md) |  | [optional] 
 
 

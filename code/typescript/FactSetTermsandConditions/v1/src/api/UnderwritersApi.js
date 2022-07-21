@@ -20,7 +20,6 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Underwriters service.
 * @module api/UnderwritersApi
-* @version 0.20.0
 */
 export default class UnderwritersApi {
 

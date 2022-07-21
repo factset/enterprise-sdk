@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataValidationPricesPrevious model module.
  * @module model/NotationSearchByTextDataValidationPricesPrevious
- * @version 0.9.2
  */
 class NotationSearchByTextDataValidationPricesPrevious {
     /**

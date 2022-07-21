@@ -42,7 +42,7 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         /// <param name="name">Name of watchlist (required).</param>
         /// <param name="notation">Identifier of the notation (required).</param>
         /// <param name="additionalData">Additional data to the watched position..</param>
-        public WatchlistPositionCreateData(string name = default(string), string notation = default(string), string additionalData = default(string))
+        public WatchlistPositionCreateData(string name, string notation,string additionalData = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null) {

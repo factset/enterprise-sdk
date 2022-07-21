@@ -42,7 +42,7 @@ namespace FactSet.SDK.FixedIncomeAnalyticsBatcher.Model
         /// </summary>
         /// <param name="startdate">Calculation&#39;s start date. (required).</param>
         /// <param name="enddate">Calculation&#39;s end date. (required).</param>
-        public FIABDateParameters(string startdate = default(string), string enddate = default(string))
+        public FIABDateParameters(string startdate, string enddate)
         {
             // to ensure "startdate" is required (not null)
             if (startdate == null) {

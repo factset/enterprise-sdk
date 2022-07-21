@@ -33,7 +33,8 @@ List of entitled category datasets.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20035 import InlineResponse20035
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -70,6 +71,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of entitled category datasets.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_dataset_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -123,7 +126,8 @@ Details of a category.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20031 import InlineResponse20031
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,6 +165,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a category.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -215,7 +221,8 @@ List of instruments where a specific dataset has assigned a given category.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20036 import InlineResponse20036
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -250,11 +257,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of instruments where a specific dataset has assigned a given category.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_instrument_list(id_category, id_category_dataset, attributes=attributes, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -311,7 +320,8 @@ Details of a category level.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20037 import InlineResponse20037
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -349,6 +359,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of a category level.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_level_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -403,7 +415,8 @@ List of categories.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20032 import InlineResponse20032
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -443,6 +456,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of categories.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_list(ids, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -497,7 +512,8 @@ List of categories assigned to a category level.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20033 import InlineResponse20033
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -532,11 +548,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of categories assigned to a category level.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_list_by_level(id, attributes=attributes, language=language, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -593,7 +611,8 @@ List of categories assigned to a category system.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20034 import InlineResponse20034
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -628,11 +647,13 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List of categories assigned to a category system.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_list_by_system(id, attributes=attributes, language=language, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -689,7 +710,8 @@ Path from the first level to the level of a specific category.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20038 import InlineResponse20038
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -727,6 +749,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Path from the first level to the level of a specific category.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_path_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -781,7 +805,8 @@ Details of an entitled category system.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20039 import InlineResponse20039
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -819,6 +844,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # Details of an entitled category system.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_system_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -873,7 +900,8 @@ List of entitled category systems.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20040 import InlineResponse20040
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -911,6 +939,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of entitled category systems.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_system_list(id_type=id_type, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -965,7 +995,8 @@ List of category system types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import category_api
-from fds.sdk.QuotesAPIforDigitalPortals.model.inline_response20041 import InlineResponse20041
+from fds.sdk.QuotesAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1002,6 +1033,8 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     try:
         # List of category system types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_category_system_type_list(attributes=attributes, language=language)
         pprint(api_response)
 

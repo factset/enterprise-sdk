@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicBackgroundTextTypeListMeta model module.
  * @module model/BasicBackgroundTextTypeListMeta
- * @version 0.9.2
  */
 class BasicBackgroundTextTypeListMeta {
     /**

@@ -20,7 +20,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsRoundlotsConstraint model module.
  * @module model/OptimizerInputsRoundlotsConstraint
- * @version 0.20.0
  */
 class OptimizerInputsRoundlotsConstraint {
     /**

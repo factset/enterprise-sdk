@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityMatch service.
 * @module api/EntityMatchApi
-* @version 0.20.1
 */
 export default class EntityMatchApi {
 

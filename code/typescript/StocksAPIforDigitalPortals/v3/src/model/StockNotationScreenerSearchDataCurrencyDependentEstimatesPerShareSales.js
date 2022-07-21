@@ -17,7 +17,6 @@ import StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean from '.
 /**
  * The StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales model module.
  * @module model/StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataCurrencyDependentEstimatesPerShareSales {
     /**

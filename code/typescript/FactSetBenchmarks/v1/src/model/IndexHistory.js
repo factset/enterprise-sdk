@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The IndexHistory model module.
  * @module model/IndexHistory
- * @version 0.20.0
  */
 class IndexHistory {
     /**

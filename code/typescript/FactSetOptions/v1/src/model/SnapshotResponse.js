@@ -17,7 +17,6 @@ import Snapshot from './Snapshot';
 /**
  * The SnapshotResponse model module.
  * @module model/SnapshotResponse
- * @version 0.20.0
  */
 class SnapshotResponse {
     /**

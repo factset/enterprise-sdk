@@ -21,7 +21,6 @@ import SuccessResponse from '../model/SuccessResponse';
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.20.1
 */
 export default class DefaultApi {
 

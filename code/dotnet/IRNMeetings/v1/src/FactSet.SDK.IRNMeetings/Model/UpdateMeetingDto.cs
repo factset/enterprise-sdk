@@ -54,7 +54,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <param name="relatedSymbols">relatedSymbols.</param>
         /// <param name="body">body.</param>
         /// <param name="customFieldValues">customFieldValues.</param>
-        public UpdateMeetingDto(string title = default(string), string identifier = default(string), string start = default(string), string end = default(string), List<string> locations = default(List<string>), string organizer = default(string), Guid organizerId = default(Guid), List<ReferenceAttendeeDto> attendees = default(List<ReferenceAttendeeDto>), bool alertAttendees = false, bool alertAuthor = false, RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>), List<string> relatedSymbols = default(List<string>), CreateBodyDto body = default(CreateBodyDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>))
+        public UpdateMeetingDto(string title, string identifier, string start, string end,List<string> locations = default(List<string>), string organizer = default(string), Guid organizerId = default(Guid), List<ReferenceAttendeeDto> attendees = default(List<ReferenceAttendeeDto>), bool alertAttendees = false, bool alertAuthor = false, RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>), List<string> relatedSymbols = default(List<string>), CreateBodyDto body = default(CreateBodyDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>))
         {
             // to ensure "title" is required (not null)
             if (title == null) {

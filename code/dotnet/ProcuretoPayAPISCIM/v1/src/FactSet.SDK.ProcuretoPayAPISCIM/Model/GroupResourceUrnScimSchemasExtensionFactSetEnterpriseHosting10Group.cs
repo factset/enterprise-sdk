@@ -35,7 +35,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// Initializes a new instance of the <see cref="GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group()
+        public GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group(string domainCode)
         {
         }
 

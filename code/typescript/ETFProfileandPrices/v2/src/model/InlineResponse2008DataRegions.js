@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2008DataRegions model module.
  * @module model/InlineResponse2008DataRegions
- * @version 0.10.0
  */
 class InlineResponse2008DataRegions {
     /**

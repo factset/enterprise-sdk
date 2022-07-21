@@ -49,6 +49,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SchemasApi(config);
+
             var startIndex = 56;  // int? | Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument. (optional) 
             var count = 56;  // int? | Maximum resource count. The server will not return more resources than this value, although it may return fewer. (optional) 
 
@@ -140,6 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SchemasApi(config);
+
             var id = "id_example";  // string | ID of resource.
 
             try

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004FundCountryDevelopment model module.
  * @module model/InlineResponse2004FundCountryDevelopment
- * @version 0.10.0
  */
 class InlineResponse2004FundCountryDevelopment {
     /**

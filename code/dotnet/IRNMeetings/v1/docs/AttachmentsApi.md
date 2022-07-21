@@ -1,6 +1,6 @@
 # FactSet.SDK.IRNMeetings.Api.AttachmentsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
@@ -141,6 +142,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | 
             var attachmentId = "attachmentId_example";  // Guid | 
 
@@ -231,6 +233,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
@@ -319,6 +322,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
+
             var meetingId = "meetingId_example";  // Guid | Meeting Id
             var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 

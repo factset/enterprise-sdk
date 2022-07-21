@@ -20,7 +20,6 @@ import InlineResponse2008DataType from './InlineResponse2008DataType';
 /**
  * The InlineResponse2008Data model module.
  * @module model/InlineResponse2008Data
- * @version 0.9.2
  */
 class InlineResponse2008Data {
     /**

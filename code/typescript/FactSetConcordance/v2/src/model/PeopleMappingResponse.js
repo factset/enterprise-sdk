@@ -17,7 +17,6 @@ import PeopleMapping from './PeopleMapping';
 /**
  * The PeopleMappingResponse model module.
  * @module model/PeopleMappingResponse
- * @version 0.20.1
  */
 class PeopleMappingResponse {
     /**

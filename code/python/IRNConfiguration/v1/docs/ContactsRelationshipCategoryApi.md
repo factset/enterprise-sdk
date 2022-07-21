@@ -1,6 +1,6 @@
 # fds.sdk.IRNConfiguration.ContactsRelationshipCategoryApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,9 +25,8 @@ Create a relationship category
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___relationship_category_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.new_item_dto import NewItemDto
-from fds.sdk.IRNConfiguration.model.relationship_category_save_dto import RelationshipCategorySaveDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,8 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Create a relationship category
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.create_relationship_category(relationship_category_save_dto=relationship_category_save_dto)
         pprint(api_response)
 
@@ -117,7 +118,8 @@ Delete a relationship category
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___relationship_category_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -151,7 +153,9 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Delete a relationship category
+        # example passing only required values which don't have defaults set
         api_instance.delete_relationship_category(relationship_category_id)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->delete_relationship_category: %s\n" % e)
 ```
@@ -202,8 +206,8 @@ Edit a relationship category
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___relationship_category_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.relationship_category_save_dto import RelationshipCategorySaveDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -242,7 +246,10 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Edit a relationship category
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.edit_relationship_category(relationship_category_id, relationship_category_save_dto=relationship_category_save_dto)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->edit_relationship_category: %s\n" % e)
 ```
@@ -294,7 +301,8 @@ Get list of the relationship categories configured in your group
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___relationship_category_api
-from fds.sdk.IRNConfiguration.model.relationship_category_dto import RelationshipCategoryDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -327,6 +335,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Get list of the relationship categories configured in your group
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_relationship_categories()
         pprint(api_response)
 
@@ -374,8 +383,8 @@ Reorder relationship categories
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___relationship_category_api
-from fds.sdk.IRNConfiguration.model.problem_details import ProblemDetails
-from fds.sdk.IRNConfiguration.model.relationship_category_list_dto import RelationshipCategoryListDto
+from fds.sdk.IRNConfiguration.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -413,7 +422,10 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
 
     try:
         # Reorder relationship categories
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.update_relationship_category_order(relationship_category_list_dto=relationship_category_list_dto)
+
     except fds.sdk.IRNConfiguration.ApiException as e:
         print("Exception when calling ContactsRelationshipCategoryApi->update_relationship_category_order: %s\n" % e)
 ```

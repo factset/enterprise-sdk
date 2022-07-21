@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataValidationMarketSelection from './StockNot
 /**
  * The StockNotationScreenerSearchDataValidationMarket model module.
  * @module model/StockNotationScreenerSearchDataValidationMarket
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataValidationMarket {
     /**

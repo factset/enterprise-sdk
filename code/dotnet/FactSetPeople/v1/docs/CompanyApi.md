@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var ids = new List<string>(); // List<string> | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
             try
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var companyCompensationRequest = new CompanyCompensationRequest(); // CompanyCompensationRequest | 
 
             try
@@ -243,6 +245,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var ids = new List<string>(); // List<string> | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var function = PEOPLE;  // string | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |- --|- --|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional)  (default to PEOPLE)
 
@@ -338,6 +341,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var companyPeopleRequest = new CompanyPeopleRequest(); // CompanyPeopleRequest | 
 
             try
@@ -431,6 +435,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var ids = new List<string>(); // List<string> | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var position = FOU;  // string | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |- --|- --|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional)  (default to CEO)
 
@@ -526,6 +531,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var companyPositionsRequest = new CompanyPositionsRequest(); // CompanyPositionsRequest | 
 
             try
@@ -619,6 +625,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var ids = new List<string>(); // List<string> | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var mbType = "MB";  // string | Search based on the management and board types. The types include -  |type|description| |- --|- --| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional)  (default to MB)
 
@@ -714,6 +721,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
+
             var companyStatsRequest = new CompanyStatsRequest(); // CompanyStatsRequest | 
 
             try

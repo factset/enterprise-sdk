@@ -17,7 +17,6 @@ import PAPricingSource from './PAPricingSource';
 /**
  * The PAPricingSourceRoot model module.
  * @module model/PAPricingSourceRoot
- * @version 0.20.0
  */
 class PAPricingSourceRoot {
     /**

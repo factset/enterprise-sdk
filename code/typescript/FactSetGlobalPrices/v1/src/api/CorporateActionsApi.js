@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * CorporateActions service.
 * @module api/CorporateActionsApi
-* @version 0.20.0
 */
 export default class CorporateActionsApi {
 

@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataShareClassFeeRedemptionMaximum from './Fund
 /**
  * The FundNotationScreenerSearchDataShareClassFeeRedemption model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeRedemption
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeRedemption {
     /**

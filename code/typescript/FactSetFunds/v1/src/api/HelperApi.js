@@ -20,7 +20,6 @@ import StatusesResponse from '../model/StatusesResponse';
 /**
 * Helper service.
 * @module api/HelperApi
-* @version 0.20.0
 */
 export default class HelperApi {
 

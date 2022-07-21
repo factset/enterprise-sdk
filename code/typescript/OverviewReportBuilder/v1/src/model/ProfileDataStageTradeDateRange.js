@@ -17,7 +17,6 @@ import ProfileDataBusinessIndustry from './ProfileDataBusinessIndustry';
 /**
  * The ProfileDataStageTradeDateRange model module.
  * @module model/ProfileDataStageTradeDateRange
- * @version 0.20.0
  */
 class ProfileDataStageTradeDateRange {
     /**

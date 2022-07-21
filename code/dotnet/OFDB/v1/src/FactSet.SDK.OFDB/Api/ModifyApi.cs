@@ -60,9 +60,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        SuccessPostResponse V1DatabasePathDatesDatePut(string path, int date, InlineObject3 inlineObject3);
+        SuccessPostResponse V1DatabasePathDatesDatePut(string path, int date, Modifydatespecific modifydatespecific);
 
         /// <summary>
         /// 
@@ -73,9 +73,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, InlineObject3 inlineObject3);
+        ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, Modifydatespecific modifydatespecific);
         /// <summary>
         /// 
         /// </summary>
@@ -111,9 +111,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut(string path, int date, string symbol, InlineObject5 inlineObject5);
+        SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut(string path, int date, string symbol, Modifysymboldate modifysymboldate);
 
         /// <summary>
         /// 
@@ -125,9 +125,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, InlineObject5 inlineObject5);
+        ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, Modifysymboldate modifysymboldate);
         /// <summary>
         /// 
         /// </summary>
@@ -160,9 +160,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        SuccessPostResponse V1DatabasePathSymbolsSymbolPut(string path, string symbol, InlineObject1 inlineObject1);
+        SuccessPostResponse V1DatabasePathSymbolsSymbolPut(string path, string symbol, ModifySymbols modifySymbols);
 
         /// <summary>
         /// 
@@ -173,9 +173,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, InlineObject1 inlineObject1);
+        ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, ModifySymbols modifySymbols);
         #endregion Synchronous Operations
     }
 
@@ -219,10 +219,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDatePutAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDatePutAsync(string path, int date, Modifydatespecific modifydatespecific, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -233,10 +233,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, Modifydatespecific modifydatespecific, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -274,10 +274,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, Modifysymboldate modifysymboldate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -289,10 +289,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, Modifysymboldate modifysymboldate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -327,10 +327,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, ModifySymbols modifySymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -341,10 +341,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, ModifySymbols modifySymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -716,11 +716,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        public SuccessPostResponse V1DatabasePathDatesDatePut(string path, int date, InlineObject3 inlineObject3)
+        public SuccessPostResponse V1DatabasePathDatesDatePut(string path, int date, Modifydatespecific modifydatespecific)
         {
-            var localVarResponse = V1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3);
+            var localVarResponse = V1DatabasePathDatesDatePutWithHttpInfo(path, date, modifydatespecific);
             return localVarResponse.Data;
         }
 
@@ -730,9 +730,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, InlineObject3 inlineObject3)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, Modifydatespecific modifydatespecific)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -740,10 +740,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDatePut");
             }
 
-            // verify the required parameter 'inlineObject3' is set
-            if (inlineObject3 == null)
+            // verify the required parameter 'modifydatespecific' is set
+            if (modifydatespecific == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject3' when calling ModifyApi->V1DatabasePathDatesDatePut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifydatespecific' when calling ModifyApi->V1DatabasePathDatesDatePut");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -771,7 +771,7 @@ namespace FactSet.SDK.OFDB.Api
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.Data = inlineObject3;
+            localVarRequestOptions.Data = modifydatespecific;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -815,12 +815,12 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDatePutAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDatePutAsync(string path, int date, Modifydatespecific modifydatespecific, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await V1DatabasePathDatesDatePutWithHttpInfoAsync(path, date, inlineObject3, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDatePutWithHttpInfoAsync(path, date, modifydatespecific, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -830,11 +830,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
-        /// <param name="inlineObject3"></param>
+        /// <param name="modifydatespecific">Required data for updating date in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, Modifydatespecific modifydatespecific, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -842,10 +842,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDatePut");
             }
 
-            // verify the required parameter 'inlineObject3' is set
-            if (inlineObject3 == null)
+            // verify the required parameter 'modifydatespecific' is set
+            if (modifydatespecific == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject3' when calling ModifyApi->V1DatabasePathDatesDatePut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifydatespecific' when calling ModifyApi->V1DatabasePathDatesDatePut");
             }
 
 
@@ -874,7 +874,7 @@ namespace FactSet.SDK.OFDB.Api
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
-            localVarRequestOptions.Data = inlineObject3;
+            localVarRequestOptions.Data = modifydatespecific;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1121,11 +1121,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        public SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut(string path, int date, string symbol, InlineObject5 inlineObject5)
+        public SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut(string path, int date, string symbol, Modifysymboldate modifysymboldate)
         {
-            var localVarResponse = V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5);
+            var localVarResponse = V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, modifysymboldate);
             return localVarResponse.Data;
         }
 
@@ -1136,9 +1136,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, InlineObject5 inlineObject5)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, Modifysymboldate modifysymboldate)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1152,10 +1152,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
             }
 
-            // verify the required parameter 'inlineObject5' is set
-            if (inlineObject5 == null)
+            // verify the required parameter 'modifysymboldate' is set
+            if (modifysymboldate == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifysymboldate' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1184,7 +1184,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.Data = inlineObject5;
+            localVarRequestOptions.Data = modifysymboldate;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1229,12 +1229,12 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, Modifysymboldate modifysymboldate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(path, date, symbol, inlineObject5, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(path, date, symbol, modifysymboldate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1245,11 +1245,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject5"></param>
+        /// <param name="modifysymboldate">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, Modifysymboldate modifysymboldate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1263,10 +1263,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
             }
 
-            // verify the required parameter 'inlineObject5' is set
-            if (inlineObject5 == null)
+            // verify the required parameter 'modifysymboldate' is set
+            if (modifysymboldate == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifysymboldate' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
             }
 
 
@@ -1296,7 +1296,7 @@ namespace FactSet.SDK.OFDB.Api
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.Data = inlineObject5;
+            localVarRequestOptions.Data = modifysymboldate;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1536,11 +1536,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <returns>SuccessPostResponse</returns>
-        public SuccessPostResponse V1DatabasePathSymbolsSymbolPut(string path, string symbol, InlineObject1 inlineObject1)
+        public SuccessPostResponse V1DatabasePathSymbolsSymbolPut(string path, string symbol, ModifySymbols modifySymbols)
         {
-            var localVarResponse = V1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1);
+            var localVarResponse = V1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, modifySymbols);
             return localVarResponse.Data;
         }
 
@@ -1550,9 +1550,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, InlineObject1 inlineObject1)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, ModifySymbols modifySymbols)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1566,10 +1566,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
             }
 
-            // verify the required parameter 'inlineObject1' is set
-            if (inlineObject1 == null)
+            // verify the required parameter 'modifySymbols' is set
+            if (modifySymbols == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject1' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifySymbols' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
             }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1597,7 +1597,7 @@ namespace FactSet.SDK.OFDB.Api
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.Data = inlineObject1;
+            localVarRequestOptions.Data = modifySymbols;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -1641,12 +1641,12 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, ModifySymbols modifySymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(path, symbol, inlineObject1, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(path, symbol, modifySymbols, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1656,11 +1656,11 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
-        /// <param name="inlineObject1"></param>
+        /// <param name="modifySymbols">Data for updating symbol in the database</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, ModifySymbols modifySymbols, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -1674,10 +1674,10 @@ namespace FactSet.SDK.OFDB.Api
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
             }
 
-            // verify the required parameter 'inlineObject1' is set
-            if (inlineObject1 == null)
+            // verify the required parameter 'modifySymbols' is set
+            if (modifySymbols == null)
             {
-                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject1' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+                throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'modifySymbols' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
             }
 
 
@@ -1706,7 +1706,7 @@ namespace FactSet.SDK.OFDB.Api
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
-            localVarRequestOptions.Data = inlineObject1;
+            localVarRequestOptions.Data = modifySymbols;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required

@@ -1,6 +1,6 @@
 # fds.sdk.IRNCustomSymbols.CustomSymbolsRelationshipsApi
 
-All URIs are relative to *https://api-sandbox.factset.com/research/irn*
+All URIs are relative to *https://api.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,8 +25,8 @@ Create a symbol relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols___relationships_api
-from fds.sdk.IRNCustomSymbols.model.symbol_relationship_save_dto import SymbolRelationshipSaveDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,7 +69,10 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Create a symbol relationship
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.create_symbol_relationship(symbol_relationship_save_dto=symbol_relationship_save_dto)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->create_symbol_relationship: %s\n" % e)
 ```
@@ -119,7 +122,8 @@ Delete a symbol relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols___relationships_api
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,7 +157,9 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Delete a symbol relationship
+        # example passing only required values which don't have defaults set
         api_instance.delete_symbol_relationship(symbol_relationship_id)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->delete_symbol_relationship: %s\n" % e)
 ```
@@ -204,7 +210,8 @@ Edit a symbol relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols___relationships_api
-from fds.sdk.IRNCustomSymbols.model.symbol_relationship_update_dto import SymbolRelationshipUpdateDto
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -249,7 +256,10 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Edit a symbol relationship
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_instance.edit_and_add_symbol_relationship(symbol, symbol_relationship_update_dto=symbol_relationship_update_dto)
+
     except fds.sdk.IRNCustomSymbols.ApiException as e:
         print("Exception when calling CustomSymbolsRelationshipsApi->edit_and_add_symbol_relationship: %s\n" % e)
 ```
@@ -298,8 +308,8 @@ Get details on a specific symbol relationship
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols___relationships_api
-from fds.sdk.IRNCustomSymbols.model.symbol_relationship_dto import SymbolRelationshipDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -333,6 +343,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Get details on a specific symbol relationship
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_symbol_relationship(symbol_relationship_id)
         pprint(api_response)
 
@@ -385,8 +396,8 @@ Returns a list of a symbol’s relationships
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNCustomSymbols
 from fds.sdk.IRNCustomSymbols.api import custom_symbols___relationships_api
-from fds.sdk.IRNCustomSymbols.model.symbol_relationship_dto import SymbolRelationshipDto
-from fds.sdk.IRNCustomSymbols.model.problem_details import ProblemDetails
+from fds.sdk.IRNCustomSymbols.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -420,6 +431,7 @@ with fds.sdk.IRNCustomSymbols.ApiClient(configuration) as api_client:
 
     try:
         # Returns a list of a symbol’s relationships
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_symbol_relationships(symbol_id)
         pprint(api_response)
 

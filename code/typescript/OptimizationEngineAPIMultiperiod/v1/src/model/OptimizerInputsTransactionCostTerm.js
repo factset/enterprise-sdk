@@ -18,7 +18,6 @@ import OptimizerInputsValue from './OptimizerInputsValue';
 /**
  * The OptimizerInputsTransactionCostTerm model module.
  * @module model/OptimizerInputsTransactionCostTerm
- * @version 0.20.0
  */
 class OptimizerInputsTransactionCostTerm {
     /**

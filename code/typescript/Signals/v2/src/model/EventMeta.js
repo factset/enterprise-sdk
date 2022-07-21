@@ -17,7 +17,6 @@ import IdResolutionsMeta from './IdResolutionsMeta';
 /**
  * The EventMeta model module.
  * @module model/EventMeta
- * @version 0.20.0
  */
 class EventMeta {
     /**

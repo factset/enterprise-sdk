@@ -19,7 +19,6 @@ import SplitAdjust from './SplitAdjust';
 /**
  * The SharesRequest model module.
  * @module model/SharesRequest
- * @version 0.20.0
  */
 class SharesRequest {
     /**

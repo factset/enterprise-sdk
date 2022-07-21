@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20014DataServiceProvider model module.
  * @module model/InlineResponse20014DataServiceProvider
- * @version 0.10.0
  */
 class InlineResponse20014DataServiceProvider {
     /**

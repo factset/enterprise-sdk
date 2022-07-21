@@ -17,7 +17,6 @@ import FIDiscountCurveInfo from './FIDiscountCurveInfo';
 /**
  * The FIDiscountCurveInfoRoot model module.
  * @module model/FIDiscountCurveInfoRoot
- * @version 0.20.0
  */
 class FIDiscountCurveInfoRoot {
     /**

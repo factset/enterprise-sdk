@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationResourceMeta model module.
  * @module model/LocationResourceMeta
- * @version 0.20.1
  */
 class LocationResourceMeta {
     /**

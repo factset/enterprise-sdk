@@ -17,7 +17,6 @@ import InlineResponse2008DataRegions from './InlineResponse2008DataRegions';
 /**
  * The InlineResponse2008Data model module.
  * @module model/InlineResponse2008Data
- * @version 0.10.0
  */
 class InlineResponse2008Data {
     /**

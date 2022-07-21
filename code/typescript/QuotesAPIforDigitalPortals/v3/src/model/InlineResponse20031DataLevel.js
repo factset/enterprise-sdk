@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20031DataLevel model module.
  * @module model/InlineResponse20031DataLevel
- * @version 0.10.0
  */
 class InlineResponse20031DataLevel {
     /**

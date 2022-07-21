@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PortfolioDeleteData model module.
  * @module model/PortfolioDeleteData
- * @version 0.9.2
  */
 class PortfolioDeleteData {
     /**

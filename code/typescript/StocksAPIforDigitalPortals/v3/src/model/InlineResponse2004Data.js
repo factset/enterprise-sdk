@@ -17,7 +17,6 @@ import InlineResponse2004Functions from './InlineResponse2004Functions';
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.10.0
  */
 class InlineResponse2004Data {
     /**

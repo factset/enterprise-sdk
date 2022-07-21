@@ -20,7 +20,6 @@ import SplitsResponse from '../model/SplitsResponse';
 /**
 * Splits service.
 * @module api/SplitsApi
-* @version 0.20.0
 */
 export default class SplitsApi {
 

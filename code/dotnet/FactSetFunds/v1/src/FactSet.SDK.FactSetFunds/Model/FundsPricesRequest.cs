@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="currency">The ISO3 currency control for the requested fund. (default to &quot;LOCAL&quot;).</param>
         /// <param name="dataType">dataType.</param>
         /// <param name="splitAdjust">splitAdjust.</param>
-        public FundsPricesRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", DataType dataType = default(DataType), SplitAdjust splitAdjust = default(SplitAdjust))
+        public FundsPricesRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL", DataType dataType = default(DataType), SplitAdjust splitAdjust = default(SplitAdjust))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

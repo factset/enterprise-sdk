@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataFundHoldingTypeRestrict from './FundNotatio
 /**
  * The FundNotationScreenerSearchDataFundStrategy model module.
  * @module model/FundNotationScreenerSearchDataFundStrategy
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFundStrategy {
     /**

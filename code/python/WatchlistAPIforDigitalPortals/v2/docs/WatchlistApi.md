@@ -30,8 +30,8 @@ The endpoint creates a new watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200 import InlineResponse200
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -74,6 +74,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # Create watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_create_post(body=body)
         pprint(api_response)
 
@@ -126,8 +128,8 @@ The endpoint deletes a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object1 import InlineObject1
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -170,6 +172,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # The endpoint deletes a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_delete_post(body=body)
         pprint(api_response)
 
@@ -222,7 +226,8 @@ The endpoint lists all watchlist of a user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -257,12 +262,14 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List watchlists.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_list_get(attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -318,8 +325,8 @@ The endpoint renames a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200 import InlineResponse200
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object2 import InlineObject2
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -363,6 +370,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # Rename a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_modify_post(body=body)
         pprint(api_response)
 
@@ -415,8 +424,8 @@ The endpoint adds a new position in a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object3 import InlineObject3
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -461,6 +470,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # Add position in watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_create_post(body=body)
         pprint(api_response)
 
@@ -513,8 +524,8 @@ The endpoint deletes a position in a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200 import InlineResponse200
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -558,6 +569,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # Add position in watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_delete_post(body=body)
         pprint(api_response)
 
@@ -610,7 +623,8 @@ The endpoint lists the positions of a watchlist.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -646,12 +660,14 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["id"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["id"])
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["id"]
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
 
     try:
         # List positions of watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_list_get(name, attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -708,8 +724,8 @@ The endpoint modifies a position in a watchlist. All properties except the posit
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_response200 import InlineResponse200
-from fds.sdk.WatchlistAPIforDigitalPortals.model.inline_object5 import InlineObject5
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -755,6 +771,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
     try:
         # Add position in watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.watchlist_position_modify_post(body=body)
         pprint(api_response)
 

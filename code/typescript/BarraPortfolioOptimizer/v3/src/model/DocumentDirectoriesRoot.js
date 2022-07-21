@@ -17,7 +17,6 @@ import DocumentDirectories from './DocumentDirectories';
 /**
  * The DocumentDirectoriesRoot model module.
  * @module model/DocumentDirectoriesRoot
- * @version 0.20.0
  */
 class DocumentDirectoriesRoot {
     /**

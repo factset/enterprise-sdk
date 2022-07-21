@@ -41,7 +41,7 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="name">Name of watchlist (required).</param>
         /// <param name="nameNew">New name of watchlist (required).</param>
-        public WatchlistModifyData(string name = default(string), string nameNew = default(string))
+        public WatchlistModifyData(string name, string nameNew)
         {
             // to ensure "name" is required (not null)
             if (name == null) {

@@ -17,7 +17,6 @@ import PAComponentData from './PAComponentData';
 /**
  * The TemplatedPAComponentParameters model module.
  * @module model/TemplatedPAComponentParameters
- * @version 0.20.0
  */
 class TemplatedPAComponentParameters {
     /**

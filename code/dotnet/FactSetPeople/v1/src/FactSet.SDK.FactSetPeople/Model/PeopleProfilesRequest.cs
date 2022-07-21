@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// Initializes a new instance of the <see cref="PeopleProfilesRequest" /> class.
         /// </summary>
         /// <param name="ids">FactSet People Entity Ids.  (required).</param>
-        public PeopleProfilesRequest(List<string> ids = default(List<string>))
+        public PeopleProfilesRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

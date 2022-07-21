@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20081DataBid model module.
  * @module model/InlineResponse20081DataBid
- * @version 0.10.0
  */
 class InlineResponse20081DataBid {
     /**

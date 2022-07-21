@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The TitleSettingsDto model module.
  * @module model/TitleSettingsDto
- * @version 0.20.0
  */
 class TitleSettingsDto {
     /**

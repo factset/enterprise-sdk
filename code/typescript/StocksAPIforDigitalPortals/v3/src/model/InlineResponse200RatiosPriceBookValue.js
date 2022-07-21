@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200RatiosPriceBookValue model module.
  * @module model/InlineResponse200RatiosPriceBookValue
- * @version 0.10.0
  */
 class InlineResponse200RatiosPriceBookValue {
     /**

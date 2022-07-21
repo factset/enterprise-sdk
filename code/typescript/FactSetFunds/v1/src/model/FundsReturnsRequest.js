@@ -18,7 +18,6 @@ import Frequency from './Frequency';
 /**
  * The FundsReturnsRequest model module.
  * @module model/FundsReturnsRequest
- * @version 0.20.0
  */
 class FundsReturnsRequest {
     /**

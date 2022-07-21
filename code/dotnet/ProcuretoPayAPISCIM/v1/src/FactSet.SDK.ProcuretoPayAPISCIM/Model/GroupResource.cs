@@ -41,7 +41,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="members">A list of members of the Group..</param>
         /// <param name="urnscimschemasextensionFactSetEnterpriseHosting10Group">urnscimschemasextensionFactSetEnterpriseHosting10Group.</param>
         /// <param name="meta">meta.</param>
-        public GroupResource(List<string> schemas = default(List<string>), string externalId = default(string), string displayName = default(string), string description = default(string), List<GroupResourceMembers> members = default(List<GroupResourceMembers>), GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group urnscimschemasextensionFactSetEnterpriseHosting10Group = default(GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group), GroupResourceMeta meta = default(GroupResourceMeta))
+        public GroupResource(List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), string displayName = default(string), string description = default(string), List<GroupResourceMembers> members = default(List<GroupResourceMembers>), GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group urnscimschemasextensionFactSetEnterpriseHosting10Group = default(GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group), GroupResourceMeta meta = default(GroupResourceMeta))
         {
             this.Schemas = schemas;
             this.ExternalId = externalId;

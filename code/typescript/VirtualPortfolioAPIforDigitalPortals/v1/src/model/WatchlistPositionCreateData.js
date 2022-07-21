@@ -17,7 +17,6 @@ import PortfolioTransactionCreateDataNotation from './PortfolioTransactionCreate
 /**
  * The WatchlistPositionCreateData model module.
  * @module model/WatchlistPositionCreateData
- * @version 0.9.2
  */
 class WatchlistPositionCreateData {
     /**

@@ -17,7 +17,6 @@ import EventsMetaDateRange from './EventsMetaDateRange';
 /**
  * The ScreenMeta model module.
  * @module model/ScreenMeta
- * @version 0.20.0
  */
 class ScreenMeta {
     /**

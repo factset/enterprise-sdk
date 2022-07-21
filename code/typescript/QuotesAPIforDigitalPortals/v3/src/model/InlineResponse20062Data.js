@@ -20,7 +20,6 @@ import InlineResponse20062DataTargetMarket from './InlineResponse20062DataTarget
 /**
  * The InlineResponse20062Data model module.
  * @module model/InlineResponse20062Data
- * @version 0.10.0
  */
 class InlineResponse20062Data {
     /**

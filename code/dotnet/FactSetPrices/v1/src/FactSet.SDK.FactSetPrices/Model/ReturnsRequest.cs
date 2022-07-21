@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="calendar">calendar.</param>
         /// <param name="dividendAdjust">dividendAdjust.</param>
         /// <param name="rollingPeriod">rollingPeriod.</param>
-        public ReturnsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), DividendAdjust dividendAdjust = default(DividendAdjust), RollingPeriod rollingPeriod = default(RollingPeriod))
+        public ReturnsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar), DividendAdjust dividendAdjust = default(DividendAdjust), RollingPeriod rollingPeriod = default(RollingPeriod))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

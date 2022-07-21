@@ -19,7 +19,6 @@ import InlineResponse20010DataSecurityLending from './InlineResponse20010DataSec
 /**
  * The InlineResponse20010Data model module.
  * @module model/InlineResponse20010Data
- * @version 0.10.0
  */
 class InlineResponse20010Data {
     /**

@@ -72,14 +72,19 @@ import com.factset.sdk.IRNCustomSymbols.auth.FactSetOAuth2ClientAuth;
 public class ApiClient extends JavaTimeFormatter {
   protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  protected String basePath = "https://api-sandbox.factset.com/research/irn";
+  protected String basePath = "https://api.factset.com/research/irn";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
+      "https://api.factset.com/research/irn",
+      "Production Server",
+      new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
       "https://api-sandbox.factset.com/research/irn",
-      "No description provided",
+      "Sandbox",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -122,7 +127,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/IRNCustomSymbols/0.20.0");
+    setUserAgent("fds-sdk/java/IRNCustomSymbols/0.21.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

@@ -18,7 +18,6 @@ import Error from '../model/Error';
 /**
 * FileManagerAudit service.
 * @module api/FileManagerAuditApi
-* @version 0.20.1
 */
 export default class FileManagerAuditApi {
 

@@ -22,7 +22,6 @@ import ReturnsSnapshotResponse from '../model/ReturnsSnapshotResponse';
 /**
 * Returns service.
 * @module api/ReturnsApi
-* @version 0.20.0
 */
 export default class ReturnsApi {
 

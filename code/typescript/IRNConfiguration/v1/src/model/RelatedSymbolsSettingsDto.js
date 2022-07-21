@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedSymbolsSettingsDto model module.
  * @module model/RelatedSymbolsSettingsDto
- * @version 0.20.0
  */
 class RelatedSymbolsSettingsDto {
     /**

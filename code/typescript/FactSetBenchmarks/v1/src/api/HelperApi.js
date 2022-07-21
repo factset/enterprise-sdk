@@ -20,7 +20,6 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Helper service.
 * @module api/HelperApi
-* @version 0.20.0
 */
 export default class HelperApi {
 

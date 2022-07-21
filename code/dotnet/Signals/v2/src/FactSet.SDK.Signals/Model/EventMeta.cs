@@ -42,7 +42,7 @@ namespace FactSet.SDK.Signals.Model
         /// </summary>
         /// <param name="signalRequestId">signalRequestId (required).</param>
         /// <param name="idResolutions">idResolutions (required).</param>
-        public EventMeta(Guid signalRequestId = default(Guid), IdResolutionsMeta idResolutions = default(IdResolutionsMeta))
+        public EventMeta(Guid signalRequestId, IdResolutionsMeta idResolutions)
         {
             this.SignalRequestId = signalRequestId;
             // to ensure "idResolutions" is required (not null)

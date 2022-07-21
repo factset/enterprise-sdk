@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateReportApi(config);
+
             var mIAPIPostRequest = new MIAPIPostRequest(); // MIAPIPostRequest | 
 
             try

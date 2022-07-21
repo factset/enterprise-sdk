@@ -26,8 +26,8 @@ Get a list of Vermilion users.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.vermilion_user_resource import VermilionUserResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +65,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of Vermilion users.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.vermilion_users_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
         pprint(api_response)
 
@@ -123,7 +125,8 @@ Delete a Vermilion user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,7 +160,9 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Delete a Vermilion user.
+        # example passing only required values which don't have defaults set
         api_instance.vermilion_users_id_delete(id)
+
     except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
         print("Exception when calling VermilionUsersApi->vermilion_users_id_delete: %s\n" % e)
 ```
@@ -209,8 +214,8 @@ Get a Vermilion user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.vermilion_user_resource import VermilionUserResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -244,6 +249,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a Vermilion user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.vermilion_users_id_get(id)
         pprint(api_response)
 
@@ -298,9 +304,8 @@ Patch a Vermilion user (add, replace, or remove attributes of a Vermilion user.)
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.vermilion_user_resource import VermilionUserResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
-from fds.sdk.ProcuretoPayAPISCIM.model.patch import Patch
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -346,6 +351,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Patch a Vermilion user (add, replace, or remove attributes of a Vermilion user.)
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.vermilion_users_id_patch(id, patch=patch)
         pprint(api_response)
 
@@ -401,8 +408,8 @@ Replace a Vermilion user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.vermilion_user_resource import VermilionUserResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -496,6 +503,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Replace a Vermilion user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.vermilion_users_id_put(id, vermilion_user_resource)
         pprint(api_response)
 
@@ -552,8 +560,8 @@ Create a Vermilion user.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import vermilion_users_api
-from fds.sdk.ProcuretoPayAPISCIM.model.vermilion_user_resource import VermilionUserResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -646,6 +654,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Create a Vermilion user.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.vermilion_users_post(vermilion_user_resource)
         pprint(api_response)
 

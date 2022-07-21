@@ -24,8 +24,8 @@ Understand the full RBICS Taxonomy Structure through time to help organize your 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetRBICS
 from fds.sdk.FactSetRBICS.api import structure_api
-from fds.sdk.FactSetRBICS.model.error_response import ErrorResponse
-from fds.sdk.FactSetRBICS.model.structure_response import StructureResponse
+from fds.sdk.FactSetRBICS.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,11 +57,13 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
 
     rbics_ids = ["101010000000","55"] # [str] | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  (optional)
     level = 1 # int | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  (optional)
-    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) (default to True)
+    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) if omitted the server will use the default value of True
     date = "2017-07-24" # str | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
 
     try:
         # Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_rbics_structure(rbics_ids=rbics_ids, level=level, include_names=include_names, date=date)
         pprint(api_response)
 
@@ -122,9 +124,8 @@ Get the full RBICS Taxonomy Structure Ids, Names, and effective periods. POST me
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetRBICS
 from fds.sdk.FactSetRBICS.api import structure_api
-from fds.sdk.FactSetRBICS.model.error_response import ErrorResponse
-from fds.sdk.FactSetRBICS.model.structure_request import StructureRequest
-from fds.sdk.FactSetRBICS.model.structure_response import StructureResponse
+from fds.sdk.FactSetRBICS.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -163,6 +164,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
 
     try:
         # Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_rbics_structure_for_list(structure_request)
         pprint(api_response)
 

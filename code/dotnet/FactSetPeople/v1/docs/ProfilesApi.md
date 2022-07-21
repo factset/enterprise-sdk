@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ProfilesApi(config);
+
             var ids = new List<string>(); // List<string> | List of FactSet Person Entity identifier.
 
             try
@@ -142,6 +143,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ProfilesApi(config);
+
             var peopleProfilesRequest = new PeopleProfilesRequest(); // PeopleProfilesRequest | 
 
             try

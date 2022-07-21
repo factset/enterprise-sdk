@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CorporateActionsResponse model module.
  * @module model/CorporateActionsResponse
- * @version 0.20.0
  */
 class CorporateActionsResponse {
     /**

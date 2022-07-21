@@ -17,7 +17,6 @@ import LookupAssettype from './LookupAssettype';
 /**
  * The LookupCount model module.
  * @module model/LookupCount
- * @version 0.20.0
  */
 class LookupCount {
     /**

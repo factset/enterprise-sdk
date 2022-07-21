@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Shares model module.
  * @module model/Shares
- * @version 0.20.0
  */
 class Shares {
     /**

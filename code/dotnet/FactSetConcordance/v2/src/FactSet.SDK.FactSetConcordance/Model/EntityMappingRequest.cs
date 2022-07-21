@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <param name="clientCountry">ISO2 country code corresponding to the Entity name..</param>
         /// <param name="clientState">ISO Code of State or Province location to map Entity..</param>
         /// <param name="clientUrl">URL corresponding to the entity name..</param>
-        public EntityMappingRequest(int universeId = default(int), string clientId = default(string), string entityId = default(string), string clientName = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string))
+        public EntityMappingRequest(int universeId, string clientId, string clientName,string entityId = default(string), string clientCountry = default(string), string clientState = default(string), string clientUrl = default(string))
         {
             this.UniverseId = universeId;
             // to ensure "clientId" is required (not null)

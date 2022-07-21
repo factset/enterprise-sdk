@@ -41,7 +41,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject(PortfolioCreateData data = default(PortfolioCreateData), PortfolioCreateMeta meta = default(PortfolioCreateMeta))
+        public InlineObject(PortfolioCreateData data,PortfolioCreateMeta meta = default(PortfolioCreateMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

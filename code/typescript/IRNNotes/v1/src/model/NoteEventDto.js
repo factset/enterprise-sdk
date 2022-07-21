@@ -17,7 +17,6 @@ import RecordChangeDto from './RecordChangeDto';
 /**
  * The NoteEventDto model module.
  * @module model/NoteEventDto
- * @version 0.20.0
  */
 class NoteEventDto {
     /**

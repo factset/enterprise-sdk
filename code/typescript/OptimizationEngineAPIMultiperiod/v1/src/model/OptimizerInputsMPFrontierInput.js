@@ -18,7 +18,6 @@ import OptimizerInputsMultiPeriodInput from './OptimizerInputsMultiPeriodInput';
 /**
  * The OptimizerInputsMPFrontierInput model module.
  * @module model/OptimizerInputsMPFrontierInput
- * @version 0.20.0
  */
 class OptimizerInputsMPFrontierInput {
     /**

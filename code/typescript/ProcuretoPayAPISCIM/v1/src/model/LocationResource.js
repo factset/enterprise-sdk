@@ -18,7 +18,6 @@ import LocationResourceReference from './LocationResourceReference';
 /**
  * The LocationResource model module.
  * @module model/LocationResource
- * @version 0.20.1
  */
 class LocationResource {
     /**

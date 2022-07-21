@@ -17,7 +17,6 @@ import InlineResponse2005DataShareClassFee12bCurrent from './InlineResponse2005D
 /**
  * The InlineResponse2005DataShareClassFee12b model module.
  * @module model/InlineResponse2005DataShareClassFee12b
- * @version 0.10.0
  */
 class InlineResponse2005DataShareClassFee12b {
     /**

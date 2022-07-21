@@ -22,8 +22,8 @@ Get a list of products.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import products_api
-from fds.sdk.ProcuretoPayAPISCIM.model.product_resource_list import ProductResourceList
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -61,6 +61,8 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a list of products.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.products_get(filter=filter, start_index=start_index, count=count, attributes=attributes, excluded_attributes=excluded_attributes)
         pprint(api_response)
 
@@ -119,8 +121,8 @@ Get a product.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ProcuretoPayAPISCIM
 from fds.sdk.ProcuretoPayAPISCIM.api import products_api
-from fds.sdk.ProcuretoPayAPISCIM.model.product_resource import ProductResource
-from fds.sdk.ProcuretoPayAPISCIM.model.error import Error
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -154,6 +156,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
 
     try:
         # Get a product.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.products_id_get(id)
         pprint(api_response)
 

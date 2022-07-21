@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 schemas
 
-<a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client  This API provides a downloadable file for the schema & sequence number (version number of schema) specified
+<a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema & sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
 
 ### Example
 
@@ -23,8 +23,8 @@ schemas
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StandardDatafeed
 from fds.sdk.StandardDatafeed.api import schema_api
-from fds.sdk.StandardDatafeed.model.list_schema200_response import ListSchema200Response
-from fds.sdk.StandardDatafeed.model.list_schema400_response import ListSchema400Response
+from fds.sdk.StandardDatafeed.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -54,11 +54,13 @@ with fds.sdk.StandardDatafeed.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schema_api.SchemaApi(api_client)
 
-    schema = "schema_example" # str | schema name</p> Default is all schemas & bundles subscribed by the client</p> **Example: acta_v1, fgp_v1, yn_v1** (optional)
-    sequence = 1 # int | Enter the sequence number associated with a schema</p> Provides a pre-signed url to download the respective schema file</p> \"**Example: \"8\" from acta_v1: [8],** (optional)
+    schema = "schema_example" # str | schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)
+    sequence = 1 # int | Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)
 
     try:
         # schemas
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_v1_list_schemas(schema=schema, sequence=sequence)
         pprint(api_response)
 
@@ -71,8 +73,8 @@ with fds.sdk.StandardDatafeed.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **schema** | **str**| schema name&lt;/p&gt; Default is all schemas &amp; bundles subscribed by the client&lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1** | [optional]
- **sequence** | **int**| Enter the sequence number associated with a schema&lt;/p&gt; Provides a pre-signed url to download the respective schema file&lt;/p&gt; \&quot;**Example: \&quot;8\&quot; from acta_v1: [8],** | [optional]
+ **schema** | **str**| schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  | [optional]
+ **sequence** | **int**| Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request | [optional]
 
 ### Return type
 

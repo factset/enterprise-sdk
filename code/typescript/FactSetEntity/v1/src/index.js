@@ -13,6 +13,9 @@
 
 import ApiClient from './ApiClient';
 import EntityReference from './model/EntityReference';
+import EntityReferenceChi from './model/EntityReferenceChi';
+import EntityReferenceChiRequest from './model/EntityReferenceChiRequest';
+import EntityReferenceChiResponse from './model/EntityReferenceChiResponse';
 import EntityReferenceRequest from './model/EntityReferenceRequest';
 import EntityReferenceResponse from './model/EntityReferenceResponse';
 import EntitySecurities from './model/EntitySecurities';
@@ -29,6 +32,7 @@ import UltimateEntityStructureResponse from './model/UltimateEntityStructureResp
 import UtlimateEntityStructure from './model/UtlimateEntityStructure';
 
 import EntityReferenceApi from './api/EntityReferenceApi';
+import EntityReferenceChineseApi from './api/EntityReferenceChineseApi';
 import EntitySecuritiesApi from './api/EntitySecuritiesApi';
 import EntityStructureApi from './api/EntityStructureApi';
 
@@ -62,7 +66,6 @@ import EntityStructureApi from './api/EntityStructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**
@@ -76,6 +79,24 @@ export {
      * @property {module:model/EntityReference}
      */
     EntityReference,
+
+    /**
+     * The EntityReferenceChi model constructor.
+     * @property {module:model/EntityReferenceChi}
+     */
+    EntityReferenceChi,
+
+    /**
+     * The EntityReferenceChiRequest model constructor.
+     * @property {module:model/EntityReferenceChiRequest}
+     */
+    EntityReferenceChiRequest,
+
+    /**
+     * The EntityReferenceChiResponse model constructor.
+     * @property {module:model/EntityReferenceChiResponse}
+     */
+    EntityReferenceChiResponse,
 
     /**
      * The EntityReferenceRequest model constructor.
@@ -166,6 +187,12 @@ export {
     * @property {module:api/EntityReferenceApi}
     */
     EntityReferenceApi,
+
+    /**
+    * The EntityReferenceChineseApi service constructor.
+    * @property {module:api/EntityReferenceChineseApi}
+    */
+    EntityReferenceChineseApi,
 
     /**
     * The EntitySecuritiesApi service constructor.

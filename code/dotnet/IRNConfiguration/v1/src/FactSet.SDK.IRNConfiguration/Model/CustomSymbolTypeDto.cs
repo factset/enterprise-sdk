@@ -47,7 +47,7 @@ namespace FactSet.SDK.IRNConfiguration.Model
         /// <param name="isDefault">isDefault.</param>
         /// <param name="order">order.</param>
         /// <param name="dueDiligenceSymbolEntityType">dueDiligenceSymbolEntityType.</param>
-        public CustomSymbolTypeDto(Guid id = default(Guid), string name = default(string), bool hideAddressField = default(bool), bool hideSymbolSubType = default(bool), bool isDefault = default(bool), int order = default(int), EntityType? dueDiligenceSymbolEntityType = default(EntityType?))
+        public CustomSymbolTypeDto(Guid id = default(Guid), string name = default(string), bool hideAddressField = default(bool), bool hideSymbolSubType = default(bool), bool isDefault = default(bool), int order = default(int), EntityType dueDiligenceSymbolEntityType = default(EntityType))
         {
             this.Id = id;
             this.Name = name;

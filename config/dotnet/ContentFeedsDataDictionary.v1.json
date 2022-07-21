@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ContentFeedsDataDictionary",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageGuid": "{d8d672af-7e25-53a6-b93b-7dc909aaca75}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ContentFeedsDataDictionary/0.20.0",
+  "httpUserAgent": "fds-sdk/dotnet/ContentFeedsDataDictionary/0.21.0",
   "files": {
     "LICENSE": {}
   },

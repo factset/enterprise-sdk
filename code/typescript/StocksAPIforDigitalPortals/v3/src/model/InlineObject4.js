@@ -18,7 +18,6 @@ import StockNotationScreenerValueRangesGetMeta from './StockNotationScreenerValu
 /**
  * The InlineObject4 model module.
  * @module model/InlineObject4
- * @version 0.10.0
  */
 class InlineObject4 {
     /**

@@ -18,7 +18,6 @@ import OptimizerInputsOnPeriods from './OptimizerInputsOnPeriods';
 /**
  * The OptimizerInputsMPDiversificationConstraint model module.
  * @module model/OptimizerInputsMPDiversificationConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPDiversificationConstraint {
     /**

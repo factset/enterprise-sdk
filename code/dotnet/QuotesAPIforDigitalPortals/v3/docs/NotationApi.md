@@ -78,6 +78,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of a notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -168,6 +169,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var factSetMarketSymbol = "factSetMarketSymbol_example";  // string | Market symbol defined by FactSet to identify a notation (i.e. TICKER_EXCHANGE).
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -260,6 +262,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of a notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -352,6 +355,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -442,6 +446,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -532,6 +537,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -622,6 +628,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -712,6 +719,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -802,6 +810,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -892,6 +901,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -982,6 +992,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1072,6 +1083,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1162,6 +1174,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1252,6 +1265,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1342,6 +1356,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1432,6 +1447,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1522,6 +1538,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1612,6 +1629,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of the notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1702,6 +1720,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -1792,6 +1811,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var ids = new List<string>(); // List<string> | List of notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
@@ -1884,6 +1904,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var searchValue = "searchValue_example";  // string | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
             var nsins = new List<string>(); // List<string> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional) 
             var assetClass = "index";  // string | A parameter to limit the output to a particular asset class. (optional) 
@@ -1988,6 +2009,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var searchValue = "searchValue_example";  // string | Full-text search string. It may be enclosed in double quotes (\"). No escaping is provided, therefore it is impossible to specify a search string containing double quotes. Relevance of word starts is indicated by a phrase starting with a space character, such as \" daimler\".
             var idMarkets = new List<decimal>(); // List<decimal> | List of market identifiers. Limits the results to the given markets. For possible values, see endpoint `/basic/market/list`. (optional) 
             var nsins = new List<string>(); // List<string> | A set of NSIN kinds to consider in the search. If the parameter is absent or the value is empty, all valid NSIN kinds are searched. (optional) 
@@ -2092,6 +2114,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var id = "id_example";  // string | Identifier of a notation.
             var quality = "RLT";  // string | Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional)  (default to DLY)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
@@ -2184,6 +2207,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject19(); // InlineObject19 | 
 
             try
@@ -2272,6 +2296,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject20(); // InlineObject20 | 
 
             try
@@ -2360,6 +2385,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject17(); // InlineObject17 |  (optional) 
 
             try
@@ -2448,6 +2474,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject16(); // InlineObject16 |  (optional) 
 
             try
@@ -2536,6 +2563,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject18(); // InlineObject18 |  (optional) 
 
             try
@@ -2624,6 +2652,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotationApi(config);
+
             var body = new InlineObject22(); // InlineObject22 | 
 
             try

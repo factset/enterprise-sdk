@@ -17,7 +17,6 @@ import InlineResponse20011RecommendationCounts from './InlineResponse20011Recomm
 /**
  * The InlineResponse20011Recommendation model module.
  * @module model/InlineResponse20011Recommendation
- * @version 0.10.0
  */
 class InlineResponse20011Recommendation {
     /**

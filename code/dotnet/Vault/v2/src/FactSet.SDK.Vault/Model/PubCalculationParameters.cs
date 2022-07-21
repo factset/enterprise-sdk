@@ -43,7 +43,7 @@ namespace FactSet.SDK.Vault.Model
         /// <param name="document">The Publisher Engine document to analyze. (required).</param>
         /// <param name="account">account (required).</param>
         /// <param name="dates">dates (required).</param>
-        public PubCalculationParameters(string document = default(string), PubIdentifier account = default(PubIdentifier), PubDateParameters dates = default(PubDateParameters))
+        public PubCalculationParameters(string document, PubIdentifier account, PubDateParameters dates)
         {
             // to ensure "document" is required (not null)
             if (document == null) {

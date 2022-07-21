@@ -49,7 +49,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="valueChange">valueChange.</param>
         /// <param name="value2">value2.</param>
         /// <param name="label2">label2.</param>
-        public LabelValueChangeLabelValueChangeTemplate(string headline = default(string), string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), ValueChange valueChange = default(ValueChange), string value2 = default(string), string label2 = default(string))
+        public LabelValueChangeLabelValueChangeTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), ValueChange valueChange = default(ValueChange), string value2 = default(string), string label2 = default(string))
         {
             // to ensure "headline" is required (not null)
             if (headline == null) {

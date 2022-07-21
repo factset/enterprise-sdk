@@ -17,7 +17,6 @@ import Spotlights from './Spotlights';
 /**
  * The SpotlightsResponse model module.
  * @module model/SpotlightsResponse
- * @version 0.20.0
  */
 class SpotlightsResponse {
     /**

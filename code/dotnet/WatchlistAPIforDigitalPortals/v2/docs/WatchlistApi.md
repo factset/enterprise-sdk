@@ -57,6 +57,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject(); // InlineObject |  (optional) 
 
             try
@@ -145,6 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
@@ -233,6 +235,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
             var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
@@ -327,6 +330,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
@@ -415,6 +419,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
@@ -503,6 +508,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject4(); // InlineObject4 |  (optional) 
 
             try
@@ -591,6 +597,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var name = "name_example";  // string | Name of watchlist
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
@@ -687,6 +694,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
+
             var body = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try

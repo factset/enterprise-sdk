@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003Type model module.
  * @module model/InlineResponse2003Type
- * @version 0.10.0
  */
 class InlineResponse2003Type {
     /**

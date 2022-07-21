@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200BalanceSheetReturnOnEquity model module.
  * @module model/InlineResponse200BalanceSheetReturnOnEquity
- * @version 0.10.0
  */
 class InlineResponse200BalanceSheetReturnOnEquity {
     /**

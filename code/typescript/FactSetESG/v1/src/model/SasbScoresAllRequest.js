@@ -17,7 +17,6 @@ import Frequency from './Frequency';
 /**
  * The SasbScoresAllRequest model module.
  * @module model/SasbScoresAllRequest
- * @version 0.20.0
  */
 class SasbScoresAllRequest {
     /**

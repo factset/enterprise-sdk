@@ -27,7 +27,6 @@ import FundNotationScreenerSearchDataFundStrategy from './FundNotationScreenerSe
 /**
  * The FundNotationScreenerSearchDataFund model module.
  * @module model/FundNotationScreenerSearchDataFund
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataFund {
     /**

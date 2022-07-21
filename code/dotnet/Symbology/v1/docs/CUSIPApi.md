@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CUSIPApi(config);
+
             var cusipHistoryTranslationRequest = new CusipHistoryTranslationRequest(); // CusipHistoryTranslationRequest | Request Body for CUSIP History
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CUSIPApi(config);
+
             var cusipTranslationRequest = new CusipTranslationRequest(); // CusipTranslationRequest | Request Body for CUSIP Symbology Translation
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CUSIPApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
             try
@@ -332,6 +335,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CUSIPApi(config);
+
             var ids = new List<string>(); // List<string> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
             var asOfDate = 2010-01-01;  // string | As-Of date for historical symbol request in YYYY-MM-DD format. (optional) 
 

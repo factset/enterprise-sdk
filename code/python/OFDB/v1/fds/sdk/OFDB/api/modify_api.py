@@ -25,9 +25,9 @@ from fds.sdk.OFDB.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.OFDB.exceptions import ApiException
-from fds.sdk.OFDB.model.inline_object1 import InlineObject1
-from fds.sdk.OFDB.model.inline_object3 import InlineObject3
-from fds.sdk.OFDB.model.inline_object5 import InlineObject5
+from fds.sdk.OFDB.model.modify_symbols import ModifySymbols
+from fds.sdk.OFDB.model.modifydatespecific import Modifydatespecific
+from fds.sdk.OFDB.model.modifysymboldate import Modifysymboldate
 from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 
 
@@ -125,12 +125,12 @@ class ModifyApi(object):
                 'all': [
                     'path',
                     'date',
-                    'inline_object3',
+                    'modifydatespecific',
                 ],
                 'required': [
                     'path',
                     'date',
-                    'inline_object3',
+                    'modifydatespecific',
                 ],
                 'nullable': [
                 ],
@@ -149,8 +149,8 @@ class ModifyApi(object):
                         (str,),
                     'date':
                         (int,),
-                    'inline_object3':
-                        (InlineObject3,),
+                    'modifydatespecific':
+                        (Modifydatespecific,),
                 },
                 'attribute_map': {
                     'path': 'path',
@@ -159,7 +159,7 @@ class ModifyApi(object):
                 'location_map': {
                     'path': 'path',
                     'date': 'path',
-                    'inline_object3': 'body',
+                    'modifydatespecific': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -261,13 +261,13 @@ class ModifyApi(object):
                     'path',
                     'date',
                     'symbol',
-                    'inline_object5',
+                    'modifysymboldate',
                 ],
                 'required': [
                     'path',
                     'date',
                     'symbol',
-                    'inline_object5',
+                    'modifysymboldate',
                 ],
                 'nullable': [
                 ],
@@ -288,8 +288,8 @@ class ModifyApi(object):
                         (int,),
                     'symbol':
                         (str,),
-                    'inline_object5':
-                        (InlineObject5,),
+                    'modifysymboldate':
+                        (Modifysymboldate,),
                 },
                 'attribute_map': {
                     'path': 'path',
@@ -300,7 +300,7 @@ class ModifyApi(object):
                     'path': 'path',
                     'date': 'path',
                     'symbol': 'path',
-                    'inline_object5': 'body',
+                    'modifysymboldate': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -395,12 +395,12 @@ class ModifyApi(object):
                 'all': [
                     'path',
                     'symbol',
-                    'inline_object1',
+                    'modify_symbols',
                 ],
                 'required': [
                     'path',
                     'symbol',
-                    'inline_object1',
+                    'modify_symbols',
                 ],
                 'nullable': [
                 ],
@@ -419,8 +419,8 @@ class ModifyApi(object):
                         (str,),
                     'symbol':
                         (str,),
-                    'inline_object1':
-                        (InlineObject1,),
+                    'modify_symbols':
+                        (ModifySymbols,),
                 },
                 'attribute_map': {
                     'path': 'path',
@@ -429,7 +429,7 @@ class ModifyApi(object):
                 'location_map': {
                     'path': 'path',
                     'symbol': 'path',
-                    'inline_object1': 'body',
+                    'modify_symbols': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -663,7 +663,7 @@ class ModifyApi(object):
         self,
         path,
         date,
-        inline_object3,
+        modifydatespecific,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_dates_date_put  # noqa: E501
@@ -674,7 +674,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object3 (InlineObject3):
+            modifydatespecific (Modifydatespecific): Required data for updating date in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -709,15 +709,15 @@ class ModifyApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object3'] = \
-            inline_object3
+        kwargs['modifydatespecific'] = \
+            modifydatespecific
         return self.v1_database_path_dates_date_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_put_with_http_info(
         self,
         path,
         date,
-        inline_object3,
+        modifydatespecific,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_dates_date_put  # noqa: E501
@@ -728,7 +728,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object3 (InlineObject3):
+            modifydatespecific (Modifydatespecific): Required data for updating date in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -767,15 +767,15 @@ class ModifyApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object3'] = \
-            inline_object3
+        kwargs['modifydatespecific'] = \
+            modifydatespecific
         return self.v1_database_path_dates_date_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_put_async(
         self,
         path,
         date,
-        inline_object3,
+        modifydatespecific,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_dates_date_put  # noqa: E501
@@ -786,7 +786,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object3 (InlineObject3):
+            modifydatespecific (Modifydatespecific): Required data for updating date in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -820,15 +820,15 @@ class ModifyApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object3'] = \
-            inline_object3
+        kwargs['modifydatespecific'] = \
+            modifydatespecific
         return self.v1_database_path_dates_date_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_put_with_http_info_async(
         self,
         path,
         date,
-        inline_object3,
+        modifydatespecific,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_dates_date_put  # noqa: E501
@@ -839,7 +839,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
-            inline_object3 (InlineObject3):
+            modifydatespecific (Modifydatespecific): Required data for updating date in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -873,8 +873,8 @@ class ModifyApi(object):
             path
         kwargs['date'] = \
             date
-        kwargs['inline_object3'] = \
-            inline_object3
+        kwargs['modifydatespecific'] = \
+            modifydatespecific
         return self.v1_database_path_dates_date_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_symbol_delete(
@@ -1100,7 +1100,7 @@ class ModifyApi(object):
         path,
         date,
         symbol,
-        inline_object5,
+        modifysymboldate,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_dates_date_symbols_symbol_put  # noqa: E501
@@ -1112,7 +1112,7 @@ class ModifyApi(object):
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
             symbol (str): Symbol with in the ofdb
-            inline_object5 (InlineObject5):
+            modifysymboldate (Modifysymboldate): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1149,8 +1149,8 @@ class ModifyApi(object):
             date
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object5'] = \
-            inline_object5
+        kwargs['modifysymboldate'] = \
+            modifysymboldate
         return self.v1_database_path_dates_date_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_symbol_put_with_http_info(
@@ -1158,7 +1158,7 @@ class ModifyApi(object):
         path,
         date,
         symbol,
-        inline_object5,
+        modifysymboldate,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_dates_date_symbols_symbol_put  # noqa: E501
@@ -1170,7 +1170,7 @@ class ModifyApi(object):
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
             symbol (str): Symbol with in the ofdb
-            inline_object5 (InlineObject5):
+            modifysymboldate (Modifysymboldate): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1211,8 +1211,8 @@ class ModifyApi(object):
             date
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object5'] = \
-            inline_object5
+        kwargs['modifysymboldate'] = \
+            modifysymboldate
         return self.v1_database_path_dates_date_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_symbol_put_async(
@@ -1220,7 +1220,7 @@ class ModifyApi(object):
         path,
         date,
         symbol,
-        inline_object5,
+        modifysymboldate,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_dates_date_symbols_symbol_put  # noqa: E501
@@ -1232,7 +1232,7 @@ class ModifyApi(object):
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
             symbol (str): Symbol with in the ofdb
-            inline_object5 (InlineObject5):
+            modifysymboldate (Modifysymboldate): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1268,8 +1268,8 @@ class ModifyApi(object):
             date
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object5'] = \
-            inline_object5
+        kwargs['modifysymboldate'] = \
+            modifysymboldate
         return self.v1_database_path_dates_date_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_dates_date_symbols_symbol_put_with_http_info_async(
@@ -1277,7 +1277,7 @@ class ModifyApi(object):
         path,
         date,
         symbol,
-        inline_object5,
+        modifysymboldate,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_dates_date_symbols_symbol_put  # noqa: E501
@@ -1289,7 +1289,7 @@ class ModifyApi(object):
             path (str): Encode database path
             date (int): Date in YYYYMMDD format
             symbol (str): Symbol with in the ofdb
-            inline_object5 (InlineObject5):
+            modifysymboldate (Modifysymboldate): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1325,8 +1325,8 @@ class ModifyApi(object):
             date
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object5'] = \
-            inline_object5
+        kwargs['modifysymboldate'] = \
+            modifysymboldate
         return self.v1_database_path_dates_date_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_symbol_delete(
@@ -1535,7 +1535,7 @@ class ModifyApi(object):
         self,
         path,
         symbol,
-        inline_object1,
+        modify_symbols,
         **kwargs
     ) -> SuccessPostResponse:
         """v1_database_path_symbols_symbol_put  # noqa: E501
@@ -1546,7 +1546,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             symbol (str): Symbol with in the ofdb
-            inline_object1 (InlineObject1):
+            modify_symbols (ModifySymbols): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1581,15 +1581,15 @@ class ModifyApi(object):
             path
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object1'] = \
-            inline_object1
+        kwargs['modify_symbols'] = \
+            modify_symbols
         return self.v1_database_path_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_symbol_put_with_http_info(
         self,
         path,
         symbol,
-        inline_object1,
+        modify_symbols,
         **kwargs
     ) -> typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]:
         """v1_database_path_symbols_symbol_put  # noqa: E501
@@ -1600,7 +1600,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             symbol (str): Symbol with in the ofdb
-            inline_object1 (InlineObject1):
+            modify_symbols (ModifySymbols): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1639,15 +1639,15 @@ class ModifyApi(object):
             path
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object1'] = \
-            inline_object1
+        kwargs['modify_symbols'] = \
+            modify_symbols
         return self.v1_database_path_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_symbol_put_async(
         self,
         path,
         symbol,
-        inline_object1,
+        modify_symbols,
         **kwargs
     ) -> "ApplyResult[SuccessPostResponse]":
         """v1_database_path_symbols_symbol_put  # noqa: E501
@@ -1658,7 +1658,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             symbol (str): Symbol with in the ofdb
-            inline_object1 (InlineObject1):
+            modify_symbols (ModifySymbols): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1692,15 +1692,15 @@ class ModifyApi(object):
             path
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object1'] = \
-            inline_object1
+        kwargs['modify_symbols'] = \
+            modify_symbols
         return self.v1_database_path_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 
     def v1_database_path_symbols_symbol_put_with_http_info_async(
         self,
         path,
         symbol,
-        inline_object1,
+        modify_symbols,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SuccessPostResponse, int, typing.MutableMapping]]":
         """v1_database_path_symbols_symbol_put  # noqa: E501
@@ -1711,7 +1711,7 @@ class ModifyApi(object):
         Args:
             path (str): Encode database path
             symbol (str): Symbol with in the ofdb
-            inline_object1 (InlineObject1):
+            modify_symbols (ModifySymbols): Data for updating symbol in the database
 
         Keyword Args:
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1745,7 +1745,7 @@ class ModifyApi(object):
             path
         kwargs['symbol'] = \
             symbol
-        kwargs['inline_object1'] = \
-            inline_object1
+        kwargs['modify_symbols'] = \
+            modify_symbols
         return self.v1_database_path_symbols_symbol_put_endpoint.call_with_http_info(**kwargs)
 

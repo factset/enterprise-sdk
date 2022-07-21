@@ -124,7 +124,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <param name="quality">Quality of the price. (default to QualityEnum.DLY).</param>
         /// <param name="intervals">Non-empty intervals of days to consider for the request. The array contains a list of at least two days in increasing order. Each pair of adjacent entries day_n and day_(n+1) specifies a half-open interval, that is a range of days d where day_n &lt;&#x3D; d &lt; day_(n+1). A subsample is computed for each interval. The valid range of intervals is between 1900-01-01 and the day after the current day. (required).</param>
         /// <param name="adjustments">adjustments.</param>
-        public PricesTimeSeriesEodSubsampleListData(string id = default(string), TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, List<DateTime> intervals = default(List<DateTime>), VendorChartIQTimeSeriesEodListDataAdjustments adjustments = default(VendorChartIQTimeSeriesEodListDataAdjustments))
+        public PricesTimeSeriesEodSubsampleListData(string id, List<DateTime> intervals,TypeEnum? type = TypeEnum.Trade, QualityEnum? quality = QualityEnum.DLY, VendorChartIQTimeSeriesEodListDataAdjustments adjustments = default(VendorChartIQTimeSeriesEodListDataAdjustments))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

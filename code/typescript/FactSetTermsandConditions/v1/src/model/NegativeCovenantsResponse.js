@@ -17,7 +17,6 @@ import NegativeCovenant from './NegativeCovenant';
 /**
  * The NegativeCovenantsResponse model module.
  * @module model/NegativeCovenantsResponse
- * @version 0.20.0
  */
 class NegativeCovenantsResponse {
     /**

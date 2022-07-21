@@ -18,7 +18,6 @@ import CurrencyRoot from '../model/CurrencyRoot';
 /**
 * Currencies service.
 * @module api/CurrenciesApi
-* @version 0.20.0
 */
 export default class CurrenciesApi {
 

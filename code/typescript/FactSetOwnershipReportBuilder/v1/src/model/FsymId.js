@@ -17,7 +17,6 @@ import FsymIdFsymId from './FsymIdFsymId';
 /**
  * The FsymId model module.
  * @module model/FsymId
- * @version 0.20.0
  */
 class FsymId {
     /**

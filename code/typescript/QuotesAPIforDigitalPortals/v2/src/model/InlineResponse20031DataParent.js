@@ -17,7 +17,6 @@ import InlineResponse20031DataParentLevel from './InlineResponse20031DataParentL
 /**
  * The InlineResponse20031DataParent model module.
  * @module model/InlineResponse20031DataParent
- * @version 0.9.2
  */
 class InlineResponse20031DataParent {
     /**

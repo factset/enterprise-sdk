@@ -46,7 +46,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="tenant">The tenant this role is in.</param>
         /// <param name="domainCode">Domain code of Enterprise Hosting pod in which user resides. REQUIRED. (required).</param>
         /// <param name="meta">meta.</param>
-        public VermilionGroupResource(List<string> schemas = default(List<string>), string externalId = default(string), string displayName = default(string), List<VermilionGroupResourceMembers> members = default(List<VermilionGroupResourceMembers>), string tenant = default(string), string domainCode = default(string), VermilionGroupResourceMeta meta = default(VermilionGroupResourceMeta))
+        public VermilionGroupResource(string displayName, string domainCode,List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), List<VermilionGroupResourceMembers> members = default(List<VermilionGroupResourceMembers>), string tenant = default(string), VermilionGroupResourceMeta meta = default(VermilionGroupResourceMeta))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null) {

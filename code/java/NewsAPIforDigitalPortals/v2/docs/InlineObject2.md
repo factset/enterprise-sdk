@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**NewsArticleListByIndexData**](NewsArticleListByIndexData.md) |  | 
+**data** | [**NewsArticleListByIndexData**](NewsArticleListByIndexData.md) |  |  [optional]
 **meta** | [**NewsArticleListMeta**](NewsArticleListMeta.md) |  |  [optional]
 
 

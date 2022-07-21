@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The Data model module.
  * @module model/Data
- * @version 0.20.0
  */
 class Data {
     /**

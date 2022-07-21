@@ -26,9 +26,8 @@ Return the full history of SEDOL changes for a given market security or FactSet 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import sedol_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.sedol_history_translation_response import SedolHistoryTranslationResponse
-from fds.sdk.Symbology.model.sedol_history_translation_request import SedolHistoryTranslationRequest
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,6 +63,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the full history SEDOL changes for a requested ID.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_sedol_history(sedol_history_translation_request)
         pprint(api_response)
 
@@ -121,9 +121,8 @@ Translate market security symbols into SEDOL and FactSet Permanent Identifiers. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import sedol_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.sedol_translation_request import SedolTranslationRequest
-from fds.sdk.Symbology.model.sedol_translation_response import SedolTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,6 +159,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into SEDOL.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_sedol(sedol_translation_request)
         pprint(api_response)
 
@@ -217,8 +217,8 @@ Returns the full history of SEDOL changes for a given security or list of securi
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import sedol_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.sedol_history_translation_response import SedolHistoryTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -252,6 +252,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the full history of SEDOL changes for the requested ID(s).
+        # example passing only required values which don't have defaults set
         api_response = api_instance.sedol_history(ids)
         pprint(api_response)
 
@@ -309,8 +310,8 @@ Translate market security symbols into SEDOL and FactSet Permanent Identifiers. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import sedol_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.sedol_translation_response import SedolTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -345,6 +346,8 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into SEDOL.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.translate_sedol(ids, as_of_date=as_of_date)
         pprint(api_response)
 

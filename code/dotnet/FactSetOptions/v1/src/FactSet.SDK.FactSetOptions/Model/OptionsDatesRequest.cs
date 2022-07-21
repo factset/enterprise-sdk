@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// Initializes a new instance of the <see cref="OptionsDatesRequest" /> class.
         /// </summary>
         /// <param name="ids">Option Security Identifier. For more details visit [OA 12636 - Options Identifiers](https://my.apps.factset.com/oa/pages/12636#options)  (required).</param>
-        public OptionsDatesRequest(List<string> ids = default(List<string>))
+        public OptionsDatesRequest(List<string> ids)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

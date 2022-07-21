@@ -17,7 +17,6 @@ import Statuses from './Statuses';
 /**
  * The StatusesResponse model module.
  * @module model/StatusesResponse
- * @version 0.20.0
  */
 class StatusesResponse {
     /**

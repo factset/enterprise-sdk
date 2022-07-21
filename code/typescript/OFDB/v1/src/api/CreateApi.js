@@ -13,17 +13,16 @@
 
 
 import ApiClient from "../ApiClient";
+import CreateSymbols from '../model/CreateSymbols';
 import DatabaseSchema from '../model/DatabaseSchema';
-import InlineObject from '../model/InlineObject';
-import InlineObject2 from '../model/InlineObject2';
-import InlineObject4 from '../model/InlineObject4';
 import InlineResponse201 from '../model/InlineResponse201';
+import PostDatesymbol from '../model/PostDatesymbol';
+import Postnewsymboldate from '../model/Postnewsymboldate';
 import SuccessPostResponse from '../model/SuccessPostResponse';
 
 /**
 * Create service.
 * @module api/CreateApi
-* @version 0.9.2
 */
 export default class CreateApi {
 
@@ -91,11 +90,11 @@ export default class CreateApi {
      * Creates a new symbol for a given date in 3d database(OFDB)
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
-     * @param {module:model/InlineObject4} inlineObject4 
+     * @param {module:model/Postnewsymboldate} postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, inlineObject4) {
-      let postBody = inlineObject4;
+    v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, postnewsymboldate) {
+      let postBody = postnewsymboldate;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathDatesDateSymbolsPost");
@@ -104,9 +103,9 @@ export default class CreateApi {
       if (date === undefined || date === null) {
         throw new Error("Missing the required parameter 'date' when calling v1DatabasePathDatesDateSymbolsPost");
       }
-      // verify the required parameter 'inlineObject4' is set
-      if (inlineObject4 === undefined || inlineObject4 === null) {
-        throw new Error("Missing the required parameter 'inlineObject4' when calling v1DatabasePathDatesDateSymbolsPost");
+      // verify the required parameter 'postnewsymboldate' is set
+      if (postnewsymboldate === undefined || postnewsymboldate === null) {
+        throw new Error("Missing the required parameter 'postnewsymboldate' when calling v1DatabasePathDatesDateSymbolsPost");
       }
 
       let pathParams = {
@@ -138,11 +137,11 @@ export default class CreateApi {
      * Creates a new symbol for a given date in 3d database(OFDB)
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
-     * @param {module:model/InlineObject4} inlineObject4 
+     * @param {module:model/Postnewsymboldate} postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol.
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4) {
-      return this.v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, inlineObject4)
+    v1DatabasePathDatesDateSymbolsPost(path, date, postnewsymboldate) {
+      return this.v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, postnewsymboldate)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -152,18 +151,18 @@ export default class CreateApi {
     /**
      * Creates a new date with single/multiple symbols for a 3d database(OFDB).
      * @param {String} path Encode database path
-     * @param {module:model/InlineObject2} inlineObject2 
+     * @param {module:model/PostDatesymbol} postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathDatesPostWithHttpInfo(path, inlineObject2) {
-      let postBody = inlineObject2;
+    v1DatabasePathDatesPostWithHttpInfo(path, postDatesymbol) {
+      let postBody = postDatesymbol;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathDatesPost");
       }
-      // verify the required parameter 'inlineObject2' is set
-      if (inlineObject2 === undefined || inlineObject2 === null) {
-        throw new Error("Missing the required parameter 'inlineObject2' when calling v1DatabasePathDatesPost");
+      // verify the required parameter 'postDatesymbol' is set
+      if (postDatesymbol === undefined || postDatesymbol === null) {
+        throw new Error("Missing the required parameter 'postDatesymbol' when calling v1DatabasePathDatesPost");
       }
 
       let pathParams = {
@@ -193,11 +192,11 @@ export default class CreateApi {
     /**
      * Creates a new date with single/multiple symbols for a 3d database(OFDB).
      * @param {String} path Encode database path
-     * @param {module:model/InlineObject2} inlineObject2 
+     * @param {module:model/PostDatesymbol} postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400.
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathDatesPost(path, inlineObject2) {
-      return this.v1DatabasePathDatesPostWithHttpInfo(path, inlineObject2)
+    v1DatabasePathDatesPost(path, postDatesymbol) {
+      return this.v1DatabasePathDatesPostWithHttpInfo(path, postDatesymbol)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -207,18 +206,18 @@ export default class CreateApi {
     /**
      * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
      * @param {String} path Encode database path
-     * @param {module:model/InlineObject} inlineObject 
+     * @param {module:model/CreateSymbols} createSymbols Data for creating symbol in the database
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SuccessPostResponse} and HTTP response
      */
-    v1DatabasePathSymbolsPostWithHttpInfo(path, inlineObject) {
-      let postBody = inlineObject;
+    v1DatabasePathSymbolsPostWithHttpInfo(path, createSymbols) {
+      let postBody = createSymbols;
       // verify the required parameter 'path' is set
       if (path === undefined || path === null) {
         throw new Error("Missing the required parameter 'path' when calling v1DatabasePathSymbolsPost");
       }
-      // verify the required parameter 'inlineObject' is set
-      if (inlineObject === undefined || inlineObject === null) {
-        throw new Error("Missing the required parameter 'inlineObject' when calling v1DatabasePathSymbolsPost");
+      // verify the required parameter 'createSymbols' is set
+      if (createSymbols === undefined || createSymbols === null) {
+        throw new Error("Missing the required parameter 'createSymbols' when calling v1DatabasePathSymbolsPost");
       }
 
       let pathParams = {
@@ -248,11 +247,11 @@ export default class CreateApi {
     /**
      * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
      * @param {String} path Encode database path
-     * @param {module:model/InlineObject} inlineObject 
+     * @param {module:model/CreateSymbols} createSymbols Data for creating symbol in the database
      * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
-    v1DatabasePathSymbolsPost(path, inlineObject) {
-      return this.v1DatabasePathSymbolsPostWithHttpInfo(path, inlineObject)
+    v1DatabasePathSymbolsPost(path, createSymbols) {
+      return this.v1DatabasePathSymbolsPostWithHttpInfo(path, createSymbols)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

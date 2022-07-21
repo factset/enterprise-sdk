@@ -19,7 +19,6 @@ import GoogleProtobufStruct from './GoogleProtobufStruct';
 /**
  * The GoogleProtobufValue model module.
  * @module model/GoogleProtobufValue
- * @version 0.20.0
  */
 class GoogleProtobufValue {
     /**

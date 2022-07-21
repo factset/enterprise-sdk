@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DSOTMApi(config);
+
             var transactions = new Transactions(); // Transactions |  (optional) 
 
             try

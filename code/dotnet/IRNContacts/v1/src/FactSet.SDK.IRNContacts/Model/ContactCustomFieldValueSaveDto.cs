@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNContacts.Model
         /// <param name="value">value.</param>
         /// <param name="optionValues">optionValues.</param>
         /// <param name="evaluateFormula">evaluateFormula (default to false).</param>
-        public ContactCustomFieldValueSaveDto(string code = default(string), string value = default(string), List<Guid> optionValues = default(List<Guid>), bool evaluateFormula = false)
+        public ContactCustomFieldValueSaveDto(string code,string value = default(string), List<Guid> optionValues = default(List<Guid>), bool evaluateFormula = false)
         {
             // to ensure "code" is required (not null)
             if (code == null) {

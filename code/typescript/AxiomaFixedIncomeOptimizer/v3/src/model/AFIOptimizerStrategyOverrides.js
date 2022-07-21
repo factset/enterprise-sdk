@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The AFIOptimizerStrategyOverrides model module.
  * @module model/AFIOptimizerStrategyOverrides
- * @version 0.20.0
  */
 class AFIOptimizerStrategyOverrides {
     /**

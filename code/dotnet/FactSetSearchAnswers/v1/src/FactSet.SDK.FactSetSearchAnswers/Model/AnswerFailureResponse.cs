@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="AnswerFailureResponse" /> class.
         /// </summary>
         /// <param name="errors">errors (required).</param>
-        public AnswerFailureResponse(List<Error> errors = default(List<Error>))
+        public AnswerFailureResponse(List<Error> errors)
         {
             // to ensure "errors" is required (not null)
             if (errors == null) {

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments model module.
  * @module model/VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments {
     /**

@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new GlobalFilingsAPIApi(config);
+
             var dataset = "edgar";  // string | This parameter filters the results based on the dataset of the filings documents.
             var startDate = DateTime.Parse("2013-10-20");  // DateTime | The earliest date the API should fetch for. Dates can be YYYY-MM-DD format
             var endDate = DateTime.Parse("2013-10-20");  // DateTime | The date after upto eight days of the earliest date given the API should fetch for. Dates can be YYYY-MM-DD format

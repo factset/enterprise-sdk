@@ -17,7 +17,6 @@ import GoogleProtobufListValue from './GoogleProtobufListValue';
 /**
  * The OptimizerInputsDenseMatrix model module.
  * @module model/OptimizerInputsDenseMatrix
- * @version 0.20.0
  */
 class OptimizerInputsDenseMatrix {
     /**

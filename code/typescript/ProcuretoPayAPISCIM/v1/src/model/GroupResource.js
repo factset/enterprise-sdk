@@ -19,7 +19,6 @@ import GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group from 
 /**
  * The GroupResource model module.
  * @module model/GroupResource
- * @version 0.20.1
  */
 class GroupResource {
     /**

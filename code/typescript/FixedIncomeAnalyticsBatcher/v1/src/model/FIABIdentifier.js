@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FIABIdentifier model module.
  * @module model/FIABIdentifier
- * @version 0.20.0
  */
 class FIABIdentifier {
     /**

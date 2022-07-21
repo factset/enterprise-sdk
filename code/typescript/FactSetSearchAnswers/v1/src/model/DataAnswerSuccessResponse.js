@@ -17,7 +17,6 @@ import DataAnswerData from './DataAnswerData';
 /**
  * The DataAnswerSuccessResponse model module.
  * @module model/DataAnswerSuccessResponse
- * @version 0.20.0
  */
 class DataAnswerSuccessResponse {
     /**

@@ -49,7 +49,6 @@ import EntitiesApi from './api/EntitiesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

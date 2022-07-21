@@ -116,7 +116,6 @@ import VendorApi from './api/VendorApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.10.0
 */
 export {
     /**

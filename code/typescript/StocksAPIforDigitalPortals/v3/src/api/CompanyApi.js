@@ -22,7 +22,6 @@ import InlineResponse2005 from '../model/InlineResponse2005';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.10.0
 */
 export default class CompanyApi {
 

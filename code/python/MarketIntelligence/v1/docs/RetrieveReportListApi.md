@@ -23,7 +23,8 @@ Endpoint to retrieve list of all available Market Intelligence reports for speci
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.MarketIntelligence
 from fds.sdk.MarketIntelligence.api import retrieve_report_list_api
-from fds.sdk.MarketIntelligence.model.get_report_info import GetReportInfo
+from fds.sdk.MarketIntelligence.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,6 +57,7 @@ with fds.sdk.MarketIntelligence.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a list of previously created reports and associated report metadata.
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_reports_get()
         pprint(api_response)
 

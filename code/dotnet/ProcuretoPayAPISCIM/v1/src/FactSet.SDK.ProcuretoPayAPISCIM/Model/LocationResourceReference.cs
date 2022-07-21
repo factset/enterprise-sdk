@@ -42,7 +42,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="value">Identifier of the Location. (required).</param>
         /// <param name="_ref">The URI corresponding to a SCIM resource that is this Location..</param>
         /// <param name="display">A human-readable name, primarily used for display purposes..</param>
-        public LocationResourceReference(string value = default(string), string _ref = default(string), string display = default(string))
+        public LocationResourceReference(string value,string _ref = default(string), string display = default(string))
         {
             // to ensure "value" is required (not null)
             if (value == null) {

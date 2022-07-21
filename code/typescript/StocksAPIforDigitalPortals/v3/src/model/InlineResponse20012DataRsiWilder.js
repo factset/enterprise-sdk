@@ -17,7 +17,6 @@ import InlineResponse20012DataRsiWilderDays14 from './InlineResponse20012DataRsi
 /**
  * The InlineResponse20012DataRsiWilder model module.
  * @module model/InlineResponse20012DataRsiWilder
- * @version 0.10.0
  */
 class InlineResponse20012DataRsiWilder {
     /**

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.BondsAPIforDigitalPortals",
-  "packageVersion": "0.10.0",
+  "packageVersion": "0.10.1",
   "packageGuid": "{6bcdf396-4e1e-5f99-98ae-8137e8bcd8c0}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/BondsAPIforDigitalPortals/0.10.0",
+  "httpUserAgent": "fds-sdk/dotnet/BondsAPIforDigitalPortals/0.10.1",
   "files": {
     "LICENSE": {}
   },

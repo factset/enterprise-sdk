@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMappingApi(config);
+
             var entityMappingDeleteRequest = new EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
 
             try
@@ -146,6 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMappingApi(config);
+
             var peopleMappingRequest = new PeopleMappingRequest(); // PeopleMappingRequest | A request to create a single mapping.
 
             try
@@ -239,6 +241,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMappingApi(config);
+
             var universeId = 1;  // int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
             var clientId = new List<string>(); // List<string> | Filter by the clientId(s) created by the user in a previous mapping.  (optional) 
             var mapStatus = new List<string>(); // List<string> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional) 
@@ -340,6 +343,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PeopleMappingApi(config);
+
             var peopleUniverseRequest = new PeopleUniverseRequest(); // PeopleUniverseRequest | A request to fetch all entities of a given universe
 
             try

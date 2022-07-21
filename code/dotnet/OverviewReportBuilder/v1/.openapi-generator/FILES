@@ -43,8 +43,14 @@ docs/ProfileDataStage.md
 docs/ProfileDataStageCrunchbaseRank.md
 docs/ProfileDataStagePeActiveFirmNumber.md
 docs/ProfileDataStagePeActiveFirms.md
+docs/ProfileDataStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataStageTradeDateRange.md
 docs/ProfileResponse.md
+docs/RelevanceType.md
+docs/RelevanceTypeRelevanceType.md
+docs/RelevanceTypeRelevanceTypeC.md
+docs/RelevanceTypeRelevanceTypeP.md
+docs/RelevanceTypeRelevanceTypeS.md
 docs/Scale.md
 docs/ScaleScale.md
 docs/StachTableResponse.md
@@ -52,8 +58,6 @@ docs/TransactionId.md
 docs/TransactionIdTransactionId.md
 docs/TransactionType.md
 docs/TransactionTypeTransactionType.md
-docs/Units.md
-docs/UnitsUnits.md
 docs/ValueType.md
 docs/ValueTypeValueType.md
 git_push.sh
@@ -114,8 +118,14 @@ src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStage.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStageCrunchbaseRank.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStagePeActiveFirmNumber.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStagePeActiveFirms.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStagePevcLatestPostMoneyValuation.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ProfileDataStageTradeDateRange.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ProfileResponse.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/RelevanceType.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/RelevanceTypeRelevanceType.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/RelevanceTypeRelevanceTypeC.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/RelevanceTypeRelevanceTypeP.cs
+src/FactSet.SDK.OverviewReportBuilder/Model/RelevanceTypeRelevanceTypeS.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/Scale.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ScaleScale.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/StachTableResponse.cs
@@ -123,7 +133,5 @@ src/FactSet.SDK.OverviewReportBuilder/Model/TransactionId.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/TransactionIdTransactionId.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/TransactionType.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/TransactionTypeTransactionType.cs
-src/FactSet.SDK.OverviewReportBuilder/Model/Units.cs
-src/FactSet.SDK.OverviewReportBuilder/Model/UnitsUnits.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ValueType.cs
 src/FactSet.SDK.OverviewReportBuilder/Model/ValueTypeValueType.cs

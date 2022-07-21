@@ -640,7 +640,7 @@ class NotesConfigurationApi(object):
     def get_assigned_fact_set_users(
         self,
         **kwargs
-    ) -> [UserConfigDto]:
+    ) -> typing.List[UserConfigDto]:
         """Get all assigned FactSet users  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -671,7 +671,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [UserConfigDto]
+            typing.List[UserConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -680,7 +680,7 @@ class NotesConfigurationApi(object):
     def get_assigned_fact_set_users_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[UserConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[UserConfigDto], int, typing.MutableMapping]:
         """Get all assigned FactSet users  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -711,7 +711,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [UserConfigDto]
+            typing.List[UserConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -724,7 +724,7 @@ class NotesConfigurationApi(object):
     def get_assigned_fact_set_users_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[UserConfigDto]]":
+    ) -> "ApplyResult[typing.List[UserConfigDto]]":
         """Get all assigned FactSet users  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -755,7 +755,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[UserConfigDto]]
+            ApplyResult[typing.List[UserConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_assigned_fact_set_users_endpoint.call_with_http_info(**kwargs)
@@ -763,7 +763,7 @@ class NotesConfigurationApi(object):
     def get_assigned_fact_set_users_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[UserConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[UserConfigDto], int, typing.MutableMapping]]":
         """Get all assigned FactSet users  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -794,7 +794,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([UserConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[UserConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_assigned_fact_set_users_endpoint.call_with_http_info(**kwargs)
@@ -802,7 +802,7 @@ class NotesConfigurationApi(object):
     def get_authors(
         self,
         **kwargs
-    ) -> [AuthorConfigDto]:
+    ) -> typing.List[AuthorConfigDto]:
         """Get all Authors  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -834,7 +834,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [AuthorConfigDto]
+            typing.List[AuthorConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -843,7 +843,7 @@ class NotesConfigurationApi(object):
     def get_authors_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[AuthorConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[AuthorConfigDto], int, typing.MutableMapping]:
         """Get all Authors  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -875,7 +875,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [AuthorConfigDto]
+            typing.List[AuthorConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -888,7 +888,7 @@ class NotesConfigurationApi(object):
     def get_authors_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[AuthorConfigDto]]":
+    ) -> "ApplyResult[typing.List[AuthorConfigDto]]":
         """Get all Authors  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -920,7 +920,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[AuthorConfigDto]]
+            ApplyResult[typing.List[AuthorConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_authors_endpoint.call_with_http_info(**kwargs)
@@ -928,7 +928,7 @@ class NotesConfigurationApi(object):
     def get_authors_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[AuthorConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[AuthorConfigDto], int, typing.MutableMapping]]":
         """Get all Authors  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -960,7 +960,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([AuthorConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[AuthorConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_authors_endpoint.call_with_http_info(**kwargs)
@@ -1130,7 +1130,7 @@ class NotesConfigurationApi(object):
     def get_custom_fields(
         self,
         **kwargs
-    ) -> [CustomFieldConfigDto]:
+    ) -> typing.List[CustomFieldConfigDto]:
         """Get all Custom Fields  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1162,7 +1162,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomFieldConfigDto]
+            typing.List[CustomFieldConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1171,7 +1171,7 @@ class NotesConfigurationApi(object):
     def get_custom_fields_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[CustomFieldConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[CustomFieldConfigDto], int, typing.MutableMapping]:
         """Get all Custom Fields  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1203,7 +1203,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CustomFieldConfigDto]
+            typing.List[CustomFieldConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -1216,7 +1216,7 @@ class NotesConfigurationApi(object):
     def get_custom_fields_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[CustomFieldConfigDto]]":
+    ) -> "ApplyResult[typing.List[CustomFieldConfigDto]]":
         """Get all Custom Fields  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1248,7 +1248,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[CustomFieldConfigDto]]
+            ApplyResult[typing.List[CustomFieldConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_custom_fields_endpoint.call_with_http_info(**kwargs)
@@ -1256,7 +1256,7 @@ class NotesConfigurationApi(object):
     def get_custom_fields_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[CustomFieldConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[CustomFieldConfigDto], int, typing.MutableMapping]]":
         """Get all Custom Fields  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1288,7 +1288,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([CustomFieldConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[CustomFieldConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_custom_fields_endpoint.call_with_http_info(**kwargs)
@@ -1458,7 +1458,7 @@ class NotesConfigurationApi(object):
     def get_recommendations(
         self,
         **kwargs
-    ) -> [RecommendationConfigDto]:
+    ) -> typing.List[RecommendationConfigDto]:
         """Get all Recommendations  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1489,7 +1489,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecommendationConfigDto]
+            typing.List[RecommendationConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1498,7 +1498,7 @@ class NotesConfigurationApi(object):
     def get_recommendations_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[RecommendationConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[RecommendationConfigDto], int, typing.MutableMapping]:
         """Get all Recommendations  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1529,7 +1529,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [RecommendationConfigDto]
+            typing.List[RecommendationConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -1542,7 +1542,7 @@ class NotesConfigurationApi(object):
     def get_recommendations_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[RecommendationConfigDto]]":
+    ) -> "ApplyResult[typing.List[RecommendationConfigDto]]":
         """Get all Recommendations  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1573,7 +1573,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[RecommendationConfigDto]]
+            ApplyResult[typing.List[RecommendationConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_recommendations_endpoint.call_with_http_info(**kwargs)
@@ -1581,7 +1581,7 @@ class NotesConfigurationApi(object):
     def get_recommendations_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[RecommendationConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[RecommendationConfigDto], int, typing.MutableMapping]]":
         """Get all Recommendations  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1612,7 +1612,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([RecommendationConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[RecommendationConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_recommendations_endpoint.call_with_http_info(**kwargs)
@@ -1620,7 +1620,7 @@ class NotesConfigurationApi(object):
     def get_sentiments(
         self,
         **kwargs
-    ) -> [SentimentConfigDto]:
+    ) -> typing.List[SentimentConfigDto]:
         """Get all Sentiments  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1651,7 +1651,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SentimentConfigDto]
+            typing.List[SentimentConfigDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1660,7 +1660,7 @@ class NotesConfigurationApi(object):
     def get_sentiments_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[SentimentConfigDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[SentimentConfigDto], int, typing.MutableMapping]:
         """Get all Sentiments  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1691,7 +1691,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SentimentConfigDto]
+            typing.List[SentimentConfigDto]
                 Response Object
             int
                 Http Status Code
@@ -1704,7 +1704,7 @@ class NotesConfigurationApi(object):
     def get_sentiments_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[SentimentConfigDto]]":
+    ) -> "ApplyResult[typing.List[SentimentConfigDto]]":
         """Get all Sentiments  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1735,7 +1735,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[SentimentConfigDto]]
+            ApplyResult[typing.List[SentimentConfigDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_sentiments_endpoint.call_with_http_info(**kwargs)
@@ -1743,7 +1743,7 @@ class NotesConfigurationApi(object):
     def get_sentiments_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[SentimentConfigDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[SentimentConfigDto], int, typing.MutableMapping]]":
         """Get all Sentiments  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1774,7 +1774,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([SentimentConfigDto], int, typing.Dict)]
+            ApplyResult[(typing.List[SentimentConfigDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_sentiments_endpoint.call_with_http_info(**kwargs)
@@ -1968,7 +1968,7 @@ class NotesConfigurationApi(object):
     def get_subjects(
         self,
         **kwargs
-    ) -> [SubjectSummaryDto]:
+    ) -> typing.List[SubjectSummaryDto]:
         """Get all Subjects  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2000,7 +2000,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SubjectSummaryDto]
+            typing.List[SubjectSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2009,7 +2009,7 @@ class NotesConfigurationApi(object):
     def get_subjects_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[SubjectSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[SubjectSummaryDto], int, typing.MutableMapping]:
         """Get all Subjects  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2041,7 +2041,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [SubjectSummaryDto]
+            typing.List[SubjectSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -2054,7 +2054,7 @@ class NotesConfigurationApi(object):
     def get_subjects_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[SubjectSummaryDto]]":
+    ) -> "ApplyResult[typing.List[SubjectSummaryDto]]":
         """Get all Subjects  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2086,7 +2086,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[SubjectSummaryDto]]
+            ApplyResult[typing.List[SubjectSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_subjects_endpoint.call_with_http_info(**kwargs)
@@ -2094,7 +2094,7 @@ class NotesConfigurationApi(object):
     def get_subjects_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[SubjectSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[SubjectSummaryDto], int, typing.MutableMapping]]":
         """Get all Subjects  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2126,7 +2126,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([SubjectSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[SubjectSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_subjects_endpoint.call_with_http_info(**kwargs)
@@ -2320,7 +2320,7 @@ class NotesConfigurationApi(object):
     def get_teams(
         self,
         **kwargs
-    ) -> [TeamSummaryDto]:
+    ) -> typing.List[TeamSummaryDto]:
         """Get all Teams  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -2352,7 +2352,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [TeamSummaryDto]
+            typing.List[TeamSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2361,7 +2361,7 @@ class NotesConfigurationApi(object):
     def get_teams_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[[TeamSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[TeamSummaryDto], int, typing.MutableMapping]:
         """Get all Teams  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -2393,7 +2393,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [TeamSummaryDto]
+            typing.List[TeamSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -2406,7 +2406,7 @@ class NotesConfigurationApi(object):
     def get_teams_async(
         self,
         **kwargs
-    ) -> "ApplyResult[[TeamSummaryDto]]":
+    ) -> "ApplyResult[typing.List[TeamSummaryDto]]":
         """Get all Teams  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -2438,7 +2438,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[TeamSummaryDto]]
+            ApplyResult[typing.List[TeamSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_teams_endpoint.call_with_http_info(**kwargs)
@@ -2446,7 +2446,7 @@ class NotesConfigurationApi(object):
     def get_teams_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[TeamSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[TeamSummaryDto], int, typing.MutableMapping]]":
         """Get all Teams  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -2478,7 +2478,7 @@ class NotesConfigurationApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([TeamSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[TeamSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_teams_endpoint.call_with_http_info(**kwargs)

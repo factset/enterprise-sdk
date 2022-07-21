@@ -17,7 +17,6 @@ import OptimizerInputsEValueTypeEnum from './OptimizerInputsEValueTypeEnum';
 /**
  * The OptimizerInputsValue model module.
  * @module model/OptimizerInputsValue
- * @version 0.20.0
  */
 class OptimizerInputsValue {
     /**

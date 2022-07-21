@@ -53,6 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
+
             var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used (optional)  (default to -startDate)
             var reportId = 56;  // int? | Unique identifier for an event (optional) 
             var audioSourceId = 56;  // int? | Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids. (optional) 
@@ -159,6 +160,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
+
             var audioSourceId = 56;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
             var reportId = 56;  // int? | Unique identifier for an event (optional) 
             var paginationLimit = 56;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional) 
@@ -257,6 +259,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
+
             var audioSourceId = 56;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
             var reportId = 56;  // int? | Unique identifier for an event (optional) 
             var paginationLimit = 56;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500 ] (optional) 
@@ -355,6 +358,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
+
             var audioSourceId = 56;  // int | The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids. 
             var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used (optional)  (default to startDate)
             var paginationLimit = 56;  // int? | Specifies the number of results to return per page.[ Min=0 ; Max=500 ] (optional) 

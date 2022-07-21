@@ -26,9 +26,8 @@ Return the full history of CUSIP changes for a given market security or FactSet 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import cusip_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.cusip_history_translation_request import CusipHistoryTranslationRequest
-from fds.sdk.Symbology.model.cusip_history_response import CusipHistoryResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the full history or as of a specific date of CUSIP changes for the requested ID(s).
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_cusip_history(cusip_history_translation_request)
         pprint(api_response)
 
@@ -122,9 +122,8 @@ Translate market security symbols into CUSIP and FactSet Permanent Identifiers. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import cusip_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.cusip_translation_response import CusipTranslationResponse
-from fds.sdk.Symbology.model.cusip_translation_request import CusipTranslationRequest
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,6 +159,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into CUSIP - Current Only
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_cusips(cusip_translation_request)
         pprint(api_response)
 
@@ -217,8 +217,8 @@ Return the full history of CUSIP changes or as of a requested date for a given m
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import cusip_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.cusip_history_response import CusipHistoryResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -253,6 +253,8 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve the full history or as of a requested date of CUSIP changes for the requested ID(s).
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.cusip_history(ids, as_of_date=as_of_date)
         pprint(api_response)
 
@@ -311,8 +313,8 @@ Translate market security symbols into CUSIP and FactSet Permanent Identifiers. 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import cusip_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.cusip_translation_response import CusipTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -346,6 +348,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into CUSIPs - Current Only
+        # example passing only required values which don't have defaults set
         api_response = api_instance.translate_cusip(ids)
         pprint(api_response)
 

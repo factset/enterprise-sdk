@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataEbitMarginMinimum model module.
  * @module model/StockNotationScreenerSearchDataEbitMarginMinimum
- * @version 0.9.2
  */
 class StockNotationScreenerSearchDataEbitMarginMinimum {
     /**

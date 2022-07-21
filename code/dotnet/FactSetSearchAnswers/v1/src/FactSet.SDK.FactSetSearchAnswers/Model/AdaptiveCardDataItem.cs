@@ -36,7 +36,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AdaptiveCardDataItem" /> class
-        /// with the <see cref="Object" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of Object.</param>
         public AdaptiveCardDataItem(Object actualInstance)
@@ -48,7 +47,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdaptiveCardDataItem" /> class
-        /// with the <see cref="AdaptiveCardWithThumbnail" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of AdaptiveCardWithThumbnail.</param>
         public AdaptiveCardDataItem(AdaptiveCardWithThumbnail actualInstance)
@@ -72,17 +70,17 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value is AdaptiveCardWithThumbnail)
+                if (value is Object)
                 {
                     this._actualInstance = value;
                 }
-                else if (value is Object)
+                else if (value is AdaptiveCardWithThumbnail)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: AdaptiveCardWithThumbnail, Object");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Object, AdaptiveCardWithThumbnail");
                 }
             }
         }
@@ -165,7 +163,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 var hasAdditionalProperties = !(typeof(AdaptiveCardWithThumbnail).GetProperty("AdditionalProperties") is null);
                 var parsedValue = JsonConvert.DeserializeObject<AdaptiveCardWithThumbnail>(
-                    jsonString, 
+                    jsonString,
                     hasAdditionalProperties ? AdaptiveCardDataItem.AdditionalPropertiesSerializerSettings : AdaptiveCardDataItem.SerializerSettings
                 );
                 newAdaptiveCardDataItem = new AdaptiveCardDataItem(parsedValue);

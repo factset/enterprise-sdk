@@ -18,7 +18,6 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * TickHistory service.
 * @module api/TickHistoryApi
-* @version 0.20.0
 */
 export default class TickHistoryApi {
 

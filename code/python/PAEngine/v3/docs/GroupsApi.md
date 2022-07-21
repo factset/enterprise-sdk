@@ -24,7 +24,8 @@ This endpoint lists all the PA grouping frequencies that can be applied to a PA 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import groups_api
-from fds.sdk.PAEngine.model.frequency_root import FrequencyRoot
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -57,6 +58,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get PA grouping frequencies
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_grouping_frequencies()
         pprint(api_response)
 
@@ -112,7 +114,8 @@ This endpoint lists all the PA groups that can be applied to a PA calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PAEngine
 from fds.sdk.PAEngine.api import groups_api
-from fds.sdk.PAEngine.model.group_root import GroupRoot
+from fds.sdk.PAEngine.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,6 +148,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
 
     try:
         # Get PA groups
+        # example, this endpoint has no required or optional parameters
         api_response = api_instance.get_pa_groups()
         pprint(api_response)
 

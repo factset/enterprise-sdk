@@ -20,7 +20,6 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * IssueSize service.
 * @module api/IssueSizeApi
-* @version 0.20.0
 */
 export default class IssueSizeApi {
 

@@ -17,7 +17,6 @@ import CompanyStats from './CompanyStats';
 /**
  * The CompanyStatsResponse model module.
  * @module model/CompanyStatsResponse
- * @version 0.20.0
  */
 class CompanyStatsResponse {
     /**

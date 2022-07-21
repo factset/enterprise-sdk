@@ -17,7 +17,6 @@ import PostRequestExample from './PostRequestExample';
 /**
  * The MIAPIPostRequest model module.
  * @module model/MIAPIPostRequest
- * @version 0.20.0
  */
 class MIAPIPostRequest {
     /**

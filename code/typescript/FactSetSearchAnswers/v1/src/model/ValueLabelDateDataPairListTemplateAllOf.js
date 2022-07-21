@@ -17,7 +17,6 @@ import DataPair from './DataPair';
 /**
  * The ValueLabelDateDataPairListTemplateAllOf model module.
  * @module model/ValueLabelDateDataPairListTemplateAllOf
- * @version 0.20.0
  */
 class ValueLabelDateDataPairListTemplateAllOf {
     /**

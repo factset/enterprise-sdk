@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OrderParameters model module.
  * @module model/OrderParameters
- * @version 0.20.0
  */
 class OrderParameters {
     /**

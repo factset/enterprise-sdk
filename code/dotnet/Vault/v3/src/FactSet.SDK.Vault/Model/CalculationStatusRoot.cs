@@ -42,7 +42,7 @@ namespace FactSet.SDK.Vault.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public CalculationStatusRoot(CalculationStatus data = default(CalculationStatus), CalculationStatusMeta meta = default(CalculationStatusMeta))
+        public CalculationStatusRoot(CalculationStatus data,CalculationStatusMeta meta = default(CalculationStatusMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

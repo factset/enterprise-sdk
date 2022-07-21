@@ -24,8 +24,8 @@ Returns Private Company reference information.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrivateMarkets
 from fds.sdk.FactSetPrivateMarkets.api import non_periodic_api
-from fds.sdk.FactSetPrivateMarkets.model.non_periodic_response import NonPeriodicResponse
-from fds.sdk.FactSetPrivateMarkets.model.error_response import ErrorResponse
+from fds.sdk.FactSetPrivateMarkets.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +60,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
 
     try:
         # Returns Private Company reference data for a list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_non_periodic(ids, fields)
         pprint(api_response)
 
@@ -118,9 +119,8 @@ Returns a private markets reference object for the requested ids.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPrivateMarkets
 from fds.sdk.FactSetPrivateMarkets.api import non_periodic_api
-from fds.sdk.FactSetPrivateMarkets.model.non_periodic_response import NonPeriodicResponse
-from fds.sdk.FactSetPrivateMarkets.model.non_periodic_request import NonPeriodicRequest
-from fds.sdk.FactSetPrivateMarkets.model.error_response import ErrorResponse
+from fds.sdk.FactSetPrivateMarkets.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -157,6 +157,7 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
 
     try:
         # Returns Private Company reference data for a list of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_non_periodic_for_list(non_periodic_request)
         pprint(api_response)
 

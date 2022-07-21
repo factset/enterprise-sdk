@@ -35,12 +35,14 @@ def lazy_import():
     from fds.sdk.OverviewReportBuilder.model.profile_data_stage_crunchbase_rank import ProfileDataStageCrunchbaseRank
     from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pe_active_firm_number import ProfileDataStagePeActiveFirmNumber
     from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pe_active_firms import ProfileDataStagePeActiveFirms
+    from fds.sdk.OverviewReportBuilder.model.profile_data_stage_pevc_latest_post_money_valuation import ProfileDataStagePevcLatestPostMoneyValuation
     from fds.sdk.OverviewReportBuilder.model.profile_data_stage_trade_date_range import ProfileDataStageTradeDateRange
     globals()['ProfileDataBusinessIndustry'] = ProfileDataBusinessIndustry
     globals()['ProfileDataSizeEv'] = ProfileDataSizeEv
     globals()['ProfileDataStageCrunchbaseRank'] = ProfileDataStageCrunchbaseRank
     globals()['ProfileDataStagePeActiveFirmNumber'] = ProfileDataStagePeActiveFirmNumber
     globals()['ProfileDataStagePeActiveFirms'] = ProfileDataStagePeActiveFirms
+    globals()['ProfileDataStagePevcLatestPostMoneyValuation'] = ProfileDataStagePevcLatestPostMoneyValuation
     globals()['ProfileDataStageTradeDateRange'] = ProfileDataStageTradeDateRange
 
 
@@ -101,7 +103,7 @@ class ProfileDataStage(ModelNormal):
             'trade_date_range': (ProfileDataStageTradeDateRange,),  # noqa: E501
             'founded_year': (ProfileDataBusinessIndustry,),  # noqa: E501
             'pevc_backing': (ProfileDataBusinessIndustry,),  # noqa: E501
-            'pevc_latest_post_money_valuation': (ProfileDataSizeEv,),  # noqa: E501
+            'pevc_latest_post_money_valuation': (ProfileDataStagePevcLatestPostMoneyValuation,),  # noqa: E501
             'pe_active_firm_number': (ProfileDataStagePeActiveFirmNumber,),  # noqa: E501
             'pe_active_investment_number': (ProfileDataStagePeActiveFirmNumber,),  # noqa: E501
             'pe_last_investment_date': (ProfileDataBusinessIndustry,),  # noqa: E501
@@ -188,7 +190,7 @@ class ProfileDataStage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pevc_latest_post_money_valuation (ProfileDataSizeEv): [optional]  # noqa: E501
+            pevc_latest_post_money_valuation (ProfileDataStagePevcLatestPostMoneyValuation): [optional]  # noqa: E501
             pe_active_firm_number (ProfileDataStagePeActiveFirmNumber): [optional]  # noqa: E501
             pe_active_investment_number (ProfileDataStagePeActiveFirmNumber): [optional]  # noqa: E501
             pe_last_investment_date (ProfileDataBusinessIndustry): [optional]  # noqa: E501
@@ -292,7 +294,7 @@ class ProfileDataStage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            pevc_latest_post_money_valuation (ProfileDataSizeEv): [optional]  # noqa: E501
+            pevc_latest_post_money_valuation (ProfileDataStagePevcLatestPostMoneyValuation): [optional]  # noqa: E501
             pe_active_firm_number (ProfileDataStagePeActiveFirmNumber): [optional]  # noqa: E501
             pe_active_investment_number (ProfileDataStagePeActiveFirmNumber): [optional]  # noqa: E501
             pe_last_investment_date (ProfileDataBusinessIndustry): [optional]  # noqa: E501

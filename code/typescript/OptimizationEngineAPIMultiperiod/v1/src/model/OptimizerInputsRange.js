@@ -18,7 +18,6 @@ import OptimizerInputsStartEndRange from './OptimizerInputsStartEndRange';
 /**
  * The OptimizerInputsRange model module.
  * @module model/OptimizerInputsRange
- * @version 0.20.0
  */
 class OptimizerInputsRange {
     /**

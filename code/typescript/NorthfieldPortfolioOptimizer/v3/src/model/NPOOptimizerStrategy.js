@@ -17,7 +17,6 @@ import NPOOptimizerStrategyOverrides from './NPOOptimizerStrategyOverrides';
 /**
  * The NPOOptimizerStrategy model module.
  * @module model/NPOOptimizerStrategy
- * @version 0.20.0
  */
 class NPOOptimizerStrategy {
     /**

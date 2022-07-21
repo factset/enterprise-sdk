@@ -20,7 +20,6 @@ import SnapshotResponse from '../model/SnapshotResponse';
 /**
 * Snapshot service.
 * @module api/SnapshotApi
-* @version 0.20.0
 */
 export default class SnapshotApi {
 

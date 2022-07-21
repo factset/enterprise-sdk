@@ -55,6 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
@@ -242,6 +244,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Get Axioma optimization status by id endpoint
             var accept = "accept_example";  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
@@ -338,6 +341,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
@@ -401,6 +405,7 @@ This endpoint creates and runs Axioma optimization specified in the POST body pa
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.AxiomaEquityOptimizer.Api;
@@ -433,6 +438,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var axiomaEquityOptimizationParametersRoot = new AxiomaEquityOptimizationParametersRoot(); // AxiomaEquityOptimizationParametersRoot | Calculation Parameters (optional) 
@@ -514,6 +520,7 @@ This endpoint updates and run the Axioma optimization specified in the PUT body 
 ### Example
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.AxiomaEquityOptimizer.Api;
@@ -546,6 +553,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 

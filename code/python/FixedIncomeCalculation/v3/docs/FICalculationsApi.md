@@ -28,7 +28,8 @@ This is the endpoint to cancel a previously submitted calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -62,7 +63,9 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Cancel FI calculation by id
+        # example passing only required values which don't have defaults set
         api_instance.cancel_calculation_by_id(id)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->cancel_calculation_by_id: %s\n" % e)
 ```
@@ -118,8 +121,8 @@ This is the endpoint that returns the calculation parameters passed for a calcul
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters_root import FICalculationParametersRoot
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -153,6 +156,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Get FI calculation parameters by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
 
@@ -211,8 +215,8 @@ This is the endpoint to get the result of a previously requested calculation.  I
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
-from fds.sdk.FixedIncomeCalculation.model.object_root import ObjectRoot
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -246,6 +250,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Get FI calculation result by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_result(id)
         pprint(api_response)
 
@@ -304,8 +309,8 @@ This is the endpoint to check on the progress of a previously requested calculat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
-from fds.sdk.FixedIncomeCalculation.model.object_root import ObjectRoot
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -339,6 +344,7 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Get FI calculation status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
 
@@ -398,10 +404,8 @@ This endpoint creates and runs a new FI calculation specified in the post body.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters_root import FICalculationParametersRoot
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
-from fds.sdk.FixedIncomeCalculation.model.object_root import ObjectRoot
-from fds.sdk.FixedIncomeCalculation.model.calculation_info_root import CalculationInfoRoot
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -491,6 +495,8 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Create and Run FI calculation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, fi_calculation_parameters_root=fi_calculation_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,
@@ -558,10 +564,8 @@ This endpoint updates and run the FI optimization specified in the PUT body para
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api
-from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters_root import FICalculationParametersRoot
-from fds.sdk.FixedIncomeCalculation.model.client_error_response import ClientErrorResponse
-from fds.sdk.FixedIncomeCalculation.model.object_root import ObjectRoot
-from fds.sdk.FixedIncomeCalculation.model.calculation_info_root import CalculationInfoRoot
+from fds.sdk.FixedIncomeCalculation.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -652,6 +656,8 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
 
     try:
         # Create or Update FI calculation and run it.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, fi_calculation_parameters_root=fi_calculation_parameters_root)
         responseWrapper = {
             201: api_response.get_response_201,

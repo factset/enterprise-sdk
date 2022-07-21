@@ -20,7 +20,6 @@ import ValueLabelDateTemplateAllOf from './ValueLabelDateTemplateAllOf';
 /**
  * The ValueLabelDateTemplate model module.
  * @module model/ValueLabelDateTemplate
- * @version 0.20.0
  */
 class ValueLabelDateTemplate {
     /**

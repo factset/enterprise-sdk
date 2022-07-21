@@ -26,8 +26,8 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import benchmark_constituents_api
-from fds.sdk.FactSetBenchmarks.model.benchmark_constituents_response import BenchmarkConstituentsResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +65,8 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_benchmark_constituents(ids, date=date, currency=currency)
         pprint(api_response)
 
@@ -124,9 +126,8 @@ Returns the requested Benchmark Constituents and respective Weights, Price and M
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import benchmark_constituents_api
-from fds.sdk.FactSetBenchmarks.model.benchmark_constituents_response import BenchmarkConstituentsResponse
-from fds.sdk.FactSetBenchmarks.model.benchmark_constituents_request import BenchmarkConstituentsRequest
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -164,6 +165,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_benchmark_constituents_for_list(benchmark_constituents_request)
         pprint(api_response)
 
@@ -221,8 +223,8 @@ Returns the requested Fixed Income Benchmark Constituents and respective Weights
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import benchmark_constituents_api
-from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituents_response import FixedIncomeBenchmarkConstituentsResponse
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -260,6 +262,8 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_fi_benchmark_constituents(ids, date=date, currency=currency)
         pprint(api_response)
 
@@ -319,9 +323,8 @@ Returns the requested Fixed Income Benchmark Constituents and respective Weights
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import benchmark_constituents_api
-from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituents_response import FixedIncomeBenchmarkConstituentsResponse
-from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituents_request import FixedIncomeBenchmarkConstituentsRequest
-from fds.sdk.FactSetBenchmarks.model.error_response import ErrorResponse
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -359,6 +362,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
 
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_fi_benchmark_constituents_for_list(fixed_income_benchmark_constituents_request)
         pprint(api_response)
 

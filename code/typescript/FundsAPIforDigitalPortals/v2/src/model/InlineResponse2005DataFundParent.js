@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataFundParent model module.
  * @module model/InlineResponse2005DataFundParent
- * @version 0.10.0
  */
 class InlineResponse2005DataFundParent {
     /**

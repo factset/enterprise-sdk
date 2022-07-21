@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchMetaPagination model module.
  * @module model/FundNotationScreenerSearchMetaPagination
- * @version 0.10.0
  */
 class FundNotationScreenerSearchMetaPagination {
     /**

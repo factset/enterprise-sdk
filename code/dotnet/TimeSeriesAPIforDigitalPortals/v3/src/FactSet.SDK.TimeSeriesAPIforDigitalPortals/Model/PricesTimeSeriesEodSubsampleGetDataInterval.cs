@@ -41,7 +41,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="start">The starting point of the interval (inclusive).  (required).</param>
         /// <param name="end">The ending point of the interval (exclusive). (required).</param>
-        public PricesTimeSeriesEodSubsampleGetDataInterval(DateTime start = default(DateTime), DateTime end = default(DateTime))
+        public PricesTimeSeriesEodSubsampleGetDataInterval(DateTime start, DateTime end)
         {
             this.Start = start;
             this.End = end;

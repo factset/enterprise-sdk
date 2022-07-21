@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20083DataAsks model module.
  * @module model/InlineResponse20083DataAsks
- * @version 0.9.2
  */
 class InlineResponse20083DataAsks {
     /**

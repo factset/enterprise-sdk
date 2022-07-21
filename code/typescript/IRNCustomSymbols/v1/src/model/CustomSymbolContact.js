@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomSymbolContact model module.
  * @module model/CustomSymbolContact
- * @version 0.20.0
  */
 class CustomSymbolContact {
     /**

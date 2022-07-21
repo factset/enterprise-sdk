@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The VendorChartIQTimeSeriesIntradaySubsampleListDataRange model module.
  * @module model/VendorChartIQTimeSeriesIntradaySubsampleListDataRange
- * @version 0.9.2
  */
 class VendorChartIQTimeSeriesIntradaySubsampleListDataRange {
     /**

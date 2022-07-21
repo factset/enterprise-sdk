@@ -17,7 +17,6 @@ import BenchmarkIdList from './BenchmarkIdList';
 /**
  * The BenchmarkIdListResponse model module.
  * @module model/BenchmarkIdListResponse
- * @version 0.20.0
  */
 class BenchmarkIdListResponse {
     /**

@@ -19,7 +19,6 @@ import OptimizerInputsSensitivityConstraint from './OptimizerInputsSensitivityCo
 /**
  * The OptimizerInputsMPSensitivityConstraint model module.
  * @module model/OptimizerInputsMPSensitivityConstraint
- * @version 0.20.0
  */
 class OptimizerInputsMPSensitivityConstraint {
     /**

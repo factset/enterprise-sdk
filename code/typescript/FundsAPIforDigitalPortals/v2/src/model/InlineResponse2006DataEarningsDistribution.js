@@ -17,7 +17,6 @@ import InlineResponse2006DataEarningsDistributionFrequency from './InlineRespons
 /**
  * The InlineResponse2006DataEarningsDistribution model module.
  * @module model/InlineResponse2006DataEarningsDistribution
- * @version 0.10.0
  */
 class InlineResponse2006DataEarningsDistribution {
     /**

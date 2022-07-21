@@ -1,7 +1,7 @@
 """
-    SDF_API
+    SDF Download API
 
-    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.   # noqa: E501
+    The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).  # noqa: E501
 
     The version of the OpenAPI document: 1.0
     Contact: teammustang@factset.com
@@ -1367,8 +1367,6 @@ def deserialize_model(model_data, model_class, path_to_item, check_type,
 
     if issubclass(model_class, ModelSimple):
         return model_class._new_from_openapi_data(model_data, **kw_args)
-    elif isinstance(model_data, list):
-        return model_class._new_from_openapi_data(*model_data, **kw_args)
     if isinstance(model_data, dict):
         kw_args.update(model_data)
         return model_class._new_from_openapi_data(**kw_args)
@@ -1445,7 +1443,7 @@ def attempt_convert_item(input_value, valid_classes, path_to_item,
     if not valid_classes_coercible or key_type:
         # we do not handle keytype errors, json will take care
         # of this for us
-        if configuration is None or not configuration.discard_unknown_keys:
+        if must_convert or configuration is None or not configuration.discard_unknown_keys:
             raise get_type_error(input_value, path_to_item, valid_classes,
                                  key_type=key_type)
     for valid_class in valid_classes_coercible:
@@ -1846,6 +1844,8 @@ def get_oneof_instance(cls, model_kwargs, constant_kwargs, model_arg=None):
 
         try:
             if not single_value_input:
+                if model_arg is not None:
+                    continue;
                 if constant_kwargs.get('_spec_property_naming'):
                     oneof_instance = oneof_class._new_from_openapi_data(**model_kwargs, **constant_kwargs)
                 else:
@@ -1865,7 +1865,7 @@ def get_oneof_instance(cls, model_kwargs, constant_kwargs, model_arg=None):
                         constant_kwargs['_check_type'],
                         configuration=constant_kwargs['_configuration']
                     )
-            oneof_instances.append(oneof_instance)
+            oneof_instances.append((oneof_class, oneof_instance))
         except Exception:
             pass
     if len(oneof_instances) == 0:
@@ -1877,10 +1877,11 @@ def get_oneof_instance(cls, model_kwargs, constant_kwargs, model_arg=None):
     elif len(oneof_instances) > 1:
         raise ApiValueError(
             "Invalid inputs given to generate an instance of %s. Multiple "
-            "oneOf schemas matched the inputs, but a max of one is allowed." %
-            cls.__name__
+            "oneOf schemas matched the inputs, but a max of one is allowed. "
+            "Candidates: %s" %
+            (cls.__name__, oneof_instances)
         )
-    return oneof_instances[0]
+    return oneof_instances[0][1]
 
 
 def get_anyof_instances(self, model_args, constant_args):

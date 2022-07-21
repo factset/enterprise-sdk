@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="calendar">calendar.</param>
-        public MarketValueRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar))
+        public MarketValueRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = default(string), Calendar calendar = default(Calendar))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

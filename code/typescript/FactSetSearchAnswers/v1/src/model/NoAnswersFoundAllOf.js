@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NoAnswersFoundAllOf model module.
  * @module model/NoAnswersFoundAllOf
- * @version 0.20.0
  */
 class NoAnswersFoundAllOf {
     /**

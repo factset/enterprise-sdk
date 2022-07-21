@@ -42,7 +42,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
         /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR, OMS or EXT..</param>
-        public PAIdentifier(string id = default(string), string holdingsmode = default(string))
+        public PAIdentifier(string id,string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null) {

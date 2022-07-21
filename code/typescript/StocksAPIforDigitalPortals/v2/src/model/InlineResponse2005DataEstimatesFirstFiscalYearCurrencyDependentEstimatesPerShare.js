@@ -20,7 +20,6 @@ import InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesP
 /**
  * The InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare model module.
  * @module model/InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare
- * @version 0.9.2
  */
 class InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare {
     /**

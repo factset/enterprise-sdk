@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeAllInCurrent from './FundNotat
 /**
  * The FundNotationScreenerSearchDataShareClassFeeAllIn model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeAllIn
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeAllIn {
     /**

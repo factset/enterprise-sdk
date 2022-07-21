@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="template">template (required).</param>
         /// <param name="templateData">templateData (required).</param>
         /// <param name="title">title (required).</param>
-        public Answer(string template = default(string), TemplateData templateData = default(TemplateData), string title = default(string))
+        public Answer(string template, TemplateData templateData, string title)
         {
             // to ensure "template" is required (not null)
             if (template == null) {

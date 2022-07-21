@@ -18,7 +18,6 @@ import InlineResponse20062DataCostsAndChargesExPost from './InlineResponse20062D
 /**
  * The InlineResponse20062DataCostsAndCharges model module.
  * @module model/InlineResponse20062DataCostsAndCharges
- * @version 0.10.0
  */
 class InlineResponse20062DataCostsAndCharges {
     /**

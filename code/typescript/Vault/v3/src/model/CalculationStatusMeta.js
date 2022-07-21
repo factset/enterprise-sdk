@@ -17,7 +17,6 @@ import CalculationUnitStatusMeta from './CalculationUnitStatusMeta';
 /**
  * The CalculationStatusMeta model module.
  * @module model/CalculationStatusMeta
- * @version 0.20.0
  */
 class CalculationStatusMeta {
     /**

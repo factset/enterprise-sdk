@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicValueUnitListMeta model module.
  * @module model/BasicValueUnitListMeta
- * @version 0.10.0
  */
 class BasicValueUnitListMeta {
     /**

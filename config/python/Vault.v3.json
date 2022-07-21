@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.Vault",
   "projectName": "fds.sdk.Vault",
-  "packageVersion": "0.20.0",
+  "packageVersion": "0.21.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Vault client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/Vault/v3",
-  "httpUserAgent": "fds-sdk/python/Vault/0.20.0",
+  "httpUserAgent": "fds-sdk/python/Vault/0.21.0",
   "files": {
     "LICENSE": {}
   }

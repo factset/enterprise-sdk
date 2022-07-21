@@ -20,7 +20,6 @@ import ForwardsResponse from '../model/ForwardsResponse';
 /**
 * Forwards service.
 * @module api/ForwardsApi
-* @version 0.20.0
 */
 export default class ForwardsApi {
 

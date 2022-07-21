@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataGeneralGuarantor model module.
  * @module model/InlineResponse20062DataGeneralGuarantor
- * @version 0.10.0
  */
 class InlineResponse20062DataGeneralGuarantor {
     /**

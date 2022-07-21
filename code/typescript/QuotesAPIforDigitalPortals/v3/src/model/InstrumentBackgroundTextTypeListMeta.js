@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentBackgroundTextTypeListMeta model module.
  * @module model/InstrumentBackgroundTextTypeListMeta
- * @version 0.10.0
  */
 class InstrumentBackgroundTextTypeListMeta {
     /**

@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="ids">The requested Fund Identifier. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required).</param>
         /// <param name="date">The date requested in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="currency">The ISO3 currency control for the requested fund. (default to &quot;LOCAL&quot;).</param>
-        public CostsFeesRequest(List<string> ids = default(List<string>), string date = default(string), string currency = "LOCAL")
+        public CostsFeesRequest(List<string> ids,string date = default(string), string currency = "LOCAL")
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

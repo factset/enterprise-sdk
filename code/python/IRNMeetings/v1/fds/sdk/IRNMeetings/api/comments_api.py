@@ -1574,7 +1574,7 @@ class CommentsApi(object):
         meeting_id,
         comment_id,
         **kwargs
-    ) -> [AttachmentSummaryDto]:
+    ) -> typing.List[AttachmentSummaryDto]:
         """Get attachments summary of a comment belonging to a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1608,7 +1608,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [AttachmentSummaryDto]
+            typing.List[AttachmentSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1623,7 +1623,7 @@ class CommentsApi(object):
         meeting_id,
         comment_id,
         **kwargs
-    ) -> typing.Tuple[[AttachmentSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[AttachmentSummaryDto], int, typing.MutableMapping]:
         """Get attachments summary of a comment belonging to a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1657,7 +1657,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [AttachmentSummaryDto]
+            typing.List[AttachmentSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -1676,7 +1676,7 @@ class CommentsApi(object):
         meeting_id,
         comment_id,
         **kwargs
-    ) -> "ApplyResult[[AttachmentSummaryDto]]":
+    ) -> "ApplyResult[typing.List[AttachmentSummaryDto]]":
         """Get attachments summary of a comment belonging to a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1710,7 +1710,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[AttachmentSummaryDto]]
+            ApplyResult[typing.List[AttachmentSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['meeting_id'] = \
@@ -1724,7 +1724,7 @@ class CommentsApi(object):
         meeting_id,
         comment_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[AttachmentSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[AttachmentSummaryDto], int, typing.MutableMapping]]":
         """Get attachments summary of a comment belonging to a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1758,7 +1758,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([AttachmentSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[AttachmentSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['meeting_id'] = \
@@ -1771,7 +1771,7 @@ class CommentsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> [CommentSummaryDto]:
+    ) -> typing.List[CommentSummaryDto]:
         """Get all comments for a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
@@ -1804,7 +1804,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CommentSummaryDto]
+            typing.List[CommentSummaryDto]
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1816,7 +1816,7 @@ class CommentsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> typing.Tuple[[CommentSummaryDto], int, typing.MutableMapping]:
+    ) -> typing.Tuple[typing.List[CommentSummaryDto], int, typing.MutableMapping]:
         """Get all comments for a meeting  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -1849,7 +1849,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            [CommentSummaryDto]
+            typing.List[CommentSummaryDto]
                 Response Object
             int
                 Http Status Code
@@ -1865,7 +1865,7 @@ class CommentsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> "ApplyResult[[CommentSummaryDto]]":
+    ) -> "ApplyResult[typing.List[CommentSummaryDto]]":
         """Get all comments for a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -1898,7 +1898,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[[CommentSummaryDto]]
+            ApplyResult[typing.List[CommentSummaryDto]]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['meeting_id'] = \
@@ -1909,7 +1909,7 @@ class CommentsApi(object):
         self,
         meeting_id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[[CommentSummaryDto], int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[typing.List[CommentSummaryDto], int, typing.MutableMapping]]":
         """Get all comments for a meeting  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
@@ -1942,7 +1942,7 @@ class CommentsApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[([CommentSummaryDto], int, typing.Dict)]
+            ApplyResult[(typing.List[CommentSummaryDto], int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['meeting_id'] = \

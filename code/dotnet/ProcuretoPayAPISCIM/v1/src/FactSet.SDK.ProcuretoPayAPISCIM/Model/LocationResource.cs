@@ -38,7 +38,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="externalId">externalId.</param>
         /// <param name="mainLocation">mainLocation.</param>
         /// <param name="meta">meta.</param>
-        public LocationResource(List<string> schemas = default(List<string>), string externalId = default(string), LocationResourceReference mainLocation = default(LocationResourceReference), LocationResourceMeta meta = default(LocationResourceMeta))
+        public LocationResource(List<string> schemas = default(List<string>), string id = default(string), string externalId = default(string), string name = default(string), string description = default(string), string address1 = default(string), string address2 = default(string), string address3 = default(string), string locality = default(string), string region = default(string), string postalCode = default(string), string country = default(string), string phoneNumber = default(string), LocationResourceReference mainLocation = default(LocationResourceReference), LocationResourceMeta meta = default(LocationResourceMeta))
         {
             this.Schemas = schemas;
             this.ExternalId = externalId;

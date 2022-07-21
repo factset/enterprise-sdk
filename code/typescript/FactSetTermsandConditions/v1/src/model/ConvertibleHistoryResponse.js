@@ -17,7 +17,6 @@ import ConvertibleHistory from './ConvertibleHistory';
 /**
  * The ConvertibleHistoryResponse model module.
  * @module model/ConvertibleHistoryResponse
- * @version 0.20.0
  */
 class ConvertibleHistoryResponse {
     /**

@@ -55,7 +55,6 @@ import FactSetIDLookupApi from './api/FactSetIDLookupApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

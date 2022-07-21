@@ -17,7 +17,6 @@ import PACalculationPricingSource from './PACalculationPricingSource';
 /**
  * The PACalculationDataSources model module.
  * @module model/PACalculationDataSources
- * @version 0.20.0
  */
 class PACalculationDataSources {
     /**

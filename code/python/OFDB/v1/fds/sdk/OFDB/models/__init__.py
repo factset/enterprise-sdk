@@ -9,18 +9,15 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from fds.sdk.OFDB.model.create_database_response import CreateDatabaseResponse
-from fds.sdk.OFDB.model.data import Data
+from fds.sdk.OFDB.model.create_symbols import CreateSymbols
 from fds.sdk.OFDB.model.database_schema import DatabaseSchema
 from fds.sdk.OFDB.model.dates import Dates
 from fds.sdk.OFDB.model.fields import Fields
-from fds.sdk.OFDB.model.inline_object import InlineObject
-from fds.sdk.OFDB.model.inline_object1 import InlineObject1
-from fds.sdk.OFDB.model.inline_object2 import InlineObject2
-from fds.sdk.OFDB.model.inline_object3 import InlineObject3
-from fds.sdk.OFDB.model.inline_object4 import InlineObject4
-from fds.sdk.OFDB.model.inline_object5 import InlineObject5
 from fds.sdk.OFDB.model.inline_response201 import InlineResponse201
-from fds.sdk.OFDB.model.ofdb import Ofdb
+from fds.sdk.OFDB.model.modify_symbols import ModifySymbols
+from fds.sdk.OFDB.model.modifydatespecific import Modifydatespecific
+from fds.sdk.OFDB.model.modifysymboldate import Modifysymboldate
+from fds.sdk.OFDB.model.post_datesymbol import PostDatesymbol
+from fds.sdk.OFDB.model.postnewsymboldate import Postnewsymboldate
 from fds.sdk.OFDB.model.success_post_response import SuccessPostResponse
 from fds.sdk.OFDB.model.symbols import Symbols

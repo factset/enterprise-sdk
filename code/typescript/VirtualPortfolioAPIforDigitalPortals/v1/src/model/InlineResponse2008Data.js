@@ -17,7 +17,6 @@ import InlineResponse2008Notation from './InlineResponse2008Notation';
 /**
  * The InlineResponse2008Data model module.
  * @module model/InlineResponse2008Data
- * @version 0.9.2
  */
 class InlineResponse2008Data {
     /**

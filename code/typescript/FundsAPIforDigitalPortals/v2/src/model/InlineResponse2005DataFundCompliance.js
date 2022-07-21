@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataFundCompliance model module.
  * @module model/InlineResponse2005DataFundCompliance
- * @version 0.10.0
  */
 class InlineResponse2005DataFundCompliance {
     /**

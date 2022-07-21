@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The UserResourcePhoneNumbers model module.
  * @module model/UserResourcePhoneNumbers
- * @version 0.20.1
  */
 class UserResourcePhoneNumbers {
     /**

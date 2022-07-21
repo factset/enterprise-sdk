@@ -25,7 +25,6 @@ import FundNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1 from './Fu
 /**
  * The FundNotationScreenerValueRangesGetDataPerformanceEndOfDay model module.
  * @module model/FundNotationScreenerValueRangesGetDataPerformanceEndOfDay
- * @version 0.10.0
  */
 class FundNotationScreenerValueRangesGetDataPerformanceEndOfDay {
     /**

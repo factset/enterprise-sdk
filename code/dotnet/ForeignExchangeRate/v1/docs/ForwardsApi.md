@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ForwardsApi(config);
+
             var ids = new List<string>(); // List<string> | The currency pair requested in the format of a ISO {source}{target}. For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
             var forwardPeriod = ON;  // string | Bid, offer, and mid rates are available for the following 11 time periods.  * ON - Overnight  * TN - Tomorrow Next  * SW - One Week (Spot Week)  * 1M - One Month  * 2M - Two Months  * 3M - Three Months  * 6M - Six Months  * 9M - Nine Months  * 1Y - One Year  * 2Y - Two Years  * 5Y - Five Years  (optional)  (default to 1M)
             var startDate = 2019-01-01;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.  (optional) 
@@ -152,6 +153,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ForwardsApi(config);
+
             var forwardsRequest = new ForwardsRequest(); // ForwardsRequest | Request object for FX Forwards.
 
             try

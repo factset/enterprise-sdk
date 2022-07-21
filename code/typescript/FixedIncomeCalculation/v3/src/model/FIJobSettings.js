@@ -17,7 +17,6 @@ import FIMarketEnvironment from './FIMarketEnvironment';
 /**
  * The FIJobSettings model module.
  * @module model/FIJobSettings
- * @version 0.20.0
  */
 class FIJobSettings {
     /**

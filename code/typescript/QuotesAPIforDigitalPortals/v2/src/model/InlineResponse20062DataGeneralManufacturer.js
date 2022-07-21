@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataGeneralManufacturer model module.
  * @module model/InlineResponse20062DataGeneralManufacturer
- * @version 0.9.2
  */
 class InlineResponse20062DataGeneralManufacturer {
     /**

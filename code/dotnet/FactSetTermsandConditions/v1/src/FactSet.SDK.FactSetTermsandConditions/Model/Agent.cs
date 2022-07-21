@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <param name="agentCommAmt">Agent Commitment Amount.</param>
         /// <param name="agentName">Agent Name.</param>
         /// <param name="agentType">Role of the agent.</param>
-        public Agent(string requestId = default(string), string fsymId = default(string), string agentEntityId = default(string), double agentCommAmt = default(double), string agentName = default(string), string agentType = default(string))
+        public Agent(string requestId, string fsymId, string agentEntityId,double agentCommAmt = default(double), string agentName = default(string), string agentType = default(string))
         {
             // to ensure "requestId" is required (not null)
             if (requestId == null) {

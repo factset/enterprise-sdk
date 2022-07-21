@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **fileName** | **[String]** |  | [optional] 
 **trimmed** | **[String]** |  | [optional] 
 **uploadTime** | **[String]** |  | [optional] 
+**audioSourceId** | **[String]** |  | [optional] 
 
 

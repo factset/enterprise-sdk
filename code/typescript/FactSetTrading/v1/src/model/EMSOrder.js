@@ -18,7 +18,6 @@ import TimeInForce from './TimeInForce';
 /**
  * The EMSOrder model module.
  * @module model/EMSOrder
- * @version 0.20.0
  */
 class EMSOrder {
     /**

@@ -18,7 +18,6 @@ import FundNotationScreenerSearchDataValidationPricesPrevious from './FundNotati
 /**
  * The FundNotationScreenerSearchDataValidationPrices model module.
  * @module model/FundNotationScreenerSearchDataValidationPrices
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationPrices {
     /**

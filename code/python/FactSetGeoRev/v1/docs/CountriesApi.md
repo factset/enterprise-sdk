@@ -24,8 +24,8 @@ Gets the **Countries'** Geographic Revenue, Percents, Confidence, and Ranks for 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGeoRev
 from fds.sdk.FactSetGeoRev.api import countries_api
-from fds.sdk.FactSetGeoRev.model.error_response import ErrorResponse
-from fds.sdk.FactSetGeoRev.model.country_response import CountryResponse
+from fds.sdk.FactSetGeoRev.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -56,14 +56,16 @@ with fds.sdk.FactSetGeoRev.ApiClient(configuration) as api_client:
     api_instance = countries_api.CountriesApi(api_client)
 
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  300 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    country_ids = ["US","CN"] # [str] | The Country ISO2 Codes representing the Country requested. By default, the service will request *ALL* Countries. To limit the Countries returned in the response, provide a comma-separated list of the ISO2 Country Codes. Visit [OA 8754](https://my.apps.factset.com/oa/pages/8754) for a full list of ISO2 codes.  (optional) (default to ["ALL"])
+    country_ids = ["US","CN"] # [str] | The Country ISO2 Codes representing the Country requested. By default, the service will request *ALL* Countries. To limit the Countries returned in the response, provide a comma-separated list of the ISO2 Country Codes. Visit [OA 8754](https://my.apps.factset.com/oa/pages/8754) for a full list of ISO2 codes.  (optional) if omitted the server will use the default value of ["ALL"]
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. Data is available on a Fiscal Annual periodicity and updated Daily. If left blank, the API will default to latest available fiscal period. Future dates (T+1) are not accepted in this endpoint.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. Data is available on a Fiscal Annual periodicity and updated daily. If left blank, the API will default to latest available fiscal period. Future dates (T+1) are not accepted in this endpoint.  (optional)
-    frequency = "FY" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.     (optional) (default to "FY")
+    frequency = "FY" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.     (optional) if omitted the server will use the default value of "FY"
     currency = "USD" # str | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
 
     try:
         # Gets the revenue details for the requested Countries.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_countries(ids, country_ids=country_ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency)
         pprint(api_response)
 
@@ -126,9 +128,8 @@ Gets the **Countries'** Geographic Revenue, Percents, Confidence, and Ranks for 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGeoRev
 from fds.sdk.FactSetGeoRev.api import countries_api
-from fds.sdk.FactSetGeoRev.model.error_response import ErrorResponse
-from fds.sdk.FactSetGeoRev.model.country_request import CountryRequest
-from fds.sdk.FactSetGeoRev.model.country_response import CountryResponse
+from fds.sdk.FactSetGeoRev.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -169,6 +170,7 @@ with fds.sdk.FactSetGeoRev.ApiClient(configuration) as api_client:
 
     try:
         # Gets the revenue details for the requested Countries. Use for large lists of ids.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_countries_for_list(country_request)
         pprint(api_response)
 

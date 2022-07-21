@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. .</param>
         /// <param name="frequency">frequency.</param>
         /// <param name="currency">The ISO3 currency control for the requested fund. (default to &quot;LOCAL&quot;).</param>
-        public FlowsRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL")
+        public FlowsRequest(List<string> ids,string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), string currency = "LOCAL")
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {

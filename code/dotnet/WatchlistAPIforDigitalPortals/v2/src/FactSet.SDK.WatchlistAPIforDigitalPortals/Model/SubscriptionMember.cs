@@ -40,7 +40,7 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="SubscriptionMember" /> class.
         /// </summary>
         /// <param name="minimumInterval">Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (required).</param>
-        public SubscriptionMember(decimal minimumInterval = default(decimal))
+        public SubscriptionMember(decimal minimumInterval)
         {
             this.MinimumInterval = minimumInterval;
         }

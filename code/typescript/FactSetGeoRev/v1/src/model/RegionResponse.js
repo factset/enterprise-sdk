@@ -17,7 +17,6 @@ import Region from './Region';
 /**
  * The RegionResponse model module.
  * @module model/RegionResponse
- * @version 0.20.0
  */
 class RegionResponse {
     /**

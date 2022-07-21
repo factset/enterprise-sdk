@@ -26,9 +26,8 @@ Returns the full history of ISIN changes for a given security or as of a request
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import isin_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.isin_history_translation_request import IsinHistoryTranslationRequest
-from fds.sdk.Symbology.model.isin_history_translation_response import IsinHistoryTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +64,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate Market IDs into ISINS as of a specific date or receive the full history of changes.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_isin_history(isin_history_translation_request)
         pprint(api_response)
 
@@ -122,9 +122,8 @@ Translate market security symbols into ISIN and FactSet Permanent Identifiers.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import isin_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.isin_translation_request import IsinTranslationRequest
-from fds.sdk.Symbology.model.isin_translation_response import IsinTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,6 +159,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into ISIN. - Current Only
+        # example passing only required values which don't have defaults set
         api_response = api_instance.batch_translate_isin(isin_translation_request)
         pprint(api_response)
 
@@ -217,8 +217,8 @@ Returns the full history of ISIN changes for a given security or as of a request
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import isin_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.isin_history_translation_response import IsinHistoryTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -253,6 +253,8 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate Market IDs into ISINS as of a specific date or receive the full history of changes.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.isin_history(ids, as_of_date=as_of_date)
         pprint(api_response)
 
@@ -311,8 +313,8 @@ Translate market security symbols into ISIN and FactSet Permanent Identifiers.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Symbology
 from fds.sdk.Symbology.api import isin_api
-from fds.sdk.Symbology.model.error_response import ErrorResponse
-from fds.sdk.Symbology.model.isin_translation_response import IsinTranslationResponse
+from fds.sdk.Symbology.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -346,6 +348,7 @@ with fds.sdk.Symbology.ApiClient(configuration) as api_client:
 
     try:
         # Translate market security symbols into ISIN. - Current Only
+        # example passing only required values which don't have defaults set
         api_response = api_instance.translate_isin(ids)
         pprint(api_response)
 

@@ -17,7 +17,6 @@ import VendorChartIQTimeSeriesIntradaySubsampleGetDataAdjustments from './Vendor
 /**
  * The VendorChartIQTimeSeriesIntradaySubsampleGetData model module.
  * @module model/VendorChartIQTimeSeriesIntradaySubsampleGetData
- * @version 0.10.0
  */
 class VendorChartIQTimeSeriesIntradaySubsampleGetData {
     /**
@@ -25,7 +24,7 @@ class VendorChartIQTimeSeriesIntradaySubsampleGetData {
      * The data member contains the request&#39;s primary data.
      * @alias module:model/VendorChartIQTimeSeriesIntradaySubsampleGetData
      * @param id {String} Identifier of the notation.
-     * @param from {String} Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+     * @param from {String} Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
      */
     constructor(id, from) { 
         
@@ -99,7 +98,7 @@ VendorChartIQTimeSeriesIntradaySubsampleGetData.prototype['type'] = 'trade';
 VendorChartIQTimeSeriesIntradaySubsampleGetData.prototype['quality'] = 'DLY';
 
 /**
- * Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+ * Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Values in the future are not allowed.
  * @member {String} from
  */
 VendorChartIQTimeSeriesIntradaySubsampleGetData.prototype['from'] = undefined;

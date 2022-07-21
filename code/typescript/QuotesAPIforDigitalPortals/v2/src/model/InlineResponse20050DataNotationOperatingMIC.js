@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20050DataNotationOperatingMIC model module.
  * @module model/InlineResponse20050DataNotationOperatingMIC
- * @version 0.9.2
  */
 class InlineResponse20050DataNotationOperatingMIC {
     /**

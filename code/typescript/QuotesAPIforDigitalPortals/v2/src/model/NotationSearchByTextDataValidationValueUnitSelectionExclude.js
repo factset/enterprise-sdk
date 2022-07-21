@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataValidationValueUnitSelectionExclude model module.
  * @module model/NotationSearchByTextDataValidationValueUnitSelectionExclude
- * @version 0.9.2
  */
 class NotationSearchByTextDataValidationValueUnitSelectionExclude {
     /**

@@ -16,12 +16,11 @@ import ApiClient from '../ApiClient';
 /**
  * The DateTimeInterval model module.
  * @module model/DateTimeInterval
- * @version 0.20.0
  */
 class DateTimeInterval {
     /**
      * Constructs a new <code>DateTimeInterval</code>.
-     * Represents a valid date/time interval. The upper bound of the interval is represented by the attribute **gt** or **gte**. The lower bound of the interval is presented by **lt** or **lte** The interval can contain either of the bounds or both. e.g. { \&quot;gt\&quot;: \&quot;2021-05-01T00:00:00.000Z\&quot;, \&quot;lt\&quot;: \&quot;2021-05-08T00:00:00.000Z\&quot; } 
+     * Represents a valid date/time (UTC) interval. The upper bound of the interval is represented by the attribute **gt** or **gte**. The lower bound of the interval is presented by **lt** or **lte** The interval can contain either of the bounds or both. e.g. { \&quot;gt\&quot;: \&quot;2021-05-01T00:00:00.000Z\&quot;, \&quot;lt\&quot;: \&quot;2021-05-08T00:00:00.000Z\&quot; } 
      * @alias module:model/DateTimeInterval
      */
     constructor() { 

@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;Data&gt;**](Data.md) |  |  [optional]
-**meta** | [**java.util.List&lt;Meta&gt;**](Meta.md) |  |  [optional]
+**data** | [**java.util.List&lt;Dataresponseitems&gt;**](Dataresponseitems.md) |  |  [optional]
+**meta** | [**ListSchema200ResponseMeta**](ListSchema200ResponseMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

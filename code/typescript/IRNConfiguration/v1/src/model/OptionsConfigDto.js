@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsConfigDto model module.
  * @module model/OptionsConfigDto
- * @version 0.20.0
  */
 class OptionsConfigDto {
     /**

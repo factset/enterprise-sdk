@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityMatchBulkApi(config);
+
             var taskName = "taskName_example";  // string | User defined name for the task that will be used to name the output files.
             var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. Only 10,001 rows are accepted, including the Header row. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
             var clientIdColumn = "clientIdColumn_example";  // string | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
@@ -165,6 +166,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityMatchBulkApi(config);
+
             var taskId = 31589;  // int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
@@ -262,6 +264,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityMatchBulkApi(config);
+
             var taskId = 31589;  // int? | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional) 
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 

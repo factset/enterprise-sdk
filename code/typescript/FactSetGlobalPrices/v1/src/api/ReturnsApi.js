@@ -20,7 +20,6 @@ import ReturnsResponse from '../model/ReturnsResponse';
 /**
 * Returns service.
 * @module api/ReturnsApi
-* @version 0.20.0
 */
 export default class ReturnsApi {
 

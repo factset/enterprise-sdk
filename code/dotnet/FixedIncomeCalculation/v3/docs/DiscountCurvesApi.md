@@ -50,6 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DiscountCurvesApi(config);
+
             var currency = "currency_example";  // string |  (optional) 
 
             try

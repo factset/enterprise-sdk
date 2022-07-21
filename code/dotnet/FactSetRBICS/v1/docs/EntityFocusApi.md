@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get RBICS classification for the Focus industry
 
-Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified. 
+Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.      RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
 
 ### Example
 ```csharp
@@ -51,6 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityFocusApi(config);
+
             var ids = new List<string>(); // List<string> | List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**ids limit = 2500 per request**</p>    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p> 
             var date = 2017-07-24;  // string | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional) 
             var levels = new List<int>(); // List<int> | List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional) 
@@ -113,7 +114,7 @@ Name | Type | Description  | Notes
 
 Get RBICS classification for the Focus industry
 
-Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
+Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.              RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.  
 
 ### Example
 ```csharp
@@ -150,6 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EntityFocusApi(config);
+
             var entityFocusRequest = new EntityFocusRequest(); // EntityFocusRequest | Request Body to request a list of RBICS Entity Focus objects.
 
             try

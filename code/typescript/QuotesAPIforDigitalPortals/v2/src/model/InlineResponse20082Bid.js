@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20082Bid model module.
  * @module model/InlineResponse20082Bid
- * @version 0.9.2
  */
 class InlineResponse20082Bid {
     /**

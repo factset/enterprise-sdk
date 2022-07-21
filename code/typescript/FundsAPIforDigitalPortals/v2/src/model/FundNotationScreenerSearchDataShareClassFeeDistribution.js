@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeDistributionMaximum from './Fu
 /**
  * The FundNotationScreenerSearchDataShareClassFeeDistribution model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeDistribution
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeDistribution {
     /**

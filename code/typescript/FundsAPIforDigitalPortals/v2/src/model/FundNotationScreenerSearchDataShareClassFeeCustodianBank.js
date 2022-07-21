@@ -17,7 +17,6 @@ import FundNotationScreenerSearchDataShareClassFeeCustodianBankCurrent from './F
 /**
  * The FundNotationScreenerSearchDataShareClassFeeCustodianBank model module.
  * @module model/FundNotationScreenerSearchDataShareClassFeeCustodianBank
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataShareClassFeeCustodianBank {
     /**

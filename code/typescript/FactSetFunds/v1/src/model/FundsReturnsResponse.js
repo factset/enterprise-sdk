@@ -17,7 +17,6 @@ import Returns from './Returns';
 /**
  * The FundsReturnsResponse model module.
  * @module model/FundsReturnsResponse
- * @version 0.20.0
  */
 class FundsReturnsResponse {
     /**

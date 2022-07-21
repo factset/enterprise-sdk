@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataValidationPricesLatest model module.
  * @module model/FundNotationScreenerSearchDataValidationPricesLatest
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationPricesLatest {
     /**

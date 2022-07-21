@@ -293,6 +293,68 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-entity/v1/entity-reference-chi:
+    get:
+      summary: Returns entity reference data in Chinese for an individual entity.
+      description: >
+        Returns entity reference data in Chinese for the requested Id(s). Data
+        points include Business Description and Entity Name in both simplified
+        and traditional Chinese.
+      tags:
+        - Entity Reference Chinese
+      operationId: getEntityReferenceChi
+      parameters:
+        - $ref: '#/components/parameters/idsChi'
+      responses:
+        '200':
+          description: Fetches Entity Reference data in Chinese for a list of ids.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceChiResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns entity reference data in Chinese for an individual entity.
+      description: >
+        Returns entity reference data in Chinese for the requested Id(s). Data
+        points include Business Description and Entity Name in both simplified
+        and traditional Chinese.
+      tags:
+        - Entity Reference Chinese
+      operationId: getEntityReferenceChiForList
+      requestBody:
+        required: true
+        description: Request Body to request a list of Entity Reference Chinese objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/entityReferenceChiRequest'
+      responses:
+        '200':
+          description: Fetches Entity Reference data in Chinese for a list of ids.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/entityReferenceChiResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -395,6 +457,30 @@ components:
         minimum: -1
         maximum: 1
       example: -1
+    idsChi:
+      name: ids
+      in: query
+      description: >
+        The requested Market Identifier. Accepted input identifiers include
+        Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet
+        Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a
+        single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example: IBM-US
+        minItems: 1
+        maxItems: 1500
+      explode: false
+      example:
+        - 05X6LC-E
+        - 062T6N-E
   schemas:
     entityReferenceRequest:
       title: Entity Reference Request
@@ -424,26 +510,31 @@ components:
             Unique FactSet-generated identifier representing an entity for the
             current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
         entityProperName:
           type: string
           description: >-
             Name that the entity is commonly referred to as, normalized and in
             proper case.
           example: Amazon.com, Inc.
+          nullable: true
         fsymEntityId:
           type: string
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
         ultimateParentId:
           type: string
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
         ultimateParentName:
           type: string
           description: >-
             Name that the ultimate parent entity is commonly referred to as,
             normalized and in proper case."
           example: Amazon.com, Inc.
+          nullable: true
         creditParentId:
           type: string
           description: >
@@ -473,18 +564,22 @@ components:
 
             * An issuer must have active debt.
           example: 001MF1-E
+          nullable: true
         parentEquityId:
           type: string
           description: The regional parent equity listing id.
           example: MCNYYL-R
+          nullable: true
         privateEntityFlag:
           type: integer
           description: Returns 1 if the entity is a Private Company, otherwise, 0.
           example: 0
+          nullable: true
         publicEntityFlag:
           type: integer
           description: Returns 1 if the entity is a Public Company, otherwise, 0.
           example: 1
+          nullable: true
         securityType:
           type: string
           description: >-
@@ -492,15 +587,18 @@ components:
             security type, visit [OA
             15776](https://my.apps.factset.com/oa/pages/15776)
           example: SHARE
+          nullable: true
         website:
           type: string
           description: Web page address for the entity
           example: http://www.amazon.com
+          nullable: true
         incorporationDate:
           type: string
           format: date
           description: Year the entity was incorporated in YYYY-MM-DD format.
           example: '1996-05-28'
+          nullable: true
         countryOfRisk:
           type: string
           description: >
@@ -515,10 +613,12 @@ components:
             * Country of Primary Exchange (the country where most liquid equity
             listings trade)
           example: US
+          nullable: true
         incorporationCountry:
           type: string
           description: ISO Country code where the entity is incorporated
           example: US
+          nullable: true
         businessDescription:
           type: string
           description: Extended business description for the requested entity.
@@ -535,38 +635,47 @@ components:
             service offerings for start-ups, enterprises, government agencies,
             and academic institutions. The company was founded by Jeffrey P.
             Bezos in July 1994 and is headquartered in Seattle, WA.
+          nullable: true
         phone:
           type: string
           description: The entity's international phone number.
           example: +1.206.266.1000
+          nullable: true
         headquartersStreet:
           type: string
           description: The entity's headquarters street address.
           example: 410 Terry Avenue North
+          nullable: true
         headquartersCity:
           type: string
           description: The entity's headquarters street address.
           example: Seattle
+          nullable: true
         headquartersState:
           type: string
           description: Abbreviated State of company headquarters.
           example: WA
+          nullable: true
         headquartersZip:
           type: string
           description: Zip/Postal Code for entity's headquarters.
           example: 98109-5210
+          nullable: true
         headquartersCountry:
           type: string
           description: Abbreviated (ISO) Country of headquarters.
           example: US
+          nullable: true
         emailIR:
           type: string
           description: Email Address of the Investor Relations Contact
           example: amazon-ir@amazon.com
+          nullable: true
         websiteIR:
           type: string
           description: Website or Page for the Entity's Investor Relations team.
           example: https://ir.aboutamazon.com/overview/default.aspx
+          nullable: true
         requestId:
           type: string
           description: >-
@@ -601,16 +710,19 @@ components:
           type: string
           description: FactSet Ultimate Parent ID of the Requested Security ID
           example: 001MF1-E
+          nullable: true
         fsymSecurityId:
           type: string
           description: FactSet Security ID (-S).
           example: F3PS31-S
+          nullable: true
         fsymListingId:
           type: string
           description: >-
             FactSet Listing ID (-L). Corresponds to the listing exchange for the
             requested security. Not applicable for FI instruments.
           example: LVR478-L
+          nullable: true
         securityType:
           type: string
           description: >-
@@ -649,28 +761,34 @@ components:
             - LAUTH
             - BLDN
             - CMBS
+          nullable: true
         listingExchange:
           type: string
           description: The securities primary listing exchange.
           example: NAS
+          nullable: true
         securityName:
           type: string
           description: Security name
           example: Amazon.com, Inc. 1.9% 21-AUG-2020
+          nullable: true
         fsymEntityId:
           type: string
           description: Unique FactSet-generated identifier representing an entity.
           example: 001MF1-E
+          nullable: true
         fsymTickerExchange:
           type: string
           description: >-
             The security's ticker-exchange, representing the listing exchange
             symbol.
           example: AMZN-NAS
+          nullable: true
         fsymTickerRegion:
           type: string
           description: The security's regional ticker.
           example: AMZN-US
+          nullable: true
         activeFlag:
           type: integer
           description: Indicates if security is active. 1 = Active; 0 = Inactive.
@@ -678,6 +796,7 @@ components:
           enum:
             - 0
             - 1
+          nullable: true
         requestId:
           type: string
           description: >-
@@ -716,14 +835,17 @@ components:
             Unique FactSet-generated identifier representing an entity for the
             current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
         fsymEntityId:
           type: string
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
         ultimateParentId:
           type: string
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
         parentEntityId:
           type: string
           description: >-
@@ -731,20 +853,24 @@ components:
             id for the level directly above. Ultimate parent id will return a
             blank string.
           example: 001MF1-E
+          nullable: true
         level:
           type: integer
           description: >-
             Controls the levels returned in the hierarchy. Use -1 to return all
             levels, or 1-n for a specific level.
           example: 2
+          nullable: true
         inactive:
           type: integer
           description: A flag for inactive securities; whereby 1 = inactive and 0 = active.
           example: 0
+          nullable: true
         description:
           type: string
           description: The proper name and entity type for the entity.
           example: Whole Foods Market, Inc. (Subsidiary)
+          nullable: true
         requestId:
           type: string
           description: Identifier used in `ids`.
@@ -781,14 +907,17 @@ components:
             Unique FactSet-generated identifier representing an entity for the
             current entity identifier (-E)
           example: 001MF1-E
+          nullable: true
         fsymEntityId:
           type: string
           description: Unique FactSet-generated identifier representing an entity
           example: 001MF1-E
+          nullable: true
         ultimateParentId:
           type: string
           description: The ultimate parent id of the entity.
           example: 001MF1-E
+          nullable: true
         parentEntityId:
           type: string
           description: >-
@@ -796,24 +925,101 @@ components:
             id for the level directly above. Ultimate parent id will return a
             blank string.
           example: 001MF1-E
+          nullable: true
         level:
           type: integer
           description: >-
             Level within the ultimate entity structure. This is taken from the
             perspective of the ultimate parent id and the full entity hierarchy.
           example: 3
+          nullable: true
         inactive:
           type: integer
           description: A flag for inactive securities; whereby 1 = inactive and 0 = active.
           example: 0
+          nullable: true
         description:
           type: string
           description: The proper name and entity type for the entity.
           example: Whole Foods Market, Inc. (Subsidiary)
+          nullable: true
         requestId:
           type: string
           description: Identifier used in `ids`.
           example: AMZN-US
+    entityReferenceChiRequest:
+      title: Entity Reference Chinese Request
+      description: Entity Reference Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idsChi'
+      required:
+        - ids
+    entityReferenceChiResponse:
+      type: object
+      title: Entity Reference Chinese Response
+      properties:
+        data:
+          description: Array of Entity Reference objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/entityReferenceChi'
+    entityReferenceChi:
+      title: Entity Profile
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            Unique FactSet-generated identifier representing an entity for the
+            current entity identifier (-E)
+          example: 062T6N-E
+          nullable: true
+        fsymEntityId:
+          type: string
+          description: Unique FactSet-generated identifier representing an entity
+          example: 062T6N-E
+          nullable: true
+        simplifiedChineseName:
+          type: string
+          description: The entity name in Simplified Chinese.
+          example: 百川能源股份有限公司
+          nullable: true
+        traditionalChineseName:
+          type: string
+          description: The entity name in Traditional Chinese.
+          example: 百川能源股份有限公司
+          nullable: true
+        entityProperName:
+          type: string
+          description: >-
+            Name that the entity is commonly referred to as, normalized and in
+            proper case.
+          example: Bestsun Energy Co., Ltd.
+          nullable: true
+        simplifiedChineseDescription:
+          type: string
+          description: >-
+            Extended business description for the requested entity in Simplified
+            Chinese.
+          example: >-
+            百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+          nullable: true
+        traditionalChineseDescription:
+          type: string
+          description: >-
+            Extended business description for the requested entity in
+            Traditional Chinese.
+          example: >-
+            百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+          nullable: true
+        requestId:
+          type: string
+          description: >-
+            Identifier used in "ids" parameter. When list of identifiers used,
+            they will be parsed and resolved individually.
+          example: 062T6N-E
     ids:
       title: ids
       description: >
@@ -873,6 +1079,19 @@ components:
       example: 1
       maximum: 1
       minimum: -1
+    idsChi:
+      title: ids
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG
+        and SEDOL are accepted input.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1500
+      example:
+        - 05X6LC-E
+        - 062T6N-E
     errorResponse:
       type: object
       description: error description

@@ -18,7 +18,6 @@ import StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitaliz
 /**
  * The StockNotationScreenerSearchDataRsiWilderDays14 model module.
  * @module model/StockNotationScreenerSearchDataRsiWilderDays14
- * @version 0.10.0
  */
 class StockNotationScreenerSearchDataRsiWilderDays14 {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2008DataPrices model module.
  * @module model/InlineResponse2008DataPrices
- * @version 0.9.2
  */
 class InlineResponse2008DataPrices {
     /**

@@ -1,7 +1,7 @@
 /*
- * SDF_API
+ * SDF Download API
  *
- * The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:  Unable to install 3rd party executables due to Corporate Security policies Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for. 
+ * The Standard DataFeed (SDF) Download API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader Application. This API provides an alternative for users who are unable to utilize the Loader application due to following reasons:   - Inability to install 3rd party executables due to Corporate Security policies     - Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed   - Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution     This API allows users to retrieve  - SDF packages(excluding Quant Factor Library) they have subscriptions for, going back to August 31, 2021,  - QFL - Quant Factor Library (Factor Family & Factor Groups) packages they have subscriptions for, going back to January 01, 1995.    Additional parameters are available to filter requests to get the exact files users are looking for.    QFL data is delivered through Content API & Bulk Data API (SDF API)  - Content API : Provides direct access to FactSet-hosted QFL data.  Suitable for interactive, ad hoc QFL requests.  Constraints on large extracts.  Costs are based on consumption, i.e. more calls can result in more costs.  - Bulk Data API : Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).
  *
  * The version of the OpenAPI document: 1.0
  * Contact: teammustang@factset.com
@@ -37,7 +37,7 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public ListFiles200Response(List<Data> data = default(List<Data>), List<Meta> meta = default(List<Meta>))
+        public ListFiles200Response(List<Dataresponseitems> data = default(List<Dataresponseitems>), ListSchema200ResponseMeta meta = default(ListSchema200ResponseMeta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -47,13 +47,13 @@ namespace FactSet.SDK.StandardDatafeed.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<Data> Data { get; set; }
+        public List<Dataresponseitems> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public List<Meta> Meta { get; set; }
+        public ListSchema200ResponseMeta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,9 +108,8 @@ namespace FactSet.SDK.StandardDatafeed.Model
                 ) && 
                 (
                     this.Meta == input.Meta ||
-                    this.Meta != null &&
-                    input.Meta != null &&
-                    this.Meta.SequenceEqual(input.Meta)
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 

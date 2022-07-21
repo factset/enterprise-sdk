@@ -82,7 +82,6 @@ import TickerApi from './api/TickerApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.2
 */
 export {
     /**

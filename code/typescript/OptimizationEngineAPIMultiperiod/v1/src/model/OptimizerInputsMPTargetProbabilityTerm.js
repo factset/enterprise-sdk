@@ -20,7 +20,6 @@ import OptimizerInputsTargetProbabilityTerm from './OptimizerInputsTargetProbabi
 /**
  * The OptimizerInputsMPTargetProbabilityTerm model module.
  * @module model/OptimizerInputsMPTargetProbabilityTerm
- * @version 0.20.0
  */
 class OptimizerInputsMPTargetProbabilityTerm {
     /**

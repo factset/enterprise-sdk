@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200RatiosEnterpriseValueEbit model module.
  * @module model/InlineResponse200RatiosEnterpriseValueEbit
- * @version 0.10.0
  */
 class InlineResponse200RatiosEnterpriseValueEbit {
     /**

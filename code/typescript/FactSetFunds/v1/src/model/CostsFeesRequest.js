@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The CostsFeesRequest model module.
  * @module model/CostsFeesRequest
- * @version 0.20.0
  */
 class CostsFeesRequest {
     /**

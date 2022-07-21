@@ -17,7 +17,6 @@ import ApprovalLevelConfigDto from './ApprovalLevelConfigDto';
 /**
  * The ApprovalProcessConfigDto model module.
  * @module model/ApprovalProcessConfigDto
- * @version 0.20.0
  */
 class ApprovalProcessConfigDto {
     /**

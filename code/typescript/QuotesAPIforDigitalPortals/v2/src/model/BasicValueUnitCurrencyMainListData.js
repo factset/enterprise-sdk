@@ -17,7 +17,6 @@ import BasicValueUnitCurrencyMainListDataFilter from './BasicValueUnitCurrencyMa
 /**
  * The BasicValueUnitCurrencyMainListData model module.
  * @module model/BasicValueUnitCurrencyMainListData
- * @version 0.9.2
  */
 class BasicValueUnitCurrencyMainListData {
     /**

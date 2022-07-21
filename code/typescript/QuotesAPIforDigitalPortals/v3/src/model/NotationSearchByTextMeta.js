@@ -17,7 +17,6 @@ import BasicMarketListMetaPagination from './BasicMarketListMetaPagination';
 /**
  * The NotationSearchByTextMeta model module.
  * @module model/NotationSearchByTextMeta
- * @version 0.10.0
  */
 class NotationSearchByTextMeta {
     /**

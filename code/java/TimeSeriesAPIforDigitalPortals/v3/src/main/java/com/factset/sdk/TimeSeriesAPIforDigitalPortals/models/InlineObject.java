@@ -51,14 +51,6 @@ public class InlineObject implements Serializable {
   public InlineObject() { 
   }
 
-  @JsonCreator
-  public InlineObject(
-    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) VendorChartIQTimeSeriesEodListData data
-  ) {
-    this();
-    this.data = data;
-  }
-
   public InlineObject data(VendorChartIQTimeSeriesEodListData data) {
     this.data = data;
     return this;
@@ -68,10 +60,10 @@ public class InlineObject implements Serializable {
    * Get data
    * @return data
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VendorChartIQTimeSeriesEodListData getData() {
     return data;
@@ -79,7 +71,7 @@ public class InlineObject implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setData(VendorChartIQTimeSeriesEodListData data) {
     this.data = data;
   }

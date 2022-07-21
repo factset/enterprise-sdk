@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundNotationScreenerSearchDataValidationNotationSelectionListRestrict model module.
  * @module model/FundNotationScreenerSearchDataValidationNotationSelectionListRestrict
- * @version 0.10.0
  */
 class FundNotationScreenerSearchDataValidationNotationSelectionListRestrict {
     /**

@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataText model module.
  * @module model/NotationSearchByTextDataText
- * @version 0.9.2
  */
 class NotationSearchByTextDataText {
     /**

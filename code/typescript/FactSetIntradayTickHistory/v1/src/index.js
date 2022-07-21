@@ -53,7 +53,6 @@ import TradesAtTimeApi from './api/TradesAtTimeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.20.0
 */
 export {
     /**

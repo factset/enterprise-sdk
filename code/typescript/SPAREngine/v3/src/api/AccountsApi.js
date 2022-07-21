@@ -20,7 +20,6 @@ import SPARAccountsRoot from '../model/SPARAccountsRoot';
 /**
 * Accounts service.
 * @module api/AccountsApi
-* @version 0.20.0
 */
 export default class AccountsApi {
 

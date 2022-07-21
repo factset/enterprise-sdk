@@ -17,7 +17,6 @@ import CategoryCategory from './CategoryCategory';
 /**
  * The Category model module.
  * @module model/Category
- * @version 0.20.0
  */
 class Category {
     /**

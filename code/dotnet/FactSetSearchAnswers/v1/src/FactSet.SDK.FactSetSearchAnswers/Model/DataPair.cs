@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// </summary>
         /// <param name="value">value (required).</param>
         /// <param name="label">label (required).</param>
-        public DataPair(string value = default(string), string label = default(string))
+        public DataPair(string value, string label)
         {
             // to ensure "value" is required (not null)
             if (value == null) {

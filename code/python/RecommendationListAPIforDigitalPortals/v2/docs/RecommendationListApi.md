@@ -28,7 +28,8 @@ Attributes of a single list, including data about its active revision.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,14 +59,16 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    id = 3.14 # float | Identifier of the list.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Attributes of a single list.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_recommendation_list_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -78,9 +81,9 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of the list. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -120,7 +123,8 @@ List of elements of a given revision.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -150,14 +154,16 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    id_revision = 3.14 # float | Identifier of the revision.
+    id_revision = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of elements of a given revision.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_recommendation_list_revision_element_list(id_revision, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -170,9 +176,9 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_revision** | **float**| Identifier of the revision. |
+ **id_revision** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -212,7 +218,8 @@ Attributes of a single revision.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -242,14 +249,16 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    id = 3.14 # float | Identifier of the revision.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Attributes of a single revision.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_recommendation_list_revision_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -262,9 +271,9 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of the revision. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -304,7 +313,8 @@ Search for revisions of a recommendation list.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -334,15 +344,17 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    id_notation = "idNotation_example" # str | Restrict the search to revisions containing an element associated with the identified notation. (optional)
-    id_instrument = "idInstrument_example" # str | Restrict the search to revisions pointing to the identified instrument. (optional)
+    id_notation = "idNotation_example" # str |  (optional)
+    id_instrument = "idInstrument_example" # str |  (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Search for revisions of a recommendation list.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_recommendation_list_revision_search(id_notation=id_notation, id_instrument=id_instrument, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -355,10 +367,10 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_notation** | **str**| Restrict the search to revisions containing an element associated with the identified notation. | [optional]
- **id_instrument** | **str**| Restrict the search to revisions pointing to the identified instrument. | [optional]
+ **id_notation** | **str**|  | [optional]
+ **id_instrument** | **str**|  | [optional]
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -398,7 +410,8 @@ Search for recommendation lists, delivering an array of recommendation lists mat
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -428,15 +441,17 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    name = "name_example" # str | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional)
-    only_active = True # bool | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional)
+    name = "name_example" # str |  (optional)
+    only_active = True # bool |  (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Search for recommendation lists.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_recommendation_list_search(name=name, only_active=only_active, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -449,10 +464,10 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. | [optional]
- **only_active** | **bool**| Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list&#39;s activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. | [optional]
+ **name** | **str**|  | [optional]
+ **only_active** | **bool**|  | [optional]
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -477,7 +492,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_recommendation_list_revision_list**
-> InlineResponse2003 post_recommendation_list_revision_list(body)
+> InlineResponse2003 post_recommendation_list_revision_list(inline_object)
 
 List of revisions of a recommendation list.
 
@@ -492,8 +507,8 @@ List of revisions of a recommendation list, excluding the elements of each revis
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.RecommendationListAPIforDigitalPortals
 from fds.sdk.RecommendationListAPIforDigitalPortals.api import recommendation_list_api
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
-from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_object import InlineObject
+from fds.sdk.RecommendationListAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -523,7 +538,7 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=RecommendationListRevisionListData(
             id_list=3.14,
             id_revision=[
@@ -544,7 +559,8 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
     try:
         # List of revisions of a recommendation list.
-        api_response = api_instance.post_recommendation_list_revision_list(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_recommendation_list_revision_list(inline_object)
         pprint(api_response)
 
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
@@ -556,7 +572,7 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  |
+ **inline_object** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 

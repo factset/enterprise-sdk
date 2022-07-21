@@ -80,7 +80,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="CompanyEstimatesListByInstrumentDataCurrency" /> class.
         /// </summary>
         /// <param name="isoCode">ISO 4217 code of the currency. (required).</param>
-        public CompanyEstimatesListByInstrumentDataCurrency(IsoCodeEnum isoCode = default(IsoCodeEnum))
+        public CompanyEstimatesListByInstrumentDataCurrency(IsoCodeEnum isoCode)
         {
             this.IsoCode = isoCode;
         }

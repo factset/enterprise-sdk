@@ -23,8 +23,8 @@ Returns a timeseries grid of Interim and Annual data for a single line item
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEstimatesReportBuilder
 from fds.sdk.FactSetEstimatesReportBuilder.api import estimate_tables_api
-from fds.sdk.FactSetEstimatesReportBuilder.model.response import Response
-from fds.sdk.FactSetEstimatesReportBuilder.model.error_response import ErrorResponse
+from fds.sdk.FactSetEstimatesReportBuilder.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,6 +59,8 @@ with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_clien
 
     try:
         # Interim/Annual Estimate Table
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_estimate_tables_table(id, metric=metric)
         pprint(api_response)
 

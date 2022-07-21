@@ -21,7 +21,6 @@ import InlineResponse20011EstimatesFirstFiscalYearReturnOnEquity from './InlineR
 /**
  * The InlineResponse20011EstimatesSecondFiscalYear model module.
  * @module model/InlineResponse20011EstimatesSecondFiscalYear
- * @version 0.10.0
  */
 class InlineResponse20011EstimatesSecondFiscalYear {
     /**

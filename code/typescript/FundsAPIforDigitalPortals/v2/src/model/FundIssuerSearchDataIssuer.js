@@ -17,7 +17,6 @@ import FundIssuerSearchDataIssuerCountry from './FundIssuerSearchDataIssuerCount
 /**
  * The FundIssuerSearchDataIssuer model module.
  * @module model/FundIssuerSearchDataIssuer
- * @version 0.10.0
  */
 class FundIssuerSearchDataIssuer {
     /**

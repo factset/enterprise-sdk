@@ -19,7 +19,6 @@ import FIReferenceSecurity from './FIReferenceSecurity';
 /**
  * The FISecurity model module.
  * @module model/FISecurity
- * @version 0.20.0
  */
 class FISecurity {
     /**

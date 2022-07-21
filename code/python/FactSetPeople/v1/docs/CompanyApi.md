@@ -30,8 +30,8 @@ Returns the list of company-level executive compensation data items for the top 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_compensation_response import CompanyCompensationResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -65,6 +65,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns the compensation details of the people for the specified company identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_compensation(ids)
         pprint(api_response)
 
@@ -122,9 +123,8 @@ Returns the list of company-level executive compensation data items for the top 
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_compensation_request import CompanyCompensationRequest
-from fds.sdk.FactSetPeople.model.company_compensation_response import CompanyCompensationResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,6 +160,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns the compensation details for the people for the specified company identifier
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_compensation_for_list(company_compensation_request)
         pprint(api_response)
 
@@ -217,8 +218,8 @@ Returns the list of executives associated the company identifier requested. Info
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_people_response import CompanyPeopleResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -249,10 +250,12 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     api_instance = company_api.CompanyApi(api_client)
 
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    function = "PEOPLE" # str | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional) (default to "PEOPLE")
+    function = "PEOPLE" # str | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional) if omitted the server will use the default value of "PEOPLE"
 
     try:
         # Returns the list of people for the specified company identifiers
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_people(ids, function=function)
         pprint(api_response)
 
@@ -311,9 +314,8 @@ Returns the list of executives associated the company identifier requested. Info
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_people_request import CompanyPeopleRequest
-from fds.sdk.FactSetPeople.model.company_people_response import CompanyPeopleResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -350,6 +352,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns the list of people associated for a large list of company identitifers
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_people_for_list(company_people_request)
         pprint(api_response)
 
@@ -407,8 +410,8 @@ Returns the list of people, name, and title for a list of company ids and reques
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
-from fds.sdk.FactSetPeople.model.company_positions_response import CompanyPositionsResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -439,10 +442,12 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     api_instance = company_api.CompanyApi(api_client)
 
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    position = "FOU" # str | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional) (default to "CEO")
+    position = "FOU" # str | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional) if omitted the server will use the default value of "CEO"
 
     try:
         # Returns the list of people for the specified company identifiers and position
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_positions(ids, position=position)
         pprint(api_response)
 
@@ -501,9 +506,8 @@ Returns the list of people, name, and title for a list of company ids and reques
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
-from fds.sdk.FactSetPeople.model.company_positions_request import CompanyPositionsRequest
-from fds.sdk.FactSetPeople.model.company_positions_response import CompanyPositionsResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -540,6 +544,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns the list of people associated for a large list of company identitifers and position
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_positions_for_list(company_positions_request)
         pprint(api_response)
 
@@ -597,8 +602,8 @@ Returns the statistics such as the average age, tenure, compensation of leadersh
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_stats_response import CompanyStatsResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -629,10 +634,12 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     api_instance = company_api.CompanyApi(api_client)
 
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    mb_type = "MB" # str | Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional) (default to "MB")
+    mb_type = "MB" # str | Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional) if omitted the server will use the default value of "MB"
 
     try:
         # Returns statistics about top leadership of a company.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_company_stats(ids, mb_type=mb_type)
         pprint(api_response)
 
@@ -691,9 +698,8 @@ Returns the statistics such as the average age, tenure, compensation of leadersh
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api
-from fds.sdk.FactSetPeople.model.company_stats_response import CompanyStatsResponse
-from fds.sdk.FactSetPeople.model.error_response import ErrorResponse
-from fds.sdk.FactSetPeople.model.company_stats_request import CompanyStatsRequest
+from fds.sdk.FactSetPeople.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -730,6 +736,7 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
 
     try:
         # Returns statistics about top leadership of a company.
+        # example passing only required values which don't have defaults set
         api_response = api_instance.get_company_stats_for_list(company_stats_request)
         pprint(api_response)
 

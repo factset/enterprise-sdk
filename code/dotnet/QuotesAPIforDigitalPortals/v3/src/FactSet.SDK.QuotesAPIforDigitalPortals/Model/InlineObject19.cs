@@ -41,7 +41,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public InlineObject19(NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData data = default(NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData), InstrumentBackgroundTextTypeListMeta meta = default(InstrumentBackgroundTextTypeListMeta))
+        public InlineObject19(NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData data,InstrumentBackgroundTextTypeListMeta meta = default(InstrumentBackgroundTextTypeListMeta))
         {
             // to ensure "data" is required (not null)
             if (data == null) {

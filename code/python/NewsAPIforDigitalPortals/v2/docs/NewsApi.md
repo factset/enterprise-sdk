@@ -37,7 +37,8 @@ Details for a news article.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response200 import InlineResponse200
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -67,15 +68,17 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    code = "0" # str | Identifier of a news article.
-    include_media = False # bool | If true, media references are included if available. (optional) (default to False)
+    code = "0" # str | 
+    include_media = False # bool |  (optional) if omitted the server will use the default value of False
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a news article.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_article_get(code, include_media=include_media, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -88,10 +91,10 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| Identifier of a news article. |
- **include_media** | **bool**| If true, media references are included if available. | [optional] if omitted the server will use the default value of False
+ **code** | **str**|  |
+ **include_media** | **bool**|  | [optional] if omitted the server will use the default value of False
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -131,7 +134,8 @@ Details for a news article type.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,14 +165,16 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    id = 3.14 # float | Identifier of a news article type.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # Details for a news article type.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_article_type_get(id, attributes=attributes, language=language)
         pprint(api_response)
 
@@ -181,9 +187,9 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a news article type. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -223,7 +229,8 @@ List of news article types.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -256,10 +263,12 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of news article types.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_article_type_list(attributes=attributes, language=language)
         pprint(api_response)
 
@@ -273,7 +282,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
@@ -313,7 +322,8 @@ Details of a distributor.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -343,13 +353,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    id = 3.14 # float | Identifier of a distributor.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Details of a distributor.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_distributor_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -362,7 +374,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a distributor. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -403,7 +415,8 @@ List of distributors.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -435,16 +448,16 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     ids = [
         3.14,
-    ] # [float] | Identifiers of distributors. (optional)
+    ] # [float] |  (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of distributors.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_distributor_list(ids=ids, attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -457,7 +470,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[float]**| Identifiers of distributors. | [optional]
+ **ids** | **[float]**|  | [optional]
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
@@ -499,7 +512,8 @@ Details of a publisher.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -529,13 +543,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    id = 3.14 # float | Identifier of a publisher.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
         # Details of a publisher.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_publisher_get(id, attributes=attributes)
         pprint(api_response)
 
@@ -548,7 +564,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a publisher. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -589,7 +605,8 @@ List of publishers.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -621,18 +638,18 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
     ids = [
         3.14,
-    ] # [float] | Identifiers of publishers. (optional)
+    ] # [float] |  (optional)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    pagination_offset = 0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0
+    pagination_limit = 20 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20
 
     try:
         # List of publishers.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_publisher_list(ids=ids, attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
 
@@ -645,11 +662,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[float]**| Identifiers of publishers. | [optional]
+ **ids** | **[float]**|  | [optional]
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0
+ **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20
 
 ### Return type
 
@@ -689,7 +706,8 @@ List of publishers provided by the given distributor.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -719,16 +737,16 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    id = 3.14 # float | Identifier of a distributor.
+    id = 3.14 # float | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
         # List of publishers provided by the given distributor.
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.get_news_publisher_list_by_distributor(id, attributes=attributes, sort=sort)
         pprint(api_response)
 
@@ -741,7 +759,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| Identifier of a distributor. |
+ **id** | **float**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
  **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
@@ -783,8 +801,8 @@ List of news articles.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object import InlineObject
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -814,7 +832,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject(
+    inline_object = InlineObject(
         data=NewsArticleListData(
             filter=NewsArticleListDataFilter(
                 range=NewsArticleListDataFilterRange(
@@ -862,14 +880,16 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject |  (optional)
 
     try:
         # List of news articles.
-        api_response = api_instance.post_news_article_list(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_news_article_list(inline_object=inline_object)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -881,7 +901,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -906,7 +926,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_chain**
-> InlineResponse2002 post_news_article_list_by_chain(body)
+> InlineResponse2002 post_news_article_list_by_chain(inline_object1)
 
 List news articles of an article chain.
 
@@ -921,8 +941,8 @@ List news articles of an article chain.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object1 import InlineObject1
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -952,7 +972,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject1(
+    inline_object1 = InlineObject1(
         data=NewsArticleListByChainData(
             id="id_example",
             filter=NewsArticleListByChainDataFilter(
@@ -971,14 +991,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject1 | 
 
     try:
         # List news articles of an article chain.
-        api_response = api_instance.post_news_article_list_by_chain(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_news_article_list_by_chain(inline_object1)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -990,7 +1011,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  |
 
 ### Return type
 
@@ -1015,7 +1036,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_index**
-> InlineResponse2001 post_news_article_list_by_index(body)
+> InlineResponse2001 post_news_article_list_by_index(inline_object2)
 
 News articles for instruments that are constituents of the given indices.
 
@@ -1030,8 +1051,8 @@ News articles for instruments that are constituents of the given indices.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object2 import InlineObject2
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1061,7 +1082,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject2(
+    inline_object2 = InlineObject2(
         data=NewsArticleListByIndexData(
             ids=[
                 "ids_example",
@@ -1112,14 +1133,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject2 | 
 
     try:
         # News articles for instruments that are constituents of the given indices.
-        api_response = api_instance.post_news_article_list_by_index(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_news_article_list_by_index(inline_object2)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1131,7 +1153,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  |
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  |
 
 ### Return type
 
@@ -1156,7 +1178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_instrument**
-> InlineResponse2001 post_news_article_list_by_instrument(body)
+> InlineResponse2001 post_news_article_list_by_instrument(inline_object3)
 
 News articles for instruments.
 
@@ -1171,8 +1193,8 @@ News articles for instruments.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object3 import InlineObject3
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1202,7 +1224,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject3(
+    inline_object3 = InlineObject3(
         data=NewsArticleListByInstrumentData(
             ids=[
                 "ids_example",
@@ -1253,14 +1275,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject3 | 
 
     try:
         # News articles for instruments.
-        api_response = api_instance.post_news_article_list_by_instrument(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_news_article_list_by_instrument(inline_object3)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1272,7 +1295,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  |
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  |
 
 ### Return type
 
@@ -1297,7 +1320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_article_list_by_media_kind**
-> InlineResponse2001 post_news_article_list_by_media_kind(body)
+> InlineResponse2001 post_news_article_list_by_media_kind(inline_object4)
 
 List news articles which contain media of specific media kinds.
 
@@ -1312,8 +1335,8 @@ List news articles which contain media of specific media kinds.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object4 import InlineObject4
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1343,7 +1366,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject4(
+    inline_object4 = InlineObject4(
         data=NewsArticleListByMediaKindData(
             ids=[
                 3.14,
@@ -1394,14 +1417,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject4 | 
 
     try:
         # List news articles which contain media of specific media kinds.
-        api_response = api_instance.post_news_article_list_by_media_kind(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_news_article_list_by_media_kind(inline_object4)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1413,7 +1437,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  |
+ **inline_object4** | [**InlineObject4**](InlineObject4.md)|  |
 
 ### Return type
 
@@ -1453,8 +1477,8 @@ Search for news articles using a fulltext search. All specified criteria need to
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object5 import InlineObject5
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1484,7 +1508,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject5(
+    inline_object5 = InlineObject5(
         data=NewsArticleSearchByTextData(
             text=NewsArticleSearchByTextDataText(
                 criteria=NewsArticleSearchByTextDataTextCriteria(
@@ -1492,7 +1516,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
                     phrases=[
                         "phrases_example",
                     ],
-                    minimum_match_score=3.14,
+                    minimum_match_score=0.7,
                     scope="all",
                 ),
             ),
@@ -1555,14 +1579,16 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ),
             pagination=NewsArticleListMetaPagination(
                 cursor="cursor_example",
-                limit=1,
+                limit=20,
             ),
         ),
     ) # InlineObject5 |  (optional)
 
     try:
         # Search for news articles using a fulltext search.
-        api_response = api_instance.post_news_article_search_by_text(body=body)
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_news_article_search_by_text(inline_object5=inline_object5)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1574,7 +1600,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
 
 ### Return type
 
@@ -1599,7 +1625,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_news_publisher_search_by_name**
-> InlineResponse2009 post_news_publisher_search_by_name(body)
+> InlineResponse2009 post_news_publisher_search_by_name(inline_object6)
 
 Search for publishers.
 
@@ -1614,8 +1640,8 @@ Search for publishers by the name of the publisher.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
-from fds.sdk.NewsAPIforDigitalPortals.model.inline_object6 import InlineObject6
+from fds.sdk.NewsAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -1645,7 +1671,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
 
-    body = InlineObject6(
+    inline_object6 = InlineObject6(
         data=NewsPublisherSearchByNameData(
             search_value="search_value_example",
             match_type="begins",
@@ -1662,15 +1688,14 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
             attributes=AttributesMember([
                 "attributes_example",
             ]),
-            sort=[
-                "id",
-            ],
+            sort=["name"],
         ),
     ) # InlineObject6 | 
 
     try:
         # Search for publishers.
-        api_response = api_instance.post_news_publisher_search_by_name(body)
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.post_news_publisher_search_by_name(inline_object6)
         pprint(api_response)
 
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
@@ -1682,7 +1707,7 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  |
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  |
 
 ### Return type
 

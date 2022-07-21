@@ -17,7 +17,6 @@ import VARStatusIndicator from './VARStatusIndicator';
 /**
  * The VARDistributionStatus model module.
  * @module model/VARDistributionStatus
- * @version 0.20.0
  */
 class VARDistributionStatus {
     /**

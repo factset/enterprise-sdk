@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The FundIssuerSearchDataShareClassRegistrationCountryRestrict model module.
  * @module model/FundIssuerSearchDataShareClassRegistrationCountryRestrict
- * @version 0.10.0
  */
 class FundIssuerSearchDataShareClassRegistrationCountryRestrict {
     /**

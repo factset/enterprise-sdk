@@ -17,7 +17,6 @@ import ReportStatusReportStaus from './ReportStatusReportStaus';
 /**
  * The ReportStatus model module.
  * @module model/ReportStatus
- * @version 0.20.0
  */
 class ReportStatus {
     /**

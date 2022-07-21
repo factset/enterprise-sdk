@@ -21,7 +21,6 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * BPMOptimizer service.
 * @module api/BPMOptimizerApi
-* @version 0.20.0
 */
 export default class BPMOptimizerApi {
 

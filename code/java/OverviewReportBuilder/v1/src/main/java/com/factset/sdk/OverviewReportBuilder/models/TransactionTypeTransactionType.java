@@ -30,9 +30,9 @@ import com.factset.sdk.OverviewReportBuilder.JSON;
 
 
 /**
- * Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) 
+ * Type of transaction. Only used in /transactions. Allowed values: - \&quot;MA\&quot; (Mergers and Acquisitions) - \&quot;IPO\&quot; (Initial Public Offering) - \&quot;Follow-On\&quot; (Follow-On Public Offer) 
  */
-@ApiModel(description = "Type of transaction. Only used in /transactions. Allowed values: - \"MA\" (Mergers and Acquisitions) ")
+@ApiModel(description = "Type of transaction. Only used in /transactions. Allowed values: - \"MA\" (Mergers and Acquisitions) - \"IPO\" (Initial Public Offering) - \"Follow-On\" (Follow-On Public Offer) ")
 @JsonPropertyOrder({
   TransactionTypeTransactionType.JSON_PROPERTY_VALUE
 })
@@ -44,7 +44,11 @@ public class TransactionTypeTransactionType implements Serializable {
    * Gets or Sets value
    */
   public enum ValueEnum {
-    MA("MA");
+    MA("MA"),
+    
+    IPO("IPO"),
+    
+    FOLLOW_ON("Follow-On");
 
     private String value;
 

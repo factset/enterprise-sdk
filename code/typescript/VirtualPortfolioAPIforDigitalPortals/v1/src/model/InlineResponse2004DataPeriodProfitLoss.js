@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataPeriodProfitLoss model module.
  * @module model/InlineResponse2004DataPeriodProfitLoss
- * @version 0.9.2
  */
 class InlineResponse2004DataPeriodProfitLoss {
     /**

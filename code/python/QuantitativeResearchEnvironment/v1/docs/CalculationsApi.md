@@ -26,7 +26,8 @@ This is the endpoint to check on the progress of a previous calculation request.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import calculations_api
-from fds.sdk.QuantitativeResearchEnvironment.model.calculation_status import CalculationStatus
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,6 +61,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Get calculation status by id
+        # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_get(id)
         pprint(api_response)
 
@@ -115,6 +117,8 @@ This endpoint returns the log from the calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import calculations_api
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -148,6 +152,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Get calculation log for a specific calculation
+        # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_log_get(id)
         pprint(api_response)
 
@@ -203,6 +208,8 @@ This endpoint returns the specified output from the calculation.
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import calculations_api
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -236,6 +243,7 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Get calculation output for a specific calculation
+        # example passing only required values which don't have defaults set
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_output_get(id)
         pprint(api_response)
 
@@ -291,8 +299,8 @@ This endpoint takes a python script and starts executing it within QRE
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuantitativeResearchEnvironment
 from fds.sdk.QuantitativeResearchEnvironment.api import calculations_api
-from fds.sdk.QuantitativeResearchEnvironment.model.calculation import Calculation
-from fds.sdk.QuantitativeResearchEnvironment.model.calculation_status import CalculationStatus
+from fds.sdk.QuantitativeResearchEnvironment.models import *
+from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
 
 # See configuration.py for a list of all supported configuration parameters.
@@ -326,6 +334,8 @@ with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_cli
 
     try:
         # Starts a new script calculation
+        # example passing only required values which don't have defaults set
+        # and optional values
         api_response = api_instance.analytics_quant_qre_v1_calculations_post(calculation=calculation)
         pprint(api_response)
 

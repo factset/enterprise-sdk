@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetTrading.Model
         /// Initializes a new instance of the <see cref="EMSOrdersCreateResponseRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public EMSOrdersCreateResponseRoot(EMSOrdersCreateResponse data = default(EMSOrdersCreateResponse))
+        public EMSOrdersCreateResponseRoot(EMSOrdersCreateResponse data)
         {
             // to ensure "data" is required (not null)
             if (data == null) {

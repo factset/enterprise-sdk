@@ -16,7 +16,6 @@ import ApiClient from '../ApiClient';
 /**
  * The PaDoc model module.
  * @module model/PaDoc
- * @version 0.20.0
  */
 class PaDoc {
     /**

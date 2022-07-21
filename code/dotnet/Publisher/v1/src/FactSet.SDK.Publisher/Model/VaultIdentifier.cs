@@ -41,7 +41,7 @@ namespace FactSet.SDK.Publisher.Model
         /// Initializes a new instance of the <see cref="VaultIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        public VaultIdentifier(string id = default(string))
+        public VaultIdentifier(string id)
         {
             // to ensure "id" is required (not null)
             if (id == null) {

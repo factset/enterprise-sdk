@@ -44,7 +44,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="roleName">Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber.</param>
         /// <param name="products">An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them..</param>
         /// <param name="assertionValue">Field containing the value, passed as nameID, used to assert the identity of an individual via SAML2.0 which maps service-provider-side to a FactSet serial number. Only applicable to individuals with a FactSet serial number with a Federation setup between your domain and FactSet&#39;s.</param>
-        public UserResourceUrnScimSchemasExtensionCoreFactset10(string username = default(string), LocationResourceReference location = default(LocationResourceReference), string roleName = default(string), List<ProductResourceReference> products = default(List<ProductResourceReference>), string assertionValue = default(string))
+        public UserResourceUrnScimSchemasExtensionCoreFactset10(string username, LocationResourceReference location,string serialNumber = default(string), string factSetNetId = default(string), string roleName = default(string), List<ProductResourceReference> products = default(List<ProductResourceReference>), List<PendingProductOrder> pendingProductOrders = default(List<PendingProductOrder>), string assertionValue = default(string))
         {
             // to ensure "username" is required (not null)
             if (username == null) {

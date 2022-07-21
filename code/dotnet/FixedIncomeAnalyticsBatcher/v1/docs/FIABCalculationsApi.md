@@ -52,6 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FIABCalculationsApi(config);
+
             var id = "id_example";  // string | from url, provided from the location header in the Run FIAB Calculation endpoint
 
             try
@@ -148,6 +149,7 @@ namespace Example
 
             var apiInstance = new FIABCalculationsApi(config);
 
+
             try
             {
                 // Get all FIAB calculation summaries
@@ -237,6 +239,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FIABCalculationsApi(config);
+
             var fIABCalculationParameters = new FIABCalculationParameters(); // FIABCalculationParameters |  (optional) 
 
             try
