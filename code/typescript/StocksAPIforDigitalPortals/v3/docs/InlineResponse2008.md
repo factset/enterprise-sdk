@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse2008Data]**](InlineResponse2008Data.md) | List of dividend types, sorted by ascending identifier value. | [optional] 
+**data** | [**InlineResponse2008Data**](InlineResponse2008Data.md) |  | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

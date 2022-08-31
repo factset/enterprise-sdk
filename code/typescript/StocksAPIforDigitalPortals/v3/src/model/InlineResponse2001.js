@@ -49,7 +49,7 @@ class InlineResponse2001 {
             obj = obj || new InlineResponse2001();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse2001Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2001Data]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,7 +62,8 @@ class InlineResponse2001 {
 }
 
 /**
- * @member {module:model/InlineResponse2001Data} data
+ * List of trade recommendations and target prices for a stock, in unspecified order.
+ * @member {Array.<module:model/InlineResponse2001Data>} data
  */
 InlineResponse2001.prototype['data'] = undefined;
 

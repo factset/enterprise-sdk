@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a type. | [optional] 
-**Name** | **string** | Name of the type. | [optional] 
-**Description** | **string** | Description of the type. | [optional] 
+**Notation** | [**InlineResponse2005Notation**](InlineResponse2005Notation.md) |  | [optional] 
+**Beta** | **decimal** | Beta of the notation. | [optional] 
+**Correlation** | **decimal** | Correlation of the notation. | [optional] 
+**Outperformance** | **decimal** | Outperformance of the notation. | [optional] 
+**Status** | [**InlineResponse2005Status**](InlineResponse2005Status.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

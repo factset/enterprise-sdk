@@ -31,9 +31,9 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_data import InlineResponse2006Data
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_meta import InlineResponse2006Meta
     globals()['InlineResponse2006Data'] = InlineResponse2006Data
-    globals()['InlineResponse200Meta'] = InlineResponse200Meta
+    globals()['InlineResponse2006Meta'] = InlineResponse2006Meta
 
 
 class InlineResponse2006(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse2006(ModelNormal):
         lazy_import()
         return {
             'data': ([InlineResponse2006Data],),  # noqa: E501
-            'meta': (InlineResponse200Meta,),  # noqa: E501
+            'meta': (InlineResponse2006Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineResponse2006(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2006Data]): List of owners with their respective share sorted descending by the fraction owned.. [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse2006Data]): List of notations.. [optional]  # noqa: E501
+            meta (InlineResponse2006Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineResponse2006(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2006Data]): List of owners with their respective share sorted descending by the fraction owned.. [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse2006Data]): List of notations.. [optional]  # noqa: E501
+            meta (InlineResponse2006Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

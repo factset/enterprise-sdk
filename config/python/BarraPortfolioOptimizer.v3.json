@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.BarraPortfolioOptimizer",
   "projectName": "fds.sdk.BarraPortfolioOptimizer",
-  "packageVersion": "0.21.0",
+  "packageVersion": "0.21.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Barra Portfolio Optimizer client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/BarraPortfolioOptimizer/v3",
-  "httpUserAgent": "fds-sdk/python/BarraPortfolioOptimizer/0.21.0",
+  "httpUserAgent": "fds-sdk/python/BarraPortfolioOptimizer/0.21.1",
   "files": {
     "LICENSE": {}
   }

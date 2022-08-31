@@ -32,81 +32,45 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
     public partial class InlineResponse2002Data : IEquatable<InlineResponse2002Data>, IValidatableObject
     {
         /// <summary>
-        /// Identification of the historic snapshot for aggregated recommendations.
-        /// </summary>
-        /// <value>Identification of the historic snapshot for aggregated recommendations.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SnapshotEnum
-        {
-            /// <summary>
-            /// Enum Latest for value: latest
-            /// </summary>
-            [EnumMember(Value = "latest")]
-            Latest = 1,
-
-            /// <summary>
-            /// Enum _1w for value: 1w
-            /// </summary>
-            [EnumMember(Value = "1w")]
-            _1w = 2,
-
-            /// <summary>
-            /// Enum _1m for value: 1m
-            /// </summary>
-            [EnumMember(Value = "1m")]
-            _1m = 3,
-
-            /// <summary>
-            /// Enum _3m for value: 3m
-            /// </summary>
-            [EnumMember(Value = "3m")]
-            _3m = 4,
-
-            /// <summary>
-            /// Enum _6m for value: 6m
-            /// </summary>
-            [EnumMember(Value = "6m")]
-            _6m = 5,
-
-            /// <summary>
-            /// Enum _1y for value: 1y
-            /// </summary>
-            [EnumMember(Value = "1y")]
-            _1y = 6
-
-        }
-
-
-        /// <summary>
-        /// Identification of the historic snapshot for aggregated recommendations.
-        /// </summary>
-        /// <value>Identification of the historic snapshot for aggregated recommendations.</value>
-        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
-        public SnapshotEnum? Snapshot { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002Data" /> class.
         /// </summary>
-        /// <param name="snapshot">Identification of the historic snapshot for aggregated recommendations..</param>
-        /// <param name="targetPrice">targetPrice.</param>
-        /// <param name="recommendation">recommendation.</param>
-        public InlineResponse2002Data(SnapshotEnum? snapshot = default(SnapshotEnum?), InlineResponse2001DataTargetPrice targetPrice = default(InlineResponse2001DataTargetPrice), InlineResponse2002Recommendation recommendation = default(InlineResponse2002Recommendation))
+        /// <param name="id">Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values..</param>
+        /// <param name="name">Name of the owner..</param>
+        /// <param name="type">type.</param>
+        /// <param name="ownership">ownership.</param>
+        public InlineResponse2002Data(string id = default(string), string name = default(string), InlineResponse2002Type type = default(InlineResponse2002Type), InlineResponse2002Ownership ownership = default(InlineResponse2002Ownership))
         {
-            this.Snapshot = snapshot;
-            this.TargetPrice = targetPrice;
-            this.Recommendation = recommendation;
+            this.Id = id;
+            this.Name = name;
+            this.Type = type;
+            this.Ownership = ownership;
         }
 
         /// <summary>
-        /// Gets or Sets TargetPrice
+        /// Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
         /// </summary>
-        [DataMember(Name = "targetPrice", EmitDefaultValue = false)]
-        public InlineResponse2001DataTargetPrice TargetPrice { get; set; }
+        /// <value>Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Recommendation
+        /// Name of the owner.
         /// </summary>
-        [DataMember(Name = "recommendation", EmitDefaultValue = false)]
-        public InlineResponse2002Recommendation Recommendation { get; set; }
+        /// <value>Name of the owner.</value>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public InlineResponse2002Type Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ownership
+        /// </summary>
+        [DataMember(Name = "ownership", EmitDefaultValue = false)]
+        public InlineResponse2002Ownership Ownership { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -116,9 +80,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
-            sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
-            sb.Append("  TargetPrice: ").Append(TargetPrice).Append("\n");
-            sb.Append("  Recommendation: ").Append(Recommendation).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Ownership: ").Append(Ownership).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,18 +120,24 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Snapshot == input.Snapshot ||
-                    this.Snapshot.Equals(input.Snapshot)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.TargetPrice == input.TargetPrice ||
-                    (this.TargetPrice != null &&
-                    this.TargetPrice.Equals(input.TargetPrice))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Recommendation == input.Recommendation ||
-                    (this.Recommendation != null &&
-                    this.Recommendation.Equals(input.Recommendation))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Ownership == input.Ownership ||
+                    (this.Ownership != null &&
+                    this.Ownership.Equals(input.Ownership))
                 );
         }
 
@@ -179,14 +150,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
-                if (this.TargetPrice != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.TargetPrice.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Recommendation != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Recommendation.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Ownership != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ownership.GetHashCode();
                 }
                 return hashCode;
             }

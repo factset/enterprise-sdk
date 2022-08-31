@@ -1,6 +1,6 @@
 /**
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  News API provides access to historical news. This provides a summary for various corporate and market news written by journalist with background in financial markets.  The API delivers  stories in different format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files    
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import Checkstatus from '../model/Checkstatus';
-import Getfiles from '../model/Getfiles';
+import CheckstatusResponse from '../model/CheckstatusResponse';
+import GetfilesResponse from '../model/GetfilesResponse';
 import RequestfilesResponse from '../model/RequestfilesResponse';
 import StreetAccountStatus from '../model/StreetAccountStatus';
 
@@ -41,9 +41,13 @@ export default class StreetAccountXMLAPIApi {
      * Returns the status and percentDone of the requested jobID
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to know the status and percentDone
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Checkstatus>} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CheckstatusResponse} and HTTP response
      */
-    asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID) {
+    asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'jobID' is set
       if (jobID === undefined || jobID === null) {
@@ -53,7 +57,9 @@ export default class StreetAccountXMLAPIApi {
       let pathParams = {
       };
       let queryParams = {
-        'jobID': jobID
+        'jobID': jobID,
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
       };
       let headerParams = {
       };
@@ -65,7 +71,7 @@ export default class StreetAccountXMLAPIApi {
       let accepts = ['application/json'];
 
 
-      let returnType = [Checkstatus];
+      let returnType = CheckstatusResponse;
 
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/check-status', 'GET',
@@ -78,10 +84,13 @@ export default class StreetAccountXMLAPIApi {
      * Returns the status and percentDone of the requested jobID
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to know the status and percentDone
-     * @return { Promise.< Array.<module:model/Checkstatus> > } a Promise, with data of type {@link Array.<module:model/Checkstatus> }
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+     * @return { Promise.< module:model/CheckstatusResponse > } a Promise, with data of type {@link module:model/CheckstatusResponse }
      */
-    asynchStreetaccountV1CheckStatusGet(jobID) {
-      return this.asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID)
+    asynchStreetaccountV1CheckStatusGet(jobID, opts) {
+      return this.asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -92,9 +101,13 @@ export default class StreetAccountXMLAPIApi {
      * Returns the SA XML files for the specified daterange
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to collect the results of the query
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Getfiles>} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GetfilesResponse} and HTTP response
      */
-    asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID) {
+    asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'jobID' is set
       if (jobID === undefined || jobID === null) {
@@ -104,7 +117,9 @@ export default class StreetAccountXMLAPIApi {
       let pathParams = {
       };
       let queryParams = {
-        'jobID': jobID
+        'jobID': jobID,
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
       };
       let headerParams = {
       };
@@ -116,7 +131,7 @@ export default class StreetAccountXMLAPIApi {
       let accepts = ['application/json'];
 
 
-      let returnType = [Getfiles];
+      let returnType = GetfilesResponse;
 
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/get-files', 'GET',
@@ -129,10 +144,13 @@ export default class StreetAccountXMLAPIApi {
      * Returns the SA XML files for the specified daterange
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to collect the results of the query
-     * @return { Promise.< Array.<module:model/Getfiles> > } a Promise, with data of type {@link Array.<module:model/Getfiles> }
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per result
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+     * @return { Promise.< module:model/GetfilesResponse > } a Promise, with data of type {@link module:model/GetfilesResponse }
      */
-    asynchStreetaccountV1GetFilesGet(jobID) {
-      return this.asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID)
+    asynchStreetaccountV1GetFilesGet(jobID, opts) {
+      return this.asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

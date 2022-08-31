@@ -9,6 +9,10 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.FactSetPrivateMarkets.model.entity_match import EntityMatch
+from fds.sdk.FactSetPrivateMarkets.model.entity_match_request import EntityMatchRequest
+from fds.sdk.FactSetPrivateMarkets.model.entity_match_request_input import EntityMatchRequestInput
+from fds.sdk.FactSetPrivateMarkets.model.entity_matches_response import EntityMatchesResponse
 from fds.sdk.FactSetPrivateMarkets.model.error_response import ErrorResponse
 from fds.sdk.FactSetPrivateMarkets.model.error_response_sub_errors import ErrorResponseSubErrors
 from fds.sdk.FactSetPrivateMarkets.model.field import Field

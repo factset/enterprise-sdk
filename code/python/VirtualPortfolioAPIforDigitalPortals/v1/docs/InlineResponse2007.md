@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **bool, date, datetime, dict, float, int, list, str, none_type** | The response is always empty. | [optional] 
-**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
+**data** | [**[InlineResponse2007Data]**](InlineResponse2007Data.md) | List of payouts. | [optional] 
+**meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

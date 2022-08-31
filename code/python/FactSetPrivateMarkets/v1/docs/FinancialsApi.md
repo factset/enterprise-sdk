@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_financials**
-> FinancialsResponse get_financials(ids, fields, start_date, end_date)
+> FinancialsResponse get_financials(ids, fields, start_date)
 
 Returns Private Company Financials for a list of ids.
 
@@ -58,12 +58,13 @@ with fds.sdk.FactSetPrivateMarkets.ApiClient(configuration) as api_client:
     ids = ["000BFG-E","000BGZ-E","000C64-E"] # [str] | The requested FactSet Private Market Entity Identifier in XXXXXX-E format.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
     fields = ["assets","ebitda"] # [str] | Private Markets Financials Fields. 
     start_date = "2019-01-01" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
-    end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
+    end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
 
     try:
         # Returns Private Company Financials for a list of ids.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_financials(ids, fields, start_date, end_date)
+        # and optional values
+        api_response = api_instance.get_financials(ids, fields, start_date, end_date=end_date)
         pprint(api_response)
 
     except fds.sdk.FactSetPrivateMarkets.ApiException as e:
@@ -78,7 +79,7 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| The requested FactSet Private Market Entity Identifier in XXXXXX-E format.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  |
  **fields** | **[str]**| Private Markets Financials Fields.  |
  **start_date** | **str**| The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  |
- **end_date** | **str**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  |
+ **end_date** | **str**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional]
 
 ### Return type
 

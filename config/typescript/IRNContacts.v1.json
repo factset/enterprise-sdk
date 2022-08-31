@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-irncontacts",
-  "projectVersion": "0.21.0",
+  "projectVersion": "1.0.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "IRN Contacts client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "irncontacts",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/IRNContacts/0.21.0",
+  "httpUserAgent": "fds-sdk/javascript/IRNContacts/1.0.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

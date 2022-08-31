@@ -13,6 +13,7 @@ docs/CorporateActionsRequest.md
 docs/CorporateActionsResponse.md
 docs/Distribution.md
 docs/Dividend.md
+docs/DividendAdjust.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/EventCategory.md
@@ -60,6 +61,7 @@ src/FactSet.SDK.FactSetGlobalPrices/Model/CorporateActionsRequest.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/CorporateActionsResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Distribution.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Dividend.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/DividendAdjust.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ErrorResponseSubErrors.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/EventCategory.cs

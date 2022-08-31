@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**WatchlistPositionDeleteData**](WatchlistPositionDeleteData.md) |  | [optional] 
+**data** | [**PortfolioTransactionCashDeleteData**](PortfolioTransactionCashDeleteData.md) |  | [optional] 
 **meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  | [optional] 
 
 

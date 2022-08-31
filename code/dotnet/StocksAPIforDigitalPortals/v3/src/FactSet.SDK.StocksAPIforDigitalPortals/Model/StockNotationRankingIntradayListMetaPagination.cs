@@ -34,9 +34,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StockNotationRankingIntradayListMetaPagination" /> class.
         /// </summary>
-        /// <param name="offset">Non-negative number of entries to skip, or 0 (default)..</param>
-        /// <param name="limit">Non-negative maximum number of entries to return..</param>
-        public StockNotationRankingIntradayListMetaPagination(decimal offset = default(decimal), decimal limit = default(decimal))
+        /// <param name="offset">Non-negative number of entries to skip, or 0 (default). (default to 0M).</param>
+        /// <param name="limit">Non-negative maximum number of entries to return. (default to 20M).</param>
+        public StockNotationRankingIntradayListMetaPagination(decimal offset = 0M, decimal limit = 20M)
         {
             this.Offset = offset;
             this.Limit = limit;
@@ -140,9 +140,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
 
             // Limit (decimal) maximum
-            if (this.Limit > (decimal)1E+2)
+            if (this.Limit > (decimal)100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 1E+2.", new [] { "Limit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new [] { "Limit" });
             }
 
             // Limit (decimal) minimum

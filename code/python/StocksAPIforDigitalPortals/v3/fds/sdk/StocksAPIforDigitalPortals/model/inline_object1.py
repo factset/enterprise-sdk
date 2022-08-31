@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.stock_dividend_list_data import StockDividendListData
-    from fds.sdk.StocksAPIforDigitalPortals.model.stock_dividend_list_meta import StockDividendListMeta
-    globals()['StockDividendListData'] = StockDividendListData
-    globals()['StockDividendListMeta'] = StockDividendListMeta
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_ranking_intraday_list_data import StockNotationRankingIntradayListData
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_ranking_intraday_list_meta import StockNotationRankingIntradayListMeta
+    globals()['StockNotationRankingIntradayListData'] = StockNotationRankingIntradayListData
+    globals()['StockNotationRankingIntradayListMeta'] = StockNotationRankingIntradayListMeta
 
 
 class InlineObject1(ModelNormal):
@@ -89,8 +89,8 @@ class InlineObject1(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (StockDividendListData,),  # noqa: E501
-            'meta': (StockDividendListMeta,),  # noqa: E501
+            'data': (StockNotationRankingIntradayListData,),  # noqa: E501
+            'meta': (StockNotationRankingIntradayListMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -110,11 +110,8 @@ class InlineObject1(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, data, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """InlineObject1 - a model defined in OpenAPI
-
-        Args:
-            data (StockDividendListData):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,7 +144,8 @@ class InlineObject1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (StockDividendListMeta): [optional]  # noqa: E501
+            data (StockNotationRankingIntradayListData): [optional]  # noqa: E501
+            meta (StockNotationRankingIntradayListMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,7 +173,6 @@ class InlineObject1(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -196,11 +193,8 @@ class InlineObject1(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, data, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """InlineObject1 - a model defined in OpenAPI
-
-        Args:
-            data (StockDividendListData):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,7 +227,8 @@ class InlineObject1(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (StockDividendListMeta): [optional]  # noqa: E501
+            data (StockNotationRankingIntradayListData): [optional]  # noqa: E501
+            meta (StockNotationRankingIntradayListMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +254,6 @@ class InlineObject1(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

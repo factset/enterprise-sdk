@@ -17,8 +17,12 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Ownership;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Type;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Accumulated;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Currency;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Fsym;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Instrument;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Market;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Trade;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,9 +40,15 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse2006Data.JSON_PROPERTY_ID,
-  InlineResponse2006Data.JSON_PROPERTY_NAME,
-  InlineResponse2006Data.JSON_PROPERTY_TYPE,
-  InlineResponse2006Data.JSON_PROPERTY_OWNERSHIP
+  InlineResponse2006Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse2006Data.JSON_PROPERTY_MARKET,
+  InlineResponse2006Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse2006Data.JSON_PROPERTY_IS_ALTERNATIVE,
+  InlineResponse2006Data.JSON_PROPERTY_TRADE,
+  InlineResponse2006Data.JSON_PROPERTY_QUALITY,
+  InlineResponse2006Data.JSON_PROPERTY_ACCUMULATED,
+  InlineResponse2006Data.JSON_PROPERTY_FSYM,
+  InlineResponse2006Data.JSON_PROPERTY_INSTRUMENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2006Data implements Serializable {
@@ -47,14 +57,32 @@ public class InlineResponse2006Data implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  private String symbol;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private InlineResponse2006Type type;
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse2006Market market;
 
-  public static final String JSON_PROPERTY_OWNERSHIP = "ownership";
-  private InlineResponse2006Ownership ownership;
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private InlineResponse2006Currency currency;
+
+  public static final String JSON_PROPERTY_IS_ALTERNATIVE = "isAlternative";
+  private Boolean isAlternative;
+
+  public static final String JSON_PROPERTY_TRADE = "trade";
+  private InlineResponse2006Trade trade;
+
+  public static final String JSON_PROPERTY_QUALITY = "quality";
+  private String quality;
+
+  public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
+  private InlineResponse2006Accumulated accumulated;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2006Fsym fsym;
+
+  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
+  private InlineResponse2006Instrument instrument;
 
   public InlineResponse2006Data() { 
   }
@@ -65,11 +93,11 @@ public class InlineResponse2006Data implements Serializable {
   }
 
    /**
-   * Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
+   * Identifier of a notation.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the owner. See endpoint `/legalEntity/list` for possible values.")
+  @ApiModelProperty(value = "Identifier of a notation.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,81 +113,237 @@ public class InlineResponse2006Data implements Serializable {
   }
 
 
-  public InlineResponse2006Data name(String name) {
-    this.name = name;
+  public InlineResponse2006Data symbol(String symbol) {
+    this.symbol = symbol;
     return this;
   }
 
    /**
-   * Name of the owner.
-   * @return name
+   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
+   * @return symbol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the owner.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public String getSymbol() {
+    return symbol;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
   }
 
 
-  public InlineResponse2006Data type(InlineResponse2006Type type) {
-    this.type = type;
+  public InlineResponse2006Data market(InlineResponse2006Market market) {
+    this.market = market;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006Type getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(InlineResponse2006Type type) {
-    this.type = type;
-  }
-
-
-  public InlineResponse2006Data ownership(InlineResponse2006Ownership ownership) {
-    this.ownership = ownership;
-    return this;
-  }
-
-   /**
-   * Get ownership
-   * @return ownership
+   * Get market
+   * @return market
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
+  @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2006Ownership getOwnership() {
-    return ownership;
+  public InlineResponse2006Market getMarket() {
+    return market;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
+  @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOwnership(InlineResponse2006Ownership ownership) {
-    this.ownership = ownership;
+  public void setMarket(InlineResponse2006Market market) {
+    this.market = market;
+  }
+
+
+  public InlineResponse2006Data currency(InlineResponse2006Currency currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2006Currency getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(InlineResponse2006Currency currency) {
+    this.currency = currency;
+  }
+
+
+  public InlineResponse2006Data isAlternative(Boolean isAlternative) {
+    this.isAlternative = isAlternative;
+    return this;
+  }
+
+   /**
+   * Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
+   * @return isAlternative
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.")
+  @JsonProperty(JSON_PROPERTY_IS_ALTERNATIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsAlternative() {
+    return isAlternative;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_ALTERNATIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsAlternative(Boolean isAlternative) {
+    this.isAlternative = isAlternative;
+  }
+
+
+  public InlineResponse2006Data trade(InlineResponse2006Trade trade) {
+    this.trade = trade;
+    return this;
+  }
+
+   /**
+   * Get trade
+   * @return trade
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRADE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2006Trade getTrade() {
+    return trade;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRADE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTrade(InlineResponse2006Trade trade) {
+    this.trade = trade;
+  }
+
+
+  public InlineResponse2006Data quality(String quality) {
+    this.quality = quality;
+    return this;
+  }
+
+   /**
+   * Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;.
+   * @return quality
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Quality of the trade-related attributes, see attributes `trade` and `accumulated`.")
+  @JsonProperty(JSON_PROPERTY_QUALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getQuality() {
+    return quality;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_QUALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuality(String quality) {
+    this.quality = quality;
+  }
+
+
+  public InlineResponse2006Data accumulated(InlineResponse2006Accumulated accumulated) {
+    this.accumulated = accumulated;
+    return this;
+  }
+
+   /**
+   * Get accumulated
+   * @return accumulated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2006Accumulated getAccumulated() {
+    return accumulated;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCUMULATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAccumulated(InlineResponse2006Accumulated accumulated) {
+    this.accumulated = accumulated;
+  }
+
+
+  public InlineResponse2006Data fsym(InlineResponse2006Fsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2006Fsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2006Fsym fsym) {
+    this.fsym = fsym;
+  }
+
+
+  public InlineResponse2006Data instrument(InlineResponse2006Instrument instrument) {
+    this.instrument = instrument;
+    return this;
+  }
+
+   /**
+   * Get instrument
+   * @return instrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2006Instrument getInstrument() {
+    return instrument;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstrument(InlineResponse2006Instrument instrument) {
+    this.instrument = instrument;
   }
 
 
@@ -176,14 +360,20 @@ public class InlineResponse2006Data implements Serializable {
     }
     InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
     return Objects.equals(this.id, inlineResponse2006Data.id) &&
-        Objects.equals(this.name, inlineResponse2006Data.name) &&
-        Objects.equals(this.type, inlineResponse2006Data.type) &&
-        Objects.equals(this.ownership, inlineResponse2006Data.ownership);
+        Objects.equals(this.symbol, inlineResponse2006Data.symbol) &&
+        Objects.equals(this.market, inlineResponse2006Data.market) &&
+        Objects.equals(this.currency, inlineResponse2006Data.currency) &&
+        Objects.equals(this.isAlternative, inlineResponse2006Data.isAlternative) &&
+        Objects.equals(this.trade, inlineResponse2006Data.trade) &&
+        Objects.equals(this.quality, inlineResponse2006Data.quality) &&
+        Objects.equals(this.accumulated, inlineResponse2006Data.accumulated) &&
+        Objects.equals(this.fsym, inlineResponse2006Data.fsym) &&
+        Objects.equals(this.instrument, inlineResponse2006Data.instrument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, ownership);
+    return Objects.hash(id, symbol, market, currency, isAlternative, trade, quality, accumulated, fsym, instrument);
   }
 
   @Override
@@ -191,9 +381,15 @@ public class InlineResponse2006Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2006Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    ownership: ").append(toIndentedString(ownership)).append("\n");
+    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    isAlternative: ").append(toIndentedString(isAlternative)).append("\n");
+    sb.append("    trade: ").append(toIndentedString(trade)).append("\n");
+    sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
+    sb.append("    accumulated: ").append(toIndentedString(accumulated)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
+    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("}");
     return sb.toString();
   }

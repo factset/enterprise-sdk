@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** | Identifier of a delivery. | [optional] 
-**Name** | **string** | Name of the delivery. | [optional] 
-**Functions** | [**List&lt;InlineResponse2004Functions&gt;**](InlineResponse2004Functions.md) | List of officer functions. | [optional] 
+**Id** | **decimal** | Identifier of a dividend type. | [optional] 
+**Name** | **string** | Name of the dividend type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

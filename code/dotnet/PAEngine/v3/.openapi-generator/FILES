@@ -13,6 +13,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -68,6 +70,8 @@ docs/PADateParameters.md
 docs/PAIdentifier.md
 docs/PAPricingSource.md
 docs/PAPricingSourceRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PricingSourcesApi.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
@@ -139,6 +143,8 @@ src/FactSet.SDK.PAEngine/Model/CalculationStatusMeta.cs
 src/FactSet.SDK.PAEngine/Model/CalculationStatusRoot.cs
 src/FactSet.SDK.PAEngine/Model/CalculationUnitStatus.cs
 src/FactSet.SDK.PAEngine/Model/CalculationUnitStatusMeta.cs
+src/FactSet.SDK.PAEngine/Model/CalculationsSummary.cs
+src/FactSet.SDK.PAEngine/Model/CalculationsSummaryRoot.cs
 src/FactSet.SDK.PAEngine/Model/ClientErrorResponse.cs
 src/FactSet.SDK.PAEngine/Model/Column.cs
 src/FactSet.SDK.PAEngine/Model/ColumnRoot.cs
@@ -184,6 +190,8 @@ src/FactSet.SDK.PAEngine/Model/PADateParameters.cs
 src/FactSet.SDK.PAEngine/Model/PAIdentifier.cs
 src/FactSet.SDK.PAEngine/Model/PAPricingSource.cs
 src/FactSet.SDK.PAEngine/Model/PAPricingSourceRoot.cs
+src/FactSet.SDK.PAEngine/Model/PaginationInfo.cs
+src/FactSet.SDK.PAEngine/Model/PaginationMeta.cs
 src/FactSet.SDK.PAEngine/Model/TemplateContentTypes.cs
 src/FactSet.SDK.PAEngine/Model/TemplatedPAComponent.cs
 src/FactSet.SDK.PAEngine/Model/TemplatedPAComponentParameters.cs

@@ -34,18 +34,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006" /> class.
         /// </summary>
-        /// <param name="data">List of owners with their respective share sorted descending by the fraction owned..</param>
+        /// <param name="data">List of notations..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse2006(List<InlineResponse2006Data> data = default(List<InlineResponse2006Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse2006(List<InlineResponse2006Data> data = default(List<InlineResponse2006Data>), InlineResponse2006Meta meta = default(InlineResponse2006Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of owners with their respective share sorted descending by the fraction owned.
+        /// List of notations.
         /// </summary>
-        /// <value>List of owners with their respective share sorted descending by the fraction owned.</value>
+        /// <value>List of notations.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse2006Data> Data { get; set; }
 
@@ -53,7 +53,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse200Meta Meta { get; set; }
+        public InlineResponse2006Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

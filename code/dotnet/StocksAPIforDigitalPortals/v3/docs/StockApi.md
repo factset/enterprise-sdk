@@ -1,6 +1,6 @@
 # FactSet.SDK.StocksAPIforDigitalPortals.Api.StockApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="getstockdividendtypelist"></a>
 # **GetStockDividendTypeList**
-> InlineResponse2008 GetStockDividendTypeList (List<string> attributes = null, string language = null)
+> InlineResponse2004 GetStockDividendTypeList (List<string> attributes = null, string language = null)
 
 List of dividend types.
 
@@ -65,12 +65,12 @@ namespace Example
             var apiInstance = new StockApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // List of dividend types.
-                InlineResponse2008 result = apiInstance.GetStockDividendTypeList(attributes, language);
+                InlineResponse2004 result = apiInstance.GetStockDividendTypeList(attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -89,10 +89,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth1Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -155,15 +155,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -181,13 +181,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkmonth3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkMonth3Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -250,15 +250,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -276,13 +276,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkweek1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkWeek1Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkWeek1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkWeek1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -345,15 +345,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -371,13 +371,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear1get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear1Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear1Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -440,15 +440,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -466,13 +466,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear3get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear3Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear3Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -535,15 +535,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -561,13 +561,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 
 <a name="getstocknotationkeyfiguresbenchmarkyear5get"></a>
 # **GetStockNotationKeyFiguresBenchmarkYear5Get**
-> InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear5Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
+> InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear5Get (string id, List<string> idNotationBenchmark, List<string> attributes = null, string language = null)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -630,15 +630,15 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the notation.
-            var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+            var id = "id_example";  // string | 
+            var idNotationBenchmark = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
-                InlineResponse2009 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language);
+                InlineResponse2005 result = apiInstance.GetStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -656,13 +656,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the notation. | 
- **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **string**|  | 
+ **idNotationBenchmark** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockownerlist"></a>
 # **GetStockOwnerList**
-> InlineResponse2006 GetStockOwnerList (string id, List<string> attributes = null, string language = null)
+> InlineResponse2002 GetStockOwnerList (string id, List<string> attributes = null, string language = null)
 
 List of owners for a specific type of a company's shares.
 
@@ -725,14 +725,14 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of the instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string |  (optional) 
 
             try
             {
                 // List of owners for a specific type of a company's shares.
-                InlineResponse2006 result = apiInstance.GetStockOwnerList(id, attributes, language);
+                InlineResponse2002 result = apiInstance.GetStockOwnerList(id, attributes, language);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -750,12 +750,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of the instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **string**| ISO 639-1 code of the language. | [optional] 
+ **language** | **string**|  | [optional] 
 
 ### Return type
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -776,7 +776,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockrecommendationaggregateget"></a>
 # **GetStockRecommendationAggregateGet**
-> InlineResponse2001 GetStockRecommendationAggregateGet (string id, List<string> attributes = null)
+> InlineResponse200 GetStockRecommendationAggregateGet (string id, List<string> attributes = null)
 
 Target price and aggregated recommendations for a stock.
 
@@ -818,13 +818,13 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
+            var id = "id_example";  // string | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
             {
                 // Target price and aggregated recommendations for a stock.
-                InlineResponse2001 result = apiInstance.GetStockRecommendationAggregateGet(id, attributes);
+                InlineResponse200 result = apiInstance.GetStockRecommendationAggregateGet(id, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -842,11 +842,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
+ **id** | **string**|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -867,7 +867,7 @@ Name | Type | Description  | Notes
 
 <a name="getstockrecommendationaggregatehistorylist"></a>
 # **GetStockRecommendationAggregateHistoryList**
-> InlineResponse2002 GetStockRecommendationAggregateHistoryList (string id, List<string> snapshots, List<string> attributes = null)
+> InlineResponse2001 GetStockRecommendationAggregateHistoryList (string id, List<string> snapshots, List<string> attributes = null)
 
 Current and historical trade recommendations and target prices for a stock.
 
@@ -909,14 +909,14 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var id = "id_example";  // string | Identifier of an instrument.
-            var snapshots = new List<string>(); // List<string> | Choice of historic snapshots for aggregated recommendations.
+            var id = "id_example";  // string | 
+            var snapshots = new List<string>(); // List<string> | 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
             {
                 // Current and historical trade recommendations and target prices for a stock.
-                InlineResponse2002 result = apiInstance.GetStockRecommendationAggregateHistoryList(id, snapshots, attributes);
+                InlineResponse2001 result = apiInstance.GetStockRecommendationAggregateHistoryList(id, snapshots, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -934,12 +934,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Identifier of an instrument. | 
- **snapshots** | [**List&lt;string&gt;**](string.md)| Choice of historic snapshots for aggregated recommendations. | 
+ **id** | **string**|  | 
+ **snapshots** | [**List&lt;string&gt;**](string.md)|  | 
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -960,7 +960,7 @@ Name | Type | Description  | Notes
 
 <a name="poststockdividendlist"></a>
 # **PostStockDividendList**
-> InlineResponse2007 PostStockDividendList (InlineObject1 body)
+> InlineResponse2003 PostStockDividendList (InlineObject inlineObject)
 
 List of dividends for a stock.
 
@@ -1002,12 +1002,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var body = new InlineObject1(); // InlineObject1 | 
+            var inlineObject = new InlineObject(); // InlineObject | 
 
             try
             {
                 // List of dividends for a stock.
-                InlineResponse2007 result = apiInstance.PostStockDividendList(body);
+                InlineResponse2003 result = apiInstance.PostStockDividendList(inlineObject);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1025,10 +1025,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationrankingintradaylist"></a>
 # **PostStockNotationRankingIntradayList**
-> InlineResponse20010 PostStockNotationRankingIntradayList (InlineObject2 body = null)
+> InlineResponse2006 PostStockNotationRankingIntradayList (InlineObject1 inlineObject1 = null)
 
 Ranking of stocks' notations using intraday figures.
 
@@ -1091,12 +1091,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var body = new InlineObject2(); // InlineObject2 |  (optional) 
+            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
 
             try
             {
                 // Ranking of stocks' notations using intraday figures.
-                InlineResponse20010 result = apiInstance.PostStockNotationRankingIntradayList(body);
+                InlineResponse2006 result = apiInstance.PostStockNotationRankingIntradayList(inlineObject1);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1114,10 +1114,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -1138,7 +1138,7 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationscreenersearch"></a>
 # **PostStockNotationScreenerSearch**
-> InlineResponse20011 PostStockNotationScreenerSearch (InlineObject3 body = null)
+> InlineResponse2007 PostStockNotationScreenerSearch (InlineObject2 inlineObject2 = null)
 
 Screener for stocks' notations based on stock-specific parameters.
 
@@ -1180,12 +1180,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var body = new InlineObject3(); // InlineObject3 |  (optional) 
+            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
             {
                 // Screener for stocks' notations based on stock-specific parameters.
-                InlineResponse20011 result = apiInstance.PostStockNotationScreenerSearch(body);
+                InlineResponse2007 result = apiInstance.PostStockNotationScreenerSearch(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1203,10 +1203,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -1227,7 +1227,7 @@ Name | Type | Description  | Notes
 
 <a name="poststocknotationscreenervaluerangesget"></a>
 # **PostStockNotationScreenerValueRangesGet**
-> InlineResponse20012 PostStockNotationScreenerValueRangesGet (InlineObject4 body = null)
+> InlineResponse2008 PostStockNotationScreenerValueRangesGet (InlineObject3 inlineObject3 = null)
 
 Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
 
@@ -1269,12 +1269,12 @@ namespace Example
 
             var apiInstance = new StockApi(config);
 
-            var body = new InlineObject4(); // InlineObject4 |  (optional) 
+            var inlineObject3 = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
             {
                 // Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
-                InlineResponse20012 result = apiInstance.PostStockNotationScreenerValueRangesGet(body);
+                InlineResponse2008 result = apiInstance.PostStockNotationScreenerValueRangesGet(inlineObject3);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -1292,10 +1292,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 

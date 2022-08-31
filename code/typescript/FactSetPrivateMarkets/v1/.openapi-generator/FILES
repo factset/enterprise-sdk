@@ -5,6 +5,10 @@
 LICENSE
 README.md
 docs/DataItemsApi.md
+docs/EntityMatch.md
+docs/EntityMatchRequest.md
+docs/EntityMatchRequestInput.md
+docs/EntityMatchesResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Field.md
@@ -17,6 +21,7 @@ docs/NonPeriodic.md
 docs/NonPeriodicApi.md
 docs/NonPeriodicRequest.md
 docs/NonPeriodicResponse.md
+docs/UniverseApi.md
 git_push.sh
 mocha.opts
 package.json
@@ -24,7 +29,12 @@ src/ApiClient.js
 src/api/DataItemsApi.js
 src/api/FinancialsApi.js
 src/api/NonPeriodicApi.js
+src/api/UniverseApi.js
 src/index.js
+src/model/EntityMatch.js
+src/model/EntityMatchRequest.js
+src/model/EntityMatchRequestInput.js
+src/model/EntityMatchesResponse.js
 src/model/ErrorResponse.js
 src/model/ErrorResponseSubErrors.js
 src/model/Field.js

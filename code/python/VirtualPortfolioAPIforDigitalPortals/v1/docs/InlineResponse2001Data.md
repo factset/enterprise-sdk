@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **id** | **str** | Identifier of the portfolio. | [optional] 
 **name** | **str** | Name of the portfolio. | [optional] 
 **currency** | [**InlineResponse2001DataCurrency**](InlineResponse2001DataCurrency.md) |  | [optional] 
+**lifecycle** | [**InlineResponse2001DataLifecycle**](InlineResponse2001DataLifecycle.md) |  | [optional] 
+**as_of_date** | **str** | Date and time of the portfolio valuation. | [optional] 
 **summary** | [**InlineResponse2001DataSummary**](InlineResponse2001DataSummary.md) |  | [optional] 
 **profit_loss** | [**InlineResponse2001DataProfitLoss**](InlineResponse2001DataProfitLoss.md) |  | [optional] 
 **risk_key_figures** | [**InlineResponse2001DataRiskKeyFigures**](InlineResponse2001DataRiskKeyFigures.md) |  | [optional] 

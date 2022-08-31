@@ -10,6 +10,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -28,6 +30,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -59,6 +63,8 @@ fds/sdk/Vault/model/calculation_status_meta.py
 fds/sdk/Vault/model/calculation_status_root.py
 fds/sdk/Vault/model/calculation_unit_status.py
 fds/sdk/Vault/model/calculation_unit_status_meta.py
+fds/sdk/Vault/model/calculations_summary.py
+fds/sdk/Vault/model/calculations_summary_root.py
 fds/sdk/Vault/model/client_error_response.py
 fds/sdk/Vault/model/component_summary.py
 fds/sdk/Vault/model/component_summary_root.py
@@ -72,6 +78,8 @@ fds/sdk/Vault/model/error_source.py
 fds/sdk/Vault/model/frequency.py
 fds/sdk/Vault/model/frequency_root.py
 fds/sdk/Vault/model/object_root.py
+fds/sdk/Vault/model/pagination_info.py
+fds/sdk/Vault/model/pagination_meta.py
 fds/sdk/Vault/model/vault_calculation_parameters.py
 fds/sdk/Vault/model/vault_calculation_parameters_root.py
 fds/sdk/Vault/model/vault_component.py

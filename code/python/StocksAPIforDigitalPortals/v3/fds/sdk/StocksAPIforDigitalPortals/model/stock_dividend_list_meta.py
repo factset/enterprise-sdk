@@ -161,7 +161,7 @@ class StockDividendListMeta(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes (AttributesMember): [optional]  # noqa: E501
             language (LanguageMember): [optional]  # noqa: E501
-            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.. [optional]  # noqa: E501
+            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.. [optional] if omitted the server will use the default value of ["dates.payment"]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,7 +245,7 @@ class StockDividendListMeta(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes (AttributesMember): [optional]  # noqa: E501
             language (LanguageMember): [optional]  # noqa: E501
-            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.. [optional]  # noqa: E501
+            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.. [optional] if omitted the server will use the default value of ["dates.payment"]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

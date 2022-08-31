@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -49,34 +53,34 @@ public class Greeks implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DELTA = "delta";
-  private Double delta;
+  private JsonNullable<Double> delta = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_GAMMA = "gamma";
-  private Double gamma;
+  private JsonNullable<Double> gamma = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
   public static final String JSON_PROPERTY_RHO = "rho";
-  private Double rho;
+  private JsonNullable<Double> rho = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_THETA = "theta";
-  private Double theta;
+  private JsonNullable<Double> theta = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_VEGA = "vega";
-  private Double vega;
+  private JsonNullable<Double> vega = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public Greeks() { 
   }
 
   public Greeks delta(Double delta) {
-    this.delta = delta;
+    this.delta = JsonNullable.<Double>of(delta);
     return this;
   }
 
@@ -86,23 +90,31 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.973638814832741", value = "The delta value of the option. Refer to the `greeks` endpoint description for more details")
-  @JsonProperty(JSON_PROPERTY_DELTA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getDelta() {
-    return delta;
+        return delta.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DELTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDelta(Double delta) {
+
+  public JsonNullable<Double> getDelta_JsonNullable() {
+    return delta;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DELTA)
+  public void setDelta_JsonNullable(JsonNullable<Double> delta) {
     this.delta = delta;
+  }
+
+  public void setDelta(Double delta) {
+    this.delta = JsonNullable.<Double>of(delta);
   }
 
 
   public Greeks fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -112,23 +124,31 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Greeks gamma(Double gamma) {
-    this.gamma = gamma;
+    this.gamma = JsonNullable.<Double>of(gamma);
     return this;
   }
 
@@ -138,18 +158,26 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.0000276813921231278", value = "The gamma value of the option. Refer to the `greeks` endpoint description for more details")
-  @JsonProperty(JSON_PROPERTY_GAMMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getGamma() {
-    return gamma;
+        return gamma.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_GAMMA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGamma(Double gamma) {
+
+  public JsonNullable<Double> getGamma_JsonNullable() {
+    return gamma;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GAMMA)
+  public void setGamma_JsonNullable(JsonNullable<Double> gamma) {
     this.gamma = gamma;
+  }
+
+  public void setGamma(Double gamma) {
+    this.gamma = JsonNullable.<Double>of(gamma);
   }
 
 
@@ -180,7 +208,7 @@ public class Greeks implements Serializable {
 
 
   public Greeks rho(Double rho) {
-    this.rho = rho;
+    this.rho = JsonNullable.<Double>of(rho);
     return this;
   }
 
@@ -190,23 +218,31 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.094465131548418", value = "The rho value of the option. Refer to the `greeks` endpoint description for more details")
-  @JsonProperty(JSON_PROPERTY_RHO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getRho() {
-    return rho;
+        return rho.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_RHO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRho(Double rho) {
+
+  public JsonNullable<Double> getRho_JsonNullable() {
+    return rho;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RHO)
+  public void setRho_JsonNullable(JsonNullable<Double> rho) {
     this.rho = rho;
+  }
+
+  public void setRho(Double rho) {
+    this.rho = JsonNullable.<Double>of(rho);
   }
 
 
   public Greeks theta(Double theta) {
-    this.theta = theta;
+    this.theta = JsonNullable.<Double>of(theta);
     return this;
   }
 
@@ -216,23 +252,31 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.473699140972176", value = "The theta value of the option. Refer to the `greeks` endpoint description for more details")
-  @JsonProperty(JSON_PROPERTY_THETA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTheta() {
-    return theta;
+        return theta.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_THETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTheta(Double theta) {
+
+  public JsonNullable<Double> getTheta_JsonNullable() {
+    return theta;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_THETA)
+  public void setTheta_JsonNullable(JsonNullable<Double> theta) {
     this.theta = theta;
+  }
+
+  public void setTheta(Double theta) {
+    this.theta = JsonNullable.<Double>of(theta);
   }
 
 
   public Greeks vega(Double vega) {
-    this.vega = vega;
+    this.vega = JsonNullable.<Double>of(vega);
     return this;
   }
 
@@ -242,23 +286,31 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.246816993561083", value = "The vega value of the option. Refer to the `greeks` endpoint description for more details")
-  @JsonProperty(JSON_PROPERTY_VEGA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getVega() {
-    return vega;
+        return vega.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VEGA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVega(Double vega) {
+
+  public JsonNullable<Double> getVega_JsonNullable() {
+    return vega;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VEGA)
+  public void setVega_JsonNullable(JsonNullable<Double> vega) {
     this.vega = vega;
+  }
+
+  public void setVega(Double vega) {
+    this.vega = JsonNullable.<Double>of(vega);
   }
 
 
   public Greeks date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -268,18 +320,26 @@ public class Greeks implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
@@ -295,19 +355,30 @@ public class Greeks implements Serializable {
       return false;
     }
     Greeks greeks = (Greeks) o;
-    return Objects.equals(this.delta, greeks.delta) &&
-        Objects.equals(this.fsymId, greeks.fsymId) &&
-        Objects.equals(this.gamma, greeks.gamma) &&
+    return equalsNullable(this.delta, greeks.delta) &&
+        equalsNullable(this.fsymId, greeks.fsymId) &&
+        equalsNullable(this.gamma, greeks.gamma) &&
         Objects.equals(this.requestId, greeks.requestId) &&
-        Objects.equals(this.rho, greeks.rho) &&
-        Objects.equals(this.theta, greeks.theta) &&
-        Objects.equals(this.vega, greeks.vega) &&
-        Objects.equals(this.date, greeks.date);
+        equalsNullable(this.rho, greeks.rho) &&
+        equalsNullable(this.theta, greeks.theta) &&
+        equalsNullable(this.vega, greeks.vega) &&
+        equalsNullable(this.date, greeks.date);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delta, fsymId, gamma, requestId, rho, theta, vega, date);
+    return Objects.hash(hashCodeNullable(delta), hashCodeNullable(fsymId), hashCodeNullable(gamma), requestId, hashCodeNullable(rho), hashCodeNullable(theta), hashCodeNullable(vega), hashCodeNullable(date));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

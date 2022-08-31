@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.CapitalStructureReportBuilder",
-  "packageVersion": "0.21.0",
+  "packageVersion": "1.0.0",
   "packageGuid": "{c9f58764-8dbb-5e2f-b56a-b4dcb93b81d1}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/CapitalStructureReportBuilder/0.21.0",
+  "httpUserAgent": "fds-sdk/dotnet/CapitalStructureReportBuilder/1.0.0",
   "files": {
     "LICENSE": {}
   },

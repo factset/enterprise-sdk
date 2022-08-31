@@ -13,7 +13,7 @@
     <Description>Price Alerting API for Digital Portals client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.PriceAlertingAPIforDigitalPortals</RootNamespace>
-    <Version>0.10.2</Version>
+    <Version>0.10.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.PriceAlertingAPIforDigitalPortals.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

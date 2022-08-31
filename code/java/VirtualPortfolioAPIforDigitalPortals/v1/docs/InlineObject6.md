@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PortfolioTransactionModifyData**](PortfolioTransactionModifyData.md) |  |  [optional]
-**meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  |  [optional]
+**data** | [**PortfolioPayoutListData**](PortfolioPayoutListData.md) |  |  [optional]
+**meta** | [**PortfolioPayoutListMeta**](PortfolioPayoutListMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;InlineResponse20010Data&gt;**](InlineResponse20010Data.md) | List of watchlist. | [optional] 
-**Meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
+**Data** | [**InlineResponse20010Data**](InlineResponse20010Data.md) |  | [optional] 
+**Meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

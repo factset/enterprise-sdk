@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -45,16 +49,16 @@ public class Chains implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPTION_ID = "optionId";
-  private String optionId;
+  private JsonNullable<String> optionId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID_TYPE = "idType";
-  private String idType;
+  private JsonNullable<String> idType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -63,7 +67,7 @@ public class Chains implements Serializable {
   }
 
   public Chains fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -73,23 +77,31 @@ public class Chains implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Chains optionId(String optionId) {
-    this.optionId = optionId;
+    this.optionId = JsonNullable.<String>of(optionId);
     return this;
   }
 
@@ -99,23 +111,31 @@ public class Chains implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "The option id, in the format requested via `idType` parameter.")
-  @JsonProperty(JSON_PROPERTY_OPTION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getOptionId() {
-    return optionId;
+        return optionId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptionId(String optionId) {
+
+  public JsonNullable<String> getOptionId_JsonNullable() {
+    return optionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTION_ID)
+  public void setOptionId_JsonNullable(JsonNullable<String> optionId) {
     this.optionId = optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = JsonNullable.<String>of(optionId);
   }
 
 
   public Chains idType(String idType) {
-    this.idType = idType;
+    this.idType = JsonNullable.<String>of(idType);
     return this;
   }
 
@@ -125,23 +145,31 @@ public class Chains implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FOS", value = "The type of id requested in the query. This is a straight pass-through value.")
-  @JsonProperty(JSON_PROPERTY_ID_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIdType() {
-    return idType;
+        return idType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ID_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIdType(String idType) {
+
+  public JsonNullable<String> getIdType_JsonNullable() {
+    return idType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ID_TYPE)
+  public void setIdType_JsonNullable(JsonNullable<String> idType) {
     this.idType = idType;
+  }
+
+  public void setIdType(String idType) {
+    this.idType = JsonNullable.<String>of(idType);
   }
 
 
   public Chains date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -151,18 +179,26 @@ public class Chains implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
@@ -204,16 +240,27 @@ public class Chains implements Serializable {
       return false;
     }
     Chains chains = (Chains) o;
-    return Objects.equals(this.fsymId, chains.fsymId) &&
-        Objects.equals(this.optionId, chains.optionId) &&
-        Objects.equals(this.idType, chains.idType) &&
-        Objects.equals(this.date, chains.date) &&
+    return equalsNullable(this.fsymId, chains.fsymId) &&
+        equalsNullable(this.optionId, chains.optionId) &&
+        equalsNullable(this.idType, chains.idType) &&
+        equalsNullable(this.date, chains.date) &&
         Objects.equals(this.requestId, chains.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, optionId, idType, date, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(optionId), hashCodeNullable(idType), hashCodeNullable(date), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

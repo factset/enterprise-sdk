@@ -5,10 +5,10 @@ The data member contains the request's primary data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of watchlist | 
-**Id** | **decimal** | Position id. | 
-**Notation** | **string** | Identifier of the notation | [optional] 
-**AdditionalData** | **string** | Additional data to the watched position. | [optional] 
+**Id** | **string** | Identifier of the watchlist. | 
+**Position** | [**WatchlistPositionModifyDataPosition**](WatchlistPositionModifyDataPosition.md) |  | 
+**Notation** | [**WatchlistPositionCreateDataNotation**](WatchlistPositionCreateDataNotation.md) |  | [optional] 
+**Comment** | **string** | Personal note for the watchlist position. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

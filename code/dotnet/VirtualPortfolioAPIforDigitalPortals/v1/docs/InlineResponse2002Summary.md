@@ -5,7 +5,8 @@ Summary of portfolio values in the portfolio's currency (see attribute `currency
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalValue** | **decimal** | The total portfolio value, including the current cash amount. | [optional] 
+**TotalValue** | **decimal** | The total portfolio value, i.e. the current market value of the portfolio plus cash. | [optional] 
+**MarketValue** | **decimal** | The current market value of the securities in the portfolio. | [optional] 
 **NumberPositions** | **decimal** | Number of positions in the portfolio. | [optional] 
 **Transactions** | [**InlineResponse2002SummaryTransactions**](InlineResponse2002SummaryTransactions.md) |  | [optional] 
 **Cash** | [**InlineResponse2001DataSummaryCash**](InlineResponse2001DataSummaryCash.md) |  | [optional] 

@@ -89,8 +89,9 @@ paths:
       description: >
         Returns all the option identifiers based on the conditions provided as
         input in the request. Conditions are as follows and will follow "AND"
-        logic if more than one condition is applied. If a condition is used the
-        accompanying value MUST be used - 
+        logic if more than one condition is applied and allows up to **three
+        conditions** using AND Logic.If a condition is used the accompanying
+        value MUST be used - 
 
         |conditions|description|
 
@@ -674,11 +675,13 @@ components:
           type: string
           example: WWDPYB-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID
+          nullable: true
         optionId:
           description: The option id, in the format requested via `idType` parameter.
           type: string
           example: TSLA.US#C00LP
           x-fds-fql-formula: P_OPT_SYMBOL
+          nullable: true
         idType:
           description: >-
             The type of id requested in the query. This is a straight
@@ -686,12 +689,14 @@ components:
           type: string
           example: FOS
           x-fds-fql-formula: NOT APPLICABLE - PASSTHROUGH
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-07'
           x-fds-fql-formula: P_DATE
+          nullable: true
         requestId:
           description: The inputed value for the id parameter.
           type: string
@@ -805,6 +810,7 @@ components:
           description: The option identifier
           example: AAPL.US#C0185
           x-fds-fql-formula: P_OPT_SCREENING
+          nullable: true
       description: Option Screening response fields
     snapshotRequest:
       title: snapshotRequest
@@ -840,12 +846,14 @@ components:
           type: string
           example: TSLA.US#CD33M-USA
           x-fds-fql-formula: P_OPT_SYMBOL
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD
           type: string
           format: date
           example: '2021-04-13'
           x-fds-fql-formula: P_DATE
+          nullable: true
         delta:
           description: >
             The ratio comparing the change in the price of the underlying asset
@@ -864,12 +872,14 @@ components:
           format: double
           example: 0.77158491
           x-fds-fql-formula: P_OPT_DELTA
+          nullable: true
         expirationDate:
           description: The expiration date of the option contract in YYYY-MM-DD format
           type: string
           format: date
           example: '2021-12-17'
           x-fds-fql-formula: P_OPT_EXP_DATEN
+          nullable: true
         impliedVolatility:
           description: >
             The implied volatility for the option identifier. Visit [OA
@@ -878,11 +888,13 @@ components:
           format: double
           example: 66.226879
           x-fds-fql-formula: P_OPT_IMPV
+          nullable: true
         name:
           description: The name of the option security.
           type: string
           example: Tesla Inc Call DEC21 590.00
           x-fds-fql-formula: P_OPT_SECURITY_NAME
+          nullable: true
         openInterest:
           description: >-
             The total number of options and/or futures contracts that are not
@@ -890,6 +902,7 @@ components:
           type: integer
           example: 92
           x-fds-fql-formula: P_OPT_OPEN_INTEREST
+          nullable: true
         price:
           description: >
             The calculated price quote, based on the calculated status. For US
@@ -900,6 +913,7 @@ components:
           format: double
           example: 247.425
           x-fds-fql-formula: P_OPT_CALC_QUOTE
+          nullable: true
         requestId:
           description: The input value for the id parameter.
           type: string
@@ -940,6 +954,7 @@ components:
           type: integer
           example: 0
           x-fds-fql-formula: P_OPT_STYLE
+          nullable: true
         type:
           description: |
             The option type code, where 
@@ -953,6 +968,7 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: P_OPT_OPTION_TYPE
+          nullable: true
         underlyingFsymSecurityId:
           description: >
             The Symbol of the security that must be delivered when a derivative
@@ -962,6 +978,7 @@ components:
           type: string
           example: WWDPYB-S
           x-fds-fql-formula: P_OPT_UNDERLYING_SECURITY
+          nullable: true
         underlyingPrice:
           description: |
             The price of the underyling security as of the date requested.
@@ -969,6 +986,7 @@ components:
           format: double
           example: 762.32
           x-fds-fql-formula: P_OPT_UNDERLYING_PRICE
+          nullable: true
     optionsReferencesRequest:
       type: object
       properties:
@@ -996,6 +1014,7 @@ components:
           type: string
           example: TSLA.US#C00LP
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         adjustedFlag:
           description: >-
             Indicates whether or not a given option contract is adjusted for
@@ -1003,6 +1022,7 @@ components:
           type: string
           example: 'N'
           x-fds-fql-formula: P_OPT_ISADJUSTED
+          nullable: true
         callPutFlag:
           description: >-
             Returns a 0 if the option is a call, returns a 1 if the option is a
@@ -1010,6 +1030,7 @@ components:
           type: integer
           example: 0
           x-fds-fql-formula: P_OPT_CALL_OR_PUT
+          nullable: true
         callPutPairSymbol:
           description: >-
             Returns the corresponding put symbol given a call symbol; and
@@ -1017,16 +1038,19 @@ components:
           type: string
           example: TSLA.US#PGGVL
           x-fds-fql-formula: P_OPT_PC_PAIRS
+          nullable: true
         contractSize:
           description: The Option Contract Size
           type: integer
           example: 100
           x-fds-fql-formula: P_OPT_CONTRACT_SIZE
+          nullable: true
         currency:
           description: Option Currency in ISO3 format.
           type: string
           example: USD
           x-fds-fql-formula: P_OPT_CURRENCY
+          nullable: true
         exchange:
           description: >-
             Option Exchange ISO. Visit [OA
@@ -1035,6 +1059,7 @@ components:
           type: string
           example: USA
           x-fds-fql-formula: P_OPT_EXCHANGE
+          nullable: true
         expirationDate:
           description: >-
             The date on which an options contract is no longer valid and,
@@ -1043,6 +1068,7 @@ components:
           format: date
           example: '2021-09-17'
           x-fds-fql-formula: P_OPT_EXP_DATEN
+          nullable: true
         expirationFrequency:
           description: >-
             Returns the corresponding expiration frequency for a given option
@@ -1052,11 +1078,13 @@ components:
           type: string
           example: LEAPS
           x-fds-fql-formula: P_OPT_EXP_FREQ
+          nullable: true
         expirationMonth:
           description: Option Expiration month in MMM format.
           type: string
           example: SEP
           x-fds-fql-formula: P_OPT_EXP_MONTH
+          nullable: true
         lepoFlag:
           description: >-
             Indicates whether or not a given options contract is a Low Exercise
@@ -1065,11 +1093,13 @@ components:
           type: integer
           example: null
           x-fds-fql-formula: P_OPT_IS_LEPO
+          nullable: true
         name:
           description: Option Descriptive Security Name
           type: string
           example: Tesla Inc Call SEP21 190.00 (LEAPs)
           x-fds-fql-formula: P_OPT_SECURITY_NAME
+          nullable: true
         occ21Symbol:
           description: >
             Options Clearing Corporation OSI Series Key This option symbol has
@@ -1080,6 +1110,7 @@ components:
           type: string
           example: TSLA#210917C00190000
           x-fds-fql-formula: P_OPT_SYMBOL("OCC21")
+          nullable: true
         opra17Symbol:
           description: >
             Options Price Reporting Authority's OSI Series Key. This option
@@ -1090,11 +1121,13 @@ components:
           type: string
           example: TSLA#I1721C190000
           x-fds-fql-formula: P_OPT_SYMBOL("OPRA17")
+          nullable: true
         rootTicker:
           description: The Root Ticker for the underlying security.
           type: string
           example: TSLA
           x-fds-fql-formula: P_OPT_ROOT_SYMBOL
+          nullable: true
         style:
           description: >
             Returns the style of the option id requested, where - 
@@ -1133,6 +1166,7 @@ components:
           type: integer
           example: 0
           x-fds-fql-formula: P_OPT_STYLE
+          nullable: true
         type:
           description: |
             The option type code, where 
@@ -1146,15 +1180,18 @@ components:
           type: integer
           example: 1
           x-fds-fql-formula: P_OPT_OPTION_TYPE
+          nullable: true
         underlyingFsymSecurityId:
           description: Underlying FactSet Security Permanent Identifier in XXXXXX-S format.
           type: string
           example: WWDPYB-S
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-07'
+          nullable: true
         settlementMethod:
           description: |
             The contract settlement method. Possible values are -
@@ -1165,6 +1202,7 @@ components:
             |NA|Not Covered|
           type: string
           example: null
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1198,18 +1236,21 @@ components:
           format: date
           example: '2021-09-17'
           x-fds-fql-formula: P_OPT_EXP_DATEN
+          nullable: true
         firstAskDate:
           description: The date of first ask price for the option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2020-08-31'
           x-fds-fql-formula: P_OPT_FIRST_ASK_DATE
+          nullable: true
         firstBidDate:
           description: The date of first bid price for the option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2020-08-31'
           x-fds-fql-formula: P_OPT_FIRST_BID_DATE
+          nullable: true
         firstSettlementDate:
           description: >-
             The date of first settlement price for the option in YYYY-MM-DD
@@ -1218,24 +1259,28 @@ components:
           format: date
           example: null
           x-fds-fql-formula: P_OPT_FIRST_SETTLE_DATE
+          nullable: true
         firstTradeDate:
           description: First Trading Date of the Option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2020-09-01'
           x-fds-fql-formula: P_OPT_FIRST_TRADE_DATE
+          nullable: true
         lastAskDate:
           description: The date of last ask price for the option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-05'
           x-fds-fql-formula: P_OPT_LAST_ASK_DATE
+          nullable: true
         lastBidDate:
           description: The date of last bid price for the option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-05'
           x-fds-fql-formula: P_OPT_LAST_BID_DATE
+          nullable: true
         lastSettlementDate:
           description: >-
             The date of last settlement price for the option in YYYY-MM-DD
@@ -1244,17 +1289,20 @@ components:
           format: date
           example: null
           x-fds-fql-formula: P_OPT_LAST_SETTLE_DATE
+          nullable: true
         lastTradeDate:
           description: Last Trading Date of the Option in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-02-16'
           x-fds-fql-formula: P_OPT_LAST_TRADE_DATE
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-07'
+          nullable: true
         fsymId:
           description: >-
             FactSet's Option Symbol. For more detail, visit [OA
@@ -1262,6 +1310,7 @@ components:
           type: string
           example: TSLA.US#C00LP
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1304,17 +1353,20 @@ components:
           format: double
           example: 155959
           x-fds-fql-formula: P_OPT_ASK_TIME
+          nullable: true
         bidTime:
           description: Returns the Last Trade time
           type: number
           format: double
           example: 155959
           x-fds-fql-formula: P_OPT_BID_TIME
+          nullable: true
         date:
           description: The date of data in YYYY-MM-DD format
           type: string
           format: date
           example: '2021-05-05'
+          nullable: true
         fsymId:
           description: >-
             FactSet's Option Symbol. For more detail, visit [OA
@@ -1322,59 +1374,69 @@ components:
           type: string
           example: TSLA.US#C00LP
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         price52WeekHigh:
           description: 52-Week High Price
           type: number
           format: double
           example: 663.6
           x-fds-fql-formula: P_OPT_HIGH_52WK
+          nullable: true
         price52WeekLow:
           description: 52-Week Low Price
           type: number
           format: double
           example: 189.3
           x-fds-fql-formula: P_OPT_LOW_52WK
+          nullable: true
         priceAsk:
           description: Ask price of the option
           type: number
           example: 492
           format: double
           x-fds-fql-formula: P_OPT_ASK_PRICE
+          nullable: true
         priceBid:
           description: Bid price of the option
           type: number
           format: double
           example: 472.25
           x-fds-fql-formula: P_OPT_BID_PRICE
+          nullable: true
         priceMidBidAsk:
           description: Mid/Bid/Ask price of the option
           type: number
           format: double
           example: 482.125
           x-fds-fql-formula: P_OPT_MIDBIDASK_PRICE
+          nullable: true
         priceOpen:
           description: Open price of the option
           type: number
           format: double
           example: null
           x-fds-fql-formula: P_OPT_OPEN_PRICE
+          nullable: true
         priceHigh:
           description: High price of the option
           type: number
           format: double
           example: null
           x-fds-fql-formula: P_OPT_HIGH_PRICE
+          nullable: true
         priceLow:
           description: Low price of the option
           type: number
           format: double
           example: null
           x-fds-fql-formula: P_OPT_LOW_PRICE
+          nullable: true
         priceSettlement:
           description: Settlement price of the option
           type: number
           example: null
           x-fds-fql-formula: P_OPT_SETTLEMENT_PRICE
+          nullable: true
         priceStrike:
           description: >-
             The stated price per share for which underlying stock may be
@@ -1384,6 +1446,7 @@ components:
           format: double
           example: 190
           x-fds-fql-formula: P_OPT_STRIKE_PRICE
+          nullable: true
         priceUnderlying:
           description: >-
             The price of the security that must be delivered when a derivative
@@ -1392,6 +1455,7 @@ components:
           format: double
           example: 670.94
           x-fds-fql-formula: P_OPT_UNDERLYING_PRICE
+          nullable: true
         price:
           description: >
             The price of the option based on the `quoteType` calculation. For US
@@ -1402,6 +1466,7 @@ components:
           format: double
           example: 428.375
           x-fds-fql-formula: P_OPT_CALC_QUOTE
+          nullable: true
         quoteType:
           description: >
             The calculated quote type, based on the calculated status. This
@@ -1411,6 +1476,7 @@ components:
           type: string
           example: Mid Bid/Ask Price
           x-fds-fql-formula: P_OPT_CALC_QUOTE_TYPE
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1451,6 +1517,7 @@ components:
           type: string
           format: date
           example: '2021-05-14'
+          nullable: true
         exchange:
           description: >-
             Option Exchange ISO. Visit [OA
@@ -1458,6 +1525,7 @@ components:
             Exchange ISOs.
           type: string
           example: USA
+          nullable: true
         fsymId:
           description: >-
             FactSet's Security Permanent Identifier for input security in
@@ -1465,12 +1533,14 @@ components:
           type: string
           example: WWDPYB-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID('SECURITY')
+          nullable: true
         putCallRatio:
           description: Put/Call Ratio (Open Interest)
           type: number
           format: double
           example: 1.0257621
           x-fds-fql-formula: P_OPT_OI_PC_RATIO
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1481,36 +1551,42 @@ components:
           format: integer
           example: 2753464
           x-fds-fql-formula: P_OPT_CALL_OPEN_INTEREST
+          nullable: true
         totalCallVolume:
           description: Total Call Volume
           type: number
           format: double
           example: 946936
           x-fds-fql-formula: P_OPT_CALL_VOLUME
+          nullable: true
         totalPutCallOpenInterest:
           description: Total Call/Put Open Interest
           type: number
           format: integer
           example: 5577863
           x-fds-fql-formula: P_OPT_ALL_OPEN_INTEREST
+          nullable: true
         totalPutCallVolume:
           description: Total Call/Put Volume
           type: number
           format: double
           example: 1646616
           x-fds-fql-formula: P_OPT_ALL_VOLUME
+          nullable: true
         totalPutOpenInterest:
           description: Total Put Open Interest
           type: number
           format: integer
           example: 2824399
           x-fds-fql-formula: P_OPT_PUT_OPEN_INTEREST
+          nullable: true
         totalPutVolume:
           description: Total Put Volume
           type: number
           format: double
           example: 699680
           x-fds-fql-formula: P_OPT_PUT_VOLUME
+          nullable: true
     optionsVolumeRequest:
       title: optionsVolumeRequest
       type: object
@@ -1549,12 +1625,14 @@ components:
           type: string
           example: TSLA.US#PYG8L
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         date:
           description: The date of the data in YYYY-MM-DD format
           type: string
           format: date
           example: '2021-05-06'
           x-fds-fql-formula: P_DATE
+          nullable: true
         exchange:
           description: >-
             Option Exchange ISO. Visit [OA
@@ -1563,6 +1641,7 @@ components:
           type: string
           example: USA
           x-fds-fql-formula: P_OPT_EXCHANGE
+          nullable: true
         openInterest:
           description: >-
             The total number of options and/or futures contracts that are not
@@ -1571,12 +1650,14 @@ components:
           format: integer
           example: 92
           x-fds-fql-formula: P_OPT_OPEN_INTEREST
+          nullable: true
         volume:
           description: Volume of the option
           type: number
           format: double
           example: 3017
           x-fds-fql-formula: P_OPT_VOLUME
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1630,11 +1711,13 @@ components:
           format: double
           example: 61.744664
           x-fds-fql-formula: P_OPT_IMPV
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-07'
+          nullable: true
         fsymId:
           description: >-
             FactSet's Option Symbol. For more detail, visit [OA
@@ -1642,6 +1725,7 @@ components:
           type: string
           example: TSLA.US#CD33M
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1687,6 +1771,7 @@ components:
           format: double
           example: 0.973638814832741
           x-fds-fql-formula: P_OPT_DELTA
+          nullable: true
         fsymId:
           description: >-
             FactSet's Option Symbol. For more detail, visit [OA
@@ -1694,6 +1779,7 @@ components:
           type: string
           example: TSLA.US#C00LP
           x-fds-fql-formula: P_OPT_SYMBOL('FOS')
+          nullable: true
         gamma:
           description: >-
             The gamma value of the option. Refer to the `greeks` endpoint
@@ -1702,6 +1788,7 @@ components:
           format: double
           example: 0.0000276813921231278
           x-fds-fql-formula: P_OPT_GAMMA
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string
@@ -1714,6 +1801,7 @@ components:
           format: double
           example: 0.094465131548418
           x-fds-fql-formula: P_OPT_RHO
+          nullable: true
         theta:
           description: >-
             The theta value of the option. Refer to the `greeks` endpoint
@@ -1722,6 +1810,7 @@ components:
           format: double
           example: 0.473699140972176
           x-fds-fql-formula: P_OPT_THETA
+          nullable: true
         vega:
           description: >-
             The vega value of the option. Refer to the `greeks` endpoint
@@ -1730,11 +1819,13 @@ components:
           format: double
           example: 0.246816993561083
           x-fds-fql-formula: P_OPT_VEGA
+          nullable: true
         date:
           description: The date the data is as of in YYYY-MM-DD format.
           type: string
           format: date
           example: '2021-05-07'
+          nullable: true
     atmImpliedVolatilityRequest:
       title: atmImpliedVolatilityRequest
       type: object
@@ -1772,26 +1863,31 @@ components:
           type: number
           format: double
           example: 58.015339
+          nullable: true
         aTMImplVolMarket:
           description: Option at the money implied volatility market.
           type: number
           format: double
           example: 58.579093
+          nullable: true
         callATMImplVol:
           description: Call option at the money implied volatility.
           type: number
           format: double
           example: 58.015339
+          nullable: true
         callATMImplVolMarket:
           description: Call option at the money implied volatility market.
           type: number
           example: 58.791874
           format: double
+          nullable: true
         date:
           description: The date of the data represented in YYYY-MM-DD format
           type: string
           format: date
           example: '2021-05-14'
+          nullable: true
         exchange:
           description: >-
             Option Exchange ISO. Visit [OA
@@ -1799,27 +1895,32 @@ components:
             Exchange ISOs.
           type: string
           example: USA
+          nullable: true
         fsymId:
           description: FactSet's Security Permanent Identifier in XXXXXX-S format.
           type: string
           example: WWDPYB-S
           x-fds-fql-formula: FSYM_SECURITY_PERM_ID
+          nullable: true
         period:
           description: >-
             The period of the At-the-money volatility at current, 1, 2, 3, 4,
             and 6 month periods.
           type: string
           example: '1'
+          nullable: true
         putATMImplVol:
           description: Put Option at the money implied volatility.
           type: number
           format: double
           example: 58.015339
+          nullable: true
         putATMImplVolMarket:
           description: Put Option at the money implied volatility market.
           type: number
           example: 58.810684
           format: double
+          nullable: true
         requestId:
           description: The requested identifier submitted in the query.
           type: string

@@ -34,7 +34,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002" /> class.
         /// </summary>
-        /// <param name="data">List of trade recommendations and target prices for a stock, in unspecified order..</param>
+        /// <param name="data">List of owners with their respective share sorted descending by the fraction owned..</param>
         /// <param name="meta">meta.</param>
         public InlineResponse2002(List<InlineResponse2002Data> data = default(List<InlineResponse2002Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// List of trade recommendations and target prices for a stock, in unspecified order.
+        /// List of owners with their respective share sorted descending by the fraction owned.
         /// </summary>
-        /// <value>List of trade recommendations and target prices for a stock, in unspecified order.</value>
+        /// <value>List of owners with their respective share sorted descending by the fraction owned.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse2002Data> Data { get; set; }
 

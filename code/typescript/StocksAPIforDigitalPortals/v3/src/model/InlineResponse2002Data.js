@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001DataTargetPrice from './InlineResponse2001DataTargetPrice';
-import InlineResponse2002Recommendation from './InlineResponse2002Recommendation';
+import InlineResponse2002Ownership from './InlineResponse2002Ownership';
+import InlineResponse2002Type from './InlineResponse2002Type';
 
 /**
  * The InlineResponse2002Data model module.
@@ -48,14 +48,17 @@ class InlineResponse2002Data {
         if (data) {
             obj = obj || new InlineResponse2002Data();
 
-            if (data.hasOwnProperty('snapshot')) {
-                obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'String');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('targetPrice')) {
-                obj['targetPrice'] = InlineResponse2001DataTargetPrice.constructFromObject(data['targetPrice']);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse2002Recommendation.constructFromObject(data['recommendation']);
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = InlineResponse2002Type.constructFromObject(data['type']);
+            }
+            if (data.hasOwnProperty('ownership')) {
+                obj['ownership'] = InlineResponse2002Ownership.constructFromObject(data['ownership']);
             }
         }
         return obj;
@@ -65,68 +68,29 @@ class InlineResponse2002Data {
 }
 
 /**
- * Identification of the historic snapshot for aggregated recommendations.
- * @member {module:model/InlineResponse2002Data.SnapshotEnum} snapshot
+ * Identifier of the owner. See endpoint `/legalEntity/list` for possible values.
+ * @member {String} id
  */
-InlineResponse2002Data.prototype['snapshot'] = undefined;
+InlineResponse2002Data.prototype['id'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001DataTargetPrice} targetPrice
+ * Name of the owner.
+ * @member {String} name
  */
-InlineResponse2002Data.prototype['targetPrice'] = undefined;
+InlineResponse2002Data.prototype['name'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2002Recommendation} recommendation
+ * @member {module:model/InlineResponse2002Type} type
  */
-InlineResponse2002Data.prototype['recommendation'] = undefined;
-
-
-
-
+InlineResponse2002Data.prototype['type'] = undefined;
 
 /**
- * Allowed values for the <code>snapshot</code> property.
- * @enum {String}
- * @readonly
+ * @member {module:model/InlineResponse2002Ownership} ownership
  */
-InlineResponse2002Data['SnapshotEnum'] = {
+InlineResponse2002Data.prototype['ownership'] = undefined;
 
-    /**
-     * value: "latest"
-     * @const
-     */
-    "latest": "latest",
 
-    /**
-     * value: "1w"
-     * @const
-     */
-    "1w": "1w",
 
-    /**
-     * value: "1m"
-     * @const
-     */
-    "1m": "1m",
-
-    /**
-     * value: "3m"
-     * @const
-     */
-    "3m": "3m",
-
-    /**
-     * value: "6m"
-     * @const
-     */
-    "6m": "6m",
-
-    /**
-     * value: "1y"
-     * @const
-     */
-    "1y": "1y"
-};
 
 
 

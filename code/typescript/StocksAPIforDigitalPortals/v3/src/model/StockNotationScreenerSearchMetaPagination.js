@@ -63,14 +63,16 @@ class StockNotationScreenerSearchMetaPagination {
 /**
  * Non-negative number of entries to skip, or 0 (default).
  * @member {Number} offset
+ * @default 0
  */
-StockNotationScreenerSearchMetaPagination.prototype['offset'] = undefined;
+StockNotationScreenerSearchMetaPagination.prototype['offset'] = 0;
 
 /**
  * Non-negative maximum number of entries to return.
  * @member {Number} limit
+ * @default 20
  */
-StockNotationScreenerSearchMetaPagination.prototype['limit'] = undefined;
+StockNotationScreenerSearchMetaPagination.prototype['limit'] = 20;
 
 
 

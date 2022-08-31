@@ -55,6 +55,12 @@ class StockNotationScreenerSearchDataComplianceFranceAnd(ModelNormal):
     """
 
     allowed_values = {
+        ('id',): {
+            '2': 2,
+            '3': 3,
+            '4': 4,
+            '10': 10,
+        },
     }
 
     validations = {

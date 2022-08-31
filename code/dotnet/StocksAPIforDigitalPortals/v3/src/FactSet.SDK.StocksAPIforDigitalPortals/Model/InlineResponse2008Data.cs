@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.StocksAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse2008Data
+    /// Possible values and value ranges of the parameters. 
     /// </summary>
     [DataContract(Name = "inline_response_200_8_data")]
     public partial class InlineResponse2008Data : IEquatable<InlineResponse2008Data>, IValidatableObject
@@ -34,27 +34,134 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2008Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a dividend type..</param>
-        /// <param name="name">Name of the dividend type..</param>
-        public InlineResponse2008Data(decimal id = default(decimal), string name = default(string))
+        /// <param name="totalCount">Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges..</param>
+        /// <param name="valueUnit">List of value unit identifiers. See endpoint &#x60;/basic/valueUnit/list&#x60; for possible values..</param>
+        /// <param name="market">List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for possible values..</param>
+        /// <param name="stockType">List of stock types..</param>
+        /// <param name="industryClassification">Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint &#x60;/category/listBySystem&#x60; with &#x60;id&#x3D;48&#x60; for possible values..</param>
+        /// <param name="company">company.</param>
+        /// <param name="compliance">compliance.</param>
+        /// <param name="reportedKeyFigures">reportedKeyFigures.</param>
+        /// <param name="performance">performance.</param>
+        /// <param name="volatility">volatility.</param>
+        /// <param name="tradingValue">tradingValue.</param>
+        /// <param name="simpleMovingAverage">simpleMovingAverage.</param>
+        /// <param name="rsiWilder">rsiWilder.</param>
+        /// <param name="recommendation">recommendation.</param>
+        /// <param name="estimates">estimates.</param>
+        public InlineResponse2008Data(decimal totalCount = default(decimal), List<InlineResponse2008DataValueUnit> valueUnit = default(List<InlineResponse2008DataValueUnit>), List<InlineResponse2008DataMarket> market = default(List<InlineResponse2008DataMarket>), List<InlineResponse2008DataStockType> stockType = default(List<InlineResponse2008DataStockType>), List<InlineResponse2008DataIndustryClassification> industryClassification = default(List<InlineResponse2008DataIndustryClassification>), InlineResponse2008DataCompany company = default(InlineResponse2008DataCompany), InlineResponse2008DataCompliance compliance = default(InlineResponse2008DataCompliance), InlineResponse2008DataReportedKeyFigures reportedKeyFigures = default(InlineResponse2008DataReportedKeyFigures), InlineResponse2008DataPerformance performance = default(InlineResponse2008DataPerformance), InlineResponse2008DataVolatility volatility = default(InlineResponse2008DataVolatility), InlineResponse2008DataTradingValue tradingValue = default(InlineResponse2008DataTradingValue), InlineResponse2008DataSimpleMovingAverage simpleMovingAverage = default(InlineResponse2008DataSimpleMovingAverage), InlineResponse2008DataRsiWilder rsiWilder = default(InlineResponse2008DataRsiWilder), InlineResponse2008DataRecommendation recommendation = default(InlineResponse2008DataRecommendation), InlineResponse2008DataEstimates estimates = default(InlineResponse2008DataEstimates))
         {
-            this.Id = id;
-            this.Name = name;
+            this.TotalCount = totalCount;
+            this.ValueUnit = valueUnit;
+            this.Market = market;
+            this.StockType = stockType;
+            this.IndustryClassification = industryClassification;
+            this.Company = company;
+            this.Compliance = compliance;
+            this.ReportedKeyFigures = reportedKeyFigures;
+            this.Performance = performance;
+            this.Volatility = volatility;
+            this.TradingValue = tradingValue;
+            this.SimpleMovingAverage = simpleMovingAverage;
+            this.RsiWilder = rsiWilder;
+            this.Recommendation = recommendation;
+            this.Estimates = estimates;
         }
 
         /// <summary>
-        /// Identifier of a dividend type.
+        /// Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.
         /// </summary>
-        /// <value>Identifier of a dividend type.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public decimal Id { get; set; }
+        /// <value>Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.</value>
+        [DataMember(Name = "totalCount", EmitDefaultValue = false)]
+        public decimal TotalCount { get; set; }
 
         /// <summary>
-        /// Name of the dividend type.
+        /// List of value unit identifiers. See endpoint &#x60;/basic/valueUnit/list&#x60; for possible values.
         /// </summary>
-        /// <value>Name of the dividend type.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>List of value unit identifiers. See endpoint &#x60;/basic/valueUnit/list&#x60; for possible values.</value>
+        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
+        public List<InlineResponse2008DataValueUnit> ValueUnit { get; set; }
+
+        /// <summary>
+        /// List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for possible values.
+        /// </summary>
+        /// <value>List of market identifiers. See endpoint &#x60;/basic/market/list&#x60; for possible values.</value>
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public List<InlineResponse2008DataMarket> Market { get; set; }
+
+        /// <summary>
+        /// List of stock types.
+        /// </summary>
+        /// <value>List of stock types.</value>
+        [DataMember(Name = "stockType", EmitDefaultValue = false)]
+        public List<InlineResponse2008DataStockType> StockType { get; set; }
+
+        /// <summary>
+        /// Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint &#x60;/category/listBySystem&#x60; with &#x60;id&#x3D;48&#x60; for possible values.
+        /// </summary>
+        /// <value>Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint &#x60;/category/listBySystem&#x60; with &#x60;id&#x3D;48&#x60; for possible values.</value>
+        [DataMember(Name = "industryClassification", EmitDefaultValue = false)]
+        public List<InlineResponse2008DataIndustryClassification> IndustryClassification { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Company
+        /// </summary>
+        [DataMember(Name = "company", EmitDefaultValue = false)]
+        public InlineResponse2008DataCompany Company { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Compliance
+        /// </summary>
+        [DataMember(Name = "compliance", EmitDefaultValue = false)]
+        public InlineResponse2008DataCompliance Compliance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReportedKeyFigures
+        /// </summary>
+        [DataMember(Name = "reportedKeyFigures", EmitDefaultValue = false)]
+        public InlineResponse2008DataReportedKeyFigures ReportedKeyFigures { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Performance
+        /// </summary>
+        [DataMember(Name = "performance", EmitDefaultValue = false)]
+        public InlineResponse2008DataPerformance Performance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Volatility
+        /// </summary>
+        [DataMember(Name = "volatility", EmitDefaultValue = false)]
+        public InlineResponse2008DataVolatility Volatility { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradingValue
+        /// </summary>
+        [DataMember(Name = "tradingValue", EmitDefaultValue = false)]
+        public InlineResponse2008DataTradingValue TradingValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SimpleMovingAverage
+        /// </summary>
+        [DataMember(Name = "simpleMovingAverage", EmitDefaultValue = false)]
+        public InlineResponse2008DataSimpleMovingAverage SimpleMovingAverage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RsiWilder
+        /// </summary>
+        [DataMember(Name = "rsiWilder", EmitDefaultValue = false)]
+        public InlineResponse2008DataRsiWilder RsiWilder { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Recommendation
+        /// </summary>
+        [DataMember(Name = "recommendation", EmitDefaultValue = false)]
+        public InlineResponse2008DataRecommendation Recommendation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Estimates
+        /// </summary>
+        [DataMember(Name = "estimates", EmitDefaultValue = false)]
+        public InlineResponse2008DataEstimates Estimates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +171,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2008Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  StockType: ").Append(StockType).Append("\n");
+            sb.Append("  IndustryClassification: ").Append(IndustryClassification).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
+            sb.Append("  Compliance: ").Append(Compliance).Append("\n");
+            sb.Append("  ReportedKeyFigures: ").Append(ReportedKeyFigures).Append("\n");
+            sb.Append("  Performance: ").Append(Performance).Append("\n");
+            sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  TradingValue: ").Append(TradingValue).Append("\n");
+            sb.Append("  SimpleMovingAverage: ").Append(SimpleMovingAverage).Append("\n");
+            sb.Append("  RsiWilder: ").Append(RsiWilder).Append("\n");
+            sb.Append("  Recommendation: ").Append(Recommendation).Append("\n");
+            sb.Append("  Estimates: ").Append(Estimates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,13 +222,82 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
+                    this.TotalCount == input.TotalCount ||
+                    this.TotalCount.Equals(input.TotalCount)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.ValueUnit == input.ValueUnit ||
+                    this.ValueUnit != null &&
+                    input.ValueUnit != null &&
+                    this.ValueUnit.SequenceEqual(input.ValueUnit)
+                ) && 
+                (
+                    this.Market == input.Market ||
+                    this.Market != null &&
+                    input.Market != null &&
+                    this.Market.SequenceEqual(input.Market)
+                ) && 
+                (
+                    this.StockType == input.StockType ||
+                    this.StockType != null &&
+                    input.StockType != null &&
+                    this.StockType.SequenceEqual(input.StockType)
+                ) && 
+                (
+                    this.IndustryClassification == input.IndustryClassification ||
+                    this.IndustryClassification != null &&
+                    input.IndustryClassification != null &&
+                    this.IndustryClassification.SequenceEqual(input.IndustryClassification)
+                ) && 
+                (
+                    this.Company == input.Company ||
+                    (this.Company != null &&
+                    this.Company.Equals(input.Company))
+                ) && 
+                (
+                    this.Compliance == input.Compliance ||
+                    (this.Compliance != null &&
+                    this.Compliance.Equals(input.Compliance))
+                ) && 
+                (
+                    this.ReportedKeyFigures == input.ReportedKeyFigures ||
+                    (this.ReportedKeyFigures != null &&
+                    this.ReportedKeyFigures.Equals(input.ReportedKeyFigures))
+                ) && 
+                (
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
+                ) && 
+                (
+                    this.Volatility == input.Volatility ||
+                    (this.Volatility != null &&
+                    this.Volatility.Equals(input.Volatility))
+                ) && 
+                (
+                    this.TradingValue == input.TradingValue ||
+                    (this.TradingValue != null &&
+                    this.TradingValue.Equals(input.TradingValue))
+                ) && 
+                (
+                    this.SimpleMovingAverage == input.SimpleMovingAverage ||
+                    (this.SimpleMovingAverage != null &&
+                    this.SimpleMovingAverage.Equals(input.SimpleMovingAverage))
+                ) && 
+                (
+                    this.RsiWilder == input.RsiWilder ||
+                    (this.RsiWilder != null &&
+                    this.RsiWilder.Equals(input.RsiWilder))
+                ) && 
+                (
+                    this.Recommendation == input.Recommendation ||
+                    (this.Recommendation != null &&
+                    this.Recommendation.Equals(input.Recommendation))
+                ) && 
+                (
+                    this.Estimates == input.Estimates ||
+                    (this.Estimates != null &&
+                    this.Estimates.Equals(input.Estimates))
                 );
         }
 
@@ -121,10 +310,62 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                if (this.Name != null)
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                if (this.ValueUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
+                if (this.Market != null)
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                if (this.StockType != null)
+                {
+                    hashCode = (hashCode * 59) + this.StockType.GetHashCode();
+                }
+                if (this.IndustryClassification != null)
+                {
+                    hashCode = (hashCode * 59) + this.IndustryClassification.GetHashCode();
+                }
+                if (this.Company != null)
+                {
+                    hashCode = (hashCode * 59) + this.Company.GetHashCode();
+                }
+                if (this.Compliance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
+                }
+                if (this.ReportedKeyFigures != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportedKeyFigures.GetHashCode();
+                }
+                if (this.Performance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
+                if (this.Volatility != null)
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
+                if (this.TradingValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                }
+                if (this.SimpleMovingAverage != null)
+                {
+                    hashCode = (hashCode * 59) + this.SimpleMovingAverage.GetHashCode();
+                }
+                if (this.RsiWilder != null)
+                {
+                    hashCode = (hashCode * 59) + this.RsiWilder.GetHashCode();
+                }
+                if (this.Recommendation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recommendation.GetHashCode();
+                }
+                if (this.Estimates != null)
+                {
+                    hashCode = (hashCode * 59) + this.Estimates.GetHashCode();
                 }
                 return hashCode;
             }

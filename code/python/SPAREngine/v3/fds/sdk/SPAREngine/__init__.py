@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.0"
+__version__ = "0.21.1"
 
 # import ApiClient
 from fds.sdk.SPAREngine.api_client import ApiClient

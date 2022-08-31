@@ -59,7 +59,7 @@ public class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceC
    /**
    * The maximum value.
    * minimum: 0
-   * maximum: 1E+2
+   * maximum: 100
    * @return value
   **/
   @javax.annotation.Nullable

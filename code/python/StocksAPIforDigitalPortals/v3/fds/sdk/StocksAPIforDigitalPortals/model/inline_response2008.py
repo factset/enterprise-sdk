@@ -89,7 +89,7 @@ class InlineResponse2008(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse2008Data],),  # noqa: E501
+            'data': (InlineResponse2008Data,),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse2008(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2008Data]): List of dividend types, sorted by ascending identifier value.. [optional]  # noqa: E501
+            data (InlineResponse2008Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2008(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2008Data]): List of dividend types, sorted by ascending identifier value.. [optional]  # noqa: E501
+            data (InlineResponse2008Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

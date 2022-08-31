@@ -65,11 +65,11 @@ public class InlineResponse2004 implements Serializable {
   }
 
    /**
-   * List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.
+   * List of dividend types, sorted by ascending identifier value.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.")
+  @ApiModelProperty(value = "List of dividend types, sorted by ascending identifier value.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="asynchstreetaccountv1checkstatusget"></a>
 # **AsynchStreetaccountV1CheckStatusGet**
-> List&lt;Checkstatus&gt; AsynchStreetaccountV1CheckStatusGet (string jobID)
+> CheckstatusResponse AsynchStreetaccountV1CheckStatusGet (string jobID, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the status and percentDone of the requested jobID
 
@@ -54,11 +54,13 @@ namespace Example
             var apiInstance = new StreetAccountXMLAPIApi(config);
 
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to know the status and percentDone
+            var paginationLimit = 56;  // int? | Specifies the maximum number of results to return per result (optional) 
+            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional) 
 
             try
             {
                 // Returns the status and percentDone of the requested jobID
-                List<Checkstatus> result = apiInstance.AsynchStreetaccountV1CheckStatusGet(jobID);
+                CheckstatusResponse result = apiInstance.AsynchStreetaccountV1CheckStatusGet(jobID, paginationLimit, paginationOffset);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -77,9 +79,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **string**| jobID returned by the request-files endpoint to know the status and percentDone | 
+ **paginationLimit** | **int?**| Specifies the maximum number of results to return per result | [optional] 
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional] 
 
 ### Return type
-[**List&lt;Checkstatus&gt;**](Checkstatus.md)
+[**CheckstatusResponse**](CheckstatusResponse.md)
 
 ### Authorization
 
@@ -101,7 +105,7 @@ Name | Type | Description  | Notes
 
 <a name="asynchstreetaccountv1getfilesget"></a>
 # **AsynchStreetaccountV1GetFilesGet**
-> List&lt;Getfiles&gt; AsynchStreetaccountV1GetFilesGet (string jobID)
+> GetfilesResponse AsynchStreetaccountV1GetFilesGet (string jobID, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the SA XML files for the specified daterange
 
@@ -144,11 +148,13 @@ namespace Example
             var apiInstance = new StreetAccountXMLAPIApi(config);
 
             var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to collect the results of the query
+            var paginationLimit = 56;  // int? | Specifies the maximum number of results to return per result (optional) 
+            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional) 
 
             try
             {
                 // Returns the SA XML files for the specified daterange
-                List<Getfiles> result = apiInstance.AsynchStreetaccountV1GetFilesGet(jobID);
+                GetfilesResponse result = apiInstance.AsynchStreetaccountV1GetFilesGet(jobID, paginationLimit, paginationOffset);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -167,9 +173,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **string**| jobID returned by the request-files endpoint to collect the results of the query | 
+ **paginationLimit** | **int?**| Specifies the maximum number of results to return per result | [optional] 
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional] 
 
 ### Return type
-[**List&lt;Getfiles&gt;**](Getfiles.md)
+[**GetfilesResponse**](GetfilesResponse.md)
 
 ### Authorization
 

@@ -15,6 +15,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -70,6 +72,8 @@ docs/PAIdentifier.md
 docs/PAPricingSource.md
 docs/PAPricingSourceRoot.md
 docs/PaCalculationsApi.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PricingSourcesApi.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
@@ -150,6 +154,8 @@ src/main/java/com/factset/sdk/PAEngine/models/CalculationStatusMeta.java
 src/main/java/com/factset/sdk/PAEngine/models/CalculationStatusRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/CalculationUnitStatus.java
 src/main/java/com/factset/sdk/PAEngine/models/CalculationUnitStatusMeta.java
+src/main/java/com/factset/sdk/PAEngine/models/CalculationsSummary.java
+src/main/java/com/factset/sdk/PAEngine/models/CalculationsSummaryRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/ClientErrorResponse.java
 src/main/java/com/factset/sdk/PAEngine/models/Column.java
 src/main/java/com/factset/sdk/PAEngine/models/ColumnRoot.java
@@ -195,6 +201,8 @@ src/main/java/com/factset/sdk/PAEngine/models/PADateParameters.java
 src/main/java/com/factset/sdk/PAEngine/models/PAIdentifier.java
 src/main/java/com/factset/sdk/PAEngine/models/PAPricingSource.java
 src/main/java/com/factset/sdk/PAEngine/models/PAPricingSourceRoot.java
+src/main/java/com/factset/sdk/PAEngine/models/PaginationInfo.java
+src/main/java/com/factset/sdk/PAEngine/models/PaginationMeta.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplateContentTypes.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplatedPAComponent.java
 src/main/java/com/factset/sdk/PAEngine/models/TemplatedPAComponentParameters.java

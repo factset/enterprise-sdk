@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-recommendationlistapifordigitalportals",
-  "projectVersion": "0.10.1",
+  "projectVersion": "0.10.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Recommendation List API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "recommendationlistapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/RecommendationListAPIforDigitalPortals/0.10.1",
+  "httpUserAgent": "fds-sdk/javascript/RecommendationListAPIforDigitalPortals/0.10.2",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

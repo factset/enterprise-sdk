@@ -43,10 +43,10 @@ public class StockNotationScreenerSearchMetaPagination implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
-  private BigDecimal offset;
+  private BigDecimal offset = new BigDecimal("0");
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private BigDecimal limit;
+  private BigDecimal limit = new BigDecimal("20");
 
   public StockNotationScreenerSearchMetaPagination() { 
   }
@@ -86,7 +86,7 @@ public class StockNotationScreenerSearchMetaPagination implements Serializable {
    /**
    * Non-negative maximum number of entries to return.
    * minimum: 0
-   * maximum: 5E+2
+   * maximum: 500
    * @return limit
   **/
   @javax.annotation.Nullable

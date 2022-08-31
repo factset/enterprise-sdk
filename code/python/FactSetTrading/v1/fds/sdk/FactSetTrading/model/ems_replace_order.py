@@ -31,10 +31,8 @@ from fds.sdk.FactSetTrading.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.FactSetTrading.model.instrument import Instrument
-    from fds.sdk.FactSetTrading.model.time_in_force import TimeInForce
-    globals()['Instrument'] = Instrument
-    globals()['TimeInForce'] = TimeInForce
+    from fds.sdk.FactSetTrading.model.ems_order import EMSOrder
+    globals()['EMSOrder'] = EMSOrder
 
 
 class EMSReplaceOrder(ModelNormal):
@@ -62,72 +60,6 @@ class EMSReplaceOrder(ModelNormal):
     """
 
     allowed_values = {
-        ('side',): {
-            'BUY': "buy",
-            'SELL': "sell",
-        },
-        ('order_type',): {
-            'MARKET': "market",
-            'LIMIT': "limit",
-            'STOP': "stop",
-            'STOP_LIMIT': "stop_limit",
-            'MARKET_ON_CLOSE': "market_on_close",
-            'LIMIT_OR_BETTER': "limit_or_better",
-        },
-        ('handling_instructions',): {
-            'AUTO_ORD_PVT': "auto_ord_pvt",
-            'AUTO_ORD_PUB': "auto_ord_pub",
-            'BEST_EXECUTION': "best_execution",
-        },
-        ('execution_instructions',): {
-            'NOT_HELD': "not_held",
-            'WORK': "work",
-            'GO_ALONG': "go_along",
-            'OVER_THE_DAY': "over_the_day",
-            'HELD': "held",
-            'PARTICIPATE_DONT_INITIATE': "participate_dont_initiate",
-            'STRICT_SCALE': "strict_scale",
-            'TRY_TO_SCALE': "try_to_scale",
-            'STAY_ON_BIDSIDE': "stay_on_bidside",
-            'STAY_ON_OFFERSIDE': "stay_on_offerside",
-            'NO_CROSS': "no_cross",
-            'OK_TO_CROSS': "ok_to_cross",
-            'CALL_FIRST': "call_first",
-            'PERCENT_OF_VOLUME': "percent_of_volume",
-            'DO_NOT_INCREASE': "do_not_increase",
-            'DO_NOT_REDUCE': "do_not_reduce",
-            'ALL_OR_NONE': "all_or_none",
-            'REINSTATE_ON_SYSTEM_FAILURE': "reinstate_on_system_failure",
-            'INSTITUTIONS_ONLY': "institutions_only",
-            'REINSTATE_ON_TRADING_HALT': "reinstate_on_trading_halt",
-            'CANCEL_ON_TRADING_HALT': "cancel_on_trading_halt",
-            'LAST_PEG': "last_peg",
-            'MID_PRICE_PEG': "mid_price_peg",
-            'NON_NEGOTIABLE': "non_negotiable",
-            'OPENING_PEG': "opening_peg",
-            'MARKET_PEG': "market_peg",
-            'CANCEL_ON_SYSTEM_FAILURE': "cancel_on_system_failure",
-            'PRIMARY_PEG': "primary_peg",
-            'SUSPEND': "suspend",
-            'FIXED_PEG_TO_LOCAL_BEST_BID': "fixed_peg_to_local_best_bid",
-            'CUSTOMER_DISPLAY_INSTRUCTION': "customer_display_instruction",
-            'NETTING': "netting",
-            'PEG_TO_VWAP': "peg_to_vwap",
-            'TRADE_ALONG': "trade_along",
-            'TRY_TO_STOP': "try_to_stop",
-            'CANCEL_IF_NOT_BEST': "cancel_if_not_best",
-            'TRAILING_STOP_PEG': "trailing_stop_peg",
-            'STRICT_LIMIT': "strict_limit",
-            'IGNORE_PRICE_VALIDITY_CHECKS': "ignore_price_validity_checks",
-            'PEG_TO_LIMIT_PRICE': "peg_to_limit_price",
-            'WORK_TO_TARGET_STRATEGY': "work_to_target_strategy",
-            'INTERMARKET_SWEEP': "intermarket_sweep",
-            'EXTERNAL_ROUTING_ALLOWED': "external_routing_allowed",
-            'EXTERNAL_ROUTING_NOT_ALLOWED': "external_routing_not_allowed",
-            'IMBALANCE_ONLY': "imbalance_only",
-            'SINGLE_EXECUTION_REQUESTED_FOR_BLOCK_TRADE': "single_execution_requested_for_block_trade",
-            'BEST_EXECUTION': "best_execution",
-        },
     }
 
     validations = {
@@ -150,28 +82,7 @@ class EMSReplaceOrder(ModelNormal):
         lazy_import()
         return {
             'original_order_id': (str,),  # noqa: E501
-            'instrument': (Instrument,),  # noqa: E501
-            'side': (str,),  # noqa: E501
-            'order_type': (str,),  # noqa: E501
-            'handling_instructions': (str,),  # noqa: E501
-            'order_id': (str,),  # noqa: E501
-            'order_quantity': (float,),  # noqa: E501
-            'price': (float,),  # noqa: E501
-            'stop_price': (float,),  # noqa: E501
-            'strike_price': (float,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'is_covered': (bool,),  # noqa: E501
-            'max_show': (float,),  # noqa: E501
-            'max_floor': (float,),  # noqa: E501
-            'prev_close_price': (float,),  # noqa: E501
-            'settlement_type': (str,),  # noqa: E501
-            'settlement_date': (str,),  # noqa: E501
-            'execution_instructions': (str,),  # noqa: E501
-            'locate_required': (bool,),  # noqa: E501
-            'effective_time': (str,),  # noqa: E501
-            'account': (str,),  # noqa: E501
-            'time_in_force': (TimeInForce,),  # noqa: E501
-            'user_defined_fields': ({str: (str,)},),  # noqa: E501
+            'order': (EMSOrder,),  # noqa: E501
         }
 
     @cached_property
@@ -181,28 +92,7 @@ class EMSReplaceOrder(ModelNormal):
 
     attribute_map = {
         'original_order_id': 'originalOrderId',  # noqa: E501
-        'instrument': 'instrument',  # noqa: E501
-        'side': 'side',  # noqa: E501
-        'order_type': 'orderType',  # noqa: E501
-        'handling_instructions': 'handlingInstructions',  # noqa: E501
-        'order_id': 'orderId',  # noqa: E501
-        'order_quantity': 'orderQuantity',  # noqa: E501
-        'price': 'price',  # noqa: E501
-        'stop_price': 'stopPrice',  # noqa: E501
-        'strike_price': 'strikePrice',  # noqa: E501
-        'currency': 'currency',  # noqa: E501
-        'is_covered': 'isCovered',  # noqa: E501
-        'max_show': 'maxShow',  # noqa: E501
-        'max_floor': 'maxFloor',  # noqa: E501
-        'prev_close_price': 'prevClosePrice',  # noqa: E501
-        'settlement_type': 'settlementType',  # noqa: E501
-        'settlement_date': 'settlementDate',  # noqa: E501
-        'execution_instructions': 'executionInstructions',  # noqa: E501
-        'locate_required': 'locateRequired',  # noqa: E501
-        'effective_time': 'effectiveTime',  # noqa: E501
-        'account': 'account',  # noqa: E501
-        'time_in_force': 'timeInForce',  # noqa: E501
-        'user_defined_fields': 'userDefinedFields',  # noqa: E501
+        'order': 'order',  # noqa: E501
     }
 
     read_only_vars = {
@@ -212,15 +102,12 @@ class EMSReplaceOrder(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, original_order_id, instrument, side, order_type, handling_instructions, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, original_order_id, order, *args, **kwargs):  # noqa: E501
         """EMSReplaceOrder - a model defined in OpenAPI
 
         Args:
             original_order_id (str):
-            instrument (Instrument):
-            side (str): Side can be buy or sell
-            order_type (str): Type of the order
-            handling_instructions (str): Handling instructions
+            order (EMSOrder):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,24 +140,6 @@ class EMSReplaceOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order_id (str): Unique id for the order. [optional]  # noqa: E501
-            order_quantity (float): Order quantity. [optional]  # noqa: E501
-            price (float): Order Price. [optional]  # noqa: E501
-            stop_price (float): Stop Price. [optional]  # noqa: E501
-            strike_price (float): Strike Price. [optional]  # noqa: E501
-            currency (str): Currency. [optional]  # noqa: E501
-            is_covered (bool): Currency. [optional]  # noqa: E501
-            max_show (float): Max Show. [optional]  # noqa: E501
-            max_floor (float): Max Floor. [optional]  # noqa: E501
-            prev_close_price (float): Previous close price. [optional]  # noqa: E501
-            settlement_type (str): Settlement type. [optional]  # noqa: E501
-            settlement_date (str): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
-            execution_instructions (str): Execution instructions. [optional]  # noqa: E501
-            locate_required (bool): Locate Required. [optional]  # noqa: E501
-            effective_time (str): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
-            account (str): Account. [optional]  # noqa: E501
-            time_in_force (TimeInForce): [optional]  # noqa: E501
-            user_defined_fields ({str: (str,)}): User defined fields. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -299,10 +168,7 @@ class EMSReplaceOrder(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.original_order_id = original_order_id
-        self.instrument = instrument
-        self.side = side
-        self.order_type = order_type
-        self.handling_instructions = handling_instructions
+        self.order = order
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -323,15 +189,12 @@ class EMSReplaceOrder(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, original_order_id, instrument, side, order_type, handling_instructions, *args, **kwargs):  # noqa: E501
+    def __init__(self, original_order_id, order, *args, **kwargs):  # noqa: E501
         """EMSReplaceOrder - a model defined in OpenAPI
 
         Args:
             original_order_id (str):
-            instrument (Instrument):
-            side (str): Side can be buy or sell
-            order_type (str): Type of the order
-            handling_instructions (str): Handling instructions
+            order (EMSOrder):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -364,24 +227,6 @@ class EMSReplaceOrder(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            order_id (str): Unique id for the order. [optional]  # noqa: E501
-            order_quantity (float): Order quantity. [optional]  # noqa: E501
-            price (float): Order Price. [optional]  # noqa: E501
-            stop_price (float): Stop Price. [optional]  # noqa: E501
-            strike_price (float): Strike Price. [optional]  # noqa: E501
-            currency (str): Currency. [optional]  # noqa: E501
-            is_covered (bool): Currency. [optional]  # noqa: E501
-            max_show (float): Max Show. [optional]  # noqa: E501
-            max_floor (float): Max Floor. [optional]  # noqa: E501
-            prev_close_price (float): Previous close price. [optional]  # noqa: E501
-            settlement_type (str): Settlement type. [optional]  # noqa: E501
-            settlement_date (str): Settlement date in YYYYMMDD format. [optional]  # noqa: E501
-            execution_instructions (str): Execution instructions. [optional]  # noqa: E501
-            locate_required (bool): Locate Required. [optional]  # noqa: E501
-            effective_time (str): Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC. [optional]  # noqa: E501
-            account (str): Account. [optional]  # noqa: E501
-            time_in_force (TimeInForce): [optional]  # noqa: E501
-            user_defined_fields ({str: (str,)}): User defined fields. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -408,10 +253,7 @@ class EMSReplaceOrder(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.original_order_id = original_order_id
-        self.instrument = instrument
-        self.side = side
-        self.order_type = order_type
-        self.handling_instructions = handling_instructions
+        self.order = order
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

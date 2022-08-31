@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/CapitalStructureReportBuilder/0.21.0'
+            'User-Agent': 'fds-sdk/javascript/CapitalStructureReportBuilder/1.0.0'
         };
 
         /**

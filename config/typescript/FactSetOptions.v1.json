@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-factsetoptions",
-  "projectVersion": "0.21.0",
+  "projectVersion": "1.0.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Options client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetoptions",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetOptions/0.21.0",
+  "httpUserAgent": "fds-sdk/javascript/FactSetOptions/1.0.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

@@ -15,4 +15,5 @@
 
 # Import APIs into API package:
 from fds.sdk.DocumentsDistributorDocuments.api.global_filings_api_api import GlobalFilingsAPIApi
+from fds.sdk.DocumentsDistributorDocuments.api.news_api_api import NewsAPIApi
 from fds.sdk.DocumentsDistributorDocuments.api.street_account_xml_api_api import StreetAccountXMLAPIApi

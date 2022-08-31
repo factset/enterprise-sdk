@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ModelPortfolio",
-  "packageVersion": "0.21.0",
+  "packageVersion": "0.21.1",
   "packageGuid": "{f6877cf3-ad4e-56a4-ad6b-ec14e41511f5}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ModelPortfolio/0.21.0",
+  "httpUserAgent": "fds-sdk/dotnet/ModelPortfolio/0.21.1",
   "files": {
     "LICENSE": {}
   },

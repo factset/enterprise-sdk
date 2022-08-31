@@ -10,6 +10,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -28,6 +30,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -70,6 +74,8 @@ src/FactSet.SDK.Vault/Model/CalculationStatusMeta.cs
 src/FactSet.SDK.Vault/Model/CalculationStatusRoot.cs
 src/FactSet.SDK.Vault/Model/CalculationUnitStatus.cs
 src/FactSet.SDK.Vault/Model/CalculationUnitStatusMeta.cs
+src/FactSet.SDK.Vault/Model/CalculationsSummary.cs
+src/FactSet.SDK.Vault/Model/CalculationsSummaryRoot.cs
 src/FactSet.SDK.Vault/Model/ClientErrorResponse.cs
 src/FactSet.SDK.Vault/Model/ComponentSummary.cs
 src/FactSet.SDK.Vault/Model/ComponentSummaryRoot.cs
@@ -83,6 +89,8 @@ src/FactSet.SDK.Vault/Model/ErrorSource.cs
 src/FactSet.SDK.Vault/Model/Frequency.cs
 src/FactSet.SDK.Vault/Model/FrequencyRoot.cs
 src/FactSet.SDK.Vault/Model/ObjectRoot.cs
+src/FactSet.SDK.Vault/Model/PaginationInfo.cs
+src/FactSet.SDK.Vault/Model/PaginationMeta.cs
 src/FactSet.SDK.Vault/Model/VaultCalculationParameters.cs
 src/FactSet.SDK.Vault/Model/VaultCalculationParametersRoot.cs
 src/FactSet.SDK.Vault/Model/VaultComponent.cs

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Identifier of the watchlist. | 
 **position** | [**WatchlistPositionModifyDataPosition**](WatchlistPositionModifyDataPosition.md) |  | 
-**notation** | [**PortfolioTransactionCreateDataNotation**](PortfolioTransactionCreateDataNotation.md) |  | [optional] 
+**notation** | [**PortfolioPayoutCreateDataNotation**](PortfolioPayoutCreateDataNotation.md) |  | [optional] 
 **comment** | **str** | Personal note for the watchlist position. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

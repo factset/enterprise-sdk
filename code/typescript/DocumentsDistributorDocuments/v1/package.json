@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-documentsdistributordocuments",
-  "version": "0.21.0",
+  "version": "0.21.2",
   "description": "Documents Distributor - Documents client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

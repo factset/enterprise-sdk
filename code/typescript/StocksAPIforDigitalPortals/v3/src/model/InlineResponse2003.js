@@ -62,7 +62,7 @@ class InlineResponse2003 {
 }
 
 /**
- * List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.
+ * List of dividends.
  * @member {Array.<module:model/InlineResponse2003Data>} data
  */
 InlineResponse2003.prototype['data'] = undefined;

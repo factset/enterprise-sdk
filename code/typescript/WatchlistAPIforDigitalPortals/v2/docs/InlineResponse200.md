@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** | This member is always emtpy. | [optional] 
-**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
+**data** | **Object** | This member is always empty. | [optional] 
+**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
 
 

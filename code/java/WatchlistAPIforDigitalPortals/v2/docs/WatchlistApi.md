@@ -1,111 +1,29 @@
 # WatchlistApi
 
-All URIs are relative to *http://api-sandbox.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**watchlistCreatePost**](WatchlistApi.md#watchlistCreatePost) | **POST** /watchlist/create | Create watchlist.
-[**watchlistDeletePost**](WatchlistApi.md#watchlistDeletePost) | **POST** /watchlist/delete | The endpoint deletes a watchlist.
-[**watchlistListGet**](WatchlistApi.md#watchlistListGet) | **GET** /watchlist/list | List watchlists.
-[**watchlistModifyPost**](WatchlistApi.md#watchlistModifyPost) | **POST** /watchlist/modify | Rename a watchlist.
-[**watchlistPositionCreatePost**](WatchlistApi.md#watchlistPositionCreatePost) | **POST** /watchlist/position/create | Add position in watchlist.
-[**watchlistPositionDeletePost**](WatchlistApi.md#watchlistPositionDeletePost) | **POST** /watchlist/position/delete | Add position in watchlist.
-[**watchlistPositionListGet**](WatchlistApi.md#watchlistPositionListGet) | **GET** /watchlist/position/list | List positions of watchlist.
-[**watchlistPositionModifyPost**](WatchlistApi.md#watchlistPositionModifyPost) | **POST** /watchlist/position/modify | Add position in watchlist.
+[**getWatchlistGet**](WatchlistApi.md#getWatchlistGet) | **GET** /watchlist/get | Details of a watchlist.
+[**getWatchlistList**](WatchlistApi.md#getWatchlistList) | **GET** /watchlist/list | List of watchlists.
+[**getWatchlistPositionList**](WatchlistApi.md#getWatchlistPositionList) | **GET** /watchlist/position/list | List of positions of a watchlist.
+[**postWatchlistCreate**](WatchlistApi.md#postWatchlistCreate) | **POST** /watchlist/create | Create a watchlist.
+[**postWatchlistDelete**](WatchlistApi.md#postWatchlistDelete) | **POST** /watchlist/delete | Delete a watchlist.
+[**postWatchlistModify**](WatchlistApi.md#postWatchlistModify) | **POST** /watchlist/modify | Modify a watchlist.
+[**postWatchlistPositionCreate**](WatchlistApi.md#postWatchlistPositionCreate) | **POST** /watchlist/position/create | Add a position to a watchlist.
+[**postWatchlistPositionDelete**](WatchlistApi.md#postWatchlistPositionDelete) | **POST** /watchlist/position/delete | Delete a position of a watchlist.
+[**postWatchlistPositionGet**](WatchlistApi.md#postWatchlistPositionGet) | **POST** /watchlist/position/get | Details of the position of a watchlist.
+[**postWatchlistPositionModify**](WatchlistApi.md#postWatchlistPositionModify) | **POST** /watchlist/position/modify | Modify a position in a watchlist.
 
 
 
-## watchlistCreatePost
+## getWatchlistGet
 
-> InlineResponse200 watchlistCreatePost(body)
+> InlineResponse2001 getWatchlistGet(id, attributes)
 
-Create watchlist.
+Details of a watchlist.
 
-The endpoint creates a new watchlist.
-
-### Example
-
-```java
-// Import classes:
-import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
-
-import com.factset.sdk.utils.authentication.ConfidentialClient;
-
-public class Example {
-    public static void main(String[] args) throws Exception {
-        // Examples for each supported authentication method are below,
-        // choose one that satisfies your use case.
-
-        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-        // See https://github.com/FactSet/enterprise-sdk#oauth-20
-        // for information on how to create the app-config.json file
-        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
-        // for more information on using the ConfidentialClient class
-        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient()
-          .setFactSetOAuth2Client(confidentialClient);
-
-        /* Basic authentication: FactSetApiKey */
-        // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient()
-        //   .setUsername("YOUR USERNAME")
-        //   .setPassword("YOUR PASSWORD");
-
-        WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject body = new InlineObject(); // InlineObject | 
-        try {
-            InlineResponse200 result = apiInstance.watchlistCreatePost(body);
-            System.out.println(result);
-
-        } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistCreatePost");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
-
-## watchlistDeletePost
-
-> InlineResponse2001 watchlistDeletePost(body)
-
-The endpoint deletes a watchlist.
-
-The endpoint deletes a watchlist.
+Details of a watchlist.
 
 ### Example
 
@@ -141,13 +59,14 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        String id = "id_example"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse2001 result = apiInstance.watchlistDeletePost(body);
+            InlineResponse2001 result = apiInstance.getWatchlistGet(id, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistDeletePost");
+            System.err.println("Exception when calling WatchlistApi#getWatchlistGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -162,7 +81,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **id** | **String**|  |
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
@@ -174,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
@@ -183,18 +103,17 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistListGet
+## getWatchlistList
 
-> InlineResponse2002 watchlistListGet(attributes, sort, paginationOffset, paginationLimit)
+> InlineResponse2002 getWatchlistList(attributes, sort)
 
-List watchlists.
+List of watchlists.
 
-The endpoint lists all watchlist of a user.
+List of watchlists.
 
 ### Example
 
 ```java
-import java.math.BigDecimal;
 // Import classes:
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
@@ -227,15 +146,13 @@ public class Example {
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed.
         try {
-            InlineResponse2002 result = apiInstance.watchlistListGet(attributes, sort, paginationOffset, paginationLimit);
+            InlineResponse2002 result = apiInstance.getWatchlistList(attributes, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistListGet");
+            System.err.println("Exception when calling WatchlistApi#getWatchlistList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -251,9 +168,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: name, -name, amount, -amount]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, name, -name, numberPositions, -numberPositions, creation, -creation]
 
 ### Return type
 
@@ -274,13 +189,13 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistModifyPost
+## getWatchlistPositionList
 
-> InlineResponse200 watchlistModifyPost(body)
+> InlineResponse2005 getWatchlistPositionList(id, attributes, sort)
 
-Rename a watchlist.
+List of positions of a watchlist.
 
-The endpoint renames a watchlist.
+List of positions of a watchlist.
 
 ### Example
 
@@ -316,13 +231,15 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        String id = "id_example"; // String | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
         try {
-            InlineResponse200 result = apiInstance.watchlistModifyPost(body);
+            InlineResponse2005 result = apiInstance.getWatchlistPositionList(id, attributes, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistModifyPost");
+            System.err.println("Exception when calling WatchlistApi#getWatchlistPositionList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -337,7 +254,183 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **id** | **String**|  |
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+ **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, notation.id, -notation.id]
+
+### Return type
+
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## postWatchlistCreate
+
+> InlineResponse201 postWatchlistCreate(inlineObject)
+
+Create a watchlist.
+
+Create a watchlist.
+
+Certain error conditions yield errors as follows: 
+
+|Error Condition|HTTP Error|
+|-------|--------|
+|The number of watchlists would exceed 100.|400 Bad Request|
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        WatchlistApi apiInstance = new WatchlistApi(defaultClient);
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
+        try {
+            InlineResponse201 result = apiInstance.postWatchlistCreate(inlineObject);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WatchlistApi#postWatchlistCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful Response |  -  |
+
+
+## postWatchlistDelete
+
+> InlineResponse200 postWatchlistDelete(inlineObject1)
+
+Delete a watchlist.
+
+Delete a watchlist.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        WatchlistApi apiInstance = new WatchlistApi(defaultClient);
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
+        try {
+            InlineResponse200 result = apiInstance.postWatchlistDelete(inlineObject1);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WatchlistApi#postWatchlistDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -358,13 +451,13 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistPositionCreatePost
+## postWatchlistModify
 
-> InlineResponse2003 watchlistPositionCreatePost(body)
+> InlineResponse2003 postWatchlistModify(inlineObject2)
 
-Add position in watchlist.
+Modify a watchlist.
 
-The endpoint adds a new position in a watchlist.
+Modify a watchlist.
 
 ### Example
 
@@ -400,13 +493,13 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse2003 result = apiInstance.watchlistPositionCreatePost(body);
+            InlineResponse2003 result = apiInstance.postWatchlistModify(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistPositionCreatePost");
+            System.err.println("Exception when calling WatchlistApi#postWatchlistModify");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -421,7 +514,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 
@@ -442,13 +535,21 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistPositionDeletePost
+## postWatchlistPositionCreate
 
-> InlineResponse200 watchlistPositionDeletePost(body)
+> InlineResponse2011 postWatchlistPositionCreate(inlineObject3)
 
-Add position in watchlist.
+Add a position to a watchlist.
 
-The endpoint deletes a position in a watchlist.
+Add a position to a watchlist.
+
+Certain error conditions yield errors as follows: 
+
+|Error Condition|HTTP Error|
+|-------|--------|
+|Maximum number of watchlist positions would exceed 100.|400 Bad Request|
+|The watchlist does not exist.|400 Bad Request|
+|The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 
@@ -484,13 +585,13 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject4 body = new InlineObject4(); // InlineObject4 | 
+        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse200 result = apiInstance.watchlistPositionDeletePost(body);
+            InlineResponse2011 result = apiInstance.postWatchlistPositionCreate(inlineObject3);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistPositionDeletePost");
+            System.err.println("Exception when calling WatchlistApi#postWatchlistPositionCreate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -505,11 +606,95 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful Response |  -  |
+
+
+## postWatchlistPositionDelete
+
+> InlineResponse2003 postWatchlistPositionDelete(inlineObject4)
+
+Delete a position of a watchlist.
+
+Delete a position of a watchlist.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        WatchlistApi apiInstance = new WatchlistApi(defaultClient);
+        InlineObject4 inlineObject4 = new InlineObject4(); // InlineObject4 | 
+        try {
+            InlineResponse2003 result = apiInstance.postWatchlistPositionDelete(inlineObject4);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling WatchlistApi#postWatchlistPositionDelete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -526,18 +711,17 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistPositionListGet
+## postWatchlistPositionGet
 
-> InlineResponse2004 watchlistPositionListGet(name, attributes, sort, paginationOffset, paginationLimit)
+> InlineResponse2004 postWatchlistPositionGet(inlineObject5)
 
-List positions of watchlist.
+Details of the position of a watchlist.
 
-The endpoint lists the positions of a watchlist.
+Details of the position of a watchlist.
 
 ### Example
 
 ```java
-import java.math.BigDecimal;
 // Import classes:
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
@@ -569,17 +753,13 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        String name = "name_example"; // String | Name of watchlist
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        java.util.Set<String> sort = Arrays.asList(); // java.util.Set<String> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-        BigDecimal paginationOffset = new BigDecimal("0.0"); // BigDecimal | Non-negative number of entries to skip, or 0 (default).
-        BigDecimal paginationLimit = new BigDecimal("20.0"); // BigDecimal | Non-negative maximum number of entries to return.
+        InlineObject5 inlineObject5 = new InlineObject5(); // InlineObject5 | 
         try {
-            InlineResponse2004 result = apiInstance.watchlistPositionListGet(name, attributes, sort, paginationOffset, paginationLimit);
+            InlineResponse2004 result = apiInstance.postWatchlistPositionGet(inlineObject5);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistPositionListGet");
+            System.err.println("Exception when calling WatchlistApi#postWatchlistPositionGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -594,11 +774,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of watchlist |
- **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **sort** | **List&lt;String&gt;**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] [enum: id, -id, notation, -notation]
- **paginationOffset** | **BigDecimal**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0]
- **paginationLimit** | **BigDecimal**| Non-negative maximum number of entries to return. | [optional] [default to 20.0]
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
 
 ### Return type
 
@@ -610,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -619,13 +795,20 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## watchlistPositionModifyPost
+## postWatchlistPositionModify
 
-> InlineResponse200 watchlistPositionModifyPost(body)
+> InlineResponse2003 postWatchlistPositionModify(inlineObject6)
 
-Add position in watchlist.
+Modify a position in a watchlist.
 
-The endpoint modifies a position in a watchlist. All properties except the position id are modifiable by the endpoint.
+Modify a position in a watchlist.
+
+Certain error conditions yield errors as follows: 
+
+|Error Condition|HTTP Error|
+|-------|--------|
+|At least one of the parameters `notation` or `comment` must be set.|400 Bad Request|
+|The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 
@@ -661,13 +844,13 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
-        InlineObject5 body = new InlineObject5(); // InlineObject5 | 
+        InlineObject6 inlineObject6 = new InlineObject6(); // InlineObject6 | 
         try {
-            InlineResponse200 result = apiInstance.watchlistPositionModifyPost(body);
+            InlineResponse2003 result = apiInstance.postWatchlistPositionModify(inlineObject6);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling WatchlistApi#watchlistPositionModifyPost");
+            System.err.println("Exception when calling WatchlistApi#postWatchlistPositionModify");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -682,11 +865,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

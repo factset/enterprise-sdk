@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Notation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2005Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,101 +36,161 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  * InlineResponse2005Data
  */
 @JsonPropertyOrder({
-  InlineResponse2005Data.JSON_PROPERTY_ID,
-  InlineResponse2005Data.JSON_PROPERTY_NAME,
-  InlineResponse2005Data.JSON_PROPERTY_DESCRIPTION
+  InlineResponse2005Data.JSON_PROPERTY_NOTATION,
+  InlineResponse2005Data.JSON_PROPERTY_BETA,
+  InlineResponse2005Data.JSON_PROPERTY_CORRELATION,
+  InlineResponse2005Data.JSON_PROPERTY_OUTPERFORMANCE,
+  InlineResponse2005Data.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2005Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  public static final String JSON_PROPERTY_NOTATION = "notation";
+  private InlineResponse2005Notation notation;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_BETA = "beta";
+  private BigDecimal beta;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  public static final String JSON_PROPERTY_CORRELATION = "correlation";
+  private BigDecimal correlation;
+
+  public static final String JSON_PROPERTY_OUTPERFORMANCE = "outperformance";
+  private BigDecimal outperformance;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private InlineResponse2005Status status;
 
   public InlineResponse2005Data() { 
   }
 
-  public InlineResponse2005Data id(BigDecimal id) {
-    this.id = id;
+  public InlineResponse2005Data notation(InlineResponse2005Notation notation) {
+    this.notation = notation;
     return this;
   }
 
    /**
-   * Identifier of a type.
-   * @return id
+   * Get notation
+   * @return notation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a type.")
-  @JsonProperty(JSON_PROPERTY_ID)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getId() {
-    return id;
+  public InlineResponse2005Notation getNotation() {
+    return notation;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_NOTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(BigDecimal id) {
-    this.id = id;
+  public void setNotation(InlineResponse2005Notation notation) {
+    this.notation = notation;
   }
 
 
-  public InlineResponse2005Data name(String name) {
-    this.name = name;
+  public InlineResponse2005Data beta(BigDecimal beta) {
+    this.beta = beta;
     return this;
   }
 
    /**
-   * Name of the type.
-   * @return name
+   * Beta of the notation.
+   * @return beta
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the type.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "Beta of the notation.")
+  @JsonProperty(JSON_PROPERTY_BETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public BigDecimal getBeta() {
+    return beta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_BETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setBeta(BigDecimal beta) {
+    this.beta = beta;
   }
 
 
-  public InlineResponse2005Data description(String description) {
-    this.description = description;
+  public InlineResponse2005Data correlation(BigDecimal correlation) {
+    this.correlation = correlation;
     return this;
   }
 
    /**
-   * Description of the type.
-   * @return description
+   * Correlation of the notation.
+   * @return correlation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the type.")
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @ApiModelProperty(value = "Correlation of the notation.")
+  @JsonProperty(JSON_PROPERTY_CORRELATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getDescription() {
-    return description;
+  public BigDecimal getCorrelation() {
+    return correlation;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_CORRELATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
+  public void setCorrelation(BigDecimal correlation) {
+    this.correlation = correlation;
+  }
+
+
+  public InlineResponse2005Data outperformance(BigDecimal outperformance) {
+    this.outperformance = outperformance;
+    return this;
+  }
+
+   /**
+   * Outperformance of the notation.
+   * @return outperformance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Outperformance of the notation.")
+  @JsonProperty(JSON_PROPERTY_OUTPERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getOutperformance() {
+    return outperformance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OUTPERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOutperformance(BigDecimal outperformance) {
+    this.outperformance = outperformance;
+  }
+
+
+  public InlineResponse2005Data status(InlineResponse2005Status status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2005Status getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(InlineResponse2005Status status) {
+    this.status = status;
   }
 
 
@@ -144,23 +206,27 @@ public class InlineResponse2005Data implements Serializable {
       return false;
     }
     InlineResponse2005Data inlineResponse2005Data = (InlineResponse2005Data) o;
-    return Objects.equals(this.id, inlineResponse2005Data.id) &&
-        Objects.equals(this.name, inlineResponse2005Data.name) &&
-        Objects.equals(this.description, inlineResponse2005Data.description);
+    return Objects.equals(this.notation, inlineResponse2005Data.notation) &&
+        Objects.equals(this.beta, inlineResponse2005Data.beta) &&
+        Objects.equals(this.correlation, inlineResponse2005Data.correlation) &&
+        Objects.equals(this.outperformance, inlineResponse2005Data.outperformance) &&
+        Objects.equals(this.status, inlineResponse2005Data.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description);
+    return Objects.hash(notation, beta, correlation, outperformance, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2005Data {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    notation: ").append(toIndentedString(notation)).append("\n");
+    sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
+    sb.append("    correlation: ").append(toIndentedString(correlation)).append("\n");
+    sb.append("    outperformance: ").append(toIndentedString(outperformance)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

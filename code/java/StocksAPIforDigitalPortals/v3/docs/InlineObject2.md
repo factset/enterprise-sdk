@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**StockNotationRankingIntradayListData**](StockNotationRankingIntradayListData.md) |  |  [optional]
-**meta** | [**StockNotationRankingIntradayListMeta**](StockNotationRankingIntradayListMeta.md) |  |  [optional]
+**data** | [**StockNotationScreenerSearchData**](StockNotationScreenerSearchData.md) |  |  [optional]
+**meta** | [**StockNotationScreenerSearchMeta**](StockNotationScreenerSearchMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

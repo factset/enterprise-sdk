@@ -36,7 +36,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineObject3(StockNotationScreenerSearchData data = default(StockNotationScreenerSearchData), StockNotationScreenerSearchMeta meta = default(StockNotationScreenerSearchMeta))
+        public InlineObject3(StockNotationScreenerSearchData data = default(StockNotationScreenerSearchData), StockNotationScreenerValueRangesGetMeta meta = default(StockNotationScreenerValueRangesGetMeta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -52,7 +52,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public StockNotationScreenerSearchMeta Meta { get; set; }
+        public StockNotationScreenerValueRangesGetMeta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

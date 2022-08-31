@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) | List of trade recommendations and target prices for a stock, in unspecified order. |  [optional]
+**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) | List of owners with their respective share sorted descending by the fraction owned. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

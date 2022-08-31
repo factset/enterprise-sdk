@@ -17,3 +17,4 @@
 from fds.sdk.FactSetPrivateMarkets.api.data_items_api import DataItemsApi
 from fds.sdk.FactSetPrivateMarkets.api.financials_api import FinancialsApi
 from fds.sdk.FactSetPrivateMarkets.api.non_periodic_api import NonPeriodicApi
+from fds.sdk.FactSetPrivateMarkets.api.universe_api import UniverseApi

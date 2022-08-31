@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001_data_recommendation import InlineResponse2001DataRecommendation
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001_data_target_price import InlineResponse2001DataTargetPrice
-    globals()['InlineResponse2001DataRecommendation'] = InlineResponse2001DataRecommendation
-    globals()['InlineResponse2001DataTargetPrice'] = InlineResponse2001DataTargetPrice
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001_recommendation import InlineResponse2001Recommendation
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_data_target_price import InlineResponse200DataTargetPrice
+    globals()['InlineResponse2001Recommendation'] = InlineResponse2001Recommendation
+    globals()['InlineResponse200DataTargetPrice'] = InlineResponse200DataTargetPrice
 
 
 class InlineResponse2001Data(ModelNormal):
@@ -61,6 +61,14 @@ class InlineResponse2001Data(ModelNormal):
     """
 
     allowed_values = {
+        ('snapshot',): {
+            'LATEST': "latest",
+            '1W': "1w",
+            '1M': "1m",
+            '3M': "3m",
+            '6M': "6m",
+            '1Y': "1y",
+        },
     }
 
     validations = {
@@ -89,8 +97,9 @@ class InlineResponse2001Data(ModelNormal):
         """
         lazy_import()
         return {
-            'target_price': (InlineResponse2001DataTargetPrice,),  # noqa: E501
-            'recommendation': (InlineResponse2001DataRecommendation,),  # noqa: E501
+            'snapshot': (str,),  # noqa: E501
+            'target_price': (InlineResponse200DataTargetPrice,),  # noqa: E501
+            'recommendation': (InlineResponse2001Recommendation,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +108,7 @@ class InlineResponse2001Data(ModelNormal):
 
 
     attribute_map = {
+        'snapshot': 'snapshot',  # noqa: E501
         'target_price': 'targetPrice',  # noqa: E501
         'recommendation': 'recommendation',  # noqa: E501
     }
@@ -144,8 +154,9 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            target_price (InlineResponse2001DataTargetPrice): [optional]  # noqa: E501
-            recommendation (InlineResponse2001DataRecommendation): [optional]  # noqa: E501
+            snapshot (str): Identification of the historic snapshot for aggregated recommendations.. [optional]  # noqa: E501
+            target_price (InlineResponse200DataTargetPrice): [optional]  # noqa: E501
+            recommendation (InlineResponse2001Recommendation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +238,9 @@ class InlineResponse2001Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            target_price (InlineResponse2001DataTargetPrice): [optional]  # noqa: E501
-            recommendation (InlineResponse2001DataRecommendation): [optional]  # noqa: E501
+            snapshot (str): Identification of the historic snapshot for aggregated recommendations.. [optional]  # noqa: E501
+            target_price (InlineResponse200DataTargetPrice): [optional]  # noqa: E501
+            recommendation (InlineResponse2001Recommendation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

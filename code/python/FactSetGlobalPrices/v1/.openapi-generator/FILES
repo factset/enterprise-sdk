@@ -13,6 +13,7 @@ docs/CorporateActionsRequest.md
 docs/CorporateActionsResponse.md
 docs/Distribution.md
 docs/Dividend.md
+docs/DividendAdjust.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/EventCategory.md
@@ -21,6 +22,7 @@ docs/Frequency.md
 docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
 docs/IdsMax100.md
+docs/IdsMax1000.md
 docs/IdsMax50.md
 docs/Price.md
 docs/PricesApi.md
@@ -53,6 +55,7 @@ fds/sdk/FactSetGlobalPrices/model/corporate_actions_request.py
 fds/sdk/FactSetGlobalPrices/model/corporate_actions_response.py
 fds/sdk/FactSetGlobalPrices/model/distribution.py
 fds/sdk/FactSetGlobalPrices/model/dividend.py
+fds/sdk/FactSetGlobalPrices/model/dividend_adjust.py
 fds/sdk/FactSetGlobalPrices/model/error_response.py
 fds/sdk/FactSetGlobalPrices/model/error_response_sub_errors.py
 fds/sdk/FactSetGlobalPrices/model/event_category.py
@@ -61,6 +64,7 @@ fds/sdk/FactSetGlobalPrices/model/frequency.py
 fds/sdk/FactSetGlobalPrices/model/global_prices_request.py
 fds/sdk/FactSetGlobalPrices/model/global_prices_response.py
 fds/sdk/FactSetGlobalPrices/model/ids_max100.py
+fds/sdk/FactSetGlobalPrices/model/ids_max1000.py
 fds/sdk/FactSetGlobalPrices/model/ids_max50.py
 fds/sdk/FactSetGlobalPrices/model/price.py
 fds/sdk/FactSetGlobalPrices/model/prices_fields.py

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of the position. | [optional] 
+**id** | **String** | Identifier of the watchlist. | [optional] 
 
 

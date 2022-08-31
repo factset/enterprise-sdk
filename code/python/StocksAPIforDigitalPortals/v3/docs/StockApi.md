@@ -1,6 +1,6 @@
 # fds.sdk.StocksAPIforDigitalPortals.StockApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **get_stock_dividend_type_list**
-> InlineResponse2008 get_stock_dividend_type_list()
+> InlineResponse2004 get_stock_dividend_type_list()
 
 List of dividend types.
 
@@ -70,7 +70,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of dividend types.
@@ -89,11 +89,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_month_1_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -160,14 +160,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
@@ -185,14 +185,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_month_3_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -259,14 +259,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
@@ -284,14 +284,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_week_1_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -358,14 +358,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
@@ -383,14 +383,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_1_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -457,14 +457,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
@@ -482,14 +482,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_3_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -556,14 +556,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -581,14 +581,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_notation_key_figures_benchmark_year_5_get**
-> InlineResponse2009 get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark)
+> InlineResponse2005 get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -655,14 +655,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the notation.
+    id = "id_example" # str | 
     id_notation_benchmark = [
         "idNotationBenchmark_example",
-    ] # [str] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+    ] # [str] | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
@@ -680,14 +680,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the notation. |
- **id_notation_benchmark** | **[str]**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **str**|  |
+ **id_notation_benchmark** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_owner_list**
-> InlineResponse2006 get_stock_owner_list(id)
+> InlineResponse2002 get_stock_owner_list(id)
 
 List of owners for a specific type of a company's shares.
 
@@ -754,11 +754,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of the instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    language = "_language_example" # str | ISO 639-1 code of the language. (optional)
+    language = "_language_example" # str |  (optional)
 
     try:
         # List of owners for a specific type of a company's shares.
@@ -776,13 +776,13 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of the instrument. |
+ **id** | **str**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **str**| ISO 639-1 code of the language. | [optional]
+ **language** | **str**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_stock_recommendation_aggregate_get**
-> InlineResponse2001 get_stock_recommendation_aggregate_get(id)
+> InlineResponse200 get_stock_recommendation_aggregate_get(id)
 
 Target price and aggregated recommendations for a stock.
 
@@ -849,7 +849,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    id = "id_example" # str | Identifier of an instrument.
+    id = "id_example" # str | 
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
@@ -870,7 +870,104 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
+ **id** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_stock_recommendation_aggregate_history_list**
+> InlineResponse2001 get_stock_recommendation_aggregate_history_list(id, snapshots)
+
+Current and historical trade recommendations and target prices for a stock.
+
+Current and historical trade recommendations and target prices for a stock.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.StocksAPIforDigitalPortals
+from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
+from fds.sdk.StocksAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = stock_api.StockApi(api_client)
+
+    id = "id_example" # str | 
+    snapshots = [
+        "latest",
+    ] # [str] | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+
+    try:
+        # Current and historical trade recommendations and target prices for a stock.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_stock_recommendation_aggregate_history_list(id, snapshots, attributes=attributes)
+        pprint(api_response)
+
+    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling StockApi->get_stock_recommendation_aggregate_history_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  |
+ **snapshots** | **[str]**|  |
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -895,105 +992,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_stock_recommendation_aggregate_history_list**
-> InlineResponse2002 get_stock_recommendation_aggregate_history_list(id, snapshots)
-
-Current and historical trade recommendations and target prices for a stock.
-
-Current and historical trade recommendations and target prices for a stock.
-
-### Example
-
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
-
-```python
-from fds.sdk.utils.authentication import ConfidentialClient
-import fds.sdk.StocksAPIforDigitalPortals
-from fds.sdk.StocksAPIforDigitalPortals.api import stock_api
-from fds.sdk.StocksAPIforDigitalPortals.models import *
-from dateutil.parser import parse as dateutil_parser
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-
-# Examples for each supported authentication method are below,
-# choose one that satisfies your use case.
-
-# (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://github.com/FactSet/enterprise-sdk#oauth-20
-# for information on how to create the app-config.json file
-# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
-# for more information on using the ConfidentialClient class
-configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
-)
-
-# Basic authentication: FactSetApiKey
-# See https://github.com/FactSet/enterprise-sdk#api-key
-# for information how to create an API key
-# configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username='USERNAME-SERIAL',
-#     password='API-KEY'
-# )
-
-# Enter a context with an instance of the API client
-with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = stock_api.StockApi(api_client)
-
-    id = "id_example" # str | Identifier of an instrument.
-    snapshots = [
-        "latest",
-    ] # [str] | Choice of historic snapshots for aggregated recommendations.
-    attributes = [
-        "_attributes_example",
-    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-
-    try:
-        # Current and historical trade recommendations and target prices for a stock.
-        # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.get_stock_recommendation_aggregate_history_list(id, snapshots, attributes=attributes)
-        pprint(api_response)
-
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_recommendation_aggregate_history_list: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**| Identifier of an instrument. |
- **snapshots** | **[str]**| Choice of historic snapshots for aggregated recommendations. |
- **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
-
-### Return type
-
-[**InlineResponse2002**](InlineResponse2002.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **post_stock_dividend_list**
-> InlineResponse2007 post_stock_dividend_list(body)
+> InlineResponse2003 post_stock_dividend_list(inline_object)
 
 List of dividends for a stock.
 
@@ -1039,7 +1039,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    body = InlineObject1(
+    inline_object = InlineObject(
         data=StockDividendListData(
             id="id_example",
             filter=StockDividendListDataFilter(
@@ -1057,16 +1057,14 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "dates.announcement",
-            ],
+            sort=["dates.payment"],
         ),
-    ) # InlineObject1 | 
+    ) # InlineObject | 
 
     try:
         # List of dividends for a stock.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_stock_dividend_list(body)
+        api_response = api_instance.post_stock_dividend_list(inline_object)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1078,11 +1076,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inline_object** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1103,7 +1101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_ranking_intraday_list**
-> InlineResponse20010 post_stock_notation_ranking_intraday_list()
+> InlineResponse2006 post_stock_notation_ranking_intraday_list()
 
 Ranking of stocks' notations using intraday figures.
 
@@ -1149,7 +1147,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    body = InlineObject2(
+    inline_object1 = InlineObject1(
         data=StockNotationRankingIntradayListData(
             prices=StockNotationRankingIntradayListDataPrices(
                 quality="DLY",
@@ -1213,21 +1211,19 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "trade.performance.absolute",
-            ],
+            sort=["-trade.performance.relative"],
             pagination=StockNotationRankingIntradayListMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
-    ) # InlineObject2 |  (optional)
+    ) # InlineObject1 |  (optional)
 
     try:
         # Ranking of stocks' notations using intraday figures.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_ranking_intraday_list(body=body)
+        api_response = api_instance.post_stock_notation_ranking_intraday_list(inline_object1=inline_object1)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -1239,11 +1235,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -1264,7 +1260,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_screener_search**
-> InlineResponse20011 post_stock_notation_screener_search()
+> InlineResponse2007 post_stock_notation_screener_search()
 
 Screener for stocks' notations based on stock-specific parameters.
 
@@ -1310,7 +1306,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    body = InlineObject3(
+    inline_object2 = InlineObject2(
         data=StockNotationScreenerSearchData(
             validation=StockNotationScreenerSearchDataValidation(
                 only_active=True,
@@ -1422,7 +1418,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                         StockNotationScreenerSearchDataComplianceFranceOr(
                             _and=[
                                 StockNotationScreenerSearchDataComplianceFranceAnd(
-                                    id=3.14,
+                                    id=2,
                                     negate=True,
                                 ),
                             ],
@@ -2242,21 +2238,19 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                 "attributes_example",
             ]),
             language=LanguageMember("language_example"),
-            sort=[
-                "valueUnit.code",
-            ],
+            sort=["instrument.name"],
             pagination=StockNotationScreenerSearchMetaPagination(
                 offset=0,
-                limit=0,
+                limit=20,
             ),
         ),
-    ) # InlineObject3 |  (optional)
+    ) # InlineObject2 |  (optional)
 
     try:
         # Screener for stocks' notations based on stock-specific parameters.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_screener_search(body=body)
+        api_response = api_instance.post_stock_notation_screener_search(inline_object2=inline_object2)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -2268,11 +2262,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -2293,7 +2287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_stock_notation_screener_value_ranges_get**
-> InlineResponse20012 post_stock_notation_screener_value_ranges_get()
+> InlineResponse2008 post_stock_notation_screener_value_ranges_get()
 
 Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
 
@@ -2339,7 +2333,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
 
-    body = InlineObject4(
+    inline_object3 = InlineObject3(
         data=StockNotationScreenerSearchData(
             validation=StockNotationScreenerSearchDataValidation(
                 only_active=True,
@@ -2451,7 +2445,7 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
                         StockNotationScreenerSearchDataComplianceFranceOr(
                             _and=[
                                 StockNotationScreenerSearchDataComplianceFranceAnd(
-                                    id=3.14,
+                                    id=2,
                                     negate=True,
                                 ),
                             ],
@@ -3272,13 +3266,13 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
             ]),
             language=LanguageMember("language_example"),
         ),
-    ) # InlineObject4 |  (optional)
+    ) # InlineObject3 |  (optional)
 
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.post_stock_notation_screener_value_ranges_get(body=body)
+        api_response = api_instance.post_stock_notation_screener_value_ranges_get(inline_object3=inline_object3)
         pprint(api_response)
 
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
@@ -3290,11 +3284,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 

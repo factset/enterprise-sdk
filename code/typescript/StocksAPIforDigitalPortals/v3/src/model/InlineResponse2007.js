@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2006Meta from './InlineResponse2006Meta';
 import InlineResponse2007Data from './InlineResponse2007Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse2007 model module.
@@ -52,7 +52,7 @@ class InlineResponse2007 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2007Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2006Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,13 @@ class InlineResponse2007 {
 }
 
 /**
- * List of dividends.
+ * List of notations.
  * @member {Array.<module:model/InlineResponse2007Data>} data
  */
 InlineResponse2007.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2006Meta} meta
  */
 InlineResponse2007.prototype['meta'] = undefined;
 

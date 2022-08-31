@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PortfolioTransactionDeleteData**](PortfolioTransactionDeleteData.md) |  | [optional] 
+**data** | [**PortfolioPayoutDeleteData**](PortfolioPayoutDeleteData.md) |  | [optional] 
 **meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  | [optional] 
 
 

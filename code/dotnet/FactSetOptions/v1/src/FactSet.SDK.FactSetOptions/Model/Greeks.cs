@@ -43,7 +43,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="theta">The theta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details.</param>
         /// <param name="vega">The vega value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details.</param>
         /// <param name="date">The date the data is as of in YYYY-MM-DD format..</param>
-        public Greeks(double delta = default(double), string fsymId = default(string), double gamma = default(double), string requestId = default(string), double rho = default(double), double theta = default(double), double vega = default(double), DateTime date = default(DateTime))
+        public Greeks(double? delta = default(double?), string fsymId = default(string), double? gamma = default(double?), string requestId = default(string), double? rho = default(double?), double? theta = default(double?), double? vega = default(double?), DateTime? date = default(DateTime?))
         {
             this.Delta = delta;
             this.FsymId = fsymId;
@@ -59,22 +59,22 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The delta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
         /// </summary>
         /// <value>The delta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details</value>
-        [DataMember(Name = "delta", EmitDefaultValue = false)]
-        public double Delta { get; set; }
+        [DataMember(Name = "delta", EmitDefaultValue = true)]
+        public double? Delta { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The gamma value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
         /// </summary>
         /// <value>The gamma value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details</value>
-        [DataMember(Name = "gamma", EmitDefaultValue = false)]
-        public double Gamma { get; set; }
+        [DataMember(Name = "gamma", EmitDefaultValue = true)]
+        public double? Gamma { get; set; }
 
         /// <summary>
         /// The requested identifier submitted in the query.
@@ -87,30 +87,30 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The rho value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
         /// </summary>
         /// <value>The rho value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details</value>
-        [DataMember(Name = "rho", EmitDefaultValue = false)]
-        public double Rho { get; set; }
+        [DataMember(Name = "rho", EmitDefaultValue = true)]
+        public double? Rho { get; set; }
 
         /// <summary>
         /// The theta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
         /// </summary>
         /// <value>The theta value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details</value>
-        [DataMember(Name = "theta", EmitDefaultValue = false)]
-        public double Theta { get; set; }
+        [DataMember(Name = "theta", EmitDefaultValue = true)]
+        public double? Theta { get; set; }
 
         /// <summary>
         /// The vega value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details
         /// </summary>
         /// <value>The vega value of the option. Refer to the &#x60;greeks&#x60; endpoint description for more details</value>
-        [DataMember(Name = "vega", EmitDefaultValue = false)]
-        public double Vega { get; set; }
+        [DataMember(Name = "vega", EmitDefaultValue = true)]
+        public double? Vega { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -165,7 +165,8 @@ namespace FactSet.SDK.FactSetOptions.Model
             return 
                 (
                     this.Delta == input.Delta ||
-                    this.Delta.Equals(input.Delta)
+                    (this.Delta != null &&
+                    this.Delta.Equals(input.Delta))
                 ) && 
                 (
                     this.FsymId == input.FsymId ||
@@ -174,7 +175,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Gamma == input.Gamma ||
-                    this.Gamma.Equals(input.Gamma)
+                    (this.Gamma != null &&
+                    this.Gamma.Equals(input.Gamma))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -183,15 +185,18 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Rho == input.Rho ||
-                    this.Rho.Equals(input.Rho)
+                    (this.Rho != null &&
+                    this.Rho.Equals(input.Rho))
                 ) && 
                 (
                     this.Theta == input.Theta ||
-                    this.Theta.Equals(input.Theta)
+                    (this.Theta != null &&
+                    this.Theta.Equals(input.Theta))
                 ) && 
                 (
                     this.Vega == input.Vega ||
-                    this.Vega.Equals(input.Vega)
+                    (this.Vega != null &&
+                    this.Vega.Equals(input.Vega))
                 ) && 
                 (
                     this.Date == input.Date ||
@@ -209,19 +214,34 @@ namespace FactSet.SDK.FactSetOptions.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                if (this.Delta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                }
                 if (this.FsymId != null)
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Gamma.GetHashCode();
+                if (this.Gamma != null)
+                {
+                    hashCode = (hashCode * 59) + this.Gamma.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Rho.GetHashCode();
-                hashCode = (hashCode * 59) + this.Theta.GetHashCode();
-                hashCode = (hashCode * 59) + this.Vega.GetHashCode();
+                if (this.Rho != null)
+                {
+                    hashCode = (hashCode * 59) + this.Rho.GetHashCode();
+                }
+                if (this.Theta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Theta.GetHashCode();
+                }
+                if (this.Vega != null)
+                {
+                    hashCode = (hashCode * 59) + this.Vega.GetHashCode();
+                }
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();

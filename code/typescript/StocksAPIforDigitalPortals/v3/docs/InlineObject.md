@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**CompanyEstimatesListByInstrumentData**](CompanyEstimatesListByInstrumentData.md) |  | [optional] 
-**meta** | [**CompanyEstimatesListByInstrumentMeta**](CompanyEstimatesListByInstrumentMeta.md) |  | [optional] 
+**data** | [**StockDividendListData**](StockDividendListData.md) |  | [optional] 
+**meta** | [**StockDividendListMeta**](StockDividendListMeta.md) |  | [optional] 
 
 

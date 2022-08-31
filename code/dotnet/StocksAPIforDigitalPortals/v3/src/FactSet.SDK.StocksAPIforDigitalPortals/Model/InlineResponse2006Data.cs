@@ -34,43 +34,93 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values..</param>
-        /// <param name="name">Name of the owner..</param>
-        /// <param name="type">type.</param>
-        /// <param name="ownership">ownership.</param>
-        public InlineResponse2006Data(string id = default(string), string name = default(string), InlineResponse2006Type type = default(InlineResponse2006Type), InlineResponse2006Ownership ownership = default(InlineResponse2006Ownership))
+        /// <param name="id">Identifier of a notation..</param>
+        /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
+        /// <param name="market">market.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="isAlternative">Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent..</param>
+        /// <param name="trade">trade.</param>
+        /// <param name="quality">Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;..</param>
+        /// <param name="accumulated">accumulated.</param>
+        /// <param name="fsym">fsym.</param>
+        /// <param name="instrument">instrument.</param>
+        public InlineResponse2006Data(string id = default(string), string symbol = default(string), InlineResponse2006Market market = default(InlineResponse2006Market), InlineResponse2006Currency currency = default(InlineResponse2006Currency), bool isAlternative = default(bool), InlineResponse2006Trade trade = default(InlineResponse2006Trade), string quality = default(string), InlineResponse2006Accumulated accumulated = default(InlineResponse2006Accumulated), InlineResponse2006Fsym fsym = default(InlineResponse2006Fsym), InlineResponse2006Instrument instrument = default(InlineResponse2006Instrument))
         {
             this.Id = id;
-            this.Name = name;
-            this.Type = type;
-            this.Ownership = ownership;
+            this.Symbol = symbol;
+            this.Market = market;
+            this.Currency = currency;
+            this.IsAlternative = isAlternative;
+            this.Trade = trade;
+            this.Quality = quality;
+            this.Accumulated = accumulated;
+            this.Fsym = fsym;
+            this.Instrument = instrument;
         }
 
         /// <summary>
-        /// Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
+        /// Identifier of a notation.
         /// </summary>
-        /// <value>Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.</value>
+        /// <value>Identifier of a notation.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Name of the owner.
+        /// The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
         /// </summary>
-        /// <value>Name of the owner.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
+        [DataMember(Name = "symbol", EmitDefaultValue = false)]
+        public string Symbol { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets Market
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public InlineResponse2006Type Type { get; set; }
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public InlineResponse2006Market Market { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ownership
+        /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "ownership", EmitDefaultValue = false)]
-        public InlineResponse2006Ownership Ownership { get; set; }
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public InlineResponse2006Currency Currency { get; set; }
+
+        /// <summary>
+        /// Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
+        /// </summary>
+        /// <value>Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.</value>
+        [DataMember(Name = "isAlternative", EmitDefaultValue = true)]
+        public bool IsAlternative { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Trade
+        /// </summary>
+        [DataMember(Name = "trade", EmitDefaultValue = false)]
+        public InlineResponse2006Trade Trade { get; set; }
+
+        /// <summary>
+        /// Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;.
+        /// </summary>
+        /// <value>Quality of the trade-related attributes, see attributes &#x60;trade&#x60; and &#x60;accumulated&#x60;.</value>
+        [DataMember(Name = "quality", EmitDefaultValue = false)]
+        public string Quality { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Accumulated
+        /// </summary>
+        [DataMember(Name = "accumulated", EmitDefaultValue = false)]
+        public InlineResponse2006Accumulated Accumulated { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2006Fsym Fsym { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Instrument
+        /// </summary>
+        [DataMember(Name = "instrument", EmitDefaultValue = false)]
+        public InlineResponse2006Instrument Instrument { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,9 +131,15 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Ownership: ").Append(Ownership).Append("\n");
+            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  IsAlternative: ").Append(IsAlternative).Append("\n");
+            sb.Append("  Trade: ").Append(Trade).Append("\n");
+            sb.Append("  Quality: ").Append(Quality).Append("\n");
+            sb.Append("  Accumulated: ").Append(Accumulated).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
+            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,19 +181,48 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Symbol == input.Symbol ||
+                    (this.Symbol != null &&
+                    this.Symbol.Equals(input.Symbol))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
                 ) && 
                 (
-                    this.Ownership == input.Ownership ||
-                    (this.Ownership != null &&
-                    this.Ownership.Equals(input.Ownership))
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.IsAlternative == input.IsAlternative ||
+                    this.IsAlternative.Equals(input.IsAlternative)
+                ) && 
+                (
+                    this.Trade == input.Trade ||
+                    (this.Trade != null &&
+                    this.Trade.Equals(input.Trade))
+                ) && 
+                (
+                    this.Quality == input.Quality ||
+                    (this.Quality != null &&
+                    this.Quality.Equals(input.Quality))
+                ) && 
+                (
+                    this.Accumulated == input.Accumulated ||
+                    (this.Accumulated != null &&
+                    this.Accumulated.Equals(input.Accumulated))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
+                ) && 
+                (
+                    this.Instrument == input.Instrument ||
+                    (this.Instrument != null &&
+                    this.Instrument.Equals(input.Instrument))
                 );
         }
 
@@ -154,17 +239,38 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.Symbol != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
                 }
-                if (this.Type != null)
+                if (this.Market != null)
                 {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
                 }
-                if (this.Ownership != null)
+                if (this.Currency != null)
                 {
-                    hashCode = (hashCode * 59) + this.Ownership.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsAlternative.GetHashCode();
+                if (this.Trade != null)
+                {
+                    hashCode = (hashCode * 59) + this.Trade.GetHashCode();
+                }
+                if (this.Quality != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quality.GetHashCode();
+                }
+                if (this.Accumulated != null)
+                {
+                    hashCode = (hashCode * 59) + this.Accumulated.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
+                if (this.Instrument != null)
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
                 }
                 return hashCode;
             }

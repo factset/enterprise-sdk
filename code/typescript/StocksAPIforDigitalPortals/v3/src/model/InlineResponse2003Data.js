@@ -12,7 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2003Officers from './InlineResponse2003Officers';
+import InlineResponse2003Currency from './InlineResponse2003Currency';
+import InlineResponse2003Dates from './InlineResponse2003Dates';
+import InlineResponse2003Gross from './InlineResponse2003Gross';
+import InlineResponse2003Occurrence from './InlineResponse2003Occurrence';
 import InlineResponse2003Type from './InlineResponse2003Type';
 
 /**
@@ -48,11 +51,23 @@ class InlineResponse2003Data {
         if (data) {
             obj = obj || new InlineResponse2003Data();
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
             if (data.hasOwnProperty('type')) {
                 obj['type'] = InlineResponse2003Type.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('officers')) {
-                obj['officers'] = ApiClient.convertToType(data['officers'], [InlineResponse2003Officers]);
+            if (data.hasOwnProperty('occurrence')) {
+                obj['occurrence'] = InlineResponse2003Occurrence.constructFromObject(data['occurrence']);
+            }
+            if (data.hasOwnProperty('dates')) {
+                obj['dates'] = InlineResponse2003Dates.constructFromObject(data['dates']);
+            }
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse2003Currency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('gross')) {
+                obj['gross'] = InlineResponse2003Gross.constructFromObject(data['gross']);
             }
         }
         return obj;
@@ -62,15 +77,35 @@ class InlineResponse2003Data {
 }
 
 /**
+ * Identifier of a dividend.
+ * @member {String} id
+ */
+InlineResponse2003Data.prototype['id'] = undefined;
+
+/**
  * @member {module:model/InlineResponse2003Type} type
  */
 InlineResponse2003Data.prototype['type'] = undefined;
 
 /**
- * List of officers that are members of the board.
- * @member {Array.<module:model/InlineResponse2003Officers>} officers
+ * @member {module:model/InlineResponse2003Occurrence} occurrence
  */
-InlineResponse2003Data.prototype['officers'] = undefined;
+InlineResponse2003Data.prototype['occurrence'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2003Dates} dates
+ */
+InlineResponse2003Data.prototype['dates'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2003Currency} currency
+ */
+InlineResponse2003Data.prototype['currency'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2003Gross} gross
+ */
+InlineResponse2003Data.prototype['gross'] = undefined;
 
 
 

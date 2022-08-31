@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Identifier of the portfolio. | 
 **type** | [**TypeEnum**](#TypeEnum) | Transaction Type.  | 
-**notation** | [**PortfolioTransactionCreateDataNotation**](PortfolioTransactionCreateDataNotation.md) |  | 
+**notation** | [**PortfolioPayoutCreateDataNotation**](PortfolioPayoutCreateDataNotation.md) |  | 
 **time** | **String** | Date and time of the trade. | 
 **numberShares** | **BigDecimal** | Number of shares bought or sold. | 
 **price** | **BigDecimal** | Purchase price. | 

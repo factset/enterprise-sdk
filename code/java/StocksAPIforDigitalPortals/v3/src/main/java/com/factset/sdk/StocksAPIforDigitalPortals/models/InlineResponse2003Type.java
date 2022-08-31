@@ -31,9 +31,9 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * Type of the board. See endpoint &#x60;/company/board/type/list&#x60; for possible values.
+ * Dividend type.
  */
-@ApiModel(description = "Type of the board. See endpoint `/company/board/type/list` for possible values.")
+@ApiModel(description = "Dividend type.")
 @JsonPropertyOrder({
   InlineResponse2003Type.JSON_PROPERTY_ID,
   InlineResponse2003Type.JSON_PROPERTY_NAME
@@ -57,11 +57,11 @@ public class InlineResponse2003Type implements Serializable {
   }
 
    /**
-   * Identifier of a type.
+   * Identifier of the type.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a type.")
+  @ApiModelProperty(value = "Identifier of the type.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

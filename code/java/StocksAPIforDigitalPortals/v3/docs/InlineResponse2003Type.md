@@ -2,13 +2,13 @@
 
 # InlineResponse2003Type
 
-Type of the board. See endpoint `/company/board/type/list` for possible values.
+Dividend type.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of a type. |  [optional]
+**id** | **BigDecimal** | Identifier of the type. |  [optional]
 **name** | **String** | Name of the type. |  [optional]
 
 

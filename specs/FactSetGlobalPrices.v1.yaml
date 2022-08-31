@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.0
+  version: 1.4.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -34,7 +34,7 @@ paths:
         Count, and Turn Over for a specified list of securities, date range,
         currency, and adjustment factors.
       parameters:
-        - $ref: '#/components/parameters/idsMax50'
+        - $ref: '#/components/parameters/idsMax1000'
         - $ref: '#/components/parameters/fieldsPrices'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
@@ -203,6 +203,7 @@ paths:
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/frequency'
+        - $ref: '#/components/parameters/dividendAdjust'
       responses:
         '200':
           description: Array of Returns Objects
@@ -313,6 +314,31 @@ components:
           summary: One Equity Market Identifier
           value:
             - AAPL-USA
+    idsMax1000:
+      name: ids
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1000
+      required: true
+      explode: false
+      description: >-
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+        <p>***ids limit** =  50 per multi-day request or 1000 for single day
+        requests*</p> *<p>Make note, GET Method URL request lines are also
+        limited to a total length of 8192 bytes (8KB). In cases where the
+        service allows for thousands of ids, which may lead to exceeding this
+        request line limit of 8KB, its advised for any requests with large
+        request lines to be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+            - AAPL-USA
     eventCategory:
       name: eventCategory
       description: |
@@ -348,7 +374,7 @@ components:
     endDate:
       name: endDate
       in: query
-      required: true
+      required: false
       schema:
         type: string
       description: >
@@ -406,6 +432,7 @@ components:
         enum:
           - include
           - exclude
+        default: exclude
       description: >
         The cancelled dividend returns the dividend details whether they are
         cancelled or active.
@@ -441,6 +468,24 @@ components:
           * **CSA** = Calendar Semi-annual
           * **AY** = Actual Annual, based on the start date.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          
+    dividendAdjust:
+      name: dividendAdjust
+      in: query
+      schema:
+        type: string
+        enum:
+          - PRICE
+          - EXDATE
+          - EXDATE_C
+        default: EXDATE_C
+      description: |
+        Controls the dividend reinvestment for the returns calculation.
+          * **PRICE** = Price Change - Dividends Excluded.
+          * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+
+          
     calendar:
       name: calendar
       in: query
@@ -449,6 +494,7 @@ components:
         enum:
           - FIVEDAY
           - SEVENDAY
+          - US
         default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
@@ -611,7 +657,7 @@ components:
       type: object
       properties:
         ids:
-          $ref: '#/components/schemas/idsMax50'
+          $ref: '#/components/schemas/idsMax1000'
         fields:
           $ref: '#/components/schemas/pricesFields'
         startDate:
@@ -629,7 +675,6 @@ components:
       required:
         - ids
         - startDate
-        - endDate
     globalPricesResponse:
       type: object
       title: Prices Response
@@ -650,17 +695,20 @@ components:
             (XXXXXX-L).
           type: string
           example: LCV42P-L
+          nullable: true
         date:
           description: Ending date for the period expressed in YYYY-MM-DD format.
           type: string
           format: date
           example: '2020-11-19'
+          nullable: true
         currency:
           type: string
           description: >-
             Currency ISO code. For more details, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           example: USD
+          nullable: true
         requestId:
           description: Identifier that was used for the request.
           type: string
@@ -736,12 +784,14 @@ components:
                 example: SJY281-R
                 x-fds-sdf: fsym_id
                 x-fds-dh: REGIONAL_FDS_ID
+                nullable: true
               eventId:
                 description: FactSet identifier that uniquely identifies the Event.
                 type: string
                 example: JTHPFN-A
                 x-fds-sdf: ca_event_id
                 x-fds-dh: EVENT_ID
+                nullable: true
               eventTypeCode:
                 description: Corporate Actions Event type code.
                 type: string
@@ -760,11 +810,13 @@ components:
                   - SPL
                 x-fds-sdf: ca_event_type_code
                 x-fds-dh: EVENT_TYPE_CODE
+                nullable: true
               eventTypeDesc:
                 description: Corporate Actions Event type description.
                 type: string
                 x-fds-sdf: null
                 x-fds-dh: EVENT_TYPE
+                nullable: true
               divTypeCode:
                 description: >
                   Dividend Type Code. For code descriptions, visit [Online
@@ -773,21 +825,25 @@ components:
                 type: string
                 x-fds-sdf: div_type_code
                 x-fds-dh: DIVTYPE_NUM
+                nullable: true
               announcementDate:
                 description: Date Event was announced in YYYY-MM-DD format.
                 type: string
                 x-fds-sdf: announcement_date
                 x-fds-dh: ANNDATE
+                nullable: true
               recordDate:
                 description: Date of Record for distribution in YYYY-MM-DD format.
                 type: string
                 x-fds-sdf: record_date
                 x-fds-dh: RECORD_DATE
+                nullable: true
               payDate:
                 description: Date of Payment for distribution in YYYY-MM-DD format.
                 type: string
                 x-fds-sdf: pay_date
                 x-fds-dh: PAYDATE
+                nullable: true
               effectiveDate:
                 description: >-
                   Effective Date or Ex-Date of distribution in YYYY-MM-DD
@@ -795,6 +851,7 @@ components:
                 type: string
                 x-fds-sdf: effective_date
                 x-fds-dh: EFFECTIVE_DATE
+                nullable: true
               requestId:
                 description: Identifier that was used for the request.
                 type: string
@@ -843,7 +900,22 @@ components:
       maxItems: 50
       description: >
         The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests
+        are limited to 50 IDs.
+      example:
+        - TSLA-US
+    idsMax1000:
+      title: ids
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 1000
+      description: >
+        The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests
+        are limited to 50 IDs for multi-day requests and 1000 IDs for single day
+        requests.
       example:
         - TSLA-US
     eventCategory:
@@ -1050,12 +1122,27 @@ components:
           * **AY** = Actual Annual, based on the start date.
           * **CY** = Calendar Annual, based on the last trading day of the calendar year.
       example: M
+    dividendAdjust:
+      title: dividendAdjust
+      type: string
+      enum:
+        - PRICE
+        - EXDATE
+        - EXDATE_C
+      default: EXDATE_C
+      description: |
+        Controls the dividend reinvestment for the returns calculation.
+          * **PRICE** = Price Change - Dividends Excluded.
+          * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+      example: EXDATE_C
     calendar:
       title: Calendar
       type: string
       enum:
         - FIVEDAY
         - SEVENDAY
+        - US
       default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
@@ -1602,10 +1689,11 @@ components:
           $ref: '#/components/schemas/requestCurrency'
         frequency:
           $ref: '#/components/schemas/frequency'
+        dividendAdjust:
+          $ref: '#/components/schemas/dividendAdjust'
       required:
         - ids
         - startDate
-        - endDate
     returnsResponse:
       type: object
       title: Returns Response
@@ -1626,11 +1714,13 @@ components:
             (XXXXXX-L).
           type: string
           example: LCV42P-L
+          nullable: true
         totalReturn:
           description: Returns the data for the given input parameters.
           type: number
           format: double
           example: 0.927077
+          nullable: true
         date:
           description: >-
             End date of the return. Date in YYYY-MM-DD format. Depending on
@@ -1639,12 +1729,14 @@ components:
           type: string
           format: date
           example: '2020-11-19'
+          nullable: true
         currency:
           type: string
           description: >-
             Currency ISO code. For more details, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
           example: USD
+          nullable: true
         requestId:
           description: Identifier that was used for the request.
           type: string

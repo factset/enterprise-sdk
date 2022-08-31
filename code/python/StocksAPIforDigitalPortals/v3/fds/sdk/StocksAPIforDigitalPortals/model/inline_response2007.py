@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_meta import InlineResponse2006Meta
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_data import InlineResponse2007Data
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_meta import InlineResponse200Meta
+    globals()['InlineResponse2006Meta'] = InlineResponse2006Meta
     globals()['InlineResponse2007Data'] = InlineResponse2007Data
-    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse2007(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse2007(ModelNormal):
         lazy_import()
         return {
             'data': ([InlineResponse2007Data],),  # noqa: E501
-            'meta': (InlineResponse200Meta,),  # noqa: E501
+            'meta': (InlineResponse2006Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2007Data]): List of dividends.. [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse2007Data]): List of notations.. [optional]  # noqa: E501
+            meta (InlineResponse2006Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineResponse2007(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2007Data]): List of dividends.. [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse2007Data]): List of notations.. [optional]  # noqa: E501
+            meta (InlineResponse2006Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

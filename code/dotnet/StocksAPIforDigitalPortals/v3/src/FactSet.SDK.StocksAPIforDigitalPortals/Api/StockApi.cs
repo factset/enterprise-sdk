@@ -35,9 +35,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 GetStockDividendTypeList(List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 GetStockDividendTypeList(List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// List of dividend types.
@@ -47,9 +47,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
@@ -57,12 +57,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
@@ -71,12 +71,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
@@ -84,12 +84,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
@@ -98,12 +98,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
@@ -111,12 +111,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkWeek1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkWeek1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
@@ -125,12 +125,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
@@ -138,12 +138,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
@@ -152,12 +152,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
@@ -165,12 +165,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -179,12 +179,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
@@ -192,12 +192,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear5Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear5Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
@@ -206,12 +206,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// List of owners for a specific type of a company&#39;s shares.
         /// </summary>
@@ -219,11 +219,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of top-20 owners for a specific type of a company&#39;s shares.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetStockOwnerList(string id, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 GetStockOwnerList(string id, List<string> attributes = default(List<string>), string language = default(string));
 
         /// <summary>
         /// List of owners for a specific type of a company&#39;s shares.
@@ -232,11 +232,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of top-20 owners for a specific type of a company&#39;s shares.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetStockOwnerListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string));
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> GetStockOwnerListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string));
         /// <summary>
         /// Target price and aggregated recommendations for a stock.
         /// </summary>
@@ -244,110 +244,110 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 GetStockRecommendationAggregateGet(string id, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Target price and aggregated recommendations for a stock.
+        /// </summary>
+        /// <remarks>
+        /// Target price and aggregated recommendations for a stock.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> GetStockRecommendationAggregateGetWithHttpInfo(string id, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Current and historical trade recommendations and target prices for a stock.
+        /// </summary>
+        /// <remarks>
+        /// Current and historical trade recommendations and target prices for a stock.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetStockRecommendationAggregateGet(string id, List<string> attributes = default(List<string>));
+        InlineResponse2001 GetStockRecommendationAggregateHistoryList(string id, List<string> snapshots, List<string> attributes = default(List<string>));
 
         /// <summary>
-        /// Target price and aggregated recommendations for a stock.
+        /// Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <remarks>
-        /// Target price and aggregated recommendations for a stock.
+        /// Current and historical trade recommendations and target prices for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetStockRecommendationAggregateGetWithHttpInfo(string id, List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse2001> GetStockRecommendationAggregateHistoryListWithHttpInfo(string id, List<string> snapshots, List<string> attributes = default(List<string>));
         /// <summary>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </summary>
         /// <remarks>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetStockRecommendationAggregateHistoryList(string id, List<string> snapshots, List<string> attributes = default(List<string>));
+        /// <param name="inlineObject"></param>
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 PostStockDividendList(InlineObject inlineObject);
 
         /// <summary>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </summary>
         /// <remarks>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetStockRecommendationAggregateHistoryListWithHttpInfo(string id, List<string> snapshots, List<string> attributes = default(List<string>));
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> PostStockDividendListWithHttpInfo(InlineObject inlineObject);
         /// <summary>
-        /// List of dividends for a stock.
+        /// Ranking of stocks&#39; notations using intraday figures.
         /// </summary>
         /// <remarks>
-        /// List of dividends for a stock.
+        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        InlineResponse2006 PostStockNotationRankingIntradayList(InlineObject1 inlineObject1 = default(InlineObject1));
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures.
+        /// </summary>
+        /// <remarks>
+        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        ApiResponse<InlineResponse2006> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject1 inlineObject1 = default(InlineObject1));
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters.
+        /// </summary>
+        /// <remarks>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
         /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 PostStockDividendList(InlineObject1 body);
+        InlineResponse2007 PostStockNotationScreenerSearch(InlineObject2 inlineObject2 = default(InlineObject2));
 
         /// <summary>
-        /// List of dividends for a stock.
+        /// Screener for stocks&#39; notations based on stock-specific parameters.
         /// </summary>
         /// <remarks>
-        /// List of dividends for a stock.
+        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject2"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> PostStockDividendListWithHttpInfo(InlineObject1 body);
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures.
-        /// </summary>
-        /// <remarks>
-        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20010</returns>
-        InlineResponse20010 PostStockNotationRankingIntradayList(InlineObject2 body = default(InlineObject2));
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures.
-        /// </summary>
-        /// <remarks>
-        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20010</returns>
-        ApiResponse<InlineResponse20010> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject2 body = default(InlineObject2));
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters.
-        /// </summary>
-        /// <remarks>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20011</returns>
-        InlineResponse20011 PostStockNotationScreenerSearch(InlineObject3 body = default(InlineObject3));
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters.
-        /// </summary>
-        /// <remarks>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20011</returns>
-        ApiResponse<InlineResponse20011> PostStockNotationScreenerSearchWithHttpInfo(InlineObject3 body = default(InlineObject3));
+        ApiResponse<InlineResponse2007> PostStockNotationScreenerSearchWithHttpInfo(InlineObject2 inlineObject2 = default(InlineObject2));
         /// <summary>
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
         /// </summary>
@@ -355,9 +355,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 PostStockNotationScreenerValueRangesGet(InlineObject4 body = default(InlineObject4));
+        /// <param name="inlineObject3"> (optional)</param>
+        /// <returns>InlineResponse2008</returns>
+        InlineResponse2008 PostStockNotationScreenerValueRangesGet(InlineObject3 inlineObject3 = default(InlineObject3));
 
         /// <summary>
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
@@ -366,9 +366,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject4 body = default(InlineObject4));
+        /// <param name="inlineObject3"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        ApiResponse<InlineResponse2008> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject3 inlineObject3 = default(InlineObject3));
         #endregion Synchronous Operations
     }
 
@@ -386,10 +386,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of dividend types.
@@ -399,10 +399,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
@@ -410,13 +410,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
@@ -425,13 +425,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
@@ -439,13 +439,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
@@ -454,13 +454,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
@@ -468,13 +468,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
@@ -483,13 +483,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
@@ -497,13 +497,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
@@ -512,13 +512,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
@@ -526,13 +526,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -541,13 +541,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
@@ -555,13 +555,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
@@ -570,13 +570,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List of owners for a specific type of a company&#39;s shares.
         /// </summary>
@@ -584,12 +584,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of top-20 owners for a specific type of a company&#39;s shares.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetStockOwnerListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> GetStockOwnerListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List of owners for a specific type of a company&#39;s shares.
@@ -598,12 +598,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of top-20 owners for a specific type of a company&#39;s shares.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetStockOwnerListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockOwnerListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Target price and aggregated recommendations for a stock.
         /// </summary>
@@ -611,120 +611,120 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> GetStockRecommendationAggregateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Target price and aggregated recommendations for a stock.
+        /// </summary>
+        /// <remarks>
+        /// Target price and aggregated recommendations for a stock.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetStockRecommendationAggregateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Current and historical trade recommendations and target prices for a stock.
+        /// </summary>
+        /// <remarks>
+        /// Current and historical trade recommendations and target prices for a stock.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetStockRecommendationAggregateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2001> GetStockRecommendationAggregateHistoryListAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Target price and aggregated recommendations for a stock.
+        /// Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <remarks>
-        /// Target price and aggregated recommendations for a stock.
+        /// Current and historical trade recommendations and target prices for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStockRecommendationAggregateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStockRecommendationAggregateHistoryListWithHttpInfoAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </summary>
         /// <remarks>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="inlineObject"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetStockRecommendationAggregateHistoryListAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> PostStockDividendListAsync(InlineObject inlineObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </summary>
         /// <remarks>
-        /// Current and historical trade recommendations and target prices for a stock.
+        /// List of dividends for a stock.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="inlineObject"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockRecommendationAggregateHistoryListWithHttpInfoAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostStockDividendListWithHttpInfoAsync(InlineObject inlineObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of dividends for a stock.
+        /// Ranking of stocks&#39; notations using intraday figures.
         /// </summary>
         /// <remarks>
-        /// List of dividends for a stock.
+        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        System.Threading.Tasks.Task<InlineResponse2006> PostStockNotationRankingIntradayListAsync(InlineObject1 inlineObject1 = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures.
+        /// </summary>
+        /// <remarks>
+        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 inlineObject1 = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters.
+        /// </summary>
+        /// <remarks>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> PostStockDividendListAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2007> PostStockNotationScreenerSearchAsync(InlineObject2 inlineObject2 = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List of dividends for a stock.
+        /// Screener for stocks&#39; notations based on stock-specific parameters.
         /// </summary>
         /// <remarks>
-        /// List of dividends for a stock.
+        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject2"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostStockDividendListWithHttpInfoAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures.
-        /// </summary>
-        /// <remarks>
-        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20010</returns>
-        System.Threading.Tasks.Task<InlineResponse20010> PostStockNotationRankingIntradayListAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures.
-        /// </summary>
-        /// <remarks>
-        /// Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters.
-        /// </summary>
-        /// <remarks>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20011</returns>
-        System.Threading.Tasks.Task<InlineResponse20011> PostStockNotationScreenerSearchAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters.
-        /// </summary>
-        /// <remarks>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject2 inlineObject2 = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
         /// </summary>
@@ -732,10 +732,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="inlineObject3"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> PostStockNotationScreenerValueRangesGetAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2008</returns>
+        System.Threading.Tasks.Task<InlineResponse2008> PostStockNotationScreenerValueRangesGetAsync(InlineObject3 inlineObject3 = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
@@ -744,10 +744,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </remarks>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="inlineObject3"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject3 inlineObject3 = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -769,59 +769,59 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         # region Response Type Disctionaries
                 private static readonly Dictionary<HttpStatusCode, System.Type> GetStockDividendTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockOwnerListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockRecommendationAggregateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> GetStockRecommendationAggregateHistoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockDividendListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationRankingIntradayListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20010) },
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20011) },
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerValueRangesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(InlineResponse20012) },
+            { (HttpStatusCode)200, typeof(InlineResponse2008) },
         };
 
         # endregion Response Type Disctionaries
@@ -938,9 +938,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 GetStockDividendTypeList(List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 GetStockDividendTypeList(List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockDividendTypeListWithHttpInfo(attributes, language);
             return localVarResponse.Data;
@@ -951,9 +951,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public ApiResponse<InlineResponse2008> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse<InlineResponse2004> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1010,7 +1010,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2008>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration);
+            InlineResponse2004>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockDividendTypeList", localVarResponse);
@@ -1027,10 +1027,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008>GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockDividendTypeListWithHttpInfoAsync(attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1041,11 +1041,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1102,7 +1102,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockDividendTypeListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1120,12 +1120,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month. End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -1135,12 +1135,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month. End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1211,7 +1211,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth1Get", localVarResponse);
@@ -1227,13 +1227,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month. End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1243,14 +1243,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one month. End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1321,7 +1321,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1339,12 +1339,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months. End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkMonth3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkMonth3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -1354,12 +1354,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months. End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1430,7 +1430,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth3Get", localVarResponse);
@@ -1446,13 +1446,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months. End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1462,14 +1462,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three months. End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1540,7 +1540,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1558,12 +1558,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week. End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkWeek1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkWeek1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -1573,12 +1573,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week. End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1649,7 +1649,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkWeek1Get", localVarResponse);
@@ -1665,13 +1665,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week. End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1681,14 +1681,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one week. End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1759,7 +1759,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1777,12 +1777,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year. End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -1792,12 +1792,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year. End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1868,7 +1868,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear1Get", localVarResponse);
@@ -1884,13 +1884,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year. End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1900,14 +1900,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of one year. End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1978,7 +1978,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1996,12 +1996,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years. End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -2011,12 +2011,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years. End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2087,7 +2087,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear3Get", localVarResponse);
@@ -2103,13 +2103,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years. End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2119,14 +2119,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of three years. End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2197,7 +2197,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2215,12 +2215,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years. End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetStockNotationKeyFiguresBenchmarkYear5Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetStockNotationKeyFiguresBenchmarkYear5Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
@@ -2230,12 +2230,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years. End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2306,7 +2306,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear5Get", localVarResponse);
@@ -2322,13 +2322,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years. End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009>GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2338,14 +2338,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// End-of-day (EOD) benchmark key figures of a stock for the time range of five years. End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the notation.</param>
-        /// <param name="idNotationBenchmark">List of identifiers of benchmark notations. See the group description for the list of valid values.</param>
+        /// <param name="id"></param>
+        /// <param name="idNotationBenchmark"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2416,7 +2416,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2434,11 +2434,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of owners for a specific type of a company&#39;s shares. List of top-20 owners for a specific type of a company&#39;s shares.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetStockOwnerList(string id, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetStockOwnerList(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             var localVarResponse = GetStockOwnerListWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
@@ -2448,11 +2448,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of owners for a specific type of a company&#39;s shares. List of top-20 owners for a specific type of a company&#39;s shares.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse<InlineResponse2006> GetStockOwnerListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
+        /// <param name="language"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse<InlineResponse2002> GetStockOwnerListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2516,7 +2516,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2006>("/stock/owner/list", localVarRequestOptions, this.Configuration);
+            InlineResponse2002>("/stock/owner/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockOwnerList", localVarResponse);
@@ -2532,12 +2532,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of owners for a specific type of a company&#39;s shares. List of top-20 owners for a specific type of a company&#39;s shares.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006>GetStockOwnerListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockOwnerListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockOwnerListWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2547,13 +2547,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of owners for a specific type of a company&#39;s shares. List of top-20 owners for a specific type of a company&#39;s shares.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of the instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="language">ISO 639-1 code of the language. (optional)</param>
+        /// <param name="language"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetStockOwnerListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockOwnerListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2617,7 +2617,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockOwnerListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/stock/owner/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/owner/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2635,10 +2635,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock. Target price and aggregated recommendations for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetStockRecommendationAggregateGet(string id, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 GetStockRecommendationAggregateGet(string id, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetStockRecommendationAggregateGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
@@ -2648,10 +2648,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock. Target price and aggregated recommendations for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetStockRecommendationAggregateGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> GetStockRecommendationAggregateGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2711,7 +2711,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2001>("/stock/recommendation/aggregate/get", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/stock/recommendation/aggregate/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockRecommendationAggregateGet", localVarResponse);
@@ -2727,11 +2727,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock. Target price and aggregated recommendations for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001>GetStockRecommendationAggregateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200>GetStockRecommendationAggregateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockRecommendationAggregateGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2741,12 +2741,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Target price and aggregated recommendations for a stock. Target price and aggregated recommendations for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
+        /// <param name="id"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStockRecommendationAggregateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetStockRecommendationAggregateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2806,7 +2806,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockRecommendationAggregateGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/stock/recommendation/aggregate/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/stock/recommendation/aggregate/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2824,11 +2824,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Current and historical trade recommendations and target prices for a stock. Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetStockRecommendationAggregateHistoryList(string id, List<string> snapshots, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetStockRecommendationAggregateHistoryList(string id, List<string> snapshots, List<string> attributes = default(List<string>))
         {
             var localVarResponse = GetStockRecommendationAggregateHistoryListWithHttpInfo(id, snapshots, attributes);
             return localVarResponse.Data;
@@ -2838,11 +2838,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Current and historical trade recommendations and target prices for a stock. Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetStockRecommendationAggregateHistoryListWithHttpInfo(string id, List<string> snapshots, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public ApiResponse<InlineResponse2001> GetStockRecommendationAggregateHistoryListWithHttpInfo(string id, List<string> snapshots, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2909,7 +2909,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse2002>("/stock/recommendation/aggregate/history/list", localVarRequestOptions, this.Configuration);
+            InlineResponse2001>("/stock/recommendation/aggregate/history/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockRecommendationAggregateHistoryList", localVarResponse);
@@ -2925,12 +2925,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Current and historical trade recommendations and target prices for a stock. Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockRecommendationAggregateHistoryListAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetStockRecommendationAggregateHistoryListAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var localVarResponse = await GetStockRecommendationAggregateHistoryListWithHttpInfoAsync(id, snapshots, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2940,13 +2940,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Current and historical trade recommendations and target prices for a stock. Current and historical trade recommendations and target prices for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Identifier of an instrument.</param>
-        /// <param name="snapshots">Choice of historic snapshots for aggregated recommendations.</param>
+        /// <param name="id"></param>
+        /// <param name="snapshots"></param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockRecommendationAggregateHistoryListWithHttpInfoAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStockRecommendationAggregateHistoryListWithHttpInfoAsync(string id, List<string> snapshots, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3013,7 +3013,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = GetStockRecommendationAggregateHistoryListResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/recommendation/aggregate/history/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/stock/recommendation/aggregate/history/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3031,11 +3031,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of dividends for a stock. List of dividends for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 PostStockDividendList(InlineObject1 body)
+        /// <param name="inlineObject"></param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 PostStockDividendList(InlineObject inlineObject)
         {
-            var localVarResponse = PostStockDividendListWithHttpInfo(body);
+            var localVarResponse = PostStockDividendListWithHttpInfo(inlineObject);
             return localVarResponse.Data;
         }
 
@@ -3043,14 +3043,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of dividends for a stock. List of dividends for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse<InlineResponse2007> PostStockDividendListWithHttpInfo(InlineObject1 body)
+        /// <param name="inlineObject"></param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse<InlineResponse2003> PostStockDividendListWithHttpInfo(InlineObject inlineObject)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
             {
-                throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling StockApi->PostStockDividendList");
+                throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject' when calling StockApi->PostStockDividendList");
             }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -3076,7 +3076,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -3102,7 +3102,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse2007>("/stock/dividend/list", localVarRequestOptions, this.Configuration);
+            InlineResponse2003>("/stock/dividend/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockDividendList", localVarResponse);
@@ -3118,12 +3118,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of dividends for a stock. List of dividends for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007>PostStockDividendListAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003>PostStockDividendListAsync(InlineObject inlineObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostStockDividendListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockDividendListWithHttpInfoAsync(inlineObject, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3131,184 +3131,351 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// List of dividends for a stock. List of dividends for a stock.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="inlineObject"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostStockDividendListWithHttpInfoAsync(InlineObject inlineObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'inlineObject' is set
+            if (inlineObject == null)
+            {
+                throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'inlineObject' when calling StockApi->PostStockDividendList");
+            }
+
+
+            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inlineObject;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = PostStockDividendListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/stock/dividend/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostStockDividendList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        public InlineResponse2006 PostStockNotationRankingIntradayList(InlineObject1 inlineObject1 = default(InlineObject1))
+        {
+            var localVarResponse = PostStockNotationRankingIntradayListWithHttpInfo(inlineObject1);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        public ApiResponse<InlineResponse2006> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject1 inlineObject1 = default(InlineObject1))
+        {
+            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inlineObject1;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2006>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2006>PostStockNotationRankingIntradayListAsync(InlineObject1 inlineObject1 = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await PostStockNotationRankingIntradayListWithHttpInfoAsync(inlineObject1, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject1"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 inlineObject1 = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inlineObject1;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2006>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
+        /// <returns>InlineResponse2007</returns>
+        public InlineResponse2007 PostStockNotationScreenerSearch(InlineObject2 inlineObject2 = default(InlineObject2))
+        {
+            var localVarResponse = PostStockNotationScreenerSearchWithHttpInfo(inlineObject2);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        public ApiResponse<InlineResponse2007> PostStockNotationScreenerSearchWithHttpInfo(InlineObject2 inlineObject2 = default(InlineObject2))
+        {
+            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = inlineObject2;
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerSearchResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2007>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostStockNotationScreenerSearch", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2007</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2007>PostStockNotationScreenerSearchAsync(InlineObject2 inlineObject2 = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await PostStockNotationScreenerSearchWithHttpInfoAsync(inlineObject2, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inlineObject2"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostStockDividendListWithHttpInfoAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'body' is set
-            if (body == null)
-            {
-                throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling StockApi->PostStockDividendList");
-            }
-
-
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = body;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = PostStockDividendListResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2007>("/stock/dividend/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostStockDividendList", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20010</returns>
-        public InlineResponse20010 PostStockNotationRankingIntradayList(InlineObject2 body = default(InlineObject2))
-        {
-            var localVarResponse = PostStockNotationRankingIntradayListWithHttpInfo(body);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20010</returns>
-        public ApiResponse<InlineResponse20010> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject2 body = default(InlineObject2))
-        {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = body;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<
-            InlineResponse20010>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010>PostStockNotationRankingIntradayListAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await PostStockNotationRankingIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Ranking of stocks&#39; notations using intraday figures. Ranking of stocks&#39; notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute &#x60;trade.performance.relative&#x60;. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter &#x60;currency&#x60; has not been specified.&#x60;  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject2 inlineObject2 = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -3334,174 +3501,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20010>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20011</returns>
-        public InlineResponse20011 PostStockNotationScreenerSearch(InlineObject3 body = default(InlineObject3))
-        {
-            var localVarResponse = PostStockNotationScreenerSearchWithHttpInfo(body);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20011</returns>
-        public ApiResponse<InlineResponse20011> PostStockNotationScreenerSearchWithHttpInfo(InlineObject3 body = default(InlineObject3))
-        {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = body;
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerSearchResponseTypeDictionary;
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<
-            InlineResponse20011>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PostStockNotationScreenerSearch", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20011>PostStockNotationScreenerSearchAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var localVarResponse = await PostStockNotationScreenerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Screener for stocks&#39; notations based on stock-specific parameters. Screener for stocks&#39; notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute &#x60;reportedKeyFigures&#x60;; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute &#x60;estimates&#x60;. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter &#x60;reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode&#x60; and parameter &#x60;estimates.currencyDependentEstimates.currency.isoCode&#x60; respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter &#x60;reportedKeyFigures.fiscalYear&#x60;) or for the estimates (see parameter &#x60;estimates.fiscalYear&#x60;) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject2;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -3526,7 +3526,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerSearchResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20011>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2007>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3544,11 +3544,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 PostStockNotationScreenerValueRangesGet(InlineObject4 body = default(InlineObject4))
+        /// <param name="inlineObject3"> (optional)</param>
+        /// <returns>InlineResponse2008</returns>
+        public InlineResponse2008 PostStockNotationScreenerValueRangesGet(InlineObject3 inlineObject3 = default(InlineObject3))
         {
-            var localVarResponse = PostStockNotationScreenerValueRangesGetWithHttpInfo(body);
+            var localVarResponse = PostStockNotationScreenerValueRangesGetWithHttpInfo(inlineObject3);
             return localVarResponse.Data;
         }
 
@@ -3556,9 +3556,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        public ApiResponse<InlineResponse20012> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject4 body = default(InlineObject4))
+        /// <param name="inlineObject3"> (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        public ApiResponse<InlineResponse2008> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject3 inlineObject3 = default(InlineObject3))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3583,7 +3583,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject3;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -3609,7 +3609,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse20012>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
+            InlineResponse2008>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationScreenerValueRangesGet", localVarResponse);
@@ -3625,12 +3625,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="inlineObject3"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012>PostStockNotationScreenerValueRangesGetAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2008</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2008>PostStockNotationScreenerValueRangesGetAsync(InlineObject3 inlineObject3 = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(inlineObject3, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3638,11 +3638,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/stock/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the &#x60;/notation/keyFigures/&#x60; endpoints.
         /// </summary>
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"> (optional)</param>
+        /// <param name="inlineObject3"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject3 inlineObject3 = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -3668,7 +3668,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = inlineObject3;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -3693,7 +3693,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerValueRangesGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20012>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2008>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

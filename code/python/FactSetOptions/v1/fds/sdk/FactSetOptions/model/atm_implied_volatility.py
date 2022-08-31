@@ -82,16 +82,16 @@ class AtmImpliedVolatility(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'a_tm_impl_vol': (float,),  # noqa: E501
-            'a_tm_impl_vol_market': (float,),  # noqa: E501
-            'call_atm_impl_vol': (float,),  # noqa: E501
-            'call_atm_impl_vol_market': (float,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'exchange': (str,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'period': (str,),  # noqa: E501
-            'put_atm_impl_vol': (float,),  # noqa: E501
-            'put_atm_impl_vol_market': (float,),  # noqa: E501
+            'a_tm_impl_vol': (float, none_type,),  # noqa: E501
+            'a_tm_impl_vol_market': (float, none_type,),  # noqa: E501
+            'call_atm_impl_vol': (float, none_type,),  # noqa: E501
+            'call_atm_impl_vol_market': (float, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'exchange': (str, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'period': (str, none_type,),  # noqa: E501
+            'put_atm_impl_vol': (float, none_type,),  # noqa: E501
+            'put_atm_impl_vol_market': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -155,16 +155,16 @@ class AtmImpliedVolatility(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_tm_impl_vol (float): Option at the money implied volatility.. [optional]  # noqa: E501
-            a_tm_impl_vol_market (float): Option at the money implied volatility market.. [optional]  # noqa: E501
-            call_atm_impl_vol (float): Call option at the money implied volatility.. [optional]  # noqa: E501
-            call_atm_impl_vol_market (float): Call option at the money implied volatility market.. [optional]  # noqa: E501
-            date (date): The date of the data represented in YYYY-MM-DD format. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
-            period (str): The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.. [optional]  # noqa: E501
-            put_atm_impl_vol (float): Put Option at the money implied volatility.. [optional]  # noqa: E501
-            put_atm_impl_vol_market (float): Put Option at the money implied volatility market.. [optional]  # noqa: E501
+            a_tm_impl_vol (float, none_type): Option at the money implied volatility.. [optional]  # noqa: E501
+            a_tm_impl_vol_market (float, none_type): Option at the money implied volatility market.. [optional]  # noqa: E501
+            call_atm_impl_vol (float, none_type): Call option at the money implied volatility.. [optional]  # noqa: E501
+            call_atm_impl_vol_market (float, none_type): Call option at the money implied volatility market.. [optional]  # noqa: E501
+            date (date, none_type): The date of the data represented in YYYY-MM-DD format. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
+            period (str, none_type): The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.. [optional]  # noqa: E501
+            put_atm_impl_vol (float, none_type): Put Option at the money implied volatility.. [optional]  # noqa: E501
+            put_atm_impl_vol_market (float, none_type): Put Option at the money implied volatility market.. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -247,16 +247,16 @@ class AtmImpliedVolatility(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_tm_impl_vol (float): Option at the money implied volatility.. [optional]  # noqa: E501
-            a_tm_impl_vol_market (float): Option at the money implied volatility market.. [optional]  # noqa: E501
-            call_atm_impl_vol (float): Call option at the money implied volatility.. [optional]  # noqa: E501
-            call_atm_impl_vol_market (float): Call option at the money implied volatility market.. [optional]  # noqa: E501
-            date (date): The date of the data represented in YYYY-MM-DD format. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
-            period (str): The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.. [optional]  # noqa: E501
-            put_atm_impl_vol (float): Put Option at the money implied volatility.. [optional]  # noqa: E501
-            put_atm_impl_vol_market (float): Put Option at the money implied volatility market.. [optional]  # noqa: E501
+            a_tm_impl_vol (float, none_type): Option at the money implied volatility.. [optional]  # noqa: E501
+            a_tm_impl_vol_market (float, none_type): Option at the money implied volatility market.. [optional]  # noqa: E501
+            call_atm_impl_vol (float, none_type): Call option at the money implied volatility.. [optional]  # noqa: E501
+            call_atm_impl_vol_market (float, none_type): Call option at the money implied volatility market.. [optional]  # noqa: E501
+            date (date, none_type): The date of the data represented in YYYY-MM-DD format. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
+            period (str, none_type): The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.. [optional]  # noqa: E501
+            put_atm_impl_vol (float, none_type): Put Option at the money implied volatility.. [optional]  # noqa: E501
+            put_atm_impl_vol_market (float, none_type): Put Option at the money implied volatility market.. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

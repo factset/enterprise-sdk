@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import CompanyEstimatesListByInstrumentData from './CompanyEstimatesListByInstrumentData';
-import CompanyEstimatesListByInstrumentMeta from './CompanyEstimatesListByInstrumentMeta';
+import StockDividendListData from './StockDividendListData';
+import StockDividendListMeta from './StockDividendListMeta';
 
 /**
  * The InlineObject model module.
@@ -49,10 +49,10 @@ class InlineObject {
             obj = obj || new InlineObject();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = CompanyEstimatesListByInstrumentData.constructFromObject(data['data']);
+                obj['data'] = StockDividendListData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = CompanyEstimatesListByInstrumentMeta.constructFromObject(data['meta']);
+                obj['meta'] = StockDividendListMeta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,12 +62,12 @@ class InlineObject {
 }
 
 /**
- * @member {module:model/CompanyEstimatesListByInstrumentData} data
+ * @member {module:model/StockDividendListData} data
  */
 InlineObject.prototype['data'] = undefined;
 
 /**
- * @member {module:model/CompanyEstimatesListByInstrumentMeta} meta
+ * @member {module:model/StockDividendListMeta} meta
  */
 InlineObject.prototype['meta'] = undefined;
 

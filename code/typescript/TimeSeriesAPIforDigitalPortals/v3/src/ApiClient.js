@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.10.1'
+            'User-Agent': 'fds-sdk/javascript/TimeSeriesAPIforDigitalPortals/0.10.2'
         };
 
         /**

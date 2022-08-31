@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.CompanyLogoAPIforDigitalPortals",
-  "packageVersion": "0.9.3",
+  "packageVersion": "0.9.4",
   "packageGuid": "{a6e096bd-86c3-5e5a-b074-2fa702ef4e38}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/CompanyLogoAPIforDigitalPortals/0.9.3",
+  "httpUserAgent": "fds-sdk/dotnet/CompanyLogoAPIforDigitalPortals/0.9.4",
   "files": {
     "LICENSE": {}
   },

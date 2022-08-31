@@ -17,11 +17,20 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Currency;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Dates;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Gross;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Occurrence;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Type;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Fsym;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Compliance;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Estimates;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Instrument;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Market;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Nsin;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Performance;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Recommendation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007ReportedKeyFigures;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007RsiWilder;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007SimpleMovingAverage;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007TradingValue;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007ValueUnit;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Volatility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,11 +48,21 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse2007Data.JSON_PROPERTY_ID,
-  InlineResponse2007Data.JSON_PROPERTY_TYPE,
-  InlineResponse2007Data.JSON_PROPERTY_OCCURRENCE,
-  InlineResponse2007Data.JSON_PROPERTY_DATES,
-  InlineResponse2007Data.JSON_PROPERTY_CURRENCY,
-  InlineResponse2007Data.JSON_PROPERTY_GROSS
+  InlineResponse2007Data.JSON_PROPERTY_VALUE_UNIT,
+  InlineResponse2007Data.JSON_PROPERTY_MARKET,
+  InlineResponse2007Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse2007Data.JSON_PROPERTY_NSIN,
+  InlineResponse2007Data.JSON_PROPERTY_FSYM,
+  InlineResponse2007Data.JSON_PROPERTY_INSTRUMENT,
+  InlineResponse2007Data.JSON_PROPERTY_COMPLIANCE,
+  InlineResponse2007Data.JSON_PROPERTY_REPORTED_KEY_FIGURES,
+  InlineResponse2007Data.JSON_PROPERTY_PERFORMANCE,
+  InlineResponse2007Data.JSON_PROPERTY_VOLATILITY,
+  InlineResponse2007Data.JSON_PROPERTY_TRADING_VALUE,
+  InlineResponse2007Data.JSON_PROPERTY_SIMPLE_MOVING_AVERAGE,
+  InlineResponse2007Data.JSON_PROPERTY_RSI_WILDER,
+  InlineResponse2007Data.JSON_PROPERTY_RECOMMENDATION,
+  InlineResponse2007Data.JSON_PROPERTY_ESTIMATES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2007Data implements Serializable {
@@ -52,20 +71,50 @@ public class InlineResponse2007Data implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private InlineResponse2007Type type;
+  public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
+  private InlineResponse2007ValueUnit valueUnit;
 
-  public static final String JSON_PROPERTY_OCCURRENCE = "occurrence";
-  private InlineResponse2007Occurrence occurrence;
+  public static final String JSON_PROPERTY_MARKET = "market";
+  private InlineResponse2007Market market;
 
-  public static final String JSON_PROPERTY_DATES = "dates";
-  private InlineResponse2007Dates dates;
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  private String symbol;
 
-  public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse2007Currency currency;
+  public static final String JSON_PROPERTY_NSIN = "nsin";
+  private InlineResponse2007Nsin nsin;
 
-  public static final String JSON_PROPERTY_GROSS = "gross";
-  private InlineResponse2007Gross gross;
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2006Fsym fsym;
+
+  public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
+  private InlineResponse2007Instrument instrument;
+
+  public static final String JSON_PROPERTY_COMPLIANCE = "compliance";
+  private InlineResponse2007Compliance compliance;
+
+  public static final String JSON_PROPERTY_REPORTED_KEY_FIGURES = "reportedKeyFigures";
+  private InlineResponse2007ReportedKeyFigures reportedKeyFigures;
+
+  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
+  private InlineResponse2007Performance performance;
+
+  public static final String JSON_PROPERTY_VOLATILITY = "volatility";
+  private InlineResponse2007Volatility volatility;
+
+  public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
+  private InlineResponse2007TradingValue tradingValue;
+
+  public static final String JSON_PROPERTY_SIMPLE_MOVING_AVERAGE = "simpleMovingAverage";
+  private InlineResponse2007SimpleMovingAverage simpleMovingAverage;
+
+  public static final String JSON_PROPERTY_RSI_WILDER = "rsiWilder";
+  private InlineResponse2007RsiWilder rsiWilder;
+
+  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
+  private InlineResponse2007Recommendation recommendation;
+
+  public static final String JSON_PROPERTY_ESTIMATES = "estimates";
+  private InlineResponse2007Estimates estimates;
 
   public InlineResponse2007Data() { 
   }
@@ -76,11 +125,11 @@ public class InlineResponse2007Data implements Serializable {
   }
 
    /**
-   * Identifier of a dividend.
+   * Identifier of the notation.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a dividend.")
+  @ApiModelProperty(value = "Identifier of the notation.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,133 +145,393 @@ public class InlineResponse2007Data implements Serializable {
   }
 
 
-  public InlineResponse2007Data type(InlineResponse2007Type type) {
-    this.type = type;
+  public InlineResponse2007Data valueUnit(InlineResponse2007ValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get valueUnit
+   * @return valueUnit
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Type getType() {
-    return type;
+  public InlineResponse2007ValueUnit getValueUnit() {
+    return valueUnit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_VALUE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(InlineResponse2007Type type) {
-    this.type = type;
+  public void setValueUnit(InlineResponse2007ValueUnit valueUnit) {
+    this.valueUnit = valueUnit;
   }
 
 
-  public InlineResponse2007Data occurrence(InlineResponse2007Occurrence occurrence) {
-    this.occurrence = occurrence;
+  public InlineResponse2007Data market(InlineResponse2007Market market) {
+    this.market = market;
     return this;
   }
 
    /**
-   * Get occurrence
-   * @return occurrence
+   * Get market
+   * @return market
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
+  @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Occurrence getOccurrence() {
-    return occurrence;
+  public InlineResponse2007Market getMarket() {
+    return market;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
+  @JsonProperty(JSON_PROPERTY_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOccurrence(InlineResponse2007Occurrence occurrence) {
-    this.occurrence = occurrence;
+  public void setMarket(InlineResponse2007Market market) {
+    this.market = market;
   }
 
 
-  public InlineResponse2007Data dates(InlineResponse2007Dates dates) {
-    this.dates = dates;
+  public InlineResponse2007Data symbol(String symbol) {
+    this.symbol = symbol;
     return this;
   }
 
    /**
-   * Get dates
-   * @return dates
+   * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
+   * @return symbol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DATES)
+  @ApiModelProperty(value = "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.")
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Dates getDates() {
-    return dates;
+  public String getSymbol() {
+    return symbol;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATES)
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDates(InlineResponse2007Dates dates) {
-    this.dates = dates;
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
   }
 
 
-  public InlineResponse2007Data currency(InlineResponse2007Currency currency) {
-    this.currency = currency;
+  public InlineResponse2007Data nsin(InlineResponse2007Nsin nsin) {
+    this.nsin = nsin;
     return this;
   }
 
    /**
-   * Get currency
-   * @return currency
+   * Get nsin
+   * @return nsin
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Currency getCurrency() {
-    return currency;
+  public InlineResponse2007Nsin getNsin() {
+    return nsin;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_NSIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse2007Currency currency) {
-    this.currency = currency;
+  public void setNsin(InlineResponse2007Nsin nsin) {
+    this.nsin = nsin;
   }
 
 
-  public InlineResponse2007Data gross(InlineResponse2007Gross gross) {
-    this.gross = gross;
+  public InlineResponse2007Data fsym(InlineResponse2006Fsym fsym) {
+    this.fsym = fsym;
     return this;
   }
 
    /**
-   * Get gross
-   * @return gross
+   * Get fsym
+   * @return fsym
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GROSS)
+  @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2007Gross getGross() {
-    return gross;
+  public InlineResponse2006Fsym getFsym() {
+    return fsym;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROSS)
+  @JsonProperty(JSON_PROPERTY_FSYM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGross(InlineResponse2007Gross gross) {
-    this.gross = gross;
+  public void setFsym(InlineResponse2006Fsym fsym) {
+    this.fsym = fsym;
+  }
+
+
+  public InlineResponse2007Data instrument(InlineResponse2007Instrument instrument) {
+    this.instrument = instrument;
+    return this;
+  }
+
+   /**
+   * Get instrument
+   * @return instrument
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Instrument getInstrument() {
+    return instrument;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTRUMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstrument(InlineResponse2007Instrument instrument) {
+    this.instrument = instrument;
+  }
+
+
+  public InlineResponse2007Data compliance(InlineResponse2007Compliance compliance) {
+    this.compliance = compliance;
+    return this;
+  }
+
+   /**
+   * Get compliance
+   * @return compliance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Compliance getCompliance() {
+    return compliance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCompliance(InlineResponse2007Compliance compliance) {
+    this.compliance = compliance;
+  }
+
+
+  public InlineResponse2007Data reportedKeyFigures(InlineResponse2007ReportedKeyFigures reportedKeyFigures) {
+    this.reportedKeyFigures = reportedKeyFigures;
+    return this;
+  }
+
+   /**
+   * Get reportedKeyFigures
+   * @return reportedKeyFigures
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007ReportedKeyFigures getReportedKeyFigures() {
+    return reportedKeyFigures;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REPORTED_KEY_FIGURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReportedKeyFigures(InlineResponse2007ReportedKeyFigures reportedKeyFigures) {
+    this.reportedKeyFigures = reportedKeyFigures;
+  }
+
+
+  public InlineResponse2007Data performance(InlineResponse2007Performance performance) {
+    this.performance = performance;
+    return this;
+  }
+
+   /**
+   * Get performance
+   * @return performance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Performance getPerformance() {
+    return performance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPerformance(InlineResponse2007Performance performance) {
+    this.performance = performance;
+  }
+
+
+  public InlineResponse2007Data volatility(InlineResponse2007Volatility volatility) {
+    this.volatility = volatility;
+    return this;
+  }
+
+   /**
+   * Get volatility
+   * @return volatility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Volatility getVolatility() {
+    return volatility;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VOLATILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVolatility(InlineResponse2007Volatility volatility) {
+    this.volatility = volatility;
+  }
+
+
+  public InlineResponse2007Data tradingValue(InlineResponse2007TradingValue tradingValue) {
+    this.tradingValue = tradingValue;
+    return this;
+  }
+
+   /**
+   * Get tradingValue
+   * @return tradingValue
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007TradingValue getTradingValue() {
+    return tradingValue;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRADING_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTradingValue(InlineResponse2007TradingValue tradingValue) {
+    this.tradingValue = tradingValue;
+  }
+
+
+  public InlineResponse2007Data simpleMovingAverage(InlineResponse2007SimpleMovingAverage simpleMovingAverage) {
+    this.simpleMovingAverage = simpleMovingAverage;
+    return this;
+  }
+
+   /**
+   * Get simpleMovingAverage
+   * @return simpleMovingAverage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007SimpleMovingAverage getSimpleMovingAverage() {
+    return simpleMovingAverage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIMPLE_MOVING_AVERAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSimpleMovingAverage(InlineResponse2007SimpleMovingAverage simpleMovingAverage) {
+    this.simpleMovingAverage = simpleMovingAverage;
+  }
+
+
+  public InlineResponse2007Data rsiWilder(InlineResponse2007RsiWilder rsiWilder) {
+    this.rsiWilder = rsiWilder;
+    return this;
+  }
+
+   /**
+   * Get rsiWilder
+   * @return rsiWilder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007RsiWilder getRsiWilder() {
+    return rsiWilder;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RSI_WILDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRsiWilder(InlineResponse2007RsiWilder rsiWilder) {
+    this.rsiWilder = rsiWilder;
+  }
+
+
+  public InlineResponse2007Data recommendation(InlineResponse2007Recommendation recommendation) {
+    this.recommendation = recommendation;
+    return this;
+  }
+
+   /**
+   * Get recommendation
+   * @return recommendation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Recommendation getRecommendation() {
+    return recommendation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRecommendation(InlineResponse2007Recommendation recommendation) {
+    this.recommendation = recommendation;
+  }
+
+
+  public InlineResponse2007Data estimates(InlineResponse2007Estimates estimates) {
+    this.estimates = estimates;
+    return this;
+  }
+
+   /**
+   * Get estimates
+   * @return estimates
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ESTIMATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2007Estimates getEstimates() {
+    return estimates;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ESTIMATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEstimates(InlineResponse2007Estimates estimates) {
+    this.estimates = estimates;
   }
 
 
@@ -239,16 +548,26 @@ public class InlineResponse2007Data implements Serializable {
     }
     InlineResponse2007Data inlineResponse2007Data = (InlineResponse2007Data) o;
     return Objects.equals(this.id, inlineResponse2007Data.id) &&
-        Objects.equals(this.type, inlineResponse2007Data.type) &&
-        Objects.equals(this.occurrence, inlineResponse2007Data.occurrence) &&
-        Objects.equals(this.dates, inlineResponse2007Data.dates) &&
-        Objects.equals(this.currency, inlineResponse2007Data.currency) &&
-        Objects.equals(this.gross, inlineResponse2007Data.gross);
+        Objects.equals(this.valueUnit, inlineResponse2007Data.valueUnit) &&
+        Objects.equals(this.market, inlineResponse2007Data.market) &&
+        Objects.equals(this.symbol, inlineResponse2007Data.symbol) &&
+        Objects.equals(this.nsin, inlineResponse2007Data.nsin) &&
+        Objects.equals(this.fsym, inlineResponse2007Data.fsym) &&
+        Objects.equals(this.instrument, inlineResponse2007Data.instrument) &&
+        Objects.equals(this.compliance, inlineResponse2007Data.compliance) &&
+        Objects.equals(this.reportedKeyFigures, inlineResponse2007Data.reportedKeyFigures) &&
+        Objects.equals(this.performance, inlineResponse2007Data.performance) &&
+        Objects.equals(this.volatility, inlineResponse2007Data.volatility) &&
+        Objects.equals(this.tradingValue, inlineResponse2007Data.tradingValue) &&
+        Objects.equals(this.simpleMovingAverage, inlineResponse2007Data.simpleMovingAverage) &&
+        Objects.equals(this.rsiWilder, inlineResponse2007Data.rsiWilder) &&
+        Objects.equals(this.recommendation, inlineResponse2007Data.recommendation) &&
+        Objects.equals(this.estimates, inlineResponse2007Data.estimates);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, occurrence, dates, currency, gross);
+    return Objects.hash(id, valueUnit, market, symbol, nsin, fsym, instrument, compliance, reportedKeyFigures, performance, volatility, tradingValue, simpleMovingAverage, rsiWilder, recommendation, estimates);
   }
 
   @Override
@@ -256,11 +575,21 @@ public class InlineResponse2007Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2007Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    occurrence: ").append(toIndentedString(occurrence)).append("\n");
-    sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    gross: ").append(toIndentedString(gross)).append("\n");
+    sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
+    sb.append("    market: ").append(toIndentedString(market)).append("\n");
+    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
+    sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
+    sb.append("    compliance: ").append(toIndentedString(compliance)).append("\n");
+    sb.append("    reportedKeyFigures: ").append(toIndentedString(reportedKeyFigures)).append("\n");
+    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
+    sb.append("    volatility: ").append(toIndentedString(volatility)).append("\n");
+    sb.append("    tradingValue: ").append(toIndentedString(tradingValue)).append("\n");
+    sb.append("    simpleMovingAverage: ").append(toIndentedString(simpleMovingAverage)).append("\n");
+    sb.append("    rsiWilder: ").append(toIndentedString(rsiWilder)).append("\n");
+    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
+    sb.append("    estimates: ").append(toIndentedString(estimates)).append("\n");
     sb.append("}");
     return sb.toString();
   }

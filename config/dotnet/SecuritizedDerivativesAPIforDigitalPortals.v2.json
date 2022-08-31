@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals",
-  "packageVersion": "0.10.1",
+  "packageVersion": "0.10.2",
   "packageGuid": "{b151fff7-ec02-5d89-885f-093a6e19e864}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/SecuritizedDerivativesAPIforDigitalPortals/0.10.1",
+  "httpUserAgent": "fds-sdk/dotnet/SecuritizedDerivativesAPIforDigitalPortals/0.10.2",
   "files": {
     "LICENSE": {}
   },

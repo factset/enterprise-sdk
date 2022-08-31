@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.company_estimates_list_by_instrument_data import CompanyEstimatesListByInstrumentData
-    from fds.sdk.StocksAPIforDigitalPortals.model.company_estimates_list_by_instrument_meta import CompanyEstimatesListByInstrumentMeta
-    globals()['CompanyEstimatesListByInstrumentData'] = CompanyEstimatesListByInstrumentData
-    globals()['CompanyEstimatesListByInstrumentMeta'] = CompanyEstimatesListByInstrumentMeta
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_dividend_list_data import StockDividendListData
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_dividend_list_meta import StockDividendListMeta
+    globals()['StockDividendListData'] = StockDividendListData
+    globals()['StockDividendListMeta'] = StockDividendListMeta
 
 
 class InlineObject(ModelNormal):
@@ -89,8 +89,8 @@ class InlineObject(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CompanyEstimatesListByInstrumentData,),  # noqa: E501
-            'meta': (CompanyEstimatesListByInstrumentMeta,),  # noqa: E501
+            'data': (StockDividendListData,),  # noqa: E501
+            'meta': (StockDividendListMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (CompanyEstimatesListByInstrumentData): [optional]  # noqa: E501
-            meta (CompanyEstimatesListByInstrumentMeta): [optional]  # noqa: E501
+            data (StockDividendListData): [optional]  # noqa: E501
+            meta (StockDividendListMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (CompanyEstimatesListByInstrumentData): [optional]  # noqa: E501
-            meta (CompanyEstimatesListByInstrumentMeta): [optional]  # noqa: E501
+            data (StockDividendListData): [optional]  # noqa: E501
+            meta (StockDividendListMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

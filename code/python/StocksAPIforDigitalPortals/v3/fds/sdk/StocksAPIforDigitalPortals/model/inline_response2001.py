@@ -89,7 +89,7 @@ class InlineResponse2001(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (InlineResponse2001Data,),  # noqa: E501
+            'data': ([InlineResponse2001Data],),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -144,7 +144,7 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse2001Data): [optional]  # noqa: E501
+            data ([InlineResponse2001Data]): List of trade recommendations and target prices for a stock, in unspecified order.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2001(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse2001Data): [optional]  # noqa: E501
+            data ([InlineResponse2001Data]): List of trade recommendations and target prices for a stock, in unspecified order.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

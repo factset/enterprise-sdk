@@ -82,7 +82,7 @@ class OptionScreening(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'option_id': (str,),  # noqa: E501
+            'option_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -135,7 +135,7 @@ class OptionScreening(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            option_id (str): The option identifier. [optional]  # noqa: E501
+            option_id (str, none_type): The option identifier. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +217,7 @@ class OptionScreening(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            option_id (str): The option identifier. [optional]  # noqa: E501
+            option_id (str, none_type): The option identifier. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

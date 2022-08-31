@@ -20,6 +20,8 @@ import CalculationStatusMeta from './model/CalculationStatusMeta';
 import CalculationStatusRoot from './model/CalculationStatusRoot';
 import CalculationUnitStatus from './model/CalculationUnitStatus';
 import CalculationUnitStatusMeta from './model/CalculationUnitStatusMeta';
+import CalculationsSummary from './model/CalculationsSummary';
+import CalculationsSummaryRoot from './model/CalculationsSummaryRoot';
 import ClientErrorResponse from './model/ClientErrorResponse';
 import Column from './model/Column';
 import ColumnRoot from './model/ColumnRoot';
@@ -65,6 +67,8 @@ import PADateParameters from './model/PADateParameters';
 import PAIdentifier from './model/PAIdentifier';
 import PAPricingSource from './model/PAPricingSource';
 import PAPricingSourceRoot from './model/PAPricingSourceRoot';
+import PaginationInfo from './model/PaginationInfo';
+import PaginationMeta from './model/PaginationMeta';
 import TemplateContentTypes from './model/TemplateContentTypes';
 import TemplatedPAComponent from './model/TemplatedPAComponent';
 import TemplatedPAComponentParameters from './model/TemplatedPAComponentParameters';
@@ -195,6 +199,18 @@ export {
      * @property {module:model/CalculationUnitStatusMeta}
      */
     CalculationUnitStatusMeta,
+
+    /**
+     * The CalculationsSummary model constructor.
+     * @property {module:model/CalculationsSummary}
+     */
+    CalculationsSummary,
+
+    /**
+     * The CalculationsSummaryRoot model constructor.
+     * @property {module:model/CalculationsSummaryRoot}
+     */
+    CalculationsSummaryRoot,
 
     /**
      * The ClientErrorResponse model constructor.
@@ -465,6 +481,18 @@ export {
      * @property {module:model/PAPricingSourceRoot}
      */
     PAPricingSourceRoot,
+
+    /**
+     * The PaginationInfo model constructor.
+     * @property {module:model/PaginationInfo}
+     */
+    PaginationInfo,
+
+    /**
+     * The PaginationMeta model constructor.
+     * @property {module:model/PaginationMeta}
+     */
+    PaginationMeta,
 
     /**
      * The TemplateContentTypes model constructor.

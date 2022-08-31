@@ -34,20 +34,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="data">Estimated figures for selected fiscal years..</param>
+        /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse200(List<InlineResponse200Data> data = default(List<InlineResponse200Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse200(InlineResponse200Data data = default(InlineResponse200Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// Estimated figures for selected fiscal years.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>Estimated figures for selected fiscal years.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse200Data> Data { get; set; }
+        public InlineResponse200Data Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -102,9 +101,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             return 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.Meta == input.Meta ||

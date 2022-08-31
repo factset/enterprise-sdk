@@ -62,7 +62,7 @@ class InlineResponse2005 {
 }
 
 /**
- * List of company board types sorted ascending by the identifier of the type.
+ * List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.
  * @member {Array.<module:model/InlineResponse2005Data>} data
  */
 InlineResponse2005.prototype['data'] = undefined;

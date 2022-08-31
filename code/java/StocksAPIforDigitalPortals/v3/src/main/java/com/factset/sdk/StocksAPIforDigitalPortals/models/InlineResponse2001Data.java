@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataRecommendation;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataTargetPrice;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001Recommendation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataTargetPrice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,10 +32,10 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * Target price and aggregated recommendations for a stock.
+ * InlineResponse2001Data
  */
-@ApiModel(description = "Target price and aggregated recommendations for a stock.")
 @JsonPropertyOrder({
+  InlineResponse2001Data.JSON_PROPERTY_SNAPSHOT,
   InlineResponse2001Data.JSON_PROPERTY_TARGET_PRICE,
   InlineResponse2001Data.JSON_PROPERTY_RECOMMENDATION
 })
@@ -43,16 +43,88 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 public class InlineResponse2001Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Identification of the historic snapshot for aggregated recommendations.
+   */
+  public enum SnapshotEnum {
+    LATEST("latest"),
+    
+    _1W("1w"),
+    
+    _1M("1m"),
+    
+    _3M("3m"),
+    
+    _6M("6m"),
+    
+    _1Y("1y");
+
+    private String value;
+
+    SnapshotEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SnapshotEnum fromValue(String value) {
+      for (SnapshotEnum b : SnapshotEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SNAPSHOT = "snapshot";
+  private SnapshotEnum snapshot;
+
   public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
-  private InlineResponse2001DataTargetPrice targetPrice;
+  private InlineResponse200DataTargetPrice targetPrice;
 
   public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse2001DataRecommendation recommendation;
+  private InlineResponse2001Recommendation recommendation;
 
   public InlineResponse2001Data() { 
   }
 
-  public InlineResponse2001Data targetPrice(InlineResponse2001DataTargetPrice targetPrice) {
+  public InlineResponse2001Data snapshot(SnapshotEnum snapshot) {
+    this.snapshot = snapshot;
+    return this;
+  }
+
+   /**
+   * Identification of the historic snapshot for aggregated recommendations.
+   * @return snapshot
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identification of the historic snapshot for aggregated recommendations.")
+  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SnapshotEnum getSnapshot() {
+    return snapshot;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSnapshot(SnapshotEnum snapshot) {
+    this.snapshot = snapshot;
+  }
+
+
+  public InlineResponse2001Data targetPrice(InlineResponse200DataTargetPrice targetPrice) {
     this.targetPrice = targetPrice;
     return this;
   }
@@ -66,19 +138,19 @@ public class InlineResponse2001Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001DataTargetPrice getTargetPrice() {
+  public InlineResponse200DataTargetPrice getTargetPrice() {
     return targetPrice;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetPrice(InlineResponse2001DataTargetPrice targetPrice) {
+  public void setTargetPrice(InlineResponse200DataTargetPrice targetPrice) {
     this.targetPrice = targetPrice;
   }
 
 
-  public InlineResponse2001Data recommendation(InlineResponse2001DataRecommendation recommendation) {
+  public InlineResponse2001Data recommendation(InlineResponse2001Recommendation recommendation) {
     this.recommendation = recommendation;
     return this;
   }
@@ -92,14 +164,14 @@ public class InlineResponse2001Data implements Serializable {
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001DataRecommendation getRecommendation() {
+  public InlineResponse2001Recommendation getRecommendation() {
     return recommendation;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse2001DataRecommendation recommendation) {
+  public void setRecommendation(InlineResponse2001Recommendation recommendation) {
     this.recommendation = recommendation;
   }
 
@@ -116,19 +188,21 @@ public class InlineResponse2001Data implements Serializable {
       return false;
     }
     InlineResponse2001Data inlineResponse2001Data = (InlineResponse2001Data) o;
-    return Objects.equals(this.targetPrice, inlineResponse2001Data.targetPrice) &&
+    return Objects.equals(this.snapshot, inlineResponse2001Data.snapshot) &&
+        Objects.equals(this.targetPrice, inlineResponse2001Data.targetPrice) &&
         Objects.equals(this.recommendation, inlineResponse2001Data.recommendation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(targetPrice, recommendation);
+    return Objects.hash(snapshot, targetPrice, recommendation);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2001Data {\n");
+    sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
     sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
     sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
     sb.append("}");

@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**product** | **str** | Defines the name of the product | [optional] 
 **job_id** | **str** | Unique id to get the xml files for the requested date | [optional] 
 **status** | **str** | Returns any of the 2 results Submitted -&gt;Running-&gt;Completed and Failed | [optional] 
 **percent_done** | **int** | Returns how much percentage of  task is completed for the requested jobID | [optional] 

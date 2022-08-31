@@ -7,9 +7,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of a type. |  [optional]
-**name** | **String** | Name of the type. |  [optional]
-**description** | **String** | Description of the type. |  [optional]
+**notation** | [**InlineResponse2005Notation**](InlineResponse2005Notation.md) |  |  [optional]
+**beta** | **BigDecimal** | Beta of the notation. |  [optional]
+**correlation** | **BigDecimal** | Correlation of the notation. |  [optional]
+**outperformance** | **BigDecimal** | Outperformance of the notation. |  [optional]
+**status** | [**InlineResponse2005Status**](InlineResponse2005Status.md) |  |  [optional]
 
 
 ## Implemented Interfaces

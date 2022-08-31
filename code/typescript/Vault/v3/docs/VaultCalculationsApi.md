@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelCalculationById**](VaultCalculationsApi.md#cancelCalculationById) | **DELETE** /analytics/engines/vault/v3/calculations/{id} | Cancel Vault calculation by id
+[**getAllCalculations**](VaultCalculationsApi.md#getAllCalculations) | **GET** /analytics/engines/vault/v3/calculations | Get all calculations
 [**getCalculationParameters**](VaultCalculationsApi.md#getCalculationParameters) | **GET** /analytics/engines/vault/v3/calculations/{id} | Get Vault calculation parameters by id
 [**getCalculationStatusById**](VaultCalculationsApi.md#getCalculationStatusById) | **GET** /analytics/engines/vault/v3/calculations/{id}/status | Get Vault calculation status by id
 [**getCalculationUnitResultById**](VaultCalculationsApi.md#getCalculationUnitResultById) | **GET** /analytics/engines/vault/v3/calculations/{id}/units/{unitId}/result | Get Vault calculation result by id
@@ -81,6 +82,78 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+
+## getAllCalculations
+
+> CalculationsSummaryRoot getAllCalculations(pageNumber)
+
+Get all calculations
+
+This endpoints returns all calculation requests.
+
+### Example
+
+```javascript
+const { ApiClient, VaultCalculationsApi } = require('@factset/sdk-vault');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new VaultCalculationsApi();
+const pageNumber = 1; // Number | 
+
+// Call api endpoint
+apiInstance.getAllCalculations(pageNumber).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageNumber** | **Number**|  | [default to 1]
+
+### Return type
+
+[**CalculationsSummaryRoot**](CalculationsSummaryRoot.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getCalculationParameters
@@ -338,7 +411,7 @@ const apiInstance = new VaultCalculationsApi();
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'vaultCalculationParametersRoot': {"data":{"1":{"componentid":"B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79","account":{"id":"CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"},"dates":{"startdate":"20180101","enddate":"20180329","frequency":"Monthly"},"configid":"12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116"},"2":{"componentid":"B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42","account":{"id":"CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"},"configid":"c1671411-7807-4505-9296-989fe2ffc450"}},"meta":{"contentorganization":"SimplifiedRow","contenttype":"Json"}} // VaultCalculationParametersRoot | Calculation Parameters
+  'vaultCalculationParametersRoot': new vault.VaultCalculationParametersRoot() // VaultCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -435,7 +508,7 @@ const id = "id_example"; // String | from url, provided from the location header
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'vaultCalculationParametersRoot': {"data":{"1":{"componentid":"B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79","account":{"id":"CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"},"dates":{"startdate":"20180101","enddate":"20180329","frequency":"Monthly"},"configid":"12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116"},"2":{"componentid":"B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42","account":{"id":"CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"},"configid":"c1671411-7807-4505-9296-989fe2ffc450"}},"meta":{"contentorganization":"SimplifiedRow","contenttype":"Json"}} // VaultCalculationParametersRoot | Calculation Parameters
+  'vaultCalculationParametersRoot': new vault.VaultCalculationParametersRoot() // VaultCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint

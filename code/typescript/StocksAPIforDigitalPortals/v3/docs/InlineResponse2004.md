@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse2004Data]**](InlineResponse2004Data.md) | List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending. | [optional] 
+**data** | [**[InlineResponse2004Data]**](InlineResponse2004Data.md) | List of dividend types, sorted by ascending identifier value. | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

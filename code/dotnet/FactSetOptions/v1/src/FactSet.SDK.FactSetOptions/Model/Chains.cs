@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="idType">The type of id requested in the query. This is a straight pass-through value..</param>
         /// <param name="date">The date the data is as of in YYYY-MM-DD format..</param>
         /// <param name="requestId">The inputed value for the id parameter..</param>
-        public Chains(string fsymId = default(string), string optionId = default(string), string idType = default(string), DateTime date = default(DateTime), string requestId = default(string))
+        public Chains(string fsymId = default(string), string optionId = default(string), string idType = default(string), DateTime? date = default(DateTime?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.OptionId = optionId;
@@ -53,30 +53,30 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// FactSet&#39;s Security Permanent Identifier in XXXXXX-S format for the underlying security requested.
         /// </summary>
         /// <value>FactSet&#39;s Security Permanent Identifier in XXXXXX-S format for the underlying security requested.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The option id, in the format requested via &#x60;idType&#x60; parameter.
         /// </summary>
         /// <value>The option id, in the format requested via &#x60;idType&#x60; parameter.</value>
-        [DataMember(Name = "optionId", EmitDefaultValue = false)]
+        [DataMember(Name = "optionId", EmitDefaultValue = true)]
         public string OptionId { get; set; }
 
         /// <summary>
         /// The type of id requested in the query. This is a straight pass-through value.
         /// </summary>
         /// <value>The type of id requested in the query. This is a straight pass-through value.</value>
-        [DataMember(Name = "idType", EmitDefaultValue = false)]
+        [DataMember(Name = "idType", EmitDefaultValue = true)]
         public string IdType { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The inputed value for the id parameter.

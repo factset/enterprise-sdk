@@ -2,14 +2,14 @@
 
 # InlineResponse2004Data
 
+Position of the watchlist.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Position id. |  [optional]
-**notation** | **String** | Identifier of the notation. |  [optional]
-**additionalData** | **String** | Additional data to the watched position. |  [optional]
+**notation** | [**InlineResponse2004DataNotation**](InlineResponse2004DataNotation.md) |  |  [optional]
+**comment** | **String** | Personal note for the watchlist position. |  [optional]
 
 
 ## Implemented Interfaces

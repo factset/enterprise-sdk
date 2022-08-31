@@ -12,12 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse200BalanceSheet from './InlineResponse200BalanceSheet';
-import InlineResponse200Currency from './InlineResponse200Currency';
-import InlineResponse200FiscalYear from './InlineResponse200FiscalYear';
-import InlineResponse200IncomeStatement from './InlineResponse200IncomeStatement';
-import InlineResponse200PerShare from './InlineResponse200PerShare';
-import InlineResponse200Ratios from './InlineResponse200Ratios';
+import InlineResponse200DataRecommendation from './InlineResponse200DataRecommendation';
+import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice';
 
 /**
  * The InlineResponse200Data model module.
@@ -26,6 +22,7 @@ import InlineResponse200Ratios from './InlineResponse200Ratios';
 class InlineResponse200Data {
     /**
      * Constructs a new <code>InlineResponse200Data</code>.
+     * Target price and aggregated recommendations for a stock.
      * @alias module:model/InlineResponse200Data
      */
     constructor() { 
@@ -52,26 +49,11 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('fiscalYear')) {
-                obj['fiscalYear'] = InlineResponse200FiscalYear.constructFromObject(data['fiscalYear']);
+            if (data.hasOwnProperty('targetPrice')) {
+                obj['targetPrice'] = InlineResponse200DataTargetPrice.constructFromObject(data['targetPrice']);
             }
-            if (data.hasOwnProperty('reportDate')) {
-                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
-            }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse200Currency.constructFromObject(data['currency']);
-            }
-            if (data.hasOwnProperty('incomeStatement')) {
-                obj['incomeStatement'] = InlineResponse200IncomeStatement.constructFromObject(data['incomeStatement']);
-            }
-            if (data.hasOwnProperty('balanceSheet')) {
-                obj['balanceSheet'] = InlineResponse200BalanceSheet.constructFromObject(data['balanceSheet']);
-            }
-            if (data.hasOwnProperty('ratios')) {
-                obj['ratios'] = InlineResponse200Ratios.constructFromObject(data['ratios']);
-            }
-            if (data.hasOwnProperty('perShare')) {
-                obj['perShare'] = InlineResponse200PerShare.constructFromObject(data['perShare']);
+            if (data.hasOwnProperty('recommendation')) {
+                obj['recommendation'] = InlineResponse200DataRecommendation.constructFromObject(data['recommendation']);
             }
         }
         return obj;
@@ -81,40 +63,14 @@ class InlineResponse200Data {
 }
 
 /**
- * @member {module:model/InlineResponse200FiscalYear} fiscalYear
+ * @member {module:model/InlineResponse200DataTargetPrice} targetPrice
  */
-InlineResponse200Data.prototype['fiscalYear'] = undefined;
+InlineResponse200Data.prototype['targetPrice'] = undefined;
 
 /**
- * Publication date of the financial report.
- * @member {Date} reportDate
+ * @member {module:model/InlineResponse200DataRecommendation} recommendation
  */
-InlineResponse200Data.prototype['reportDate'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200Currency} currency
- */
-InlineResponse200Data.prototype['currency'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200IncomeStatement} incomeStatement
- */
-InlineResponse200Data.prototype['incomeStatement'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200BalanceSheet} balanceSheet
- */
-InlineResponse200Data.prototype['balanceSheet'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200Ratios} ratios
- */
-InlineResponse200Data.prototype['ratios'] = undefined;
-
-/**
- * @member {module:model/InlineResponse200PerShare} perShare
- */
-InlineResponse200Data.prototype['perShare'] = undefined;
+InlineResponse200Data.prototype['recommendation'] = undefined;
 
 
 

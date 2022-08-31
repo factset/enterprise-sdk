@@ -13,6 +13,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -68,6 +70,8 @@ docs/PADateParameters.md
 docs/PAIdentifier.md
 docs/PAPricingSource.md
 docs/PAPricingSourceRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PricingSourcesApi.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
@@ -128,6 +132,8 @@ fds/sdk/PAEngine/model/calculation_status_meta.py
 fds/sdk/PAEngine/model/calculation_status_root.py
 fds/sdk/PAEngine/model/calculation_unit_status.py
 fds/sdk/PAEngine/model/calculation_unit_status_meta.py
+fds/sdk/PAEngine/model/calculations_summary.py
+fds/sdk/PAEngine/model/calculations_summary_root.py
 fds/sdk/PAEngine/model/client_error_response.py
 fds/sdk/PAEngine/model/column.py
 fds/sdk/PAEngine/model/column_root.py
@@ -173,6 +179,8 @@ fds/sdk/PAEngine/model/pa_date_parameters.py
 fds/sdk/PAEngine/model/pa_identifier.py
 fds/sdk/PAEngine/model/pa_pricing_source.py
 fds/sdk/PAEngine/model/pa_pricing_source_root.py
+fds/sdk/PAEngine/model/pagination_info.py
+fds/sdk/PAEngine/model/pagination_meta.py
 fds/sdk/PAEngine/model/template_content_types.py
 fds/sdk/PAEngine/model/templated_pa_component.py
 fds/sdk/PAEngine/model/templated_pa_component_parameters.py

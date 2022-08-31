@@ -144,7 +144,7 @@ class InlineResponse2002(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2002Data]): List of trade recommendations and target prices for a stock, in unspecified order.. [optional]  # noqa: E501
+            data ([InlineResponse2002Data]): List of owners with their respective share sorted descending by the fraction owned.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2002(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2002Data]): List of trade recommendations and target prices for a stock, in unspecified order.. [optional]  # noqa: E501
+            data ([InlineResponse2002Data]): List of owners with their respective share sorted descending by the fraction owned.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

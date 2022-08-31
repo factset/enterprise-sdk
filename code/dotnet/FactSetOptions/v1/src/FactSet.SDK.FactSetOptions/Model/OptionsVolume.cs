@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="openInterest">The total number of options and/or futures contracts that are not closed or delivered on a particular day..</param>
         /// <param name="volume">Volume of the option.</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public OptionsVolume(string fsymId = default(string), DateTime date = default(DateTime), string exchange = default(string), decimal openInterest = default(decimal), double volume = default(double), string requestId = default(string))
+        public OptionsVolume(string fsymId = default(string), DateTime? date = default(DateTime?), string exchange = default(string), decimal? openInterest = default(decimal?), double? volume = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -55,37 +55,37 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The date of the data in YYYY-MM-DD format
         /// </summary>
         /// <value>The date of the data in YYYY-MM-DD format</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
         /// </summary>
         /// <value>Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.</value>
-        [DataMember(Name = "exchange", EmitDefaultValue = false)]
+        [DataMember(Name = "exchange", EmitDefaultValue = true)]
         public string Exchange { get; set; }
 
         /// <summary>
         /// The total number of options and/or futures contracts that are not closed or delivered on a particular day.
         /// </summary>
         /// <value>The total number of options and/or futures contracts that are not closed or delivered on a particular day.</value>
-        [DataMember(Name = "openInterest", EmitDefaultValue = false)]
-        public decimal OpenInterest { get; set; }
+        [DataMember(Name = "openInterest", EmitDefaultValue = true)]
+        public decimal? OpenInterest { get; set; }
 
         /// <summary>
         /// Volume of the option
         /// </summary>
         /// <value>Volume of the option</value>
-        [DataMember(Name = "volume", EmitDefaultValue = false)]
-        public double Volume { get; set; }
+        [DataMember(Name = "volume", EmitDefaultValue = true)]
+        public double? Volume { get; set; }
 
         /// <summary>
         /// The requested identifier submitted in the query.
@@ -160,11 +160,13 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.OpenInterest == input.OpenInterest ||
-                    this.OpenInterest.Equals(input.OpenInterest)
+                    (this.OpenInterest != null &&
+                    this.OpenInterest.Equals(input.OpenInterest))
                 ) && 
                 (
                     this.Volume == input.Volume ||
-                    this.Volume.Equals(input.Volume)
+                    (this.Volume != null &&
+                    this.Volume.Equals(input.Volume))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -194,8 +196,14 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.Exchange.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OpenInterest.GetHashCode();
-                hashCode = (hashCode * 59) + this.Volume.GetHashCode();
+                if (this.OpenInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.OpenInterest.GetHashCode();
+                }
+                if (this.Volume != null)
+                {
+                    hashCode = (hashCode * 59) + this.Volume.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

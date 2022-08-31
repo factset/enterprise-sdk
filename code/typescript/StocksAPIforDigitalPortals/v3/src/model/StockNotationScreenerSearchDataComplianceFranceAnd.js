@@ -61,7 +61,7 @@ class StockNotationScreenerSearchDataComplianceFranceAnd {
 
 /**
  * Identifier of a compliance property. The compliance properties with `id=4` (SRD) and `id=10` (SRD long only) are mutually exclusive.  &#8291;  Examples:  &#8291;  &#8291;1. Retrieve only stocks which are compliant to all of the following: PEA, PEAPME, and SRD  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false }, {\"id\":3, \"negate\":false}, {\"id\":4, \"negate\":false}]}]}}`  &#8291;  &#8291;2. Retrieve only stocks which are compliant to PEA or to PEAPME  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false  }]}, {\"and\": [{ \"id\":3, \"negate\":false }]}]}}`  &#8291;  &#8291;3. Retrieve only stocks which are compliant to PEA or to PEAPME, but are not compliant to SRD long only.  `\"compliance\":{ \"france\": { \"or\": [{ \"and\": [{ \"id\":2, \"negate\":false },{\"id\":10, \"negate\":true}]}, {\"and\": [{ \"id\":3, \"negate\":false},{\"id\":10, \"negate\":true}]}]}}`
- * @member {Number} id
+ * @member {module:model/StockNotationScreenerSearchDataComplianceFranceAnd.IdEnum} id
  */
 StockNotationScreenerSearchDataComplianceFranceAnd.prototype['id'] = undefined;
 
@@ -73,6 +73,39 @@ StockNotationScreenerSearchDataComplianceFranceAnd.prototype['negate'] = undefin
 
 
 
+
+
+/**
+ * Allowed values for the <code>id</code> property.
+ * @enum {Number}
+ * @readonly
+ */
+StockNotationScreenerSearchDataComplianceFranceAnd['IdEnum'] = {
+
+    /**
+     * value: 2
+     * @const
+     */
+    "2": 2,
+
+    /**
+     * value: 3
+     * @const
+     */
+    "3": 3,
+
+    /**
+     * value: 4
+     * @const
+     */
+    "4": 4,
+
+    /**
+     * value: 10
+     * @const
+     */
+    "10": 10
+};
 
 
 

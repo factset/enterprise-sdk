@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import StockNotationRankingIntradayListData from './StockNotationRankingIntradayListData';
-import StockNotationRankingIntradayListMeta from './StockNotationRankingIntradayListMeta';
+import StockNotationScreenerSearchData from './StockNotationScreenerSearchData';
+import StockNotationScreenerSearchMeta from './StockNotationScreenerSearchMeta';
 
 /**
  * The InlineObject2 model module.
@@ -49,10 +49,10 @@ class InlineObject2 {
             obj = obj || new InlineObject2();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = StockNotationRankingIntradayListData.constructFromObject(data['data']);
+                obj['data'] = StockNotationScreenerSearchData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = StockNotationRankingIntradayListMeta.constructFromObject(data['meta']);
+                obj['meta'] = StockNotationScreenerSearchMeta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,12 +62,12 @@ class InlineObject2 {
 }
 
 /**
- * @member {module:model/StockNotationRankingIntradayListData} data
+ * @member {module:model/StockNotationScreenerSearchData} data
  */
 InlineObject2.prototype['data'] = undefined;
 
 /**
- * @member {module:model/StockNotationRankingIntradayListMeta} meta
+ * @member {module:model/StockNotationScreenerSearchMeta} meta
  */
 InlineObject2.prototype['meta'] = undefined;
 

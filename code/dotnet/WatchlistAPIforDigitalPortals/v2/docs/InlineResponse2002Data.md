@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of watchlist. | [optional] 
-**Amount** | **decimal** | Number of watched positions. | [optional] 
+**Id** | **string** | Identifier of the watchlist. | [optional] 
+**Name** | **string** | Name of the watchlist. | [optional] 
+**NumberPositions** | **decimal** | Number of positions. | [optional] 
+**Creation** | **string** | Date and time of the watchlist creation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

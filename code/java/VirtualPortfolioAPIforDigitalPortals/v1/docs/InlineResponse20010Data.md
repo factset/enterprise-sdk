@@ -2,15 +2,13 @@
 
 # InlineResponse20010Data
 
+List of closed positions.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the watchlist. |  [optional]
-**name** | **String** | Name of the watchlist. |  [optional]
-**numberPositions** | **BigDecimal** | Number of positions. |  [optional]
-**creation** | **String** | Date and time of the watchlist creation. |  [optional]
+**positions** | [**java.util.List&lt;InlineResponse20010DataPositions&gt;**](InlineResponse20010DataPositions.md) | Closed positions of the portfolio. |  [optional]
 
 
 ## Implemented Interfaces

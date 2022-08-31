@@ -43,7 +43,7 @@ public class InlineResponse200 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.List<InlineResponse200Data> data = null;
+  private InlineResponse200Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
@@ -51,36 +51,28 @@ public class InlineResponse200 implements Serializable {
   public InlineResponse200() { 
   }
 
-  public InlineResponse200 data(java.util.List<InlineResponse200Data> data) {
+  public InlineResponse200 data(InlineResponse200Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse200 addDataItem(InlineResponse200Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.ArrayList<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * Estimated figures for selected fiscal years.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Estimated figures for selected fiscal years.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse200Data> getData() {
+  public InlineResponse200Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.List<InlineResponse200Data> data) {
+  public void setData(InlineResponse200Data data) {
     this.data = data;
   }
 

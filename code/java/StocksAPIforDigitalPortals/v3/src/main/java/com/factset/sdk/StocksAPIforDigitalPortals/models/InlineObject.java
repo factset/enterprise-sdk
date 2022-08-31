@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.CompanyEstimatesListByInstrumentData;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.CompanyEstimatesListByInstrumentMeta;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.StockDividendListData;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.StockDividendListMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,15 +43,15 @@ public class InlineObject implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private CompanyEstimatesListByInstrumentData data;
+  private StockDividendListData data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private CompanyEstimatesListByInstrumentMeta meta;
+  private StockDividendListMeta meta;
 
   public InlineObject() { 
   }
 
-  public InlineObject data(CompanyEstimatesListByInstrumentData data) {
+  public InlineObject data(StockDividendListData data) {
     this.data = data;
     return this;
   }
@@ -65,19 +65,19 @@ public class InlineObject implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CompanyEstimatesListByInstrumentData getData() {
+  public StockDividendListData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(CompanyEstimatesListByInstrumentData data) {
+  public void setData(StockDividendListData data) {
     this.data = data;
   }
 
 
-  public InlineObject meta(CompanyEstimatesListByInstrumentMeta meta) {
+  public InlineObject meta(StockDividendListMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -91,14 +91,14 @@ public class InlineObject implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CompanyEstimatesListByInstrumentMeta getMeta() {
+  public StockDividendListMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(CompanyEstimatesListByInstrumentMeta meta) {
+  public void setMeta(StockDividendListMeta meta) {
     this.meta = meta;
   }
 

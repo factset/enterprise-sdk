@@ -105,7 +105,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/StocksAPIforDigitalPortals/0.10.1'
+        self.user_agent = 'fds-sdk/python/StocksAPIforDigitalPortals/0.10.3'
 
     def __enter__(self):
         return self
@@ -835,11 +835,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = CompanyApi()
-        api_instance.get_company_board_list_by_instrument  # this is an instance of the class Endpoint
-        api_instance.get_company_board_list_by_instrument()  # this invokes api_instance.get_company_board_list_by_instrument.__call__()
+        api_instance = StockApi()
+        api_instance.get_stock_dividend_type_list  # this is an instance of the class Endpoint
+        api_instance.get_stock_dividend_type_list()  # this invokes api_instance.get_stock_dividend_type_list.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.get_company_board_list_by_instrument.callable or self.callable in this class
+        api_instance.get_stock_dividend_type_list.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

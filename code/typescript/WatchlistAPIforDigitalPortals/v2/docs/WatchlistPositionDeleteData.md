@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of watchlist | 
-**id** | **Number** | Position id. | 
+**id** | **String** | Identifier of the watchlist. | 
+**position** | [**WatchlistPositionDeleteDataPosition**](WatchlistPositionDeleteDataPosition.md) |  | [optional] 
 
 

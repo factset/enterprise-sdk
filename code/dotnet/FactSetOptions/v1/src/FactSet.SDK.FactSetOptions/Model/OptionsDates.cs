@@ -47,7 +47,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="date">The date the data is as of in YYYY-MM-DD format..</param>
         /// <param name="fsymId">FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options).</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public OptionsDates(DateTime expirationDate = default(DateTime), DateTime firstAskDate = default(DateTime), DateTime firstBidDate = default(DateTime), DateTime firstSettlementDate = default(DateTime), DateTime firstTradeDate = default(DateTime), DateTime lastAskDate = default(DateTime), DateTime lastBidDate = default(DateTime), DateTime lastSettlementDate = default(DateTime), DateTime lastTradeDate = default(DateTime), DateTime date = default(DateTime), string fsymId = default(string), string requestId = default(string))
+        public OptionsDates(DateTime? expirationDate = default(DateTime?), DateTime? firstAskDate = default(DateTime?), DateTime? firstBidDate = default(DateTime?), DateTime? firstSettlementDate = default(DateTime?), DateTime? firstTradeDate = default(DateTime?), DateTime? lastAskDate = default(DateTime?), DateTime? lastBidDate = default(DateTime?), DateTime? lastSettlementDate = default(DateTime?), DateTime? lastTradeDate = default(DateTime?), DateTime? date = default(DateTime?), string fsymId = default(string), string requestId = default(string))
         {
             this.ExpirationDate = expirationDate;
             this.FirstAskDate = firstAskDate;
@@ -67,87 +67,87 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.</value>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ExpirationDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// The date of first ask price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of first ask price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "firstAskDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstAskDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FirstAskDate { get; set; }
+        public DateTime? FirstAskDate { get; set; }
 
         /// <summary>
         /// The date of first bid price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of first bid price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "firstBidDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstBidDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FirstBidDate { get; set; }
+        public DateTime? FirstBidDate { get; set; }
 
         /// <summary>
         /// The date of first settlement price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of first settlement price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "firstSettlementDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstSettlementDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FirstSettlementDate { get; set; }
+        public DateTime? FirstSettlementDate { get; set; }
 
         /// <summary>
         /// First Trading Date of the Option in YYYY-MM-DD format.
         /// </summary>
         /// <value>First Trading Date of the Option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "firstTradeDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstTradeDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FirstTradeDate { get; set; }
+        public DateTime? FirstTradeDate { get; set; }
 
         /// <summary>
         /// The date of last ask price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of last ask price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "lastAskDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastAskDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastAskDate { get; set; }
+        public DateTime? LastAskDate { get; set; }
 
         /// <summary>
         /// The date of last bid price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of last bid price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "lastBidDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastBidDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastBidDate { get; set; }
+        public DateTime? LastBidDate { get; set; }
 
         /// <summary>
         /// The date of last settlement price for the option in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of last settlement price for the option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "lastSettlementDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastSettlementDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastSettlementDate { get; set; }
+        public DateTime? LastSettlementDate { get; set; }
 
         /// <summary>
         /// Last Trading Date of the Option in YYYY-MM-DD format.
         /// </summary>
         /// <value>Last Trading Date of the Option in YYYY-MM-DD format.</value>
-        [DataMember(Name = "lastTradeDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastTradeDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastTradeDate { get; set; }
+        public DateTime? LastTradeDate { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>

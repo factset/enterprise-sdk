@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -62,64 +66,64 @@ public class OptionsReferences implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ADJUSTED_FLAG = "adjustedFlag";
-  private String adjustedFlag;
+  private JsonNullable<String> adjustedFlag = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CALL_PUT_FLAG = "callPutFlag";
-  private Integer callPutFlag;
+  private JsonNullable<Integer> callPutFlag = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_CALL_PUT_PAIR_SYMBOL = "callPutPairSymbol";
-  private String callPutPairSymbol;
+  private JsonNullable<String> callPutPairSymbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CONTRACT_SIZE = "contractSize";
-  private Integer contractSize;
+  private JsonNullable<Integer> contractSize = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXCHANGE = "exchange";
-  private String exchange;
+  private JsonNullable<String> exchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  private LocalDate expirationDate;
+  private JsonNullable<LocalDate> expirationDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_FREQUENCY = "expirationFrequency";
-  private String expirationFrequency;
+  private JsonNullable<String> expirationFrequency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_MONTH = "expirationMonth";
-  private String expirationMonth;
+  private JsonNullable<String> expirationMonth = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LEPO_FLAG = "lepoFlag";
-  private Integer lepoFlag;
+  private JsonNullable<Integer> lepoFlag = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OCC21_SYMBOL = "occ21Symbol";
-  private String occ21Symbol;
+  private JsonNullable<String> occ21Symbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPRA17_SYMBOL = "opra17Symbol";
-  private String opra17Symbol;
+  private JsonNullable<String> opra17Symbol = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ROOT_TICKER = "rootTicker";
-  private String rootTicker;
+  private JsonNullable<String> rootTicker = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STYLE = "style";
-  private Integer style;
+  private JsonNullable<Integer> style = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private Integer type;
+  private JsonNullable<Integer> type = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID = "underlyingFsymSecurityId";
-  private String underlyingFsymSecurityId;
+  private JsonNullable<String> underlyingFsymSecurityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_SETTLEMENT_METHOD = "settlementMethod";
-  private String settlementMethod;
+  private JsonNullable<String> settlementMethod = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -128,7 +132,7 @@ public class OptionsReferences implements Serializable {
   }
 
   public OptionsReferences fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -138,23 +142,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public OptionsReferences adjustedFlag(String adjustedFlag) {
-    this.adjustedFlag = adjustedFlag;
+    this.adjustedFlag = JsonNullable.<String>of(adjustedFlag);
     return this;
   }
 
@@ -164,23 +176,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "N", value = "Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.")
-  @JsonProperty(JSON_PROPERTY_ADJUSTED_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getAdjustedFlag() {
-    return adjustedFlag;
+        return adjustedFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJUSTED_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjustedFlag(String adjustedFlag) {
+
+  public JsonNullable<String> getAdjustedFlag_JsonNullable() {
+    return adjustedFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJUSTED_FLAG)
+  public void setAdjustedFlag_JsonNullable(JsonNullable<String> adjustedFlag) {
     this.adjustedFlag = adjustedFlag;
+  }
+
+  public void setAdjustedFlag(String adjustedFlag) {
+    this.adjustedFlag = JsonNullable.<String>of(adjustedFlag);
   }
 
 
   public OptionsReferences callPutFlag(Integer callPutFlag) {
-    this.callPutFlag = callPutFlag;
+    this.callPutFlag = JsonNullable.<Integer>of(callPutFlag);
     return this;
   }
 
@@ -190,23 +210,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns a 0 if the option is a call, returns a 1 if the option is a put.")
-  @JsonProperty(JSON_PROPERTY_CALL_PUT_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getCallPutFlag() {
-    return callPutFlag;
+        return callPutFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CALL_PUT_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallPutFlag(Integer callPutFlag) {
+
+  public JsonNullable<Integer> getCallPutFlag_JsonNullable() {
+    return callPutFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CALL_PUT_FLAG)
+  public void setCallPutFlag_JsonNullable(JsonNullable<Integer> callPutFlag) {
     this.callPutFlag = callPutFlag;
+  }
+
+  public void setCallPutFlag(Integer callPutFlag) {
+    this.callPutFlag = JsonNullable.<Integer>of(callPutFlag);
   }
 
 
   public OptionsReferences callPutPairSymbol(String callPutPairSymbol) {
-    this.callPutPairSymbol = callPutPairSymbol;
+    this.callPutPairSymbol = JsonNullable.<String>of(callPutPairSymbol);
     return this;
   }
 
@@ -216,23 +244,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#PGGVL", value = "Returns the corresponding put symbol given a call symbol; and vice-versa.")
-  @JsonProperty(JSON_PROPERTY_CALL_PUT_PAIR_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCallPutPairSymbol() {
-    return callPutPairSymbol;
+        return callPutPairSymbol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CALL_PUT_PAIR_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallPutPairSymbol(String callPutPairSymbol) {
+
+  public JsonNullable<String> getCallPutPairSymbol_JsonNullable() {
+    return callPutPairSymbol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CALL_PUT_PAIR_SYMBOL)
+  public void setCallPutPairSymbol_JsonNullable(JsonNullable<String> callPutPairSymbol) {
     this.callPutPairSymbol = callPutPairSymbol;
+  }
+
+  public void setCallPutPairSymbol(String callPutPairSymbol) {
+    this.callPutPairSymbol = JsonNullable.<String>of(callPutPairSymbol);
   }
 
 
   public OptionsReferences contractSize(Integer contractSize) {
-    this.contractSize = contractSize;
+    this.contractSize = JsonNullable.<Integer>of(contractSize);
     return this;
   }
 
@@ -242,23 +278,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "100", value = "The Option Contract Size")
-  @JsonProperty(JSON_PROPERTY_CONTRACT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getContractSize() {
-    return contractSize;
+        return contractSize.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CONTRACT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContractSize(Integer contractSize) {
+
+  public JsonNullable<Integer> getContractSize_JsonNullable() {
+    return contractSize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CONTRACT_SIZE)
+  public void setContractSize_JsonNullable(JsonNullable<Integer> contractSize) {
     this.contractSize = contractSize;
+  }
+
+  public void setContractSize(Integer contractSize) {
+    this.contractSize = JsonNullable.<Integer>of(contractSize);
   }
 
 
   public OptionsReferences currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -268,23 +312,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Option Currency in ISO3 format.")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public OptionsReferences exchange(String exchange) {
-    this.exchange = exchange;
+    this.exchange = JsonNullable.<String>of(exchange);
     return this;
   }
 
@@ -294,23 +346,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExchange() {
-    return exchange;
+        return exchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchange(String exchange) {
+
+  public JsonNullable<String> getExchange_JsonNullable() {
+    return exchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCHANGE)
+  public void setExchange_JsonNullable(JsonNullable<String> exchange) {
     this.exchange = exchange;
+  }
+
+  public void setExchange(String exchange) {
+    this.exchange = JsonNullable.<String>of(exchange);
   }
 
 
   public OptionsReferences expirationDate(LocalDate expirationDate) {
-    this.expirationDate = expirationDate;
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
     return this;
   }
 
@@ -320,23 +380,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 17 00:00:00 UTC 2021", value = "The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format")
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getExpirationDate() {
-    return expirationDate;
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(LocalDate expirationDate) {
+
+  public JsonNullable<LocalDate> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<LocalDate> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(LocalDate expirationDate) {
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
   }
 
 
   public OptionsReferences expirationFrequency(String expirationFrequency) {
-    this.expirationFrequency = expirationFrequency;
+    this.expirationFrequency = JsonNullable.<String>of(expirationFrequency);
     return this;
   }
 
@@ -346,23 +414,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "LEAPS", value = "Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.")
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExpirationFrequency() {
-    return expirationFrequency;
+        return expirationFrequency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXPIRATION_FREQUENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationFrequency(String expirationFrequency) {
+
+  public JsonNullable<String> getExpirationFrequency_JsonNullable() {
+    return expirationFrequency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_FREQUENCY)
+  public void setExpirationFrequency_JsonNullable(JsonNullable<String> expirationFrequency) {
     this.expirationFrequency = expirationFrequency;
+  }
+
+  public void setExpirationFrequency(String expirationFrequency) {
+    this.expirationFrequency = JsonNullable.<String>of(expirationFrequency);
   }
 
 
   public OptionsReferences expirationMonth(String expirationMonth) {
-    this.expirationMonth = expirationMonth;
+    this.expirationMonth = JsonNullable.<String>of(expirationMonth);
     return this;
   }
 
@@ -372,23 +448,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SEP", value = "Option Expiration month in MMM format.")
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExpirationMonth() {
-    return expirationMonth;
+        return expirationMonth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXPIRATION_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationMonth(String expirationMonth) {
+
+  public JsonNullable<String> getExpirationMonth_JsonNullable() {
+    return expirationMonth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_MONTH)
+  public void setExpirationMonth_JsonNullable(JsonNullable<String> expirationMonth) {
     this.expirationMonth = expirationMonth;
+  }
+
+  public void setExpirationMonth(String expirationMonth) {
+    this.expirationMonth = JsonNullable.<String>of(expirationMonth);
   }
 
 
   public OptionsReferences lepoFlag(Integer lepoFlag) {
-    this.lepoFlag = lepoFlag;
+    this.lepoFlag = JsonNullable.<Integer>of(lepoFlag);
     return this;
   }
 
@@ -398,23 +482,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).")
-  @JsonProperty(JSON_PROPERTY_LEPO_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getLepoFlag() {
-    return lepoFlag;
+        return lepoFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LEPO_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLepoFlag(Integer lepoFlag) {
+
+  public JsonNullable<Integer> getLepoFlag_JsonNullable() {
+    return lepoFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LEPO_FLAG)
+  public void setLepoFlag_JsonNullable(JsonNullable<Integer> lepoFlag) {
     this.lepoFlag = lepoFlag;
+  }
+
+  public void setLepoFlag(Integer lepoFlag) {
+    this.lepoFlag = JsonNullable.<Integer>of(lepoFlag);
   }
 
 
   public OptionsReferences name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -424,23 +516,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tesla Inc Call SEP21 190.00 (LEAPs)", value = "Option Descriptive Security Name")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public OptionsReferences occ21Symbol(String occ21Symbol) {
-    this.occ21Symbol = occ21Symbol;
+    this.occ21Symbol = JsonNullable.<String>of(occ21Symbol);
     return this;
   }
 
@@ -450,23 +550,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA#210917C00190000", value = "Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) ")
-  @JsonProperty(JSON_PROPERTY_OCC21_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getOcc21Symbol() {
-    return occ21Symbol;
+        return occ21Symbol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OCC21_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOcc21Symbol(String occ21Symbol) {
+
+  public JsonNullable<String> getOcc21Symbol_JsonNullable() {
+    return occ21Symbol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OCC21_SYMBOL)
+  public void setOcc21Symbol_JsonNullable(JsonNullable<String> occ21Symbol) {
     this.occ21Symbol = occ21Symbol;
+  }
+
+  public void setOcc21Symbol(String occ21Symbol) {
+    this.occ21Symbol = JsonNullable.<String>of(occ21Symbol);
   }
 
 
   public OptionsReferences opra17Symbol(String opra17Symbol) {
-    this.opra17Symbol = opra17Symbol;
+    this.opra17Symbol = JsonNullable.<String>of(opra17Symbol);
     return this;
   }
 
@@ -476,23 +584,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA#I1721C190000", value = "Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) ")
-  @JsonProperty(JSON_PROPERTY_OPRA17_SYMBOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getOpra17Symbol() {
-    return opra17Symbol;
+        return opra17Symbol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPRA17_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOpra17Symbol(String opra17Symbol) {
+
+  public JsonNullable<String> getOpra17Symbol_JsonNullable() {
+    return opra17Symbol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPRA17_SYMBOL)
+  public void setOpra17Symbol_JsonNullable(JsonNullable<String> opra17Symbol) {
     this.opra17Symbol = opra17Symbol;
+  }
+
+  public void setOpra17Symbol(String opra17Symbol) {
+    this.opra17Symbol = JsonNullable.<String>of(opra17Symbol);
   }
 
 
   public OptionsReferences rootTicker(String rootTicker) {
-    this.rootTicker = rootTicker;
+    this.rootTicker = JsonNullable.<String>of(rootTicker);
     return this;
   }
 
@@ -502,23 +618,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA", value = "The Root Ticker for the underlying security.")
-  @JsonProperty(JSON_PROPERTY_ROOT_TICKER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getRootTicker() {
-    return rootTicker;
+        return rootTicker.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ROOT_TICKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRootTicker(String rootTicker) {
+
+  public JsonNullable<String> getRootTicker_JsonNullable() {
+    return rootTicker;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ROOT_TICKER)
+  public void setRootTicker_JsonNullable(JsonNullable<String> rootTicker) {
     this.rootTicker = rootTicker;
+  }
+
+  public void setRootTicker(String rootTicker) {
+    this.rootTicker = JsonNullable.<String>of(rootTicker);
   }
 
 
   public OptionsReferences style(Integer style) {
-    this.style = style;
+    this.style = JsonNullable.<Integer>of(style);
     return this;
   }
 
@@ -528,23 +652,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. ")
-  @JsonProperty(JSON_PROPERTY_STYLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getStyle() {
-    return style;
+        return style.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStyle(Integer style) {
+
+  public JsonNullable<Integer> getStyle_JsonNullable() {
+    return style;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  public void setStyle_JsonNullable(JsonNullable<Integer> style) {
     this.style = style;
+  }
+
+  public void setStyle(Integer style) {
+    this.style = JsonNullable.<Integer>of(style);
   }
 
 
   public OptionsReferences type(Integer type) {
-    this.type = type;
+    this.type = JsonNullable.<Integer>of(type);
     return this;
   }
 
@@ -554,23 +686,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| ")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getType() {
-    return type;
+        return type.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(Integer type) {
+
+  public JsonNullable<Integer> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<Integer> type) {
     this.type = type;
+  }
+
+  public void setType(Integer type) {
+    this.type = JsonNullable.<Integer>of(type);
   }
 
 
   public OptionsReferences underlyingFsymSecurityId(String underlyingFsymSecurityId) {
-    this.underlyingFsymSecurityId = underlyingFsymSecurityId;
+    this.underlyingFsymSecurityId = JsonNullable.<String>of(underlyingFsymSecurityId);
     return this;
   }
 
@@ -580,23 +720,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "Underlying FactSet Security Permanent Identifier in XXXXXX-S format.")
-  @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUnderlyingFsymSecurityId() {
-    return underlyingFsymSecurityId;
+        return underlyingFsymSecurityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnderlyingFsymSecurityId(String underlyingFsymSecurityId) {
+
+  public JsonNullable<String> getUnderlyingFsymSecurityId_JsonNullable() {
+    return underlyingFsymSecurityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
+  public void setUnderlyingFsymSecurityId_JsonNullable(JsonNullable<String> underlyingFsymSecurityId) {
     this.underlyingFsymSecurityId = underlyingFsymSecurityId;
+  }
+
+  public void setUnderlyingFsymSecurityId(String underlyingFsymSecurityId) {
+    this.underlyingFsymSecurityId = JsonNullable.<String>of(underlyingFsymSecurityId);
   }
 
 
   public OptionsReferences date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -606,23 +754,31 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public OptionsReferences settlementMethod(String settlementMethod) {
-    this.settlementMethod = settlementMethod;
+    this.settlementMethod = JsonNullable.<String>of(settlementMethod);
     return this;
   }
 
@@ -632,18 +788,26 @@ public class OptionsReferences implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| ")
-  @JsonProperty(JSON_PROPERTY_SETTLEMENT_METHOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSettlementMethod() {
-    return settlementMethod;
+        return settlementMethod.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SETTLEMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettlementMethod(String settlementMethod) {
+
+  public JsonNullable<String> getSettlementMethod_JsonNullable() {
+    return settlementMethod;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SETTLEMENT_METHOD)
+  public void setSettlementMethod_JsonNullable(JsonNullable<String> settlementMethod) {
     this.settlementMethod = settlementMethod;
+  }
+
+  public void setSettlementMethod(String settlementMethod) {
+    this.settlementMethod = JsonNullable.<String>of(settlementMethod);
   }
 
 
@@ -685,32 +849,43 @@ public class OptionsReferences implements Serializable {
       return false;
     }
     OptionsReferences optionsReferences = (OptionsReferences) o;
-    return Objects.equals(this.fsymId, optionsReferences.fsymId) &&
-        Objects.equals(this.adjustedFlag, optionsReferences.adjustedFlag) &&
-        Objects.equals(this.callPutFlag, optionsReferences.callPutFlag) &&
-        Objects.equals(this.callPutPairSymbol, optionsReferences.callPutPairSymbol) &&
-        Objects.equals(this.contractSize, optionsReferences.contractSize) &&
-        Objects.equals(this.currency, optionsReferences.currency) &&
-        Objects.equals(this.exchange, optionsReferences.exchange) &&
-        Objects.equals(this.expirationDate, optionsReferences.expirationDate) &&
-        Objects.equals(this.expirationFrequency, optionsReferences.expirationFrequency) &&
-        Objects.equals(this.expirationMonth, optionsReferences.expirationMonth) &&
-        Objects.equals(this.lepoFlag, optionsReferences.lepoFlag) &&
-        Objects.equals(this.name, optionsReferences.name) &&
-        Objects.equals(this.occ21Symbol, optionsReferences.occ21Symbol) &&
-        Objects.equals(this.opra17Symbol, optionsReferences.opra17Symbol) &&
-        Objects.equals(this.rootTicker, optionsReferences.rootTicker) &&
-        Objects.equals(this.style, optionsReferences.style) &&
-        Objects.equals(this.type, optionsReferences.type) &&
-        Objects.equals(this.underlyingFsymSecurityId, optionsReferences.underlyingFsymSecurityId) &&
-        Objects.equals(this.date, optionsReferences.date) &&
-        Objects.equals(this.settlementMethod, optionsReferences.settlementMethod) &&
+    return equalsNullable(this.fsymId, optionsReferences.fsymId) &&
+        equalsNullable(this.adjustedFlag, optionsReferences.adjustedFlag) &&
+        equalsNullable(this.callPutFlag, optionsReferences.callPutFlag) &&
+        equalsNullable(this.callPutPairSymbol, optionsReferences.callPutPairSymbol) &&
+        equalsNullable(this.contractSize, optionsReferences.contractSize) &&
+        equalsNullable(this.currency, optionsReferences.currency) &&
+        equalsNullable(this.exchange, optionsReferences.exchange) &&
+        equalsNullable(this.expirationDate, optionsReferences.expirationDate) &&
+        equalsNullable(this.expirationFrequency, optionsReferences.expirationFrequency) &&
+        equalsNullable(this.expirationMonth, optionsReferences.expirationMonth) &&
+        equalsNullable(this.lepoFlag, optionsReferences.lepoFlag) &&
+        equalsNullable(this.name, optionsReferences.name) &&
+        equalsNullable(this.occ21Symbol, optionsReferences.occ21Symbol) &&
+        equalsNullable(this.opra17Symbol, optionsReferences.opra17Symbol) &&
+        equalsNullable(this.rootTicker, optionsReferences.rootTicker) &&
+        equalsNullable(this.style, optionsReferences.style) &&
+        equalsNullable(this.type, optionsReferences.type) &&
+        equalsNullable(this.underlyingFsymSecurityId, optionsReferences.underlyingFsymSecurityId) &&
+        equalsNullable(this.date, optionsReferences.date) &&
+        equalsNullable(this.settlementMethod, optionsReferences.settlementMethod) &&
         Objects.equals(this.requestId, optionsReferences.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, adjustedFlag, callPutFlag, callPutPairSymbol, contractSize, currency, exchange, expirationDate, expirationFrequency, expirationMonth, lepoFlag, name, occ21Symbol, opra17Symbol, rootTicker, style, type, underlyingFsymSecurityId, date, settlementMethod, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(adjustedFlag), hashCodeNullable(callPutFlag), hashCodeNullable(callPutPairSymbol), hashCodeNullable(contractSize), hashCodeNullable(currency), hashCodeNullable(exchange), hashCodeNullable(expirationDate), hashCodeNullable(expirationFrequency), hashCodeNullable(expirationMonth), hashCodeNullable(lepoFlag), hashCodeNullable(name), hashCodeNullable(occ21Symbol), hashCodeNullable(opra17Symbol), hashCodeNullable(rootTicker), hashCodeNullable(style), hashCodeNullable(type), hashCodeNullable(underlyingFsymSecurityId), hashCodeNullable(date), hashCodeNullable(settlementMethod), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

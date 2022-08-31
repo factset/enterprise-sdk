@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PortfolioTransactionCashDeleteData**](PortfolioTransactionCashDeleteData.md) |  |  [optional]
-**meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  |  [optional]
+**data** | [**PortfolioPositionClosedListData**](PortfolioPositionClosedListData.md) |  |  [optional]
+**meta** | [**PortfolioPositionClosedListMeta**](PortfolioPositionClosedListMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

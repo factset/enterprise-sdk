@@ -13,6 +13,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -68,6 +70,8 @@ docs/PADateParameters.md
 docs/PAIdentifier.md
 docs/PAPricingSource.md
 docs/PAPricingSourceRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/PricingSourcesApi.md
 docs/TemplateContentTypes.md
 docs/TemplatedPAComponent.md
@@ -125,6 +129,8 @@ src/model/CalculationStatusMeta.js
 src/model/CalculationStatusRoot.js
 src/model/CalculationUnitStatus.js
 src/model/CalculationUnitStatusMeta.js
+src/model/CalculationsSummary.js
+src/model/CalculationsSummaryRoot.js
 src/model/ClientErrorResponse.js
 src/model/Column.js
 src/model/ColumnRoot.js
@@ -170,6 +176,8 @@ src/model/PADateParameters.js
 src/model/PAIdentifier.js
 src/model/PAPricingSource.js
 src/model/PAPricingSourceRoot.js
+src/model/PaginationInfo.js
+src/model/PaginationMeta.js
 src/model/TemplateContentTypes.js
 src/model/TemplatedPAComponent.js
 src/model/TemplatedPAComponentParameters.js

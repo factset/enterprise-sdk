@@ -1,6 +1,6 @@
 # stocksapifordigitalportals.StockApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## getStockDividendTypeList
 
-> InlineResponse2008 getStockDividendTypeList(opts)
+> InlineResponse2004 getStockDividendTypeList(opts)
 
 List of dividend types.
 
@@ -57,7 +57,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new StockApi();
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -81,11 +81,11 @@ apiInstance.getStockDividendTypeList(opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkMonth1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -131,11 +131,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -158,14 +158,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkMonth3Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -211,11 +211,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -238,14 +238,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkWeek1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -291,11 +291,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -318,14 +318,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -371,11 +371,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -398,14 +398,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear3Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -451,11 +451,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -478,14 +478,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear5Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, opts)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, opts)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -531,11 +531,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the notation.
-const idNotationBenchmark = ["null"]; // [String] | List of identifiers of benchmark notations. See the group description for the list of valid values.
+const id = "id_example"; // String | 
+const idNotationBenchmark = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -558,14 +558,14 @@ apiInstance.getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. | 
- **idNotationBenchmark** | [**[String]**](String.md)| List of identifiers of benchmark notations. See the group description for the list of valid values. | 
+ **id** | **String**|  | 
+ **idNotationBenchmark** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 ## getStockOwnerList
 
-> InlineResponse2006 getStockOwnerList(id, opts)
+> InlineResponse2002 getStockOwnerList(id, opts)
 
 List of owners for a specific type of a company&#39;s shares.
 
@@ -611,10 +611,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of the instrument.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'language': "language_example" // String | ISO 639-1 code of the language.
+  'language': "language_example" // String | 
 };
 
 // Call api endpoint
@@ -637,13 +637,13 @@ apiInstance.getStockOwnerList(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **language** | **String**| ISO 639-1 code of the language. | [optional] 
+ **language** | **String**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
 
 ## getStockRecommendationAggregateGet
 
-> InlineResponse2001 getStockRecommendationAggregateGet(id, opts)
+> InlineResponse200 getStockRecommendationAggregateGet(id, opts)
 
 Target price and aggregated recommendations for a stock.
 
@@ -689,7 +689,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of an instrument.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -714,12 +714,12 @@ apiInstance.getStockRecommendationAggregateGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 ## getStockRecommendationAggregateHistoryList
 
-> InlineResponse2002 getStockRecommendationAggregateHistoryList(id, snapshots, opts)
+> InlineResponse2001 getStockRecommendationAggregateHistoryList(id, snapshots, opts)
 
 Current and historical trade recommendations and target prices for a stock.
 
@@ -765,8 +765,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const id = "id_example"; // String | Identifier of an instrument.
-const snapshots = ["null"]; // [String] | Choice of historic snapshots for aggregated recommendations.
+const id = "id_example"; // String | 
+const snapshots = ["null"]; // [String] | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
@@ -791,13 +791,13 @@ apiInstance.getStockRecommendationAggregateHistoryList(id, snapshots, opts).then
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. | 
- **snapshots** | [**[String]**](String.md)| Choice of historic snapshots for aggregated recommendations. | 
+ **id** | **String**|  | 
+ **snapshots** | [**[String]**](String.md)|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 ## postStockDividendList
 
-> InlineResponse2007 postStockDividendList(body)
+> InlineResponse2003 postStockDividendList(inlineObject)
 
 List of dividends for a stock.
 
@@ -843,10 +843,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new StockApi();
-const body = new stocksapifordigitalportals.InlineObject1(); // InlineObject1 | 
+const inlineObject = new stocksapifordigitalportals.InlineObject(); // InlineObject | 
 
 // Call api endpoint
-apiInstance.postStockDividendList(body).then(
+apiInstance.postStockDividendList(inlineObject).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -865,11 +865,11 @@ apiInstance.postStockDividendList(body).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationRankingIntradayList
 
-> InlineResponse20010 postStockNotationRankingIntradayList(opts)
+> InlineResponse2006 postStockNotationRankingIntradayList(opts)
 
 Ranking of stocks&#39; notations using intraday figures.
 
@@ -916,7 +916,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new StockApi();
 const opts = {
-  'body': new stocksapifordigitalportals.InlineObject2() // InlineObject2 | 
+  'inlineObject1': new stocksapifordigitalportals.InlineObject1() // InlineObject1 | 
 };
 
 // Call api endpoint
@@ -939,11 +939,11 @@ apiInstance.postStockNotationRankingIntradayList(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationScreenerSearch
 
-> InlineResponse20011 postStockNotationScreenerSearch(opts)
+> InlineResponse2007 postStockNotationScreenerSearch(opts)
 
 Screener for stocks&#39; notations based on stock-specific parameters.
 
@@ -990,7 +990,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new StockApi();
 const opts = {
-  'body': new stocksapifordigitalportals.InlineObject3() // InlineObject3 | 
+  'inlineObject2': new stocksapifordigitalportals.InlineObject2() // InlineObject2 | 
 };
 
 // Call api endpoint
@@ -1013,11 +1013,11 @@ apiInstance.postStockNotationScreenerSearch(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -1031,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationScreenerValueRangesGet
 
-> InlineResponse20012 postStockNotationScreenerValueRangesGet(opts)
+> InlineResponse2008 postStockNotationScreenerValueRangesGet(opts)
 
 Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
@@ -1064,7 +1064,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new StockApi();
 const opts = {
-  'body': new stocksapifordigitalportals.InlineObject4() // InlineObject4 | 
+  'inlineObject3': new stocksapifordigitalportals.InlineObject3() // InlineObject3 | 
 };
 
 // Call api endpoint
@@ -1087,11 +1087,11 @@ apiInstance.postStockNotationScreenerValueRangesGet(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 

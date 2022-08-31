@@ -34,36 +34,27 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2004Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a delivery..</param>
-        /// <param name="name">Name of the delivery..</param>
-        /// <param name="functions">List of officer functions..</param>
-        public InlineResponse2004Data(decimal id = default(decimal), string name = default(string), List<InlineResponse2004Functions> functions = default(List<InlineResponse2004Functions>))
+        /// <param name="id">Identifier of a dividend type..</param>
+        /// <param name="name">Name of the dividend type..</param>
+        public InlineResponse2004Data(decimal id = default(decimal), string name = default(string))
         {
             this.Id = id;
             this.Name = name;
-            this.Functions = functions;
         }
 
         /// <summary>
-        /// Identifier of a delivery.
+        /// Identifier of a dividend type.
         /// </summary>
-        /// <value>Identifier of a delivery.</value>
+        /// <value>Identifier of a dividend type.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public decimal Id { get; set; }
 
         /// <summary>
-        /// Name of the delivery.
+        /// Name of the dividend type.
         /// </summary>
-        /// <value>Name of the delivery.</value>
+        /// <value>Name of the dividend type.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// List of officer functions.
-        /// </summary>
-        /// <value>List of officer functions.</value>
-        [DataMember(Name = "functions", EmitDefaultValue = false)]
-        public List<InlineResponse2004Functions> Functions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,7 +66,6 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             sb.Append("class InlineResponse2004Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Functions: ").Append(Functions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,12 +109,6 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Functions == input.Functions ||
-                    this.Functions != null &&
-                    input.Functions != null &&
-                    this.Functions.SequenceEqual(input.Functions)
                 );
         }
 
@@ -141,10 +125,6 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Functions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Functions.GetHashCode();
                 }
                 return hashCode;
             }

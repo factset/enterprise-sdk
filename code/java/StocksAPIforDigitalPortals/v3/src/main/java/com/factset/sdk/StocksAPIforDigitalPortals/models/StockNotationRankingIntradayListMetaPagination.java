@@ -43,10 +43,10 @@ public class StockNotationRankingIntradayListMetaPagination implements Serializa
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
-  private BigDecimal offset;
+  private BigDecimal offset = new BigDecimal("0");
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private BigDecimal limit;
+  private BigDecimal limit = new BigDecimal("20");
 
   public StockNotationRankingIntradayListMetaPagination() { 
   }
@@ -86,7 +86,7 @@ public class StockNotationRankingIntradayListMetaPagination implements Serializa
    /**
    * Non-negative maximum number of entries to return.
    * minimum: 0
-   * maximum: 1E+2
+   * maximum: 100
    * @return limit
   **/
   @javax.annotation.Nullable

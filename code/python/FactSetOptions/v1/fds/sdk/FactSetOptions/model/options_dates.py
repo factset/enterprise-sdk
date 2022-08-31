@@ -82,17 +82,17 @@ class OptionsDates(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'expiration_date': (date,),  # noqa: E501
-            'first_ask_date': (date,),  # noqa: E501
-            'first_bid_date': (date,),  # noqa: E501
-            'first_settlement_date': (date,),  # noqa: E501
-            'first_trade_date': (date,),  # noqa: E501
-            'last_ask_date': (date,),  # noqa: E501
-            'last_bid_date': (date,),  # noqa: E501
-            'last_settlement_date': (date,),  # noqa: E501
-            'last_trade_date': (date,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
+            'expiration_date': (date, none_type,),  # noqa: E501
+            'first_ask_date': (date, none_type,),  # noqa: E501
+            'first_bid_date': (date, none_type,),  # noqa: E501
+            'first_settlement_date': (date, none_type,),  # noqa: E501
+            'first_trade_date': (date, none_type,),  # noqa: E501
+            'last_ask_date': (date, none_type,),  # noqa: E501
+            'last_bid_date': (date, none_type,),  # noqa: E501
+            'last_settlement_date': (date, none_type,),  # noqa: E501
+            'last_trade_date': (date, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -157,17 +157,17 @@ class OptionsDates(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            expiration_date (date): The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_ask_date (date): The date of first ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_bid_date (date): The date of first bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_settlement_date (date): The date of first settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_trade_date (date): First Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_ask_date (date): The date of last ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_bid_date (date): The date of last bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_settlement_date (date): The date of last settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_trade_date (date): Last Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            expiration_date (date, none_type): The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_ask_date (date, none_type): The date of first ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_bid_date (date, none_type): The date of first bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_settlement_date (date, none_type): The date of first settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_trade_date (date, none_type): First Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_ask_date (date, none_type): The date of last ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_bid_date (date, none_type): The date of last bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_settlement_date (date, none_type): The date of last settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_trade_date (date, none_type): Last Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -250,17 +250,17 @@ class OptionsDates(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            expiration_date (date): The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_ask_date (date): The date of first ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_bid_date (date): The date of first bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_settlement_date (date): The date of first settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            first_trade_date (date): First Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_ask_date (date): The date of last ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_bid_date (date): The date of last bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_settlement_date (date): The date of last settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            last_trade_date (date): Last Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            expiration_date (date, none_type): The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_ask_date (date, none_type): The date of first ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_bid_date (date, none_type): The date of first bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_settlement_date (date, none_type): The date of first settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            first_trade_date (date, none_type): First Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_ask_date (date, none_type): The date of last ask price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_bid_date (date, none_type): The date of last bid price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_settlement_date (date, none_type): The date of last settlement price for the option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            last_trade_date (date, none_type): Last Trading Date of the Option in YYYY-MM-DD format.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

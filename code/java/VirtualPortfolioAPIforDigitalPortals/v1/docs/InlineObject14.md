@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**WatchlistPositionModifyData**](WatchlistPositionModifyData.md) |  |  [optional]
+**data** | [**WatchlistCreateData**](WatchlistCreateData.md) |  |  [optional]
 **meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  |  [optional]
 
 

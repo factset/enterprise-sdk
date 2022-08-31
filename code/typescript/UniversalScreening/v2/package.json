@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-universalscreening",
-  "version": "0.21.0",
+  "version": "1.0.0",
   "description": "Universal Screening client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

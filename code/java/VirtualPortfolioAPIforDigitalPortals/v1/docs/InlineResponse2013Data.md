@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of the position. |  [optional]
+**id** | **String** | Identifier of the watchlist. |  [optional]
 
 
 ## Implemented Interfaces

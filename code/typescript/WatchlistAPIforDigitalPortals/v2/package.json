@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-watchlistapifordigitalportals",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "description": "Watchlist API for Digital Portals client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

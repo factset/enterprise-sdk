@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.BondsAPIforDigitalPortals",
   "projectName": "fds.sdk.BondsAPIforDigitalPortals",
-  "packageVersion": "0.10.1",
+  "packageVersion": "0.10.2",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Bonds API for Digital Portals client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/BondsAPIforDigitalPortals/v2",
-  "httpUserAgent": "fds-sdk/python/BondsAPIforDigitalPortals/0.10.1",
+  "httpUserAgent": "fds-sdk/python/BondsAPIforDigitalPortals/0.10.2",
   "files": {
     "LICENSE": {}
   }

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -54,49 +58,49 @@ public class Snapshot implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_DELTA = "delta";
-  private Double delta;
+  private JsonNullable<Double> delta = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  private LocalDate expirationDate;
+  private JsonNullable<LocalDate> expirationDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_IMPLIED_VOLATILITY = "impliedVolatility";
-  private Double impliedVolatility;
+  private JsonNullable<Double> impliedVolatility = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPEN_INTEREST = "openInterest";
-  private Integer openInterest;
+  private JsonNullable<Integer> openInterest = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_PRICE = "price";
-  private Double price;
+  private JsonNullable<Double> price = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
   public static final String JSON_PROPERTY_STYLE = "style";
-  private Integer style;
+  private JsonNullable<Integer> style = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private Integer type;
+  private JsonNullable<Integer> type = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID = "underlyingFsymSecurityId";
-  private String underlyingFsymSecurityId;
+  private JsonNullable<String> underlyingFsymSecurityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UNDERLYING_PRICE = "underlyingPrice";
-  private Double underlyingPrice;
+  private JsonNullable<Double> underlyingPrice = JsonNullable.<Double>undefined();
 
   public Snapshot() { 
   }
 
   public Snapshot fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -106,23 +110,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#CD33M-USA", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Snapshot date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -132,23 +144,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Apr 13 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public Snapshot delta(Double delta) {
-    this.delta = delta;
+    this.delta = JsonNullable.<Double>of(delta);
     return this;
   }
 
@@ -158,23 +178,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.77158491", value = "The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \"hedge ratio\". For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. ")
-  @JsonProperty(JSON_PROPERTY_DELTA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getDelta() {
-    return delta;
+        return delta.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DELTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDelta(Double delta) {
+
+  public JsonNullable<Double> getDelta_JsonNullable() {
+    return delta;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DELTA)
+  public void setDelta_JsonNullable(JsonNullable<Double> delta) {
     this.delta = delta;
+  }
+
+  public void setDelta(Double delta) {
+    this.delta = JsonNullable.<Double>of(delta);
   }
 
 
   public Snapshot expirationDate(LocalDate expirationDate) {
-    this.expirationDate = expirationDate;
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
     return this;
   }
 
@@ -184,23 +212,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri Dec 17 00:00:00 UTC 2021", value = "The expiration date of the option contract in YYYY-MM-DD format")
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getExpirationDate() {
-    return expirationDate;
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(LocalDate expirationDate) {
+
+  public JsonNullable<LocalDate> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<LocalDate> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(LocalDate expirationDate) {
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
   }
 
 
   public Snapshot impliedVolatility(Double impliedVolatility) {
-    this.impliedVolatility = impliedVolatility;
+    this.impliedVolatility = JsonNullable.<Double>of(impliedVolatility);
     return this;
   }
 
@@ -210,23 +246,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "66.226879", value = "The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) ")
-  @JsonProperty(JSON_PROPERTY_IMPLIED_VOLATILITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getImpliedVolatility() {
-    return impliedVolatility;
+        return impliedVolatility.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IMPLIED_VOLATILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setImpliedVolatility(Double impliedVolatility) {
+
+  public JsonNullable<Double> getImpliedVolatility_JsonNullable() {
+    return impliedVolatility;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IMPLIED_VOLATILITY)
+  public void setImpliedVolatility_JsonNullable(JsonNullable<Double> impliedVolatility) {
     this.impliedVolatility = impliedVolatility;
+  }
+
+  public void setImpliedVolatility(Double impliedVolatility) {
+    this.impliedVolatility = JsonNullable.<Double>of(impliedVolatility);
   }
 
 
   public Snapshot name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -236,23 +280,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tesla Inc Call DEC21 590.00", value = "The name of the option security.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public Snapshot openInterest(Integer openInterest) {
-    this.openInterest = openInterest;
+    this.openInterest = JsonNullable.<Integer>of(openInterest);
     return this;
   }
 
@@ -262,23 +314,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "92", value = "The total number of options and/or futures contracts that are not closed or delivered on a particular day.")
-  @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getOpenInterest() {
-    return openInterest;
+        return openInterest.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOpenInterest(Integer openInterest) {
+
+  public JsonNullable<Integer> getOpenInterest_JsonNullable() {
+    return openInterest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
+  public void setOpenInterest_JsonNullable(JsonNullable<Integer> openInterest) {
     this.openInterest = openInterest;
+  }
+
+  public void setOpenInterest(Integer openInterest) {
+    this.openInterest = JsonNullable.<Integer>of(openInterest);
   }
 
 
   public Snapshot price(Double price) {
-    this.price = price;
+    this.price = JsonNullable.<Double>of(price);
     return this;
   }
 
@@ -288,18 +348,26 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "247.425", value = "The calculated price quote, based on the calculated status. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". ")
-  @JsonProperty(JSON_PROPERTY_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPrice() {
-    return price;
+        return price.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrice(Double price) {
+
+  public JsonNullable<Double> getPrice_JsonNullable() {
+    return price;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE)
+  public void setPrice_JsonNullable(JsonNullable<Double> price) {
     this.price = price;
+  }
+
+  public void setPrice(Double price) {
+    this.price = JsonNullable.<Double>of(price);
   }
 
 
@@ -330,7 +398,7 @@ public class Snapshot implements Serializable {
 
 
   public Snapshot style(Integer style) {
-    this.style = style;
+    this.style = JsonNullable.<Integer>of(style);
     return this;
   }
 
@@ -340,23 +408,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. ")
-  @JsonProperty(JSON_PROPERTY_STYLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getStyle() {
-    return style;
+        return style.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStyle(Integer style) {
+
+  public JsonNullable<Integer> getStyle_JsonNullable() {
+    return style;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  public void setStyle_JsonNullable(JsonNullable<Integer> style) {
     this.style = style;
+  }
+
+  public void setStyle(Integer style) {
+    this.style = JsonNullable.<Integer>of(style);
   }
 
 
   public Snapshot type(Integer type) {
-    this.type = type;
+    this.type = JsonNullable.<Integer>of(type);
     return this;
   }
 
@@ -366,23 +442,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| ")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getType() {
-    return type;
+        return type.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(Integer type) {
+
+  public JsonNullable<Integer> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<Integer> type) {
     this.type = type;
+  }
+
+  public void setType(Integer type) {
+    this.type = JsonNullable.<Integer>of(type);
   }
 
 
   public Snapshot underlyingFsymSecurityId(String underlyingFsymSecurityId) {
-    this.underlyingFsymSecurityId = underlyingFsymSecurityId;
+    this.underlyingFsymSecurityId = JsonNullable.<String>of(underlyingFsymSecurityId);
     return this;
   }
 
@@ -392,23 +476,31 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet's Permanent Security Identifier format (XXXXXX-S). ")
-  @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getUnderlyingFsymSecurityId() {
-    return underlyingFsymSecurityId;
+        return underlyingFsymSecurityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnderlyingFsymSecurityId(String underlyingFsymSecurityId) {
+
+  public JsonNullable<String> getUnderlyingFsymSecurityId_JsonNullable() {
+    return underlyingFsymSecurityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNDERLYING_FSYM_SECURITY_ID)
+  public void setUnderlyingFsymSecurityId_JsonNullable(JsonNullable<String> underlyingFsymSecurityId) {
     this.underlyingFsymSecurityId = underlyingFsymSecurityId;
+  }
+
+  public void setUnderlyingFsymSecurityId(String underlyingFsymSecurityId) {
+    this.underlyingFsymSecurityId = JsonNullable.<String>of(underlyingFsymSecurityId);
   }
 
 
   public Snapshot underlyingPrice(Double underlyingPrice) {
-    this.underlyingPrice = underlyingPrice;
+    this.underlyingPrice = JsonNullable.<Double>of(underlyingPrice);
     return this;
   }
 
@@ -418,18 +510,26 @@ public class Snapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "762.32", value = "The price of the underyling security as of the date requested. ")
-  @JsonProperty(JSON_PROPERTY_UNDERLYING_PRICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getUnderlyingPrice() {
-    return underlyingPrice;
+        return underlyingPrice.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_UNDERLYING_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUnderlyingPrice(Double underlyingPrice) {
+
+  public JsonNullable<Double> getUnderlyingPrice_JsonNullable() {
+    return underlyingPrice;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_UNDERLYING_PRICE)
+  public void setUnderlyingPrice_JsonNullable(JsonNullable<Double> underlyingPrice) {
     this.underlyingPrice = underlyingPrice;
+  }
+
+  public void setUnderlyingPrice(Double underlyingPrice) {
+    this.underlyingPrice = JsonNullable.<Double>of(underlyingPrice);
   }
 
 
@@ -445,24 +545,35 @@ public class Snapshot implements Serializable {
       return false;
     }
     Snapshot snapshot = (Snapshot) o;
-    return Objects.equals(this.fsymId, snapshot.fsymId) &&
-        Objects.equals(this.date, snapshot.date) &&
-        Objects.equals(this.delta, snapshot.delta) &&
-        Objects.equals(this.expirationDate, snapshot.expirationDate) &&
-        Objects.equals(this.impliedVolatility, snapshot.impliedVolatility) &&
-        Objects.equals(this.name, snapshot.name) &&
-        Objects.equals(this.openInterest, snapshot.openInterest) &&
-        Objects.equals(this.price, snapshot.price) &&
+    return equalsNullable(this.fsymId, snapshot.fsymId) &&
+        equalsNullable(this.date, snapshot.date) &&
+        equalsNullable(this.delta, snapshot.delta) &&
+        equalsNullable(this.expirationDate, snapshot.expirationDate) &&
+        equalsNullable(this.impliedVolatility, snapshot.impliedVolatility) &&
+        equalsNullable(this.name, snapshot.name) &&
+        equalsNullable(this.openInterest, snapshot.openInterest) &&
+        equalsNullable(this.price, snapshot.price) &&
         Objects.equals(this.requestId, snapshot.requestId) &&
-        Objects.equals(this.style, snapshot.style) &&
-        Objects.equals(this.type, snapshot.type) &&
-        Objects.equals(this.underlyingFsymSecurityId, snapshot.underlyingFsymSecurityId) &&
-        Objects.equals(this.underlyingPrice, snapshot.underlyingPrice);
+        equalsNullable(this.style, snapshot.style) &&
+        equalsNullable(this.type, snapshot.type) &&
+        equalsNullable(this.underlyingFsymSecurityId, snapshot.underlyingFsymSecurityId) &&
+        equalsNullable(this.underlyingPrice, snapshot.underlyingPrice);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, delta, expirationDate, impliedVolatility, name, openInterest, price, requestId, style, type, underlyingFsymSecurityId, underlyingPrice);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(delta), hashCodeNullable(expirationDate), hashCodeNullable(impliedVolatility), hashCodeNullable(name), hashCodeNullable(openInterest), hashCodeNullable(price), requestId, hashCodeNullable(style), hashCodeNullable(type), hashCodeNullable(underlyingFsymSecurityId), hashCodeNullable(underlyingPrice));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -82,11 +82,11 @@ class OptionsVolume(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'exchange': (str,),  # noqa: E501
-            'open_interest': (float,),  # noqa: E501
-            'volume': (float,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'exchange': (str, none_type,),  # noqa: E501
+            'open_interest': (float, none_type,),  # noqa: E501
+            'volume': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -145,11 +145,11 @@ class OptionsVolume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            date (date): The date of the data in YYYY-MM-DD format. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            open_interest (float): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
-            volume (float): Volume of the option. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            date (date, none_type): The date of the data in YYYY-MM-DD format. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            open_interest (float, none_type): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
+            volume (float, none_type): Volume of the option. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -232,11 +232,11 @@ class OptionsVolume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            date (date): The date of the data in YYYY-MM-DD format. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            open_interest (float): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
-            volume (float): Volume of the option. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            date (date, none_type): The date of the data in YYYY-MM-DD format. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            open_interest (float, none_type): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
+            volume (float, none_type): Volume of the option. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getFinancials
 
-> FinancialsResponse getFinancials(ids, fields, startDate, endDate)
+> FinancialsResponse getFinancials(ids, fields, startDate, opts)
 
 Returns Private Company Financials for a list of ids.
 
@@ -46,10 +46,12 @@ const apiInstance = new FinancialsApi();
 const ids = ["000BFG-E","000BGZ-E","000C64-E"]; // [String] | The requested FactSet Private Market Entity Identifier in XXXXXX-E format.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 const fields = ["assets","ebitda"]; // [String] | Private Markets Financials Fields. 
 const startDate = 2019-01-01; // String | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
-const endDate = 2019-12-31; // String | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
+const opts = {
+  'endDate': 2019-12-31 // String | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
+};
 
 // Call api endpoint
-apiInstance.getFinancials(ids, fields, startDate, endDate).then(
+apiInstance.getFinancials(ids, fields, startDate, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
  **ids** | [**[String]**](String.md)| The requested FactSet Private Market Entity Identifier in XXXXXX-E format.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  | 
  **fields** | [**[String]**](String.md)| Private Markets Financials Fields.  | 
  **startDate** | **String**| The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | 
- **endDate** | **String**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | 
+ **endDate** | **String**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 
 ### Return type
 

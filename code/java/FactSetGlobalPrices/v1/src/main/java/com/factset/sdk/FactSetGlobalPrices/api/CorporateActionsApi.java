@@ -71,7 +71,7 @@ public class CorporateActionsApi {
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  (optional)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-   * @param cancelledDividend The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional)
+   * @param cancelledDividend The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional, default to exclude)
    * @return CorporateActionsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -98,7 +98,7 @@ public class CorporateActionsApi {
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  (optional)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-   * @param cancelledDividend The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional)
+   * @param cancelledDividend The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional, default to exclude)
    * @return ApiResponse&lt;CorporateActionsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

@@ -73,7 +73,7 @@ public class FinancialsApi {
    * @param ids The requested FactSet Private Market Entity Identifier in XXXXXX-E format.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  (required)
    * @param fields Private Markets Financials Fields.  (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required)
-   * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required)
+   * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @return FinancialsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -97,7 +97,7 @@ public class FinancialsApi {
    * @param ids The requested FactSet Private Market Entity Identifier in XXXXXX-E format.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  (required)
    * @param fields Private Markets Financials Fields.  (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required)
-   * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (required)
+   * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @return ApiResponse&lt;FinancialsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -127,11 +127,6 @@ public class FinancialsApi {
     // verify the required parameter 'startDate' is set
     if (startDate == null) {
       throw new ApiException(400, "Missing the required parameter 'startDate' when calling getFinancials");
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == null) {
-      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getFinancials");
     }
     
     // create path and map variables

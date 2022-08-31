@@ -1,6 +1,6 @@
 # FactSet.SDK.FactSetTrading.Api.OrdersApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="cancel"></a>
 # **Cancel**
-> EMSOrdersCreateResponseRoot Cancel (EMSCancelOrdersRoot eMSCancelOrdersRoot = null)
+> EMSOrdersCreateResponseEmsResponse Cancel (EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = null)
 
 Cancel the orders on EMS system.
 
@@ -53,12 +53,12 @@ namespace Example
 
             var apiInstance = new OrdersApi(config);
 
-            var eMSCancelOrdersRoot = new EMSCancelOrdersRoot(); // EMSCancelOrdersRoot |  (optional) 
+            var eMSCancelOrdersDataMetaModel = new EMSCancelOrdersDataMetaModel(); // EMSCancelOrdersDataMetaModel |  (optional) 
 
             try
             {
                 // Cancel the orders on EMS system.
-                EMSOrdersCreateResponseRoot result = apiInstance.Cancel(eMSCancelOrdersRoot);
+                EMSOrdersCreateResponseEmsResponse result = apiInstance.Cancel(eMSCancelOrdersDataMetaModel);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -76,10 +76,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSCancelOrdersRoot** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional] 
+ **eMSCancelOrdersDataMetaModel** | [**EMSCancelOrdersDataMetaModel**](EMSCancelOrdersDataMetaModel.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 <a name="create"></a>
 # **Create**
-> EMSOrdersCreateResponseRoot Create (EMSOrdersRoot eMSOrdersRoot = null)
+> EMSOrdersCreateResponseEmsResponse Create (EMSOrdersDataMetaModel eMSOrdersDataMetaModel = null)
 
 Send orders to EMS for execution.
 
@@ -149,12 +149,12 @@ namespace Example
 
             var apiInstance = new OrdersApi(config);
 
-            var eMSOrdersRoot = new EMSOrdersRoot(); // EMSOrdersRoot |  (optional) 
+            var eMSOrdersDataMetaModel = new EMSOrdersDataMetaModel(); // EMSOrdersDataMetaModel |  (optional) 
 
             try
             {
                 // Send orders to EMS for execution.
-                EMSOrdersCreateResponseRoot result = apiInstance.Create(eMSOrdersRoot);
+                EMSOrdersCreateResponseEmsResponse result = apiInstance.Create(eMSOrdersDataMetaModel);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -172,10 +172,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSOrdersRoot** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional] 
+ **eMSOrdersDataMetaModel** | [**EMSOrdersDataMetaModel**](EMSOrdersDataMetaModel.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 <a name="replace"></a>
 # **Replace**
-> EMSOrdersCreateResponseRoot Replace (EMSReplaceOrdersRoot eMSReplaceOrdersRoot = null)
+> EMSOrdersCreateResponseEmsResponse Replace (EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = null)
 
 Replace the orders on EMS system.
 
@@ -245,12 +245,12 @@ namespace Example
 
             var apiInstance = new OrdersApi(config);
 
-            var eMSReplaceOrdersRoot = new EMSReplaceOrdersRoot(); // EMSReplaceOrdersRoot |  (optional) 
+            var eMSReplaceOrdersDataMetaModel = new EMSReplaceOrdersDataMetaModel(); // EMSReplaceOrdersDataMetaModel |  (optional) 
 
             try
             {
                 // Replace the orders on EMS system.
-                EMSOrdersCreateResponseRoot result = apiInstance.Replace(eMSReplaceOrdersRoot);
+                EMSOrdersCreateResponseEmsResponse result = apiInstance.Replace(eMSReplaceOrdersDataMetaModel);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -268,10 +268,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSReplaceOrdersRoot** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional] 
+ **eMSReplaceOrdersDataMetaModel** | [**EMSReplaceOrdersDataMetaModel**](EMSReplaceOrdersDataMetaModel.md)|  | [optional] 
 
 ### Return type
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 

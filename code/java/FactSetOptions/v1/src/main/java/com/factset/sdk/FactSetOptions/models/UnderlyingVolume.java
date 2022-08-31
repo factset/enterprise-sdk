@@ -26,6 +26,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -53,43 +57,43 @@ public class UnderlyingVolume implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_EXCHANGE = "exchange";
-  private String exchange;
+  private JsonNullable<String> exchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PUT_CALL_RATIO = "putCallRatio";
-  private Double putCallRatio;
+  private JsonNullable<Double> putCallRatio = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
   public static final String JSON_PROPERTY_TOTAL_CALL_OPEN_INTEREST = "totalCallOpenInterest";
-  private BigDecimal totalCallOpenInterest;
+  private JsonNullable<BigDecimal> totalCallOpenInterest = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_CALL_VOLUME = "totalCallVolume";
-  private Double totalCallVolume;
+  private JsonNullable<Double> totalCallVolume = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_PUT_CALL_OPEN_INTEREST = "totalPutCallOpenInterest";
-  private BigDecimal totalPutCallOpenInterest;
+  private JsonNullable<BigDecimal> totalPutCallOpenInterest = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_PUT_CALL_VOLUME = "totalPutCallVolume";
-  private Double totalPutCallVolume;
+  private JsonNullable<Double> totalPutCallVolume = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_PUT_OPEN_INTEREST = "totalPutOpenInterest";
-  private BigDecimal totalPutOpenInterest;
+  private JsonNullable<BigDecimal> totalPutOpenInterest = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_PUT_VOLUME = "totalPutVolume";
-  private Double totalPutVolume;
+  private JsonNullable<Double> totalPutVolume = JsonNullable.<Double>undefined();
 
   public UnderlyingVolume() { 
   }
 
   public UnderlyingVolume date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -99,23 +103,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 14 00:00:00 UTC 2021", value = "The date of data as of the YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public UnderlyingVolume exchange(String exchange) {
-    this.exchange = exchange;
+    this.exchange = JsonNullable.<String>of(exchange);
     return this;
   }
 
@@ -125,23 +137,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExchange() {
-    return exchange;
+        return exchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchange(String exchange) {
+
+  public JsonNullable<String> getExchange_JsonNullable() {
+    return exchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCHANGE)
+  public void setExchange_JsonNullable(JsonNullable<String> exchange) {
     this.exchange = exchange;
+  }
+
+  public void setExchange(String exchange) {
+    this.exchange = JsonNullable.<String>of(exchange);
   }
 
 
   public UnderlyingVolume fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -151,23 +171,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier for input security in XXXXXX-S format.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public UnderlyingVolume putCallRatio(Double putCallRatio) {
-    this.putCallRatio = putCallRatio;
+    this.putCallRatio = JsonNullable.<Double>of(putCallRatio);
     return this;
   }
 
@@ -177,18 +205,26 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.0257621", value = "Put/Call Ratio (Open Interest)")
-  @JsonProperty(JSON_PROPERTY_PUT_CALL_RATIO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPutCallRatio() {
-    return putCallRatio;
+        return putCallRatio.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PUT_CALL_RATIO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPutCallRatio(Double putCallRatio) {
+
+  public JsonNullable<Double> getPutCallRatio_JsonNullable() {
+    return putCallRatio;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PUT_CALL_RATIO)
+  public void setPutCallRatio_JsonNullable(JsonNullable<Double> putCallRatio) {
     this.putCallRatio = putCallRatio;
+  }
+
+  public void setPutCallRatio(Double putCallRatio) {
+    this.putCallRatio = JsonNullable.<Double>of(putCallRatio);
   }
 
 
@@ -219,7 +255,7 @@ public class UnderlyingVolume implements Serializable {
 
 
   public UnderlyingVolume totalCallOpenInterest(BigDecimal totalCallOpenInterest) {
-    this.totalCallOpenInterest = totalCallOpenInterest;
+    this.totalCallOpenInterest = JsonNullable.<BigDecimal>of(totalCallOpenInterest);
     return this;
   }
 
@@ -229,23 +265,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2753464", value = "Total Call Open Interest")
-  @JsonProperty(JSON_PROPERTY_TOTAL_CALL_OPEN_INTEREST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getTotalCallOpenInterest() {
-    return totalCallOpenInterest;
+        return totalCallOpenInterest.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_CALL_OPEN_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalCallOpenInterest(BigDecimal totalCallOpenInterest) {
+
+  public JsonNullable<BigDecimal> getTotalCallOpenInterest_JsonNullable() {
+    return totalCallOpenInterest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_CALL_OPEN_INTEREST)
+  public void setTotalCallOpenInterest_JsonNullable(JsonNullable<BigDecimal> totalCallOpenInterest) {
     this.totalCallOpenInterest = totalCallOpenInterest;
+  }
+
+  public void setTotalCallOpenInterest(BigDecimal totalCallOpenInterest) {
+    this.totalCallOpenInterest = JsonNullable.<BigDecimal>of(totalCallOpenInterest);
   }
 
 
   public UnderlyingVolume totalCallVolume(Double totalCallVolume) {
-    this.totalCallVolume = totalCallVolume;
+    this.totalCallVolume = JsonNullable.<Double>of(totalCallVolume);
     return this;
   }
 
@@ -255,23 +299,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "946936", value = "Total Call Volume")
-  @JsonProperty(JSON_PROPERTY_TOTAL_CALL_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTotalCallVolume() {
-    return totalCallVolume;
+        return totalCallVolume.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_CALL_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalCallVolume(Double totalCallVolume) {
+
+  public JsonNullable<Double> getTotalCallVolume_JsonNullable() {
+    return totalCallVolume;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_CALL_VOLUME)
+  public void setTotalCallVolume_JsonNullable(JsonNullable<Double> totalCallVolume) {
     this.totalCallVolume = totalCallVolume;
+  }
+
+  public void setTotalCallVolume(Double totalCallVolume) {
+    this.totalCallVolume = JsonNullable.<Double>of(totalCallVolume);
   }
 
 
   public UnderlyingVolume totalPutCallOpenInterest(BigDecimal totalPutCallOpenInterest) {
-    this.totalPutCallOpenInterest = totalPutCallOpenInterest;
+    this.totalPutCallOpenInterest = JsonNullable.<BigDecimal>of(totalPutCallOpenInterest);
     return this;
   }
 
@@ -281,23 +333,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "5577863", value = "Total Call/Put Open Interest")
-  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_OPEN_INTEREST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getTotalPutCallOpenInterest() {
-    return totalPutCallOpenInterest;
+        return totalPutCallOpenInterest.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_OPEN_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalPutCallOpenInterest(BigDecimal totalPutCallOpenInterest) {
+
+  public JsonNullable<BigDecimal> getTotalPutCallOpenInterest_JsonNullable() {
+    return totalPutCallOpenInterest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_OPEN_INTEREST)
+  public void setTotalPutCallOpenInterest_JsonNullable(JsonNullable<BigDecimal> totalPutCallOpenInterest) {
     this.totalPutCallOpenInterest = totalPutCallOpenInterest;
+  }
+
+  public void setTotalPutCallOpenInterest(BigDecimal totalPutCallOpenInterest) {
+    this.totalPutCallOpenInterest = JsonNullable.<BigDecimal>of(totalPutCallOpenInterest);
   }
 
 
   public UnderlyingVolume totalPutCallVolume(Double totalPutCallVolume) {
-    this.totalPutCallVolume = totalPutCallVolume;
+    this.totalPutCallVolume = JsonNullable.<Double>of(totalPutCallVolume);
     return this;
   }
 
@@ -307,23 +367,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1646616", value = "Total Call/Put Volume")
-  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTotalPutCallVolume() {
-    return totalPutCallVolume;
+        return totalPutCallVolume.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalPutCallVolume(Double totalPutCallVolume) {
+
+  public JsonNullable<Double> getTotalPutCallVolume_JsonNullable() {
+    return totalPutCallVolume;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_CALL_VOLUME)
+  public void setTotalPutCallVolume_JsonNullable(JsonNullable<Double> totalPutCallVolume) {
     this.totalPutCallVolume = totalPutCallVolume;
+  }
+
+  public void setTotalPutCallVolume(Double totalPutCallVolume) {
+    this.totalPutCallVolume = JsonNullable.<Double>of(totalPutCallVolume);
   }
 
 
   public UnderlyingVolume totalPutOpenInterest(BigDecimal totalPutOpenInterest) {
-    this.totalPutOpenInterest = totalPutOpenInterest;
+    this.totalPutOpenInterest = JsonNullable.<BigDecimal>of(totalPutOpenInterest);
     return this;
   }
 
@@ -333,23 +401,31 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2824399", value = "Total Put Open Interest")
-  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_OPEN_INTEREST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getTotalPutOpenInterest() {
-    return totalPutOpenInterest;
+        return totalPutOpenInterest.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_PUT_OPEN_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalPutOpenInterest(BigDecimal totalPutOpenInterest) {
+
+  public JsonNullable<BigDecimal> getTotalPutOpenInterest_JsonNullable() {
+    return totalPutOpenInterest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_OPEN_INTEREST)
+  public void setTotalPutOpenInterest_JsonNullable(JsonNullable<BigDecimal> totalPutOpenInterest) {
     this.totalPutOpenInterest = totalPutOpenInterest;
+  }
+
+  public void setTotalPutOpenInterest(BigDecimal totalPutOpenInterest) {
+    this.totalPutOpenInterest = JsonNullable.<BigDecimal>of(totalPutOpenInterest);
   }
 
 
   public UnderlyingVolume totalPutVolume(Double totalPutVolume) {
-    this.totalPutVolume = totalPutVolume;
+    this.totalPutVolume = JsonNullable.<Double>of(totalPutVolume);
     return this;
   }
 
@@ -359,18 +435,26 @@ public class UnderlyingVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "699680", value = "Total Put Volume")
-  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTotalPutVolume() {
-    return totalPutVolume;
+        return totalPutVolume.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_PUT_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalPutVolume(Double totalPutVolume) {
+
+  public JsonNullable<Double> getTotalPutVolume_JsonNullable() {
+    return totalPutVolume;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_PUT_VOLUME)
+  public void setTotalPutVolume_JsonNullable(JsonNullable<Double> totalPutVolume) {
     this.totalPutVolume = totalPutVolume;
+  }
+
+  public void setTotalPutVolume(Double totalPutVolume) {
+    this.totalPutVolume = JsonNullable.<Double>of(totalPutVolume);
   }
 
 
@@ -386,22 +470,33 @@ public class UnderlyingVolume implements Serializable {
       return false;
     }
     UnderlyingVolume underlyingVolume = (UnderlyingVolume) o;
-    return Objects.equals(this.date, underlyingVolume.date) &&
-        Objects.equals(this.exchange, underlyingVolume.exchange) &&
-        Objects.equals(this.fsymId, underlyingVolume.fsymId) &&
-        Objects.equals(this.putCallRatio, underlyingVolume.putCallRatio) &&
+    return equalsNullable(this.date, underlyingVolume.date) &&
+        equalsNullable(this.exchange, underlyingVolume.exchange) &&
+        equalsNullable(this.fsymId, underlyingVolume.fsymId) &&
+        equalsNullable(this.putCallRatio, underlyingVolume.putCallRatio) &&
         Objects.equals(this.requestId, underlyingVolume.requestId) &&
-        Objects.equals(this.totalCallOpenInterest, underlyingVolume.totalCallOpenInterest) &&
-        Objects.equals(this.totalCallVolume, underlyingVolume.totalCallVolume) &&
-        Objects.equals(this.totalPutCallOpenInterest, underlyingVolume.totalPutCallOpenInterest) &&
-        Objects.equals(this.totalPutCallVolume, underlyingVolume.totalPutCallVolume) &&
-        Objects.equals(this.totalPutOpenInterest, underlyingVolume.totalPutOpenInterest) &&
-        Objects.equals(this.totalPutVolume, underlyingVolume.totalPutVolume);
+        equalsNullable(this.totalCallOpenInterest, underlyingVolume.totalCallOpenInterest) &&
+        equalsNullable(this.totalCallVolume, underlyingVolume.totalCallVolume) &&
+        equalsNullable(this.totalPutCallOpenInterest, underlyingVolume.totalPutCallOpenInterest) &&
+        equalsNullable(this.totalPutCallVolume, underlyingVolume.totalPutCallVolume) &&
+        equalsNullable(this.totalPutOpenInterest, underlyingVolume.totalPutOpenInterest) &&
+        equalsNullable(this.totalPutVolume, underlyingVolume.totalPutVolume);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, exchange, fsymId, putCallRatio, requestId, totalCallOpenInterest, totalCallVolume, totalPutCallOpenInterest, totalPutCallVolume, totalPutOpenInterest, totalPutVolume);
+    return Objects.hash(hashCodeNullable(date), hashCodeNullable(exchange), hashCodeNullable(fsymId), hashCodeNullable(putCallRatio), requestId, hashCodeNullable(totalCallOpenInterest), hashCodeNullable(totalCallVolume), hashCodeNullable(totalPutCallOpenInterest), hashCodeNullable(totalPutCallVolume), hashCodeNullable(totalPutOpenInterest), hashCodeNullable(totalPutVolume));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -65,11 +65,11 @@ public class InlineResponse2002 implements Serializable {
   }
 
    /**
-   * List of trade recommendations and target prices for a stock, in unspecified order.
+   * List of owners with their respective share sorted descending by the fraction owned.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of trade recommendations and target prices for a stock, in unspecified order.")
+  @ApiModelProperty(value = "List of owners with their respective share sorted descending by the fraction owned.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

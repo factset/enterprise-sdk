@@ -1,101 +1,29 @@
 # virtualportfolioapifordigitalportals.WatchlistApi
 
-All URIs are relative to *http://api-sandbox.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**watchlistCreatePost**](WatchlistApi.md#watchlistCreatePost) | **POST** /watchlist/create | Create a watchlist.
-[**watchlistDeletePost**](WatchlistApi.md#watchlistDeletePost) | **POST** /watchlist/delete | Delete a watchlist.
-[**watchlistListGet**](WatchlistApi.md#watchlistListGet) | **GET** /watchlist/list | List of watchlists.
-[**watchlistModifyPost**](WatchlistApi.md#watchlistModifyPost) | **POST** /watchlist/modify | Modify a watchlist.
-[**watchlistPositionCreatePost**](WatchlistApi.md#watchlistPositionCreatePost) | **POST** /watchlist/position/create | Add a position to a watchlist.
-[**watchlistPositionDeletePost**](WatchlistApi.md#watchlistPositionDeletePost) | **POST** /watchlist/position/delete | Delete a position of a watchlist.
-[**watchlistPositionListGet**](WatchlistApi.md#watchlistPositionListGet) | **GET** /watchlist/position/list | List of positions of a watchlist.
-[**watchlistPositionModifyPost**](WatchlistApi.md#watchlistPositionModifyPost) | **POST** /watchlist/position/modify | Modify a position in a watchlist.
+[**getWatchlistGet**](WatchlistApi.md#getWatchlistGet) | **GET** /watchlist/get | Details of a watchlist.
+[**getWatchlistList**](WatchlistApi.md#getWatchlistList) | **GET** /watchlist/list | List of watchlists.
+[**getWatchlistPositionList**](WatchlistApi.md#getWatchlistPositionList) | **GET** /watchlist/position/list | List of positions of a watchlist.
+[**postWatchlistCreate**](WatchlistApi.md#postWatchlistCreate) | **POST** /watchlist/create | Create a watchlist.
+[**postWatchlistDelete**](WatchlistApi.md#postWatchlistDelete) | **POST** /watchlist/delete | Delete a watchlist.
+[**postWatchlistModify**](WatchlistApi.md#postWatchlistModify) | **POST** /watchlist/modify | Modify a watchlist.
+[**postWatchlistPositionCreate**](WatchlistApi.md#postWatchlistPositionCreate) | **POST** /watchlist/position/create | Add a position to a watchlist.
+[**postWatchlistPositionDelete**](WatchlistApi.md#postWatchlistPositionDelete) | **POST** /watchlist/position/delete | Delete a position of a watchlist.
+[**postWatchlistPositionGet**](WatchlistApi.md#postWatchlistPositionGet) | **POST** /watchlist/position/get | Details of the position of a watchlist.
+[**postWatchlistPositionModify**](WatchlistApi.md#postWatchlistPositionModify) | **POST** /watchlist/position/modify | Modify a position in a watchlist.
 
 
 
-## watchlistCreatePost
+## getWatchlistGet
 
-> InlineResponse2012 watchlistCreatePost(opts)
+> InlineResponse20012 getWatchlistGet(id, opts)
 
-Create a watchlist.
+Details of a watchlist.
 
-Create a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of watchlists would exceed 100.|400 Bad Request|
-
-### Example
-
-```javascript
-const { ApiClient, WatchlistApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new WatchlistApi();
-const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject9() // InlineObject9 | 
-};
-
-// Call api endpoint
-apiInstance.watchlistCreatePost(opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
-
-### Return type
-
-[**InlineResponse2012**](InlineResponse2012.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## watchlistDeletePost
-
-> InlineResponse200 watchlistDeletePost(opts)
-
-Delete a watchlist.
-
-Delete a watchlist.
+Details of a watchlist.
 
 ### Example
 
@@ -123,12 +51,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new WatchlistApi();
+const id = "id_example"; // String | 
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject10() // InlineObject10 | 
+  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.watchlistDeletePost(opts).then(
+apiInstance.getWatchlistGet(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -147,11 +76,12 @@ apiInstance.watchlistDeletePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
+ **id** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -159,13 +89,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
-## watchlistListGet
+## getWatchlistList
 
-> InlineResponse20010 watchlistListGet(opts)
+> InlineResponse20013 getWatchlistList(opts)
 
 List of watchlists.
 
@@ -203,7 +133,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.watchlistListGet(opts).then(
+apiInstance.getWatchlistList(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -227,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -239,9 +169,235 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## watchlistModifyPost
+## getWatchlistPositionList
 
-> InlineResponse2003 watchlistModifyPost(opts)
+> InlineResponse20015 getWatchlistPositionList(id, opts)
+
+List of positions of a watchlist.
+
+List of positions of a watchlist.
+
+### Example
+
+```javascript
+const { ApiClient, WatchlistApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new WatchlistApi();
+const id = "id_example"; // String | 
+const opts = {
+  'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
+  'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
+};
+
+// Call api endpoint
+apiInstance.getWatchlistPositionList(id, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
+
+### Return type
+
+[**InlineResponse20015**](InlineResponse20015.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postWatchlistCreate
+
+> InlineResponse2013 postWatchlistCreate(opts)
+
+Create a watchlist.
+
+Create a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of watchlists would exceed 100.|400 Bad Request|
+
+### Example
+
+```javascript
+const { ApiClient, WatchlistApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new WatchlistApi();
+const opts = {
+  'inlineObject14': new virtualportfolioapifordigitalportals.InlineObject14() // InlineObject14 | 
+};
+
+// Call api endpoint
+apiInstance.postWatchlistCreate(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject14** | [**InlineObject14**](InlineObject14.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2013**](InlineResponse2013.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postWatchlistDelete
+
+> InlineResponse200 postWatchlistDelete(opts)
+
+Delete a watchlist.
+
+Delete a watchlist.
+
+### Example
+
+```javascript
+const { ApiClient, WatchlistApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new WatchlistApi();
+const opts = {
+  'inlineObject15': new virtualportfolioapifordigitalportals.InlineObject15() // InlineObject15 | 
+};
+
+// Call api endpoint
+apiInstance.postWatchlistDelete(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject15** | [**InlineObject15**](InlineObject15.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postWatchlistModify
+
+> InlineResponse2003 postWatchlistModify(opts)
 
 Modify a watchlist.
 
@@ -274,11 +430,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new WatchlistApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject11() // InlineObject11 | 
+  'inlineObject16': new virtualportfolioapifordigitalportals.InlineObject16() // InlineObject16 | 
 };
 
 // Call api endpoint
-apiInstance.watchlistModifyPost(opts).then(
+apiInstance.postWatchlistModify(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -297,7 +453,7 @@ apiInstance.watchlistModifyPost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
+ **inlineObject16** | [**InlineObject16**](InlineObject16.md)|  | [optional] 
 
 ### Return type
 
@@ -313,9 +469,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## watchlistPositionCreatePost
+## postWatchlistPositionCreate
 
-> InlineResponse2013 watchlistPositionCreatePost(opts)
+> InlineResponse2014 postWatchlistPositionCreate(opts)
 
 Add a position to a watchlist.
 
@@ -348,11 +504,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new WatchlistApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject12() // InlineObject12 | 
+  'inlineObject17': new virtualportfolioapifordigitalportals.InlineObject17() // InlineObject17 | 
 };
 
 // Call api endpoint
-apiInstance.watchlistPositionCreatePost(opts).then(
+apiInstance.postWatchlistPositionCreate(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -371,11 +527,11 @@ apiInstance.watchlistPositionCreatePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
+ **inlineObject17** | [**InlineObject17**](InlineObject17.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2013**](InlineResponse2013.md)
+[**InlineResponse2014**](InlineResponse2014.md)
 
 ### Authorization
 
@@ -387,9 +543,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## watchlistPositionDeletePost
+## postWatchlistPositionDelete
 
-> InlineResponse2003 watchlistPositionDeletePost(opts)
+> InlineResponse2003 postWatchlistPositionDelete(opts)
 
 Delete a position of a watchlist.
 
@@ -422,11 +578,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new WatchlistApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject13() // InlineObject13 | 
+  'inlineObject18': new virtualportfolioapifordigitalportals.InlineObject18() // InlineObject18 | 
 };
 
 // Call api endpoint
-apiInstance.watchlistPositionDeletePost(opts).then(
+apiInstance.postWatchlistPositionDelete(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -445,7 +601,7 @@ apiInstance.watchlistPositionDeletePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
+ **inlineObject18** | [**InlineObject18**](InlineObject18.md)|  | [optional] 
 
 ### Return type
 
@@ -461,13 +617,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## watchlistPositionListGet
+## postWatchlistPositionGet
 
-> InlineResponse20011 watchlistPositionListGet(id, opts)
+> InlineResponse20014 postWatchlistPositionGet(opts)
 
-List of positions of a watchlist.
+Details of the position of a watchlist.
 
-List of positions of a watchlist.
+Details of the position of a watchlist.
 
 ### Example
 
@@ -495,14 +651,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new WatchlistApi();
-const id = "id_example"; // String | Identifier of the watchlist.
 const opts = {
-  'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
-  'sort': ["null"] // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
+  'inlineObject19': new virtualportfolioapifordigitalportals.InlineObject19() // InlineObject19 | 
 };
 
 // Call api endpoint
-apiInstance.watchlistPositionListGet(id, opts).then(
+apiInstance.postWatchlistPositionGet(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -521,13 +675,11 @@ apiInstance.watchlistPositionListGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the watchlist. | 
- **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
+ **inlineObject19** | [**InlineObject19**](InlineObject19.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -535,13 +687,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
-## watchlistPositionModifyPost
+## postWatchlistPositionModify
 
-> InlineResponse2003 watchlistPositionModifyPost(opts)
+> InlineResponse2003 postWatchlistPositionModify(opts)
 
 Modify a position in a watchlist.
 
@@ -574,11 +726,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new WatchlistApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject14() // InlineObject14 | 
+  'inlineObject20': new virtualportfolioapifordigitalportals.InlineObject20() // InlineObject20 | 
 };
 
 // Call api endpoint
-apiInstance.watchlistPositionModifyPost(opts).then(
+apiInstance.postWatchlistPositionModify(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -597,7 +749,7 @@ apiInstance.watchlistPositionModifyPost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject14**](InlineObject14.md)|  | [optional] 
+ **inlineObject20** | [**InlineObject20**](InlineObject20.md)|  | [optional] 
 
 ### Return type
 

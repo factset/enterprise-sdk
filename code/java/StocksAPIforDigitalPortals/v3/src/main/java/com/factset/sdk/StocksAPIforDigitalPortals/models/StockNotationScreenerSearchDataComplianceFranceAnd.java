@@ -41,8 +41,47 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 public class StockNotationScreenerSearchDataComplianceFranceAnd implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  /**
+   * Identifier of a compliance property. The compliance properties with &#x60;id&#x3D;4&#x60; (SRD) and &#x60;id&#x3D;10&#x60; (SRD long only) are mutually exclusive.  &amp;#8291;  Examples:  &amp;#8291;  &amp;#8291;1. Retrieve only stocks which are compliant to all of the following: PEA, PEAPME, and SRD  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false }, {\&quot;id\&quot;:3, \&quot;negate\&quot;:false}, {\&quot;id\&quot;:4, \&quot;negate\&quot;:false}]}]}}&#x60;  &amp;#8291;  &amp;#8291;2. Retrieve only stocks which are compliant to PEA or to PEAPME  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false  }]}, {\&quot;and\&quot;: [{ \&quot;id\&quot;:3, \&quot;negate\&quot;:false }]}]}}&#x60;  &amp;#8291;  &amp;#8291;3. Retrieve only stocks which are compliant to PEA or to PEAPME, but are not compliant to SRD long only.  &#x60;\&quot;compliance\&quot;:{ \&quot;france\&quot;: { \&quot;or\&quot;: [{ \&quot;and\&quot;: [{ \&quot;id\&quot;:2, \&quot;negate\&quot;:false },{\&quot;id\&quot;:10, \&quot;negate\&quot;:true}]}, {\&quot;and\&quot;: [{ \&quot;id\&quot;:3, \&quot;negate\&quot;:false},{\&quot;id\&quot;:10, \&quot;negate\&quot;:true}]}]}}&#x60;
+   */
+  public enum IdEnum {
+    NUMBER_2(new BigDecimal("2")),
+    
+    NUMBER_3(new BigDecimal("3")),
+    
+    NUMBER_4(new BigDecimal("4")),
+    
+    NUMBER_10(new BigDecimal("10"));
+
+    private BigDecimal value;
+
+    IdEnum(BigDecimal value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public BigDecimal getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static IdEnum fromValue(BigDecimal value) {
+      for (IdEnum b : IdEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_ID = "id";
-  private BigDecimal id;
+  private IdEnum id;
 
   public static final String JSON_PROPERTY_NEGATE = "negate";
   private Boolean negate;
@@ -50,7 +89,7 @@ public class StockNotationScreenerSearchDataComplianceFranceAnd implements Seria
   public StockNotationScreenerSearchDataComplianceFranceAnd() { 
   }
 
-  public StockNotationScreenerSearchDataComplianceFranceAnd id(BigDecimal id) {
+  public StockNotationScreenerSearchDataComplianceFranceAnd id(IdEnum id) {
     this.id = id;
     return this;
   }
@@ -64,14 +103,14 @@ public class StockNotationScreenerSearchDataComplianceFranceAnd implements Seria
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getId() {
+  public IdEnum getId() {
     return id;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(BigDecimal id) {
+  public void setId(IdEnum id) {
     this.id = id;
   }
 

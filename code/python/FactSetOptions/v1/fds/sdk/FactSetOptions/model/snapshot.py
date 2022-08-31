@@ -82,19 +82,19 @@ class Snapshot(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'delta': (float,),  # noqa: E501
-            'expiration_date': (date,),  # noqa: E501
-            'implied_volatility': (float,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'open_interest': (int,),  # noqa: E501
-            'price': (float,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'delta': (float, none_type,),  # noqa: E501
+            'expiration_date': (date, none_type,),  # noqa: E501
+            'implied_volatility': (float, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'open_interest': (int, none_type,),  # noqa: E501
+            'price': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
-            'style': (int,),  # noqa: E501
-            'type': (int,),  # noqa: E501
-            'underlying_fsym_security_id': (str,),  # noqa: E501
-            'underlying_price': (float,),  # noqa: E501
+            'style': (int, none_type,),  # noqa: E501
+            'type': (int, none_type,),  # noqa: E501
+            'underlying_fsym_security_id': (str, none_type,),  # noqa: E501
+            'underlying_price': (float, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -159,19 +159,19 @@ class Snapshot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD. [optional]  # noqa: E501
-            delta (float): The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \"hedge ratio\". For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. . [optional]  # noqa: E501
-            expiration_date (date): The expiration date of the option contract in YYYY-MM-DD format. [optional]  # noqa: E501
-            implied_volatility (float): The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) . [optional]  # noqa: E501
-            name (str): The name of the option security.. [optional]  # noqa: E501
-            open_interest (int): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
-            price (float): The calculated price quote, based on the calculated status. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD. [optional]  # noqa: E501
+            delta (float, none_type): The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \"hedge ratio\". For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. . [optional]  # noqa: E501
+            expiration_date (date, none_type): The expiration date of the option contract in YYYY-MM-DD format. [optional]  # noqa: E501
+            implied_volatility (float, none_type): The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) . [optional]  # noqa: E501
+            name (str, none_type): The name of the option security.. [optional]  # noqa: E501
+            open_interest (int, none_type): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
+            price (float, none_type): The calculated price quote, based on the calculated status. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
             request_id (str): The input value for the id parameter.. [optional]  # noqa: E501
-            style (int): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
-            type (int): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
-            underlying_fsym_security_id (str): The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet's Permanent Security Identifier format (XXXXXX-S). . [optional]  # noqa: E501
-            underlying_price (float): The price of the underyling security as of the date requested. . [optional]  # noqa: E501
+            style (int, none_type): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
+            type (int, none_type): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
+            underlying_fsym_security_id (str, none_type): The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet's Permanent Security Identifier format (XXXXXX-S). . [optional]  # noqa: E501
+            underlying_price (float, none_type): The price of the underyling security as of the date requested. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,19 +253,19 @@ class Snapshot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD. [optional]  # noqa: E501
-            delta (float): The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \"hedge ratio\". For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. . [optional]  # noqa: E501
-            expiration_date (date): The expiration date of the option contract in YYYY-MM-DD format. [optional]  # noqa: E501
-            implied_volatility (float): The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) . [optional]  # noqa: E501
-            name (str): The name of the option security.. [optional]  # noqa: E501
-            open_interest (int): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
-            price (float): The calculated price quote, based on the calculated status. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD. [optional]  # noqa: E501
+            delta (float, none_type): The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \"hedge ratio\". For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. . [optional]  # noqa: E501
+            expiration_date (date, none_type): The expiration date of the option contract in YYYY-MM-DD format. [optional]  # noqa: E501
+            implied_volatility (float, none_type): The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) . [optional]  # noqa: E501
+            name (str, none_type): The name of the option security.. [optional]  # noqa: E501
+            open_interest (int, none_type): The total number of options and/or futures contracts that are not closed or delivered on a particular day.. [optional]  # noqa: E501
+            price (float, none_type): The calculated price quote, based on the calculated status. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
             request_id (str): The input value for the id parameter.. [optional]  # noqa: E501
-            style (int): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
-            type (int): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
-            underlying_fsym_security_id (str): The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet's Permanent Security Identifier format (XXXXXX-S). . [optional]  # noqa: E501
-            underlying_price (float): The price of the underyling security as of the date requested. . [optional]  # noqa: E501
+            style (int, none_type): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
+            type (int, none_type): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
+            underlying_fsym_security_id (str, none_type): The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet's Permanent Security Identifier format (XXXXXX-S). . [optional]  # noqa: E501
+            underlying_price (float, none_type): The price of the underyling security as of the date requested. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

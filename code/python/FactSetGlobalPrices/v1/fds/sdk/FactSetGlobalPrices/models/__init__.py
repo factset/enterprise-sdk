@@ -17,6 +17,7 @@ from fds.sdk.FactSetGlobalPrices.model.corporate_actions_request import Corporat
 from fds.sdk.FactSetGlobalPrices.model.corporate_actions_response import CorporateActionsResponse
 from fds.sdk.FactSetGlobalPrices.model.distribution import Distribution
 from fds.sdk.FactSetGlobalPrices.model.dividend import Dividend
+from fds.sdk.FactSetGlobalPrices.model.dividend_adjust import DividendAdjust
 from fds.sdk.FactSetGlobalPrices.model.error_response import ErrorResponse
 from fds.sdk.FactSetGlobalPrices.model.error_response_sub_errors import ErrorResponseSubErrors
 from fds.sdk.FactSetGlobalPrices.model.event_category import EventCategory
@@ -25,6 +26,7 @@ from fds.sdk.FactSetGlobalPrices.model.frequency import Frequency
 from fds.sdk.FactSetGlobalPrices.model.global_prices_request import GlobalPricesRequest
 from fds.sdk.FactSetGlobalPrices.model.global_prices_response import GlobalPricesResponse
 from fds.sdk.FactSetGlobalPrices.model.ids_max100 import IdsMax100
+from fds.sdk.FactSetGlobalPrices.model.ids_max1000 import IdsMax1000
 from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
 from fds.sdk.FactSetGlobalPrices.model.price import Price
 from fds.sdk.FactSetGlobalPrices.model.prices_fields import PricesFields

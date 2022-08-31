@@ -20,7 +20,7 @@ import ApiClient from '../ApiClient';
 class InlineResponse2003Type {
     /**
      * Constructs a new <code>InlineResponse2003Type</code>.
-     * Type of the board. See endpoint &#x60;/company/board/type/list&#x60; for possible values.
+     * Dividend type.
      * @alias module:model/InlineResponse2003Type
      */
     constructor() { 
@@ -61,7 +61,7 @@ class InlineResponse2003Type {
 }
 
 /**
- * Identifier of a type.
+ * Identifier of the type.
  * @member {Number} id
  */
 InlineResponse2003Type.prototype['id'] = undefined;

@@ -1,26 +1,28 @@
 # FactSet.SDK.WatchlistAPIforDigitalPortals.Api.WatchlistApi
 
-All URIs are relative to *http://api-sandbox.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**WatchlistCreatePost**](WatchlistApi.md#watchlistcreatepost) | **POST** /watchlist/create | Create watchlist.
-[**WatchlistDeletePost**](WatchlistApi.md#watchlistdeletepost) | **POST** /watchlist/delete | The endpoint deletes a watchlist.
-[**WatchlistListGet**](WatchlistApi.md#watchlistlistget) | **GET** /watchlist/list | List watchlists.
-[**WatchlistModifyPost**](WatchlistApi.md#watchlistmodifypost) | **POST** /watchlist/modify | Rename a watchlist.
-[**WatchlistPositionCreatePost**](WatchlistApi.md#watchlistpositioncreatepost) | **POST** /watchlist/position/create | Add position in watchlist.
-[**WatchlistPositionDeletePost**](WatchlistApi.md#watchlistpositiondeletepost) | **POST** /watchlist/position/delete | Add position in watchlist.
-[**WatchlistPositionListGet**](WatchlistApi.md#watchlistpositionlistget) | **GET** /watchlist/position/list | List positions of watchlist.
-[**WatchlistPositionModifyPost**](WatchlistApi.md#watchlistpositionmodifypost) | **POST** /watchlist/position/modify | Add position in watchlist.
+[**GetWatchlistGet**](WatchlistApi.md#getwatchlistget) | **GET** /watchlist/get | Details of a watchlist.
+[**GetWatchlistList**](WatchlistApi.md#getwatchlistlist) | **GET** /watchlist/list | List of watchlists.
+[**GetWatchlistPositionList**](WatchlistApi.md#getwatchlistpositionlist) | **GET** /watchlist/position/list | List of positions of a watchlist.
+[**PostWatchlistCreate**](WatchlistApi.md#postwatchlistcreate) | **POST** /watchlist/create | Create a watchlist.
+[**PostWatchlistDelete**](WatchlistApi.md#postwatchlistdelete) | **POST** /watchlist/delete | Delete a watchlist.
+[**PostWatchlistModify**](WatchlistApi.md#postwatchlistmodify) | **POST** /watchlist/modify | Modify a watchlist.
+[**PostWatchlistPositionCreate**](WatchlistApi.md#postwatchlistpositioncreate) | **POST** /watchlist/position/create | Add a position to a watchlist.
+[**PostWatchlistPositionDelete**](WatchlistApi.md#postwatchlistpositiondelete) | **POST** /watchlist/position/delete | Delete a position of a watchlist.
+[**PostWatchlistPositionGet**](WatchlistApi.md#postwatchlistpositionget) | **POST** /watchlist/position/get | Details of the position of a watchlist.
+[**PostWatchlistPositionModify**](WatchlistApi.md#postwatchlistpositionmodify) | **POST** /watchlist/position/modify | Modify a position in a watchlist.
 
 
-<a name="watchlistcreatepost"></a>
-# **WatchlistCreatePost**
-> InlineResponse200 WatchlistCreatePost (InlineObject body = null)
+<a name="getwatchlistget"></a>
+# **GetWatchlistGet**
+> InlineResponse2001 GetWatchlistGet (string id, List<string> attributes = null)
 
-Create watchlist.
+Details of a watchlist.
 
-The endpoint creates a new watchlist.
+Details of a watchlist.
 
 ### Example
 ```csharp
@@ -33,7 +35,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistCreatePostExample
+    public class GetWatchlistGetExample
     {
         public static async Task Main()
         {
@@ -58,17 +60,18 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var body = new InlineObject(); // InlineObject |  (optional) 
+            var id = "id_example";  // string | 
+            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
             {
-                // Create watchlist.
-                InlineResponse200 result = apiInstance.WatchlistCreatePost(body);
+                // Details of a watchlist.
+                InlineResponse2001 result = apiInstance.GetWatchlistGet(id, attributes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistCreatePost: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.GetWatchlistGet: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -81,96 +84,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
-
-### Return type
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="watchlistdeletepost"></a>
-# **WatchlistDeletePost**
-> InlineResponse2001 WatchlistDeletePost (InlineObject1 body = null)
-
-The endpoint deletes a watchlist.
-
-The endpoint deletes a watchlist.
-
-### Example
-```csharp
-using System;
-using System.Threading.Tasks;
-using FactSet.SDK.Utils.Authentication;
-using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
-using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
-using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
-
-namespace Example
-{
-    public class WatchlistDeletePostExample
-    {
-        public static async Task Main()
-        {
-            var config = new FactSet.SDK.WatchlistAPIforDigitalPortals.Client.Configuration();
-
-            // Examples for each supported authentication method are below,
-            // choose one that satisfies your use case.
-
-            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-            // See https://github.com/FactSet/enterprise-sdk#oauth-20
-            // for information on how to create the app-config.json file
-            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
-            // for more information on using the ConfidentialClient class
-            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
-            config.OAuth2Client = confidentialClient;
-
-            /* Basic authentication: FactSetApiKey */
-            // See https://github.com/FactSet/enterprise-sdk#api-key
-            // for information how to create an API key
-            // config.Username = "USERNAME-SERIAL";
-            // config.Password = "API-KEY";
-
-            var apiInstance = new WatchlistApi(config);
-
-            var body = new InlineObject1(); // InlineObject1 |  (optional) 
-
-            try
-            {
-                // The endpoint deletes a watchlist.
-                InlineResponse2001 result = apiInstance.WatchlistDeletePost(body);
-                Console.WriteLine(result.ToJson());
-            }
-            catch (ApiException  e)
-            {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistDeletePost: " + e.Message );
-                Console.WriteLine("Status Code: "+ e.ErrorCode);
-                Console.WriteLine(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **id** | **string**|  | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
 [**InlineResponse2001**](InlineResponse2001.md)
@@ -181,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -192,13 +107,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistlistget"></a>
-# **WatchlistListGet**
-> InlineResponse2002 WatchlistListGet (List<string> attributes = null, List<string> sort = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+<a name="getwatchlistlist"></a>
+# **GetWatchlistList**
+> InlineResponse2002 GetWatchlistList (List<string> attributes = null, List<string> sort = null)
 
-List watchlists.
+List of watchlists.
 
-The endpoint lists all watchlist of a user.
+List of watchlists.
 
 ### Example
 ```csharp
@@ -211,7 +126,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistListGetExample
+    public class GetWatchlistListExample
     {
         public static async Task Main()
         {
@@ -237,19 +152,17 @@ namespace Example
             var apiInstance = new WatchlistApi(config);
 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
             {
-                // List watchlists.
-                InlineResponse2002 result = apiInstance.WatchlistListGet(attributes, sort, paginationOffset, paginationLimit);
+                // List of watchlists.
+                InlineResponse2002 result = apiInstance.GetWatchlistList(attributes, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistListGet: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.GetWatchlistList: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -263,9 +176,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
 [**InlineResponse2002**](InlineResponse2002.md)
@@ -287,13 +198,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistmodifypost"></a>
-# **WatchlistModifyPost**
-> InlineResponse200 WatchlistModifyPost (InlineObject2 body = null)
+<a name="getwatchlistpositionlist"></a>
+# **GetWatchlistPositionList**
+> InlineResponse2005 GetWatchlistPositionList (string id, List<string> attributes = null, List<string> sort = null)
 
-Rename a watchlist.
+List of positions of a watchlist.
 
-The endpoint renames a watchlist.
+List of positions of a watchlist.
 
 ### Example
 ```csharp
@@ -306,7 +217,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistModifyPostExample
+    public class GetWatchlistPositionListExample
     {
         public static async Task Main()
         {
@@ -331,17 +242,19 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var body = new InlineObject2(); // InlineObject2 |  (optional) 
+            var id = "id_example";  // string | 
+            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
+            var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
             try
             {
-                // Rename a watchlist.
-                InlineResponse200 result = apiInstance.WatchlistModifyPost(body);
+                // List of positions of a watchlist.
+                InlineResponse2005 result = apiInstance.GetWatchlistPositionList(id, attributes, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistModifyPost: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.GetWatchlistPositionList: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -354,7 +267,187 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **id** | **string**|  | 
+ **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
+
+### Return type
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postwatchlistcreate"></a>
+# **PostWatchlistCreate**
+> InlineResponse201 PostWatchlistCreate (InlineObject inlineObject = null)
+
+Create a watchlist.
+
+Create a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |- -- -- --|- -- -- -- -| |The number of watchlists would exceed 100.|400 Bad Request|
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class PostWatchlistCreateExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.WatchlistAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new WatchlistApi(config);
+
+            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
+
+            try
+            {
+                // Create a watchlist.
+                InlineResponse201 result = apiInstance.PostWatchlistCreate(inlineObject);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistCreate: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
+
+### Return type
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postwatchlistdelete"></a>
+# **PostWatchlistDelete**
+> InlineResponse200 PostWatchlistDelete (InlineObject1 inlineObject1 = null)
+
+Delete a watchlist.
+
+Delete a watchlist.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class PostWatchlistDeleteExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.WatchlistAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new WatchlistApi(config);
+
+            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
+
+            try
+            {
+                // Delete a watchlist.
+                InlineResponse200 result = apiInstance.PostWatchlistDelete(inlineObject1);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistDelete: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse200**](InlineResponse200.md)
@@ -376,13 +469,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistpositioncreatepost"></a>
-# **WatchlistPositionCreatePost**
-> InlineResponse2003 WatchlistPositionCreatePost (InlineObject3 body = null)
+<a name="postwatchlistmodify"></a>
+# **PostWatchlistModify**
+> InlineResponse2003 PostWatchlistModify (InlineObject2 inlineObject2 = null)
 
-Add position in watchlist.
+Modify a watchlist.
 
-The endpoint adds a new position in a watchlist.
+Modify a watchlist.
 
 ### Example
 ```csharp
@@ -395,7 +488,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistPositionCreatePostExample
+    public class PostWatchlistModifyExample
     {
         public static async Task Main()
         {
@@ -420,17 +513,17 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var body = new InlineObject3(); // InlineObject3 |  (optional) 
+            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
 
             try
             {
-                // Add position in watchlist.
-                InlineResponse2003 result = apiInstance.WatchlistPositionCreatePost(body);
+                // Modify a watchlist.
+                InlineResponse2003 result = apiInstance.PostWatchlistModify(inlineObject2);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionCreatePost: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistModify: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -443,7 +536,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2003**](InlineResponse2003.md)
@@ -465,13 +558,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistpositiondeletepost"></a>
-# **WatchlistPositionDeletePost**
-> InlineResponse200 WatchlistPositionDeletePost (InlineObject4 body = null)
+<a name="postwatchlistpositioncreate"></a>
+# **PostWatchlistPositionCreate**
+> InlineResponse2011 PostWatchlistPositionCreate (InlineObject3 inlineObject3 = null)
 
-Add position in watchlist.
+Add a position to a watchlist.
 
-The endpoint deletes a position in a watchlist.
+Add a position to a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |- -- -- --|- -- -- -- -| |Maximum number of watchlist positions would exceed 100.|400 Bad Request| |The watchlist does not exist.|400 Bad Request| |The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 ```csharp
@@ -484,7 +577,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistPositionDeletePostExample
+    public class PostWatchlistPositionCreateExample
     {
         public static async Task Main()
         {
@@ -509,17 +602,17 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var body = new InlineObject4(); // InlineObject4 |  (optional) 
+            var inlineObject3 = new InlineObject3(); // InlineObject3 |  (optional) 
 
             try
             {
-                // Add position in watchlist.
-                InlineResponse200 result = apiInstance.WatchlistPositionDeletePost(body);
+                // Add a position to a watchlist.
+                InlineResponse2011 result = apiInstance.PostWatchlistPositionCreate(inlineObject3);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionDeletePost: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistPositionCreate: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -532,10 +625,99 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="postwatchlistpositiondelete"></a>
+# **PostWatchlistPositionDelete**
+> InlineResponse2003 PostWatchlistPositionDelete (InlineObject4 inlineObject4 = null)
+
+Delete a position of a watchlist.
+
+Delete a position of a watchlist.
+
+### Example
+```csharp
+using System;
+using System.Threading.Tasks;
+using FactSet.SDK.Utils.Authentication;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Api;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Client;
+using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
+
+namespace Example
+{
+    public class PostWatchlistPositionDeleteExample
+    {
+        public static async Task Main()
+        {
+            var config = new FactSet.SDK.WatchlistAPIforDigitalPortals.Client.Configuration();
+
+            // Examples for each supported authentication method are below,
+            // choose one that satisfies your use case.
+
+            /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+            // See https://github.com/FactSet/enterprise-sdk#oauth-20
+            // for information on how to create the app-config.json file
+            // See https://github.com/FactSet/enterprise-sdk-utils-dotnet#authentication
+            // for more information on using the ConfidentialClient class
+            ConfidentialClient confidentialClient = await ConfidentialClient.CreateAsync("/path/to/app-config.json");
+            config.OAuth2Client = confidentialClient;
+
+            /* Basic authentication: FactSetApiKey */
+            // See https://github.com/FactSet/enterprise-sdk#api-key
+            // for information how to create an API key
+            // config.Username = "USERNAME-SERIAL";
+            // config.Password = "API-KEY";
+
+            var apiInstance = new WatchlistApi(config);
+
+            var inlineObject4 = new InlineObject4(); // InlineObject4 |  (optional) 
+
+            try
+            {
+                // Delete a position of a watchlist.
+                InlineResponse2003 result = apiInstance.PostWatchlistPositionDelete(inlineObject4);
+                Console.WriteLine(result.ToJson());
+            }
+            catch (ApiException  e)
+            {
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistPositionDelete: " + e.Message );
+                Console.WriteLine("Status Code: "+ e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+
+### Return type
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -554,13 +736,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistpositionlistget"></a>
-# **WatchlistPositionListGet**
-> InlineResponse2004 WatchlistPositionListGet (string name, List<string> attributes = null, List<string> sort = null, decimal? paginationOffset = null, decimal? paginationLimit = null)
+<a name="postwatchlistpositionget"></a>
+# **PostWatchlistPositionGet**
+> InlineResponse2004 PostWatchlistPositionGet (InlineObject5 inlineObject5 = null)
 
-List positions of watchlist.
+Details of the position of a watchlist.
 
-The endpoint lists the positions of a watchlist.
+Details of the position of a watchlist.
 
 ### Example
 ```csharp
@@ -573,7 +755,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistPositionListGetExample
+    public class PostWatchlistPositionGetExample
     {
         public static async Task Main()
         {
@@ -598,21 +780,17 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var name = "name_example";  // string | Name of watchlist
-            var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
-            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try
             {
-                // List positions of watchlist.
-                InlineResponse2004 result = apiInstance.WatchlistPositionListGet(name, attributes, sort, paginationOffset, paginationLimit);
+                // Details of the position of a watchlist.
+                InlineResponse2004 result = apiInstance.PostWatchlistPositionGet(inlineObject5);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionListGet: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistPositionGet: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -625,11 +803,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **string**| Name of watchlist | 
- **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
- **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
- **paginationOffset** | **decimal?**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0.0M]
- **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
 [**InlineResponse2004**](InlineResponse2004.md)
@@ -640,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -651,13 +825,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="watchlistpositionmodifypost"></a>
-# **WatchlistPositionModifyPost**
-> InlineResponse200 WatchlistPositionModifyPost (InlineObject5 body = null)
+<a name="postwatchlistpositionmodify"></a>
+# **PostWatchlistPositionModify**
+> InlineResponse2003 PostWatchlistPositionModify (InlineObject6 inlineObject6 = null)
 
-Add position in watchlist.
+Modify a position in a watchlist.
 
-The endpoint modifies a position in a watchlist. All properties except the position id are modifiable by the endpoint.
+Modify a position in a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |- -- -- --|- -- -- -- -| |At least one of the parameters `notation` or `comment` must be set.|400 Bad Request| |The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 ```csharp
@@ -670,7 +844,7 @@ using FactSet.SDK.WatchlistAPIforDigitalPortals.Model;
 
 namespace Example
 {
-    public class WatchlistPositionModifyPostExample
+    public class PostWatchlistPositionModifyExample
     {
         public static async Task Main()
         {
@@ -695,17 +869,17 @@ namespace Example
 
             var apiInstance = new WatchlistApi(config);
 
-            var body = new InlineObject5(); // InlineObject5 |  (optional) 
+            var inlineObject6 = new InlineObject6(); // InlineObject6 |  (optional) 
 
             try
             {
-                // Add position in watchlist.
-                InlineResponse200 result = apiInstance.WatchlistPositionModifyPost(body);
+                // Modify a position in a watchlist.
+                InlineResponse2003 result = apiInstance.PostWatchlistPositionModify(inlineObject6);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling WatchlistApi.WatchlistPositionModifyPost: " + e.Message );
+                Console.WriteLine("Exception when calling WatchlistApi.PostWatchlistPositionModify: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -718,10 +892,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
 
 ### Return type
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PortfolioTransactionCashCreateData**](PortfolioTransactionCashCreateData.md) |  |  [optional]
+**data** | [**PortfolioPayoutModifyData**](PortfolioPayoutModifyData.md) |  |  [optional]
 **meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  |  [optional]
 
 

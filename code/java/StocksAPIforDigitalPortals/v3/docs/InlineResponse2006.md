@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2006Data&gt;**](InlineResponse2006Data.md) | List of owners with their respective share sorted descending by the fraction owned. |  [optional]
-**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse2006Data&gt;**](InlineResponse2006Data.md) | List of notations. |  [optional]
+**meta** | [**InlineResponse2006Meta**](InlineResponse2006Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

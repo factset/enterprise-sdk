@@ -49,7 +49,7 @@ class InlineResponse2008 {
             obj = obj || new InlineResponse2008();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2008Data]);
+                obj['data'] = InlineResponse2008Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,8 +62,7 @@ class InlineResponse2008 {
 }
 
 /**
- * List of dividend types, sorted by ascending identifier value.
- * @member {Array.<module:model/InlineResponse2008Data>} data
+ * @member {module:model/InlineResponse2008Data} data
  */
 InlineResponse2008.prototype['data'] = undefined;
 

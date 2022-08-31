@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -52,34 +56,34 @@ public class AtmImpliedVolatility implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_A_T_M_IMPL_VOL = "aTMImplVol";
-  private Double aTMImplVol;
+  private JsonNullable<Double> aTMImplVol = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_A_T_M_IMPL_VOL_MARKET = "aTMImplVolMarket";
-  private Double aTMImplVolMarket;
+  private JsonNullable<Double> aTMImplVolMarket = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_CALL_A_T_M_IMPL_VOL = "callATMImplVol";
-  private Double callATMImplVol;
+  private JsonNullable<Double> callATMImplVol = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_CALL_A_T_M_IMPL_VOL_MARKET = "callATMImplVolMarket";
-  private Double callATMImplVolMarket;
+  private JsonNullable<Double> callATMImplVolMarket = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_EXCHANGE = "exchange";
-  private String exchange;
+  private JsonNullable<String> exchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PERIOD = "period";
-  private String period;
+  private JsonNullable<String> period = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PUT_A_T_M_IMPL_VOL = "putATMImplVol";
-  private Double putATMImplVol;
+  private JsonNullable<Double> putATMImplVol = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PUT_A_T_M_IMPL_VOL_MARKET = "putATMImplVolMarket";
-  private Double putATMImplVolMarket;
+  private JsonNullable<Double> putATMImplVolMarket = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -88,7 +92,7 @@ public class AtmImpliedVolatility implements Serializable {
   }
 
   public AtmImpliedVolatility aTMImplVol(Double aTMImplVol) {
-    this.aTMImplVol = aTMImplVol;
+    this.aTMImplVol = JsonNullable.<Double>of(aTMImplVol);
     return this;
   }
 
@@ -98,23 +102,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Option at the money implied volatility.")
-  @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getaTMImplVol() {
-    return aTMImplVol;
+        return aTMImplVol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setaTMImplVol(Double aTMImplVol) {
+
+  public JsonNullable<Double> getaTMImplVol_JsonNullable() {
+    return aTMImplVol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL)
+  public void setaTMImplVol_JsonNullable(JsonNullable<Double> aTMImplVol) {
     this.aTMImplVol = aTMImplVol;
+  }
+
+  public void setaTMImplVol(Double aTMImplVol) {
+    this.aTMImplVol = JsonNullable.<Double>of(aTMImplVol);
   }
 
 
   public AtmImpliedVolatility aTMImplVolMarket(Double aTMImplVolMarket) {
-    this.aTMImplVolMarket = aTMImplVolMarket;
+    this.aTMImplVolMarket = JsonNullable.<Double>of(aTMImplVolMarket);
     return this;
   }
 
@@ -124,23 +136,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.579093", value = "Option at the money implied volatility market.")
-  @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getaTMImplVolMarket() {
-    return aTMImplVolMarket;
+        return aTMImplVolMarket.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setaTMImplVolMarket(Double aTMImplVolMarket) {
+
+  public JsonNullable<Double> getaTMImplVolMarket_JsonNullable() {
+    return aTMImplVolMarket;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_A_T_M_IMPL_VOL_MARKET)
+  public void setaTMImplVolMarket_JsonNullable(JsonNullable<Double> aTMImplVolMarket) {
     this.aTMImplVolMarket = aTMImplVolMarket;
+  }
+
+  public void setaTMImplVolMarket(Double aTMImplVolMarket) {
+    this.aTMImplVolMarket = JsonNullable.<Double>of(aTMImplVolMarket);
   }
 
 
   public AtmImpliedVolatility callATMImplVol(Double callATMImplVol) {
-    this.callATMImplVol = callATMImplVol;
+    this.callATMImplVol = JsonNullable.<Double>of(callATMImplVol);
     return this;
   }
 
@@ -150,23 +170,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Call option at the money implied volatility.")
-  @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getCallATMImplVol() {
-    return callATMImplVol;
+        return callATMImplVol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallATMImplVol(Double callATMImplVol) {
+
+  public JsonNullable<Double> getCallATMImplVol_JsonNullable() {
+    return callATMImplVol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL)
+  public void setCallATMImplVol_JsonNullable(JsonNullable<Double> callATMImplVol) {
     this.callATMImplVol = callATMImplVol;
+  }
+
+  public void setCallATMImplVol(Double callATMImplVol) {
+    this.callATMImplVol = JsonNullable.<Double>of(callATMImplVol);
   }
 
 
   public AtmImpliedVolatility callATMImplVolMarket(Double callATMImplVolMarket) {
-    this.callATMImplVolMarket = callATMImplVolMarket;
+    this.callATMImplVolMarket = JsonNullable.<Double>of(callATMImplVolMarket);
     return this;
   }
 
@@ -176,23 +204,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.791874", value = "Call option at the money implied volatility market.")
-  @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getCallATMImplVolMarket() {
-    return callATMImplVolMarket;
+        return callATMImplVolMarket.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCallATMImplVolMarket(Double callATMImplVolMarket) {
+
+  public JsonNullable<Double> getCallATMImplVolMarket_JsonNullable() {
+    return callATMImplVolMarket;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CALL_A_T_M_IMPL_VOL_MARKET)
+  public void setCallATMImplVolMarket_JsonNullable(JsonNullable<Double> callATMImplVolMarket) {
     this.callATMImplVolMarket = callATMImplVolMarket;
+  }
+
+  public void setCallATMImplVolMarket(Double callATMImplVolMarket) {
+    this.callATMImplVolMarket = JsonNullable.<Double>of(callATMImplVolMarket);
   }
 
 
   public AtmImpliedVolatility date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -202,23 +238,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 14 00:00:00 UTC 2021", value = "The date of the data represented in YYYY-MM-DD format")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public AtmImpliedVolatility exchange(String exchange) {
-    this.exchange = exchange;
+    this.exchange = JsonNullable.<String>of(exchange);
     return this;
   }
 
@@ -228,23 +272,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExchange() {
-    return exchange;
+        return exchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchange(String exchange) {
+
+  public JsonNullable<String> getExchange_JsonNullable() {
+    return exchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCHANGE)
+  public void setExchange_JsonNullable(JsonNullable<String> exchange) {
     this.exchange = exchange;
+  }
+
+  public void setExchange(String exchange) {
+    this.exchange = JsonNullable.<String>of(exchange);
   }
 
 
   public AtmImpliedVolatility fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -254,23 +306,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "WWDPYB-S", value = "FactSet's Security Permanent Identifier in XXXXXX-S format.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public AtmImpliedVolatility period(String period) {
-    this.period = period;
+    this.period = JsonNullable.<String>of(period);
     return this;
   }
 
@@ -280,23 +340,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.")
-  @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getPeriod() {
-    return period;
+        return period.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriod(String period) {
+
+  public JsonNullable<String> getPeriod_JsonNullable() {
+    return period;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERIOD)
+  public void setPeriod_JsonNullable(JsonNullable<String> period) {
     this.period = period;
+  }
+
+  public void setPeriod(String period) {
+    this.period = JsonNullable.<String>of(period);
   }
 
 
   public AtmImpliedVolatility putATMImplVol(Double putATMImplVol) {
-    this.putATMImplVol = putATMImplVol;
+    this.putATMImplVol = JsonNullable.<Double>of(putATMImplVol);
     return this;
   }
 
@@ -306,23 +374,31 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.015339", value = "Put Option at the money implied volatility.")
-  @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPutATMImplVol() {
-    return putATMImplVol;
+        return putATMImplVol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPutATMImplVol(Double putATMImplVol) {
+
+  public JsonNullable<Double> getPutATMImplVol_JsonNullable() {
+    return putATMImplVol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL)
+  public void setPutATMImplVol_JsonNullable(JsonNullable<Double> putATMImplVol) {
     this.putATMImplVol = putATMImplVol;
+  }
+
+  public void setPutATMImplVol(Double putATMImplVol) {
+    this.putATMImplVol = JsonNullable.<Double>of(putATMImplVol);
   }
 
 
   public AtmImpliedVolatility putATMImplVolMarket(Double putATMImplVolMarket) {
-    this.putATMImplVolMarket = putATMImplVolMarket;
+    this.putATMImplVolMarket = JsonNullable.<Double>of(putATMImplVolMarket);
     return this;
   }
 
@@ -332,18 +408,26 @@ public class AtmImpliedVolatility implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "58.810684", value = "Put Option at the money implied volatility market.")
-  @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL_MARKET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPutATMImplVolMarket() {
-    return putATMImplVolMarket;
+        return putATMImplVolMarket.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL_MARKET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPutATMImplVolMarket(Double putATMImplVolMarket) {
+
+  public JsonNullable<Double> getPutATMImplVolMarket_JsonNullable() {
+    return putATMImplVolMarket;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PUT_A_T_M_IMPL_VOL_MARKET)
+  public void setPutATMImplVolMarket_JsonNullable(JsonNullable<Double> putATMImplVolMarket) {
     this.putATMImplVolMarket = putATMImplVolMarket;
+  }
+
+  public void setPutATMImplVolMarket(Double putATMImplVolMarket) {
+    this.putATMImplVolMarket = JsonNullable.<Double>of(putATMImplVolMarket);
   }
 
 
@@ -385,22 +469,33 @@ public class AtmImpliedVolatility implements Serializable {
       return false;
     }
     AtmImpliedVolatility atmImpliedVolatility = (AtmImpliedVolatility) o;
-    return Objects.equals(this.aTMImplVol, atmImpliedVolatility.aTMImplVol) &&
-        Objects.equals(this.aTMImplVolMarket, atmImpliedVolatility.aTMImplVolMarket) &&
-        Objects.equals(this.callATMImplVol, atmImpliedVolatility.callATMImplVol) &&
-        Objects.equals(this.callATMImplVolMarket, atmImpliedVolatility.callATMImplVolMarket) &&
-        Objects.equals(this.date, atmImpliedVolatility.date) &&
-        Objects.equals(this.exchange, atmImpliedVolatility.exchange) &&
-        Objects.equals(this.fsymId, atmImpliedVolatility.fsymId) &&
-        Objects.equals(this.period, atmImpliedVolatility.period) &&
-        Objects.equals(this.putATMImplVol, atmImpliedVolatility.putATMImplVol) &&
-        Objects.equals(this.putATMImplVolMarket, atmImpliedVolatility.putATMImplVolMarket) &&
+    return equalsNullable(this.aTMImplVol, atmImpliedVolatility.aTMImplVol) &&
+        equalsNullable(this.aTMImplVolMarket, atmImpliedVolatility.aTMImplVolMarket) &&
+        equalsNullable(this.callATMImplVol, atmImpliedVolatility.callATMImplVol) &&
+        equalsNullable(this.callATMImplVolMarket, atmImpliedVolatility.callATMImplVolMarket) &&
+        equalsNullable(this.date, atmImpliedVolatility.date) &&
+        equalsNullable(this.exchange, atmImpliedVolatility.exchange) &&
+        equalsNullable(this.fsymId, atmImpliedVolatility.fsymId) &&
+        equalsNullable(this.period, atmImpliedVolatility.period) &&
+        equalsNullable(this.putATMImplVol, atmImpliedVolatility.putATMImplVol) &&
+        equalsNullable(this.putATMImplVolMarket, atmImpliedVolatility.putATMImplVolMarket) &&
         Objects.equals(this.requestId, atmImpliedVolatility.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aTMImplVol, aTMImplVolMarket, callATMImplVol, callATMImplVolMarket, date, exchange, fsymId, period, putATMImplVol, putATMImplVolMarket, requestId);
+    return Objects.hash(hashCodeNullable(aTMImplVol), hashCodeNullable(aTMImplVolMarket), hashCodeNullable(callATMImplVol), hashCodeNullable(callATMImplVolMarket), hashCodeNullable(date), hashCodeNullable(exchange), hashCodeNullable(fsymId), hashCodeNullable(period), hashCodeNullable(putATMImplVol), hashCodeNullable(putATMImplVolMarket), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

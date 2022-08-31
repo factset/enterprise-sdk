@@ -34,19 +34,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject1" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineObject1() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject1" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineObject1(StockDividendListData data,StockDividendListMeta meta = default(StockDividendListMeta))
+        public InlineObject1(StockNotationRankingIntradayListData data = default(StockNotationRankingIntradayListData), StockNotationRankingIntradayListMeta meta = default(StockNotationRankingIntradayListMeta))
         {
-            // to ensure "data" is required (not null)
-            if (data == null) {
-                throw new ArgumentNullException("data is a required property for InlineObject1 and cannot be null");
-            }
             this.Data = data;
             this.Meta = meta;
         }
@@ -54,14 +45,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public StockDividendListData Data { get; set; }
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public StockNotationRankingIntradayListData Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public StockDividendListMeta Meta { get; set; }
+        public StockNotationRankingIntradayListMeta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

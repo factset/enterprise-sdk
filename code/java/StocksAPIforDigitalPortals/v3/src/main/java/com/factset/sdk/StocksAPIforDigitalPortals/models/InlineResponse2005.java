@@ -65,11 +65,11 @@ public class InlineResponse2005 implements Serializable {
   }
 
    /**
-   * List of company board types sorted ascending by the identifier of the type.
+   * List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of company board types sorted ascending by the identifier of the type.")
+  @ApiModelProperty(value = "List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

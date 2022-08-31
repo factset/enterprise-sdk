@@ -82,9 +82,9 @@ class ImpliedVolatility(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'implied_volatility': (float,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
+            'implied_volatility': (float, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -141,9 +141,9 @@ class ImpliedVolatility(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            implied_volatility (float): The estimated volatility of a security's price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option's premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. . [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            implied_volatility (float, none_type): The estimated volatility of a security's price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option's premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. . [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -226,9 +226,9 @@ class ImpliedVolatility(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            implied_volatility (float): The estimated volatility of a security's price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option's premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. . [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            implied_volatility (float, none_type): The estimated volatility of a security's price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option's premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. . [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

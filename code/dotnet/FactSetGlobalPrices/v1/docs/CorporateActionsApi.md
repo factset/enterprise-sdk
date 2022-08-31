@@ -58,7 +58,7 @@ namespace Example
             var startDate = 2019-01-01;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \"event\" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \"all\" events for each requested ids.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \"event\" frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \"all\" events for each requested ids.  (optional) 
             var currency = USD;  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) 
-            var cancelledDividend = exclude;  // string | The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional) 
+            var cancelledDividend = exclude;  // string | The cancelled dividend returns the dividend details whether they are cancelled or active.  (optional)  (default to exclude)
 
             try
             {
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
  **startDate** | **string**| The start date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  | [optional] 
  **endDate** | **string**| The end date requested for a given date range in **YYYY-MM-DD** format. In the context of corporate actions, this filters the response to only include events within the date range. The frequency between the startDate and endDate is always set to the \&quot;event\&quot; frequency- meaning the service will return only events within those inclusive boundaries. Leaving both startDate and endDate blank will pull \&quot;all\&quot; events for each requested ids.  | [optional] 
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
- **cancelledDividend** | **string**| The cancelled dividend returns the dividend details whether they are cancelled or active.  | [optional] 
+ **cancelledDividend** | **string**| The cancelled dividend returns the dividend details whether they are cancelled or active.  | [optional] [default to exclude]
 
 ### Return type
 [**CorporateActionsResponse**](CorporateActionsResponse.md)

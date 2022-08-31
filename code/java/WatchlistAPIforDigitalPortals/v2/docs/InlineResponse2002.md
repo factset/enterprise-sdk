@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) |  |  [optional]
-**meta** | [**InlineResponse2002Meta**](InlineResponse2002Meta.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse2002Data&gt;**](InlineResponse2002Data.md) | List of watchlist. |  [optional]
+**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -82,14 +82,14 @@ class Greeks(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'delta': (float,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'gamma': (float,),  # noqa: E501
+            'delta': (float, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'gamma': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
-            'rho': (float,),  # noqa: E501
-            'theta': (float,),  # noqa: E501
-            'vega': (float,),  # noqa: E501
-            'date': (date,),  # noqa: E501
+            'rho': (float, none_type,),  # noqa: E501
+            'theta': (float, none_type,),  # noqa: E501
+            'vega': (float, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -149,14 +149,14 @@ class Greeks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            delta (float): The delta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            gamma (float): The gamma value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            delta (float, none_type): The delta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            gamma (float, none_type): The gamma value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
-            rho (float): The rho value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            theta (float): The theta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            vega (float): The vega value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            rho (float, none_type): The rho value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            theta (float, none_type): The theta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            vega (float, none_type): The vega value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,14 +238,14 @@ class Greeks(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            delta (float): The delta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            gamma (float): The gamma value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            delta (float, none_type): The delta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            gamma (float, none_type): The gamma value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
-            rho (float): The rho value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            theta (float): The theta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            vega (float): The vega value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            rho (float, none_type): The rho value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            theta (float, none_type): The theta value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            vega (float, none_type): The vega value of the option. Refer to the `greeks` endpoint description for more details. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

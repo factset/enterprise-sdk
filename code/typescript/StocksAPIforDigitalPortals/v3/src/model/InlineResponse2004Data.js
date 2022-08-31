@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2004Functions from './InlineResponse2004Functions';
 
 /**
  * The InlineResponse2004Data model module.
@@ -53,9 +52,6 @@ class InlineResponse2004Data {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('functions')) {
-                obj['functions'] = ApiClient.convertToType(data['functions'], [InlineResponse2004Functions]);
-            }
         }
         return obj;
     }
@@ -64,22 +60,16 @@ class InlineResponse2004Data {
 }
 
 /**
- * Identifier of a delivery.
+ * Identifier of a dividend type.
  * @member {Number} id
  */
 InlineResponse2004Data.prototype['id'] = undefined;
 
 /**
- * Name of the delivery.
+ * Name of the dividend type.
  * @member {String} name
  */
 InlineResponse2004Data.prototype['name'] = undefined;
-
-/**
- * List of officer functions.
- * @member {Array.<module:model/InlineResponse2004Functions>} functions
- */
-InlineResponse2004Data.prototype['functions'] = undefined;
 
 
 

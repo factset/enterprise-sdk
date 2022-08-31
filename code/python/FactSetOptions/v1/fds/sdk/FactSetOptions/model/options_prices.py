@@ -82,23 +82,23 @@ class OptionsPrices(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'ask_time': (float,),  # noqa: E501
-            'bid_time': (float,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'price52_week_high': (float,),  # noqa: E501
-            'price52_week_low': (float,),  # noqa: E501
-            'price_ask': (float,),  # noqa: E501
-            'price_bid': (float,),  # noqa: E501
-            'price_mid_bid_ask': (float,),  # noqa: E501
-            'price_open': (float,),  # noqa: E501
-            'price_high': (float,),  # noqa: E501
-            'price_low': (float,),  # noqa: E501
-            'price_settlement': (float,),  # noqa: E501
-            'price_strike': (float,),  # noqa: E501
-            'price_underlying': (float,),  # noqa: E501
-            'price': (float,),  # noqa: E501
-            'quote_type': (str,),  # noqa: E501
+            'ask_time': (float, none_type,),  # noqa: E501
+            'bid_time': (float, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'price52_week_high': (float, none_type,),  # noqa: E501
+            'price52_week_low': (float, none_type,),  # noqa: E501
+            'price_ask': (float, none_type,),  # noqa: E501
+            'price_bid': (float, none_type,),  # noqa: E501
+            'price_mid_bid_ask': (float, none_type,),  # noqa: E501
+            'price_open': (float, none_type,),  # noqa: E501
+            'price_high': (float, none_type,),  # noqa: E501
+            'price_low': (float, none_type,),  # noqa: E501
+            'price_settlement': (float, none_type,),  # noqa: E501
+            'price_strike': (float, none_type,),  # noqa: E501
+            'price_underlying': (float, none_type,),  # noqa: E501
+            'price': (float, none_type,),  # noqa: E501
+            'quote_type': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -169,23 +169,23 @@ class OptionsPrices(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ask_time (float): Returns the Bid time. [optional]  # noqa: E501
-            bid_time (float): Returns the Last Trade time. [optional]  # noqa: E501
-            date (date): The date of data in YYYY-MM-DD format. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            price52_week_high (float): 52-Week High Price. [optional]  # noqa: E501
-            price52_week_low (float): 52-Week Low Price. [optional]  # noqa: E501
-            price_ask (float): Ask price of the option. [optional]  # noqa: E501
-            price_bid (float): Bid price of the option. [optional]  # noqa: E501
-            price_mid_bid_ask (float): Mid/Bid/Ask price of the option. [optional]  # noqa: E501
-            price_open (float): Open price of the option. [optional]  # noqa: E501
-            price_high (float): High price of the option. [optional]  # noqa: E501
-            price_low (float): Low price of the option. [optional]  # noqa: E501
-            price_settlement (float): Settlement price of the option. [optional]  # noqa: E501
-            price_strike (float): The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.. [optional]  # noqa: E501
-            price_underlying (float): The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.. [optional]  # noqa: E501
-            price (float): The price of the option based on the `quoteType` calculation. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
-            quote_type (str): The calculated quote type, based on the calculated status. This represents the type for `price` field. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            ask_time (float, none_type): Returns the Bid time. [optional]  # noqa: E501
+            bid_time (float, none_type): Returns the Last Trade time. [optional]  # noqa: E501
+            date (date, none_type): The date of data in YYYY-MM-DD format. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            price52_week_high (float, none_type): 52-Week High Price. [optional]  # noqa: E501
+            price52_week_low (float, none_type): 52-Week Low Price. [optional]  # noqa: E501
+            price_ask (float, none_type): Ask price of the option. [optional]  # noqa: E501
+            price_bid (float, none_type): Bid price of the option. [optional]  # noqa: E501
+            price_mid_bid_ask (float, none_type): Mid/Bid/Ask price of the option. [optional]  # noqa: E501
+            price_open (float, none_type): Open price of the option. [optional]  # noqa: E501
+            price_high (float, none_type): High price of the option. [optional]  # noqa: E501
+            price_low (float, none_type): Low price of the option. [optional]  # noqa: E501
+            price_settlement (float, none_type): Settlement price of the option. [optional]  # noqa: E501
+            price_strike (float, none_type): The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.. [optional]  # noqa: E501
+            price_underlying (float, none_type): The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.. [optional]  # noqa: E501
+            price (float, none_type): The price of the option based on the `quoteType` calculation. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            quote_type (str, none_type): The calculated quote type, based on the calculated status. This represents the type for `price` field. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -268,23 +268,23 @@ class OptionsPrices(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ask_time (float): Returns the Bid time. [optional]  # noqa: E501
-            bid_time (float): Returns the Last Trade time. [optional]  # noqa: E501
-            date (date): The date of data in YYYY-MM-DD format. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            price52_week_high (float): 52-Week High Price. [optional]  # noqa: E501
-            price52_week_low (float): 52-Week Low Price. [optional]  # noqa: E501
-            price_ask (float): Ask price of the option. [optional]  # noqa: E501
-            price_bid (float): Bid price of the option. [optional]  # noqa: E501
-            price_mid_bid_ask (float): Mid/Bid/Ask price of the option. [optional]  # noqa: E501
-            price_open (float): Open price of the option. [optional]  # noqa: E501
-            price_high (float): High price of the option. [optional]  # noqa: E501
-            price_low (float): Low price of the option. [optional]  # noqa: E501
-            price_settlement (float): Settlement price of the option. [optional]  # noqa: E501
-            price_strike (float): The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.. [optional]  # noqa: E501
-            price_underlying (float): The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.. [optional]  # noqa: E501
-            price (float): The price of the option based on the `quoteType` calculation. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
-            quote_type (str): The calculated quote type, based on the calculated status. This represents the type for `price` field. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            ask_time (float, none_type): Returns the Bid time. [optional]  # noqa: E501
+            bid_time (float, none_type): Returns the Last Trade time. [optional]  # noqa: E501
+            date (date, none_type): The date of data in YYYY-MM-DD format. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            price52_week_high (float, none_type): 52-Week High Price. [optional]  # noqa: E501
+            price52_week_low (float, none_type): 52-Week Low Price. [optional]  # noqa: E501
+            price_ask (float, none_type): Ask price of the option. [optional]  # noqa: E501
+            price_bid (float, none_type): Bid price of the option. [optional]  # noqa: E501
+            price_mid_bid_ask (float, none_type): Mid/Bid/Ask price of the option. [optional]  # noqa: E501
+            price_open (float, none_type): Open price of the option. [optional]  # noqa: E501
+            price_high (float, none_type): High price of the option. [optional]  # noqa: E501
+            price_low (float, none_type): Low price of the option. [optional]  # noqa: E501
+            price_settlement (float, none_type): Settlement price of the option. [optional]  # noqa: E501
+            price_strike (float, none_type): The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.. [optional]  # noqa: E501
+            price_underlying (float, none_type): The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.. [optional]  # noqa: E501
+            price (float, none_type): The price of the option based on the `quoteType` calculation. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
+            quote_type (str, none_type): The calculated quote type, based on the calculated status. This represents the type for `price` field. For US Options - Returns \"Ask Price\" if calc status==20, otherwise returns \"Mid Bid/Ask Price\". For International Options - Returns \"Settlement Price\". . [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

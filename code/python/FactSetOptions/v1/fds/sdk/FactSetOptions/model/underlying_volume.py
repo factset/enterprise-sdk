@@ -82,17 +82,17 @@ class UnderlyingVolume(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'date': (date,),  # noqa: E501
-            'exchange': (str,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'put_call_ratio': (float,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'exchange': (str, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'put_call_ratio': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
-            'total_call_open_interest': (float,),  # noqa: E501
-            'total_call_volume': (float,),  # noqa: E501
-            'total_put_call_open_interest': (float,),  # noqa: E501
-            'total_put_call_volume': (float,),  # noqa: E501
-            'total_put_open_interest': (float,),  # noqa: E501
-            'total_put_volume': (float,),  # noqa: E501
+            'total_call_open_interest': (float, none_type,),  # noqa: E501
+            'total_call_volume': (float, none_type,),  # noqa: E501
+            'total_put_call_open_interest': (float, none_type,),  # noqa: E501
+            'total_put_call_volume': (float, none_type,),  # noqa: E501
+            'total_put_open_interest': (float, none_type,),  # noqa: E501
+            'total_put_volume': (float, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -155,17 +155,17 @@ class UnderlyingVolume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date (date): The date of data as of the YYYY-MM-DD format.. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Security Permanent Identifier for input security in XXXXXX-S format.. [optional]  # noqa: E501
-            put_call_ratio (float): Put/Call Ratio (Open Interest). [optional]  # noqa: E501
+            date (date, none_type): The date of data as of the YYYY-MM-DD format.. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier for input security in XXXXXX-S format.. [optional]  # noqa: E501
+            put_call_ratio (float, none_type): Put/Call Ratio (Open Interest). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
-            total_call_open_interest (float): Total Call Open Interest. [optional]  # noqa: E501
-            total_call_volume (float): Total Call Volume. [optional]  # noqa: E501
-            total_put_call_open_interest (float): Total Call/Put Open Interest. [optional]  # noqa: E501
-            total_put_call_volume (float): Total Call/Put Volume. [optional]  # noqa: E501
-            total_put_open_interest (float): Total Put Open Interest. [optional]  # noqa: E501
-            total_put_volume (float): Total Put Volume. [optional]  # noqa: E501
+            total_call_open_interest (float, none_type): Total Call Open Interest. [optional]  # noqa: E501
+            total_call_volume (float, none_type): Total Call Volume. [optional]  # noqa: E501
+            total_put_call_open_interest (float, none_type): Total Call/Put Open Interest. [optional]  # noqa: E501
+            total_put_call_volume (float, none_type): Total Call/Put Volume. [optional]  # noqa: E501
+            total_put_open_interest (float, none_type): Total Put Open Interest. [optional]  # noqa: E501
+            total_put_volume (float, none_type): Total Put Volume. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,17 +247,17 @@ class UnderlyingVolume(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            date (date): The date of data as of the YYYY-MM-DD format.. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            fsym_id (str): FactSet's Security Permanent Identifier for input security in XXXXXX-S format.. [optional]  # noqa: E501
-            put_call_ratio (float): Put/Call Ratio (Open Interest). [optional]  # noqa: E501
+            date (date, none_type): The date of data as of the YYYY-MM-DD format.. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier for input security in XXXXXX-S format.. [optional]  # noqa: E501
+            put_call_ratio (float, none_type): Put/Call Ratio (Open Interest). [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
-            total_call_open_interest (float): Total Call Open Interest. [optional]  # noqa: E501
-            total_call_volume (float): Total Call Volume. [optional]  # noqa: E501
-            total_put_call_open_interest (float): Total Call/Put Open Interest. [optional]  # noqa: E501
-            total_put_call_volume (float): Total Call/Put Volume. [optional]  # noqa: E501
-            total_put_open_interest (float): Total Put Open Interest. [optional]  # noqa: E501
-            total_put_volume (float): Total Put Volume. [optional]  # noqa: E501
+            total_call_open_interest (float, none_type): Total Call Open Interest. [optional]  # noqa: E501
+            total_call_volume (float, none_type): Total Call Volume. [optional]  # noqa: E501
+            total_put_call_open_interest (float, none_type): Total Call/Put Open Interest. [optional]  # noqa: E501
+            total_put_call_volume (float, none_type): Total Call/Put Volume. [optional]  # noqa: E501
+            total_put_open_interest (float, none_type): Total Put Open Interest. [optional]  # noqa: E501
+            total_put_volume (float, none_type): Total Put Volume. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

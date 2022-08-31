@@ -12,6 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2008DataCompany from './InlineResponse2008DataCompany';
+import InlineResponse2008DataCompliance from './InlineResponse2008DataCompliance';
+import InlineResponse2008DataEstimates from './InlineResponse2008DataEstimates';
+import InlineResponse2008DataIndustryClassification from './InlineResponse2008DataIndustryClassification';
+import InlineResponse2008DataMarket from './InlineResponse2008DataMarket';
+import InlineResponse2008DataPerformance from './InlineResponse2008DataPerformance';
+import InlineResponse2008DataRecommendation from './InlineResponse2008DataRecommendation';
+import InlineResponse2008DataReportedKeyFigures from './InlineResponse2008DataReportedKeyFigures';
+import InlineResponse2008DataRsiWilder from './InlineResponse2008DataRsiWilder';
+import InlineResponse2008DataSimpleMovingAverage from './InlineResponse2008DataSimpleMovingAverage';
+import InlineResponse2008DataStockType from './InlineResponse2008DataStockType';
+import InlineResponse2008DataTradingValue from './InlineResponse2008DataTradingValue';
+import InlineResponse2008DataValueUnit from './InlineResponse2008DataValueUnit';
+import InlineResponse2008DataVolatility from './InlineResponse2008DataVolatility';
 
 /**
  * The InlineResponse2008Data model module.
@@ -20,6 +34,7 @@ import ApiClient from '../ApiClient';
 class InlineResponse2008Data {
     /**
      * Constructs a new <code>InlineResponse2008Data</code>.
+     * Possible values and value ranges of the parameters. 
      * @alias module:model/InlineResponse2008Data
      */
     constructor() { 
@@ -46,11 +61,50 @@ class InlineResponse2008Data {
         if (data) {
             obj = obj || new InlineResponse2008Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('totalCount')) {
+                obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = ApiClient.convertToType(data['valueUnit'], [InlineResponse2008DataValueUnit]);
+            }
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = ApiClient.convertToType(data['market'], [InlineResponse2008DataMarket]);
+            }
+            if (data.hasOwnProperty('stockType')) {
+                obj['stockType'] = ApiClient.convertToType(data['stockType'], [InlineResponse2008DataStockType]);
+            }
+            if (data.hasOwnProperty('industryClassification')) {
+                obj['industryClassification'] = ApiClient.convertToType(data['industryClassification'], [InlineResponse2008DataIndustryClassification]);
+            }
+            if (data.hasOwnProperty('company')) {
+                obj['company'] = InlineResponse2008DataCompany.constructFromObject(data['company']);
+            }
+            if (data.hasOwnProperty('compliance')) {
+                obj['compliance'] = InlineResponse2008DataCompliance.constructFromObject(data['compliance']);
+            }
+            if (data.hasOwnProperty('reportedKeyFigures')) {
+                obj['reportedKeyFigures'] = InlineResponse2008DataReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
+            }
+            if (data.hasOwnProperty('performance')) {
+                obj['performance'] = InlineResponse2008DataPerformance.constructFromObject(data['performance']);
+            }
+            if (data.hasOwnProperty('volatility')) {
+                obj['volatility'] = InlineResponse2008DataVolatility.constructFromObject(data['volatility']);
+            }
+            if (data.hasOwnProperty('tradingValue')) {
+                obj['tradingValue'] = InlineResponse2008DataTradingValue.constructFromObject(data['tradingValue']);
+            }
+            if (data.hasOwnProperty('simpleMovingAverage')) {
+                obj['simpleMovingAverage'] = InlineResponse2008DataSimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
+            }
+            if (data.hasOwnProperty('rsiWilder')) {
+                obj['rsiWilder'] = InlineResponse2008DataRsiWilder.constructFromObject(data['rsiWilder']);
+            }
+            if (data.hasOwnProperty('recommendation')) {
+                obj['recommendation'] = InlineResponse2008DataRecommendation.constructFromObject(data['recommendation']);
+            }
+            if (data.hasOwnProperty('estimates')) {
+                obj['estimates'] = InlineResponse2008DataEstimates.constructFromObject(data['estimates']);
             }
         }
         return obj;
@@ -60,16 +114,84 @@ class InlineResponse2008Data {
 }
 
 /**
- * Identifier of a dividend type.
- * @member {Number} id
+ * Number of notations that satisfy the request parameters, hence have been used to retrieve the possible values and value ranges.
+ * @member {Number} totalCount
  */
-InlineResponse2008Data.prototype['id'] = undefined;
+InlineResponse2008Data.prototype['totalCount'] = undefined;
 
 /**
- * Name of the dividend type.
- * @member {String} name
+ * List of value unit identifiers. See endpoint `/basic/valueUnit/list` for possible values.
+ * @member {Array.<module:model/InlineResponse2008DataValueUnit>} valueUnit
  */
-InlineResponse2008Data.prototype['name'] = undefined;
+InlineResponse2008Data.prototype['valueUnit'] = undefined;
+
+/**
+ * List of market identifiers. See endpoint `/basic/market/list` for possible values.
+ * @member {Array.<module:model/InlineResponse2008DataMarket>} market
+ */
+InlineResponse2008Data.prototype['market'] = undefined;
+
+/**
+ * List of stock types.
+ * @member {Array.<module:model/InlineResponse2008DataStockType>} stockType
+ */
+InlineResponse2008Data.prototype['stockType'] = undefined;
+
+/**
+ * Lists of categories of the industry classification. Here, an industry is a category from any level of category system FactSet Revere Business Industry Classification System (RBICS). Starting with the most coarse level (one), for each level of the category system, the list of categories of the stocks, matching the parameters, is returned. See endpoint `/category/listBySystem` with `id=48` for possible values.
+ * @member {Array.<module:model/InlineResponse2008DataIndustryClassification>} industryClassification
+ */
+InlineResponse2008Data.prototype['industryClassification'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataCompany} company
+ */
+InlineResponse2008Data.prototype['company'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataCompliance} compliance
+ */
+InlineResponse2008Data.prototype['compliance'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataReportedKeyFigures} reportedKeyFigures
+ */
+InlineResponse2008Data.prototype['reportedKeyFigures'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataPerformance} performance
+ */
+InlineResponse2008Data.prototype['performance'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataVolatility} volatility
+ */
+InlineResponse2008Data.prototype['volatility'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataTradingValue} tradingValue
+ */
+InlineResponse2008Data.prototype['tradingValue'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataSimpleMovingAverage} simpleMovingAverage
+ */
+InlineResponse2008Data.prototype['simpleMovingAverage'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataRsiWilder} rsiWilder
+ */
+InlineResponse2008Data.prototype['rsiWilder'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataRecommendation} recommendation
+ */
+InlineResponse2008Data.prototype['recommendation'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2008DataEstimates} estimates
+ */
+InlineResponse2008Data.prototype['estimates'] = undefined;
 
 
 

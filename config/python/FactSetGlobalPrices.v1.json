@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.FactSetGlobalPrices",
   "projectName": "fds.sdk.FactSetGlobalPrices",
-  "packageVersion": "0.21.0",
+  "packageVersion": "1.0.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "FactSet Global Prices client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetGlobalPrices/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetGlobalPrices/0.21.0",
+  "httpUserAgent": "fds-sdk/python/FactSetGlobalPrices/1.0.0",
   "files": {
     "LICENSE": {}
   }

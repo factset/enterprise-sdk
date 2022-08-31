@@ -12,6 +12,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -30,6 +32,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -81,6 +85,8 @@ src/main/java/com/factset/sdk/Vault/models/CalculationStatusMeta.java
 src/main/java/com/factset/sdk/Vault/models/CalculationStatusRoot.java
 src/main/java/com/factset/sdk/Vault/models/CalculationUnitStatus.java
 src/main/java/com/factset/sdk/Vault/models/CalculationUnitStatusMeta.java
+src/main/java/com/factset/sdk/Vault/models/CalculationsSummary.java
+src/main/java/com/factset/sdk/Vault/models/CalculationsSummaryRoot.java
 src/main/java/com/factset/sdk/Vault/models/ClientErrorResponse.java
 src/main/java/com/factset/sdk/Vault/models/ComponentSummary.java
 src/main/java/com/factset/sdk/Vault/models/ComponentSummaryRoot.java
@@ -94,6 +100,8 @@ src/main/java/com/factset/sdk/Vault/models/ErrorSource.java
 src/main/java/com/factset/sdk/Vault/models/Frequency.java
 src/main/java/com/factset/sdk/Vault/models/FrequencyRoot.java
 src/main/java/com/factset/sdk/Vault/models/ObjectRoot.java
+src/main/java/com/factset/sdk/Vault/models/PaginationInfo.java
+src/main/java/com/factset/sdk/Vault/models/PaginationMeta.java
 src/main/java/com/factset/sdk/Vault/models/VaultCalculationParameters.java
 src/main/java/com/factset/sdk/Vault/models/VaultCalculationParametersRoot.java
 src/main/java/com/factset/sdk/Vault/models/VaultComponent.java

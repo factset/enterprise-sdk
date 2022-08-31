@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** | The response is always empty. |  [optional]
-**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  |  [optional]
+**data** | [**java.util.List&lt;InlineResponse2007Data&gt;**](InlineResponse2007Data.md) | List of payouts. |  [optional]
+**meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

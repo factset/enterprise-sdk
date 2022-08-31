@@ -1,6 +1,6 @@
 /**
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  News API provides access to historical news. This provides a summary for various corporate and market news written by journalist with background in financial markets.  The API delivers  stories in different format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files    
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -13,13 +13,25 @@
 
 import ApiClient from './ApiClient';
 import Checkstatus from './model/Checkstatus';
+import CheckstatusResponse from './model/CheckstatusResponse';
+import Checkstatusone from './model/Checkstatusone';
 import FilingsFiles from './model/FilingsFiles';
 import Getfiles from './model/Getfiles';
+import GetfilesResponse from './model/GetfilesResponse';
+import Getfilesone from './model/Getfilesone';
+import IsPartialOne from './model/IsPartialOne';
+import MetaOne from './model/MetaOne';
+import NewsStatus from './model/NewsStatus';
+import NewscheckstatusResponse from './model/NewscheckstatusResponse';
+import NewsgetfilesResponse from './model/NewsgetfilesResponse';
+import NewsrequestfilesResponse from './model/NewsrequestfilesResponse';
+import PaginationOne from './model/PaginationOne';
 import RequestfilesResponse from './model/RequestfilesResponse';
 import Status from './model/Status';
 import StreetAccountStatus from './model/StreetAccountStatus';
 
 import GlobalFilingsAPIApi from './api/GlobalFilingsAPIApi';
+import NewsAPIApi from './api/NewsAPIApi';
 import StreetAccountXMLAPIApi from './api/StreetAccountXMLAPIApi';
 
 
@@ -67,6 +79,18 @@ export {
     Checkstatus,
 
     /**
+     * The CheckstatusResponse model constructor.
+     * @property {module:model/CheckstatusResponse}
+     */
+    CheckstatusResponse,
+
+    /**
+     * The Checkstatusone model constructor.
+     * @property {module:model/Checkstatusone}
+     */
+    Checkstatusone,
+
+    /**
      * The FilingsFiles model constructor.
      * @property {module:model/FilingsFiles}
      */
@@ -77,6 +101,60 @@ export {
      * @property {module:model/Getfiles}
      */
     Getfiles,
+
+    /**
+     * The GetfilesResponse model constructor.
+     * @property {module:model/GetfilesResponse}
+     */
+    GetfilesResponse,
+
+    /**
+     * The Getfilesone model constructor.
+     * @property {module:model/Getfilesone}
+     */
+    Getfilesone,
+
+    /**
+     * The IsPartialOne model constructor.
+     * @property {module:model/IsPartialOne}
+     */
+    IsPartialOne,
+
+    /**
+     * The MetaOne model constructor.
+     * @property {module:model/MetaOne}
+     */
+    MetaOne,
+
+    /**
+     * The NewsStatus model constructor.
+     * @property {module:model/NewsStatus}
+     */
+    NewsStatus,
+
+    /**
+     * The NewscheckstatusResponse model constructor.
+     * @property {module:model/NewscheckstatusResponse}
+     */
+    NewscheckstatusResponse,
+
+    /**
+     * The NewsgetfilesResponse model constructor.
+     * @property {module:model/NewsgetfilesResponse}
+     */
+    NewsgetfilesResponse,
+
+    /**
+     * The NewsrequestfilesResponse model constructor.
+     * @property {module:model/NewsrequestfilesResponse}
+     */
+    NewsrequestfilesResponse,
+
+    /**
+     * The PaginationOne model constructor.
+     * @property {module:model/PaginationOne}
+     */
+    PaginationOne,
 
     /**
      * The RequestfilesResponse model constructor.
@@ -101,6 +179,12 @@ export {
     * @property {module:api/GlobalFilingsAPIApi}
     */
     GlobalFilingsAPIApi,
+
+    /**
+    * The NewsAPIApi service constructor.
+    * @property {module:api/NewsAPIApi}
+    */
+    NewsAPIApi,
 
     /**
     * The StreetAccountXMLAPIApi service constructor.

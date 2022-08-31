@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of watchlist | 
-**id** | **Number** | Position id. | 
-**notation** | **String** | Identifier of the notation | [optional] 
-**additionalData** | **String** | Additional data to the watched position. | [optional] 
+**id** | **String** | Identifier of the watchlist. | 
+**position** | [**WatchlistPositionModifyDataPosition**](WatchlistPositionModifyDataPosition.md) |  | 
+**notation** | [**WatchlistPositionCreateDataNotation**](WatchlistPositionCreateDataNotation.md) |  | [optional] 
+**comment** | **String** | Personal note for the watchlist position. | [optional] 
 
 

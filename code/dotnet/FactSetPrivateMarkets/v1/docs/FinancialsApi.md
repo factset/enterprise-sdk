@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getfinancials"></a>
 # **GetFinancials**
-> FinancialsResponse GetFinancials (List<string> ids, List<string> fields, string startDate, string endDate)
+> FinancialsResponse GetFinancials (List<string> ids, List<string> fields, string startDate, string endDate = null)
 
 Returns Private Company Financials for a list of ids.
 
@@ -55,7 +55,7 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested FactSet Private Market Entity Identifier in XXXXXX-E format.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
             var fields = new List<string>(); // List<string> | Private Markets Financials Fields. 
             var startDate = 2019-01-01;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
-            var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
+            var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional) 
 
             try
             {
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested FactSet Private Market Entity Identifier in XXXXXX-E format.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  | 
  **fields** | [**List&lt;string&gt;**](string.md)| Private Markets Financials Fields.  | 
  **startDate** | **string**| The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | 
- **endDate** | **string**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | 
+ **endDate** | **string**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  | [optional] 
 
 ### Return type
 [**FinancialsResponse**](FinancialsResponse.md)

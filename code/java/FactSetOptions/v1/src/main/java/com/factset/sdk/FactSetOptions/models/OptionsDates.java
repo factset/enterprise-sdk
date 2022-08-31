@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -53,37 +57,37 @@ public class OptionsDates implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
-  private LocalDate expirationDate;
+  private JsonNullable<LocalDate> expirationDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FIRST_ASK_DATE = "firstAskDate";
-  private LocalDate firstAskDate;
+  private JsonNullable<LocalDate> firstAskDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FIRST_BID_DATE = "firstBidDate";
-  private LocalDate firstBidDate;
+  private JsonNullable<LocalDate> firstBidDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FIRST_SETTLEMENT_DATE = "firstSettlementDate";
-  private LocalDate firstSettlementDate;
+  private JsonNullable<LocalDate> firstSettlementDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FIRST_TRADE_DATE = "firstTradeDate";
-  private LocalDate firstTradeDate;
+  private JsonNullable<LocalDate> firstTradeDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LAST_ASK_DATE = "lastAskDate";
-  private LocalDate lastAskDate;
+  private JsonNullable<LocalDate> lastAskDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LAST_BID_DATE = "lastBidDate";
-  private LocalDate lastBidDate;
+  private JsonNullable<LocalDate> lastBidDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LAST_SETTLEMENT_DATE = "lastSettlementDate";
-  private LocalDate lastSettlementDate;
+  private JsonNullable<LocalDate> lastSettlementDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LAST_TRADE_DATE = "lastTradeDate";
-  private LocalDate lastTradeDate;
+  private JsonNullable<LocalDate> lastTradeDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -92,7 +96,7 @@ public class OptionsDates implements Serializable {
   }
 
   public OptionsDates expirationDate(LocalDate expirationDate) {
-    this.expirationDate = expirationDate;
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
     return this;
   }
 
@@ -102,23 +106,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 17 00:00:00 UTC 2021", value = "The date on which an options contract is no longer valid and, therefore, ceases to exist in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getExpirationDate() {
-    return expirationDate;
+        return expirationDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpirationDate(LocalDate expirationDate) {
+
+  public JsonNullable<LocalDate> getExpirationDate_JsonNullable() {
+    return expirationDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<LocalDate> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(LocalDate expirationDate) {
+    this.expirationDate = JsonNullable.<LocalDate>of(expirationDate);
   }
 
 
   public OptionsDates firstAskDate(LocalDate firstAskDate) {
-    this.firstAskDate = firstAskDate;
+    this.firstAskDate = JsonNullable.<LocalDate>of(firstAskDate);
     return this;
   }
 
@@ -128,23 +140,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Aug 31 00:00:00 UTC 2020", value = "The date of first ask price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_FIRST_ASK_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFirstAskDate() {
-    return firstAskDate;
+        return firstAskDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_ASK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstAskDate(LocalDate firstAskDate) {
+
+  public JsonNullable<LocalDate> getFirstAskDate_JsonNullable() {
+    return firstAskDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_ASK_DATE)
+  public void setFirstAskDate_JsonNullable(JsonNullable<LocalDate> firstAskDate) {
     this.firstAskDate = firstAskDate;
+  }
+
+  public void setFirstAskDate(LocalDate firstAskDate) {
+    this.firstAskDate = JsonNullable.<LocalDate>of(firstAskDate);
   }
 
 
   public OptionsDates firstBidDate(LocalDate firstBidDate) {
-    this.firstBidDate = firstBidDate;
+    this.firstBidDate = JsonNullable.<LocalDate>of(firstBidDate);
     return this;
   }
 
@@ -154,23 +174,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Aug 31 00:00:00 UTC 2020", value = "The date of first bid price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_FIRST_BID_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFirstBidDate() {
-    return firstBidDate;
+        return firstBidDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_BID_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstBidDate(LocalDate firstBidDate) {
+
+  public JsonNullable<LocalDate> getFirstBidDate_JsonNullable() {
+    return firstBidDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_BID_DATE)
+  public void setFirstBidDate_JsonNullable(JsonNullable<LocalDate> firstBidDate) {
     this.firstBidDate = firstBidDate;
+  }
+
+  public void setFirstBidDate(LocalDate firstBidDate) {
+    this.firstBidDate = JsonNullable.<LocalDate>of(firstBidDate);
   }
 
 
   public OptionsDates firstSettlementDate(LocalDate firstSettlementDate) {
-    this.firstSettlementDate = firstSettlementDate;
+    this.firstSettlementDate = JsonNullable.<LocalDate>of(firstSettlementDate);
     return this;
   }
 
@@ -180,23 +208,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date of first settlement price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_FIRST_SETTLEMENT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFirstSettlementDate() {
-    return firstSettlementDate;
+        return firstSettlementDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_SETTLEMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstSettlementDate(LocalDate firstSettlementDate) {
+
+  public JsonNullable<LocalDate> getFirstSettlementDate_JsonNullable() {
+    return firstSettlementDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_SETTLEMENT_DATE)
+  public void setFirstSettlementDate_JsonNullable(JsonNullable<LocalDate> firstSettlementDate) {
     this.firstSettlementDate = firstSettlementDate;
+  }
+
+  public void setFirstSettlementDate(LocalDate firstSettlementDate) {
+    this.firstSettlementDate = JsonNullable.<LocalDate>of(firstSettlementDate);
   }
 
 
   public OptionsDates firstTradeDate(LocalDate firstTradeDate) {
-    this.firstTradeDate = firstTradeDate;
+    this.firstTradeDate = JsonNullable.<LocalDate>of(firstTradeDate);
     return this;
   }
 
@@ -206,23 +242,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Sep 01 00:00:00 UTC 2020", value = "First Trading Date of the Option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_FIRST_TRADE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFirstTradeDate() {
-    return firstTradeDate;
+        return firstTradeDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_TRADE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstTradeDate(LocalDate firstTradeDate) {
+
+  public JsonNullable<LocalDate> getFirstTradeDate_JsonNullable() {
+    return firstTradeDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_TRADE_DATE)
+  public void setFirstTradeDate_JsonNullable(JsonNullable<LocalDate> firstTradeDate) {
     this.firstTradeDate = firstTradeDate;
+  }
+
+  public void setFirstTradeDate(LocalDate firstTradeDate) {
+    this.firstTradeDate = JsonNullable.<LocalDate>of(firstTradeDate);
   }
 
 
   public OptionsDates lastAskDate(LocalDate lastAskDate) {
-    this.lastAskDate = lastAskDate;
+    this.lastAskDate = JsonNullable.<LocalDate>of(lastAskDate);
     return this;
   }
 
@@ -232,23 +276,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed May 05 00:00:00 UTC 2021", value = "The date of last ask price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_LAST_ASK_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getLastAskDate() {
-    return lastAskDate;
+        return lastAskDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_ASK_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastAskDate(LocalDate lastAskDate) {
+
+  public JsonNullable<LocalDate> getLastAskDate_JsonNullable() {
+    return lastAskDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_ASK_DATE)
+  public void setLastAskDate_JsonNullable(JsonNullable<LocalDate> lastAskDate) {
     this.lastAskDate = lastAskDate;
+  }
+
+  public void setLastAskDate(LocalDate lastAskDate) {
+    this.lastAskDate = JsonNullable.<LocalDate>of(lastAskDate);
   }
 
 
   public OptionsDates lastBidDate(LocalDate lastBidDate) {
-    this.lastBidDate = lastBidDate;
+    this.lastBidDate = JsonNullable.<LocalDate>of(lastBidDate);
     return this;
   }
 
@@ -258,23 +310,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed May 05 00:00:00 UTC 2021", value = "The date of last bid price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_LAST_BID_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getLastBidDate() {
-    return lastBidDate;
+        return lastBidDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_BID_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastBidDate(LocalDate lastBidDate) {
+
+  public JsonNullable<LocalDate> getLastBidDate_JsonNullable() {
+    return lastBidDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_BID_DATE)
+  public void setLastBidDate_JsonNullable(JsonNullable<LocalDate> lastBidDate) {
     this.lastBidDate = lastBidDate;
+  }
+
+  public void setLastBidDate(LocalDate lastBidDate) {
+    this.lastBidDate = JsonNullable.<LocalDate>of(lastBidDate);
   }
 
 
   public OptionsDates lastSettlementDate(LocalDate lastSettlementDate) {
-    this.lastSettlementDate = lastSettlementDate;
+    this.lastSettlementDate = JsonNullable.<LocalDate>of(lastSettlementDate);
     return this;
   }
 
@@ -284,23 +344,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date of last settlement price for the option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_LAST_SETTLEMENT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getLastSettlementDate() {
-    return lastSettlementDate;
+        return lastSettlementDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_SETTLEMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastSettlementDate(LocalDate lastSettlementDate) {
+
+  public JsonNullable<LocalDate> getLastSettlementDate_JsonNullable() {
+    return lastSettlementDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_SETTLEMENT_DATE)
+  public void setLastSettlementDate_JsonNullable(JsonNullable<LocalDate> lastSettlementDate) {
     this.lastSettlementDate = lastSettlementDate;
+  }
+
+  public void setLastSettlementDate(LocalDate lastSettlementDate) {
+    this.lastSettlementDate = JsonNullable.<LocalDate>of(lastSettlementDate);
   }
 
 
   public OptionsDates lastTradeDate(LocalDate lastTradeDate) {
-    this.lastTradeDate = lastTradeDate;
+    this.lastTradeDate = JsonNullable.<LocalDate>of(lastTradeDate);
     return this;
   }
 
@@ -310,23 +378,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Feb 16 00:00:00 UTC 2021", value = "Last Trading Date of the Option in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_LAST_TRADE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getLastTradeDate() {
-    return lastTradeDate;
+        return lastTradeDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_TRADE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastTradeDate(LocalDate lastTradeDate) {
+
+  public JsonNullable<LocalDate> getLastTradeDate_JsonNullable() {
+    return lastTradeDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_TRADE_DATE)
+  public void setLastTradeDate_JsonNullable(JsonNullable<LocalDate> lastTradeDate) {
     this.lastTradeDate = lastTradeDate;
+  }
+
+  public void setLastTradeDate(LocalDate lastTradeDate) {
+    this.lastTradeDate = JsonNullable.<LocalDate>of(lastTradeDate);
   }
 
 
   public OptionsDates date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -336,23 +412,31 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri May 07 00:00:00 UTC 2021", value = "The date the data is as of in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public OptionsDates fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -362,18 +446,26 @@ public class OptionsDates implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#C00LP", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
@@ -415,23 +507,34 @@ public class OptionsDates implements Serializable {
       return false;
     }
     OptionsDates optionsDates = (OptionsDates) o;
-    return Objects.equals(this.expirationDate, optionsDates.expirationDate) &&
-        Objects.equals(this.firstAskDate, optionsDates.firstAskDate) &&
-        Objects.equals(this.firstBidDate, optionsDates.firstBidDate) &&
-        Objects.equals(this.firstSettlementDate, optionsDates.firstSettlementDate) &&
-        Objects.equals(this.firstTradeDate, optionsDates.firstTradeDate) &&
-        Objects.equals(this.lastAskDate, optionsDates.lastAskDate) &&
-        Objects.equals(this.lastBidDate, optionsDates.lastBidDate) &&
-        Objects.equals(this.lastSettlementDate, optionsDates.lastSettlementDate) &&
-        Objects.equals(this.lastTradeDate, optionsDates.lastTradeDate) &&
-        Objects.equals(this.date, optionsDates.date) &&
-        Objects.equals(this.fsymId, optionsDates.fsymId) &&
+    return equalsNullable(this.expirationDate, optionsDates.expirationDate) &&
+        equalsNullable(this.firstAskDate, optionsDates.firstAskDate) &&
+        equalsNullable(this.firstBidDate, optionsDates.firstBidDate) &&
+        equalsNullable(this.firstSettlementDate, optionsDates.firstSettlementDate) &&
+        equalsNullable(this.firstTradeDate, optionsDates.firstTradeDate) &&
+        equalsNullable(this.lastAskDate, optionsDates.lastAskDate) &&
+        equalsNullable(this.lastBidDate, optionsDates.lastBidDate) &&
+        equalsNullable(this.lastSettlementDate, optionsDates.lastSettlementDate) &&
+        equalsNullable(this.lastTradeDate, optionsDates.lastTradeDate) &&
+        equalsNullable(this.date, optionsDates.date) &&
+        equalsNullable(this.fsymId, optionsDates.fsymId) &&
         Objects.equals(this.requestId, optionsDates.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationDate, firstAskDate, firstBidDate, firstSettlementDate, firstTradeDate, lastAskDate, lastBidDate, lastSettlementDate, lastTradeDate, date, fsymId, requestId);
+    return Objects.hash(hashCodeNullable(expirationDate), hashCodeNullable(firstAskDate), hashCodeNullable(firstBidDate), hashCodeNullable(firstSettlementDate), hashCodeNullable(firstTradeDate), hashCodeNullable(lastAskDate), hashCodeNullable(lastBidDate), hashCodeNullable(lastSettlementDate), hashCodeNullable(lastTradeDate), hashCodeNullable(date), hashCodeNullable(fsymId), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

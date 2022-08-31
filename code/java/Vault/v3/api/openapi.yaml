@@ -9,7 +9,7 @@ info:
     name: Apache License 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.txt
   title: Vault API
-  version: v3
+  version: "3"
 servers:
 - url: https://api.factset.com
 security:
@@ -318,10 +318,6 @@ paths:
       summary: Get Vault components
       tags:
       - Components
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: ComponentSummaryRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/components/{id}:
     get:
@@ -624,10 +620,6 @@ paths:
       summary: Get Vault component by id
       tags:
       - Components
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: VaultComponentRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/configurations:
     get:
@@ -932,10 +924,6 @@ paths:
       summary: Get Vault configurations
       tags:
       - Configurations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: VaultConfigurationSummaryRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/configurations/{id}:
     get:
@@ -1238,10 +1226,6 @@ paths:
       summary: Get Vault configuration by id
       tags:
       - Configurations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: VaultConfigurationRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/dates:
     get:
@@ -1574,10 +1558,6 @@ paths:
       summary: Convert Vault dates to absolute format
       tags:
       - Dates
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: DateParametersSummaryRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/documents/{path}:
     get:
@@ -1881,10 +1861,6 @@ paths:
       summary: Get Vault documents and sub-directories in a directory
       tags:
       - Documents
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: DocumentDirectoriesRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/frequencies:
     get:
@@ -2095,12 +2071,308 @@ paths:
       summary: Get Vault frequencies
       tags:
       - Frequencies
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: FrequencyRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/calculations:
+    get:
+      description: This endpoints returns all calculation requests.
+      operationId: getAllCalculations
+      parameters:
+      - explode: true
+        in: query
+        name: pageNumber
+        required: true
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalculationsSummaryRoot'
+          description: List of calculation requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid page number.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: No calculation found.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get all calculations
+      tags:
+      - VaultCalculations
+      x-accepts: application/json
     post:
       description: "This endpoint runs the Vault calculation specified in the POST\
         \ body parameters.\r\nIt can take one or more units as input.\r\n\r\nRemarks:\r\
@@ -2128,25 +2400,6 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79
-                  account:
-                    id: CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT
-                  dates:
-                    startdate: "20180101"
-                    enddate: "20180329"
-                    frequency: Monthly
-                  configid: 12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116
-                "2":
-                  componentid: B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42
-                  account:
-                    id: CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT
-                  configid: c1671411-7807-4505-9296-989fe2ffc450
-              meta:
-                contentorganization: SimplifiedRow
-                contenttype: Json
             schema:
               $ref: '#/components/schemas/VaultCalculationParametersRoot'
         description: Calculation Parameters
@@ -2562,14 +2815,6 @@ paths:
       summary: Create and Run Vault calculation
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationStatusRoot
-      - status-code: "200"
-        response-type: CalculationStatusRoot
-      - status-code: "201"
-        response-type: ObjectRoot
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
@@ -2820,9 +3065,6 @@ paths:
       summary: Cancel Vault calculation by id
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "204"
       x-accepts: application/json
     get:
       description: This is the endpoint that returns the calculation parameters passed
@@ -3087,10 +3329,6 @@ paths:
       summary: Get Vault calculation parameters by id
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: VaultCalculationParametersRoot
       x-accepts: application/json
     put:
       description: "This endpoint updates and run the Vault calculation specified\
@@ -3131,25 +3369,6 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              data:
-                "1":
-                  componentid: B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79
-                  account:
-                    id: CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT
-                  dates:
-                    startdate: "20180101"
-                    enddate: "20180329"
-                    frequency: Monthly
-                  configid: 12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116
-                "2":
-                  componentid: B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42
-                  account:
-                    id: CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT
-                  configid: c1671411-7807-4505-9296-989fe2ffc450
-              meta:
-                contentorganization: SimplifiedRow
-                contenttype: Json
             schema:
               $ref: '#/components/schemas/VaultCalculationParametersRoot'
         description: Calculation Parameters
@@ -3609,14 +3828,6 @@ paths:
       summary: Create or Update Vault calculation and run it.
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationStatusRoot
-      - status-code: "200"
-        response-type: CalculationStatusRoot
-      - status-code: "201"
-        response-type: ObjectRoot
       x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
@@ -3943,12 +4154,6 @@ paths:
       summary: Get Vault calculation status by id
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: CalculationStatusRoot
-      - status-code: "202"
-        response-type: CalculationStatusRoot
       x-accepts: application/json
   /analytics/engines/vault/v3/calculations/{id}/units/{unitId}/result:
     get:
@@ -4237,14 +4442,11 @@ paths:
       summary: Get Vault calculation result by id
       tags:
       - VaultCalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: ObjectRoot
       x-accepts: application/json
 components:
   schemas:
     ComponentSummary:
+      additionalProperties: false
       example:
         name: name
         category: category
@@ -4257,23 +4459,24 @@ components:
           type: string
       type: object
     ComponentSummaryRoot:
+      additionalProperties: false
       example:
         data:
           key:
             name: name
             category: category
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/ComponentSummary'
           type: object
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     ErrorSource:
+      additionalProperties: false
       example:
         pointer: pointer
         parameter: parameter
@@ -4284,6 +4487,7 @@ components:
           type: string
       type: object
     Error:
+      additionalProperties: false
       example:
         id: id
         detail: detail
@@ -4299,6 +4503,7 @@ components:
           $ref: '#/components/schemas/ErrorSource'
       type: object
     ClientErrorResponse:
+      additionalProperties: false
       properties:
         errors:
           items:
@@ -4306,6 +4511,7 @@ components:
           type: array
       type: object
     VaultIdentifier:
+      additionalProperties: false
       description: The account/benchmark parameter for Vault calculation.
       example:
         id: id
@@ -4317,6 +4523,7 @@ components:
       - id
       type: object
     VaultDateParameters:
+      additionalProperties: false
       description: The date parameters for Vault calculation
       example:
         enddate: enddate
@@ -4337,8 +4544,10 @@ components:
       - frequency
       type: object
     VaultComponent:
+      additionalProperties: false
       example:
         currencyisocode: currencyisocode
+        path: path
         name: name
         dates:
           enddate: enddate
@@ -4367,6 +4576,9 @@ components:
         snapshot:
           description: Snapshot
           type: boolean
+        path:
+          description: The path to the document
+          type: string
         name:
           description: Component name.
           type: string
@@ -4375,9 +4587,11 @@ components:
           type: string
       type: object
     VaultComponentRoot:
+      additionalProperties: false
       example:
         data:
           currencyisocode: currencyisocode
+          path: path
           name: name
           dates:
             enddate: enddate
@@ -4390,16 +4604,16 @@ components:
           benchmark:
             id: id
           snapshot: true
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/VaultComponent'
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     VaultConfigurationSummary:
+      additionalProperties: false
       example:
         name: name
       properties:
@@ -4408,22 +4622,23 @@ components:
           type: string
       type: object
     VaultConfigurationSummaryRoot:
+      additionalProperties: false
       example:
         data:
           key:
             name: name
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/VaultConfigurationSummary'
           type: object
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     ConfigurationAccount:
+      additionalProperties: false
       example:
         maxEndDate: maxEndDate
         minStartDate: minStartDate
@@ -4452,6 +4667,7 @@ components:
           type: string
       type: object
     VaultConfiguration:
+      additionalProperties: false
       example:
         name: name
         accounts:
@@ -4472,6 +4688,7 @@ components:
           type: object
       type: object
     VaultConfigurationRoot:
+      additionalProperties: false
       example:
         data:
           name: name
@@ -4483,16 +4700,16 @@ components:
               name: name
               benchmarkCode: benchmarkCode
               benchmarkName: benchmarkName
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/VaultConfiguration'
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     DateParametersSummary:
+      additionalProperties: false
       example:
         enddate: enddate
         startdate: startdate
@@ -4505,20 +4722,21 @@ components:
           type: string
       type: object
     DateParametersSummaryRoot:
+      additionalProperties: false
       example:
         data:
           enddate: enddate
           startdate: startdate
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/DateParametersSummary'
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     DocumentDirectories:
+      additionalProperties: false
       example:
         documents:
         - documents
@@ -4539,6 +4757,7 @@ components:
           type: array
       type: object
     DocumentDirectoriesRoot:
+      additionalProperties: false
       example:
         data:
           documents:
@@ -4547,16 +4766,16 @@ components:
           directories:
           - directories
           - directories
-        meta: '{}'
+        meta: ""
       properties:
         data:
           $ref: '#/components/schemas/DocumentDirectories'
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     Frequency:
+      additionalProperties: false
       example:
         name: name
       properties:
@@ -4565,22 +4784,23 @@ components:
           type: string
       type: object
     FrequencyRoot:
+      additionalProperties: false
       example:
         data:
           key:
             name: name
-        meta: '{}'
+        meta: ""
       properties:
         data:
           additionalProperties:
             $ref: '#/components/schemas/Frequency'
           type: object
-        meta:
-          type: object
+        meta: {}
       required:
       - data
       type: object
     VaultCalculationParameters:
+      additionalProperties: false
       example:
         componentdetail: componentdetail
         componentid: componentid
@@ -4604,7 +4824,7 @@ components:
           type: string
         componentdetail:
           description: Component detail type for the Vault component. It can be GROUPS
-            or TOTALS.
+            or TOTALS or SECURITIES.
           type: string
       required:
       - account
@@ -4612,6 +4832,7 @@ components:
       - configid
       type: object
     CalculationMeta:
+      additionalProperties: false
       example:
         contentorganization: SimplifiedRow
         format: JsonStach
@@ -4657,6 +4878,7 @@ components:
           type: string
       type: object
     VaultCalculationParametersRoot:
+      additionalProperties: false
       example:
         data:
           key:
@@ -4684,6 +4906,7 @@ components:
           $ref: '#/components/schemas/CalculationMeta'
       type: object
     CalculationUnitStatus:
+      additionalProperties: false
       example:
         result: result
         progress: progress
@@ -4699,6 +4922,7 @@ components:
             pointer: pointer
             parameter: parameter
         status: Queued
+        points: 0
       properties:
         status:
           description: The status of calculation unit.
@@ -4720,8 +4944,13 @@ components:
         progress:
           description: The progress of the calculation unit.
           type: string
+        points:
+          description: The points for the calculation unit.
+          format: int32
+          type: integer
       type: object
     CalculationStatus:
+      additionalProperties: false
       example:
         calculationid: calculationid
         units:
@@ -4740,6 +4969,7 @@ components:
                 pointer: pointer
                 parameter: parameter
             status: Queued
+            points: 0
         status: Queued
       properties:
         calculationid:
@@ -4760,6 +4990,7 @@ components:
           type: object
       type: object
     CalculationUnitStatusMeta:
+      additionalProperties: false
       example:
         info: info
       properties:
@@ -4768,6 +4999,7 @@ components:
           type: string
       type: object
     CalculationStatusMeta:
+      additionalProperties: false
       example:
         units:
           key:
@@ -4780,6 +5012,7 @@ components:
           type: object
       type: object
     CalculationStatusRoot:
+      additionalProperties: false
       example:
         data:
           calculationid: calculationid
@@ -4799,6 +5032,7 @@ components:
                   pointer: pointer
                   parameter: parameter
               status: Queued
+              points: 0
           status: Queued
         meta:
           units:
@@ -4813,14 +5047,107 @@ components:
       - data
       type: object
     ObjectRoot:
+      additionalProperties: false
       example:
-        data: '{}'
-        meta: '{}'
+        data: ""
+        meta: ""
+      properties:
+        data: {}
+        meta: {}
+      required:
+      - data
+      type: object
+    CalculationsSummary:
+      additionalProperties: false
+      example:
+        requestTime: 2000-01-23T04:56:07.000+00:00
+        lastPollTime: 2000-01-23T04:56:07.000+00:00
+        units: 0
+        status: Queued
+      properties:
+        status:
+          description: Last poll status of the calculation.
+          enum:
+          - Queued
+          - Executing
+          - Completed
+          - Cancelled
+          type: string
+        units:
+          description: Number of calculation units in batch.
+          format: int32
+          type: integer
+        requestTime:
+          description: Request time of calculation.
+          format: date-time
+          type: string
+        lastPollTime:
+          description: Last poll time of calculation.
+          format: date-time
+          type: string
+      type: object
+    PaginationInfo:
+      additionalProperties: false
+      example:
+        pageNumber: 6
+        previousPage: previousPage
+        nextPage: nextPage
+        totalPages: 5
+        pageSize: 1
+        totalCalculations: 5
+      properties:
+        pageNumber:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        totalPages:
+          format: int32
+          type: integer
+        totalCalculations:
+          format: int32
+          type: integer
+        nextPage:
+          type: string
+        previousPage:
+          type: string
+      type: object
+    PaginationMeta:
+      additionalProperties: false
+      example:
+        pagination:
+          pageNumber: 6
+          previousPage: previousPage
+          nextPage: nextPage
+          totalPages: 5
+          pageSize: 1
+          totalCalculations: 5
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PaginationInfo'
+      type: object
+    CalculationsSummaryRoot:
+      additionalProperties: false
+      example:
+        data:
+          requestTime: 2000-01-23T04:56:07.000+00:00
+          lastPollTime: 2000-01-23T04:56:07.000+00:00
+          units: 0
+          status: Queued
+        meta:
+          pagination:
+            pageNumber: 6
+            previousPage: previousPage
+            nextPage: nextPage
+            totalPages: 5
+            pageSize: 1
+            totalCalculations: 5
       properties:
         data:
-          type: object
+          $ref: '#/components/schemas/CalculationsSummary'
         meta:
-          type: object
+          $ref: '#/components/schemas/PaginationMeta'
       required:
       - data
       type: object

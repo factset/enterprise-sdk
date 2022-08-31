@@ -5,6 +5,10 @@ LICENSE
 README.md
 appveyor.yml
 docs/DataItemsApi.md
+docs/EntityMatch.md
+docs/EntityMatchRequest.md
+docs/EntityMatchRequestInput.md
+docs/EntityMatchesResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Field.md
@@ -17,10 +21,12 @@ docs/NonPeriodic.md
 docs/NonPeriodicApi.md
 docs/NonPeriodicRequest.md
 docs/NonPeriodicResponse.md
+docs/UniverseApi.md
 git_push.sh
 src/FactSet.SDK.FactSetPrivateMarkets/Api/DataItemsApi.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Api/FinancialsApi.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Api/NonPeriodicApi.cs
+src/FactSet.SDK.FactSetPrivateMarkets/Api/UniverseApi.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Client/ApiClient.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Client/ApiException.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Client/ApiResponse.cs
@@ -39,6 +45,10 @@ src/FactSet.SDK.FactSetPrivateMarkets/Client/RequestOptions.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetPrivateMarkets/FactSet.SDK.FactSetPrivateMarkets.csproj
 src/FactSet.SDK.FactSetPrivateMarkets/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.FactSetPrivateMarkets/Model/EntityMatch.cs
+src/FactSet.SDK.FactSetPrivateMarkets/Model/EntityMatchRequest.cs
+src/FactSet.SDK.FactSetPrivateMarkets/Model/EntityMatchRequestInput.cs
+src/FactSet.SDK.FactSetPrivateMarkets/Model/EntityMatchesResponse.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Model/ErrorResponse.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Model/ErrorResponseSubErrors.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Model/Field.cs

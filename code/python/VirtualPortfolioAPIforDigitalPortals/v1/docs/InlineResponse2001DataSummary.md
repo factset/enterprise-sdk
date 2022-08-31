@@ -5,7 +5,8 @@ Summary of portfolio values in the portfolio's currency (see attribute `currency
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_value** | **float** | The total portfolio value, including the current cash amount. | [optional] 
+**total_value** | **float** | The total portfolio value, i.e. the current market value of the portfolio plus cash. | [optional] 
+**market_value** | **float** | The current market value of the securities in the portfolio. | [optional] 
 **purchase_value** | **float** | The total purchase value of all securities. | [optional] 
 **number_positions** | **float** | Number of positions in the portfolio. | [optional] 
 **transactions** | [**InlineResponse2001DataSummaryTransactions**](InlineResponse2001DataSummaryTransactions.md) |  | [optional] 

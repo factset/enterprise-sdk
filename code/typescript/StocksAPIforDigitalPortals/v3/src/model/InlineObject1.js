@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import StockDividendListData from './StockDividendListData';
-import StockDividendListMeta from './StockDividendListMeta';
+import StockNotationRankingIntradayListData from './StockNotationRankingIntradayListData';
+import StockNotationRankingIntradayListMeta from './StockNotationRankingIntradayListMeta';
 
 /**
  * The InlineObject1 model module.
@@ -23,11 +23,10 @@ class InlineObject1 {
     /**
      * Constructs a new <code>InlineObject1</code>.
      * @alias module:model/InlineObject1
-     * @param data {module:model/StockDividendListData} 
      */
-    constructor(data) { 
+    constructor() { 
         
-        InlineObject1.initialize(this, data);
+        InlineObject1.initialize(this);
     }
 
     /**
@@ -35,8 +34,7 @@ class InlineObject1 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, data) { 
-        obj['data'] = data;
+    static initialize(obj) { 
     }
 
     /**
@@ -51,10 +49,10 @@ class InlineObject1 {
             obj = obj || new InlineObject1();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = StockDividendListData.constructFromObject(data['data']);
+                obj['data'] = StockNotationRankingIntradayListData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = StockDividendListMeta.constructFromObject(data['meta']);
+                obj['meta'] = StockNotationRankingIntradayListMeta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -64,12 +62,12 @@ class InlineObject1 {
 }
 
 /**
- * @member {module:model/StockDividendListData} data
+ * @member {module:model/StockNotationRankingIntradayListData} data
  */
 InlineObject1.prototype['data'] = undefined;
 
 /**
- * @member {module:model/StockDividendListMeta} meta
+ * @member {module:model/StockNotationRankingIntradayListMeta} meta
  */
 InlineObject1.prototype['meta'] = undefined;
 

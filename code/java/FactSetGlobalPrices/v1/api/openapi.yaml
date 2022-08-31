@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
   title: FactSet Global Prices API
-  version: 1.2.0
+  version: 1.4.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -28,11 +28,12 @@ paths:
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
           include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-          <p>***ids limit** =  50 per request*</p> *<p>Make note, GET Method URL request
-          lines are also limited to a total length of 8192 bytes (8KB). In cases where
-          the service allows for thousands of ids, which may lead to exceeding this
-          request line limit of 8KB, its advised for any requests with large request
-          lines to be requested through the respective "POST" method.</p>*
+          <p>***ids limit** =  50 per multi-day request or 1000 for single day requests*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -45,7 +46,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 50
+          maxItems: 1000
           minItems: 1
           type: array
         style: form
@@ -102,23 +103,21 @@ paths:
         explode: true
         in: query
         name: endDate
-        required: true
+        required: false
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **AD** = Actual Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-            * **AQ** =  Actual Quarterly
-            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-            * **ASA** = Actual Semi-annual
-            * **CSA** = Calendar Semi-annual
-            * **AY** = Actual Annual, based on the start date.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **AD** = Actual Daily\n  * **W** = Weekly, based on the last\
+          \ day of the week of the start date.\n  * **M** = Monthly, based on the\
+          \ last trading day of the month.\n  * **AM** = Monthly, based on the start\
+          \ date (e.g., if the start date is June 16, data is displayed for June 16,\
+          \ May 16, April 16 etc.).\n  * **AQ** =  Actual Quarterly\n  * **CQ** =\
+          \ Quarterly based on the last trading day of the calendar quarter (March,\
+          \ June, September, or December).\n  * **ASA** = Actual Semi-annual\n  *\
+          \ **CSA** = Calendar Semi-annual\n  * **AY** = Actual Annual, based on the\
+          \ start date.\n  * **CY** = Calendar Annual, based on the last trading day\
+          \ of the calendar year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -150,6 +149,7 @@ paths:
           enum:
           - FIVEDAY
           - SEVENDAY
+          - US
           type: string
         style: form
       - description: Currency code for adjusting prices. Default is Local. For a list
@@ -489,6 +489,7 @@ paths:
         name: cancelledDividend
         required: false
         schema:
+          default: exclude
           enum:
           - include
           - exclude
@@ -659,7 +660,7 @@ paths:
         explode: true
         in: query
         name: endDate
-        required: true
+        required: false
         schema:
           type: string
         style: form
@@ -673,19 +674,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: |
-          Controls the display frequency of the data returned.
-            * **D** = Daily
-            * **AD** = Actual Daily
-            * **W** = Weekly, based on the last day of the week of the start date.
-            * **M** = Monthly, based on the last trading day of the month.
-            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-            * **AQ** =  Actual Quarterly
-            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-            * **ASA** = Actual Semi-annual
-            * **CSA** = Calendar Semi-annual
-            * **AY** = Actual Annual, based on the start date.
-            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      - description: "Controls the display frequency of the data returned.\n  * **D**\
+          \ = Daily\n  * **AD** = Actual Daily\n  * **W** = Weekly, based on the last\
+          \ day of the week of the start date.\n  * **M** = Monthly, based on the\
+          \ last trading day of the month.\n  * **AM** = Monthly, based on the start\
+          \ date (e.g., if the start date is June 16, data is displayed for June 16,\
+          \ May 16, April 16 etc.).\n  * **AQ** =  Actual Quarterly\n  * **CQ** =\
+          \ Quarterly based on the last trading day of the calendar quarter (March,\
+          \ June, September, or December).\n  * **ASA** = Actual Semi-annual\n  *\
+          \ **CSA** = Calendar Semi-annual\n  * **AY** = Actual Annual, based on the\
+          \ start date.\n  * **CY** = Calendar Annual, based on the last trading day\
+          \ of the calendar year.\n  \n"
         explode: true
         in: query
         name: frequency
@@ -704,6 +703,22 @@ paths:
           - CSA
           - AY
           - CY
+          type: string
+        style: form
+      - description: "Controls the dividend reinvestment for the returns calculation.\n\
+          \  * **PRICE** = Price Change - Dividends Excluded.\n  * **EXDATE** = Simple\
+          \ Return - Dividends Received on exdate but not reinvested.\n  * **EXDATE_C**\
+          \ = Compound Return - Dividends reinvested on exdate.\n\n  \n"
+        explode: true
+        in: query
+        name: dividendAdjust
+        required: false
+        schema:
+          default: EXDATE_C
+          enum:
+          - PRICE
+          - EXDATE
+          - EXDATE_C
           type: string
         style: form
       responses:
@@ -1407,6 +1422,31 @@ components:
         minItems: 1
         type: array
       style: form
+    idsMax1000:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids
+        limit** =  50 per multi-day request or 1000 for single day requests*</p> *<p>Make
+        note, GET Method URL request lines are also limited to a total length of 8192
+        bytes (8KB). In cases where the service allows for thousands of ids, which
+        may lead to exceeding this request line limit of 8KB, its advised for any
+        requests with large request lines to be requested through the respective "POST"
+        method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - AAPL-USA
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        minItems: 1
+        type: array
+      style: form
     eventCategory:
       description: |
         Selects the Event Category to include in the response.
@@ -1449,7 +1489,7 @@ components:
       explode: true
       in: query
       name: endDate
-      required: true
+      required: false
       schema:
         type: string
       style: form
@@ -1495,25 +1535,24 @@ components:
       name: cancelledDividend
       required: false
       schema:
+        default: exclude
         enum:
         - include
         - exclude
         type: string
       style: form
     frequency:
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **AD** = Actual Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          * **AQ** =  Actual Quarterly
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **ASA** = Actual Semi-annual
-          * **CSA** = Calendar Semi-annual
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+      description: "Controls the display frequency of the data returned.\n  * **D**\
+        \ = Daily\n  * **AD** = Actual Daily\n  * **W** = Weekly, based on the last\
+        \ day of the week of the start date.\n  * **M** = Monthly, based on the last\
+        \ trading day of the month.\n  * **AM** = Monthly, based on the start date\
+        \ (e.g., if the start date is June 16, data is displayed for June 16, May\
+        \ 16, April 16 etc.).\n  * **AQ** =  Actual Quarterly\n  * **CQ** = Quarterly\
+        \ based on the last trading day of the calendar quarter (March, June, September,\
+        \ or December).\n  * **ASA** = Actual Semi-annual\n  * **CSA** = Calendar\
+        \ Semi-annual\n  * **AY** = Actual Annual, based on the start date.\n  * **CY**\
+        \ = Calendar Annual, based on the last trading day of the calendar year.\n\
+        \  \n"
       explode: true
       in: query
       name: frequency
@@ -1534,6 +1573,23 @@ components:
         - CY
         type: string
       style: form
+    dividendAdjust:
+      description: "Controls the dividend reinvestment for the returns calculation.\n\
+        \  * **PRICE** = Price Change - Dividends Excluded.\n  * **EXDATE** = Simple\
+        \ Return - Dividends Received on exdate but not reinvested.\n  * **EXDATE_C**\
+        \ = Compound Return - Dividends reinvested on exdate.\n\n  \n"
+      explode: true
+      in: query
+      name: dividendAdjust
+      required: false
+      schema:
+        default: EXDATE_C
+        enum:
+        - PRICE
+        - EXDATE
+        - EXDATE_C
+        type: string
+      style: form
     calendar:
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
@@ -1546,6 +1602,7 @@ components:
         enum:
         - FIVEDAY
         - SEVENDAY
+        - US
         type: string
       style: form
     currency:
@@ -1775,12 +1832,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs for multi-day requests and 1000 IDs for single day requests.
           example:
           - TSLA-US
           items:
             type: string
-          maxItems: 50
+          maxItems: 1000
           minItems: 1
           title: ids
           type: array
@@ -1837,7 +1894,6 @@ components:
         adjust:
           $ref: '#/components/schemas/adjust'
       required:
-      - endDate
       - ids
       - startDate
       title: Prices Request Body
@@ -1873,16 +1929,19 @@ components:
           description: FactSet Permanent Identifier. Six alpha-numeric characters,
             excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix (XXXXXX-L).
           example: LCV42P-L
+          nullable: true
           type: string
         date:
           description: Ending date for the period expressed in YYYY-MM-DD format.
           example: 2020-11-19
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -1955,12 +2014,14 @@ components:
                   identifier will be available once a SEDOL representing the region/currency
                   has been allocated and the identifiers are on FactSet.
                 example: SJY281-R
+                nullable: true
                 type: string
                 x-fds-sdf: fsym_id
                 x-fds-dh: REGIONAL_FDS_ID
               eventId:
                 description: FactSet identifier that uniquely identifies the Event.
                 example: JTHPFN-A
+                nullable: true
                 type: string
                 x-fds-sdf: ca_event_id
                 x-fds-dh: EVENT_ID
@@ -1979,38 +2040,45 @@ components:
                 - FSP
                 - RSP
                 - SPL
+                nullable: true
                 type: string
                 x-fds-sdf: ca_event_type_code
                 x-fds-dh: EVENT_TYPE_CODE
               eventTypeDesc:
                 description: Corporate Actions Event type description.
+                nullable: true
                 type: string
                 x-fds-sdf: null
                 x-fds-dh: EVENT_TYPE
               divTypeCode:
                 description: |
                   Dividend Type Code. For code descriptions, visit [Online Assistant Page #8764] (https://oa.apps.factset.com/pages/8764).
+                nullable: true
                 type: string
                 x-fds-sdf: div_type_code
                 x-fds-dh: DIVTYPE_NUM
               announcementDate:
                 description: Date Event was announced in YYYY-MM-DD format.
+                nullable: true
                 type: string
                 x-fds-sdf: announcement_date
                 x-fds-dh: ANNDATE
               recordDate:
                 description: Date of Record for distribution in YYYY-MM-DD format.
+                nullable: true
                 type: string
                 x-fds-sdf: record_date
                 x-fds-dh: RECORD_DATE
               payDate:
                 description: Date of Payment for distribution in YYYY-MM-DD format.
+                nullable: true
                 type: string
                 x-fds-sdf: pay_date
                 x-fds-dh: PAYDATE
               effectiveDate:
                 description: Effective Date or Ex-Date of distribution in YYYY-MM-DD
                   format.
+                nullable: true
                 type: string
                 x-fds-sdf: effective_date
                 x-fds-dh: EFFECTIVE_DATE
@@ -2187,12 +2255,23 @@ components:
       type: array
     idsMax50:
       description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
       example:
       - TSLA-US
       items:
         type: string
       maxItems: 50
+      minItems: 1
+      title: ids
+      type: array
+    idsMax1000:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs for multi-day requests and 1000 IDs for single day requests.
+      example:
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 1000
       minItems: 1
       title: ids
       type: array
@@ -2404,12 +2483,27 @@ components:
       example: M
       title: Frequency
       type: string
+    dividendAdjust:
+      default: EXDATE_C
+      description: |
+        Controls the dividend reinvestment for the returns calculation.
+          * **PRICE** = Price Change - Dividends Excluded.
+          * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+      enum:
+      - PRICE
+      - EXDATE
+      - EXDATE_C
+      example: EXDATE_C
+      title: dividendAdjust
+      type: string
     calendar:
       default: FIVEDAY
       description: Calendar of data returned. SEVENDAY includes weekends.
       enum:
       - FIVEDAY
       - SEVENDAY
+      - US
       example: FIVEDAY
       title: Calendar
       type: string
@@ -2907,7 +3001,7 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Requests are limited to 50 IDs.
           example:
           - TSLA-US
           items:
@@ -2936,8 +3030,9 @@ components:
           type: string
         frequency:
           $ref: '#/components/schemas/frequency'
+        dividendAdjust:
+          $ref: '#/components/schemas/dividendAdjust'
       required:
-      - endDate
       - ids
       - startDate
       title: Returns Request Body
@@ -2975,11 +3070,13 @@ components:
           description: FactSet Permanent Identifier. Six alpha-numeric characters,
             excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix (XXXXXX-L).
           example: LCV42P-L
+          nullable: true
           type: string
         totalReturn:
           description: Returns the data for the given input parameters.
           example: 0.927077
           format: double
+          nullable: true
           type: number
         date:
           description: End date of the return. Date in YYYY-MM-DD format. Depending
@@ -2987,11 +3084,13 @@ components:
             period requested.
           example: 2020-11-19
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.

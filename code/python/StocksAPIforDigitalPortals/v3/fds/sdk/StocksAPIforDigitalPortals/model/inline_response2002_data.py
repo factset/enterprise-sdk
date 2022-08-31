@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001_data_target_price import InlineResponse2001DataTargetPrice
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2002_recommendation import InlineResponse2002Recommendation
-    globals()['InlineResponse2001DataTargetPrice'] = InlineResponse2001DataTargetPrice
-    globals()['InlineResponse2002Recommendation'] = InlineResponse2002Recommendation
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2002_ownership import InlineResponse2002Ownership
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2002_type import InlineResponse2002Type
+    globals()['InlineResponse2002Ownership'] = InlineResponse2002Ownership
+    globals()['InlineResponse2002Type'] = InlineResponse2002Type
 
 
 class InlineResponse2002Data(ModelNormal):
@@ -61,14 +61,6 @@ class InlineResponse2002Data(ModelNormal):
     """
 
     allowed_values = {
-        ('snapshot',): {
-            'LATEST': "latest",
-            '1W': "1w",
-            '1M': "1m",
-            '3M': "3m",
-            '6M': "6m",
-            '1Y': "1y",
-        },
     }
 
     validations = {
@@ -97,9 +89,10 @@ class InlineResponse2002Data(ModelNormal):
         """
         lazy_import()
         return {
-            'snapshot': (str,),  # noqa: E501
-            'target_price': (InlineResponse2001DataTargetPrice,),  # noqa: E501
-            'recommendation': (InlineResponse2002Recommendation,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'type': (InlineResponse2002Type,),  # noqa: E501
+            'ownership': (InlineResponse2002Ownership,),  # noqa: E501
         }
 
     @cached_property
@@ -108,9 +101,10 @@ class InlineResponse2002Data(ModelNormal):
 
 
     attribute_map = {
-        'snapshot': 'snapshot',  # noqa: E501
-        'target_price': 'targetPrice',  # noqa: E501
-        'recommendation': 'recommendation',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'ownership': 'ownership',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,9 +148,10 @@ class InlineResponse2002Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            snapshot (str): Identification of the historic snapshot for aggregated recommendations.. [optional]  # noqa: E501
-            target_price (InlineResponse2001DataTargetPrice): [optional]  # noqa: E501
-            recommendation (InlineResponse2002Recommendation): [optional]  # noqa: E501
+            id (str): Identifier of the owner. See endpoint `/legalEntity/list` for possible values.. [optional]  # noqa: E501
+            name (str): Name of the owner.. [optional]  # noqa: E501
+            type (InlineResponse2002Type): [optional]  # noqa: E501
+            ownership (InlineResponse2002Ownership): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,9 +233,10 @@ class InlineResponse2002Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            snapshot (str): Identification of the historic snapshot for aggregated recommendations.. [optional]  # noqa: E501
-            target_price (InlineResponse2001DataTargetPrice): [optional]  # noqa: E501
-            recommendation (InlineResponse2002Recommendation): [optional]  # noqa: E501
+            id (str): Identifier of the owner. See endpoint `/legalEntity/list` for possible values.. [optional]  # noqa: E501
+            name (str): Name of the owner.. [optional]  # noqa: E501
+            type (InlineResponse2002Type): [optional]  # noqa: E501
+            ownership (InlineResponse2002Ownership): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

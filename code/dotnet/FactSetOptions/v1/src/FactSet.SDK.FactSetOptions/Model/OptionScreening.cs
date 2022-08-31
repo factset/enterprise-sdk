@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The option identifier
         /// </summary>
         /// <value>The option identifier</value>
-        [DataMember(Name = "optionId", EmitDefaultValue = false)]
+        [DataMember(Name = "optionId", EmitDefaultValue = true)]
         public string OptionId { get; set; }
 
         /// <summary>

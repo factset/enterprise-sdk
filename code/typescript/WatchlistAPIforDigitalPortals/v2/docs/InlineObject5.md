@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**WatchlistPositionModifyData**](WatchlistPositionModifyData.md) |  | [optional] 
+**data** | [**WatchlistPositionGetData**](WatchlistPositionGetData.md) |  | [optional] 
 **meta** | [**WatchlistCreateMeta**](WatchlistCreateMeta.md) |  | [optional] 
 
 

@@ -43,7 +43,7 @@ public class InlineResponse2001 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private InlineResponse2001Data data;
+  private java.util.List<InlineResponse2001Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
@@ -51,28 +51,36 @@ public class InlineResponse2001 implements Serializable {
   public InlineResponse2001() { 
   }
 
-  public InlineResponse2001 data(InlineResponse2001Data data) {
+  public InlineResponse2001 data(java.util.List<InlineResponse2001Data> data) {
     this.data = data;
     return this;
   }
 
+  public InlineResponse2001 addDataItem(InlineResponse2001Data dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.ArrayList<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * List of trade recommendations and target prices for a stock, in unspecified order.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of trade recommendations and target prices for a stock, in unspecified order.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001Data getData() {
+  public java.util.List<InlineResponse2001Data> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(InlineResponse2001Data data) {
+  public void setData(java.util.List<InlineResponse2001Data> data) {
     this.data = data;
   }
 

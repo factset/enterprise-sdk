@@ -62,7 +62,7 @@ class StockNotationRankingIntradayListMetaPagination(ModelNormal):
             'inclusive_minimum': 0,
         },
         ('limit',): {
-            'inclusive_maximum': 1E+2,
+            'inclusive_maximum': 100,
             'inclusive_minimum': 0,
         },
     }
@@ -143,8 +143,8 @@ class StockNotationRankingIntradayListMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            offset (float): Non-negative number of entries to skip, or 0 (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional]  # noqa: E501
+            offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +226,8 @@ class StockNotationRankingIntradayListMetaPagination(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            offset (float): Non-negative number of entries to skip, or 0 (default).. [optional]  # noqa: E501
-            limit (float): Non-negative maximum number of entries to return.. [optional]  # noqa: E501
+            offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.StocksAPIforDigitalPortals",
-  "packageVersion": "0.9.3",
+  "packageVersion": "0.9.4",
   "packageGuid": "{78566938-ed5b-5815-918f-d9a6553105c1}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.9.3",
+  "httpUserAgent": "fds-sdk/dotnet/StocksAPIforDigitalPortals/0.9.4",
   "files": {
     "LICENSE": {}
   },

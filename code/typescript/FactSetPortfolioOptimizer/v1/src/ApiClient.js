@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetPortfolioOptimizer/0.8.3'
+            'User-Agent': 'fds-sdk/javascript/FactSetPortfolioOptimizer/0.8.4'
         };
 
         /**

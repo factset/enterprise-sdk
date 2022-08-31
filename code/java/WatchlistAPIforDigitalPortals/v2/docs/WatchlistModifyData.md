@@ -8,8 +8,8 @@ The data member contains the request's primary data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of watchlist | 
-**nameNew** | **String** | New name of watchlist | 
+**id** | **String** | Identifier of the watchlist. | 
+**name** | **String** | Name of the watchlist. | 
 
 
 ## Implemented Interfaces

@@ -15,6 +15,7 @@ docs/CorporateActionsRequest.md
 docs/CorporateActionsResponse.md
 docs/Distribution.md
 docs/Dividend.md
+docs/DividendAdjust.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/EventCategory.md
@@ -71,6 +72,7 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/models/CorporateActionsRequest
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/CorporateActionsResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Distribution.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Dividend.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/DividendAdjust.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ErrorResponseSubErrors.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/EventCategory.java

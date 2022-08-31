@@ -82,26 +82,26 @@ class OptionsReferences(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'adjusted_flag': (str,),  # noqa: E501
-            'call_put_flag': (int,),  # noqa: E501
-            'call_put_pair_symbol': (str,),  # noqa: E501
-            'contract_size': (int,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'exchange': (str,),  # noqa: E501
-            'expiration_date': (date,),  # noqa: E501
-            'expiration_frequency': (str,),  # noqa: E501
-            'expiration_month': (str,),  # noqa: E501
-            'lepo_flag': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'occ21_symbol': (str,),  # noqa: E501
-            'opra17_symbol': (str,),  # noqa: E501
-            'root_ticker': (str,),  # noqa: E501
-            'style': (int,),  # noqa: E501
-            'type': (int,),  # noqa: E501
-            'underlying_fsym_security_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'settlement_method': (str,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'adjusted_flag': (str, none_type,),  # noqa: E501
+            'call_put_flag': (int, none_type,),  # noqa: E501
+            'call_put_pair_symbol': (str, none_type,),  # noqa: E501
+            'contract_size': (int, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'exchange': (str, none_type,),  # noqa: E501
+            'expiration_date': (date, none_type,),  # noqa: E501
+            'expiration_frequency': (str, none_type,),  # noqa: E501
+            'expiration_month': (str, none_type,),  # noqa: E501
+            'lepo_flag': (int, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'occ21_symbol': (str, none_type,),  # noqa: E501
+            'opra17_symbol': (str, none_type,),  # noqa: E501
+            'root_ticker': (str, none_type,),  # noqa: E501
+            'style': (int, none_type,),  # noqa: E501
+            'type': (int, none_type,),  # noqa: E501
+            'underlying_fsym_security_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'settlement_method': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -175,26 +175,26 @@ class OptionsReferences(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            adjusted_flag (str): Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.. [optional]  # noqa: E501
-            call_put_flag (int): Returns a 0 if the option is a call, returns a 1 if the option is a put.. [optional]  # noqa: E501
-            call_put_pair_symbol (str): Returns the corresponding put symbol given a call symbol; and vice-versa.. [optional]  # noqa: E501
-            contract_size (int): The Option Contract Size. [optional]  # noqa: E501
-            currency (str): Option Currency in ISO3 format.. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            expiration_date (date): The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format. [optional]  # noqa: E501
-            expiration_frequency (str): Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.. [optional]  # noqa: E501
-            expiration_month (str): Option Expiration month in MMM format.. [optional]  # noqa: E501
-            lepo_flag (int): Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).. [optional]  # noqa: E501
-            name (str): Option Descriptive Security Name. [optional]  # noqa: E501
-            occ21_symbol (str): Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) . [optional]  # noqa: E501
-            opra17_symbol (str): Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) . [optional]  # noqa: E501
-            root_ticker (str): The Root Ticker for the underlying security.. [optional]  # noqa: E501
-            style (int): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
-            type (int): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
-            underlying_fsym_security_id (str): Underlying FactSet Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            settlement_method (str): The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| . [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            adjusted_flag (str, none_type): Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.. [optional]  # noqa: E501
+            call_put_flag (int, none_type): Returns a 0 if the option is a call, returns a 1 if the option is a put.. [optional]  # noqa: E501
+            call_put_pair_symbol (str, none_type): Returns the corresponding put symbol given a call symbol; and vice-versa.. [optional]  # noqa: E501
+            contract_size (int, none_type): The Option Contract Size. [optional]  # noqa: E501
+            currency (str, none_type): Option Currency in ISO3 format.. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            expiration_date (date, none_type): The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format. [optional]  # noqa: E501
+            expiration_frequency (str, none_type): Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.. [optional]  # noqa: E501
+            expiration_month (str, none_type): Option Expiration month in MMM format.. [optional]  # noqa: E501
+            lepo_flag (int, none_type): Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).. [optional]  # noqa: E501
+            name (str, none_type): Option Descriptive Security Name. [optional]  # noqa: E501
+            occ21_symbol (str, none_type): Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) . [optional]  # noqa: E501
+            opra17_symbol (str, none_type): Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) . [optional]  # noqa: E501
+            root_ticker (str, none_type): The Root Ticker for the underlying security.. [optional]  # noqa: E501
+            style (int, none_type): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
+            type (int, none_type): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
+            underlying_fsym_security_id (str, none_type): Underlying FactSet Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            settlement_method (str, none_type): The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| . [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 
@@ -277,26 +277,26 @@ class OptionsReferences(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
-            adjusted_flag (str): Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.. [optional]  # noqa: E501
-            call_put_flag (int): Returns a 0 if the option is a call, returns a 1 if the option is a put.. [optional]  # noqa: E501
-            call_put_pair_symbol (str): Returns the corresponding put symbol given a call symbol; and vice-versa.. [optional]  # noqa: E501
-            contract_size (int): The Option Contract Size. [optional]  # noqa: E501
-            currency (str): Option Currency in ISO3 format.. [optional]  # noqa: E501
-            exchange (str): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
-            expiration_date (date): The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format. [optional]  # noqa: E501
-            expiration_frequency (str): Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.. [optional]  # noqa: E501
-            expiration_month (str): Option Expiration month in MMM format.. [optional]  # noqa: E501
-            lepo_flag (int): Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).. [optional]  # noqa: E501
-            name (str): Option Descriptive Security Name. [optional]  # noqa: E501
-            occ21_symbol (str): Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) . [optional]  # noqa: E501
-            opra17_symbol (str): Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) . [optional]  # noqa: E501
-            root_ticker (str): The Root Ticker for the underlying security.. [optional]  # noqa: E501
-            style (int): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
-            type (int): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
-            underlying_fsym_security_id (str): Underlying FactSet Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
-            settlement_method (str): The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| . [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options). [optional]  # noqa: E501
+            adjusted_flag (str, none_type): Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.. [optional]  # noqa: E501
+            call_put_flag (int, none_type): Returns a 0 if the option is a call, returns a 1 if the option is a put.. [optional]  # noqa: E501
+            call_put_pair_symbol (str, none_type): Returns the corresponding put symbol given a call symbol; and vice-versa.. [optional]  # noqa: E501
+            contract_size (int, none_type): The Option Contract Size. [optional]  # noqa: E501
+            currency (str, none_type): Option Currency in ISO3 format.. [optional]  # noqa: E501
+            exchange (str, none_type): Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.. [optional]  # noqa: E501
+            expiration_date (date, none_type): The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format. [optional]  # noqa: E501
+            expiration_frequency (str, none_type): Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.. [optional]  # noqa: E501
+            expiration_month (str, none_type): Option Expiration month in MMM format.. [optional]  # noqa: E501
+            lepo_flag (int, none_type): Indicates whether or not a given options contract is a Low Exercise Price Option \"LEPO\" (0/1). This is unique to European Options (e.g. ASX exchange).. [optional]  # noqa: E501
+            name (str, none_type): Option Descriptive Security Name. [optional]  # noqa: E501
+            occ21_symbol (str, none_type): Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) . [optional]  # noqa: E501
+            opra17_symbol (str, none_type): Options Price Reporting Authority's OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) . [optional]  # noqa: E501
+            root_ticker (str, none_type): The Root Ticker for the underlying security.. [optional]  # noqa: E501
+            style (int, none_type): Returns the style of the option id requested, where -   |style|description| |---|---| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March '06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. . [optional]  # noqa: E501
+            type (int, none_type): The option type code, where  |code|description| |---|---| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| . [optional]  # noqa: E501
+            underlying_fsym_security_id (str, none_type): Underlying FactSet Security Permanent Identifier in XXXXXX-S format.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            settlement_method (str, none_type): The contract settlement method. Possible values are - |method|description| |---|---| |C|Cash| |P|Physical| |NA|Not Covered| . [optional]  # noqa: E501
             request_id (str): The requested identifier submitted in the query.. [optional]  # noqa: E501
         """
 

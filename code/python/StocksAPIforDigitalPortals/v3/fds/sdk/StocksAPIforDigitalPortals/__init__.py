@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.10.1"
+__version__ = "0.10.3"
 
 # import ApiClient
 from fds.sdk.StocksAPIforDigitalPortals.api_client import ApiClient

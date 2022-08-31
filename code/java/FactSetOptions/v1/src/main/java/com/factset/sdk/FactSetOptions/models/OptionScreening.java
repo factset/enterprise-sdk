@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -41,13 +45,13 @@ public class OptionScreening implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_OPTION_ID = "optionId";
-  private String optionId;
+  private JsonNullable<String> optionId = JsonNullable.<String>undefined();
 
   public OptionScreening() { 
   }
 
   public OptionScreening optionId(String optionId) {
-    this.optionId = optionId;
+    this.optionId = JsonNullable.<String>of(optionId);
     return this;
   }
 
@@ -57,18 +61,26 @@ public class OptionScreening implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "AAPL.US#C0185", value = "The option identifier")
-  @JsonProperty(JSON_PROPERTY_OPTION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getOptionId() {
-    return optionId;
+        return optionId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptionId(String optionId) {
+
+  public JsonNullable<String> getOptionId_JsonNullable() {
+    return optionId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPTION_ID)
+  public void setOptionId_JsonNullable(JsonNullable<String> optionId) {
     this.optionId = optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = JsonNullable.<String>of(optionId);
   }
 
 
@@ -84,12 +96,23 @@ public class OptionScreening implements Serializable {
       return false;
     }
     OptionScreening optionScreening = (OptionScreening) o;
-    return Objects.equals(this.optionId, optionScreening.optionId);
+    return equalsNullable(this.optionId, optionScreening.optionId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(optionId);
+    return Objects.hash(hashCodeNullable(optionId));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

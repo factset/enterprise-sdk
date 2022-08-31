@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2006Meta;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2007Data;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineResponse2007 implements Serializable {
   private java.util.List<InlineResponse2007Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse200Meta meta;
+  private InlineResponse2006Meta meta;
 
   public InlineResponse2007() { 
   }
@@ -65,11 +65,11 @@ public class InlineResponse2007 implements Serializable {
   }
 
    /**
-   * List of dividends.
+   * List of notations.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dividends.")
+  @ApiModelProperty(value = "List of notations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,7 +85,7 @@ public class InlineResponse2007 implements Serializable {
   }
 
 
-  public InlineResponse2007 meta(InlineResponse200Meta meta) {
+  public InlineResponse2007 meta(InlineResponse2006Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -99,14 +99,14 @@ public class InlineResponse2007 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200Meta getMeta() {
+  public InlineResponse2006Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse200Meta meta) {
+  public void setMeta(InlineResponse2006Meta meta) {
     this.meta = meta;
   }
 

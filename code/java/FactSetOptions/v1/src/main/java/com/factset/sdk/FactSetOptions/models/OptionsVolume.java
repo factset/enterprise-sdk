@@ -26,6 +26,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOptions.JSON;
@@ -48,19 +52,19 @@ public class OptionsVolume implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_EXCHANGE = "exchange";
-  private String exchange;
+  private JsonNullable<String> exchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_OPEN_INTEREST = "openInterest";
-  private BigDecimal openInterest;
+  private JsonNullable<BigDecimal> openInterest = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_VOLUME = "volume";
-  private Double volume;
+  private JsonNullable<Double> volume = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -69,7 +73,7 @@ public class OptionsVolume implements Serializable {
   }
 
   public OptionsVolume fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -79,23 +83,31 @@ public class OptionsVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "TSLA.US#PYG8L", value = "FactSet's Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public OptionsVolume date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -105,23 +117,31 @@ public class OptionsVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu May 06 00:00:00 UTC 2021", value = "The date of the data in YYYY-MM-DD format")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public OptionsVolume exchange(String exchange) {
-    this.exchange = exchange;
+    this.exchange = JsonNullable.<String>of(exchange);
     return this;
   }
 
@@ -131,23 +151,31 @@ public class OptionsVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USA", value = "Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExchange() {
-    return exchange;
+        return exchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchange(String exchange) {
+
+  public JsonNullable<String> getExchange_JsonNullable() {
+    return exchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCHANGE)
+  public void setExchange_JsonNullable(JsonNullable<String> exchange) {
     this.exchange = exchange;
+  }
+
+  public void setExchange(String exchange) {
+    this.exchange = JsonNullable.<String>of(exchange);
   }
 
 
   public OptionsVolume openInterest(BigDecimal openInterest) {
-    this.openInterest = openInterest;
+    this.openInterest = JsonNullable.<BigDecimal>of(openInterest);
     return this;
   }
 
@@ -157,23 +185,31 @@ public class OptionsVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "92", value = "The total number of options and/or futures contracts that are not closed or delivered on a particular day.")
-  @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getOpenInterest() {
-    return openInterest;
+        return openInterest.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOpenInterest(BigDecimal openInterest) {
+
+  public JsonNullable<BigDecimal> getOpenInterest_JsonNullable() {
+    return openInterest;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_OPEN_INTEREST)
+  public void setOpenInterest_JsonNullable(JsonNullable<BigDecimal> openInterest) {
     this.openInterest = openInterest;
+  }
+
+  public void setOpenInterest(BigDecimal openInterest) {
+    this.openInterest = JsonNullable.<BigDecimal>of(openInterest);
   }
 
 
   public OptionsVolume volume(Double volume) {
-    this.volume = volume;
+    this.volume = JsonNullable.<Double>of(volume);
     return this;
   }
 
@@ -183,18 +219,26 @@ public class OptionsVolume implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3017", value = "Volume of the option")
-  @JsonProperty(JSON_PROPERTY_VOLUME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getVolume() {
-    return volume;
+        return volume.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVolume(Double volume) {
+
+  public JsonNullable<Double> getVolume_JsonNullable() {
+    return volume;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VOLUME)
+  public void setVolume_JsonNullable(JsonNullable<Double> volume) {
     this.volume = volume;
+  }
+
+  public void setVolume(Double volume) {
+    this.volume = JsonNullable.<Double>of(volume);
   }
 
 
@@ -236,17 +280,28 @@ public class OptionsVolume implements Serializable {
       return false;
     }
     OptionsVolume optionsVolume = (OptionsVolume) o;
-    return Objects.equals(this.fsymId, optionsVolume.fsymId) &&
-        Objects.equals(this.date, optionsVolume.date) &&
-        Objects.equals(this.exchange, optionsVolume.exchange) &&
-        Objects.equals(this.openInterest, optionsVolume.openInterest) &&
-        Objects.equals(this.volume, optionsVolume.volume) &&
+    return equalsNullable(this.fsymId, optionsVolume.fsymId) &&
+        equalsNullable(this.date, optionsVolume.date) &&
+        equalsNullable(this.exchange, optionsVolume.exchange) &&
+        equalsNullable(this.openInterest, optionsVolume.openInterest) &&
+        equalsNullable(this.volume, optionsVolume.volume) &&
         Objects.equals(this.requestId, optionsVolume.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, exchange, openInterest, volume, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(exchange), hashCodeNullable(openInterest), hashCodeNullable(volume), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

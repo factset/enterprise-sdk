@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.DocumentsDistributorCallStreetEvents",
-  "packageVersion": "0.21.0",
+  "packageVersion": "0.21.1",
   "packageGuid": "{e2b3f63c-6b83-5e99-be5e-503a6e476ecf}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/DocumentsDistributorCallStreetEvents/0.21.0",
+  "httpUserAgent": "fds-sdk/dotnet/DocumentsDistributorCallStreetEvents/0.21.1",
   "files": {
     "LICENSE": {}
   },

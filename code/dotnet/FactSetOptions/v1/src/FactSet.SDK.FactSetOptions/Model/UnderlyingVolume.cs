@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="totalPutCallVolume">Total Call/Put Volume.</param>
         /// <param name="totalPutOpenInterest">Total Put Open Interest.</param>
         /// <param name="totalPutVolume">Total Put Volume.</param>
-        public UnderlyingVolume(DateTime date = default(DateTime), string exchange = default(string), string fsymId = default(string), double putCallRatio = default(double), string requestId = default(string), decimal totalCallOpenInterest = default(decimal), double totalCallVolume = default(double), decimal totalPutCallOpenInterest = default(decimal), double totalPutCallVolume = default(double), decimal totalPutOpenInterest = default(decimal), double totalPutVolume = default(double))
+        public UnderlyingVolume(DateTime? date = default(DateTime?), string exchange = default(string), string fsymId = default(string), double? putCallRatio = default(double?), string requestId = default(string), decimal? totalCallOpenInterest = default(decimal?), double? totalCallVolume = default(double?), decimal? totalPutCallOpenInterest = default(decimal?), double? totalPutCallVolume = default(double?), decimal? totalPutOpenInterest = default(decimal?), double? totalPutVolume = default(double?))
         {
             this.Date = date;
             this.Exchange = exchange;
@@ -65,30 +65,30 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The date of data as of the YYYY-MM-DD format.
         /// </summary>
         /// <value>The date of data as of the YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
         /// </summary>
         /// <value>Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.</value>
-        [DataMember(Name = "exchange", EmitDefaultValue = false)]
+        [DataMember(Name = "exchange", EmitDefaultValue = true)]
         public string Exchange { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Security Permanent Identifier for input security in XXXXXX-S format.
         /// </summary>
         /// <value>FactSet&#39;s Security Permanent Identifier for input security in XXXXXX-S format.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Put/Call Ratio (Open Interest)
         /// </summary>
         /// <value>Put/Call Ratio (Open Interest)</value>
-        [DataMember(Name = "putCallRatio", EmitDefaultValue = false)]
-        public double PutCallRatio { get; set; }
+        [DataMember(Name = "putCallRatio", EmitDefaultValue = true)]
+        public double? PutCallRatio { get; set; }
 
         /// <summary>
         /// The requested identifier submitted in the query.
@@ -101,43 +101,43 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// Total Call Open Interest
         /// </summary>
         /// <value>Total Call Open Interest</value>
-        [DataMember(Name = "totalCallOpenInterest", EmitDefaultValue = false)]
-        public decimal TotalCallOpenInterest { get; set; }
+        [DataMember(Name = "totalCallOpenInterest", EmitDefaultValue = true)]
+        public decimal? TotalCallOpenInterest { get; set; }
 
         /// <summary>
         /// Total Call Volume
         /// </summary>
         /// <value>Total Call Volume</value>
-        [DataMember(Name = "totalCallVolume", EmitDefaultValue = false)]
-        public double TotalCallVolume { get; set; }
+        [DataMember(Name = "totalCallVolume", EmitDefaultValue = true)]
+        public double? TotalCallVolume { get; set; }
 
         /// <summary>
         /// Total Call/Put Open Interest
         /// </summary>
         /// <value>Total Call/Put Open Interest</value>
-        [DataMember(Name = "totalPutCallOpenInterest", EmitDefaultValue = false)]
-        public decimal TotalPutCallOpenInterest { get; set; }
+        [DataMember(Name = "totalPutCallOpenInterest", EmitDefaultValue = true)]
+        public decimal? TotalPutCallOpenInterest { get; set; }
 
         /// <summary>
         /// Total Call/Put Volume
         /// </summary>
         /// <value>Total Call/Put Volume</value>
-        [DataMember(Name = "totalPutCallVolume", EmitDefaultValue = false)]
-        public double TotalPutCallVolume { get; set; }
+        [DataMember(Name = "totalPutCallVolume", EmitDefaultValue = true)]
+        public double? TotalPutCallVolume { get; set; }
 
         /// <summary>
         /// Total Put Open Interest
         /// </summary>
         /// <value>Total Put Open Interest</value>
-        [DataMember(Name = "totalPutOpenInterest", EmitDefaultValue = false)]
-        public decimal TotalPutOpenInterest { get; set; }
+        [DataMember(Name = "totalPutOpenInterest", EmitDefaultValue = true)]
+        public decimal? TotalPutOpenInterest { get; set; }
 
         /// <summary>
         /// Total Put Volume
         /// </summary>
         /// <value>Total Put Volume</value>
-        [DataMember(Name = "totalPutVolume", EmitDefaultValue = false)]
-        public double TotalPutVolume { get; set; }
+        [DataMember(Name = "totalPutVolume", EmitDefaultValue = true)]
+        public double? TotalPutVolume { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -210,7 +210,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.PutCallRatio == input.PutCallRatio ||
-                    this.PutCallRatio.Equals(input.PutCallRatio)
+                    (this.PutCallRatio != null &&
+                    this.PutCallRatio.Equals(input.PutCallRatio))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -219,27 +220,33 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.TotalCallOpenInterest == input.TotalCallOpenInterest ||
-                    this.TotalCallOpenInterest.Equals(input.TotalCallOpenInterest)
+                    (this.TotalCallOpenInterest != null &&
+                    this.TotalCallOpenInterest.Equals(input.TotalCallOpenInterest))
                 ) && 
                 (
                     this.TotalCallVolume == input.TotalCallVolume ||
-                    this.TotalCallVolume.Equals(input.TotalCallVolume)
+                    (this.TotalCallVolume != null &&
+                    this.TotalCallVolume.Equals(input.TotalCallVolume))
                 ) && 
                 (
                     this.TotalPutCallOpenInterest == input.TotalPutCallOpenInterest ||
-                    this.TotalPutCallOpenInterest.Equals(input.TotalPutCallOpenInterest)
+                    (this.TotalPutCallOpenInterest != null &&
+                    this.TotalPutCallOpenInterest.Equals(input.TotalPutCallOpenInterest))
                 ) && 
                 (
                     this.TotalPutCallVolume == input.TotalPutCallVolume ||
-                    this.TotalPutCallVolume.Equals(input.TotalPutCallVolume)
+                    (this.TotalPutCallVolume != null &&
+                    this.TotalPutCallVolume.Equals(input.TotalPutCallVolume))
                 ) && 
                 (
                     this.TotalPutOpenInterest == input.TotalPutOpenInterest ||
-                    this.TotalPutOpenInterest.Equals(input.TotalPutOpenInterest)
+                    (this.TotalPutOpenInterest != null &&
+                    this.TotalPutOpenInterest.Equals(input.TotalPutOpenInterest))
                 ) && 
                 (
                     this.TotalPutVolume == input.TotalPutVolume ||
-                    this.TotalPutVolume.Equals(input.TotalPutVolume)
+                    (this.TotalPutVolume != null &&
+                    this.TotalPutVolume.Equals(input.TotalPutVolume))
                 );
         }
 
@@ -264,17 +271,38 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PutCallRatio.GetHashCode();
+                if (this.PutCallRatio != null)
+                {
+                    hashCode = (hashCode * 59) + this.PutCallRatio.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalCallOpenInterest.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalCallVolume.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalPutCallOpenInterest.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalPutCallVolume.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalPutOpenInterest.GetHashCode();
-                hashCode = (hashCode * 59) + this.TotalPutVolume.GetHashCode();
+                if (this.TotalCallOpenInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalCallOpenInterest.GetHashCode();
+                }
+                if (this.TotalCallVolume != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalCallVolume.GetHashCode();
+                }
+                if (this.TotalPutCallOpenInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPutCallOpenInterest.GetHashCode();
+                }
+                if (this.TotalPutCallVolume != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPutCallVolume.GetHashCode();
+                }
+                if (this.TotalPutOpenInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPutOpenInterest.GetHashCode();
+                }
+                if (this.TotalPutVolume != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalPutVolume.GetHashCode();
+                }
                 return hashCode;
             }
         }

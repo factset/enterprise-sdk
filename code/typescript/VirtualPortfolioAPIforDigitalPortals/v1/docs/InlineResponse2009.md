@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** |  | [optional] 
-**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
+**data** | [**InlineResponse2009Data**](InlineResponse2009Data.md) |  | [optional] 
+**meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
 
 

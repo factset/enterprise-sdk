@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## asynchStreetaccountV1CheckStatusGet
 
-> [Checkstatus] asynchStreetaccountV1CheckStatusGet(jobID)
+> CheckstatusResponse asynchStreetaccountV1CheckStatusGet(jobID, opts)
 
 Returns the status and percentDone of the requested jobID
 
@@ -45,9 +45,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new StreetAccountXMLAPIApi();
 const jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to know the status and percentDone
+const opts = {
+  'paginationLimit': 56, // Number | Specifies the maximum number of results to return per result
+  'paginationOffset': 56 // Number | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+};
 
 // Call api endpoint
-apiInstance.asynchStreetaccountV1CheckStatusGet(jobID).then(
+apiInstance.asynchStreetaccountV1CheckStatusGet(jobID, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -67,10 +71,12 @@ apiInstance.asynchStreetaccountV1CheckStatusGet(jobID).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **String**| jobID returned by the request-files endpoint to know the status and percentDone | 
+ **paginationLimit** | **Number**| Specifies the maximum number of results to return per result | [optional] 
+ **paginationOffset** | **Number**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional] 
 
 ### Return type
 
-[**[Checkstatus]**](Checkstatus.md)
+[**CheckstatusResponse**](CheckstatusResponse.md)
 
 ### Authorization
 
@@ -84,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## asynchStreetaccountV1GetFilesGet
 
-> [Getfiles] asynchStreetaccountV1GetFilesGet(jobID)
+> GetfilesResponse asynchStreetaccountV1GetFilesGet(jobID, opts)
 
 Returns the SA XML files for the specified daterange
 
@@ -117,9 +123,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new StreetAccountXMLAPIApi();
 const jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to collect the results of the query
+const opts = {
+  'paginationLimit': 56, // Number | Specifies the maximum number of results to return per result
+  'paginationOffset': 56 // Number | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results
+};
 
 // Call api endpoint
-apiInstance.asynchStreetaccountV1GetFilesGet(jobID).then(
+apiInstance.asynchStreetaccountV1GetFilesGet(jobID, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -139,10 +149,12 @@ apiInstance.asynchStreetaccountV1GetFilesGet(jobID).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **jobID** | **String**| jobID returned by the request-files endpoint to collect the results of the query | 
+ **paginationLimit** | **Number**| Specifies the maximum number of results to return per result | [optional] 
+ **paginationOffset** | **Number**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional] 
 
 ### Return type
 
-[**[Getfiles]**](Getfiles.md)
+[**GetfilesResponse**](GetfilesResponse.md)
 
 ### Authorization
 

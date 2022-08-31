@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20011Data]**](InlineResponse20011Data.md) | Positions of the watchlist. | [optional] 
-**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
+**data** | [**[InlineResponse20011Data]**](InlineResponse20011Data.md) | List of transactions. | [optional] 
+**meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
 
 

@@ -6,7 +6,7 @@ Transaction of the portfolio.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Identifier of the transaction. | 
-**notation** | [**PortfolioTransactionDeleteDataNotation**](PortfolioTransactionDeleteDataNotation.md) |  | [optional] 
+**notation** | [**PortfolioPayoutModifyDataPayoutNotation**](PortfolioPayoutModifyDataPayoutNotation.md) |  | [optional] 
 **time** | **str** | Date and time of the trade. | [optional] 
 **number_shares** | **float** | Number of shares bought or sold. | [optional] 
 **price** | **float** | Purchase price. | [optional] 

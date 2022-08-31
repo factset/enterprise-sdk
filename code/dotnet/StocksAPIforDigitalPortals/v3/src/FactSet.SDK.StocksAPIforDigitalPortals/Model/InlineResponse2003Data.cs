@@ -34,13 +34,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003Data" /> class.
         /// </summary>
+        /// <param name="id">Identifier of a dividend..</param>
         /// <param name="type">type.</param>
-        /// <param name="officers">List of officers that are members of the board..</param>
-        public InlineResponse2003Data(InlineResponse2003Type type = default(InlineResponse2003Type), List<InlineResponse2003Officers> officers = default(List<InlineResponse2003Officers>))
+        /// <param name="occurrence">occurrence.</param>
+        /// <param name="dates">dates.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="gross">gross.</param>
+        public InlineResponse2003Data(string id = default(string), InlineResponse2003Type type = default(InlineResponse2003Type), InlineResponse2003Occurrence occurrence = default(InlineResponse2003Occurrence), InlineResponse2003Dates dates = default(InlineResponse2003Dates), InlineResponse2003Currency currency = default(InlineResponse2003Currency), InlineResponse2003Gross gross = default(InlineResponse2003Gross))
         {
+            this.Id = id;
             this.Type = type;
-            this.Officers = officers;
+            this.Occurrence = occurrence;
+            this.Dates = dates;
+            this.Currency = currency;
+            this.Gross = gross;
         }
+
+        /// <summary>
+        /// Identifier of a dividend.
+        /// </summary>
+        /// <value>Identifier of a dividend.</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -49,11 +64,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public InlineResponse2003Type Type { get; set; }
 
         /// <summary>
-        /// List of officers that are members of the board.
+        /// Gets or Sets Occurrence
         /// </summary>
-        /// <value>List of officers that are members of the board.</value>
-        [DataMember(Name = "officers", EmitDefaultValue = false)]
-        public List<InlineResponse2003Officers> Officers { get; set; }
+        [DataMember(Name = "occurrence", EmitDefaultValue = false)]
+        public InlineResponse2003Occurrence Occurrence { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Dates
+        /// </summary>
+        [DataMember(Name = "dates", EmitDefaultValue = false)]
+        public InlineResponse2003Dates Dates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Currency
+        /// </summary>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public InlineResponse2003Currency Currency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Gross
+        /// </summary>
+        [DataMember(Name = "gross", EmitDefaultValue = false)]
+        public InlineResponse2003Gross Gross { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +95,12 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Data {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Officers: ").Append(Officers).Append("\n");
+            sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
+            sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  Gross: ").Append(Gross).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +137,34 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Officers == input.Officers ||
-                    this.Officers != null &&
-                    input.Officers != null &&
-                    this.Officers.SequenceEqual(input.Officers)
+                    this.Occurrence == input.Occurrence ||
+                    (this.Occurrence != null &&
+                    this.Occurrence.Equals(input.Occurrence))
+                ) && 
+                (
+                    this.Dates == input.Dates ||
+                    (this.Dates != null &&
+                    this.Dates.Equals(input.Dates))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.Gross == input.Gross ||
+                    (this.Gross != null &&
+                    this.Gross.Equals(input.Gross))
                 );
         }
 
@@ -122,13 +177,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
-                if (this.Officers != null)
+                if (this.Occurrence != null)
                 {
-                    hashCode = (hashCode * 59) + this.Officers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Occurrence.GetHashCode();
+                }
+                if (this.Dates != null)
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.Gross != null)
+                {
+                    hashCode = (hashCode * 59) + this.Gross.GetHashCode();
                 }
                 return hashCode;
             }

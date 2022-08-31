@@ -1,0 +1,11 @@
+# stocksapifordigitalportals.InlineResponse2006Trade
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**time** | **String** | Date and time. | [optional] 
+**price** | **Number** | Price value. See attribute &#x60;currency&#x60; for its currency. | [optional] 
+**performance** | [**InlineResponse2006TradePerformance**](InlineResponse2006TradePerformance.md) |  | [optional] 
+
+

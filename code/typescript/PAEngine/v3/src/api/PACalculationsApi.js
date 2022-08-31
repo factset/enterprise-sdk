@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import CalculationStatusRoot from '../model/CalculationStatusRoot';
+import CalculationsSummaryRoot from '../model/CalculationsSummaryRoot';
 import ClientErrorResponse from '../model/ClientErrorResponse';
 import ObjectRoot from '../model/ObjectRoot';
 import PACalculationParametersRoot from '../model/PACalculationParametersRoot';
@@ -82,6 +83,57 @@ export default class PACalculationsApi {
      */
     cancelCalculationById(id) {
       return this.cancelCalculationByIdWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get all calculations
+     * This endpoints returns all calculation requests.
+     * @param {Number} pageNumber 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CalculationsSummaryRoot} and HTTP response
+     */
+    getAllCalculationsWithHttpInfo(pageNumber) {
+      let postBody = null;
+      // verify the required parameter 'pageNumber' is set
+      if (pageNumber === undefined || pageNumber === null) {
+        throw new Error("Missing the required parameter 'pageNumber' when calling getAllCalculations");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'pageNumber': pageNumber
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = CalculationsSummaryRoot;
+
+      return this.apiClient.callApi(
+        '/analytics/engines/pa/v3/calculations', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all calculations
+     * This endpoints returns all calculation requests.
+     * @param {Number} pageNumber 
+     * @return { Promise.< module:model/CalculationsSummaryRoot > } a Promise, with data of type {@link module:model/CalculationsSummaryRoot }
+     */
+    getAllCalculations(pageNumber) {
+      return this.getAllCalculationsWithHttpInfo(pageNumber)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

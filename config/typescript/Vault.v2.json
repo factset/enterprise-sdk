@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-vault",
-  "projectVersion": "0.8.3",
+  "projectVersion": "0.8.5",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Vault client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "vault",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/Vault/0.8.3",
+  "httpUserAgent": "fds-sdk/javascript/Vault/0.8.5",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

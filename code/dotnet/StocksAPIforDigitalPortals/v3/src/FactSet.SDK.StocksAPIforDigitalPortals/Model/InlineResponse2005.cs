@@ -34,7 +34,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005" /> class.
         /// </summary>
-        /// <param name="data">List of company board types sorted ascending by the identifier of the type..</param>
+        /// <param name="data">List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array..</param>
         /// <param name="meta">meta.</param>
         public InlineResponse2005(List<InlineResponse2005Data> data = default(List<InlineResponse2005Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// List of company board types sorted ascending by the identifier of the type.
+        /// List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.
         /// </summary>
-        /// <value>List of company board types sorted ascending by the identifier of the type.</value>
+        /// <value>List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse2005Data> Data { get; set; }
 

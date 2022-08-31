@@ -509,7 +509,7 @@ class StockNotationScreenerSearchMeta(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes (AttributesMember): [optional]  # noqa: E501
             language (LanguageMember): [optional]  # noqa: E501
-            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed.. [optional]  # noqa: E501
+            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed.. [optional] if omitted the server will use the default value of ["inSortEnumument.name"]  # noqa: E501
             pagination (StockNotationScreenerSearchMetaPagination): [optional]  # noqa: E501
         """
 
@@ -594,7 +594,7 @@ class StockNotationScreenerSearchMeta(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             attributes (AttributesMember): [optional]  # noqa: E501
             language (LanguageMember): [optional]  # noqa: E501
-            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed.. [optional]  # noqa: E501
+            sort ([str]): Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed.. [optional] if omitted the server will use the default value of ["inSortEnumument.name"]  # noqa: E501
             pagination (StockNotationScreenerSearchMetaPagination): [optional]  # noqa: E501
         """
 

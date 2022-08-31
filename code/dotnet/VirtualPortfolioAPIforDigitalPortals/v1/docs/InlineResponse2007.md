@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | **Object** | The response is always empty. | [optional] 
-**Meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  | [optional] 
+**Data** | [**List&lt;InlineResponse2007Data&gt;**](InlineResponse2007Data.md) | List of payouts. | [optional] 
+**Meta** | [**InlineResponse2007Meta**](InlineResponse2007Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

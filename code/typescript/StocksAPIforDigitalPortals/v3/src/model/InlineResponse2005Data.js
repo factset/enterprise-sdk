@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2005Notation from './InlineResponse2005Notation';
+import InlineResponse2005Status from './InlineResponse2005Status';
 
 /**
  * The InlineResponse2005Data model module.
@@ -46,14 +48,20 @@ class InlineResponse2005Data {
         if (data) {
             obj = obj || new InlineResponse2005Data();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+            if (data.hasOwnProperty('notation')) {
+                obj['notation'] = InlineResponse2005Notation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('beta')) {
+                obj['beta'] = ApiClient.convertToType(data['beta'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            if (data.hasOwnProperty('correlation')) {
+                obj['correlation'] = ApiClient.convertToType(data['correlation'], 'Number');
+            }
+            if (data.hasOwnProperty('outperformance')) {
+                obj['outperformance'] = ApiClient.convertToType(data['outperformance'], 'Number');
+            }
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = InlineResponse2005Status.constructFromObject(data['status']);
             }
         }
         return obj;
@@ -63,22 +71,32 @@ class InlineResponse2005Data {
 }
 
 /**
- * Identifier of a type.
- * @member {Number} id
+ * @member {module:model/InlineResponse2005Notation} notation
  */
-InlineResponse2005Data.prototype['id'] = undefined;
+InlineResponse2005Data.prototype['notation'] = undefined;
 
 /**
- * Name of the type.
- * @member {String} name
+ * Beta of the notation.
+ * @member {Number} beta
  */
-InlineResponse2005Data.prototype['name'] = undefined;
+InlineResponse2005Data.prototype['beta'] = undefined;
 
 /**
- * Description of the type.
- * @member {String} description
+ * Correlation of the notation.
+ * @member {Number} correlation
  */
-InlineResponse2005Data.prototype['description'] = undefined;
+InlineResponse2005Data.prototype['correlation'] = undefined;
+
+/**
+ * Outperformance of the notation.
+ * @member {Number} outperformance
+ */
+InlineResponse2005Data.prototype['outperformance'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2005Status} status
+ */
+InlineResponse2005Data.prototype['status'] = undefined;
 
 
 

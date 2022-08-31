@@ -1,249 +1,34 @@
 # virtualportfolioapifordigitalportals.PortfolioApi
 
-All URIs are relative to *http://api-sandbox.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**portfolioCreatePost**](PortfolioApi.md#portfolioCreatePost) | **POST** /portfolio/create | Create a portfolio.
-[**portfolioDeletePost**](PortfolioApi.md#portfolioDeletePost) | **POST** /portfolio/delete | Delete a portfolio.
-[**portfolioEvaluationListPost**](PortfolioApi.md#portfolioEvaluationListPost) | **POST** /portfolio/evaluation/list | Evaluate a portfolio.
-[**portfolioGetGet**](PortfolioApi.md#portfolioGetGet) | **GET** /portfolio/get | Details of a portfolio.
-[**portfolioListGet**](PortfolioApi.md#portfolioListGet) | **GET** /portfolio/list | List of portfolios with keyfigures.
-[**portfolioModifyPost**](PortfolioApi.md#portfolioModifyPost) | **POST** /portfolio/modify | Modify a portfolio.
-[**portfolioNameListGet**](PortfolioApi.md#portfolioNameListGet) | **GET** /portfolio/name/list | List of portfolios.
-[**portfolioPositionListGet**](PortfolioApi.md#portfolioPositionListGet) | **GET** /portfolio/position/list | List all positions of a portfolio.
-[**portfolioTransactionCashCreatePost**](PortfolioApi.md#portfolioTransactionCashCreatePost) | **POST** /portfolio/transaction/cash/create | Add a cash transaction to a portfolio.
-[**portfolioTransactionCashDeletePost**](PortfolioApi.md#portfolioTransactionCashDeletePost) | **POST** /portfolio/transaction/cash/delete | Delete a cash transaction.
-[**portfolioTransactionCreatePost**](PortfolioApi.md#portfolioTransactionCreatePost) | **POST** /portfolio/transaction/create | Add a transaction to a portfolio.
-[**portfolioTransactionDeletePost**](PortfolioApi.md#portfolioTransactionDeletePost) | **POST** /portfolio/transaction/delete | Delete a transaction of a portfolio.
-[**portfolioTransactionListGet**](PortfolioApi.md#portfolioTransactionListGet) | **GET** /portfolio/transaction/list | List of transactions in a portfolio.
-[**portfolioTransactionModifyPost**](PortfolioApi.md#portfolioTransactionModifyPost) | **POST** /portfolio/transaction/modify | Modify a transaction in a portfolio.
-
-
-
-## portfolioCreatePost
-
-> InlineResponse201 portfolioCreatePost(body)
-
-Create a portfolio.
-
-Create a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of portfolios would exceed 100.|400 Bad Request|
-
-### Example
-
-```javascript
-const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new PortfolioApi();
-const body = new virtualportfolioapifordigitalportals.InlineObject(); // InlineObject | 
-
-// Call api endpoint
-apiInstance.portfolioCreatePost(body).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | 
-
-### Return type
-
-[**InlineResponse201**](InlineResponse201.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## portfolioDeletePost
-
-> InlineResponse200 portfolioDeletePost(opts)
-
-Delete a portfolio.
-
-Delete a portfolio.
-
-### Example
-
-```javascript
-const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new PortfolioApi();
-const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject1() // InlineObject1 | 
-};
-
-// Call api endpoint
-apiInstance.portfolioDeletePost(opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## portfolioEvaluationListPost
-
-> InlineResponse2004 portfolioEvaluationListPost(opts)
-
-Evaluate a portfolio.
-
-Performs an evaluation over a period of time and returns portfolio key figures for each day, week, or month.
-
-### Example
-
-```javascript
-const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new PortfolioApi();
-const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject3() // InlineObject3 | 
-};
-
-// Call api endpoint
-apiInstance.portfolioEvaluationListPost(opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## portfolioGetGet
-
-> InlineResponse2001 portfolioGetGet(id, opts)
+[**getPortfolioGet**](PortfolioApi.md#getPortfolioGet) | **GET** /portfolio/get | Details of a portfolio.
+[**getPortfolioList**](PortfolioApi.md#getPortfolioList) | **GET** /portfolio/list | List of portfolios with keyfigures.
+[**getPortfolioNameList**](PortfolioApi.md#getPortfolioNameList) | **GET** /portfolio/name/list | List of portfolios.
+[**getPortfolioPositionList**](PortfolioApi.md#getPortfolioPositionList) | **GET** /portfolio/position/list | List all open positions of a portfolio.
+[**getPortfolioTransactionList**](PortfolioApi.md#getPortfolioTransactionList) | **GET** /portfolio/transaction/list | List of transactions in a portfolio.
+[**postPortfolioCreate**](PortfolioApi.md#postPortfolioCreate) | **POST** /portfolio/create | Create a portfolio.
+[**postPortfolioDelete**](PortfolioApi.md#postPortfolioDelete) | **POST** /portfolio/delete | Delete a portfolio.
+[**postPortfolioEvaluationList**](PortfolioApi.md#postPortfolioEvaluationList) | **POST** /portfolio/evaluation/list | Evaluate a portfolio.
+[**postPortfolioModify**](PortfolioApi.md#postPortfolioModify) | **POST** /portfolio/modify | Modify a portfolio.
+[**postPortfolioPayoutCreate**](PortfolioApi.md#postPortfolioPayoutCreate) | **POST** /portfolio/payout/create | Add a payout to a portfolio.
+[**postPortfolioPayoutDelete**](PortfolioApi.md#postPortfolioPayoutDelete) | **POST** /portfolio/payout/delete | Delete a payout of a portfolio.
+[**postPortfolioPayoutList**](PortfolioApi.md#postPortfolioPayoutList) | **POST** /portfolio/payout/list | List of payouts in a portfolio.
+[**postPortfolioPayoutModify**](PortfolioApi.md#postPortfolioPayoutModify) | **POST** /portfolio/payout/modify | Modify a payout in a portfolio.
+[**postPortfolioPositionClosedList**](PortfolioApi.md#postPortfolioPositionClosedList) | **POST** /portfolio/position/closed/list | List all closed positions of a portfolio.
+[**postPortfolioTransactionCashCreate**](PortfolioApi.md#postPortfolioTransactionCashCreate) | **POST** /portfolio/transaction/cash/create | Add a cash transaction to a portfolio.
+[**postPortfolioTransactionCashDelete**](PortfolioApi.md#postPortfolioTransactionCashDelete) | **POST** /portfolio/transaction/cash/delete | Delete a cash transaction.
+[**postPortfolioTransactionCreate**](PortfolioApi.md#postPortfolioTransactionCreate) | **POST** /portfolio/transaction/create | Add a transaction to a portfolio.
+[**postPortfolioTransactionDelete**](PortfolioApi.md#postPortfolioTransactionDelete) | **POST** /portfolio/transaction/delete | Delete a transaction of a portfolio.
+[**postPortfolioTransactionModify**](PortfolioApi.md#postPortfolioTransactionModify) | **POST** /portfolio/transaction/modify | Modify a transaction in a portfolio.
+
+
+
+## getPortfolioGet
+
+> InlineResponse2001 getPortfolioGet(id, opts)
 
 Details of a portfolio.
 
@@ -275,13 +60,13 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PortfolioApi();
-const id = "id_example"; // String | Identifier of the portfolio.
+const id = "id_example"; // String | 
 const opts = {
   'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
 };
 
 // Call api endpoint
-apiInstance.portfolioGetGet(id, opts).then(
+apiInstance.getPortfolioGet(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -300,7 +85,7 @@ apiInstance.portfolioGetGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the portfolio. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
@@ -317,9 +102,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioListGet
+## getPortfolioList
 
-> InlineResponse2002 portfolioListGet(opts)
+> InlineResponse2002 getPortfolioList(opts)
 
 List of portfolios with keyfigures.
 
@@ -357,7 +142,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.portfolioListGet(opts).then(
+apiInstance.getPortfolioList(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -393,83 +178,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioModifyPost
+## getPortfolioNameList
 
-> InlineResponse2003 portfolioModifyPost(opts)
-
-Modify a portfolio.
-
-Modify a portfolio.
-
-### Example
-
-```javascript
-const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new PortfolioApi();
-const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject2() // InlineObject2 | 
-};
-
-// Call api endpoint
-apiInstance.portfolioModifyPost(opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
-
-### Return type
-
-[**InlineResponse2003**](InlineResponse2003.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## portfolioNameListGet
-
-> InlineResponse2005 portfolioNameListGet(opts)
+> InlineResponse2005 getPortfolioNameList(opts)
 
 List of portfolios.
 
@@ -507,7 +218,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.portfolioNameListGet(opts).then(
+apiInstance.getPortfolioNameList(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -543,13 +254,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioPositionListGet
+## getPortfolioPositionList
 
-> InlineResponse2006 portfolioPositionListGet(id, opts)
+> InlineResponse2009 getPortfolioPositionList(id, opts)
 
-List all positions of a portfolio.
+List all open positions of a portfolio.
 
-List all positions of a portfolio.
+List all open positions of a portfolio.
 
 ### Example
 
@@ -577,13 +288,17 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PortfolioApi();
-const id = "id_example"; // String | Identifier of the portfolio.
+const id = "id_example"; // String | 
 const opts = {
-  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
+  'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
+  'language': "language_example", // String | 
+  'sort': ["null"], // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed.
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
 };
 
 // Call api endpoint
-apiInstance.portfolioPositionListGet(id, opts).then(
+apiInstance.getPortfolioPositionList(id, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -602,12 +317,16 @@ apiInstance.portfolioPositionListGet(id, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the portfolio. | 
+ **id** | **String**|  | 
  **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **language** | **String**|  | [optional] 
+ **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 10 (possibly prefixed) attribute name(s) is allowed. | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -619,9 +338,755 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioTransactionCashCreatePost
+## getPortfolioTransactionList
 
-> InlineResponse2011 portfolioTransactionCashCreatePost(opts)
+> InlineResponse20011 getPortfolioTransactionList(id, opts)
+
+List of transactions in a portfolio.
+
+List of transactions in a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const id = "id_example"; // String | 
+const opts = {
+  'attributes': ["null"], // [String] | Limit the attributes returned in the response to the specified set.
+  'language': "language_example", // String | 
+  'sort': ["null"], // [String] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 7 (possibly prefixed) attribute name(s) is allowed.
+  'paginationOffset': 0, // Number | Non-negative number of entries to skip, or 0 (default).
+  'paginationLimit': 20 // Number | Non-negative maximum number of entries to return.
+};
+
+// Call api endpoint
+apiInstance.getPortfolioTransactionList(id, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
+ **language** | **String**|  | [optional] 
+ **sort** | [**[String]**](String.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 7 (possibly prefixed) attribute name(s) is allowed. | [optional] 
+ **paginationOffset** | **Number**| Non-negative number of entries to skip, or 0 (default). | [optional] [default to 0]
+ **paginationLimit** | **Number**| Non-negative maximum number of entries to return. | [optional] [default to 20]
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postPortfolioCreate
+
+> InlineResponse201 postPortfolioCreate(inlineObject)
+
+Create a portfolio.
+
+Create a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of portfolios would exceed 100.|400 Bad Request|
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const inlineObject = new virtualportfolioapifordigitalportals.InlineObject(); // InlineObject | 
+
+// Call api endpoint
+apiInstance.postPortfolioCreate(inlineObject).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioDelete
+
+> InlineResponse200 postPortfolioDelete(opts)
+
+Delete a portfolio.
+
+Delete a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject1': new virtualportfolioapifordigitalportals.InlineObject1() // InlineObject1 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioDelete(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioEvaluationList
+
+> InlineResponse2004 postPortfolioEvaluationList(opts)
+
+Evaluate a portfolio.
+
+Performs an evaluation over a period of time and returns portfolio key figures for each day, week, or month.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject3': new virtualportfolioapifordigitalportals.InlineObject3() // InlineObject3 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioEvaluationList(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioModify
+
+> InlineResponse2003 postPortfolioModify(opts)
+
+Modify a portfolio.
+
+Modify a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject2': new virtualportfolioapifordigitalportals.InlineObject2() // InlineObject2 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioModify(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioPayoutCreate
+
+> InlineResponse2011 postPortfolioPayoutCreate(opts)
+
+Add a payout to a portfolio.
+
+Add a payout to a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject4': new virtualportfolioapifordigitalportals.InlineObject4() // InlineObject4 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioPayoutCreate(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioPayoutDelete
+
+> InlineResponse2006 postPortfolioPayoutDelete(opts)
+
+Delete a payout of a portfolio.
+
+Delete a payout of a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |Invalid payout identifier.|400 Bad Request|
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject5': new virtualportfolioapifordigitalportals.InlineObject5() // InlineObject5 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioPayoutDelete(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2006**](InlineResponse2006.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioPayoutList
+
+> InlineResponse2007 postPortfolioPayoutList(inlineObject6)
+
+List of payouts in a portfolio.
+
+List of payouts in a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const inlineObject6 = new virtualportfolioapifordigitalportals.InlineObject6(); // InlineObject6 | 
+
+// Call api endpoint
+apiInstance.postPortfolioPayoutList(inlineObject6).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | 
+
+### Return type
+
+[**InlineResponse2007**](InlineResponse2007.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioPayoutModify
+
+> InlineResponse2008 postPortfolioPayoutModify(opts)
+
+Modify a payout in a portfolio.
+
+Modify a payout in a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |At least one of the parameters &#x60;notation&#x60;, &#x60;type&#x60;, &#x60;amount&#x60;, &#x60;transaction&#x60; or &#x60;time&#x60; must be set.|400 Bad Request| |Invalid payout identifier.|400 Bad Request|
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject7': new virtualportfolioapifordigitalportals.InlineObject7() // InlineObject7 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioPayoutModify(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse2008**](InlineResponse2008.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioPositionClosedList
+
+> InlineResponse20010 postPortfolioPositionClosedList(opts)
+
+List all closed positions of a portfolio.
+
+List all closed positions of a portfolio.
+
+### Example
+
+```javascript
+const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new PortfolioApi();
+const opts = {
+  'inlineObject8': new virtualportfolioapifordigitalportals.InlineObject8() // InlineObject8 | 
+};
+
+// Call api endpoint
+apiInstance.postPortfolioPositionClosedList(opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse20010**](InlineResponse20010.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postPortfolioTransactionCashCreate
+
+> InlineResponse2012 postPortfolioTransactionCashCreate(opts)
 
 Add a cash transaction to a portfolio.
 
@@ -654,11 +1119,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PortfolioApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject7() // InlineObject7 | 
+  'inlineObject12': new virtualportfolioapifordigitalportals.InlineObject12() // InlineObject12 | 
 };
 
 // Call api endpoint
-apiInstance.portfolioTransactionCashCreatePost(opts).then(
+apiInstance.postPortfolioTransactionCashCreate(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -677,11 +1142,11 @@ apiInstance.portfolioTransactionCashCreatePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -693,9 +1158,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioTransactionCashDeletePost
+## postPortfolioTransactionCashDelete
 
-> InlineResponse2007 portfolioTransactionCashDeletePost(opts)
+> InlineResponse2006 postPortfolioTransactionCashDelete(opts)
 
 Delete a cash transaction.
 
@@ -728,11 +1193,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PortfolioApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject8() // InlineObject8 | 
+  'inlineObject13': new virtualportfolioapifordigitalportals.InlineObject13() // InlineObject13 | 
 };
 
 // Call api endpoint
-apiInstance.portfolioTransactionCashDeletePost(opts).then(
+apiInstance.postPortfolioTransactionCashDelete(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -751,11 +1216,11 @@ apiInstance.portfolioTransactionCashDeletePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -767,9 +1232,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioTransactionCreatePost
+## postPortfolioTransactionCreate
 
-> InlineResponse2011 portfolioTransactionCreatePost(opts)
+> InlineResponse2012 postPortfolioTransactionCreate(opts)
 
 Add a transaction to a portfolio.
 
@@ -802,11 +1267,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PortfolioApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject4() // InlineObject4 | 
+  'inlineObject9': new virtualportfolioapifordigitalportals.InlineObject9() // InlineObject9 | 
 };
 
 // Call api endpoint
-apiInstance.portfolioTransactionCreatePost(opts).then(
+apiInstance.postPortfolioTransactionCreate(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -825,11 +1290,11 @@ apiInstance.portfolioTransactionCreatePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
 
@@ -841,9 +1306,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioTransactionDeletePost
+## postPortfolioTransactionDelete
 
-> InlineResponse2007 portfolioTransactionDeletePost(opts)
+> InlineResponse2006 postPortfolioTransactionDelete(opts)
 
 Delete a transaction of a portfolio.
 
@@ -876,11 +1341,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PortfolioApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject5() // InlineObject5 | 
+  'inlineObject10': new virtualportfolioapifordigitalportals.InlineObject10() // InlineObject10 | 
 };
 
 // Call api endpoint
-apiInstance.portfolioTransactionDeletePost(opts).then(
+apiInstance.postPortfolioTransactionDelete(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -899,11 +1364,11 @@ apiInstance.portfolioTransactionDeletePost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -915,85 +1380,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## portfolioTransactionListGet
+## postPortfolioTransactionModify
 
-> InlineResponse2008 portfolioTransactionListGet(id, opts)
-
-List of transactions in a portfolio.
-
-List of transactions in a portfolio.
-
-### Example
-
-```javascript
-const { ApiClient, PortfolioApi } = require('@factset/sdk-virtualportfolioapifordigitalportals');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new PortfolioApi();
-const id = "id_example"; // String | Identifier of the portfolio.
-const opts = {
-  'attributes': ["null"] // [String] | Limit the attributes returned in the response to the specified set.
-};
-
-// Call api endpoint
-apiInstance.portfolioTransactionListGet(id, opts).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the portfolio. | 
- **attributes** | [**[String]**](String.md)| Limit the attributes returned in the response to the specified set. | [optional] 
-
-### Return type
-
-[**InlineResponse2008**](InlineResponse2008.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## portfolioTransactionModifyPost
-
-> InlineResponse2009 portfolioTransactionModifyPost(opts)
+> InlineResponse2008 postPortfolioTransactionModify(opts)
 
 Modify a transaction in a portfolio.
 
@@ -1026,11 +1415,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new PortfolioApi();
 const opts = {
-  'body': new virtualportfolioapifordigitalportals.InlineObject6() // InlineObject6 | 
+  'inlineObject11': new virtualportfolioapifordigitalportals.InlineObject11() // InlineObject11 | 
 };
 
 // Call api endpoint
-apiInstance.portfolioTransactionModifyPost(opts).then(
+apiInstance.postPortfolioTransactionModify(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -1049,11 +1438,11 @@ apiInstance.portfolioTransactionModifyPost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 

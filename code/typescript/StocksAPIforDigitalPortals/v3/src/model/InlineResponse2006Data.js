@@ -12,8 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2006Ownership from './InlineResponse2006Ownership';
-import InlineResponse2006Type from './InlineResponse2006Type';
+import InlineResponse2006Accumulated from './InlineResponse2006Accumulated';
+import InlineResponse2006Currency from './InlineResponse2006Currency';
+import InlineResponse2006Fsym from './InlineResponse2006Fsym';
+import InlineResponse2006Instrument from './InlineResponse2006Instrument';
+import InlineResponse2006Market from './InlineResponse2006Market';
+import InlineResponse2006Trade from './InlineResponse2006Trade';
 
 /**
  * The InlineResponse2006Data model module.
@@ -51,14 +55,32 @@ class InlineResponse2006Data {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = InlineResponse2006Type.constructFromObject(data['type']);
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse2006Market.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('ownership')) {
-                obj['ownership'] = InlineResponse2006Ownership.constructFromObject(data['ownership']);
+            if (data.hasOwnProperty('currency')) {
+                obj['currency'] = InlineResponse2006Currency.constructFromObject(data['currency']);
+            }
+            if (data.hasOwnProperty('isAlternative')) {
+                obj['isAlternative'] = ApiClient.convertToType(data['isAlternative'], 'Boolean');
+            }
+            if (data.hasOwnProperty('trade')) {
+                obj['trade'] = InlineResponse2006Trade.constructFromObject(data['trade']);
+            }
+            if (data.hasOwnProperty('quality')) {
+                obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
+            }
+            if (data.hasOwnProperty('accumulated')) {
+                obj['accumulated'] = InlineResponse2006Accumulated.constructFromObject(data['accumulated']);
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2006Fsym.constructFromObject(data['fsym']);
+            }
+            if (data.hasOwnProperty('instrument')) {
+                obj['instrument'] = InlineResponse2006Instrument.constructFromObject(data['instrument']);
             }
         }
         return obj;
@@ -68,26 +90,58 @@ class InlineResponse2006Data {
 }
 
 /**
- * Identifier of the owner. See endpoint `/legalEntity/list` for possible values.
+ * Identifier of a notation.
  * @member {String} id
  */
 InlineResponse2006Data.prototype['id'] = undefined;
 
 /**
- * Name of the owner.
- * @member {String} name
+ * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
+ * @member {String} symbol
  */
-InlineResponse2006Data.prototype['name'] = undefined;
+InlineResponse2006Data.prototype['symbol'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2006Type} type
+ * @member {module:model/InlineResponse2006Market} market
  */
-InlineResponse2006Data.prototype['type'] = undefined;
+InlineResponse2006Data.prototype['market'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2006Ownership} ownership
+ * @member {module:model/InlineResponse2006Currency} currency
  */
-InlineResponse2006Data.prototype['ownership'] = undefined;
+InlineResponse2006Data.prototype['currency'] = undefined;
+
+/**
+ * Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.
+ * @member {Boolean} isAlternative
+ */
+InlineResponse2006Data.prototype['isAlternative'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2006Trade} trade
+ */
+InlineResponse2006Data.prototype['trade'] = undefined;
+
+/**
+ * Quality of the trade-related attributes, see attributes `trade` and `accumulated`.
+ * @member {String} quality
+ */
+InlineResponse2006Data.prototype['quality'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2006Accumulated} accumulated
+ */
+InlineResponse2006Data.prototype['accumulated'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2006Fsym} fsym
+ */
+InlineResponse2006Data.prototype['fsym'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2006Instrument} instrument
+ */
+InlineResponse2006Data.prototype['instrument'] = undefined;
 
 
 

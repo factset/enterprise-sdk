@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-symbology",
-  "version": "0.21.0",
+  "version": "1.0.0",
   "description": "Symbology client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

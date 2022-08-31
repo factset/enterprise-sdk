@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationScreenerSearchData;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationScreenerSearchMeta;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationScreenerValueRangesGetMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,7 +46,7 @@ public class InlineObject3 implements Serializable {
   private StockNotationScreenerSearchData data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private StockNotationScreenerSearchMeta meta;
+  private StockNotationScreenerValueRangesGetMeta meta;
 
   public InlineObject3() { 
   }
@@ -77,7 +77,7 @@ public class InlineObject3 implements Serializable {
   }
 
 
-  public InlineObject3 meta(StockNotationScreenerSearchMeta meta) {
+  public InlineObject3 meta(StockNotationScreenerValueRangesGetMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -91,14 +91,14 @@ public class InlineObject3 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StockNotationScreenerSearchMeta getMeta() {
+  public StockNotationScreenerValueRangesGetMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(StockNotationScreenerSearchMeta meta) {
+  public void setMeta(StockNotationScreenerValueRangesGetMeta meta) {
     this.meta = meta;
   }
 

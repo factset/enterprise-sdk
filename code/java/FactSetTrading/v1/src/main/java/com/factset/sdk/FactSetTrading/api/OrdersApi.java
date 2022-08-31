@@ -12,10 +12,10 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.factset.sdk.FactSetTrading.models.ClientErrorResponse;
-import com.factset.sdk.FactSetTrading.models.EMSCancelOrdersRoot;
-import com.factset.sdk.FactSetTrading.models.EMSOrdersCreateResponseRoot;
-import com.factset.sdk.FactSetTrading.models.EMSOrdersRoot;
-import com.factset.sdk.FactSetTrading.models.EMSReplaceOrdersRoot;
+import com.factset.sdk.FactSetTrading.models.EMSCancelOrdersDataMetaModel;
+import com.factset.sdk.FactSetTrading.models.EMSOrdersCreateResponseEmsResponse;
+import com.factset.sdk.FactSetTrading.models.EMSOrdersDataMetaModel;
+import com.factset.sdk.FactSetTrading.models.EMSReplaceOrdersDataMetaModel;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrdersApi {
@@ -31,17 +31,17 @@ public class OrdersApi {
 
     private static final Map<Integer, GenericType> cancelResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    cancelResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    cancelResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseEmsResponse>(){});
     cancelResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
   private static final Map<Integer, GenericType> createResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    createResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    createResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseEmsResponse>(){});
     createResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
   private static final Map<Integer, GenericType> replaceResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    replaceResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseRoot>(){});
+    replaceResponseTypeMap.put(200, new GenericType<EMSOrdersCreateResponseEmsResponse>(){});
     replaceResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
   }
 
@@ -69,8 +69,8 @@ public class OrdersApi {
   /**
    * Cancel the orders on EMS system.
    * This endpoint takes the list of orders to be cancelled on the EMS system.
-   * @param emSCancelOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @param emSCancelOrdersDataMetaModel  (optional)
+   * @return EMSOrdersCreateResponseEmsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -85,15 +85,15 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot cancel(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
-    return cancelWithHttpInfo(emSCancelOrdersRoot).getData();
+  public EMSOrdersCreateResponseEmsResponse cancel(EMSCancelOrdersDataMetaModel emSCancelOrdersDataMetaModel) throws ApiException {
+    return cancelWithHttpInfo(emSCancelOrdersDataMetaModel).getData();
   }
 
   /**
    * Cancel the orders on EMS system.
    * This endpoint takes the list of orders to be cancelled on the EMS system.
-   * @param emSCancelOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @param emSCancelOrdersDataMetaModel  (optional)
+   * @return ApiResponse&lt;EMSOrdersCreateResponseEmsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -108,8 +108,8 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> cancelWithHttpInfo(EMSCancelOrdersRoot emSCancelOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSCancelOrdersRoot;
+  public ApiResponse<EMSOrdersCreateResponseEmsResponse> cancelWithHttpInfo(EMSCancelOrdersDataMetaModel emSCancelOrdersDataMetaModel) throws ApiException {
+    Object localVarPostBody = emSCancelOrdersDataMetaModel;
     
     // create path and map variables
     String localVarPath = "/trading/ems/v1/orders/cancel";
@@ -139,7 +139,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersCreateResponseEmsResponse
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.cancel", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -151,8 +151,8 @@ public class OrdersApi {
   /**
    * Send orders to EMS for execution.
    * This endpoint takes the list of orders and place them on EMS for execution.
-   * @param emSOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @param emSOrdersDataMetaModel  (optional)
+   * @return EMSOrdersCreateResponseEmsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -167,15 +167,15 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot create(EMSOrdersRoot emSOrdersRoot) throws ApiException {
-    return createWithHttpInfo(emSOrdersRoot).getData();
+  public EMSOrdersCreateResponseEmsResponse create(EMSOrdersDataMetaModel emSOrdersDataMetaModel) throws ApiException {
+    return createWithHttpInfo(emSOrdersDataMetaModel).getData();
   }
 
   /**
    * Send orders to EMS for execution.
    * This endpoint takes the list of orders and place them on EMS for execution.
-   * @param emSOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @param emSOrdersDataMetaModel  (optional)
+   * @return ApiResponse&lt;EMSOrdersCreateResponseEmsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -190,8 +190,8 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> createWithHttpInfo(EMSOrdersRoot emSOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSOrdersRoot;
+  public ApiResponse<EMSOrdersCreateResponseEmsResponse> createWithHttpInfo(EMSOrdersDataMetaModel emSOrdersDataMetaModel) throws ApiException {
+    Object localVarPostBody = emSOrdersDataMetaModel;
     
     // create path and map variables
     String localVarPath = "/trading/ems/v1/orders/create";
@@ -221,7 +221,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersCreateResponseEmsResponse
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.create", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
@@ -233,8 +233,8 @@ public class OrdersApi {
   /**
    * Replace the orders on EMS system.
    * This endpoint takes the list of orders to be replaced on the EMS system.
-   * @param emSReplaceOrdersRoot  (optional)
-   * @return EMSOrdersCreateResponseRoot
+   * @param emSReplaceOrdersDataMetaModel  (optional)
+   * @return EMSOrdersCreateResponseEmsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -249,15 +249,15 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public EMSOrdersCreateResponseRoot replace(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
-    return replaceWithHttpInfo(emSReplaceOrdersRoot).getData();
+  public EMSOrdersCreateResponseEmsResponse replace(EMSReplaceOrdersDataMetaModel emSReplaceOrdersDataMetaModel) throws ApiException {
+    return replaceWithHttpInfo(emSReplaceOrdersDataMetaModel).getData();
   }
 
   /**
    * Replace the orders on EMS system.
    * This endpoint takes the list of orders to be replaced on the EMS system.
-   * @param emSReplaceOrdersRoot  (optional)
-   * @return ApiResponse&lt;EMSOrdersCreateResponseRoot&gt;
+   * @param emSReplaceOrdersDataMetaModel  (optional)
+   * @return ApiResponse&lt;EMSOrdersCreateResponseEmsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -272,8 +272,8 @@ public class OrdersApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EMSOrdersCreateResponseRoot> replaceWithHttpInfo(EMSReplaceOrdersRoot emSReplaceOrdersRoot) throws ApiException {
-    Object localVarPostBody = emSReplaceOrdersRoot;
+  public ApiResponse<EMSOrdersCreateResponseEmsResponse> replaceWithHttpInfo(EMSReplaceOrdersDataMetaModel emSReplaceOrdersDataMetaModel) throws ApiException {
+    Object localVarPostBody = emSReplaceOrdersDataMetaModel;
     
     // create path and map variables
     String localVarPath = "/trading/ems/v1/orders/replace";
@@ -303,7 +303,7 @@ public class OrdersApi {
 
     ApiResponse<
         
-        EMSOrdersCreateResponseRoot
+        EMSOrdersCreateResponseEmsResponse
       
     > apiResponse = apiClient.invokeAPI("OrdersApi.replace", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,

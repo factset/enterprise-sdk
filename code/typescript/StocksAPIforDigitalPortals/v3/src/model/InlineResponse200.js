@@ -49,7 +49,7 @@ class InlineResponse200 {
             obj = obj || new InlineResponse200();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse200Data]);
+                obj['data'] = InlineResponse200Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -62,8 +62,7 @@ class InlineResponse200 {
 }
 
 /**
- * Estimated figures for selected fiscal years.
- * @member {Array.<module:model/InlineResponse200Data>} data
+ * @member {module:model/InlineResponse200Data} data
  */
 InlineResponse200.prototype['data'] = undefined;
 

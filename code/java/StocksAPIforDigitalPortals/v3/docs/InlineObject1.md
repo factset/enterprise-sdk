@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**StockDividendListData**](StockDividendListData.md) |  | 
-**meta** | [**StockDividendListMeta**](StockDividendListMeta.md) |  |  [optional]
+**data** | [**StockNotationRankingIntradayListData**](StockNotationRankingIntradayListData.md) |  |  [optional]
+**meta** | [**StockNotationRankingIntradayListMeta**](StockNotationRankingIntradayListMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

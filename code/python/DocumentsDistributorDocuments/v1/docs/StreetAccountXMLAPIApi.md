@@ -57,11 +57,14 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     api_instance = street_account_xml_api_api.StreetAccountXMLAPIApi(api_client)
 
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to know the status and percentDone
+    pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
+    pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
     try:
         # Returns the status and percentDone of the requested jobID
         # example passing only required values which don't have defaults set
-        api_response = api_instance.asynch_streetaccount_v1_check_status_get(job_id)
+        # and optional values
+        api_response = api_instance.asynch_streetaccount_v1_check_status_get(job_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
@@ -74,6 +77,8 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| jobID returned by the request-files endpoint to know the status and percentDone |
+ **pagination_limit** | **int**| Specifies the maximum number of results to return per result | [optional]
+ **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional]
 
 ### Return type
 
@@ -146,11 +151,14 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
     api_instance = street_account_xml_api_api.StreetAccountXMLAPIApi(api_client)
 
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to collect the results of the query
+    pagination_limit = 1 # int | Specifies the maximum number of results to return per result (optional)
+    pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results (optional)
 
     try:
         # Returns the SA XML files for the specified daterange
         # example passing only required values which don't have defaults set
-        api_response = api_instance.asynch_streetaccount_v1_get_files_get(job_id)
+        # and optional values
+        api_response = api_instance.asynch_streetaccount_v1_get_files_get(job_id, pagination_limit=pagination_limit, pagination_offset=pagination_offset)
         pprint(api_response)
 
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
@@ -163,6 +171,8 @@ with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_clien
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| jobID returned by the request-files endpoint to collect the results of the query |
+ **pagination_limit** | **int**| Specifies the maximum number of results to return per result | [optional]
+ **pagination_offset** | **int**| Specifies the starting point for pagination. This parameter is used to identify the   beginning of next set of results | [optional]
 
 ### Return type
 

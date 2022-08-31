@@ -13,19 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
+import InlineObject from '../model/InlineObject';
 import InlineObject1 from '../model/InlineObject1';
 import InlineObject2 from '../model/InlineObject2';
 import InlineObject3 from '../model/InlineObject3';
-import InlineObject4 from '../model/InlineObject4';
+import InlineResponse200 from '../model/InlineResponse200';
 import InlineResponse2001 from '../model/InlineResponse2001';
-import InlineResponse20010 from '../model/InlineResponse20010';
-import InlineResponse20011 from '../model/InlineResponse20011';
-import InlineResponse20012 from '../model/InlineResponse20012';
 import InlineResponse2002 from '../model/InlineResponse2002';
+import InlineResponse2003 from '../model/InlineResponse2003';
+import InlineResponse2004 from '../model/InlineResponse2004';
+import InlineResponse2005 from '../model/InlineResponse2005';
 import InlineResponse2006 from '../model/InlineResponse2006';
 import InlineResponse2007 from '../model/InlineResponse2007';
 import InlineResponse2008 from '../model/InlineResponse2008';
-import InlineResponse2009 from '../model/InlineResponse2009';
 
 /**
 * Stock service.
@@ -51,8 +51,8 @@ export default class StockApi {
      * List of dividend types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
     getStockDividendTypeListWithHttpInfo(opts) {
       opts = opts || {};
@@ -74,7 +74,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2008;
+      let returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
         '/stock/dividend/type/list', 'GET',
@@ -88,8 +88,8 @@ export default class StockApi {
      * List of dividend types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     getStockDividendTypeList(opts) {
       return this.getStockDividendTypeListWithHttpInfo(opts)
@@ -102,12 +102,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -139,7 +139,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/month/1/get', 'GET',
@@ -151,12 +151,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -169,12 +169,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -206,7 +206,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/month/3/get', 'GET',
@@ -218,12 +218,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -236,12 +236,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -273,7 +273,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/week/1/get', 'GET',
@@ -285,12 +285,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -303,12 +303,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -340,7 +340,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/year/1/get', 'GET',
@@ -352,12 +352,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -370,12 +370,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -407,7 +407,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/year/3/get', 'GET',
@@ -419,12 +419,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -437,12 +437,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
      */
     getStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(id, idNotationBenchmark, opts) {
       opts = opts || {};
@@ -474,7 +474,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2009;
+      let returnType = InlineResponse2005;
 
       return this.apiClient.callApi(
         '/stock/notation/keyFigures/benchmark/year/5/get', 'GET',
@@ -486,12 +486,12 @@ export default class StockApi {
     /**
      * End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
      * End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
-     * @param {String} id Identifier of the notation.
-     * @param {Array.<String>} idNotationBenchmark List of identifiers of benchmark notations. See the group description for the list of valid values.
+     * @param {String} id 
+     * @param {Array.<String>} idNotationBenchmark 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, opts) {
       return this.getStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(id, idNotationBenchmark, opts)
@@ -504,11 +504,11 @@ export default class StockApi {
     /**
      * List of owners for a specific type of a company's shares.
      * List of top-20 owners for a specific type of a company's shares.
-     * @param {String} id Identifier of the instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
+     * @param {String} opts.language 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
     getStockOwnerListWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -535,7 +535,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2006;
+      let returnType = InlineResponse2002;
 
       return this.apiClient.callApi(
         '/stock/owner/list', 'GET',
@@ -547,11 +547,11 @@ export default class StockApi {
     /**
      * List of owners for a specific type of a company's shares.
      * List of top-20 owners for a specific type of a company's shares.
-     * @param {String} id Identifier of the instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @param {String} opts.language ISO 639-1 code of the language.
-     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
+     * @param {String} opts.language 
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getStockOwnerList(id, opts) {
       return this.getStockOwnerListWithHttpInfo(id, opts)
@@ -564,10 +564,10 @@ export default class StockApi {
     /**
      * Target price and aggregated recommendations for a stock.
      * Target price and aggregated recommendations for a stock.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
     getStockRecommendationAggregateGetWithHttpInfo(id, opts) {
       opts = opts || {};
@@ -593,7 +593,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2001;
+      let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
         '/stock/recommendation/aggregate/get', 'GET',
@@ -605,10 +605,10 @@ export default class StockApi {
     /**
      * Target price and aggregated recommendations for a stock.
      * Target price and aggregated recommendations for a stock.
-     * @param {String} id Identifier of an instrument.
+     * @param {String} id 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getStockRecommendationAggregateGet(id, opts) {
       return this.getStockRecommendationAggregateGetWithHttpInfo(id, opts)
@@ -621,11 +621,11 @@ export default class StockApi {
     /**
      * Current and historical trade recommendations and target prices for a stock.
      * Current and historical trade recommendations and target prices for a stock.
-     * @param {String} id Identifier of an instrument.
-     * @param {Array.<module:model/String>} snapshots Choice of historic snapshots for aggregated recommendations.
+     * @param {String} id 
+     * @param {Array.<module:model/String>} snapshots 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
     getStockRecommendationAggregateHistoryListWithHttpInfo(id, snapshots, opts) {
       opts = opts || {};
@@ -656,7 +656,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse2002;
+      let returnType = InlineResponse2001;
 
       return this.apiClient.callApi(
         '/stock/recommendation/aggregate/history/list', 'GET',
@@ -668,11 +668,11 @@ export default class StockApi {
     /**
      * Current and historical trade recommendations and target prices for a stock.
      * Current and historical trade recommendations and target prices for a stock.
-     * @param {String} id Identifier of an instrument.
-     * @param {Array.<module:model/String>} snapshots Choice of historic snapshots for aggregated recommendations.
+     * @param {String} id 
+     * @param {Array.<module:model/String>} snapshots 
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     getStockRecommendationAggregateHistoryList(id, snapshots, opts) {
       return this.getStockRecommendationAggregateHistoryListWithHttpInfo(id, snapshots, opts)
@@ -685,15 +685,112 @@ export default class StockApi {
     /**
      * List of dividends for a stock.
      * List of dividends for a stock.
-     * @param {module:model/InlineObject1} body 
+     * @param {module:model/InlineObject} inlineObject 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
+     */
+    postStockDividendListWithHttpInfo(inlineObject) {
+      let postBody = inlineObject;
+      // verify the required parameter 'inlineObject' is set
+      if (inlineObject === undefined || inlineObject === null) {
+        throw new Error("Missing the required parameter 'inlineObject' when calling postStockDividendList");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2003;
+
+      return this.apiClient.callApi(
+        '/stock/dividend/list', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of dividends for a stock.
+     * List of dividends for a stock.
+     * @param {module:model/InlineObject} inlineObject 
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
+     */
+    postStockDividendList(inlineObject) {
+      return this.postStockDividendListWithHttpInfo(inlineObject)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Ranking of stocks' notations using intraday figures.
+     * Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/InlineObject1} opts.inlineObject1 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
+     */
+    postStockNotationRankingIntradayListWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['inlineObject1'];
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2006;
+
+      return this.apiClient.callApi(
+        '/stock/notation/ranking/intraday/list', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Ranking of stocks' notations using intraday figures.
+     * Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/InlineObject1} opts.inlineObject1 
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
+     */
+    postStockNotationRankingIntradayList(opts) {
+      return this.postStockNotationRankingIntradayListWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Screener for stocks' notations based on stock-specific parameters.
+     * Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/InlineObject2} opts.inlineObject2 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
      */
-    postStockDividendListWithHttpInfo(body) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling postStockDividendList");
-      }
+    postStockNotationScreenerSearchWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = opts['inlineObject2'];
 
       let pathParams = {
       };
@@ -712,103 +809,6 @@ export default class StockApi {
       let returnType = InlineResponse2007;
 
       return this.apiClient.callApi(
-        '/stock/dividend/list', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * List of dividends for a stock.
-     * List of dividends for a stock.
-     * @param {module:model/InlineObject1} body 
-     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
-     */
-    postStockDividendList(body) {
-      return this.postStockDividendListWithHttpInfo(body)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Ranking of stocks' notations using intraday figures.
-     * Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20010} and HTTP response
-     */
-    postStockNotationRankingIntradayListWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['body'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse20010;
-
-      return this.apiClient.callApi(
-        '/stock/notation/ranking/intraday/list', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Ranking of stocks' notations using intraday figures.
-     * Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject2} opts.body 
-     * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
-     */
-    postStockNotationRankingIntradayList(opts) {
-      return this.postStockNotationRankingIntradayListWithHttpInfo(opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Screener for stocks' notations based on stock-specific parameters.
-     * Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject3} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
-     */
-    postStockNotationScreenerSearchWithHttpInfo(opts) {
-      opts = opts || {};
-      let postBody = opts['body'];
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-
-
-      let returnType = InlineResponse20011;
-
-      return this.apiClient.callApi(
         '/stock/notation/screener/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
@@ -819,8 +819,8 @@ export default class StockApi {
      * Screener for stocks' notations based on stock-specific parameters.
      * Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject3} opts.body 
-     * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
+     * @param {module:model/InlineObject2} opts.inlineObject2 
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     postStockNotationScreenerSearch(opts) {
       return this.postStockNotationScreenerSearchWithHttpInfo(opts)
@@ -834,12 +834,12 @@ export default class StockApi {
      * Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
      * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject4} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20012} and HTTP response
+     * @param {module:model/InlineObject3} opts.inlineObject3 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
      */
     postStockNotationScreenerValueRangesGetWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['body'];
+      let postBody = opts['inlineObject3'];
 
       let pathParams = {
       };
@@ -855,7 +855,7 @@ export default class StockApi {
       let accepts = ['application/json'];
 
 
-      let returnType = InlineResponse20012;
+      let returnType = InlineResponse2008;
 
       return this.apiClient.callApi(
         '/stock/notation/screener/valueRanges/get', 'POST',
@@ -868,8 +868,8 @@ export default class StockApi {
      * Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
      * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.
      * @param {Object} opts Optional parameters
-     * @param {module:model/InlineObject4} opts.body 
-     * @return { Promise.< module:model/InlineResponse20012 > } a Promise, with data of type {@link module:model/InlineResponse20012 }
+     * @param {module:model/InlineObject3} opts.inlineObject3 
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     postStockNotationScreenerValueRangesGet(opts) {
       return this.postStockNotationScreenerValueRangesGetWithHttpInfo(opts)

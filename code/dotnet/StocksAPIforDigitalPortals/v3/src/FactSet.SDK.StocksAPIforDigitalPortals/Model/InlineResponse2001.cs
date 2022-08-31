@@ -34,19 +34,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        /// <param name="data">List of trade recommendations and target prices for a stock, in unspecified order..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse2001(InlineResponse2001Data data = default(InlineResponse2001Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse2001(List<InlineResponse2001Data> data = default(List<InlineResponse2001Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// List of trade recommendations and target prices for a stock, in unspecified order.
         /// </summary>
+        /// <value>List of trade recommendations and target prices for a stock, in unspecified order.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public InlineResponse2001Data Data { get; set; }
+        public List<InlineResponse2001Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -101,8 +102,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||

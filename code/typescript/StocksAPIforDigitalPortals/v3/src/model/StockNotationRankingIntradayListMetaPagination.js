@@ -63,14 +63,16 @@ class StockNotationRankingIntradayListMetaPagination {
 /**
  * Non-negative number of entries to skip, or 0 (default).
  * @member {Number} offset
+ * @default 0
  */
-StockNotationRankingIntradayListMetaPagination.prototype['offset'] = undefined;
+StockNotationRankingIntradayListMetaPagination.prototype['offset'] = 0;
 
 /**
  * Non-negative maximum number of entries to return.
  * @member {Number} limit
+ * @default 20
  */
-StockNotationRankingIntradayListMetaPagination.prototype['limit'] = undefined;
+StockNotationRankingIntradayListMetaPagination.prototype['limit'] = 20;
 
 
 

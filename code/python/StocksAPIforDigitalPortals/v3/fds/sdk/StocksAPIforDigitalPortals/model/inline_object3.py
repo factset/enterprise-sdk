@@ -31,9 +31,9 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_screener_search_data import StockNotationScreenerSearchData
-    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_screener_search_meta import StockNotationScreenerSearchMeta
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_screener_value_ranges_get_meta import StockNotationScreenerValueRangesGetMeta
     globals()['StockNotationScreenerSearchData'] = StockNotationScreenerSearchData
-    globals()['StockNotationScreenerSearchMeta'] = StockNotationScreenerSearchMeta
+    globals()['StockNotationScreenerValueRangesGetMeta'] = StockNotationScreenerValueRangesGetMeta
 
 
 class InlineObject3(ModelNormal):
@@ -90,7 +90,7 @@ class InlineObject3(ModelNormal):
         lazy_import()
         return {
             'data': (StockNotationScreenerSearchData,),  # noqa: E501
-            'meta': (StockNotationScreenerSearchMeta,),  # noqa: E501
+            'meta': (StockNotationScreenerValueRangesGetMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class InlineObject3(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (StockNotationScreenerSearchData): [optional]  # noqa: E501
-            meta (StockNotationScreenerSearchMeta): [optional]  # noqa: E501
+            meta (StockNotationScreenerValueRangesGetMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class InlineObject3(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (StockNotationScreenerSearchData): [optional]  # noqa: E501
-            meta (StockNotationScreenerSearchMeta): [optional]  # noqa: E501
+            meta (StockNotationScreenerValueRangesGetMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

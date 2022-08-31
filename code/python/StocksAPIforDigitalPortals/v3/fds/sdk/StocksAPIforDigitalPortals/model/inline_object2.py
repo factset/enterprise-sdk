@@ -30,10 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_ranking_intraday_list_data import StockNotationRankingIntradayListData
-    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_ranking_intraday_list_meta import StockNotationRankingIntradayListMeta
-    globals()['StockNotationRankingIntradayListData'] = StockNotationRankingIntradayListData
-    globals()['StockNotationRankingIntradayListMeta'] = StockNotationRankingIntradayListMeta
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_screener_search_data import StockNotationScreenerSearchData
+    from fds.sdk.StocksAPIforDigitalPortals.model.stock_notation_screener_search_meta import StockNotationScreenerSearchMeta
+    globals()['StockNotationScreenerSearchData'] = StockNotationScreenerSearchData
+    globals()['StockNotationScreenerSearchMeta'] = StockNotationScreenerSearchMeta
 
 
 class InlineObject2(ModelNormal):
@@ -89,8 +89,8 @@ class InlineObject2(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (StockNotationRankingIntradayListData,),  # noqa: E501
-            'meta': (StockNotationRankingIntradayListMeta,),  # noqa: E501
+            'data': (StockNotationScreenerSearchData,),  # noqa: E501
+            'meta': (StockNotationScreenerSearchMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class InlineObject2(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (StockNotationRankingIntradayListData): [optional]  # noqa: E501
-            meta (StockNotationRankingIntradayListMeta): [optional]  # noqa: E501
+            data (StockNotationScreenerSearchData): [optional]  # noqa: E501
+            meta (StockNotationScreenerSearchMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class InlineObject2(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (StockNotationRankingIntradayListData): [optional]  # noqa: E501
-            meta (StockNotationRankingIntradayListMeta): [optional]  # noqa: E501
+            data (StockNotationScreenerSearchData): [optional]  # noqa: E501
+            meta (StockNotationScreenerSearchMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

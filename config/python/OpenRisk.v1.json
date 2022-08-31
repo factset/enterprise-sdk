@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.OpenRisk",
+  "projectName": "fds.sdk.OpenRisk",
+  "packageVersion": "0.21.1",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "Open:Risk client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OpenRisk/v1",
+  "httpUserAgent": "fds-sdk/python/OpenRisk/0.21.1",
+  "files": {
+    "LICENSE": {}
+  }
+}

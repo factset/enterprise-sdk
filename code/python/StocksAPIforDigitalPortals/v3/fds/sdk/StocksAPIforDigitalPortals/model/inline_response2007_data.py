@@ -30,16 +30,34 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_currency import InlineResponse2007Currency
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_dates import InlineResponse2007Dates
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_gross import InlineResponse2007Gross
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_occurrence import InlineResponse2007Occurrence
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_type import InlineResponse2007Type
-    globals()['InlineResponse2007Currency'] = InlineResponse2007Currency
-    globals()['InlineResponse2007Dates'] = InlineResponse2007Dates
-    globals()['InlineResponse2007Gross'] = InlineResponse2007Gross
-    globals()['InlineResponse2007Occurrence'] = InlineResponse2007Occurrence
-    globals()['InlineResponse2007Type'] = InlineResponse2007Type
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_fsym import InlineResponse2006Fsym
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_compliance import InlineResponse2007Compliance
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_estimates import InlineResponse2007Estimates
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_instrument import InlineResponse2007Instrument
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_market import InlineResponse2007Market
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_nsin import InlineResponse2007Nsin
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_performance import InlineResponse2007Performance
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_recommendation import InlineResponse2007Recommendation
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_reported_key_figures import InlineResponse2007ReportedKeyFigures
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_rsi_wilder import InlineResponse2007RsiWilder
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_simple_moving_average import InlineResponse2007SimpleMovingAverage
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_trading_value import InlineResponse2007TradingValue
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_value_unit import InlineResponse2007ValueUnit
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007_volatility import InlineResponse2007Volatility
+    globals()['InlineResponse2006Fsym'] = InlineResponse2006Fsym
+    globals()['InlineResponse2007Compliance'] = InlineResponse2007Compliance
+    globals()['InlineResponse2007Estimates'] = InlineResponse2007Estimates
+    globals()['InlineResponse2007Instrument'] = InlineResponse2007Instrument
+    globals()['InlineResponse2007Market'] = InlineResponse2007Market
+    globals()['InlineResponse2007Nsin'] = InlineResponse2007Nsin
+    globals()['InlineResponse2007Performance'] = InlineResponse2007Performance
+    globals()['InlineResponse2007Recommendation'] = InlineResponse2007Recommendation
+    globals()['InlineResponse2007ReportedKeyFigures'] = InlineResponse2007ReportedKeyFigures
+    globals()['InlineResponse2007RsiWilder'] = InlineResponse2007RsiWilder
+    globals()['InlineResponse2007SimpleMovingAverage'] = InlineResponse2007SimpleMovingAverage
+    globals()['InlineResponse2007TradingValue'] = InlineResponse2007TradingValue
+    globals()['InlineResponse2007ValueUnit'] = InlineResponse2007ValueUnit
+    globals()['InlineResponse2007Volatility'] = InlineResponse2007Volatility
 
 
 class InlineResponse2007Data(ModelNormal):
@@ -96,11 +114,21 @@ class InlineResponse2007Data(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'type': (InlineResponse2007Type,),  # noqa: E501
-            'occurrence': (InlineResponse2007Occurrence,),  # noqa: E501
-            'dates': (InlineResponse2007Dates,),  # noqa: E501
-            'currency': (InlineResponse2007Currency,),  # noqa: E501
-            'gross': (InlineResponse2007Gross,),  # noqa: E501
+            'value_unit': (InlineResponse2007ValueUnit,),  # noqa: E501
+            'market': (InlineResponse2007Market,),  # noqa: E501
+            'symbol': (str,),  # noqa: E501
+            'nsin': (InlineResponse2007Nsin,),  # noqa: E501
+            'fsym': (InlineResponse2006Fsym,),  # noqa: E501
+            'instrument': (InlineResponse2007Instrument,),  # noqa: E501
+            'compliance': (InlineResponse2007Compliance,),  # noqa: E501
+            'reported_key_figures': (InlineResponse2007ReportedKeyFigures,),  # noqa: E501
+            'performance': (InlineResponse2007Performance,),  # noqa: E501
+            'volatility': (InlineResponse2007Volatility,),  # noqa: E501
+            'trading_value': (InlineResponse2007TradingValue,),  # noqa: E501
+            'simple_moving_average': (InlineResponse2007SimpleMovingAverage,),  # noqa: E501
+            'rsi_wilder': (InlineResponse2007RsiWilder,),  # noqa: E501
+            'recommendation': (InlineResponse2007Recommendation,),  # noqa: E501
+            'estimates': (InlineResponse2007Estimates,),  # noqa: E501
         }
 
     @cached_property
@@ -110,11 +138,21 @@ class InlineResponse2007Data(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'occurrence': 'occurrence',  # noqa: E501
-        'dates': 'dates',  # noqa: E501
-        'currency': 'currency',  # noqa: E501
-        'gross': 'gross',  # noqa: E501
+        'value_unit': 'valueUnit',  # noqa: E501
+        'market': 'market',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
+        'nsin': 'nsin',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
+        'instrument': 'instrument',  # noqa: E501
+        'compliance': 'compliance',  # noqa: E501
+        'reported_key_figures': 'reportedKeyFigures',  # noqa: E501
+        'performance': 'performance',  # noqa: E501
+        'volatility': 'volatility',  # noqa: E501
+        'trading_value': 'tradingValue',  # noqa: E501
+        'simple_moving_average': 'simpleMovingAverage',  # noqa: E501
+        'rsi_wilder': 'rsiWilder',  # noqa: E501
+        'recommendation': 'recommendation',  # noqa: E501
+        'estimates': 'estimates',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,12 +196,22 @@ class InlineResponse2007Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Identifier of a dividend.. [optional]  # noqa: E501
-            type (InlineResponse2007Type): [optional]  # noqa: E501
-            occurrence (InlineResponse2007Occurrence): [optional]  # noqa: E501
-            dates (InlineResponse2007Dates): [optional]  # noqa: E501
-            currency (InlineResponse2007Currency): [optional]  # noqa: E501
-            gross (InlineResponse2007Gross): [optional]  # noqa: E501
+            id (str): Identifier of the notation.. [optional]  # noqa: E501
+            value_unit (InlineResponse2007ValueUnit): [optional]  # noqa: E501
+            market (InlineResponse2007Market): [optional]  # noqa: E501
+            symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            nsin (InlineResponse2007Nsin): [optional]  # noqa: E501
+            fsym (InlineResponse2006Fsym): [optional]  # noqa: E501
+            instrument (InlineResponse2007Instrument): [optional]  # noqa: E501
+            compliance (InlineResponse2007Compliance): [optional]  # noqa: E501
+            reported_key_figures (InlineResponse2007ReportedKeyFigures): [optional]  # noqa: E501
+            performance (InlineResponse2007Performance): [optional]  # noqa: E501
+            volatility (InlineResponse2007Volatility): [optional]  # noqa: E501
+            trading_value (InlineResponse2007TradingValue): [optional]  # noqa: E501
+            simple_moving_average (InlineResponse2007SimpleMovingAverage): [optional]  # noqa: E501
+            rsi_wilder (InlineResponse2007RsiWilder): [optional]  # noqa: E501
+            recommendation (InlineResponse2007Recommendation): [optional]  # noqa: E501
+            estimates (InlineResponse2007Estimates): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,12 +293,22 @@ class InlineResponse2007Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Identifier of a dividend.. [optional]  # noqa: E501
-            type (InlineResponse2007Type): [optional]  # noqa: E501
-            occurrence (InlineResponse2007Occurrence): [optional]  # noqa: E501
-            dates (InlineResponse2007Dates): [optional]  # noqa: E501
-            currency (InlineResponse2007Currency): [optional]  # noqa: E501
-            gross (InlineResponse2007Gross): [optional]  # noqa: E501
+            id (str): Identifier of the notation.. [optional]  # noqa: E501
+            value_unit (InlineResponse2007ValueUnit): [optional]  # noqa: E501
+            market (InlineResponse2007Market): [optional]  # noqa: E501
+            symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            nsin (InlineResponse2007Nsin): [optional]  # noqa: E501
+            fsym (InlineResponse2006Fsym): [optional]  # noqa: E501
+            instrument (InlineResponse2007Instrument): [optional]  # noqa: E501
+            compliance (InlineResponse2007Compliance): [optional]  # noqa: E501
+            reported_key_figures (InlineResponse2007ReportedKeyFigures): [optional]  # noqa: E501
+            performance (InlineResponse2007Performance): [optional]  # noqa: E501
+            volatility (InlineResponse2007Volatility): [optional]  # noqa: E501
+            trading_value (InlineResponse2007TradingValue): [optional]  # noqa: E501
+            simple_moving_average (InlineResponse2007SimpleMovingAverage): [optional]  # noqa: E501
+            rsi_wilder (InlineResponse2007RsiWilder): [optional]  # noqa: E501
+            recommendation (InlineResponse2007Recommendation): [optional]  # noqa: E501
+            estimates (InlineResponse2007Estimates): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -30,10 +30,18 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_ownership import InlineResponse2006Ownership
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_type import InlineResponse2006Type
-    globals()['InlineResponse2006Ownership'] = InlineResponse2006Ownership
-    globals()['InlineResponse2006Type'] = InlineResponse2006Type
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_accumulated import InlineResponse2006Accumulated
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_currency import InlineResponse2006Currency
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_fsym import InlineResponse2006Fsym
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_instrument import InlineResponse2006Instrument
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_market import InlineResponse2006Market
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006_trade import InlineResponse2006Trade
+    globals()['InlineResponse2006Accumulated'] = InlineResponse2006Accumulated
+    globals()['InlineResponse2006Currency'] = InlineResponse2006Currency
+    globals()['InlineResponse2006Fsym'] = InlineResponse2006Fsym
+    globals()['InlineResponse2006Instrument'] = InlineResponse2006Instrument
+    globals()['InlineResponse2006Market'] = InlineResponse2006Market
+    globals()['InlineResponse2006Trade'] = InlineResponse2006Trade
 
 
 class InlineResponse2006Data(ModelNormal):
@@ -90,9 +98,15 @@ class InlineResponse2006Data(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'type': (InlineResponse2006Type,),  # noqa: E501
-            'ownership': (InlineResponse2006Ownership,),  # noqa: E501
+            'symbol': (str,),  # noqa: E501
+            'market': (InlineResponse2006Market,),  # noqa: E501
+            'currency': (InlineResponse2006Currency,),  # noqa: E501
+            'is_alternative': (bool,),  # noqa: E501
+            'trade': (InlineResponse2006Trade,),  # noqa: E501
+            'quality': (str,),  # noqa: E501
+            'accumulated': (InlineResponse2006Accumulated,),  # noqa: E501
+            'fsym': (InlineResponse2006Fsym,),  # noqa: E501
+            'instrument': (InlineResponse2006Instrument,),  # noqa: E501
         }
 
     @cached_property
@@ -102,9 +116,15 @@ class InlineResponse2006Data(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'ownership': 'ownership',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
+        'market': 'market',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
+        'is_alternative': 'isAlternative',  # noqa: E501
+        'trade': 'trade',  # noqa: E501
+        'quality': 'quality',  # noqa: E501
+        'accumulated': 'accumulated',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
+        'instrument': 'instrument',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,10 +168,16 @@ class InlineResponse2006Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Identifier of the owner. See endpoint `/legalEntity/list` for possible values.. [optional]  # noqa: E501
-            name (str): Name of the owner.. [optional]  # noqa: E501
-            type (InlineResponse2006Type): [optional]  # noqa: E501
-            ownership (InlineResponse2006Ownership): [optional]  # noqa: E501
+            id (str): Identifier of a notation.. [optional]  # noqa: E501
+            symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            market (InlineResponse2006Market): [optional]  # noqa: E501
+            currency (InlineResponse2006Currency): [optional]  # noqa: E501
+            is_alternative (bool): Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.. [optional]  # noqa: E501
+            trade (InlineResponse2006Trade): [optional]  # noqa: E501
+            quality (str): Quality of the trade-related attributes, see attributes `trade` and `accumulated`.. [optional]  # noqa: E501
+            accumulated (InlineResponse2006Accumulated): [optional]  # noqa: E501
+            fsym (InlineResponse2006Fsym): [optional]  # noqa: E501
+            instrument (InlineResponse2006Instrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,10 +259,16 @@ class InlineResponse2006Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Identifier of the owner. See endpoint `/legalEntity/list` for possible values.. [optional]  # noqa: E501
-            name (str): Name of the owner.. [optional]  # noqa: E501
-            type (InlineResponse2006Type): [optional]  # noqa: E501
-            ownership (InlineResponse2006Ownership): [optional]  # noqa: E501
+            id (str): Identifier of a notation.. [optional]  # noqa: E501
+            symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            market (InlineResponse2006Market): [optional]  # noqa: E501
+            currency (InlineResponse2006Currency): [optional]  # noqa: E501
+            is_alternative (bool): Indicates whether the notation is an alternative one, i.e. not the original notation of the index constituent.. [optional]  # noqa: E501
+            trade (InlineResponse2006Trade): [optional]  # noqa: E501
+            quality (str): Quality of the trade-related attributes, see attributes `trade` and `accumulated`.. [optional]  # noqa: E501
+            accumulated (InlineResponse2006Accumulated): [optional]  # noqa: E501
+            fsym (InlineResponse2006Fsym): [optional]  # noqa: E501
+            instrument (InlineResponse2006Instrument): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

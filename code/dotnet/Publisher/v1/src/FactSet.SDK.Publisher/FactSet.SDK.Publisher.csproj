@@ -13,7 +13,7 @@
     <Description>Publisher client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.Publisher</RootNamespace>
-    <Version>0.8.3</Version>
+    <Version>0.8.4</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.Publisher.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

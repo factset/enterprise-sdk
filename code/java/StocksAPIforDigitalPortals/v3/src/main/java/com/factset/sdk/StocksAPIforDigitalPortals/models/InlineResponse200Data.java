@@ -17,12 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200BalanceSheet;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200Currency;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200FiscalYear;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200IncomeStatement;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200PerShare;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200Ratios;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataRecommendation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse200DataTargetPrice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,231 +26,81 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
 
 
 /**
- * InlineResponse200Data
+ * Target price and aggregated recommendations for a stock.
  */
+@ApiModel(description = "Target price and aggregated recommendations for a stock.")
 @JsonPropertyOrder({
-  InlineResponse200Data.JSON_PROPERTY_FISCAL_YEAR,
-  InlineResponse200Data.JSON_PROPERTY_REPORT_DATE,
-  InlineResponse200Data.JSON_PROPERTY_CURRENCY,
-  InlineResponse200Data.JSON_PROPERTY_INCOME_STATEMENT,
-  InlineResponse200Data.JSON_PROPERTY_BALANCE_SHEET,
-  InlineResponse200Data.JSON_PROPERTY_RATIOS,
-  InlineResponse200Data.JSON_PROPERTY_PER_SHARE
+  InlineResponse200Data.JSON_PROPERTY_TARGET_PRICE,
+  InlineResponse200Data.JSON_PROPERTY_RECOMMENDATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse200Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FISCAL_YEAR = "fiscalYear";
-  private InlineResponse200FiscalYear fiscalYear;
+  public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
+  private InlineResponse200DataTargetPrice targetPrice;
 
-  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
-  private LocalDate reportDate;
-
-  public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private InlineResponse200Currency currency;
-
-  public static final String JSON_PROPERTY_INCOME_STATEMENT = "incomeStatement";
-  private InlineResponse200IncomeStatement incomeStatement;
-
-  public static final String JSON_PROPERTY_BALANCE_SHEET = "balanceSheet";
-  private InlineResponse200BalanceSheet balanceSheet;
-
-  public static final String JSON_PROPERTY_RATIOS = "ratios";
-  private InlineResponse200Ratios ratios;
-
-  public static final String JSON_PROPERTY_PER_SHARE = "perShare";
-  private InlineResponse200PerShare perShare;
+  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
+  private InlineResponse200DataRecommendation recommendation;
 
   public InlineResponse200Data() { 
   }
 
-  public InlineResponse200Data fiscalYear(InlineResponse200FiscalYear fiscalYear) {
-    this.fiscalYear = fiscalYear;
+  public InlineResponse200Data targetPrice(InlineResponse200DataTargetPrice targetPrice) {
+    this.targetPrice = targetPrice;
     return this;
   }
 
    /**
-   * Get fiscalYear
-   * @return fiscalYear
+   * Get targetPrice
+   * @return targetPrice
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
+  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200FiscalYear getFiscalYear() {
-    return fiscalYear;
+  public InlineResponse200DataTargetPrice getTargetPrice() {
+    return targetPrice;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FISCAL_YEAR)
+  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiscalYear(InlineResponse200FiscalYear fiscalYear) {
-    this.fiscalYear = fiscalYear;
+  public void setTargetPrice(InlineResponse200DataTargetPrice targetPrice) {
+    this.targetPrice = targetPrice;
   }
 
 
-  public InlineResponse200Data reportDate(LocalDate reportDate) {
-    this.reportDate = reportDate;
+  public InlineResponse200Data recommendation(InlineResponse200DataRecommendation recommendation) {
+    this.recommendation = recommendation;
     return this;
   }
 
    /**
-   * Publication date of the financial report.
-   * @return reportDate
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Publication date of the financial report.")
-  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public LocalDate getReportDate() {
-    return reportDate;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportDate(LocalDate reportDate) {
-    this.reportDate = reportDate;
-  }
-
-
-  public InlineResponse200Data currency(InlineResponse200Currency currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * Get currency
-   * @return currency
+   * Get recommendation
+   * @return recommendation
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200Currency getCurrency() {
-    return currency;
+  public InlineResponse200DataRecommendation getRecommendation() {
+    return recommendation;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(InlineResponse200Currency currency) {
-    this.currency = currency;
-  }
-
-
-  public InlineResponse200Data incomeStatement(InlineResponse200IncomeStatement incomeStatement) {
-    this.incomeStatement = incomeStatement;
-    return this;
-  }
-
-   /**
-   * Get incomeStatement
-   * @return incomeStatement
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse200IncomeStatement getIncomeStatement() {
-    return incomeStatement;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INCOME_STATEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncomeStatement(InlineResponse200IncomeStatement incomeStatement) {
-    this.incomeStatement = incomeStatement;
-  }
-
-
-  public InlineResponse200Data balanceSheet(InlineResponse200BalanceSheet balanceSheet) {
-    this.balanceSheet = balanceSheet;
-    return this;
-  }
-
-   /**
-   * Get balanceSheet
-   * @return balanceSheet
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse200BalanceSheet getBalanceSheet() {
-    return balanceSheet;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BALANCE_SHEET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBalanceSheet(InlineResponse200BalanceSheet balanceSheet) {
-    this.balanceSheet = balanceSheet;
-  }
-
-
-  public InlineResponse200Data ratios(InlineResponse200Ratios ratios) {
-    this.ratios = ratios;
-    return this;
-  }
-
-   /**
-   * Get ratios
-   * @return ratios
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RATIOS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse200Ratios getRatios() {
-    return ratios;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RATIOS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRatios(InlineResponse200Ratios ratios) {
-    this.ratios = ratios;
-  }
-
-
-  public InlineResponse200Data perShare(InlineResponse200PerShare perShare) {
-    this.perShare = perShare;
-    return this;
-  }
-
-   /**
-   * Get perShare
-   * @return perShare
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse200PerShare getPerShare() {
-    return perShare;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PER_SHARE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPerShare(InlineResponse200PerShare perShare) {
-    this.perShare = perShare;
+  public void setRecommendation(InlineResponse200DataRecommendation recommendation) {
+    this.recommendation = recommendation;
   }
 
 
@@ -270,31 +116,21 @@ public class InlineResponse200Data implements Serializable {
       return false;
     }
     InlineResponse200Data inlineResponse200Data = (InlineResponse200Data) o;
-    return Objects.equals(this.fiscalYear, inlineResponse200Data.fiscalYear) &&
-        Objects.equals(this.reportDate, inlineResponse200Data.reportDate) &&
-        Objects.equals(this.currency, inlineResponse200Data.currency) &&
-        Objects.equals(this.incomeStatement, inlineResponse200Data.incomeStatement) &&
-        Objects.equals(this.balanceSheet, inlineResponse200Data.balanceSheet) &&
-        Objects.equals(this.ratios, inlineResponse200Data.ratios) &&
-        Objects.equals(this.perShare, inlineResponse200Data.perShare);
+    return Objects.equals(this.targetPrice, inlineResponse200Data.targetPrice) &&
+        Objects.equals(this.recommendation, inlineResponse200Data.recommendation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fiscalYear, reportDate, currency, incomeStatement, balanceSheet, ratios, perShare);
+    return Objects.hash(targetPrice, recommendation);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200Data {\n");
-    sb.append("    fiscalYear: ").append(toIndentedString(fiscalYear)).append("\n");
-    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    incomeStatement: ").append(toIndentedString(incomeStatement)).append("\n");
-    sb.append("    balanceSheet: ").append(toIndentedString(balanceSheet)).append("\n");
-    sb.append("    ratios: ").append(toIndentedString(ratios)).append("\n");
-    sb.append("    perShare: ").append(toIndentedString(perShare)).append("\n");
+    sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
+    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

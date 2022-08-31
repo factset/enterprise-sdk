@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange",
   "projectName": "fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange",
-  "packageVersion": "0.21.0",
+  "packageVersion": "0.21.1",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Exchange DataFeed Snapshot API - Entire Exchange client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ExchangeDataFeedSnapshotAPIEntireExchange/v1",
-  "httpUserAgent": "fds-sdk/python/ExchangeDataFeedSnapshotAPIEntireExchange/0.21.0",
+  "httpUserAgent": "fds-sdk/python/ExchangeDataFeedSnapshotAPIEntireExchange/0.21.1",
   "files": {
     "LICENSE": {}
   }

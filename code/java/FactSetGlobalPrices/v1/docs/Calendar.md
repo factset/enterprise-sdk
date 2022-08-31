@@ -9,5 +9,7 @@
 
 * `SEVENDAY` (value: `"SEVENDAY"`)
 
+* `US` (value: `"US"`)
+
 
 

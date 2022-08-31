@@ -33,7 +33,7 @@ namespace FactSet.SDK.FactSetTrading.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.0";
+        public const string Version = "0.21.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -105,8 +105,8 @@ namespace FactSet.SDK.FactSetTrading.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/FactSetTrading/0.21.0";
-            BasePath = "https://api.factset.com";
+            UserAgent = "fds-sdk/dotnet/FactSetTrading/0.21.2";
+            BasePath = "http://localhost";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -114,7 +114,7 @@ namespace FactSet.SDK.FactSetTrading.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://api.factset.com"},
+                        {"url", ""},
                         {"description", "No description provided"},
                     }
                 }
@@ -132,7 +132,7 @@ namespace FactSet.SDK.FactSetTrading.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.factset.com") : this()
+            string basePath = "http://localhost") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -461,7 +461,7 @@ namespace FactSet.SDK.FactSetTrading.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1\n";
-            report += "    SDK Package Version: 0.21.0\n";
+            report += "    SDK Package Version: 0.21.2\n";
 
             return report;
         }

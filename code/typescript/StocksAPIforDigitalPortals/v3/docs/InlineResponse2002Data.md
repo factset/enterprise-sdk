@@ -4,27 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**snapshot** | **String** | Identification of the historic snapshot for aggregated recommendations. | [optional] 
-**targetPrice** | [**InlineResponse2001DataTargetPrice**](InlineResponse2001DataTargetPrice.md) |  | [optional] 
-**recommendation** | [**InlineResponse2002Recommendation**](InlineResponse2002Recommendation.md) |  | [optional] 
-
-
-
-## Enum: SnapshotEnum
-
-
-* `latest` (value: `"latest"`)
-
-* `1w` (value: `"1w"`)
-
-* `1m` (value: `"1m"`)
-
-* `3m` (value: `"3m"`)
-
-* `6m` (value: `"6m"`)
-
-* `1y` (value: `"1y"`)
-
-
+**id** | **String** | Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values. | [optional] 
+**name** | **String** | Name of the owner. | [optional] 
+**type** | [**InlineResponse2002Type**](InlineResponse2002Type.md) |  | [optional] 
+**ownership** | [**InlineResponse2002Ownership**](InlineResponse2002Ownership.md) |  | [optional] 
 
 

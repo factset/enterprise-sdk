@@ -15,6 +15,8 @@ from fds.sdk.Vault.model.calculation_status_meta import CalculationStatusMeta
 from fds.sdk.Vault.model.calculation_status_root import CalculationStatusRoot
 from fds.sdk.Vault.model.calculation_unit_status import CalculationUnitStatus
 from fds.sdk.Vault.model.calculation_unit_status_meta import CalculationUnitStatusMeta
+from fds.sdk.Vault.model.calculations_summary import CalculationsSummary
+from fds.sdk.Vault.model.calculations_summary_root import CalculationsSummaryRoot
 from fds.sdk.Vault.model.client_error_response import ClientErrorResponse
 from fds.sdk.Vault.model.component_summary import ComponentSummary
 from fds.sdk.Vault.model.component_summary_root import ComponentSummaryRoot
@@ -28,6 +30,8 @@ from fds.sdk.Vault.model.error_source import ErrorSource
 from fds.sdk.Vault.model.frequency import Frequency
 from fds.sdk.Vault.model.frequency_root import FrequencyRoot
 from fds.sdk.Vault.model.object_root import ObjectRoot
+from fds.sdk.Vault.model.pagination_info import PaginationInfo
+from fds.sdk.Vault.model.pagination_meta import PaginationMeta
 from fds.sdk.Vault.model.vault_calculation_parameters import VaultCalculationParameters
 from fds.sdk.Vault.model.vault_calculation_parameters_root import VaultCalculationParametersRoot
 from fds.sdk.Vault.model.vault_component import VaultComponent

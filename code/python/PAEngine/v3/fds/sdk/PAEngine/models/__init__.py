@@ -17,6 +17,8 @@ from fds.sdk.PAEngine.model.calculation_status_meta import CalculationStatusMeta
 from fds.sdk.PAEngine.model.calculation_status_root import CalculationStatusRoot
 from fds.sdk.PAEngine.model.calculation_unit_status import CalculationUnitStatus
 from fds.sdk.PAEngine.model.calculation_unit_status_meta import CalculationUnitStatusMeta
+from fds.sdk.PAEngine.model.calculations_summary import CalculationsSummary
+from fds.sdk.PAEngine.model.calculations_summary_root import CalculationsSummaryRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from fds.sdk.PAEngine.model.column import Column
 from fds.sdk.PAEngine.model.column_root import ColumnRoot
@@ -62,6 +64,8 @@ from fds.sdk.PAEngine.model.pa_date_parameters import PADateParameters
 from fds.sdk.PAEngine.model.pa_identifier import PAIdentifier
 from fds.sdk.PAEngine.model.pa_pricing_source import PAPricingSource
 from fds.sdk.PAEngine.model.pa_pricing_source_root import PAPricingSourceRoot
+from fds.sdk.PAEngine.model.pagination_info import PaginationInfo
+from fds.sdk.PAEngine.model.pagination_meta import PaginationMeta
 from fds.sdk.PAEngine.model.template_content_types import TemplateContentTypes
 from fds.sdk.PAEngine.model.templated_pa_component import TemplatedPAComponent
 from fds.sdk.PAEngine.model.templated_pa_component_parameters import TemplatedPAComponentParameters

@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import StockNotationScreenerSearchData from './StockNotationScreenerSearchData';
-import StockNotationScreenerSearchMeta from './StockNotationScreenerSearchMeta';
+import StockNotationScreenerValueRangesGetMeta from './StockNotationScreenerValueRangesGetMeta';
 
 /**
  * The InlineObject3 model module.
@@ -52,7 +52,7 @@ class InlineObject3 {
                 obj['data'] = StockNotationScreenerSearchData.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = StockNotationScreenerSearchMeta.constructFromObject(data['meta']);
+                obj['meta'] = StockNotationScreenerValueRangesGetMeta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -67,7 +67,7 @@ class InlineObject3 {
 InlineObject3.prototype['data'] = undefined;
 
 /**
- * @member {module:model/StockNotationScreenerSearchMeta} meta
+ * @member {module:model/StockNotationScreenerValueRangesGetMeta} meta
  */
 InlineObject3.prototype['meta'] = undefined;
 

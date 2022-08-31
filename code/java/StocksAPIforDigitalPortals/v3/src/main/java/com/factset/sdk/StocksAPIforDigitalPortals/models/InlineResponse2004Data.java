@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2004Functions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,8 +35,7 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  */
 @JsonPropertyOrder({
   InlineResponse2004Data.JSON_PROPERTY_ID,
-  InlineResponse2004Data.JSON_PROPERTY_NAME,
-  InlineResponse2004Data.JSON_PROPERTY_FUNCTIONS
+  InlineResponse2004Data.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2004Data implements Serializable {
@@ -49,9 +47,6 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_FUNCTIONS = "functions";
-  private java.util.List<InlineResponse2004Functions> functions = null;
-
   public InlineResponse2004Data() { 
   }
 
@@ -61,11 +56,11 @@ public class InlineResponse2004Data implements Serializable {
   }
 
    /**
-   * Identifier of a delivery.
+   * Identifier of a dividend type.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of a delivery.")
+  @ApiModelProperty(value = "Identifier of a dividend type.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -87,11 +82,11 @@ public class InlineResponse2004Data implements Serializable {
   }
 
    /**
-   * Name of the delivery.
+   * Name of the dividend type.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the delivery.")
+  @ApiModelProperty(value = "Name of the dividend type.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -104,40 +99,6 @@ public class InlineResponse2004Data implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public InlineResponse2004Data functions(java.util.List<InlineResponse2004Functions> functions) {
-    this.functions = functions;
-    return this;
-  }
-
-  public InlineResponse2004Data addFunctionsItem(InlineResponse2004Functions functionsItem) {
-    if (this.functions == null) {
-      this.functions = new java.util.ArrayList<>();
-    }
-    this.functions.add(functionsItem);
-    return this;
-  }
-
-   /**
-   * List of officer functions.
-   * @return functions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of officer functions.")
-  @JsonProperty(JSON_PROPERTY_FUNCTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public java.util.List<InlineResponse2004Functions> getFunctions() {
-    return functions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FUNCTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFunctions(java.util.List<InlineResponse2004Functions> functions) {
-    this.functions = functions;
   }
 
 
@@ -154,13 +115,12 @@ public class InlineResponse2004Data implements Serializable {
     }
     InlineResponse2004Data inlineResponse2004Data = (InlineResponse2004Data) o;
     return Objects.equals(this.id, inlineResponse2004Data.id) &&
-        Objects.equals(this.name, inlineResponse2004Data.name) &&
-        Objects.equals(this.functions, inlineResponse2004Data.functions);
+        Objects.equals(this.name, inlineResponse2004Data.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, functions);
+    return Objects.hash(id, name);
   }
 
   @Override
@@ -169,7 +129,6 @@ public class InlineResponse2004Data implements Serializable {
     sb.append("class InlineResponse2004Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

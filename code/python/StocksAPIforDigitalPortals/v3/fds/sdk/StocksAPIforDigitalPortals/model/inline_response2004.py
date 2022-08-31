@@ -144,7 +144,7 @@ class InlineResponse2004(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2004Data]): List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.. [optional]  # noqa: E501
+            data ([InlineResponse2004Data]): List of dividend types, sorted by ascending identifier value.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2004(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2004Data]): List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.. [optional]  # noqa: E501
+            data ([InlineResponse2004Data]): List of dividend types, sorted by ascending identifier value.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

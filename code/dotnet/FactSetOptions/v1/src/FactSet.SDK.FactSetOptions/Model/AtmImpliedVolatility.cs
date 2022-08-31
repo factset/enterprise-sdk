@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="putATMImplVol">Put Option at the money implied volatility..</param>
         /// <param name="putATMImplVolMarket">Put Option at the money implied volatility market..</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public AtmImpliedVolatility(double aTMImplVol = default(double), double aTMImplVolMarket = default(double), double callATMImplVol = default(double), double callATMImplVolMarket = default(double), DateTime date = default(DateTime), string exchange = default(string), string fsymId = default(string), string period = default(string), double putATMImplVol = default(double), double putATMImplVolMarket = default(double), string requestId = default(string))
+        public AtmImpliedVolatility(double? aTMImplVol = default(double?), double? aTMImplVolMarket = default(double?), double? callATMImplVol = default(double?), double? callATMImplVolMarket = default(double?), DateTime? date = default(DateTime?), string exchange = default(string), string fsymId = default(string), string period = default(string), double? putATMImplVol = default(double?), double? putATMImplVolMarket = default(double?), string requestId = default(string))
         {
             this.ATMImplVol = aTMImplVol;
             this.ATMImplVolMarket = aTMImplVolMarket;
@@ -65,72 +65,72 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// Option at the money implied volatility.
         /// </summary>
         /// <value>Option at the money implied volatility.</value>
-        [DataMember(Name = "aTMImplVol", EmitDefaultValue = false)]
-        public double ATMImplVol { get; set; }
+        [DataMember(Name = "aTMImplVol", EmitDefaultValue = true)]
+        public double? ATMImplVol { get; set; }
 
         /// <summary>
         /// Option at the money implied volatility market.
         /// </summary>
         /// <value>Option at the money implied volatility market.</value>
-        [DataMember(Name = "aTMImplVolMarket", EmitDefaultValue = false)]
-        public double ATMImplVolMarket { get; set; }
+        [DataMember(Name = "aTMImplVolMarket", EmitDefaultValue = true)]
+        public double? ATMImplVolMarket { get; set; }
 
         /// <summary>
         /// Call option at the money implied volatility.
         /// </summary>
         /// <value>Call option at the money implied volatility.</value>
-        [DataMember(Name = "callATMImplVol", EmitDefaultValue = false)]
-        public double CallATMImplVol { get; set; }
+        [DataMember(Name = "callATMImplVol", EmitDefaultValue = true)]
+        public double? CallATMImplVol { get; set; }
 
         /// <summary>
         /// Call option at the money implied volatility market.
         /// </summary>
         /// <value>Call option at the money implied volatility market.</value>
-        [DataMember(Name = "callATMImplVolMarket", EmitDefaultValue = false)]
-        public double CallATMImplVolMarket { get; set; }
+        [DataMember(Name = "callATMImplVolMarket", EmitDefaultValue = true)]
+        public double? CallATMImplVolMarket { get; set; }
 
         /// <summary>
         /// The date of the data represented in YYYY-MM-DD format
         /// </summary>
         /// <value>The date of the data represented in YYYY-MM-DD format</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
         /// </summary>
         /// <value>Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.</value>
-        [DataMember(Name = "exchange", EmitDefaultValue = false)]
+        [DataMember(Name = "exchange", EmitDefaultValue = true)]
         public string Exchange { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Security Permanent Identifier in XXXXXX-S format.
         /// </summary>
         /// <value>FactSet&#39;s Security Permanent Identifier in XXXXXX-S format.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.
         /// </summary>
         /// <value>The period of the At-the-money volatility at current, 1, 2, 3, 4, and 6 month periods.</value>
-        [DataMember(Name = "period", EmitDefaultValue = false)]
+        [DataMember(Name = "period", EmitDefaultValue = true)]
         public string Period { get; set; }
 
         /// <summary>
         /// Put Option at the money implied volatility.
         /// </summary>
         /// <value>Put Option at the money implied volatility.</value>
-        [DataMember(Name = "putATMImplVol", EmitDefaultValue = false)]
-        public double PutATMImplVol { get; set; }
+        [DataMember(Name = "putATMImplVol", EmitDefaultValue = true)]
+        public double? PutATMImplVol { get; set; }
 
         /// <summary>
         /// Put Option at the money implied volatility market.
         /// </summary>
         /// <value>Put Option at the money implied volatility market.</value>
-        [DataMember(Name = "putATMImplVolMarket", EmitDefaultValue = false)]
-        public double PutATMImplVolMarket { get; set; }
+        [DataMember(Name = "putATMImplVolMarket", EmitDefaultValue = true)]
+        public double? PutATMImplVolMarket { get; set; }
 
         /// <summary>
         /// The requested identifier submitted in the query.
@@ -195,19 +195,23 @@ namespace FactSet.SDK.FactSetOptions.Model
             return 
                 (
                     this.ATMImplVol == input.ATMImplVol ||
-                    this.ATMImplVol.Equals(input.ATMImplVol)
+                    (this.ATMImplVol != null &&
+                    this.ATMImplVol.Equals(input.ATMImplVol))
                 ) && 
                 (
                     this.ATMImplVolMarket == input.ATMImplVolMarket ||
-                    this.ATMImplVolMarket.Equals(input.ATMImplVolMarket)
+                    (this.ATMImplVolMarket != null &&
+                    this.ATMImplVolMarket.Equals(input.ATMImplVolMarket))
                 ) && 
                 (
                     this.CallATMImplVol == input.CallATMImplVol ||
-                    this.CallATMImplVol.Equals(input.CallATMImplVol)
+                    (this.CallATMImplVol != null &&
+                    this.CallATMImplVol.Equals(input.CallATMImplVol))
                 ) && 
                 (
                     this.CallATMImplVolMarket == input.CallATMImplVolMarket ||
-                    this.CallATMImplVolMarket.Equals(input.CallATMImplVolMarket)
+                    (this.CallATMImplVolMarket != null &&
+                    this.CallATMImplVolMarket.Equals(input.CallATMImplVolMarket))
                 ) && 
                 (
                     this.Date == input.Date ||
@@ -231,11 +235,13 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.PutATMImplVol == input.PutATMImplVol ||
-                    this.PutATMImplVol.Equals(input.PutATMImplVol)
+                    (this.PutATMImplVol != null &&
+                    this.PutATMImplVol.Equals(input.PutATMImplVol))
                 ) && 
                 (
                     this.PutATMImplVolMarket == input.PutATMImplVolMarket ||
-                    this.PutATMImplVolMarket.Equals(input.PutATMImplVolMarket)
+                    (this.PutATMImplVolMarket != null &&
+                    this.PutATMImplVolMarket.Equals(input.PutATMImplVolMarket))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -253,10 +259,22 @@ namespace FactSet.SDK.FactSetOptions.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ATMImplVol.GetHashCode();
-                hashCode = (hashCode * 59) + this.ATMImplVolMarket.GetHashCode();
-                hashCode = (hashCode * 59) + this.CallATMImplVol.GetHashCode();
-                hashCode = (hashCode * 59) + this.CallATMImplVolMarket.GetHashCode();
+                if (this.ATMImplVol != null)
+                {
+                    hashCode = (hashCode * 59) + this.ATMImplVol.GetHashCode();
+                }
+                if (this.ATMImplVolMarket != null)
+                {
+                    hashCode = (hashCode * 59) + this.ATMImplVolMarket.GetHashCode();
+                }
+                if (this.CallATMImplVol != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallATMImplVol.GetHashCode();
+                }
+                if (this.CallATMImplVolMarket != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallATMImplVolMarket.GetHashCode();
+                }
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
@@ -273,8 +291,14 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.Period.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PutATMImplVol.GetHashCode();
-                hashCode = (hashCode * 59) + this.PutATMImplVolMarket.GetHashCode();
+                if (this.PutATMImplVol != null)
+                {
+                    hashCode = (hashCode * 59) + this.PutATMImplVol.GetHashCode();
+                }
+                if (this.PutATMImplVolMarket != null)
+                {
+                    hashCode = (hashCode * 59) + this.PutATMImplVolMarket.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

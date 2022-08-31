@@ -36,7 +36,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineObject(CompanyEstimatesListByInstrumentData data = default(CompanyEstimatesListByInstrumentData), CompanyEstimatesListByInstrumentMeta meta = default(CompanyEstimatesListByInstrumentMeta))
+        public InlineObject(StockDividendListData data = default(StockDividendListData), StockDividendListMeta meta = default(StockDividendListMeta))
         {
             this.Data = data;
             this.Meta = meta;
@@ -46,13 +46,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public CompanyEstimatesListByInstrumentData Data { get; set; }
+        public StockDividendListData Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public CompanyEstimatesListByInstrumentMeta Meta { get; set; }
+        public StockDividendListMeta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

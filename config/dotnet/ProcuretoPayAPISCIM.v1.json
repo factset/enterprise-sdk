@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ProcuretoPayAPISCIM",
-  "packageVersion": "0.21.0",
+  "packageVersion": "0.21.1",
   "packageGuid": "{1cc84a9e-0253-5ced-b390-455976ca5d4f}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ProcuretoPayAPISCIM/0.21.0",
+  "httpUserAgent": "fds-sdk/dotnet/ProcuretoPayAPISCIM/0.21.1",
   "files": {
     "LICENSE": {}
   },

@@ -1,123 +1,27 @@
 # fds.sdk.WatchlistAPIforDigitalPortals.WatchlistApi
 
-All URIs are relative to *http://api-sandbox.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**watchlist_create_post**](WatchlistApi.md#watchlist_create_post) | **POST** /watchlist/create | Create watchlist.
-[**watchlist_delete_post**](WatchlistApi.md#watchlist_delete_post) | **POST** /watchlist/delete | The endpoint deletes a watchlist.
-[**watchlist_list_get**](WatchlistApi.md#watchlist_list_get) | **GET** /watchlist/list | List watchlists.
-[**watchlist_modify_post**](WatchlistApi.md#watchlist_modify_post) | **POST** /watchlist/modify | Rename a watchlist.
-[**watchlist_position_create_post**](WatchlistApi.md#watchlist_position_create_post) | **POST** /watchlist/position/create | Add position in watchlist.
-[**watchlist_position_delete_post**](WatchlistApi.md#watchlist_position_delete_post) | **POST** /watchlist/position/delete | Add position in watchlist.
-[**watchlist_position_list_get**](WatchlistApi.md#watchlist_position_list_get) | **GET** /watchlist/position/list | List positions of watchlist.
-[**watchlist_position_modify_post**](WatchlistApi.md#watchlist_position_modify_post) | **POST** /watchlist/position/modify | Add position in watchlist.
+[**get_watchlist_get**](WatchlistApi.md#get_watchlist_get) | **GET** /watchlist/get | Details of a watchlist.
+[**get_watchlist_list**](WatchlistApi.md#get_watchlist_list) | **GET** /watchlist/list | List of watchlists.
+[**get_watchlist_position_list**](WatchlistApi.md#get_watchlist_position_list) | **GET** /watchlist/position/list | List of positions of a watchlist.
+[**post_watchlist_create**](WatchlistApi.md#post_watchlist_create) | **POST** /watchlist/create | Create a watchlist.
+[**post_watchlist_delete**](WatchlistApi.md#post_watchlist_delete) | **POST** /watchlist/delete | Delete a watchlist.
+[**post_watchlist_modify**](WatchlistApi.md#post_watchlist_modify) | **POST** /watchlist/modify | Modify a watchlist.
+[**post_watchlist_position_create**](WatchlistApi.md#post_watchlist_position_create) | **POST** /watchlist/position/create | Add a position to a watchlist.
+[**post_watchlist_position_delete**](WatchlistApi.md#post_watchlist_position_delete) | **POST** /watchlist/position/delete | Delete a position of a watchlist.
+[**post_watchlist_position_get**](WatchlistApi.md#post_watchlist_position_get) | **POST** /watchlist/position/get | Details of the position of a watchlist.
+[**post_watchlist_position_modify**](WatchlistApi.md#post_watchlist_position_modify) | **POST** /watchlist/position/modify | Modify a position in a watchlist.
 
 
-# **watchlist_create_post**
-> InlineResponse200 watchlist_create_post()
+# **get_watchlist_get**
+> InlineResponse2001 get_watchlist_get(id)
 
-Create watchlist.
+Details of a watchlist.
 
-The endpoint creates a new watchlist.
-
-### Example
-
-* Basic Authentication (FactSetApiKey):
-* OAuth Authentication (FactSetOAuth2):
-
-```python
-from fds.sdk.utils.authentication import ConfidentialClient
-import fds.sdk.WatchlistAPIforDigitalPortals
-from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
-from fds.sdk.WatchlistAPIforDigitalPortals.models import *
-from dateutil.parser import parse as dateutil_parser
-from pprint import pprint
-
-# See configuration.py for a list of all supported configuration parameters.
-
-# Examples for each supported authentication method are below,
-# choose one that satisfies your use case.
-
-# (Preferred) OAuth 2.0: FactSetOAuth2
-# See https://github.com/FactSet/enterprise-sdk#oauth-20
-# for information on how to create the app-config.json file
-# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
-# for more information on using the ConfidentialClient class
-configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
-    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
-)
-
-# Basic authentication: FactSetApiKey
-# See https://github.com/FactSet/enterprise-sdk#api-key
-# for information how to create an API key
-# configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
-#     username='USERNAME-SERIAL',
-#     password='API-KEY'
-# )
-
-# Enter a context with an instance of the API client
-with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = watchlist_api.WatchlistApi(api_client)
-
-    body = InlineObject(
-        data=WatchlistCreateData(
-            name="name_example",
-        ),
-        meta=WatchlistCreateMeta(
-            attributes=AttributesMember([
-                "attributes_example",
-            ]),
-        ),
-    ) # InlineObject |  (optional)
-
-    try:
-        # Create watchlist.
-        # example passing only required values which don't have defaults set
-        # and optional values
-        api_response = api_instance.watchlist_create_post(body=body)
-        pprint(api_response)
-
-    except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_create_post: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject**](InlineObject.md)|  | [optional]
-
-### Return type
-
-[**InlineResponse200**](InlineResponse200.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **watchlist_delete_post**
-> InlineResponse2001 watchlist_delete_post()
-
-The endpoint deletes a watchlist.
-
-The endpoint deletes a watchlist.
+Details of a watchlist.
 
 ### Example
 
@@ -159,26 +63,20 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    body = InlineObject1(
-        data=WatchlistCreateData(
-            name="name_example",
-        ),
-        meta=WatchlistCreateMeta(
-            attributes=AttributesMember([
-                "attributes_example",
-            ]),
-        ),
-    ) # InlineObject1 |  (optional)
+    id = "id_example" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
     try:
-        # The endpoint deletes a watchlist.
+        # Details of a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_delete_post(body=body)
+        api_response = api_instance.get_watchlist_get(id, attributes=attributes)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_delete_post: %s\n" % e)
+        print("Exception when calling WatchlistApi->get_watchlist_get: %s\n" % e)
 ```
 
 
@@ -186,7 +84,8 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **id** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
 
@@ -198,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -210,12 +109,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_list_get**
-> InlineResponse2002 watchlist_list_get()
+# **get_watchlist_list**
+> InlineResponse2002 get_watchlist_list()
 
-List watchlists.
+List of watchlists.
 
-The endpoint lists all watchlist of a user.
+List of watchlists.
 
 ### Example
 
@@ -260,21 +159,17 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    sort = [
-        "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    sort = ["name"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
 
     try:
-        # List watchlists.
+        # List of watchlists.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_list_get(attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
+        api_response = api_instance.get_watchlist_list(attributes=attributes, sort=sort)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_list_get: %s\n" % e)
+        print("Exception when calling WatchlistApi->get_watchlist_list: %s\n" % e)
 ```
 
 
@@ -283,9 +178,7 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["name"]
 
 ### Return type
 
@@ -309,12 +202,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_modify_post**
-> InlineResponse200 watchlist_modify_post()
+# **get_watchlist_position_list**
+> InlineResponse2005 get_watchlist_position_list(id)
 
-Rename a watchlist.
+List of positions of a watchlist.
 
-The endpoint renames a watchlist.
+List of positions of a watchlist.
 
 ### Example
 
@@ -356,27 +249,21 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    body = InlineObject2(
-        data=WatchlistModifyData(
-            name="name_example",
-            name_new="name_new_example",
-        ),
-        meta=WatchlistCreateMeta(
-            attributes=AttributesMember([
-                "attributes_example",
-            ]),
-        ),
-    ) # InlineObject2 |  (optional)
+    id = "id_example" # str | 
+    attributes = [
+        "_attributes_example",
+    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
+    sort = ["id"] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["id"]
 
     try:
-        # Rename a watchlist.
+        # List of positions of a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_modify_post(body=body)
+        api_response = api_instance.get_watchlist_position_list(id, attributes=attributes, sort=sort)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_modify_post: %s\n" % e)
+        print("Exception when calling WatchlistApi->get_watchlist_position_list: %s\n" % e)
 ```
 
 
@@ -384,7 +271,205 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **id** | **str**|  |
+ **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
+ **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["id"]
+
+### Return type
+
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_watchlist_create**
+> InlineResponse201 post_watchlist_create()
+
+Create a watchlist.
+
+Create a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of watchlists would exceed 100.|400 Bad Request|
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.WatchlistAPIforDigitalPortals
+from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = watchlist_api.WatchlistApi(api_client)
+
+    inline_object = InlineObject(
+        data=WatchlistCreateData(
+            name="HBXK<tBV:b1?ZVlP;i9BNC",
+        ),
+        meta=WatchlistCreateMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+        ),
+    ) # InlineObject |  (optional)
+
+    try:
+        # Create a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_watchlist_create(inline_object=inline_object)
+        pprint(api_response)
+
+    except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling WatchlistApi->post_watchlist_create: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_watchlist_delete**
+> InlineResponse200 post_watchlist_delete()
+
+Delete a watchlist.
+
+Delete a watchlist.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.WatchlistAPIforDigitalPortals
+from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = watchlist_api.WatchlistApi(api_client)
+
+    inline_object1 = InlineObject1(
+        data=WatchlistDeleteData(
+            id="id_example",
+        ),
+        meta=WatchlistCreateMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+        ),
+    ) # InlineObject1 |  (optional)
+
+    try:
+        # Delete a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_watchlist_delete(inline_object1=inline_object1)
+        pprint(api_response)
+
+    except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling WatchlistApi->post_watchlist_delete: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
@@ -408,12 +493,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_position_create_post**
-> InlineResponse2003 watchlist_position_create_post()
+# **post_watchlist_modify**
+> InlineResponse2003 post_watchlist_modify()
 
-Add position in watchlist.
+Modify a watchlist.
 
-The endpoint adds a new position in a watchlist.
+Modify a watchlist.
 
 ### Example
 
@@ -455,28 +540,27 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    body = InlineObject3(
-        data=WatchlistPositionCreateData(
-            name="name_example",
-            notation="notation_example",
-            additional_data="additional_data_example",
+    inline_object2 = InlineObject2(
+        data=WatchlistModifyData(
+            id="id_example",
+            name="HBXK<tBV:b1?ZVlP;i9BNC",
         ),
         meta=WatchlistCreateMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject3 |  (optional)
+    ) # InlineObject2 |  (optional)
 
     try:
-        # Add position in watchlist.
+        # Modify a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_position_create_post(body=body)
+        api_response = api_instance.post_watchlist_modify(inline_object2=inline_object2)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_position_create_post: %s\n" % e)
+        print("Exception when calling WatchlistApi->post_watchlist_modify: %s\n" % e)
 ```
 
 
@@ -484,7 +568,7 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 
@@ -508,12 +592,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_position_delete_post**
-> InlineResponse200 watchlist_position_delete_post()
+# **post_watchlist_position_create**
+> InlineResponse2011 post_watchlist_position_create()
 
-Add position in watchlist.
+Add a position to a watchlist.
 
-The endpoint deletes a position in a watchlist.
+Add a position to a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |Maximum number of watchlist positions would exceed 100.|400 Bad Request| |The watchlist does not exist.|400 Bad Request| |The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 
@@ -555,10 +639,114 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    body = InlineObject4(
+    inline_object3 = InlineObject3(
+        data=WatchlistPositionCreateData(
+            id="id_example",
+            notation=WatchlistPositionCreateDataNotation(
+                id="id_example",
+            ),
+            comment="HBXK<tBV:b1?ZVlP;i9BNC",
+        ),
+        meta=WatchlistCreateMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+        ),
+    ) # InlineObject3 |  (optional)
+
+    try:
+        # Add a position to a watchlist.
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.post_watchlist_position_create(inline_object3=inline_object3)
+        pprint(api_response)
+
+    except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
+        print("Exception when calling WatchlistApi->post_watchlist_position_create: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inline_object3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+
+### Return type
+
+[**InlineResponse2011**](InlineResponse2011.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_watchlist_position_delete**
+> InlineResponse2003 post_watchlist_position_delete()
+
+Delete a position of a watchlist.
+
+Delete a position of a watchlist.
+
+### Example
+
+* Basic Authentication (FactSetApiKey):
+* OAuth Authentication (FactSetOAuth2):
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.WatchlistAPIforDigitalPortals
+from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api
+from fds.sdk.WatchlistAPIforDigitalPortals.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.WatchlistAPIforDigitalPortals.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = watchlist_api.WatchlistApi(api_client)
+
+    inline_object4 = InlineObject4(
         data=WatchlistPositionDeleteData(
-            name="name_example",
-            id=3.14,
+            id="id_example",
+            position=WatchlistPositionDeleteDataPosition(
+                id=3.14,
+            ),
         ),
         meta=WatchlistCreateMeta(
             attributes=AttributesMember([
@@ -568,14 +756,14 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     ) # InlineObject4 |  (optional)
 
     try:
-        # Add position in watchlist.
+        # Delete a position of a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_position_delete_post(body=body)
+        api_response = api_instance.post_watchlist_position_delete(inline_object4=inline_object4)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_position_delete_post: %s\n" % e)
+        print("Exception when calling WatchlistApi->post_watchlist_position_delete: %s\n" % e)
 ```
 
 
@@ -583,11 +771,11 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **inline_object4** | [**InlineObject4**](InlineObject4.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -607,12 +795,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_position_list_get**
-> InlineResponse2004 watchlist_position_list_get(name)
+# **post_watchlist_position_get**
+> InlineResponse2004 post_watchlist_position_get()
 
-List positions of watchlist.
+Details of the position of a watchlist.
 
-The endpoint lists the positions of a watchlist.
+Details of the position of a watchlist.
 
 ### Example
 
@@ -654,25 +842,29 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    name = "name_example" # str | Name of watchlist
-    attributes = [
-        "_attributes_example",
-    ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    sort = [
-        "["id"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["id"]
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    inline_object5 = InlineObject5(
+        data=WatchlistPositionGetData(
+            id="id_example",
+            position=WatchlistPositionGetDataPosition(
+                id=3.14,
+            ),
+        ),
+        meta=WatchlistCreateMeta(
+            attributes=AttributesMember([
+                "attributes_example",
+            ]),
+        ),
+    ) # InlineObject5 |  (optional)
 
     try:
-        # List positions of watchlist.
+        # Details of the position of a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_position_list_get(name, attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
+        api_response = api_instance.post_watchlist_position_get(inline_object5=inline_object5)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_position_list_get: %s\n" % e)
+        print("Exception when calling WatchlistApi->post_watchlist_position_get: %s\n" % e)
 ```
 
 
@@ -680,11 +872,7 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Name of watchlist |
- **attributes** | **[str]**| Limit the attributes returned in the response to the specified set. | [optional]
- **sort** | **[str]**| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] if omitted the server will use the default value of ["id"]
- **pagination_offset** | **float**| Non-negative number of entries to skip, or 0 (default). | [optional] if omitted the server will use the default value of 0.0
- **pagination_limit** | **float**| Non-negative maximum number of entries to return. | [optional] if omitted the server will use the default value of 20.0
+ **inline_object5** | [**InlineObject5**](InlineObject5.md)|  | [optional]
 
 ### Return type
 
@@ -696,7 +884,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -708,12 +896,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **watchlist_position_modify_post**
-> InlineResponse200 watchlist_position_modify_post()
+# **post_watchlist_position_modify**
+> InlineResponse2003 post_watchlist_position_modify()
 
-Add position in watchlist.
+Modify a position in a watchlist.
 
-The endpoint modifies a position in a watchlist. All properties except the position id are modifiable by the endpoint.
+Modify a position in a watchlist.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |At least one of the parameters `notation` or `comment` must be set.|400 Bad Request| |The notation already exists in the watchlist.|400 Bad Request|
 
 ### Example
 
@@ -755,29 +943,33 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
 
-    body = InlineObject5(
+    inline_object6 = InlineObject6(
         data=WatchlistPositionModifyData(
-            name="name_example",
-            id=3.14,
-            notation="notation_example",
-            additional_data="additional_data_example",
+            id="id_example",
+            position=WatchlistPositionModifyDataPosition(
+                id=3.14,
+            ),
+            notation=WatchlistPositionCreateDataNotation(
+                id="id_example",
+            ),
+            comment="HBXK<tBV:b1?ZVlP;i9BNC",
         ),
         meta=WatchlistCreateMeta(
             attributes=AttributesMember([
                 "attributes_example",
             ]),
         ),
-    ) # InlineObject5 |  (optional)
+    ) # InlineObject6 |  (optional)
 
     try:
-        # Add position in watchlist.
+        # Modify a position in a watchlist.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.watchlist_position_modify_post(body=body)
+        api_response = api_instance.post_watchlist_position_modify(inline_object6=inline_object6)
         pprint(api_response)
 
     except fds.sdk.WatchlistAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_position_modify_post: %s\n" % e)
+        print("Exception when calling WatchlistApi->post_watchlist_position_modify: %s\n" % e)
 ```
 
 
@@ -785,11 +977,11 @@ with fds.sdk.WatchlistAPIforDigitalPortals.ApiClient(configuration) as api_clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject5**](InlineObject5.md)|  | [optional]
+ **inline_object6** | [**InlineObject6**](InlineObject6.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

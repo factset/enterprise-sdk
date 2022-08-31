@@ -59,7 +59,7 @@ class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossove
 
     validations = {
         ('value',): {
-            'inclusive_maximum': 3E+2,
+            'inclusive_maximum': 300,
             'inclusive_minimum': 0,
         },
     }

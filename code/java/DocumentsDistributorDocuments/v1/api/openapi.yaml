@@ -20,7 +20,13 @@ info:
     \n Both historical and real-time Street Account news is also delivered via SFTP,\
     \ to users QNT account, or users Azure Storage.\n\nFiles delivered contain both\
     \ metadata and content body in each file. This eliminates the need to make multiple\
-    \ requests through multiple services to get all the information.\n "
+    \ requests through multiple services to get all the information.\n\nNews API provides\
+    \ access to historical news. This provides a summary for various corporate and\
+    \ market news written by journalist with background in financial markets.\n\n\
+    The API delivers  stories in different format based on user-specified date input\
+    \ parameters. When the API request is completed, output files will be made available\
+    \ back to the users through a secure URL. This API has three endpoints (1) Request\
+    \ Files (2) Check Status (3) Get Files  \n "
   title: Documents Distributor - Documents API
   version: 1.0.0
 servers:
@@ -151,6 +157,23 @@ paths:
         schema:
           type: string
         style: form
+      - description: Specifies the maximum number of results to return per result
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the   beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -188,6 +211,23 @@ paths:
         schema:
           type: string
         style: form
+      - description: Specifies the maximum number of results to return per result
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the   beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -211,6 +251,199 @@ paths:
       tags:
       - StreetAccount XML API
       x-accepts: application/json
+  /asynch/news/v1/request-files:
+    get:
+      description: |-
+        Give the startDate,endDate and source parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format
+        This API only supports adhoc requests to retrieve historical files
+      parameters:
+      - description: Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ
+          format
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ
+          format
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: This parameter filters the results based on the source of the
+          filings document
+        explode: true
+        in: query
+        name: source
+        required: true
+        schema:
+          enum:
+          - news_ukwd
+          - hkex
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/200newsRequestFilesExample'
+              schema:
+                $ref: '#/components/schemas/newsrequestfilesResponse'
+          description: success
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/NewsExample'
+              schema:
+                $ref: '#/components/schemas/newsStatus'
+          description: Bad request
+      summary: Returns the jobID
+      tags:
+      - News API
+      x-accepts: application/json
+  /asynch/news/v1/check-status:
+    get:
+      description: Need to plug-in the jobID got from /request-files into /check-status
+        endpoint
+      parameters:
+      - description: jobID returned by the request-files endpoint to know the status
+          and percentDone
+        explode: true
+        in: query
+        name: jobID
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: This parameter filters the results based on the source of the
+          filings document
+        explode: true
+        in: query
+        name: source
+        required: true
+        schema:
+          enum:
+          - news_ukwd
+          - hkex
+          type: string
+        style: form
+      - description: Specifies the maximum number of results to return per result
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the   beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/news200CheckStatusExample'
+              schema:
+                $ref: '#/components/schemas/newscheckstatusResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/NewsExample'
+              schema:
+                $ref: '#/components/schemas/newsStatus'
+          description: Bad request
+      summary: Returns the status and percentDone of the requested jobID and source
+      tags:
+      - News API
+      x-accepts: application/json
+  /asynch/news/v1/get-files:
+    get:
+      description: Need to plug-in the source and jobID got from /request-files into
+        /get-files endpoint
+      parameters:
+      - description: jobID returned by the request-files endpoint to collect the results
+          of the query
+        explode: true
+        in: query
+        name: jobID
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: This parameter filters the results based on the source of the
+          filings document
+        explode: true
+        in: query
+        name: source
+        required: true
+        schema:
+          enum:
+          - news_ukwd
+          - hkex
+          type: string
+        style: form
+      - description: Specifies the maximum number of results to return per result
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the   beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/news200GetFilesExample'
+              schema:
+                $ref: '#/components/schemas/newsgetfilesResponse'
+          description: success
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/NewsExample'
+              schema:
+                $ref: '#/components/schemas/newsStatus'
+          description: Bad request
+      summary: Returns the news filings for the specified daterange and source
+      tags:
+      - News API
+      x-accepts: application/json
 components:
   examples:
     "200lfdefaultExample":
@@ -231,12 +464,22 @@ components:
     "200CheckStatusExample":
       summary: Sample Response
       value:
-        jobID: 9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5
-        status: completed
-        percentDone: "100"
-        startDate: 2021-11-21T00:00:00Z
-        endDate: 2021-11-28T00:00:00Z
-        part: "1"
+        data:
+        - product: SA
+          jobID: 9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5
+          status: completed
+          percentDone: "100"
+          startDate: 2021-11-21T00:00:00Z
+          endDate: 2021-11-28T00:00:00Z
+          part: "1"
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+            limit: 200
+            offset: 105
+          partial:
+            isPartial: false
     "200GetFilesExample":
       summary: Sample Response
       value:
@@ -248,7 +491,63 @@ components:
           status: completed
           part: "1"
           url: https://fdss3-unstructured-data-delivery-async-prod.s3.amazonaws.com/content_engineering_user/sa_mustang_history/9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5_1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEUZD7SMXD%2F20220408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220408T133348Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIBzma%2Bsah7KyvIQvfx9lU8Mt1sy5biZKGRhNSZx3ASQKAiEAhRs4TWZzxtvBHPQsBaZdoqdN6kih2BCD4rHwAkRUY0kqqQII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NjYyODIxMTY0MjUiDLWCnDoKAGnEkMMEUyr9AXDOWoW6CQeGJE6VyNrHwf1uIP5Ut78v2CG5LottatIyDne6UKaNSs%2F1d9s5k9PCXsu1aMFIGcaePX9U3nmaFxXbsLYlrfejcc5%2FDIywMFWGuXj7T023sjqEb4gE9d%2FVG2bx%2FgMs%2Bdj2ZNU4W3OARWFhAMxy3ZGn8DiPdUwytItzxwIi2UTUZhXlyuGr5sfpEX%2Fu8V3ZQRJN44QEMDZg4tsfshu%2F%2BSC8HmisC22Nb9gOjCj6LarLUYZrAfd8Lbfskm1Z4WDm9oKX4zR3NFrMu3VETleuyU%2FDTx66rae%2FZvELaz3%2FBnYcajNniB2iYJK6pu3NOqeoUP%2FdiHqAa1cwt%2FPAkgY6mgEZosJatTVk8gVBZDmWeT9xVxbE6jEVB49S5ujzbk9WG0pCishiaheTZmiKZJ%2FWAxJCq%2BzqrvelVL2QSAreaeKDw4qclCqXd5Fq5Fkt3CKNr%2FqfGUsf7mk7y%2FsK0V532dew%2FM3rsx32TC%2FyPq6n1jLS8Vshn4NbcKeYKI22iI14F36XlfDFZQiP5iTbCzh%2BfbJLLCmeuClsJznx&X-Amz-Signature=e9e0f814b339f6fb40266f5f30c18face40ec648b1e650e810c16973c01ce832
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+            limit: 200
+            offset: 105
+          partial:
+            isPartial: false
     StreetAccountExample:
+      summary: Sample error Response
+      value:
+        id: 0ad3e09c-d8a2-4223-a1a3-0244d1247351
+        error_message: parameterError:Missing required parameter jobID
+    "200newsRequestFilesExample":
+      summary: Sample Response
+      value:
+        jobID: 9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5
+        status: submitted
+    news200CheckStatusExample:
+      summary: Sample Response
+      value:
+        data:
+        - product: news_ukwd
+          jobID: 9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5
+          status: completed
+          percentDone: "100"
+          startDate: 2021-11-21T00:00:00Z
+          endDate: 2021-11-28T00:00:00Z
+          part: "1"
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+            limit: 200
+            offset: 105
+          partial:
+            isPartial: false
+    news200GetFilesExample:
+      summary: Sample Response
+      value:
+        data:
+        - product: news_ukwd
+          startDate: 2021-11-21T00:00:00Z
+          endDate: 2021-11-28T00:00:00Z
+          jobID: 9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5
+          status: completed
+          part: "1"
+          url: https://fdss3-unstructured-data-delivery-async-prod.s3.amazonaws.com/content_engineering_user/sa_mustang_history/9ffa3ffb-0ed3-40a0-a98f-8ed7da0a8ad5_1.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VEUZD7SMXD%2F20220408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220408T133348Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIBzma%2Bsah7KyvIQvfx9lU8Mt1sy5biZKGRhNSZx3ASQKAiEAhRs4TWZzxtvBHPQsBaZdoqdN6kih2BCD4rHwAkRUY0kqqQII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5NjYyODIxMTY0MjUiDLWCnDoKAGnEkMMEUyr9AXDOWoW6CQeGJE6VyNrHwf1uIP5Ut78v2CG5LottatIyDne6UKaNSs%2F1d9s5k9PCXsu1aMFIGcaePX9U3nmaFxXbsLYlrfejcc5%2FDIywMFWGuXj7T023sjqEb4gE9d%2FVG2bx%2FgMs%2Bdj2ZNU4W3OARWFhAMxy3ZGn8DiPdUwytItzxwIi2UTUZhXlyuGr5sfpEX%2Fu8V3ZQRJN44QEMDZg4tsfshu%2F%2BSC8HmisC22Nb9gOjCj6LarLUYZrAfd8Lbfskm1Z4WDm9oKX4zR3NFrMu3VETleuyU%2FDTx66rae%2FZvELaz3%2FBnYcajNniB2iYJK6pu3NOqeoUP%2FdiHqAa1cwt%2FPAkgY6mgEZosJatTVk8gVBZDmWeT9xVxbE6jEVB49S5ujzbk9WG0pCishiaheTZmiKZJ%2FWAxJCq%2BzqrvelVL2QSAreaeKDw4qclCqXd5Fq5Fkt3CKNr%2FqfGUsf7mk7y%2FsK0V532dew%2FM3rsx32TC%2FyPq6n1jLS8Vshn4NbcKeYKI22iI14F36XlfDFZQiP5iTbCzh%2BfbJLLCmeuClsJznx&X-Amz-Signature=e9e0f814b339f6fb40266f5f30c18face40ec648b1e650e810c16973c01ce832
+        meta:
+          pagination:
+            total: 105
+            isEstimatedTotal: false
+            limit: 200
+            offset: 105
+          partial:
+            isPartial: false
+    NewsExample:
       summary: Sample error Response
       value:
         id: 0ad3e09c-d8a2-4223-a1a3-0244d1247351
@@ -284,18 +583,51 @@ components:
           type: string
       type: object
     checkstatusResponse:
-      items:
-        $ref: '#/components/schemas/checkstatus'
-      type: array
+      example:
+        data:
+        - jobID: jobID
+          product: product
+          percentDone: 0
+          endDate: 2000-01-23
+          part: 6
+          startDate: 2000-01-23
+          status: status
+        - jobID: jobID
+          product: product
+          percentDone: 0
+          endDate: 2000-01-23
+          part: 6
+          startDate: 2000-01-23
+          status: status
+        meta:
+          pagination:
+            total: 1
+            offset: 5
+            limit: 5
+            isEstimatedTotal: true
+          partial:
+            isPartial: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/checkstatus'
+          type: array
+        meta:
+          $ref: '#/components/schemas/metaOne'
+      type: object
     checkstatus:
       example:
         jobID: jobID
+        product: product
         percentDone: 0
         endDate: 2000-01-23
         part: 6
         startDate: 2000-01-23
         status: status
       properties:
+        product:
+          description: Defines the name of the product
+          type: string
         jobID:
           description: Unique id to get the xml files for the requested date
           type: string
@@ -322,9 +654,38 @@ components:
           type: integer
       type: object
     getfilesResponse:
-      items:
-        $ref: '#/components/schemas/getfiles'
-      type: array
+      example:
+        data:
+        - jobID: jobID
+          product: product
+          endDate: 2000-01-23
+          part: 0
+          startDate: 2000-01-23
+          url: url
+          status: status
+        - jobID: jobID
+          product: product
+          endDate: 2000-01-23
+          part: 0
+          startDate: 2000-01-23
+          url: url
+          status: status
+        meta:
+          pagination:
+            total: 1
+            offset: 5
+            limit: 5
+            isEstimatedTotal: true
+          partial:
+            isPartial: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/getfiles'
+          type: array
+        meta:
+          $ref: '#/components/schemas/metaOne'
+      type: object
     getfiles:
       example:
         jobID: jobID
@@ -361,6 +722,213 @@ components:
           description: Returns the part number of the jobID
           type: integer
       type: object
+    newsrequestfilesResponse:
+      example:
+        jobID: jobID
+        status: status
+      properties:
+        jobID:
+          description: Unique id to get the xml files for the requested date
+          type: string
+        status:
+          description: Returns the value as submitted. Tells the request has been
+            submitted
+          type: string
+      type: object
+    newscheckstatusResponse:
+      example:
+        data:
+        - jobID: jobID
+          product: product
+          percentDone: 0
+          endDate: 2000-01-23
+          part: 6
+          startDate: 2000-01-23
+          status: status
+        - jobID: jobID
+          product: product
+          percentDone: 0
+          endDate: 2000-01-23
+          part: 6
+          startDate: 2000-01-23
+          status: status
+        meta:
+          pagination:
+            total: 1
+            offset: 5
+            limit: 5
+            isEstimatedTotal: true
+          partial:
+            isPartial: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/checkstatusone'
+          type: array
+        meta:
+          $ref: '#/components/schemas/metaOne'
+      type: object
+    checkstatusone:
+      example:
+        jobID: jobID
+        product: product
+        percentDone: 0
+        endDate: 2000-01-23
+        part: 6
+        startDate: 2000-01-23
+        status: status
+      properties:
+        product:
+          description: Defines the name of the product
+          type: string
+        jobID:
+          description: Unique id to get the xml files for the requested date
+          type: string
+        status:
+          description: Returns any of the 2 results Submitted ->Running->Completed
+            and Failed
+          type: string
+        percentDone:
+          description: Returns how much percentage of  task is completed for the requested
+            jobID
+          type: integer
+        startDate:
+          description: The date from which the data is required in YYYY-MM-DDTHH:MM:SSZ
+            format
+          format: date
+          type: string
+        endDate:
+          description: The date until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ
+            format
+          format: date
+          type: string
+        part:
+          description: Returns the part number of the jobID
+          type: integer
+      type: object
+    newsgetfilesResponse:
+      example:
+        data:
+        - jobID: jobID
+          product: product
+          endDate: 2000-01-23
+          part: 0
+          startDate: 2000-01-23
+          url: url
+          status: status
+        - jobID: jobID
+          product: product
+          endDate: 2000-01-23
+          part: 0
+          startDate: 2000-01-23
+          url: url
+          status: status
+        meta:
+          pagination:
+            total: 1
+            offset: 5
+            limit: 5
+            isEstimatedTotal: true
+          partial:
+            isPartial: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/getfilesone'
+          type: array
+        meta:
+          $ref: '#/components/schemas/metaOne'
+      type: object
+    getfilesone:
+      example:
+        jobID: jobID
+        product: product
+        endDate: 2000-01-23
+        part: 0
+        startDate: 2000-01-23
+        url: url
+        status: status
+      properties:
+        product:
+          description: Defines the name of the product
+          type: string
+        startDate:
+          description: The startDate from which the data is required in YYYY-MM-DDTHH:MM:SSZ
+            format
+          format: date
+          type: string
+        endDate:
+          description: The endDate until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ
+            format
+          format: date
+          type: string
+        jobID:
+          description: Unique id to get the xml files for the requested date
+          type: string
+        status:
+          description: Defines the status of the request
+          type: string
+        url:
+          description: Link to download the zip file which contains xml files
+          type: string
+        part:
+          description: Returns the part number of the jobID
+          type: integer
+      type: object
+    metaOne:
+      description: Array of metadata objects
+      example:
+        pagination:
+          total: 1
+          offset: 5
+          limit: 5
+          isEstimatedTotal: true
+        partial:
+          isPartial: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/paginationOne'
+        partial:
+          $ref: '#/components/schemas/isPartialOne'
+      title: Meta
+      type: object
+    paginationOne:
+      description: List of pagination objects
+      example:
+        total: 1
+        offset: 5
+        limit: 5
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to “False” as the
+            API should always return the exact count
+          type: boolean
+        limit:
+          description: Number of results returned per page
+          type: integer
+        offset:
+          description: The flag indicating the position in the results array if additional
+            results are available beyond the default value or the value in paginationLimit
+            parameter (if used). This value is passed in the _paginationOffset parameter
+            to retreieve subsequent results
+          type: integer
+      title: PaginationItems
+      type: object
+    isPartialOne:
+      description: If the value is true, it indicates additional results are available.
+        False represents that this is the last set of results for this request.
+      example:
+        isPartial: true
+      properties:
+        isPartial:
+          type: boolean
+      title: IsPartialItems
+      type: object
     status:
       properties:
         id:
@@ -368,7 +936,7 @@ components:
         error_message:
           description: Textual error message
           type: string
-      title: Response Status
+      title: Response Status of Global Filings
       type: object
     StreetAccountStatus:
       properties:
@@ -377,7 +945,16 @@ components:
         error_message:
           description: Textual error message
           type: string
-      title: Response Status
+      title: Response Status of SA
+      type: object
+    newsStatus:
+      properties:
+        id:
+          type: string
+        error_message:
+          description: Textual error message
+          type: string
+      title: Response Status of News
       type: object
   securitySchemes:
     FactSetOAuth2:

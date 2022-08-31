@@ -82,10 +82,10 @@ class Chains(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'option_id': (str,),  # noqa: E501
-            'id_type': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'option_id': (str, none_type,),  # noqa: E501
+            'id_type': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -143,10 +143,10 @@ class Chains(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.. [optional]  # noqa: E501
-            option_id (str): The option id, in the format requested via `idType` parameter.. [optional]  # noqa: E501
-            id_type (str): The type of id requested in the query. This is a straight pass-through value.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.. [optional]  # noqa: E501
+            option_id (str, none_type): The option id, in the format requested via `idType` parameter.. [optional]  # noqa: E501
+            id_type (str, none_type): The type of id requested in the query. This is a straight pass-through value.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
             request_id (str): The inputed value for the id parameter.. [optional]  # noqa: E501
         """
 
@@ -229,10 +229,10 @@ class Chains(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.. [optional]  # noqa: E501
-            option_id (str): The option id, in the format requested via `idType` parameter.. [optional]  # noqa: E501
-            id_type (str): The type of id requested in the query. This is a straight pass-through value.. [optional]  # noqa: E501
-            date (date): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
+            fsym_id (str, none_type): FactSet's Security Permanent Identifier in XXXXXX-S format for the underlying security requested.. [optional]  # noqa: E501
+            option_id (str, none_type): The option id, in the format requested via `idType` parameter.. [optional]  # noqa: E501
+            id_type (str, none_type): The type of id requested in the query. This is a straight pass-through value.. [optional]  # noqa: E501
+            date (date, none_type): The date the data is as of in YYYY-MM-DD format.. [optional]  # noqa: E501
             request_id (str): The inputed value for the id parameter.. [optional]  # noqa: E501
         """
 

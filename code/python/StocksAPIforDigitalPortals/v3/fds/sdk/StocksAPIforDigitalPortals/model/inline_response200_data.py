@@ -30,18 +30,10 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_balance_sheet import InlineResponse200BalanceSheet
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_currency import InlineResponse200Currency
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_fiscal_year import InlineResponse200FiscalYear
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_income_statement import InlineResponse200IncomeStatement
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_per_share import InlineResponse200PerShare
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_ratios import InlineResponse200Ratios
-    globals()['InlineResponse200BalanceSheet'] = InlineResponse200BalanceSheet
-    globals()['InlineResponse200Currency'] = InlineResponse200Currency
-    globals()['InlineResponse200FiscalYear'] = InlineResponse200FiscalYear
-    globals()['InlineResponse200IncomeStatement'] = InlineResponse200IncomeStatement
-    globals()['InlineResponse200PerShare'] = InlineResponse200PerShare
-    globals()['InlineResponse200Ratios'] = InlineResponse200Ratios
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_data_recommendation import InlineResponse200DataRecommendation
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200_data_target_price import InlineResponse200DataTargetPrice
+    globals()['InlineResponse200DataRecommendation'] = InlineResponse200DataRecommendation
+    globals()['InlineResponse200DataTargetPrice'] = InlineResponse200DataTargetPrice
 
 
 class InlineResponse200Data(ModelNormal):
@@ -97,13 +89,8 @@ class InlineResponse200Data(ModelNormal):
         """
         lazy_import()
         return {
-            'fiscal_year': (InlineResponse200FiscalYear,),  # noqa: E501
-            'report_date': (date,),  # noqa: E501
-            'currency': (InlineResponse200Currency,),  # noqa: E501
-            'income_statement': (InlineResponse200IncomeStatement,),  # noqa: E501
-            'balance_sheet': (InlineResponse200BalanceSheet,),  # noqa: E501
-            'ratios': (InlineResponse200Ratios,),  # noqa: E501
-            'per_share': (InlineResponse200PerShare,),  # noqa: E501
+            'target_price': (InlineResponse200DataTargetPrice,),  # noqa: E501
+            'recommendation': (InlineResponse200DataRecommendation,),  # noqa: E501
         }
 
     @cached_property
@@ -112,13 +99,8 @@ class InlineResponse200Data(ModelNormal):
 
 
     attribute_map = {
-        'fiscal_year': 'fiscalYear',  # noqa: E501
-        'report_date': 'reportDate',  # noqa: E501
-        'currency': 'currency',  # noqa: E501
-        'income_statement': 'incomeStatement',  # noqa: E501
-        'balance_sheet': 'balanceSheet',  # noqa: E501
-        'ratios': 'ratios',  # noqa: E501
-        'per_share': 'perShare',  # noqa: E501
+        'target_price': 'targetPrice',  # noqa: E501
+        'recommendation': 'recommendation',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,13 +144,8 @@ class InlineResponse200Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fiscal_year (InlineResponse200FiscalYear): [optional]  # noqa: E501
-            report_date (date): Publication date of the financial report.. [optional]  # noqa: E501
-            currency (InlineResponse200Currency): [optional]  # noqa: E501
-            income_statement (InlineResponse200IncomeStatement): [optional]  # noqa: E501
-            balance_sheet (InlineResponse200BalanceSheet): [optional]  # noqa: E501
-            ratios (InlineResponse200Ratios): [optional]  # noqa: E501
-            per_share (InlineResponse200PerShare): [optional]  # noqa: E501
+            target_price (InlineResponse200DataTargetPrice): [optional]  # noqa: E501
+            recommendation (InlineResponse200DataRecommendation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,13 +227,8 @@ class InlineResponse200Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fiscal_year (InlineResponse200FiscalYear): [optional]  # noqa: E501
-            report_date (date): Publication date of the financial report.. [optional]  # noqa: E501
-            currency (InlineResponse200Currency): [optional]  # noqa: E501
-            income_statement (InlineResponse200IncomeStatement): [optional]  # noqa: E501
-            balance_sheet (InlineResponse200BalanceSheet): [optional]  # noqa: E501
-            ratios (InlineResponse200Ratios): [optional]  # noqa: E501
-            per_share (InlineResponse200PerShare): [optional]  # noqa: E501
+            target_price (InlineResponse200DataTargetPrice): [optional]  # noqa: E501
+            recommendation (InlineResponse200DataRecommendation): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

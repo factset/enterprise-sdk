@@ -134,9 +134,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Value (decimal) maximum
-            if (this.Value > (decimal)3E+2)
+            if (this.Value > (decimal)300)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must be a value less than or equal to 3E+2.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must be a value less than or equal to 300.", new [] { "Value" });
             }
 
             // Value (decimal) minimum

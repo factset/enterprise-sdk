@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse2006Data from './InlineResponse2006Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
+import InlineResponse2006Meta from './InlineResponse2006Meta';
 
 /**
  * The InlineResponse2006 model module.
@@ -52,7 +52,7 @@ class InlineResponse2006 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2006Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2006Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -62,13 +62,13 @@ class InlineResponse2006 {
 }
 
 /**
- * List of owners with their respective share sorted descending by the fraction owned.
+ * List of notations.
  * @member {Array.<module:model/InlineResponse2006Data>} data
  */
 InlineResponse2006.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2006Meta} meta
  */
 InlineResponse2006.prototype['meta'] = undefined;
 

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.TimeSeriesAPIforDigitalPortals",
-  "packageVersion": "0.10.1",
+  "packageVersion": "0.10.2",
   "packageGuid": "{e62766aa-cedd-5116-b48f-011be0b1ba33}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/TimeSeriesAPIforDigitalPortals/0.10.1",
+  "httpUserAgent": "fds-sdk/dotnet/TimeSeriesAPIforDigitalPortals/0.10.2",
   "files": {
     "LICENSE": {}
   },

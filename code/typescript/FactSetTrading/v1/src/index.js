@@ -15,16 +15,16 @@ import ApiClient from './ApiClient';
 import ClientErrorResponse from './model/ClientErrorResponse';
 import EMSCancelOrder from './model/EMSCancelOrder';
 import EMSCancelOrders from './model/EMSCancelOrders';
-import EMSCancelOrdersRoot from './model/EMSCancelOrdersRoot';
+import EMSCancelOrdersDataMetaModel from './model/EMSCancelOrdersDataMetaModel';
 import EMSOrder from './model/EMSOrder';
 import EMSOrderMetadata from './model/EMSOrderMetadata';
 import EMSOrders from './model/EMSOrders';
 import EMSOrdersCreateResponse from './model/EMSOrdersCreateResponse';
-import EMSOrdersCreateResponseRoot from './model/EMSOrdersCreateResponseRoot';
-import EMSOrdersRoot from './model/EMSOrdersRoot';
+import EMSOrdersCreateResponseEmsResponse from './model/EMSOrdersCreateResponseEmsResponse';
+import EMSOrdersDataMetaModel from './model/EMSOrdersDataMetaModel';
 import EMSReplaceOrder from './model/EMSReplaceOrder';
 import EMSReplaceOrders from './model/EMSReplaceOrders';
-import EMSReplaceOrdersRoot from './model/EMSReplaceOrdersRoot';
+import EMSReplaceOrdersDataMetaModel from './model/EMSReplaceOrdersDataMetaModel';
 import Error from './model/Error';
 import ErrorSource from './model/ErrorSource';
 import Instrument from './model/Instrument';
@@ -89,10 +89,10 @@ export {
     EMSCancelOrders,
 
     /**
-     * The EMSCancelOrdersRoot model constructor.
-     * @property {module:model/EMSCancelOrdersRoot}
+     * The EMSCancelOrdersDataMetaModel model constructor.
+     * @property {module:model/EMSCancelOrdersDataMetaModel}
      */
-    EMSCancelOrdersRoot,
+    EMSCancelOrdersDataMetaModel,
 
     /**
      * The EMSOrder model constructor.
@@ -119,16 +119,16 @@ export {
     EMSOrdersCreateResponse,
 
     /**
-     * The EMSOrdersCreateResponseRoot model constructor.
-     * @property {module:model/EMSOrdersCreateResponseRoot}
+     * The EMSOrdersCreateResponseEmsResponse model constructor.
+     * @property {module:model/EMSOrdersCreateResponseEmsResponse}
      */
-    EMSOrdersCreateResponseRoot,
+    EMSOrdersCreateResponseEmsResponse,
 
     /**
-     * The EMSOrdersRoot model constructor.
-     * @property {module:model/EMSOrdersRoot}
+     * The EMSOrdersDataMetaModel model constructor.
+     * @property {module:model/EMSOrdersDataMetaModel}
      */
-    EMSOrdersRoot,
+    EMSOrdersDataMetaModel,
 
     /**
      * The EMSReplaceOrder model constructor.
@@ -143,10 +143,10 @@ export {
     EMSReplaceOrders,
 
     /**
-     * The EMSReplaceOrdersRoot model constructor.
-     * @property {module:model/EMSReplaceOrdersRoot}
+     * The EMSReplaceOrdersDataMetaModel model constructor.
+     * @property {module:model/EMSReplaceOrdersDataMetaModel}
      */
-    EMSReplaceOrdersRoot,
+    EMSReplaceOrdersDataMetaModel,
 
     /**
      * The Error model constructor.

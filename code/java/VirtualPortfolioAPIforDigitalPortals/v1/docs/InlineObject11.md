@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**WatchlistModifyData**](WatchlistModifyData.md) |  |  [optional]
+**data** | [**PortfolioTransactionModifyData**](PortfolioTransactionModifyData.md) |  |  [optional]
 **meta** | [**PortfolioCreateMeta**](PortfolioCreateMeta.md) |  |  [optional]
 
 

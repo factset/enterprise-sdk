@@ -1,6 +1,6 @@
 # fds.sdk.FactSetTrading.OrdersApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **cancel**
-> EMSOrdersCreateResponseRoot cancel()
+> EMSOrdersCreateResponseEmsResponse cancel()
 
 Cancel the orders on EMS system.
 
@@ -56,7 +56,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_cancel_orders_root = EMSCancelOrdersRoot(
+    ems_cancel_orders_data_meta_model = EMSCancelOrdersDataMetaModel(
         data=EMSCancelOrders(
             investor_id="investor_id_example",
             orders=[
@@ -65,13 +65,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSCancelOrdersRoot |  (optional)
+    ) # EMSCancelOrdersDataMetaModel |  (optional)
 
     try:
         # Cancel the orders on EMS system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.cancel(ems_cancel_orders_root=ems_cancel_orders_root)
+        api_response = api_instance.cancel(ems_cancel_orders_data_meta_model=ems_cancel_orders_data_meta_model)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -83,11 +83,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_cancel_orders_root** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional]
+ **ems_cancel_orders_data_meta_model** | [**EMSCancelOrdersDataMetaModel**](EMSCancelOrdersDataMetaModel.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create**
-> EMSOrdersCreateResponseRoot create()
+> EMSOrdersCreateResponseEmsResponse create()
 
 Send orders to EMS for execution.
 
@@ -161,7 +161,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_orders_root = EMSOrdersRoot(
+    ems_orders_data_meta_model = EMSOrdersDataMetaModel(
         data=EMSOrders(
             investor_id="DEMO-12345",
             orders=[
@@ -206,13 +206,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSOrdersRoot |  (optional)
+    ) # EMSOrdersDataMetaModel |  (optional)
 
     try:
         # Send orders to EMS for execution.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.create(ems_orders_root=ems_orders_root)
+        api_response = api_instance.create(ems_orders_data_meta_model=ems_orders_data_meta_model)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -224,11 +224,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_orders_root** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional]
+ **ems_orders_data_meta_model** | [**EMSOrdersDataMetaModel**](EMSOrdersDataMetaModel.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace**
-> EMSOrdersCreateResponseRoot replace()
+> EMSOrdersCreateResponseEmsResponse replace()
 
 Replace the orders on EMS system.
 
@@ -302,59 +302,61 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_replace_orders_root = EMSReplaceOrdersRoot(
+    ems_replace_orders_data_meta_model = EMSReplaceOrdersDataMetaModel(
         data=EMSReplaceOrders(
             investor_id="DEMO-12345",
             orders=[
                 EMSReplaceOrder(
                     original_order_id="original_order_id_example",
-                    order_id="12322123",
-                    instrument=Instrument(
-                        symbol="TATAMOTORS",
-                        security_type="security_type_example",
-                        cfi_code="cfi_code_example",
-                        security_exchange="security_exchange_example",
-                        issuer="issuer_example",
-                        security_description="security_description_example",
-                        maturity_month_year="maturity_month_year_example",
-                        maturity_day="maturity_day_example",
+                    order=EMSOrder(
+                        order_id="12322123",
+                        instrument=Instrument(
+                            symbol="TATAMOTORS",
+                            security_type="security_type_example",
+                            cfi_code="cfi_code_example",
+                            security_exchange="security_exchange_example",
+                            issuer="issuer_example",
+                            security_description="security_description_example",
+                            maturity_month_year="maturity_month_year_example",
+                            maturity_day="maturity_day_example",
+                        ),
+                        side="buy",
+                        order_type="market",
+                        order_quantity=350,
+                        price=800,
+                        stop_price=800,
+                        strike_price=400,
+                        currency="USD",
+                        is_covered=False,
+                        max_show=100,
+                        max_floor=100,
+                        prev_close_price=100,
+                        settlement_type="regular",
+                        settlement_date="20210622",
+                        handling_instructions="auto_ord_pub",
+                        execution_instructions="not_held",
+                        locate_required=False,
+                        effective_time="20210622-12:15:30",
+                        account="Test.ACCT",
+                        time_in_force=TimeInForce(
+                            tif="DAY",
+                            expire_date="expire_date_example",
+                            expire_time="expire_time_example",
+                        ),
+                        user_defined_fields={
+                            "key": "key_example",
+                        },
                     ),
-                    side="buy",
-                    order_type="market",
-                    order_quantity=350,
-                    price=800,
-                    stop_price=800,
-                    strike_price=400,
-                    currency="USD",
-                    is_covered=False,
-                    max_show=100,
-                    max_floor=100,
-                    prev_close_price=100,
-                    settlement_type="regular",
-                    settlement_date="20210622",
-                    handling_instructions="auto_ord_pub",
-                    execution_instructions="not_held",
-                    locate_required=False,
-                    effective_time="20210622-12:15:30",
-                    account="Test.ACCT",
-                    time_in_force=TimeInForce(
-                        tif="DAY",
-                        expire_date="expire_date_example",
-                        expire_time="expire_time_example",
-                    ),
-                    user_defined_fields={
-                        "key": "key_example",
-                    },
                 ),
             ],
         ),
-    ) # EMSReplaceOrdersRoot |  (optional)
+    ) # EMSReplaceOrdersDataMetaModel |  (optional)
 
     try:
         # Replace the orders on EMS system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.replace(ems_replace_orders_root=ems_replace_orders_root)
+        api_response = api_instance.replace(ems_replace_orders_data_meta_model=ems_replace_orders_data_meta_model)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -366,11 +368,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_replace_orders_root** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional]
+ **ems_replace_orders_data_meta_model** | [**EMSReplaceOrdersDataMetaModel**](EMSReplaceOrdersDataMetaModel.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
+[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
 
 ### Authorization
 

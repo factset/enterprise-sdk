@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.StocksAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// InlineResponse200Data
+    /// Target price and aggregated recommendations for a stock.
     /// </summary>
     [DataContract(Name = "inline_response_200_data")]
     public partial class InlineResponse200Data : IEquatable<InlineResponse200Data>, IValidatableObject
@@ -34,67 +34,25 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200Data" /> class.
         /// </summary>
-        /// <param name="fiscalYear">fiscalYear.</param>
-        /// <param name="reportDate">Publication date of the financial report..</param>
-        /// <param name="currency">currency.</param>
-        /// <param name="incomeStatement">incomeStatement.</param>
-        /// <param name="balanceSheet">balanceSheet.</param>
-        /// <param name="ratios">ratios.</param>
-        /// <param name="perShare">perShare.</param>
-        public InlineResponse200Data(InlineResponse200FiscalYear fiscalYear = default(InlineResponse200FiscalYear), DateTime reportDate = default(DateTime), InlineResponse200Currency currency = default(InlineResponse200Currency), InlineResponse200IncomeStatement incomeStatement = default(InlineResponse200IncomeStatement), InlineResponse200BalanceSheet balanceSheet = default(InlineResponse200BalanceSheet), InlineResponse200Ratios ratios = default(InlineResponse200Ratios), InlineResponse200PerShare perShare = default(InlineResponse200PerShare))
+        /// <param name="targetPrice">targetPrice.</param>
+        /// <param name="recommendation">recommendation.</param>
+        public InlineResponse200Data(InlineResponse200DataTargetPrice targetPrice = default(InlineResponse200DataTargetPrice), InlineResponse200DataRecommendation recommendation = default(InlineResponse200DataRecommendation))
         {
-            this.FiscalYear = fiscalYear;
-            this.ReportDate = reportDate;
-            this.Currency = currency;
-            this.IncomeStatement = incomeStatement;
-            this.BalanceSheet = balanceSheet;
-            this.Ratios = ratios;
-            this.PerShare = perShare;
+            this.TargetPrice = targetPrice;
+            this.Recommendation = recommendation;
         }
 
         /// <summary>
-        /// Gets or Sets FiscalYear
+        /// Gets or Sets TargetPrice
         /// </summary>
-        [DataMember(Name = "fiscalYear", EmitDefaultValue = false)]
-        public InlineResponse200FiscalYear FiscalYear { get; set; }
+        [DataMember(Name = "targetPrice", EmitDefaultValue = false)]
+        public InlineResponse200DataTargetPrice TargetPrice { get; set; }
 
         /// <summary>
-        /// Publication date of the financial report.
+        /// Gets or Sets Recommendation
         /// </summary>
-        /// <value>Publication date of the financial report.</value>
-        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ReportDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Currency
-        /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public InlineResponse200Currency Currency { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IncomeStatement
-        /// </summary>
-        [DataMember(Name = "incomeStatement", EmitDefaultValue = false)]
-        public InlineResponse200IncomeStatement IncomeStatement { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BalanceSheet
-        /// </summary>
-        [DataMember(Name = "balanceSheet", EmitDefaultValue = false)]
-        public InlineResponse200BalanceSheet BalanceSheet { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Ratios
-        /// </summary>
-        [DataMember(Name = "ratios", EmitDefaultValue = false)]
-        public InlineResponse200Ratios Ratios { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PerShare
-        /// </summary>
-        [DataMember(Name = "perShare", EmitDefaultValue = false)]
-        public InlineResponse200PerShare PerShare { get; set; }
+        [DataMember(Name = "recommendation", EmitDefaultValue = false)]
+        public InlineResponse200DataRecommendation Recommendation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,13 +62,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Data {\n");
-            sb.Append("  FiscalYear: ").Append(FiscalYear).Append("\n");
-            sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  IncomeStatement: ").Append(IncomeStatement).Append("\n");
-            sb.Append("  BalanceSheet: ").Append(BalanceSheet).Append("\n");
-            sb.Append("  Ratios: ").Append(Ratios).Append("\n");
-            sb.Append("  PerShare: ").Append(PerShare).Append("\n");
+            sb.Append("  TargetPrice: ").Append(TargetPrice).Append("\n");
+            sb.Append("  Recommendation: ").Append(Recommendation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,39 +100,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.FiscalYear == input.FiscalYear ||
-                    (this.FiscalYear != null &&
-                    this.FiscalYear.Equals(input.FiscalYear))
+                    this.TargetPrice == input.TargetPrice ||
+                    (this.TargetPrice != null &&
+                    this.TargetPrice.Equals(input.TargetPrice))
                 ) && 
                 (
-                    this.ReportDate == input.ReportDate ||
-                    (this.ReportDate != null &&
-                    this.ReportDate.Equals(input.ReportDate))
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.IncomeStatement == input.IncomeStatement ||
-                    (this.IncomeStatement != null &&
-                    this.IncomeStatement.Equals(input.IncomeStatement))
-                ) && 
-                (
-                    this.BalanceSheet == input.BalanceSheet ||
-                    (this.BalanceSheet != null &&
-                    this.BalanceSheet.Equals(input.BalanceSheet))
-                ) && 
-                (
-                    this.Ratios == input.Ratios ||
-                    (this.Ratios != null &&
-                    this.Ratios.Equals(input.Ratios))
-                ) && 
-                (
-                    this.PerShare == input.PerShare ||
-                    (this.PerShare != null &&
-                    this.PerShare.Equals(input.PerShare))
+                    this.Recommendation == input.Recommendation ||
+                    (this.Recommendation != null &&
+                    this.Recommendation.Equals(input.Recommendation))
                 );
         }
 
@@ -192,33 +120,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FiscalYear != null)
+                if (this.TargetPrice != null)
                 {
-                    hashCode = (hashCode * 59) + this.FiscalYear.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TargetPrice.GetHashCode();
                 }
-                if (this.ReportDate != null)
+                if (this.Recommendation != null)
                 {
-                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
-                }
-                if (this.Currency != null)
-                {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
-                }
-                if (this.IncomeStatement != null)
-                {
-                    hashCode = (hashCode * 59) + this.IncomeStatement.GetHashCode();
-                }
-                if (this.BalanceSheet != null)
-                {
-                    hashCode = (hashCode * 59) + this.BalanceSheet.GetHashCode();
-                }
-                if (this.Ratios != null)
-                {
-                    hashCode = (hashCode * 59) + this.Ratios.GetHashCode();
-                }
-                if (this.PerShare != null)
-                {
-                    hashCode = (hashCode * 59) + this.PerShare.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Recommendation.GetHashCode();
                 }
                 return hashCode;
             }

@@ -34,7 +34,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2004" /> class.
         /// </summary>
-        /// <param name="data">List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending..</param>
+        /// <param name="data">List of dividend types, sorted by ascending identifier value..</param>
         /// <param name="meta">meta.</param>
         public InlineResponse2004(List<InlineResponse2004Data> data = default(List<InlineResponse2004Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.
+        /// List of dividend types, sorted by ascending identifier value.
         /// </summary>
-        /// <value>List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.</value>
+        /// <value>List of dividend types, sorted by ascending identifier value.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse2004Data> Data { get; set; }
 

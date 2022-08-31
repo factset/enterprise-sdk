@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.RecommendationListAPIforDigitalPortals",
-  "packageVersion": "0.10.1",
+  "packageVersion": "0.10.2",
   "packageGuid": "{85f26d36-ca92-5ec1-87d8-08ceb1c15915}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/RecommendationListAPIforDigitalPortals/0.10.1",
+  "httpUserAgent": "fds-sdk/dotnet/RecommendationListAPIforDigitalPortals/0.10.2",
   "files": {
     "LICENSE": {}
   },

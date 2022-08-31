@@ -136,7 +136,7 @@ class InlineResponse2003Type(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (float): Identifier of a type.. [optional]  # noqa: E501
+            id (float): Identifier of the type.. [optional]  # noqa: E501
             name (str): Name of the type.. [optional]  # noqa: E501
         """
 
@@ -219,7 +219,7 @@ class InlineResponse2003Type(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (float): Identifier of a type.. [optional]  # noqa: E501
+            id (float): Identifier of the type.. [optional]  # noqa: E501
             name (str): Name of the type.. [optional]  # noqa: E501
         """
 

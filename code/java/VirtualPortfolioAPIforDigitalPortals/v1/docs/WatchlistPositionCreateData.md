@@ -9,7 +9,7 @@ The data member contains the request's primary data.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Identifier of the watchlist. | 
-**notation** | [**PortfolioTransactionCreateDataNotation**](PortfolioTransactionCreateDataNotation.md) |  |  [optional]
+**notation** | [**PortfolioPayoutCreateDataNotation**](PortfolioPayoutCreateDataNotation.md) |  |  [optional]
 **comment** | **String** | Personal note for the watchlist position. |  [optional]
 
 

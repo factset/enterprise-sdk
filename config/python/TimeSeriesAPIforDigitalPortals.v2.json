@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.TimeSeriesAPIforDigitalPortals",
   "projectName": "fds.sdk.TimeSeriesAPIforDigitalPortals",
-  "packageVersion": "0.9.3",
+  "packageVersion": "0.9.4",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Time Series API for Digital Portals client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/TimeSeriesAPIforDigitalPortals/v2",
-  "httpUserAgent": "fds-sdk/python/TimeSeriesAPIforDigitalPortals/0.9.3",
+  "httpUserAgent": "fds-sdk/python/TimeSeriesAPIforDigitalPortals/0.9.4",
   "files": {
     "LICENSE": {}
   }

@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2001DataTargetPrice;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Recommendation;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Ownership;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2002Type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,144 +35,131 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  * InlineResponse2002Data
  */
 @JsonPropertyOrder({
-  InlineResponse2002Data.JSON_PROPERTY_SNAPSHOT,
-  InlineResponse2002Data.JSON_PROPERTY_TARGET_PRICE,
-  InlineResponse2002Data.JSON_PROPERTY_RECOMMENDATION
+  InlineResponse2002Data.JSON_PROPERTY_ID,
+  InlineResponse2002Data.JSON_PROPERTY_NAME,
+  InlineResponse2002Data.JSON_PROPERTY_TYPE,
+  InlineResponse2002Data.JSON_PROPERTY_OWNERSHIP
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2002Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Identification of the historic snapshot for aggregated recommendations.
-   */
-  public enum SnapshotEnum {
-    LATEST("latest"),
-    
-    _1W("1w"),
-    
-    _1M("1m"),
-    
-    _3M("3m"),
-    
-    _6M("6m"),
-    
-    _1Y("1y");
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-    private String value;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    SnapshotEnum(String value) {
-      this.value = value;
-    }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private InlineResponse2002Type type;
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SnapshotEnum fromValue(String value) {
-      for (SnapshotEnum b : SnapshotEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_SNAPSHOT = "snapshot";
-  private SnapshotEnum snapshot;
-
-  public static final String JSON_PROPERTY_TARGET_PRICE = "targetPrice";
-  private InlineResponse2001DataTargetPrice targetPrice;
-
-  public static final String JSON_PROPERTY_RECOMMENDATION = "recommendation";
-  private InlineResponse2002Recommendation recommendation;
+  public static final String JSON_PROPERTY_OWNERSHIP = "ownership";
+  private InlineResponse2002Ownership ownership;
 
   public InlineResponse2002Data() { 
   }
 
-  public InlineResponse2002Data snapshot(SnapshotEnum snapshot) {
-    this.snapshot = snapshot;
+  public InlineResponse2002Data id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Identification of the historic snapshot for aggregated recommendations.
-   * @return snapshot
+   * Identifier of the owner. See endpoint &#x60;/legalEntity/list&#x60; for possible values.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identification of the historic snapshot for aggregated recommendations.")
-  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
+  @ApiModelProperty(value = "Identifier of the owner. See endpoint `/legalEntity/list` for possible values.")
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SnapshotEnum getSnapshot() {
-    return snapshot;
+  public String getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SNAPSHOT)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSnapshot(SnapshotEnum snapshot) {
-    this.snapshot = snapshot;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public InlineResponse2002Data targetPrice(InlineResponse2001DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
+  public InlineResponse2002Data name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get targetPrice
-   * @return targetPrice
+   * Name of the owner.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the owner.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public InlineResponse2002Data type(InlineResponse2002Type type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001DataTargetPrice getTargetPrice() {
-    return targetPrice;
+  public InlineResponse2002Type getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TARGET_PRICE)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetPrice(InlineResponse2001DataTargetPrice targetPrice) {
-    this.targetPrice = targetPrice;
+  public void setType(InlineResponse2002Type type) {
+    this.type = type;
   }
 
 
-  public InlineResponse2002Data recommendation(InlineResponse2002Recommendation recommendation) {
-    this.recommendation = recommendation;
+  public InlineResponse2002Data ownership(InlineResponse2002Ownership ownership) {
+    this.ownership = ownership;
     return this;
   }
 
    /**
-   * Get recommendation
-   * @return recommendation
+   * Get ownership
+   * @return ownership
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2002Recommendation getRecommendation() {
-    return recommendation;
+  public InlineResponse2002Ownership getOwnership() {
+    return ownership;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECOMMENDATION)
+  @JsonProperty(JSON_PROPERTY_OWNERSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecommendation(InlineResponse2002Recommendation recommendation) {
-    this.recommendation = recommendation;
+  public void setOwnership(InlineResponse2002Ownership ownership) {
+    this.ownership = ownership;
   }
 
 
@@ -188,23 +175,25 @@ public class InlineResponse2002Data implements Serializable {
       return false;
     }
     InlineResponse2002Data inlineResponse2002Data = (InlineResponse2002Data) o;
-    return Objects.equals(this.snapshot, inlineResponse2002Data.snapshot) &&
-        Objects.equals(this.targetPrice, inlineResponse2002Data.targetPrice) &&
-        Objects.equals(this.recommendation, inlineResponse2002Data.recommendation);
+    return Objects.equals(this.id, inlineResponse2002Data.id) &&
+        Objects.equals(this.name, inlineResponse2002Data.name) &&
+        Objects.equals(this.type, inlineResponse2002Data.type) &&
+        Objects.equals(this.ownership, inlineResponse2002Data.ownership);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(snapshot, targetPrice, recommendation);
+    return Objects.hash(id, name, type, ownership);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2002Data {\n");
-    sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
-    sb.append("    targetPrice: ").append(toIndentedString(targetPrice)).append("\n");
-    sb.append("    recommendation: ").append(toIndentedString(recommendation)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    ownership: ").append(toIndentedString(ownership)).append("\n");
     sb.append("}");
     return sb.toString();
   }

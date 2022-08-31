@@ -10,6 +10,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -28,6 +30,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -56,6 +60,8 @@ src/model/CalculationStatusMeta.js
 src/model/CalculationStatusRoot.js
 src/model/CalculationUnitStatus.js
 src/model/CalculationUnitStatusMeta.js
+src/model/CalculationsSummary.js
+src/model/CalculationsSummaryRoot.js
 src/model/ClientErrorResponse.js
 src/model/ComponentSummary.js
 src/model/ComponentSummaryRoot.js
@@ -69,6 +75,8 @@ src/model/ErrorSource.js
 src/model/Frequency.js
 src/model/FrequencyRoot.js
 src/model/ObjectRoot.js
+src/model/PaginationInfo.js
+src/model/PaginationMeta.js
 src/model/VaultCalculationParameters.js
 src/model/VaultCalculationParametersRoot.js
 src/model/VaultComponent.js

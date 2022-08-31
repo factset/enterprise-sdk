@@ -48,7 +48,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="type">The option type code, where  |code|description| |- --|- --| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| .</param>
         /// <param name="underlyingFsymSecurityId">The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet&#39;s Permanent Security Identifier format (XXXXXX-S). .</param>
         /// <param name="underlyingPrice">The price of the underyling security as of the date requested. .</param>
-        public Snapshot(string fsymId = default(string), DateTime date = default(DateTime), double delta = default(double), DateTime expirationDate = default(DateTime), double impliedVolatility = default(double), string name = default(string), int openInterest = default(int), double price = default(double), string requestId = default(string), int style = default(int), int type = default(int), string underlyingFsymSecurityId = default(string), double underlyingPrice = default(double))
+        public Snapshot(string fsymId = default(string), DateTime? date = default(DateTime?), double? delta = default(double?), DateTime? expirationDate = default(DateTime?), double? impliedVolatility = default(double?), string name = default(string), int? openInterest = default(int?), double? price = default(double?), string requestId = default(string), int? style = default(int?), int? type = default(int?), string underlyingFsymSecurityId = default(string), double? underlyingPrice = default(double?))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -69,59 +69,59 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \&quot;hedge ratio\&quot;. For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. 
         /// </summary>
         /// <value>The ratio comparing the change in the price of the underlying asset to the corresponding change in the price of a derivative. Sometimes referred to as the \&quot;hedge ratio\&quot;. For example, with respect to call options, a delta of 0.7 means that for every $1 the underlying stock increases, the call option will increase by $0.70. Put option deltas, on the other hand, will be negative, because as the underlying security increases, the value of the option will decrease. So a put option with a delta of -0.7 will decrease by $0.70 for every $1 the underlying increases in price. As an in-the-money call option nears expiration, it will approach a delta of 1.00, and as an in-the-money put option nears expiration, it will approach a delta of -1.00. </value>
-        [DataMember(Name = "delta", EmitDefaultValue = false)]
-        public double Delta { get; set; }
+        [DataMember(Name = "delta", EmitDefaultValue = true)]
+        public double? Delta { get; set; }
 
         /// <summary>
         /// The expiration date of the option contract in YYYY-MM-DD format
         /// </summary>
         /// <value>The expiration date of the option contract in YYYY-MM-DD format</value>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ExpirationDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) 
         /// </summary>
         /// <value>The implied volatility for the option identifier. Visit [OA 14932](https://my.apps.factset.com/oa/pages/14932) </value>
-        [DataMember(Name = "impliedVolatility", EmitDefaultValue = false)]
-        public double ImpliedVolatility { get; set; }
+        [DataMember(Name = "impliedVolatility", EmitDefaultValue = true)]
+        public double? ImpliedVolatility { get; set; }
 
         /// <summary>
         /// The name of the option security.
         /// </summary>
         /// <value>The name of the option security.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The total number of options and/or futures contracts that are not closed or delivered on a particular day.
         /// </summary>
         /// <value>The total number of options and/or futures contracts that are not closed or delivered on a particular day.</value>
-        [DataMember(Name = "openInterest", EmitDefaultValue = false)]
-        public int OpenInterest { get; set; }
+        [DataMember(Name = "openInterest", EmitDefaultValue = true)]
+        public int? OpenInterest { get; set; }
 
         /// <summary>
         /// The calculated price quote, based on the calculated status. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. 
         /// </summary>
         /// <value>The calculated price quote, based on the calculated status. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. </value>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public double Price { get; set; }
+        [DataMember(Name = "price", EmitDefaultValue = true)]
+        public double? Price { get; set; }
 
         /// <summary>
         /// The input value for the id parameter.
@@ -134,29 +134,29 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// Returns the style of the option id requested, where -   |style|description| |- --|- --| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. 
         /// </summary>
         /// <value>Returns the style of the option id requested, where -   |style|description| |- --|- --| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.   Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.   Consider this example- If you bought a Ford March Call option expiring in March of 2006, in March 2005 you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March 2006. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out of the money and virtually worthless. The name of this option style has nothing to do with the geographic location. </value>
-        [DataMember(Name = "style", EmitDefaultValue = false)]
-        public int Style { get; set; }
+        [DataMember(Name = "style", EmitDefaultValue = true)]
+        public int? Style { get; set; }
 
         /// <summary>
         /// The option type code, where  |code|description| |- --|- --| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| 
         /// </summary>
         /// <value>The option type code, where  |code|description| |- --|- --| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| </value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public int? Type { get; set; }
 
         /// <summary>
         /// The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet&#39;s Permanent Security Identifier format (XXXXXX-S). 
         /// </summary>
         /// <value>The Symbol of the security that must be delivered when a derivative contract, such as a put or call option, is exercised. This is represented in FactSet&#39;s Permanent Security Identifier format (XXXXXX-S). </value>
-        [DataMember(Name = "underlyingFsymSecurityId", EmitDefaultValue = false)]
+        [DataMember(Name = "underlyingFsymSecurityId", EmitDefaultValue = true)]
         public string UnderlyingFsymSecurityId { get; set; }
 
         /// <summary>
         /// The price of the underyling security as of the date requested. 
         /// </summary>
         /// <value>The price of the underyling security as of the date requested. </value>
-        [DataMember(Name = "underlyingPrice", EmitDefaultValue = false)]
-        public double UnderlyingPrice { get; set; }
+        [DataMember(Name = "underlyingPrice", EmitDefaultValue = true)]
+        public double? UnderlyingPrice { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -226,7 +226,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Delta == input.Delta ||
-                    this.Delta.Equals(input.Delta)
+                    (this.Delta != null &&
+                    this.Delta.Equals(input.Delta))
                 ) && 
                 (
                     this.ExpirationDate == input.ExpirationDate ||
@@ -235,7 +236,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.ImpliedVolatility == input.ImpliedVolatility ||
-                    this.ImpliedVolatility.Equals(input.ImpliedVolatility)
+                    (this.ImpliedVolatility != null &&
+                    this.ImpliedVolatility.Equals(input.ImpliedVolatility))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -244,11 +246,13 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.OpenInterest == input.OpenInterest ||
-                    this.OpenInterest.Equals(input.OpenInterest)
+                    (this.OpenInterest != null &&
+                    this.OpenInterest.Equals(input.OpenInterest))
                 ) && 
                 (
                     this.Price == input.Price ||
-                    this.Price.Equals(input.Price)
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -257,11 +261,13 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Style == input.Style ||
-                    this.Style.Equals(input.Style)
+                    (this.Style != null &&
+                    this.Style.Equals(input.Style))
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.UnderlyingFsymSecurityId == input.UnderlyingFsymSecurityId ||
@@ -270,7 +276,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.UnderlyingPrice == input.UnderlyingPrice ||
-                    this.UnderlyingPrice.Equals(input.UnderlyingPrice)
+                    (this.UnderlyingPrice != null &&
+                    this.UnderlyingPrice.Equals(input.UnderlyingPrice))
                 );
         }
 
@@ -291,29 +298,50 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                if (this.Delta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                }
                 if (this.ExpirationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.ExpirationDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ImpliedVolatility.GetHashCode();
+                if (this.ImpliedVolatility != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImpliedVolatility.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OpenInterest.GetHashCode();
-                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                if (this.OpenInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.OpenInterest.GetHashCode();
+                }
+                if (this.Price != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Style.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Style != null)
+                {
+                    hashCode = (hashCode * 59) + this.Style.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.UnderlyingFsymSecurityId != null)
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingFsymSecurityId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.UnderlyingPrice.GetHashCode();
+                if (this.UnderlyingPrice != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnderlyingPrice.GetHashCode();
+                }
                 return hashCode;
             }
         }

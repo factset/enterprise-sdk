@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the watchlist. |  [optional]
+**id** | **String** | Identifier of the transaction. |  [optional]
 
 
 ## Implemented Interfaces

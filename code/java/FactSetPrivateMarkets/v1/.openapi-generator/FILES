@@ -7,6 +7,10 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/DataItemsApi.md
+docs/EntityMatch.md
+docs/EntityMatchRequest.md
+docs/EntityMatchRequestInput.md
+docs/EntityMatchesResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Field.md
@@ -19,6 +23,7 @@ docs/NonPeriodic.md
 docs/NonPeriodicApi.md
 docs/NonPeriodicRequest.md
 docs/NonPeriodicResponse.md
+docs/UniverseApi.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -42,6 +47,7 @@ src/main/java/com/factset/sdk/FactSetPrivateMarkets/StringUtil.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/api/DataItemsApi.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/api/FinancialsApi.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/api/NonPeriodicApi.java
+src/main/java/com/factset/sdk/FactSetPrivateMarkets/api/UniverseApi.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/Authentication.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/FactSetOAuth2ClientAuth.java
@@ -50,6 +56,10 @@ src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/EntityMatch.java
+src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/EntityMatchRequest.java
+src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/EntityMatchRequestInput.java
+src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/EntityMatchesResponse.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/ErrorResponse.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/ErrorResponseSubErrors.java
 src/main/java/com/factset/sdk/FactSetPrivateMarkets/models/Field.java

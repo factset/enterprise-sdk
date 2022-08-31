@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001DataRecommendation from './InlineResponse2001DataRecommendation';
-import InlineResponse2001DataTargetPrice from './InlineResponse2001DataTargetPrice';
+import InlineResponse2001Recommendation from './InlineResponse2001Recommendation';
+import InlineResponse200DataTargetPrice from './InlineResponse200DataTargetPrice';
 
 /**
  * The InlineResponse2001Data model module.
@@ -22,7 +22,6 @@ import InlineResponse2001DataTargetPrice from './InlineResponse2001DataTargetPri
 class InlineResponse2001Data {
     /**
      * Constructs a new <code>InlineResponse2001Data</code>.
-     * Target price and aggregated recommendations for a stock.
      * @alias module:model/InlineResponse2001Data
      */
     constructor() { 
@@ -49,11 +48,14 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
+            if (data.hasOwnProperty('snapshot')) {
+                obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'String');
+            }
             if (data.hasOwnProperty('targetPrice')) {
-                obj['targetPrice'] = InlineResponse2001DataTargetPrice.constructFromObject(data['targetPrice']);
+                obj['targetPrice'] = InlineResponse200DataTargetPrice.constructFromObject(data['targetPrice']);
             }
             if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = InlineResponse2001DataRecommendation.constructFromObject(data['recommendation']);
+                obj['recommendation'] = InlineResponse2001Recommendation.constructFromObject(data['recommendation']);
             }
         }
         return obj;
@@ -63,17 +65,68 @@ class InlineResponse2001Data {
 }
 
 /**
- * @member {module:model/InlineResponse2001DataTargetPrice} targetPrice
+ * Identification of the historic snapshot for aggregated recommendations.
+ * @member {module:model/InlineResponse2001Data.SnapshotEnum} snapshot
+ */
+InlineResponse2001Data.prototype['snapshot'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataTargetPrice} targetPrice
  */
 InlineResponse2001Data.prototype['targetPrice'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001DataRecommendation} recommendation
+ * @member {module:model/InlineResponse2001Recommendation} recommendation
  */
 InlineResponse2001Data.prototype['recommendation'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>snapshot</code> property.
+ * @enum {String}
+ * @readonly
+ */
+InlineResponse2001Data['SnapshotEnum'] = {
+
+    /**
+     * value: "latest"
+     * @const
+     */
+    "latest": "latest",
+
+    /**
+     * value: "1w"
+     * @const
+     */
+    "1w": "1w",
+
+    /**
+     * value: "1m"
+     * @const
+     */
+    "1m": "1m",
+
+    /**
+     * value: "3m"
+     * @const
+     */
+    "3m": "3m",
+
+    /**
+     * value: "6m"
+     * @const
+     */
+    "6m": "6m",
+
+    /**
+     * value: "1y"
+     * @const
+     */
+    "1y": "1y"
+};
 
 
 

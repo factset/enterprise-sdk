@@ -12,7 +12,7 @@
       "name": "Apache License 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     },
-    "version": "v3"
+    "version": "3"
   },
   "servers": [
     {
@@ -329,14 +329,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "ComponentSummaryRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/components/{id}": {
@@ -648,14 +641,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "VaultComponentRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/configurations": {
@@ -967,14 +953,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "VaultConfigurationSummaryRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/configurations/{id}": {
@@ -1286,14 +1265,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "VaultConfigurationRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/dates": {
@@ -1634,14 +1606,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "DateParametersSummaryRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/documents/{path}": {
@@ -1954,14 +1919,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "DocumentDirectoriesRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/frequencies": {
@@ -2173,14 +2131,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "FrequencyRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/calculations": {
@@ -2215,33 +2166,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/VaultCalculationParametersRoot"
-              },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79",
-                    "account": {
-                      "id": "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"
-                    },
-                    "dates": {
-                      "startdate": "20180101",
-                      "enddate": "20180329",
-                      "frequency": "Monthly"
-                    },
-                    "configid": "12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116"
-                  },
-                  "2": {
-                    "componentid": "B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42",
-                    "account": {
-                      "id": "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"
-                    },
-                    "configid": "c1671411-7807-4505-9296-989fe2ffc450"
-                  }
-                },
-                "meta": {
-                  "contentorganization": "SimplifiedRow",
-                  "contenttype": "Json"
-                }
               }
             }
           }
@@ -2674,22 +2598,317 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
+        "x-factset-different-success-responses": true
+      },
+      "get": {
+        "tags": [
+          "VaultCalculations"
+        ],
+        "summary": "Get all calculations",
+        "description": "This endpoints returns all calculation requests.",
+        "operationId": "getAllCalculations",
+        "parameters": [
           {
-            "status-code": "202",
-            "response-type": "CalculationStatusRoot"
-          },
-          {
-            "status-code": "200",
-            "response-type": "CalculationStatusRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
+            "name": "pageNumber",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
           }
         ],
-        "x-factset-different-success-responses": true
+        "responses": {
+          "200": {
+            "description": "List of calculation requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CalculationsSummaryRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid page number.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No calculation found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/analytics/engines/vault/v3/calculations/{id}": {
@@ -2734,33 +2953,6 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/VaultCalculationParametersRoot"
-              },
-              "example": {
-                "data": {
-                  "1": {
-                    "componentid": "B0FF076DFF8640B1616462B82BE1F21FBF23E0E9DE62247F4A947B17F81C9A79",
-                    "account": {
-                      "id": "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"
-                    },
-                    "dates": {
-                      "startdate": "20180101",
-                      "enddate": "20180329",
-                      "frequency": "Monthly"
-                    },
-                    "configid": "12ed7b1a-8ac2-4871-a7bf-2d5da5aaa116"
-                  },
-                  "2": {
-                    "componentid": "B75D10A84BBD26C9D0C91E78BC5723A4DE70FFE4192070820B9788E382D17E42",
-                    "account": {
-                      "id": "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT"
-                    },
-                    "configid": "c1671411-7807-4505-9296-989fe2ffc450"
-                  }
-                },
-                "meta": {
-                  "contentorganization": "SimplifiedRow",
-                  "contenttype": "Json"
-                }
               }
             }
           }
@@ -3242,21 +3434,6 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "202",
-            "response-type": "CalculationStatusRoot"
-          },
-          {
-            "status-code": "200",
-            "response-type": "CalculationStatusRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          }
-        ],
         "x-factset-different-success-responses": true
       },
       "get": {
@@ -3526,14 +3703,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "VaultCalculationParametersRoot"
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -3794,14 +3964,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "204",
-            "response-type": null
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/calculations/{id}/status": {
@@ -4130,18 +4293,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "CalculationStatusRoot"
-          },
-          {
-            "status-code": "202",
-            "response-type": "CalculationStatusRoot"
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/vault/v3/calculations/{id}/units/{unitId}/result": {
@@ -4437,14 +4589,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "ObjectRoot"
-          }
-        ]
+        }
       }
     }
   },
@@ -4461,7 +4606,8 @@
             "type": "string",
             "description": "Component category."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ComponentSummaryRoot": {
         "required": [
@@ -4475,10 +4621,9 @@
               "$ref": "#/components/schemas/ComponentSummary"
             }
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "ErrorSource": {
         "type": "object",
@@ -4489,7 +4634,8 @@
           "parameter": {
             "type": "string"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "Error": {
         "type": "object",
@@ -4503,7 +4649,8 @@
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ClientErrorResponse": {
         "type": "object",
@@ -4514,7 +4661,8 @@
               "$ref": "#/components/schemas/Error"
             }
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultIdentifier": {
         "required": [
@@ -4527,6 +4675,7 @@
             "description": "User's FactSet account path OR benchmark."
           }
         },
+        "additionalProperties": false,
         "description": "The account/benchmark parameter for Vault calculation."
       },
       "VaultDateParameters": {
@@ -4549,6 +4698,7 @@
             "description": "Calculation's frequency."
           }
         },
+        "additionalProperties": false,
         "description": "The date parameters for Vault calculation"
       },
       "VaultComponent": {
@@ -4575,6 +4725,10 @@
             "type": "boolean",
             "description": "Snapshot"
           },
+          "path": {
+            "type": "string",
+            "description": "The path to the document"
+          },
           "name": {
             "type": "string",
             "description": "Component name."
@@ -4583,7 +4737,8 @@
             "type": "string",
             "description": "Component category."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultComponentRoot": {
         "required": [
@@ -4594,10 +4749,9 @@
           "data": {
             "$ref": "#/components/schemas/VaultComponent"
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "VaultConfigurationSummary": {
         "type": "object",
@@ -4606,7 +4760,8 @@
             "type": "string",
             "description": "Configuration name."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultConfigurationSummaryRoot": {
         "required": [
@@ -4620,10 +4775,9 @@
               "$ref": "#/components/schemas/VaultConfigurationSummary"
             }
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "ConfigurationAccount": {
         "type": "object",
@@ -4652,7 +4806,8 @@
             "type": "string",
             "description": "Account name."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultConfiguration": {
         "type": "object",
@@ -4667,7 +4822,8 @@
               "$ref": "#/components/schemas/ConfigurationAccount"
             }
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultConfigurationRoot": {
         "required": [
@@ -4678,10 +4834,9 @@
           "data": {
             "$ref": "#/components/schemas/VaultConfiguration"
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "DateParametersSummary": {
         "type": "object",
@@ -4694,7 +4849,8 @@
             "type": "string",
             "description": "End date in YYYYMMDD format."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "DateParametersSummaryRoot": {
         "required": [
@@ -4705,10 +4861,9 @@
           "data": {
             "$ref": "#/components/schemas/DateParametersSummary"
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "DocumentDirectories": {
         "type": "object",
@@ -4727,7 +4882,8 @@
             },
             "description": "List of directories."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "DocumentDirectoriesRoot": {
         "required": [
@@ -4738,10 +4894,9 @@
           "data": {
             "$ref": "#/components/schemas/DocumentDirectories"
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "Frequency": {
         "type": "object",
@@ -4750,7 +4905,8 @@
             "type": "string",
             "description": "Frequency name."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "FrequencyRoot": {
         "required": [
@@ -4764,10 +4920,9 @@
               "$ref": "#/components/schemas/Frequency"
             }
           },
-          "meta": {
-            "type": "object"
-          }
-        }
+          "meta": {}
+        },
+        "additionalProperties": false
       },
       "VaultCalculationParameters": {
         "required": [
@@ -4793,9 +4948,10 @@
           },
           "componentdetail": {
             "type": "string",
-            "description": "Component detail type for the Vault component. It can be GROUPS or TOTALS."
+            "description": "Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationMeta": {
         "type": "object",
@@ -4845,7 +5001,8 @@
             "type": "string",
             "default": "JsonStach"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "VaultCalculationParametersRoot": {
         "type": "object",
@@ -4860,7 +5017,8 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationUnitStatus": {
         "type": "object",
@@ -4890,8 +5048,14 @@
           "progress": {
             "type": "string",
             "description": "The progress of the calculation unit."
+          },
+          "points": {
+            "type": "integer",
+            "description": "The points for the calculation unit.",
+            "format": "int32"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationStatus": {
         "type": "object",
@@ -4917,7 +5081,8 @@
             },
             "description": "Number of calculation units in batch."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationUnitStatusMeta": {
         "type": "object",
@@ -4926,7 +5091,8 @@
             "type": "string",
             "description": "The Info URL of the calculation."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationStatusMeta": {
         "type": "object",
@@ -4938,7 +5104,8 @@
             },
             "description": "Meta of calculation units in batch."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationStatusRoot": {
         "required": [
@@ -4952,7 +5119,8 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationStatusMeta"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ObjectRoot": {
         "required": [
@@ -4960,13 +5128,93 @@
         ],
         "type": "object",
         "properties": {
+          "data": {},
+          "meta": {}
+        },
+        "additionalProperties": false
+      },
+      "CalculationsSummary": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Queued",
+              "Executing",
+              "Completed",
+              "Cancelled"
+            ],
+            "type": "string",
+            "description": "Last poll status of the calculation."
+          },
+          "units": {
+            "type": "integer",
+            "description": "Number of calculation units in batch.",
+            "format": "int32"
+          },
+          "requestTime": {
+            "type": "string",
+            "description": "Request time of calculation.",
+            "format": "date-time"
+          },
+          "lastPollTime": {
+            "type": "string",
+            "description": "Last poll time of calculation.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaginationInfo": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCalculations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPage": {
+            "type": "string"
+          },
+          "previousPage": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalculationsSummaryRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
           "data": {
-            "type": "object"
+            "$ref": "#/components/schemas/CalculationsSummary"
           },
           "meta": {
-            "type": "object"
+            "$ref": "#/components/schemas/PaginationMeta"
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {

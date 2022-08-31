@@ -34,20 +34,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2008" /> class.
         /// </summary>
-        /// <param name="data">List of dividend types, sorted by ascending identifier value..</param>
+        /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse2008(List<InlineResponse2008Data> data = default(List<InlineResponse2008Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse2008(InlineResponse2008Data data = default(InlineResponse2008Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of dividend types, sorted by ascending identifier value.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>List of dividend types, sorted by ascending identifier value.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse2008Data> Data { get; set; }
+        public InlineResponse2008Data Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -102,9 +101,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             return 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.Meta == input.Meta ||

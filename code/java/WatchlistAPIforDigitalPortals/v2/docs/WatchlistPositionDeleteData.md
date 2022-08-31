@@ -8,8 +8,8 @@ The data member contains the request's primary data.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of watchlist | 
-**id** | **BigDecimal** | Position id. | 
+**id** | **String** | Identifier of the watchlist. | 
+**position** | [**WatchlistPositionDeleteDataPosition**](WatchlistPositionDeleteDataPosition.md) |  |  [optional]
 
 
 ## Implemented Interfaces

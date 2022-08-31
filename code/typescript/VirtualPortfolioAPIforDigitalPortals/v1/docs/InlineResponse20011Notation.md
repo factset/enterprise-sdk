@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Identifier of the notation. | [optional] 
+**id** | **String** | Identifier of the notation | [optional] 
 
 

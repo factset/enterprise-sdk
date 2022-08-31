@@ -26,18 +26,72 @@ using OpenAPIDateConverter = FactSet.SDK.StocksAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Target price and aggregated recommendations for a stock.
+    /// InlineResponse2001Data
     /// </summary>
     [DataContract(Name = "inline_response_200_1_data")]
     public partial class InlineResponse2001Data : IEquatable<InlineResponse2001Data>, IValidatableObject
     {
         /// <summary>
+        /// Identification of the historic snapshot for aggregated recommendations.
+        /// </summary>
+        /// <value>Identification of the historic snapshot for aggregated recommendations.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SnapshotEnum
+        {
+            /// <summary>
+            /// Enum Latest for value: latest
+            /// </summary>
+            [EnumMember(Value = "latest")]
+            Latest = 1,
+
+            /// <summary>
+            /// Enum _1w for value: 1w
+            /// </summary>
+            [EnumMember(Value = "1w")]
+            _1w = 2,
+
+            /// <summary>
+            /// Enum _1m for value: 1m
+            /// </summary>
+            [EnumMember(Value = "1m")]
+            _1m = 3,
+
+            /// <summary>
+            /// Enum _3m for value: 3m
+            /// </summary>
+            [EnumMember(Value = "3m")]
+            _3m = 4,
+
+            /// <summary>
+            /// Enum _6m for value: 6m
+            /// </summary>
+            [EnumMember(Value = "6m")]
+            _6m = 5,
+
+            /// <summary>
+            /// Enum _1y for value: 1y
+            /// </summary>
+            [EnumMember(Value = "1y")]
+            _1y = 6
+
+        }
+
+
+        /// <summary>
+        /// Identification of the historic snapshot for aggregated recommendations.
+        /// </summary>
+        /// <value>Identification of the historic snapshot for aggregated recommendations.</value>
+        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
+        public SnapshotEnum? Snapshot { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001Data" /> class.
         /// </summary>
+        /// <param name="snapshot">Identification of the historic snapshot for aggregated recommendations..</param>
         /// <param name="targetPrice">targetPrice.</param>
         /// <param name="recommendation">recommendation.</param>
-        public InlineResponse2001Data(InlineResponse2001DataTargetPrice targetPrice = default(InlineResponse2001DataTargetPrice), InlineResponse2001DataRecommendation recommendation = default(InlineResponse2001DataRecommendation))
+        public InlineResponse2001Data(SnapshotEnum? snapshot = default(SnapshotEnum?), InlineResponse200DataTargetPrice targetPrice = default(InlineResponse200DataTargetPrice), InlineResponse2001Recommendation recommendation = default(InlineResponse2001Recommendation))
         {
+            this.Snapshot = snapshot;
             this.TargetPrice = targetPrice;
             this.Recommendation = recommendation;
         }
@@ -46,13 +100,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// Gets or Sets TargetPrice
         /// </summary>
         [DataMember(Name = "targetPrice", EmitDefaultValue = false)]
-        public InlineResponse2001DataTargetPrice TargetPrice { get; set; }
+        public InlineResponse200DataTargetPrice TargetPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets Recommendation
         /// </summary>
         [DataMember(Name = "recommendation", EmitDefaultValue = false)]
-        public InlineResponse2001DataRecommendation Recommendation { get; set; }
+        public InlineResponse2001Recommendation Recommendation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +116,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001Data {\n");
+            sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
             sb.Append("  TargetPrice: ").Append(TargetPrice).Append("\n");
             sb.Append("  Recommendation: ").Append(Recommendation).Append("\n");
             sb.Append("}\n");
@@ -100,6 +155,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
+                    this.Snapshot == input.Snapshot ||
+                    this.Snapshot.Equals(input.Snapshot)
+                ) && 
+                (
                     this.TargetPrice == input.TargetPrice ||
                     (this.TargetPrice != null &&
                     this.TargetPrice.Equals(input.TargetPrice))
@@ -120,6 +179,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
                 if (this.TargetPrice != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetPrice.GetHashCode();

@@ -144,7 +144,7 @@ class InlineResponse2005(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2005Data]): List of company board types sorted ascending by the identifier of the type.. [optional]  # noqa: E501
+            data ([InlineResponse2005Data]): List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2005(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2005Data]): List of company board types sorted ascending by the identifier of the type.. [optional]  # noqa: E501
+            data ([InlineResponse2005Data]): List of benchmarks with related key figures. The order of the benchmark notations in the response is unrelated to their order in the request array.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

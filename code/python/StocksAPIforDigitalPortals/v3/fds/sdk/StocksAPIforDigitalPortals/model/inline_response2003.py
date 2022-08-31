@@ -144,7 +144,7 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2003Data]): List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.. [optional]  # noqa: E501
+            data ([InlineResponse2003Data]): List of dividends.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -227,7 +227,7 @@ class InlineResponse2003(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse2003Data]): List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.. [optional]  # noqa: E501
+            data ([InlineResponse2003Data]): List of dividends.. [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

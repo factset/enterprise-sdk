@@ -24,19 +24,19 @@ from fds.sdk.StocksAPIforDigitalPortals.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiException
+from fds.sdk.StocksAPIforDigitalPortals.model.inline_object import InlineObject
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_object1 import InlineObject1
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_object2 import InlineObject2
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_object3 import InlineObject3
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_object4 import InlineObject4
+from fds.sdk.StocksAPIforDigitalPortals.model.inline_response200 import InlineResponse200
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20010 import InlineResponse20010
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20011 import InlineResponse20011
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response20012 import InlineResponse20012
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2002 import InlineResponse2002
+from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
+from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
+from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2006 import InlineResponse2006
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2007 import InlineResponse2007
 from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2008 import InlineResponse2008
-from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2009 import InlineResponse2009
 
 
 
@@ -56,7 +56,7 @@ class StockApi(object):
         self.get_stock_dividend_type_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2008,),  },
+                  { 200: (InlineResponse2004,),  },
                   None
                 ),
                 'auth': [
@@ -125,7 +125,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_month_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -214,7 +214,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_month_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -303,7 +303,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_week_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -392,7 +392,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_year_1_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -481,7 +481,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_year_3_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -570,7 +570,7 @@ class StockApi(object):
         self.get_stock_notation_key_figures_benchmark_year_5_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2009,),  },
+                  { 200: (InlineResponse2005,),  },
                   None
                 ),
                 'auth': [
@@ -659,7 +659,7 @@ class StockApi(object):
         self.get_stock_owner_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2006,),  },
+                  { 200: (InlineResponse2002,),  },
                   None
                 ),
                 'auth': [
@@ -735,7 +735,7 @@ class StockApi(object):
         self.get_stock_recommendation_aggregate_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2001,),  },
+                  { 200: (InlineResponse200,),  },
                   None
                 ),
                 'auth': [
@@ -801,7 +801,7 @@ class StockApi(object):
         self.get_stock_recommendation_aggregate_history_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2002,),  },
+                  { 200: (InlineResponse2001,),  },
                   None
                 ),
                 'auth': [
@@ -890,7 +890,7 @@ class StockApi(object):
         self.post_stock_dividend_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse2007,),  },
+                  { 200: (InlineResponse2003,),  },
                   None
                 ),
                 'auth': [
@@ -904,10 +904,10 @@ class StockApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object',
                 ],
                 'required': [
-                    'body',
+                    'inline_object',
                 ],
                 'nullable': [
                 ],
@@ -922,13 +922,13 @@ class StockApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
-                        (InlineObject1,),
+                    'inline_object':
+                        (InlineObject,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -946,7 +946,7 @@ class StockApi(object):
         self.post_stock_notation_ranking_intraday_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20010,),  },
+                  { 200: (InlineResponse2006,),  },
                   None
                 ),
                 'auth': [
@@ -960,7 +960,7 @@ class StockApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object1',
                 ],
                 'required': [],
                 'nullable': [
@@ -976,13 +976,13 @@ class StockApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
-                        (InlineObject2,),
+                    'inline_object1':
+                        (InlineObject1,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object1': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1000,7 +1000,7 @@ class StockApi(object):
         self.post_stock_notation_screener_search_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20011,),  },
+                  { 200: (InlineResponse2007,),  },
                   None
                 ),
                 'auth': [
@@ -1014,7 +1014,7 @@ class StockApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object2',
                 ],
                 'required': [],
                 'nullable': [
@@ -1030,13 +1030,13 @@ class StockApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
-                        (InlineObject3,),
+                    'inline_object2':
+                        (InlineObject2,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object2': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1054,7 +1054,7 @@ class StockApi(object):
         self.post_stock_notation_screener_value_ranges_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse20012,),  },
+                  { 200: (InlineResponse2008,),  },
                   None
                 ),
                 'auth': [
@@ -1068,7 +1068,7 @@ class StockApi(object):
             },
             params_map={
                 'all': [
-                    'body',
+                    'inline_object3',
                 ],
                 'required': [],
                 'nullable': [
@@ -1084,13 +1084,13 @@ class StockApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body':
-                        (InlineObject4,),
+                    'inline_object3':
+                        (InlineObject3,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'body': 'body',
+                    'inline_object3': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1121,7 +1121,7 @@ class StockApi(object):
     def get_stock_dividend_type_list(
         self,
         **kwargs
-    ) -> InlineResponse2008:
+    ) -> InlineResponse2004:
         """List of dividend types.  # noqa: E501
 
         List of dividend types.  # noqa: E501
@@ -1130,7 +1130,7 @@ class StockApi(object):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1155,7 +1155,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2008
+            InlineResponse2004
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1164,7 +1164,7 @@ class StockApi(object):
     def get_stock_dividend_type_list_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2008, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
         """List of dividend types.  # noqa: E501
 
         List of dividend types.  # noqa: E501
@@ -1173,7 +1173,7 @@ class StockApi(object):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1198,7 +1198,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2008
+            InlineResponse2004
                 Response Object
             int
                 Http Status Code
@@ -1211,7 +1211,7 @@ class StockApi(object):
     def get_stock_dividend_type_list_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2008]":
+    ) -> "ApplyResult[InlineResponse2004]":
         """List of dividend types.  # noqa: E501
 
         List of dividend types.  # noqa: E501
@@ -1220,7 +1220,7 @@ class StockApi(object):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1245,7 +1245,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2008]
+            ApplyResult[InlineResponse2004]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.get_stock_dividend_type_list_endpoint.call_with_http_info(**kwargs)
@@ -1253,7 +1253,7 @@ class StockApi(object):
     def get_stock_dividend_type_list_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2008, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
         """List of dividend types.  # noqa: E501
 
         List of dividend types.  # noqa: E501
@@ -1262,7 +1262,7 @@ class StockApi(object):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1287,7 +1287,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2008, int, typing.Dict)]
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_stock_dividend_type_list_endpoint.call_with_http_info(**kwargs)
@@ -1297,19 +1297,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1334,7 +1334,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1349,19 +1349,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1386,7 +1386,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -1405,19 +1405,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1442,7 +1442,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -1456,19 +1456,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one month.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1493,7 +1493,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -1507,19 +1507,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1544,7 +1544,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1559,19 +1559,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1596,7 +1596,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -1615,19 +1615,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1652,7 +1652,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -1666,19 +1666,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three months.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1703,7 +1703,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -1717,19 +1717,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1754,7 +1754,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1769,19 +1769,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1806,7 +1806,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -1825,19 +1825,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1862,7 +1862,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -1876,19 +1876,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one week.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1913,7 +1913,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -1927,19 +1927,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1964,7 +1964,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -1979,19 +1979,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2016,7 +2016,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -2035,19 +2035,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2072,7 +2072,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -2086,19 +2086,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of one year.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2123,7 +2123,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -2137,19 +2137,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2174,7 +2174,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2189,19 +2189,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2226,7 +2226,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -2245,19 +2245,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2282,7 +2282,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -2296,19 +2296,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of three years.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2333,7 +2333,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -2347,19 +2347,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> InlineResponse2009:
+    ) -> InlineResponse2005:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2384,7 +2384,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2399,19 +2399,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
         """End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2436,7 +2436,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2009
+            InlineResponse2005
                 Response Object
             int
                 Http Status Code
@@ -2455,19 +2455,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2009]":
+    ) -> "ApplyResult[InlineResponse2005]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2492,7 +2492,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2009]
+            ApplyResult[InlineResponse2005]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -2506,19 +2506,19 @@ class StockApi(object):
         id,
         id_notation_benchmark,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
         """End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
 
         End-of-day (EOD) benchmark key figures of a stock for the time range of five years.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the notation.
-            id_notation_benchmark ([str]): List of identifiers of benchmark notations. See the group description for the list of valid values.
+            id (str):
+            id_notation_benchmark ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2543,7 +2543,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -2556,18 +2556,18 @@ class StockApi(object):
         self,
         id,
         **kwargs
-    ) -> InlineResponse2006:
+    ) -> InlineResponse2002:
         """List of owners for a specific type of a company's shares.  # noqa: E501
 
         List of top-20 owners for a specific type of a company's shares.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of the instrument.
+            id (str):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2592,7 +2592,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2006
+            InlineResponse2002
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -2604,18 +2604,18 @@ class StockApi(object):
         self,
         id,
         **kwargs
-    ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
         """List of owners for a specific type of a company's shares.  # noqa: E501
 
         List of top-20 owners for a specific type of a company's shares.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of the instrument.
+            id (str):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2640,7 +2640,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse2006
+            InlineResponse2002
                 Response Object
             int
                 Http Status Code
@@ -2656,18 +2656,18 @@ class StockApi(object):
         self,
         id,
         **kwargs
-    ) -> "ApplyResult[InlineResponse2006]":
+    ) -> "ApplyResult[InlineResponse2002]":
         """List of owners for a specific type of a company's shares.  # noqa: E501
 
         List of top-20 owners for a specific type of a company's shares.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the instrument.
+            id (str):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2692,7 +2692,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse2006]
+            ApplyResult[InlineResponse2002]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
@@ -2703,18 +2703,18 @@ class StockApi(object):
         self,
         id,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
         """List of owners for a specific type of a company's shares.  # noqa: E501
 
         List of top-20 owners for a specific type of a company's shares.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of the instrument.
+            id (str):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            language (str): ISO 639-1 code of the language.. [optional]
+            language (str): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2739,7 +2739,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse2006, int, typing.Dict)]
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
@@ -2750,14 +2750,206 @@ class StockApi(object):
         self,
         id,
         **kwargs
-    ) -> InlineResponse2001:
+    ) -> InlineResponse200:
         """Target price and aggregated recommendations for a stock.  # noqa: E501
 
         Target price and aggregated recommendations for a stock.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            id (str): Identifier of an instrument.
+            id (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_stock_recommendation_aggregate_get_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
+        """Target price and aggregated recommendations for a stock.  # noqa: E501
+
+        Target price and aggregated recommendations for a stock.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_stock_recommendation_aggregate_get_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse200]":
+        """Target price and aggregated recommendations for a stock.  # noqa: E501
+
+        Target price and aggregated recommendations for a stock.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse200]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_stock_recommendation_aggregate_get_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
+        """Target price and aggregated recommendations for a stock.  # noqa: E501
+
+        Target price and aggregated recommendations for a stock.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str):
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse200, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_stock_recommendation_aggregate_history_list(
+        self,
+        id,
+        snapshots,
+        **kwargs
+    ) -> InlineResponse2001:
+        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
+
+        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str):
+            snapshots ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
@@ -2791,20 +2983,24 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['id'] = \
             id
-        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+        kwargs['snapshots'] = \
+            snapshots
+        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_stock_recommendation_aggregate_get_with_http_info(
+    def get_stock_recommendation_aggregate_history_list_with_http_info(
         self,
         id,
+        snapshots,
         **kwargs
     ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
-        """Target price and aggregated recommendations for a stock.  # noqa: E501
+        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
 
-        Target price and aggregated recommendations for a stock.  # noqa: E501
+        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
-            id (str): Identifier of an instrument.
+            id (str):
+            snapshots ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
@@ -2842,20 +3038,24 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['id'] = \
             id
-        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+        kwargs['snapshots'] = \
+            snapshots
+        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_stock_recommendation_aggregate_get_async(
+    def get_stock_recommendation_aggregate_history_list_async(
         self,
         id,
+        snapshots,
         **kwargs
     ) -> "ApplyResult[InlineResponse2001]":
-        """Target price and aggregated recommendations for a stock.  # noqa: E501
+        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
 
-        Target price and aggregated recommendations for a stock.  # noqa: E501
+        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of an instrument.
+            id (str):
+            snapshots ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
@@ -2888,20 +3088,24 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         kwargs['id'] = \
             id
-        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
+        kwargs['snapshots'] = \
+            snapshots
+        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
 
-    def get_stock_recommendation_aggregate_get_with_http_info_async(
+    def get_stock_recommendation_aggregate_history_list_with_http_info_async(
         self,
         id,
+        snapshots,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
-        """Target price and aggregated recommendations for a stock.  # noqa: E501
+        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
 
-        Target price and aggregated recommendations for a stock.  # noqa: E501
+        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
-            id (str): Identifier of an instrument.
+            id (str):
+            snapshots ([str]):
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
@@ -2934,228 +3138,378 @@ class StockApi(object):
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
-        return self.get_stock_recommendation_aggregate_get_endpoint.call_with_http_info(**kwargs)
-
-    def get_stock_recommendation_aggregate_history_list(
-        self,
-        id,
-        snapshots,
-        **kwargs
-    ) -> InlineResponse2002:
-        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-
-        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-        Args:
-            id (str): Identifier of an instrument.
-            snapshots ([str]): Choice of historic snapshots for aggregated recommendations.
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2002
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['id'] = \
-            id
-        kwargs['snapshots'] = \
-            snapshots
-        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_stock_recommendation_aggregate_history_list_with_http_info(
-        self,
-        id,
-        snapshots,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
-        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-
-        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-        Args:
-            id (str): Identifier of an instrument.
-            snapshots ([str]): Choice of historic snapshots for aggregated recommendations.
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse2002
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['id'] = \
-            id
-        kwargs['snapshots'] = \
-            snapshots
-        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_stock_recommendation_aggregate_history_list_async(
-        self,
-        id,
-        snapshots,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse2002]":
-        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-
-        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-        Args:
-            id (str): Identifier of an instrument.
-            snapshots ([str]): Choice of historic snapshots for aggregated recommendations.
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse2002]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['id'] = \
-            id
-        kwargs['snapshots'] = \
-            snapshots
-        return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
-
-    def get_stock_recommendation_aggregate_history_list_with_http_info_async(
-        self,
-        id,
-        snapshots,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
-        """Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-
-        Current and historical trade recommendations and target prices for a stock.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-        Args:
-            id (str): Identifier of an instrument.
-            snapshots ([str]): Choice of historic snapshots for aggregated recommendations.
-
-        Keyword Args:
-            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse2002, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['id'] = \
-            id
         kwargs['snapshots'] = \
             snapshots
         return self.get_stock_recommendation_aggregate_history_list_endpoint.call_with_http_info(**kwargs)
 
     def post_stock_dividend_list(
         self,
-        body,
+        inline_object,
         **kwargs
-    ) -> InlineResponse2007:
+    ) -> InlineResponse2003:
         """List of dividends for a stock.  # noqa: E501
 
         List of dividends for a stock.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
-            body (InlineObject1):
+            inline_object (InlineObject):
 
         Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2003
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['inline_object'] = \
+            inline_object
+        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_dividend_list_with_http_info(
+        self,
+        inline_object,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
+        """List of dividends for a stock.  # noqa: E501
+
+        List of dividends for a stock.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            inline_object (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2003
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['inline_object'] = \
+            inline_object
+        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_dividend_list_async(
+        self,
+        inline_object,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2003]":
+        """List of dividends for a stock.  # noqa: E501
+
+        List of dividends for a stock.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            inline_object (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2003]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['inline_object'] = \
+            inline_object
+        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_dividend_list_with_http_info_async(
+        self,
+        inline_object,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
+        """List of dividends for a stock.  # noqa: E501
+
+        List of dividends for a stock.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            inline_object (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2003, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['inline_object'] = \
+            inline_object
+        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_notation_ranking_intraday_list(
+        self,
+        **kwargs
+    ) -> InlineResponse2006:
+        """Ranking of stocks' notations using intraday figures.  # noqa: E501
+
+        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            inline_object1 (InlineObject1): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2006
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_notation_ranking_intraday_list_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
+        """Ranking of stocks' notations using intraday figures.  # noqa: E501
+
+        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            inline_object1 (InlineObject1): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2006
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_notation_ranking_intraday_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2006]":
+        """Ranking of stocks' notations using intraday figures.  # noqa: E501
+
+        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            inline_object1 (InlineObject1): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2006]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_notation_ranking_intraday_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
+        """Ranking of stocks' notations using intraday figures.  # noqa: E501
+
+        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            inline_object1 (InlineObject1): [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2006, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_stock_notation_screener_search(
+        self,
+        **kwargs
+    ) -> InlineResponse2007:
+        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
+
+        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+
+        Keyword Args:
+            inline_object2 (InlineObject2): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3184,24 +3538,20 @@ class StockApi(object):
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        kwargs['body'] = \
-            body
-        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
 
-    def post_stock_dividend_list_with_http_info(
+    def post_stock_notation_screener_search_with_http_info(
         self,
-        body,
         **kwargs
     ) -> typing.Tuple[InlineResponse2007, int, typing.MutableMapping]:
-        """List of dividends for a stock.  # noqa: E501
+        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
 
-        List of dividends for a stock.  # noqa: E501
+        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
-        Args:
-            body (InlineObject1):
 
         Keyword Args:
+            inline_object2 (InlineObject2): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3234,24 +3584,20 @@ class StockApi(object):
                 Dictionary of the response headers
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        kwargs['body'] = \
-            body
-        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
 
-    def post_stock_dividend_list_async(
+    def post_stock_notation_screener_search_async(
         self,
-        body,
         **kwargs
     ) -> "ApplyResult[InlineResponse2007]":
-        """List of dividends for a stock.  # noqa: E501
+        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
 
-        List of dividends for a stock.  # noqa: E501
+        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
-        Args:
-            body (InlineObject1):
 
         Keyword Args:
+            inline_object2 (InlineObject2): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3279,24 +3625,20 @@ class StockApi(object):
             ApplyResult[InlineResponse2007]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        kwargs['body'] = \
-            body
-        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
+        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
 
-    def post_stock_dividend_list_with_http_info_async(
+    def post_stock_notation_screener_search_with_http_info_async(
         self,
-        body,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[InlineResponse2007, int, typing.MutableMapping]]":
-        """List of dividends for a stock.  # noqa: E501
+        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
 
-        List of dividends for a stock.  # noqa: E501
+        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
-        Args:
-            body (InlineObject1):
 
         Keyword Args:
+            inline_object2 (InlineObject2): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3324,354 +3666,12 @@ class StockApi(object):
             ApplyResult[(InlineResponse2007, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        kwargs['body'] = \
-            body
-        return self.post_stock_dividend_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_ranking_intraday_list(
-        self,
-        **kwargs
-    ) -> InlineResponse20010:
-        """Ranking of stocks' notations using intraday figures.  # noqa: E501
-
-        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-
-        Keyword Args:
-            body (InlineObject2): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20010
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_ranking_intraday_list_with_http_info(
-        self,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20010, int, typing.MutableMapping]:
-        """Ranking of stocks' notations using intraday figures.  # noqa: E501
-
-        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-
-        Keyword Args:
-            body (InlineObject2): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20010
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_ranking_intraday_list_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20010]":
-        """Ranking of stocks' notations using intraday figures.  # noqa: E501
-
-        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-
-        Keyword Args:
-            body (InlineObject2): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20010]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_ranking_intraday_list_with_http_info_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20010, int, typing.MutableMapping]]":
-        """Ranking of stocks' notations using intraday figures.  # noqa: E501
-
-        Ranking of stocks' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameter `currency` has not been specified.`  The search can be restricted to a specific set of products by using customer-specific instrument or notation restriction lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-
-        Keyword Args:
-            body (InlineObject2): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20010, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
-        return self.post_stock_notation_ranking_intraday_list_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_screener_search(
-        self,
-        **kwargs
-    ) -> InlineResponse20011:
-        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
-
-        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns the http data only
-
-
-        Keyword Args:
-            body (InlineObject3): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20011
-                Response Object
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
-        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_screener_search_with_http_info(
-        self,
-        **kwargs
-    ) -> typing.Tuple[InlineResponse20011, int, typing.MutableMapping]:
-        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
-
-        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a synchronous HTTP request. Returns http data, http status and headers
-
-
-        Keyword Args:
-            body (InlineObject3): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            InlineResponse20011
-                Response Object
-            int
-                Http Status Code
-            dict
-                Dictionary of the response headers
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
-        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_screener_search_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[InlineResponse20011]":
-        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
-
-        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
-
-
-        Keyword Args:
-            body (InlineObject3): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[InlineResponse20011]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
-        return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
-
-    def post_stock_notation_screener_search_with_http_info_async(
-        self,
-        **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20011, int, typing.MutableMapping]]":
-        """Screener for stocks' notations based on stock-specific parameters.  # noqa: E501
-
-        Screener for stocks' notations based on stock-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.  Parameters for up to three fiscal years might be used in one request, see attribute `reportedKeyFigures`; data is available for the ten most recent completed fiscal years. Estimates are available for the current and two consecutive fiscal years; parameters for all three might be used in one request, see attribute `estimates`. The estimated values are calculated as the average of the most recent estimates provided by all analysts in a fixed time frame of 100 days. Screening and sorting by a currency-dependent attribute is not possible if the currency (see parameter `reportedKeyFigures.currencyDependentKeyFigures.currency.isoCode` and parameter `estimates.currencyDependentEstimates.currency.isoCode` respectively) is not set. If a fiscal year for the data as of the end of a fiscal year (see parameter `reportedKeyFigures.fiscalYear`) or for the estimates (see parameter `estimates.fiscalYear`) has been selected but no currency has been set, the respective data will be returned in the currency in which it was originally reported.  A specific set of stocks can be restricted to or excluded by using customer-specific instrument or notation selection lists. Such selection lists are set up by FactSet upon request. All identifiers used as parameters must be valid and entitled.  # noqa: E501
-        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
-
-
-        Keyword Args:
-            body (InlineObject3): [optional]
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-        Returns:
-            ApplyResult[(InlineResponse20011, int, typing.Dict)]
-        """
-        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_notation_screener_search_endpoint.call_with_http_info(**kwargs)
 
     def post_stock_notation_screener_value_ranges_get(
         self,
         **kwargs
-    ) -> InlineResponse20012:
+    ) -> InlineResponse2008:
         """Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.  # noqa: E501
 
         The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.  # noqa: E501
@@ -3679,7 +3679,7 @@ class StockApi(object):
 
 
         Keyword Args:
-            body (InlineObject4): [optional]
+            inline_object3 (InlineObject3): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3704,7 +3704,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20012
+            InlineResponse2008
                 Response Object
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
@@ -3713,7 +3713,7 @@ class StockApi(object):
     def post_stock_notation_screener_value_ranges_get_with_http_info(
         self,
         **kwargs
-    ) -> typing.Tuple[InlineResponse20012, int, typing.MutableMapping]:
+    ) -> typing.Tuple[InlineResponse2008, int, typing.MutableMapping]:
         """Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.  # noqa: E501
 
         The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.  # noqa: E501
@@ -3721,7 +3721,7 @@ class StockApi(object):
 
 
         Keyword Args:
-            body (InlineObject4): [optional]
+            inline_object3 (InlineObject3): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3746,7 +3746,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            InlineResponse20012
+            InlineResponse2008
                 Response Object
             int
                 Http Status Code
@@ -3759,7 +3759,7 @@ class StockApi(object):
     def post_stock_notation_screener_value_ranges_get_async(
         self,
         **kwargs
-    ) -> "ApplyResult[InlineResponse20012]":
+    ) -> "ApplyResult[InlineResponse2008]":
         """Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.  # noqa: E501
 
         The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.  # noqa: E501
@@ -3767,7 +3767,7 @@ class StockApi(object):
 
 
         Keyword Args:
-            body (InlineObject4): [optional]
+            inline_object3 (InlineObject3): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3792,7 +3792,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[InlineResponse20012]
+            ApplyResult[InlineResponse2008]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
         return self.post_stock_notation_screener_value_ranges_get_endpoint.call_with_http_info(**kwargs)
@@ -3800,7 +3800,7 @@ class StockApi(object):
     def post_stock_notation_screener_value_ranges_get_with_http_info_async(
         self,
         **kwargs
-    ) -> "ApplyResult[typing.Tuple[InlineResponse20012, int, typing.MutableMapping]]":
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2008, int, typing.MutableMapping]]":
         """Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.  # noqa: E501
 
         The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/stock/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. For more information regarding the performance and volatility parameters, see the information available in the group description of the `/notation/keyFigures/` endpoints.  # noqa: E501
@@ -3808,7 +3808,7 @@ class StockApi(object):
 
 
         Keyword Args:
-            body (InlineObject4): [optional]
+            inline_object3 (InlineObject3): [optional]
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3833,7 +3833,7 @@ class StockApi(object):
                 that we want to use.
                 Default is read from the configuration.
         Returns:
-            ApplyResult[(InlineResponse20012, int, typing.Dict)]
+            ApplyResult[(InlineResponse2008, int, typing.Dict)]
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_stock_notation_screener_value_ranges_get_endpoint.call_with_http_info(**kwargs)

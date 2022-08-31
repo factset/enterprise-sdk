@@ -1,18 +1,66 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
-  title: Prime Developer Trial
-  version: v1
+  description: "The virtual portfolio enables the analysis of the current allocation,\
+    \ broken down by asset classes, currencies, \nregions, sectors, style, capitalization,\
+    \ style, maturity, risk, and more.\n\nRelative performance and monthly returns\
+    \ can be measured against benchmarks, using portfolio position transaction (buy/sell)\
+    \ data.\nBoth the realized profit/loss (resulting from closed transactions) and\
+    \ the potential profit/loss (resulting from positions that have not been sold\
+    \ yet) can be queried.\n\nPortfolio endpoints allow creation and managing a transaction-based\
+    \ portfolio. A transaction-based portfolio contains a gapless history of all transactions\
+    \ to be able to accurately reproduce the investment record of the portfolio.\n\
+    \nAn instrument added to a portfolio is called a position. Each position consists\
+    \ of multiple buy and sell events called transactions.\nPortfolios are limited\
+    \ to 100 positions and 1000 transactions; adding more will result in an error.\n\
+    \nA transaction-based portfolio can consist of the following transactions:\n\n\
+    * A buy transaction opens or adds to a position in the portfolio, decreasing the\
+    \ cash value by the purchase price at the same time. If there is not enough cash\
+    \ in the portfolio to cover the transaction, the cash value becomes negative.\n\
+    * A sell transaction decreases or closes a position in the portfolio, increasing\
+    \ the cash value by the sale price at the same time. A sell transaction can only\
+    \ be created if the number of shares of a given position exceeds the number being\
+    \ sold.\n* A cash transaction increases or decreases the cash position of the\
+    \ portfolio. A portfolio can have only one cash position. The cash position is\
+    \ tracked automatically as each buy or sell transaction implicitly affects it.\
+    \ The cash position can be negative as a buy transaction does not check whether\
+    \ enough cash is available. The cash position does not generate interest; its\
+    \ performance is always 0%.\n\nThe chosen prices and key figures in the endpoints\
+    \ are using the same quality, which is configurable per application. Possible\
+    \ values are delayed (DLY), best (BST), end-of-day (EOD) or realtime (RLT). The\
+    \ default value for the price quality is BST.\n\nThe portfolio endpoints use different\
+    \ methods to calculate key figures. All key figures except the risk in /portfolio/detail/list,\
+    \ /portfolio/get, and /portfolio/position/list are calculated on-the-fly with\
+    \ current prices. The risk key figures are calculated on-the-fly with current\
+    \ prices, but the result is cached for 24 hours. The key figures in /portfolio/evaluation/list\
+    \ are calculated on end-of-day basis.\n\nThe Virtual Portfolio API for Digital\
+    \ Portals is fully integrated with the corresponding Quotes API, allowing access\
+    \ to detailed price and performance information of instruments in a watchlist.\
+    \ This also supports basic security identifier cross-reference. To complement\
+    \ the Watchlist API and Virtual Portfolio API with direct access to price histories,\
+    \ please refer to the Time Series API for Digital Portals."
+  title: Virtual Portfolio API For Digital Portals
+  version: "2"
+externalDocs:
+  description: Endpoint Reference
+  url: https://endpointreference.mdgms.com
 servers:
-- url: //api-sandbox.factset.com/wealth/v1
+- url: https://api.factset.com/wealth/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: portfolio endpoints
+  name: portfolio
+- description: watchlist endpoints
+  name: watchlist
 paths:
   /portfolio/create:
     post:
       description: "Create a portfolio.\n\nCertain error conditions yield errors as\
         \ follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number\
         \ of portfolios would exceed 100.|400 Bad Request|"
+      operationId: post/portfolio/create
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object'
         content:
@@ -23,12 +71,8 @@ paths:
                   $ref: '#/components/schemas/_portfolio_create_data'
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
-              required:
-              - data
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: true
       responses:
         "201":
@@ -50,12 +94,14 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/delete:
     post:
       description: Delete a portfolio.
+      operationId: post/portfolio/delete
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_1'
         content:
@@ -67,9 +113,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -91,29 +135,33 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/get:
     get:
       description: Details of a portfolio.
+      operationId: get/portfolio/get
       parameters:
-      - description: Identifier of the portfolio.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the portfolio.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -140,18 +188,22 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /portfolio/list:
     get:
       description: List of portfolios with keyfigures.
+      operationId: get/portfolio/list
       parameters:
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -164,8 +216,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -197,10 +251,13 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 2
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /portfolio/modify:
     post:
       description: Modify a portfolio.
+      operationId: post/portfolio/modify
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_2'
         content:
@@ -212,9 +269,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -236,13 +291,15 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/evaluation/list:
     post:
       description: Performs an evaluation over a period of time and returns portfolio
         key figures for each day, week, or month.
+      operationId: post/portfolio/evaluation/list
+      parameters: []
       requestBody:
         $ref: '#/components/requestBodies/inline_object_3'
         content:
@@ -254,9 +311,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -278,20 +333,23 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/name/list:
     get:
       description: List of portfolios.
+      operationId: get/portfolio/name/list
       parameters:
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -304,8 +362,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -337,41 +397,34 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 2
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
-  /portfolio/position/list:
-    get:
-      description: List all positions of a portfolio.
-      parameters:
-      - description: Identifier of the portfolio.
-        in: query
-        name: id
-        required: true
-        schema:
-          format: id64
-          type: string
-          x-positive: true
-        x-positive: true
-      - description: Limit the attributes returned in the response to the specified
-          set.
-        explode: false
-        in: query
-        name: _attributes
-        schema:
-          items:
-            maxLength: 100
-            type: string
-          maxItems: 50
-          type: array
-          uniqueItems: true
-        style: form
+  /portfolio/payout/create:
+    post:
+      description: Add a payout to a portfolio.
+      operationId: post/portfolio/payout/create
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_4'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_portfolio_payout_create_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_create_meta'
+              type: object
+        description: Request Body
+        required: false
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_6'
+                $ref: '#/components/schemas/inline_response_201_1'
           description: Successful Response
-      summary: List all positions of a portfolio.
+      summary: Add a payout to a portfolio.
       tags:
       - portfolio
       x-supportsOffsetBasedPaging: false
@@ -382,16 +435,322 @@ paths:
       x-requiresUser: true
       x-requiresInternalClient: false
       x-disallowUser: false
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolio/payout/delete:
+    post:
+      description: "Delete a payout of a portfolio.\n\nCertain error conditions yield\
+        \ errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
+        |Invalid payout identifier.|400 Bad Request|"
+      operationId: post/portfolio/payout/delete
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_5'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_portfolio_payout_delete_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_create_meta'
+              type: object
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_6'
+          description: Successful Response
+      summary: Delete a payout of a portfolio.
+      tags:
+      - portfolio
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolio/payout/list:
+    post:
+      description: List of payouts in a portfolio.
+      operationId: post/portfolio/payout/list
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_6'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_portfolio_payout_list_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_payout_list_meta'
+              type: object
+        description: Request Body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_7'
+          description: Successful Response
+      summary: List of payouts in a portfolio.
+      tags:
+      - portfolio
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 3
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolio/payout/modify:
+    post:
+      description: "Modify a payout in a portfolio.\n\nCertain error conditions yield\
+        \ errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
+        |At least one of the parameters `notation`, `type`, `amount`, `transaction`\
+        \ or `time` must be set.|400 Bad Request|\n|Invalid payout identifier.|400\
+        \ Bad Request|"
+      operationId: post/portfolio/payout/modify
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_7'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_portfolio_payout_modify_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_create_meta'
+              type: object
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_8'
+          description: Successful Response
+      summary: Modify a payout in a portfolio.
+      tags:
+      - portfolio
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: true
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolio/position/list:
+    get:
+      description: List all open positions of a portfolio.
+      operationId: get/portfolio/position/list
+      parameters:
+      - explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        style: form
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            exclusiveMaximum: false
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - explode: true
+        in: query
+        name: _language
+        required: false
+        schema:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+        style: form
+      - description: Sortable attributes. The sort order is ascending unless it is
+          prefixed with a minus sign, in which case it is descending. A list of at
+          most 10 (possibly prefixed) attribute name(s) is allowed.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - positions.instrument.name
+          items:
+            enum:
+            - positions.instrument.name
+            - -positions.instrument.name
+            - positions.instrument.shortName
+            - -positions.instrument.shortName
+            - positions.instrument.assetClass.code
+            - -positions.instrument.assetClass.code
+            - positions.instrument.type.name
+            - -positions.instrument.type.name
+            - positions.shares.open
+            - -positions.shares.open
+            - positions.purchase.value
+            - -positions.purchase.value
+            - positions.value
+            - -positions.value
+            - positions.weight
+            - -positions.weight
+            - positions.profitLoss.intraday.absolute
+            - -positions.profitLoss.intraday.absolute
+            - positions.profitLoss.intraday.relative
+            - -positions.profitLoss.intraday.relative
+            - positions.profitLoss.potential.absolute
+            - -positions.profitLoss.potential.absolute
+            - positions.profitLoss.potential.relative
+            - -positions.profitLoss.potential.relative
+            type: string
+          maxItems: 10
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+        style: form
+      - description: Non-negative maximum number of entries to return.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_9'
+          description: Successful Response
+      summary: List all open positions of a portfolio.
+      tags:
+      - portfolio
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
+      x-accepts: application/json
+  /portfolio/position/closed/list:
+    post:
+      description: List all closed positions of a portfolio.
+      operationId: post/portfolio/position/closed/list
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_8'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_portfolio_position_closed_list_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_position_closed_list_meta'
+              type: object
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_10'
+          description: Successful Response
+      summary: List all closed positions of a portfolio.
+      tags:
+      - portfolio
+      x-supportsOffsetBasedPaging: true
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 8
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
       x-accepts: application/json
   /portfolio/transaction/create:
     post:
       description: "Add a transaction to a portfolio.\n\nCertain error conditions\
         \ yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
         |The number of transactions would exceed 1000.|400 Bad Request|"
+      operationId: post/portfolio/transaction/create
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_4'
+        $ref: '#/components/requestBodies/inline_object_9'
         content:
           application/json:
             schema:
@@ -401,16 +760,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_201_1'
+                $ref: '#/components/schemas/inline_response_201_2'
           description: Successful Response
       summary: Add a transaction to a portfolio.
       tags:
@@ -425,14 +782,16 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/transaction/delete:
     post:
       description: Delete a transaction of a portfolio.
+      operationId: post/portfolio/transaction/delete
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_5'
+        $ref: '#/components/requestBodies/inline_object_10'
         content:
           application/json:
             schema:
@@ -442,16 +801,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/inline_response_200_6'
           description: Successful Response
       summary: Delete a transaction of a portfolio.
       tags:
@@ -466,46 +823,120 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/transaction/list:
     get:
       description: List of transactions in a portfolio.
+      operationId: get/portfolio/transaction/list
       parameters:
-      - description: Identifier of the portfolio.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the portfolio.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
           type: array
           uniqueItems: true
         style: form
+      - explode: true
+        in: query
+        name: _language
+        required: false
+        schema:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+        style: form
+      - description: Sortable attributes. The sort order is ascending unless it is
+          prefixed with a minus sign, in which case it is descending. A list of at
+          most 7 (possibly prefixed) attribute name(s) is allowed.
+        explode: false
+        in: query
+        name: _sort
+        required: false
+        schema:
+          default:
+          - instrument.name
+          items:
+            enum:
+            - instrument.name
+            - -instrument.name
+            - instrument.shortName
+            - -instrument.shortName
+            - instrument.assetClass.code
+            - -instrument.assetClass.code
+            - instrument.type.name
+            - -instrument.type.name
+            - type
+            - -type
+            - time
+            - -time
+            - numberShares
+            - -numberShares
+            type: string
+          maxItems: 7
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of entries to skip, or 0 (default).
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+        style: form
+      - description: Non-negative maximum number of entries to return.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 1
+          type: number
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_8'
+                $ref: '#/components/schemas/inline_response_200_11'
           description: Successful Response
       summary: List of transactions in a portfolio.
       tags:
       - portfolio
-      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPaging: true
       x-supportsOffsetBasedPagingWithoutTotal: false
       x-supportsCursorBasedPaging: false
       x-supportsCursorBasedPagingWithoutTotal: false
@@ -514,7 +945,8 @@ paths:
       x-requiresInternalClient: false
       x-disallowUser: false
       x-no-merge: false
-      x-maxSortParameterCount: 10
+      x-maxSortParameterCount: 7
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /portfolio/transaction/modify:
     post:
@@ -522,8 +954,10 @@ paths:
         \ yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
         |At least one of the parameters `numberShares`, `price`, `charges`, `exchangeRate`\
         \ or `time` must be set.|400 Bad Request|"
+      operationId: post/portfolio/transaction/modify
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_6'
+        $ref: '#/components/requestBodies/inline_object_11'
         content:
           application/json:
             schema:
@@ -533,16 +967,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_9'
+                $ref: '#/components/schemas/inline_response_200_8'
           description: Successful Response
       summary: Modify a transaction in a portfolio.
       tags:
@@ -557,7 +989,7 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/transaction/cash/create:
@@ -565,8 +997,10 @@ paths:
       description: "Add a cash transaction to a portfolio.\n\nCertain error conditions\
         \ yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
         |The number of transactions would exceed 1000.|400 Bad Request|"
+      operationId: post/portfolio/transaction/cash/create
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_7'
+        $ref: '#/components/requestBodies/inline_object_12'
         content:
           application/json:
             schema:
@@ -576,16 +1010,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_201_1'
+                $ref: '#/components/schemas/inline_response_201_2'
           description: Successful Response
       summary: Add a cash transaction to a portfolio.
       tags:
@@ -600,14 +1032,16 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /portfolio/transaction/cash/delete:
     post:
       description: Delete a cash transaction.
+      operationId: post/portfolio/transaction/cash/delete
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_8'
+        $ref: '#/components/requestBodies/inline_object_13'
         content:
           application/json:
             schema:
@@ -617,16 +1051,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_7'
+                $ref: '#/components/schemas/inline_response_200_6'
           description: Successful Response
       summary: Delete a cash transaction.
       tags:
@@ -641,7 +1073,7 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /watchlist/create:
@@ -649,8 +1081,10 @@ paths:
       description: "Create a watchlist.\n\nCertain error conditions yield errors as\
         \ follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n|The number\
         \ of watchlists would exceed 100.|400 Bad Request|"
+      operationId: post/watchlist/create
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_9'
+        $ref: '#/components/requestBodies/inline_object_14'
         content:
           application/json:
             schema:
@@ -660,16 +1094,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_201_2'
+                $ref: '#/components/schemas/inline_response_201_3'
           description: Successful Response
       summary: Create a watchlist.
       tags:
@@ -684,14 +1116,16 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /watchlist/delete:
     post:
       description: Delete a watchlist.
+      operationId: post/watchlist/delete
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_10'
+        $ref: '#/components/requestBodies/inline_object_15'
         content:
           application/json:
             schema:
@@ -701,9 +1135,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -725,20 +1157,75 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/get:
+    get:
+      description: Details of a watchlist.
+      operationId: get/watchlist/get
+      parameters:
+      - explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          description: Identifier of the watchlist.
+          format: id64
+          type: string
+          x-positive: true
+        style: form
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            exclusiveMaximum: false
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_12'
+          description: Successful Response
+      summary: Details of a watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /watchlist/list:
     get:
       description: List of watchlists.
+      operationId: get/watchlist/list
       parameters:
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -751,8 +1238,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["name"]'
+          default:
+          - name
           items:
             enum:
             - id
@@ -773,7 +1262,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_10'
+                $ref: '#/components/schemas/inline_response_200_13'
           description: Successful Response
       summary: List of watchlists.
       tags:
@@ -788,12 +1277,15 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 4
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /watchlist/modify:
     post:
       description: Modify a watchlist.
+      operationId: post/watchlist/modify
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_11'
+        $ref: '#/components/requestBodies/inline_object_16'
         content:
           application/json:
             schema:
@@ -803,9 +1295,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -827,7 +1317,7 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /watchlist/position/create:
@@ -837,8 +1327,10 @@ paths:
         |Maximum number of watchlist positions would exceed 100.|400 Bad Request|\n\
         |The watchlist does not exist.|400 Bad Request|\n|The notation already exists\
         \ in the watchlist.|400 Bad Request|"
+      operationId: post/watchlist/position/create
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_12'
+        $ref: '#/components/requestBodies/inline_object_17'
         content:
           application/json:
             schema:
@@ -848,16 +1340,14 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_201_3'
+                $ref: '#/components/schemas/inline_response_201_4'
           description: Successful Response
       summary: Add a position to a watchlist.
       tags:
@@ -872,14 +1362,16 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /watchlist/position/delete:
     post:
       description: Delete a position of a watchlist.
+      operationId: post/watchlist/position/delete
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_13'
+        $ref: '#/components/requestBodies/inline_object_18'
         content:
           application/json:
             schema:
@@ -889,9 +1381,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -913,29 +1403,74 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
+      x-contentType: application/json
+      x-accepts: application/json
+  /watchlist/position/get:
+    post:
+      description: Details of the position of a watchlist.
+      operationId: post/watchlist/position/get
+      parameters: []
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_19'
+        content:
+          application/json:
+            schema:
+              properties:
+                data:
+                  $ref: '#/components/schemas/_watchlist_position_get_data'
+                meta:
+                  $ref: '#/components/schemas/_portfolio_create_meta'
+              type: object
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_14'
+          description: Successful Response
+      summary: Details of the position of a watchlist.
+      tags:
+      - watchlist
+      x-supportsOffsetBasedPaging: false
+      x-supportsOffsetBasedPagingWithoutTotal: false
+      x-supportsCursorBasedPaging: false
+      x-supportsCursorBasedPagingWithoutTotal: false
+      x-supportsPush: false
+      x-requiresUser: true
+      x-requiresInternalClient: false
+      x-disallowUser: false
+      x-no-merge: false
+      x-maxSortParameterCount: 10
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
   /watchlist/position/list:
     get:
       description: List of positions of a watchlist.
+      operationId: get/watchlist/position/list
       parameters:
-      - description: Identifier of the watchlist.
+      - explode: true
         in: query
         name: id
         required: true
         schema:
+          description: Identifier of the watchlist.
           format: id64
           type: string
           x-positive: true
-        x-positive: true
+        style: form
       - description: Limit the attributes returned in the response to the specified
           set.
         explode: false
         in: query
         name: _attributes
+        required: false
         schema:
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -948,8 +1483,10 @@ paths:
         explode: false
         in: query
         name: _sort
+        required: false
         schema:
-          default: '["id"]'
+          default:
+          - id
           items:
             enum:
             - id
@@ -966,7 +1503,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_11'
+                $ref: '#/components/schemas/inline_response_200_15'
           description: Successful Response
       summary: List of positions of a watchlist.
       tags:
@@ -981,6 +1518,7 @@ paths:
       x-disallowUser: false
       x-no-merge: false
       x-maxSortParameterCount: 2
+      x-supportsPermissionDeniedResponse: false
       x-accepts: application/json
   /watchlist/position/modify:
     post:
@@ -988,8 +1526,10 @@ paths:
         \ yield errors as follows: \n\n|Error Condition|HTTP Error|\n|-------|--------|\n\
         |At least one of the parameters `notation` or `comment` must be set.|400 Bad\
         \ Request|\n|The notation already exists in the watchlist.|400 Bad Request|"
+      operationId: post/watchlist/position/modify
+      parameters: []
       requestBody:
-        $ref: '#/components/requestBodies/inline_object_14'
+        $ref: '#/components/requestBodies/inline_object_20'
         content:
           application/json:
             schema:
@@ -999,9 +1539,7 @@ paths:
                 meta:
                   $ref: '#/components/schemas/_portfolio_create_meta'
               type: object
-              x-property-sort:
-              - data
-              - meta
+        description: Request Body
         required: false
       responses:
         "200":
@@ -1023,16 +1561,69 @@ paths:
       x-disallowUser: false
       x-no-merge: true
       x-maxSortParameterCount: 10
-      x-codegen-request-body-name: body
+      x-supportsPermissionDeniedResponse: false
       x-contentType: application/json
       x-accepts: application/json
 components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
   requestBodies:
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: true
     inline_object_1:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/inline_object_1'
+      required: false
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
+      required: false
+    inline_object_3:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_3'
+      required: false
+    inline_object_4:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_4'
+      required: false
+    inline_object_5:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_5'
+      required: false
+    inline_object_6:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_6'
+      required: true
+    inline_object_7:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_7'
+      required: false
+    inline_object_8:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_8'
       required: false
     inline_object_9:
       content:
@@ -1046,17 +1637,11 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object_10'
       required: false
-    inline_object_8:
+    inline_object_11:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_8'
-      required: false
-    inline_object_7:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_7'
+            $ref: '#/components/schemas/inline_object_11'
       required: false
     inline_object_12:
       content:
@@ -1064,23 +1649,11 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object_12'
       required: false
-    inline_object_6:
+    inline_object_13:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_6'
-      required: false
-    inline_object_11:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_11'
-      required: false
-    inline_object_5:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/inline_object_5'
+            $ref: '#/components/schemas/inline_object_13'
       required: false
     inline_object_14:
       content:
@@ -1088,36 +1661,42 @@ components:
           schema:
             $ref: '#/components/schemas/inline_object_14'
       required: false
-    inline_object_4:
+    inline_object_15:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_4'
+            $ref: '#/components/schemas/inline_object_15'
       required: false
-    inline_object_13:
+    inline_object_16:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_13'
+            $ref: '#/components/schemas/inline_object_16'
       required: false
-    inline_object_3:
+    inline_object_17:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_3'
+            $ref: '#/components/schemas/inline_object_17'
       required: false
-    inline_object_2:
+    inline_object_18:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object_2'
+            $ref: '#/components/schemas/inline_object_18'
       required: false
-    inline_object:
+    inline_object_19:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/inline_object'
-      required: true
+            $ref: '#/components/schemas/inline_object_19'
+      required: false
+    inline_object_20:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_20'
+      required: false
   responses:
     ErrorResponse:
       content:
@@ -1182,6 +1761,7 @@ components:
       description: Limit the attributes returned in the response to the specified
         set.
       items:
+        exclusiveMaximum: false
         maxLength: 100
         type: string
       maxItems: 50
@@ -1208,23 +1788,6 @@ components:
       required:
       - code
       type: object
-    SubscriptionMember:
-      description: Object defining the subscription attributes.
-      properties:
-        minimumInterval:
-          description: Non-negative number of milliseconds to throttle the update
-            rate from 0ms to 5000ms. Set to 0 for sending updates immediately.
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int32
-          maximum: 5E+3
-          minimum: 0
-          type: number
-      required:
-      - minimumInterval
-      type: object
-      x-property-sort:
-      - minimumInterval
     CursorBasedPaginationOutputObject:
       description: Pagination attributes for the cursor-based pagination strategy.
       properties:
@@ -1233,15 +1796,16 @@ components:
           format: int32
           type: number
         isEstimatedTotal:
-          description: Flag indicating that the value of "total" is estimated.
+          description: Flag indicating that the value of `total` is estimated.
           type: boolean
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - isEstimatedTotal
@@ -1259,12 +1823,13 @@ components:
         a total element count is not supported.
       properties:
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - next
@@ -1275,6 +1840,9 @@ components:
       - previous
     OffsetBasedPaginationOutputObject:
       description: Pagination attributes for the offset-based pagination strategy.
+      example:
+        total: 6.027456183070403
+        isEstimatedTotal: true
       properties:
         total:
           description: Total number of entries in the result set.
@@ -1310,7 +1878,7 @@ components:
         isPartial:
           description: Flag indicating that the response is a possibly incomplete
             array or an object containing a possibly incomplete array, due to hitting
-            a processing time limit. If true, some matching results might be missing
+            a processing time limit. If `true`, some matching results might be missing
             from the array, or elements for matching results might be incorrectly
             included (for example, when priority sorting would have removed the element).
             Depending on the use case, such a response may be unsuitable.
@@ -1327,6 +1895,7 @@ components:
         isoCode:
           default: EUR
           description: ISO 4217 code of the currency.
+          exclusiveMaximum: false
           maxLength: 3
           type: string
       type: object
@@ -1337,6 +1906,8 @@ components:
       properties:
         name:
           description: Name of the portfolio.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           maxLength: 100
           minLength: 1
           pattern: ^[\u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]{1,}$
@@ -1357,6 +1928,7 @@ components:
           description: Limit the attributes returned in the response to the specified
             set.
           items:
+            exclusiveMaximum: false
             maxLength: 100
             type: string
           maxItems: 50
@@ -1371,12 +1943,7 @@ components:
           $ref: '#/components/schemas/_portfolio_create_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
-      required:
-      - data
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_201_data:
       description: Details of the portfolio.
       example:
@@ -1434,19 +2001,15 @@ components:
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200:
       example:
-        data: '{}'
+        data: ""
         meta:
           status:
             code: 0.8008281904610115
       properties:
         data:
           description: This member is always empty.
-          type: object
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
@@ -1469,11 +2032,47 @@ components:
       x-property-sort:
       - id
       - isoCode
+    inline_response_200_1_data_lifecycle_transaction:
+      description: Date and time of the portfolio.
+      example:
+        first: first
+        latest: latest
+      properties:
+        first:
+          description: Date and time of the first transaction.
+          format: datetime
+          type: string
+        latest:
+          description: Date and time of the most recent transaction.
+          format: datetime
+          type: string
+      type: object
+      x-property-sort:
+      - first
+      - latest
+    inline_response_200_1_data_lifecycle:
+      description: Events in the lifecycle of a portfolio.
+      example:
+        creation: creation
+        transaction:
+          first: first
+          latest: latest
+      properties:
+        creation:
+          description: Date and time of the portfolio creation.
+          format: datetime
+          type: string
+        transaction:
+          $ref: '#/components/schemas/inline_response_200_1_data_lifecycle_transaction'
+      type: object
+      x-property-sort:
+      - creation
+      - transaction
     inline_response_200_1_data_summary_transactions_total:
       description: Summary of all non-cash transactions.
       example:
-        number: 5.637376656633329
-        turnover: 2.3021358869347655
+        number: 2.3021358869347655
+        turnover: 7.061401241503109
       properties:
         number:
           description: Total number of transactions in the portfolio.
@@ -1490,8 +2089,8 @@ components:
     inline_response_200_1_data_summary_transactions_buy:
       description: Summary of buy transactions.
       example:
-        number: 7.061401241503109
-        turnover: 9.301444243932576
+        number: 9.301444243932576
+        turnover: 3.616076749251911
       properties:
         number:
           description: Number of buy transactions in the portfolio.
@@ -1508,8 +2107,8 @@ components:
     inline_response_200_1_data_summary_transactions_sell:
       description: Summary of sell transactions.
       example:
-        number: 3.616076749251911
-        turnover: 2.027123023002322
+        number: 2.027123023002322
+        turnover: 4.145608029883936
       properties:
         number:
           description: Number of sell transactions in the portfolio.
@@ -1527,14 +2126,14 @@ components:
       description: Summary of all non-cash transactions.
       example:
         total:
-          number: 5.637376656633329
-          turnover: 2.3021358869347655
+          number: 2.3021358869347655
+          turnover: 7.061401241503109
         buy:
-          number: 7.061401241503109
-          turnover: 9.301444243932576
+          number: 9.301444243932576
+          turnover: 3.616076749251911
         sell:
-          number: 3.616076749251911
-          turnover: 2.027123023002322
+          number: 2.027123023002322
+          turnover: 4.145608029883936
       properties:
         total:
           $ref: '#/components/schemas/inline_response_200_1_data_summary_transactions_total'
@@ -1550,7 +2149,7 @@ components:
     inline_response_200_1_data_summary_cash:
       description: Summary of cash transactions.
       example:
-        amount: 4.145608029883936
+        amount: 7.386281948385884
       properties:
         amount:
           description: Current cash amount.
@@ -1564,23 +2163,29 @@ components:
         `currency`).
       example:
         totalValue: 6.027456183070403
-        purchaseValue: 1.4658129805029452
-        numberPositions: 5.962133916683182
+        purchaseValue: 5.962133916683182
+        numberPositions: 5.637376656633329
+        marketValue: 1.4658129805029452
         transactions:
           total:
-            number: 5.637376656633329
-            turnover: 2.3021358869347655
+            number: 2.3021358869347655
+            turnover: 7.061401241503109
           buy:
-            number: 7.061401241503109
-            turnover: 9.301444243932576
+            number: 9.301444243932576
+            turnover: 3.616076749251911
           sell:
-            number: 3.616076749251911
-            turnover: 2.027123023002322
+            number: 2.027123023002322
+            turnover: 4.145608029883936
         cash:
-          amount: 4.145608029883936
+          amount: 7.386281948385884
       properties:
         totalValue:
-          description: The total portfolio value, including the current cash amount.
+          description: The total portfolio value, i.e. the current market value of
+            the portfolio plus cash.
+          format: real
+          type: number
+        marketValue:
+          description: The current market value of the securities in the portfolio.
           format: real
           type: number
         purchaseValue:
@@ -1598,6 +2203,7 @@ components:
       type: object
       x-property-sort:
       - totalValue
+      - marketValue
       - purchaseValue
       - numberPositions
       - transactions
@@ -1606,8 +2212,8 @@ components:
       description: Summary of realized profit or loss resulting from closed positions,
         i.e. instrument positions that have been sold entirely
       example:
-        absolute: 7.386281948385884
-        relative: 1.2315135367772556
+        absolute: 1.2315135367772556
+        relative: 1.0246457001441578
       properties:
         absolute:
           description: Absolute value of profit or loss.
@@ -1615,8 +2221,9 @@ components:
           type: number
         relative:
           description: Relative value of profit or loss.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
       type: object
       x-property-sort:
       - absolute
@@ -1625,8 +2232,8 @@ components:
       description: Summary of potential profit or loss resulting from open positions,
         i.e. instrument positions that have not been sold.
       example:
-        absolute: 1.0246457001441578
-        relative: 1.4894159098541704
+        absolute: 1.4894159098541704
+        relative: 6.84685269835264
       properties:
         absolute:
           description: Absolute value of profit or loss.
@@ -1634,8 +2241,9 @@ components:
           type: number
         relative:
           description: Relative value of profit or loss.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
       type: object
       x-property-sort:
       - absolute
@@ -1644,8 +2252,8 @@ components:
       description: Summary of potential profit or loss resulting from open and closed
         positions.
       example:
-        absolute: 6.84685269835264
-        relative: 7.457744773683766
+        absolute: 7.457744773683766
+        relative: 1.1730742509559433
       properties:
         absolute:
           description: Absolute value of realized and potential profit or loss.
@@ -1653,8 +2261,9 @@ components:
           type: number
         relative:
           description: Relative value of realized and potential profit or loss.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
       type: object
       x-property-sort:
       - absolute
@@ -1663,8 +2272,8 @@ components:
       description: Summary of today's profit or loss, calculated using the most recent
         price and the last price of the prior trading day.
       example:
-        absolute: 1.1730742509559433
-        relative: 4.965218492984954
+        absolute: 4.965218492984954
+        relative: 5.025004791520295
       properties:
         absolute:
           description: Absolute value of profit or loss.
@@ -1672,8 +2281,9 @@ components:
           type: number
         relative:
           description: Relative value of profit or loss.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
       type: object
       x-property-sort:
       - absolute
@@ -1684,17 +2294,17 @@ components:
         portfolio.
       example:
         total:
-          absolute: 6.84685269835264
-          relative: 7.457744773683766
+          absolute: 7.457744773683766
+          relative: 1.1730742509559433
         today:
-          absolute: 1.1730742509559433
-          relative: 4.965218492984954
+          absolute: 4.965218492984954
+          relative: 5.025004791520295
         realized:
-          absolute: 7.386281948385884
-          relative: 1.2315135367772556
+          absolute: 1.2315135367772556
+          relative: 1.0246457001441578
         potential:
-          absolute: 1.0246457001441578
-          relative: 1.4894159098541704
+          absolute: 1.4894159098541704
+          relative: 6.84685269835264
       properties:
         realized:
           $ref: '#/components/schemas/inline_response_200_1_data_profitLoss_realized'
@@ -1713,8 +2323,8 @@ components:
     inline_response_200_1_data_riskKeyFigures:
       description: Current risk key figures.
       example:
-        valueAtRisk: 9.965781217890562
-        volatility: 5.025004791520295
+        valueAtRisk: 9.369310271410669
+        volatility: 9.965781217890562
       properties:
         volatility:
           description: Portfolio's volatility over the last 250 calendar days.
@@ -1732,25 +2342,31 @@ components:
     inline_response_200_1_data:
       description: Details of the portfolio.
       example:
+        lifecycle:
+          creation: creation
+          transaction:
+            first: first
+            latest: latest
         summary:
           totalValue: 6.027456183070403
-          purchaseValue: 1.4658129805029452
-          numberPositions: 5.962133916683182
+          purchaseValue: 5.962133916683182
+          numberPositions: 5.637376656633329
+          marketValue: 1.4658129805029452
           transactions:
             total:
-              number: 5.637376656633329
-              turnover: 2.3021358869347655
+              number: 2.3021358869347655
+              turnover: 7.061401241503109
             buy:
-              number: 7.061401241503109
-              turnover: 9.301444243932576
+              number: 9.301444243932576
+              turnover: 3.616076749251911
             sell:
-              number: 3.616076749251911
-              turnover: 2.027123023002322
+              number: 2.027123023002322
+              turnover: 4.145608029883936
           cash:
-            amount: 4.145608029883936
+            amount: 7.386281948385884
         riskKeyFigures:
-          valueAtRisk: 9.965781217890562
-          volatility: 5.025004791520295
+          valueAtRisk: 9.369310271410669
+          volatility: 9.965781217890562
         name: name
         currency:
           isoCode: isoCode
@@ -1758,17 +2374,18 @@ components:
         id: id
         profitLoss:
           total:
-            absolute: 6.84685269835264
-            relative: 7.457744773683766
+            absolute: 7.457744773683766
+            relative: 1.1730742509559433
           today:
-            absolute: 1.1730742509559433
-            relative: 4.965218492984954
+            absolute: 4.965218492984954
+            relative: 5.025004791520295
           realized:
-            absolute: 7.386281948385884
-            relative: 1.2315135367772556
+            absolute: 1.2315135367772556
+            relative: 1.0246457001441578
           potential:
-            absolute: 1.0246457001441578
-            relative: 1.4894159098541704
+            absolute: 1.4894159098541704
+            relative: 6.84685269835264
+        asOfDate: asOfDate
       properties:
         id:
           description: Identifier of the portfolio.
@@ -1780,6 +2397,12 @@ components:
           type: string
         currency:
           $ref: '#/components/schemas/inline_response_200_1_data_currency'
+        lifecycle:
+          $ref: '#/components/schemas/inline_response_200_1_data_lifecycle'
+        asOfDate:
+          description: Date and time of the portfolio valuation.
+          format: datetime
+          type: string
         summary:
           $ref: '#/components/schemas/inline_response_200_1_data_summary'
         profitLoss:
@@ -1791,31 +2414,39 @@ components:
       - id
       - name
       - currency
+      - lifecycle
+      - asOfDate
       - summary
       - profitLoss
       - riskKeyFigures
     inline_response_200_1:
       example:
         data:
+          lifecycle:
+            creation: creation
+            transaction:
+              first: first
+              latest: latest
           summary:
             totalValue: 6.027456183070403
-            purchaseValue: 1.4658129805029452
-            numberPositions: 5.962133916683182
+            purchaseValue: 5.962133916683182
+            numberPositions: 5.637376656633329
+            marketValue: 1.4658129805029452
             transactions:
               total:
-                number: 5.637376656633329
-                turnover: 2.3021358869347655
+                number: 2.3021358869347655
+                turnover: 7.061401241503109
               buy:
-                number: 7.061401241503109
-                turnover: 9.301444243932576
+                number: 9.301444243932576
+                turnover: 3.616076749251911
               sell:
-                number: 3.616076749251911
-                turnover: 2.027123023002322
+                number: 2.027123023002322
+                turnover: 4.145608029883936
             cash:
-              amount: 4.145608029883936
+              amount: 7.386281948385884
           riskKeyFigures:
-            valueAtRisk: 9.965781217890562
-            volatility: 5.025004791520295
+            valueAtRisk: 9.369310271410669
+            volatility: 9.965781217890562
           name: name
           currency:
             isoCode: isoCode
@@ -1823,17 +2454,18 @@ components:
           id: id
           profitLoss:
             total:
-              absolute: 6.84685269835264
-              relative: 7.457744773683766
+              absolute: 7.457744773683766
+              relative: 1.1730742509559433
             today:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
+              absolute: 4.965218492984954
+              relative: 5.025004791520295
             realized:
-              absolute: 7.386281948385884
-              relative: 1.2315135367772556
+              absolute: 1.2315135367772556
+              relative: 1.0246457001441578
             potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
+              absolute: 1.4894159098541704
+              relative: 6.84685269835264
+          asOfDate: asOfDate
         meta:
           status:
             code: 0.8008281904610115
@@ -1866,8 +2498,8 @@ components:
       description: Summary of all non-cash transactions.
       example:
         total:
-          number: 5.637376656633329
-          turnover: 2.3021358869347655
+          number: 2.3021358869347655
+          turnover: 7.061401241503109
       properties:
         total:
           $ref: '#/components/schemas/inline_response_200_1_data_summary_transactions_total'
@@ -1879,16 +2511,22 @@ components:
         `currency`).
       example:
         totalValue: 6.027456183070403
-        numberPositions: 1.4658129805029452
+        numberPositions: 5.962133916683182
+        marketValue: 1.4658129805029452
         transactions:
           total:
-            number: 5.637376656633329
-            turnover: 2.3021358869347655
+            number: 2.3021358869347655
+            turnover: 7.061401241503109
         cash:
-          amount: 4.145608029883936
+          amount: 7.386281948385884
       properties:
         totalValue:
-          description: The total portfolio value, including the current cash amount.
+          description: The total portfolio value, i.e. the current market value of
+            the portfolio plus cash.
+          format: real
+          type: number
+        marketValue:
+          description: The current market value of the securities in the portfolio.
           format: real
           type: number
         numberPositions:
@@ -1902,6 +2540,7 @@ components:
       type: object
       x-property-sort:
       - totalValue
+      - marketValue
       - numberPositions
       - transactions
       - cash
@@ -1911,8 +2550,8 @@ components:
         portfolio.
       example:
         total:
-          absolute: 6.84685269835264
-          relative: 7.457744773683766
+          absolute: 7.457744773683766
+          relative: 1.1730742509559433
       properties:
         total:
           $ref: '#/components/schemas/inline_response_200_1_data_profitLoss_total'
@@ -1923,13 +2562,14 @@ components:
       example:
         summary:
           totalValue: 6.027456183070403
-          numberPositions: 1.4658129805029452
+          numberPositions: 5.962133916683182
+          marketValue: 1.4658129805029452
           transactions:
             total:
-              number: 5.637376656633329
-              turnover: 2.3021358869347655
+              number: 2.3021358869347655
+              turnover: 7.061401241503109
           cash:
-            amount: 4.145608029883936
+            amount: 7.386281948385884
         name: name
         currency:
           isoCode: isoCode
@@ -1937,8 +2577,8 @@ components:
         id: id
         profitLoss:
           total:
-            absolute: 6.84685269835264
-            relative: 7.457744773683766
+            absolute: 7.457744773683766
+            relative: 1.1730742509559433
       properties:
         id:
           description: Identifier of the portfolio.
@@ -1950,8 +2590,8 @@ components:
           description: Name of the portfolio.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
         currency:
           $ref: '#/components/schemas/inline_response_200_2_currency'
         summary:
@@ -1970,13 +2610,14 @@ components:
         data:
         - summary:
             totalValue: 6.027456183070403
-            numberPositions: 1.4658129805029452
+            numberPositions: 5.962133916683182
+            marketValue: 1.4658129805029452
             transactions:
               total:
-                number: 5.637376656633329
-                turnover: 2.3021358869347655
+                number: 2.3021358869347655
+                turnover: 7.061401241503109
             cash:
-              amount: 4.145608029883936
+              amount: 7.386281948385884
           name: name
           currency:
             isoCode: isoCode
@@ -1984,17 +2625,18 @@ components:
           id: id
           profitLoss:
             total:
-              absolute: 6.84685269835264
-              relative: 7.457744773683766
+              absolute: 7.457744773683766
+              relative: 1.1730742509559433
         - summary:
             totalValue: 6.027456183070403
-            numberPositions: 1.4658129805029452
+            numberPositions: 5.962133916683182
+            marketValue: 1.4658129805029452
             transactions:
               total:
-                number: 5.637376656633329
-                turnover: 2.3021358869347655
+                number: 2.3021358869347655
+                turnover: 7.061401241503109
             cash:
-              amount: 4.145608029883936
+              amount: 7.386281948385884
           name: name
           currency:
             isoCode: isoCode
@@ -2002,8 +2644,8 @@ components:
           id: id
           profitLoss:
             total:
-              absolute: 6.84685269835264
-              relative: 7.457744773683766
+              absolute: 7.457744773683766
+              relative: 1.1730742509559433
         meta:
           status:
             code: 0.8008281904610115
@@ -2026,6 +2668,8 @@ components:
           x-positive: true
         name:
           description: Name of the portfolio.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           maxLength: 100
           minLength: 1
           pattern: ^[\u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$
@@ -2045,19 +2689,15 @@ components:
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_3:
       example:
-        data: '{}'
+        data: ""
         meta:
           status:
             code: 0.8008281904610115
       properties:
         data:
           description: This member is always emtpy.
-          type: object
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
@@ -2065,6 +2705,7 @@ components:
       description: Date range for the time series. A valid date range is between 1900-01-01
         and the day after the current day. A date before the date of the first transaction
         is implicitly adjusted to the date of the portfolio's first transaction.
+      format: dateRange
       properties:
         start:
           description: The starting point of the date range (inclusive).
@@ -2078,10 +2719,10 @@ components:
       - end
       - start
       type: object
+      x-isClosedInterval: true
       x-property-sort:
       - start
       - end
-      x-isClosedInterval: true
     _portfolio_evaluation_list_data:
       description: The data member contains the request's primary data.
       properties:
@@ -2118,15 +2759,12 @@ components:
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     inline_response_200_4_data_profitLoss:
       description: Summary of profit/loss.
       example:
-        performance: 5.962133916683182
-        absolute: 1.4658129805029452
-        modifiedDietzPerformance: 5.637376656633329
+        performance: 5.637376656633329
+        absolute: 5.962133916683182
+        modifiedDietzPerformance: 2.3021358869347655
       properties:
         absolute:
           description: Profit/loss since range start.
@@ -2134,13 +2772,15 @@ components:
           type: number
         performance:
           description: The performance of the portfolio since range start.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
         modifiedDietzPerformance:
           description: The performance of the portfolio calculated using the "modified
             Dietz" method since range start.
-          format: relativeValue
+          format: percentage
           type: number
+          x-convertToRelative: false
       type: object
       x-property-sort:
       - absolute
@@ -2149,7 +2789,7 @@ components:
     inline_response_200_4_data_period_profitLoss:
       description: Summary of profit/loss in the corresponding period.
       example:
-        absolute: 2.3021358869347655
+        absolute: 7.061401241503109
       properties:
         absolute:
           description: Profit/loss in the corresponding period.
@@ -2161,11 +2801,11 @@ components:
     inline_response_200_4_data_period:
       description: Summary of the corresponding period.
       example:
-        payouts: 9.301444243932576
-        purchaseValue: 3.616076749251911
+        payouts: 3.616076749251911
+        purchaseValue: 2.027123023002322
         profitLoss:
-          absolute: 2.3021358869347655
-        transactions: 7.061401241503109
+          absolute: 7.061401241503109
+        transactions: 9.301444243932576
       properties:
         profitLoss:
           $ref: '#/components/schemas/inline_response_200_4_data_period_profitLoss'
@@ -2191,18 +2831,19 @@ components:
     inline_response_200_4_data_keyfigures:
       example:
         date: 2000-01-23
+        totalValue: 6.027456183070403
         period:
-          payouts: 9.301444243932576
-          purchaseValue: 3.616076749251911
+          payouts: 3.616076749251911
+          purchaseValue: 2.027123023002322
           profitLoss:
-            absolute: 2.3021358869347655
-          transactions: 7.061401241503109
+            absolute: 7.061401241503109
+          transactions: 9.301444243932576
+        marketValue: 1.4658129805029452
         profitLoss:
-          performance: 5.962133916683182
-          absolute: 1.4658129805029452
-          modifiedDietzPerformance: 5.637376656633329
+          performance: 5.637376656633329
+          absolute: 5.962133916683182
+          modifiedDietzPerformance: 2.3021358869347655
         cash: 0.8008281904610115
-        value: 6.027456183070403
       properties:
         date:
           description: Date the evaluation is performed for (end of week or end of
@@ -2213,8 +2854,13 @@ components:
           description: The amount of cash since range start.
           format: real
           type: number
-        value:
-          description: The value of all open positions since range start.
+        totalValue:
+          description: The total portfolio value, i.e. the current market value of
+            the portfolio plus cash.
+          format: real
+          type: number
+        marketValue:
+          description: The current market value of the securities in the portfolio.
           format: real
           type: number
         profitLoss:
@@ -2225,7 +2871,8 @@ components:
       x-property-sort:
       - date
       - cash
-      - value
+      - totalValue
+      - marketValue
       - profitLoss
       - period
     inline_response_200_4_data:
@@ -2236,31 +2883,33 @@ components:
           id: 0.8008281904610115
         keyfigures:
         - date: 2000-01-23
+          totalValue: 6.027456183070403
           period:
-            payouts: 9.301444243932576
-            purchaseValue: 3.616076749251911
+            payouts: 3.616076749251911
+            purchaseValue: 2.027123023002322
             profitLoss:
-              absolute: 2.3021358869347655
-            transactions: 7.061401241503109
+              absolute: 7.061401241503109
+            transactions: 9.301444243932576
+          marketValue: 1.4658129805029452
           profitLoss:
-            performance: 5.962133916683182
-            absolute: 1.4658129805029452
-            modifiedDietzPerformance: 5.637376656633329
+            performance: 5.637376656633329
+            absolute: 5.962133916683182
+            modifiedDietzPerformance: 2.3021358869347655
           cash: 0.8008281904610115
-          value: 6.027456183070403
         - date: 2000-01-23
+          totalValue: 6.027456183070403
           period:
-            payouts: 9.301444243932576
-            purchaseValue: 3.616076749251911
+            payouts: 3.616076749251911
+            purchaseValue: 2.027123023002322
             profitLoss:
-              absolute: 2.3021358869347655
-            transactions: 7.061401241503109
+              absolute: 7.061401241503109
+            transactions: 9.301444243932576
+          marketValue: 1.4658129805029452
           profitLoss:
-            performance: 5.962133916683182
-            absolute: 1.4658129805029452
-            modifiedDietzPerformance: 5.637376656633329
+            performance: 5.637376656633329
+            absolute: 5.962133916683182
+            modifiedDietzPerformance: 2.3021358869347655
           cash: 0.8008281904610115
-          value: 6.027456183070403
       properties:
         currency:
           $ref: '#/components/schemas/inline_response_200_2_currency'
@@ -2281,31 +2930,33 @@ components:
             id: 0.8008281904610115
           keyfigures:
           - date: 2000-01-23
+            totalValue: 6.027456183070403
             period:
-              payouts: 9.301444243932576
-              purchaseValue: 3.616076749251911
+              payouts: 3.616076749251911
+              purchaseValue: 2.027123023002322
               profitLoss:
-                absolute: 2.3021358869347655
-              transactions: 7.061401241503109
+                absolute: 7.061401241503109
+              transactions: 9.301444243932576
+            marketValue: 1.4658129805029452
             profitLoss:
-              performance: 5.962133916683182
-              absolute: 1.4658129805029452
-              modifiedDietzPerformance: 5.637376656633329
+              performance: 5.637376656633329
+              absolute: 5.962133916683182
+              modifiedDietzPerformance: 2.3021358869347655
             cash: 0.8008281904610115
-            value: 6.027456183070403
           - date: 2000-01-23
+            totalValue: 6.027456183070403
             period:
-              payouts: 9.301444243932576
-              purchaseValue: 3.616076749251911
+              payouts: 3.616076749251911
+              purchaseValue: 2.027123023002322
               profitLoss:
-                absolute: 2.3021358869347655
-              transactions: 7.061401241503109
+                absolute: 7.061401241503109
+              transactions: 9.301444243932576
+            marketValue: 1.4658129805029452
             profitLoss:
-              performance: 5.962133916683182
-              absolute: 1.4658129805029452
-              modifiedDietzPerformance: 5.637376656633329
+              performance: 5.637376656633329
+              absolute: 5.962133916683182
+              modifiedDietzPerformance: 2.3021358869347655
             cash: 0.8008281904610115
-            value: 6.027456183070403
         meta:
           status:
             code: 0.8008281904610115
@@ -2330,8 +2981,8 @@ components:
           description: Name of the portfolio.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
       type: object
       x-property-sort:
       - id
@@ -2355,10 +3006,583 @@ components:
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
-    inline_response_200_6_data_instrument:
+    _portfolio_payout_create_data_notation:
+      description: Notation of the position.
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_create_data_transaction:
+      description: Associates the payout with a sub-position opened by a specific
+        buy transaction. If omitted, the payout will be associated with all sub-positions
+        of the notation in the portfolio.
+      properties:
+        id:
+          description: Identifier of the buy transaction.
+          format: id64
+          type: string
+          x-positive: true
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_create_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          description: 'Payout type. '
+          enum:
+          - dividend
+          - payout
+          - coupon
+          - subscriptionRight
+          - other
+          type: string
+          x-enum-description:
+          - Dividend
+          - Payout
+          - Coupon
+          - Subscription right
+          - Other
+        notation:
+          $ref: '#/components/schemas/_portfolio_payout_create_data_notation'
+        time:
+          description: Date and time of the payout.
+          format: datetime
+          type: string
+        amount:
+          description: Amount of the payout in the portfolio's base currency.
+          format: real
+          type: number
+        transaction:
+          $ref: '#/components/schemas/_portfolio_payout_create_data_transaction'
+      required:
+      - amount
+      - id
+      - notation
+      - time
+      - type
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - notation
+      - time
+      - amount
+      - transaction
+    inline_object_4:
+      properties:
+        data:
+          $ref: '#/components/schemas/_portfolio_payout_create_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_create_meta'
+      type: object
+    inline_response_201_1_data:
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the payout.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_201_1:
+      example:
+        data:
+          id: id
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_201_1_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_201_meta'
+      type: object
+    _portfolio_payout_delete_data_payout:
+      description: Payout of the portfolio.
+      properties:
+        id:
+          description: Identifier of the payout.
+          format: id64
+          type: string
+          x-positive: true
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_delete_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        payout:
+          $ref: '#/components/schemas/_portfolio_payout_delete_data_payout'
+      required:
+      - id
+      - payout
+      type: object
+      x-property-sort:
+      - id
+      - payout
+    inline_object_5:
+      properties:
+        data:
+          $ref: '#/components/schemas/_portfolio_payout_delete_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_create_meta'
+      type: object
+    inline_response_200_6:
+      example:
+        data: ""
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: The response is always empty.
+        meta:
+          $ref: '#/components/schemas/inline_response_201_meta'
+      type: object
+    _portfolio_payout_list_data_filter_instrument:
+      description: Filtering the payouts by instrument.
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_list_data_filter:
+      description: Criteria that filter the items in the response list; only items
+        that match all of the criteria are returned.
+      properties:
+        instrument:
+          $ref: '#/components/schemas/_portfolio_payout_list_data_filter_instrument'
+      type: object
+      x-property-sort:
+      - instrument
+    _portfolio_payout_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        filter:
+          $ref: '#/components/schemas/_portfolio_payout_list_data_filter'
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+      - filter
+    _portfolio_payout_list_meta_pagination:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        offset:
+          default: 0
+          description: Non-negative number of entries to skip, or 0 (default).
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+        limit:
+          default: 20
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 1
+          type: number
+      type: object
+      x-property-sort:
+      - offset
+      - limit
+    _portfolio_payout_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            exclusiveMaximum: false
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        sort:
+          default:
+          - time
+          description: Sortable attributes. The sort order is ascending unless it
+            is prefixed with a minus sign, in which case it is descending. A list
+            of at most 3 (possibly prefixed) attribute name(s) is allowed.
+          items:
+            enum:
+            - type
+            - -type
+            - time
+            - -time
+            - amount
+            - -amount
+            type: string
+          maxItems: 3
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_portfolio_payout_list_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - sort
+      - pagination
+    inline_object_6:
+      properties:
+        data:
+          $ref: '#/components/schemas/_portfolio_payout_list_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_payout_list_meta'
+      type: object
+    inline_response_200_7_instrument:
       description: Details of the instrument
       example:
         id: id
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_7_notation:
+      description: Notation of the payout.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_7_transaction:
+      description: Buy transaction with which the payout is associated; all contained
+        attributes are null if the payout is not associated with any specific buy
+        transaction.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the buy transaction.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_7_data:
+      example:
+        amount: 0.8008281904610115
+        notation:
+          id: id
+        instrument:
+          id: id
+        id: id
+        time: time
+        type: dividend
+        transaction:
+          id: id
+      properties:
+        id:
+          description: Identifier of payout.
+          format: id64
+          type: string
+          x-positive: true
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_7_instrument'
+        notation:
+          $ref: '#/components/schemas/inline_response_200_7_notation'
+        type:
+          description: Type of payout.
+          enum:
+          - dividend
+          - payout
+          - coupon
+          - subscriptionRight
+          - other
+          type: string
+          x-sortable: true
+          x-enum-description:
+          - Dividend
+          - Payout
+          - Coupon
+          - Subscription right
+          - Other
+        time:
+          description: Date and time of the payout.
+          format: datetime
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+        amount:
+          description: Amount of the payout in the portfolio's base currency.
+          format: real
+          type: number
+          x-sortable: true
+        transaction:
+          $ref: '#/components/schemas/inline_response_200_7_transaction'
+      type: object
+      x-property-sort:
+      - id
+      - instrument
+      - notation
+      - type
+      - time
+      - amount
+      - transaction
+    inline_response_200_7_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          total: 6.027456183070403
+          isEstimatedTotal: true
+        status:
+          code: 0.8008281904610115
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/OffsetBasedPaginationOutputObject'
+      type: object
+      x-property-sort:
+      - status
+      - pagination
+    inline_response_200_7:
+      example:
+        data:
+        - amount: 0.8008281904610115
+          notation:
+            id: id
+          instrument:
+            id: id
+          id: id
+          time: time
+          type: dividend
+          transaction:
+            id: id
+        - amount: 0.8008281904610115
+          notation:
+            id: id
+          instrument:
+            id: id
+          id: id
+          time: time
+          type: dividend
+          transaction:
+            id: id
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: List of payouts.
+          items:
+            $ref: '#/components/schemas/inline_response_200_7_data'
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_7_meta'
+      type: object
+    _portfolio_payout_modify_data_payout_notation:
+      description: Notation of the transaction.
+      properties:
+        id:
+          description: Identifier of the notation
+          format: id64
+          type: string
+          x-positive: true
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_modify_data_payout_transaction:
+      description: Associates the payout with a sub-position opened by a specific
+        buy transaction and removes the existing association if available.
+      properties:
+        id:
+          description: Identifier of the buy transaction.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    _portfolio_payout_modify_data_payout:
+      description: Payout of the portfolio.
+      properties:
+        id:
+          description: Identifier of the payout.
+          format: id64
+          type: string
+          x-positive: true
+        type:
+          description: 'Payout type. '
+          enum:
+          - dividend
+          - payout
+          - coupon
+          - subscriptionRight
+          - other
+          type: string
+          x-enum-description:
+          - Dividend
+          - Payout
+          - Coupon
+          - Subscription right
+          - Other
+        notation:
+          $ref: '#/components/schemas/_portfolio_payout_modify_data_payout_notation'
+        time:
+          description: Date and time of the payout.
+          format: datetime
+          type: string
+        amount:
+          description: Amount of the payout in the portfolio's base currency.
+          format: real
+          type: number
+        transaction:
+          $ref: '#/components/schemas/_portfolio_payout_modify_data_payout_transaction'
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+      - type
+      - notation
+      - time
+      - amount
+      - transaction
+    _portfolio_payout_modify_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        payout:
+          $ref: '#/components/schemas/_portfolio_payout_modify_data_payout'
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+      - payout
+    inline_object_7:
+      properties:
+        data:
+          $ref: '#/components/schemas/_portfolio_payout_modify_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_create_meta'
+      type: object
+    inline_response_200_8:
+      example:
+        data: ""
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data: {}
+        meta:
+          $ref: '#/components/schemas/inline_response_201_meta'
+      type: object
+    inline_response_200_9_data_instrument_assetClass:
+      description: |-
+        Asset class of the instrument. For possible values see endpoint
+        `/basic/assetClass/list`.
+      example:
+        code: code
+        id: 0.8008281904610115
+      properties:
+        id:
+          description: Identifier of the asset class.
+          format: id32
+          type: number
+          x-positive: true
+        code:
+          description: Code of the asset class.
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - code
+    inline_response_200_9_data_instrument_type:
+      example:
+        name: name
+        id: 6.027456183070403
+      properties:
+        id:
+          description: Identifier of the instrument type.
+          format: id32
+          type: number
+          x-positive: true
+        name:
+          description: Name of the instrument type.
+          format: localizedString
+          type: string
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - id
+      - name
+    inline_response_200_9_data_instrument:
+      description: Details of the instrument
+      example:
+        name: name
+        id: id
+        assetClass:
+          code: code
+          id: 0.8008281904610115
+        shortName: shortName
+        type:
+        - name: name
+          id: 6.027456183070403
+        - name: name
+          id: 6.027456183070403
         isin: isin
       properties:
         id:
@@ -2366,16 +3590,910 @@ components:
           format: id64
           type: string
           x-positive: true
+        name:
+          description: Name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+        shortName:
+          description: Short name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
         isin:
           description: International Securities Identification Number
           format: isin
           type: string
+        assetClass:
+          $ref: '#/components/schemas/inline_response_200_9_data_instrument_assetClass'
+        type:
+          description: Instrument type as defined by FactSet Digital Solutions. Instrument
+            categories are arranged in a hierarchy, with level 1 representing the
+            most coarse granularity and further levels successively refining the granularity
+            (see MDG category system 18).
+          items:
+            $ref: '#/components/schemas/inline_response_200_9_data_instrument_type'
+          type: array
       type: object
       x-property-sort:
       - id
+      - name
+      - shortName
       - isin
-    inline_response_200_6_data_currency:
+      - assetClass
+      - type
+    inline_response_200_9_data_currency:
       description: Main currency of the position. See endpoint `/basic/valueUnit/currency/main/list`
+        for possible values.
+      example:
+        isoCode: isoCode
+        id: 1.4658129805029452
+      properties:
+        id:
+          description: Identifier of the currency.
+          format: id32
+          type: number
+          x-positive: true
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
+      type: object
+      x-property-sort:
+      - id
+      - isoCode
+    inline_response_200_9_data_notation_price:
+      description: Price of the notation.
+      example:
+        time: time
+        value: 5.962133916683182
+      properties:
+        time:
+          description: Date and time of the trade price
+          format: datetime
+          type: string
+        value:
+          description: Trade price.
+          format: real
+          type: number
+      type: object
+      x-property-sort:
+      - time
+      - value
+    inline_response_200_9_data_notation:
+      description: Notation of the transaction establishing the position, i.e. its
+        first transaction.
+      example:
+        price:
+          time: time
+          value: 5.962133916683182
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+        price:
+          $ref: '#/components/schemas/inline_response_200_9_data_notation_price'
+      type: object
+      x-property-sort:
+      - id
+      - price
+    inline_response_200_9_data_shares:
+      description: Number of shares in the position.
+      example:
+        sold: 2.3021358869347655
+        bought: 5.637376656633329
+        open: 7.061401241503109
+      properties:
+        bought:
+          description: Number of shares bought.
+          format: real
+          type: number
+        sold:
+          description: Number of shares sold.
+          format: real
+          type: number
+        open:
+          description: Open number of shares.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - bought
+      - sold
+      - open
+    inline_response_200_9_data_purchase:
+      description: Purchase details of the position.
+      example:
+        charges: 2.027123023002322
+        exchangeRate: 3.616076749251911
+        price: 9.301444243932576
+        value: 4.145608029883936
+      properties:
+        price:
+          description: Weighted average purchase price of the position.
+          format: real
+          type: number
+        exchangeRate:
+          description: Weighted average exchange rate of the position between the
+            position and portfolio currency.
+          format: real
+          type: number
+        charges:
+          description: Sum of additional purchase fees for the position in the portfolio's
+            base currency.
+          format: real
+          type: number
+        value:
+          description: Aggregated purchase value of all buy transactions of the position.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - price
+      - exchangeRate
+      - charges
+      - value
+    inline_response_200_9_data_profitLoss_intraday:
+      description: Summary of today's profit or loss, calculated using the most recent
+        price and the last price of the prior trading day.
+      example:
+        absolute: 1.0246457001441578
+        relative: 1.4894159098541704
+      properties:
+        absolute:
+          description: Absolute value of profit or loss.
+          format: real
+          type: number
+          x-sortable: true
+        relative:
+          description: Relative value of profit or loss.
+          format: percentage
+          type: number
+          x-sortable: true
+          x-convertToRelative: false
+      type: object
+      x-property-sort:
+      - absolute
+      - relative
+    inline_response_200_9_data_profitLoss_potential:
+      description: Summary of potential profit or loss resulting from open positions,
+        i.e. instrument positions that have not been sold.
+      example:
+        absolute: 6.84685269835264
+        relative: 7.457744773683766
+      properties:
+        absolute:
+          description: Absolute value of profit or loss.
+          format: real
+          type: number
+          x-sortable: true
+        relative:
+          description: Relative value of profit or loss.
+          format: percentage
+          type: number
+          x-sortable: true
+          x-convertToRelative: false
+      type: object
+      x-property-sort:
+      - absolute
+      - relative
+    inline_response_200_9_data_profitLoss:
+      description: Profit and loss of the position. Positive values indicate profit;
+        negative values indicate loss. All calculations are performed in the currency
+        of the portfolio.
+      example:
+        intraday:
+          absolute: 1.0246457001441578
+          relative: 1.4894159098541704
+        potential:
+          absolute: 6.84685269835264
+          relative: 7.457744773683766
+      properties:
+        intraday:
+          $ref: '#/components/schemas/inline_response_200_9_data_profitLoss_intraday'
+        potential:
+          $ref: '#/components/schemas/inline_response_200_9_data_profitLoss_potential'
+      type: object
+      x-property-sort:
+      - intraday
+      - potential
+    inline_response_200_9_data_positions:
+      example:
+        shares:
+          sold: 2.3021358869347655
+          bought: 5.637376656633329
+          open: 7.061401241503109
+        notation:
+          price:
+            time: time
+            value: 5.962133916683182
+          id: id
+        purchase:
+          charges: 2.027123023002322
+          exchangeRate: 3.616076749251911
+          price: 9.301444243932576
+          value: 4.145608029883936
+        weight: 1.2315135367772556
+        instrument:
+          name: name
+          id: id
+          assetClass:
+            code: code
+            id: 0.8008281904610115
+          shortName: shortName
+          type:
+          - name: name
+            id: 6.027456183070403
+          - name: name
+            id: 6.027456183070403
+          isin: isin
+        currency:
+          isoCode: isoCode
+          id: 1.4658129805029452
+        profitLoss:
+          intraday:
+            absolute: 1.0246457001441578
+            relative: 1.4894159098541704
+          potential:
+            absolute: 6.84685269835264
+            relative: 7.457744773683766
+        value: 7.386281948385884
+      properties:
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_9_data_instrument'
+        currency:
+          $ref: '#/components/schemas/inline_response_200_9_data_currency'
+        notation:
+          $ref: '#/components/schemas/inline_response_200_9_data_notation'
+        shares:
+          $ref: '#/components/schemas/inline_response_200_9_data_shares'
+        purchase:
+          $ref: '#/components/schemas/inline_response_200_9_data_purchase'
+        value:
+          description: Current value of the position.
+          format: real
+          type: number
+          x-sortable: true
+        weight:
+          description: Weight of the position.
+          format: percentage
+          type: number
+          x-sortable: true
+          x-convertToRelative: false
+        profitLoss:
+          $ref: '#/components/schemas/inline_response_200_9_data_profitLoss'
+      type: object
+      x-property-sort:
+      - instrument
+      - currency
+      - notation
+      - shares
+      - purchase
+      - value
+      - weight
+      - profitLoss
+    inline_response_200_9_data:
+      description: List of open positions.
+      example:
+        positions:
+        - shares:
+            sold: 2.3021358869347655
+            bought: 5.637376656633329
+            open: 7.061401241503109
+          notation:
+            price:
+              time: time
+              value: 5.962133916683182
+            id: id
+          purchase:
+            charges: 2.027123023002322
+            exchangeRate: 3.616076749251911
+            price: 9.301444243932576
+            value: 4.145608029883936
+          weight: 1.2315135367772556
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
+          currency:
+            isoCode: isoCode
+            id: 1.4658129805029452
+          profitLoss:
+            intraday:
+              absolute: 1.0246457001441578
+              relative: 1.4894159098541704
+            potential:
+              absolute: 6.84685269835264
+              relative: 7.457744773683766
+          value: 7.386281948385884
+        - shares:
+            sold: 2.3021358869347655
+            bought: 5.637376656633329
+            open: 7.061401241503109
+          notation:
+            price:
+              time: time
+              value: 5.962133916683182
+            id: id
+          purchase:
+            charges: 2.027123023002322
+            exchangeRate: 3.616076749251911
+            price: 9.301444243932576
+            value: 4.145608029883936
+          weight: 1.2315135367772556
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
+          currency:
+            isoCode: isoCode
+            id: 1.4658129805029452
+          profitLoss:
+            intraday:
+              absolute: 1.0246457001441578
+              relative: 1.4894159098541704
+            potential:
+              absolute: 6.84685269835264
+              relative: 7.457744773683766
+          value: 7.386281948385884
+        - shares:
+            sold: 2.3021358869347655
+            bought: 5.637376656633329
+            open: 7.061401241503109
+          notation:
+            price:
+              time: time
+              value: 5.962133916683182
+            id: id
+          purchase:
+            charges: 2.027123023002322
+            exchangeRate: 3.616076749251911
+            price: 9.301444243932576
+            value: 4.145608029883936
+          weight: 1.2315135367772556
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
+          currency:
+            isoCode: isoCode
+            id: 1.4658129805029452
+          profitLoss:
+            intraday:
+              absolute: 1.0246457001441578
+              relative: 1.4894159098541704
+            potential:
+              absolute: 6.84685269835264
+              relative: 7.457744773683766
+          value: 7.386281948385884
+        - shares:
+            sold: 2.3021358869347655
+            bought: 5.637376656633329
+            open: 7.061401241503109
+          notation:
+            price:
+              time: time
+              value: 5.962133916683182
+            id: id
+          purchase:
+            charges: 2.027123023002322
+            exchangeRate: 3.616076749251911
+            price: 9.301444243932576
+            value: 4.145608029883936
+          weight: 1.2315135367772556
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
+          currency:
+            isoCode: isoCode
+            id: 1.4658129805029452
+          profitLoss:
+            intraday:
+              absolute: 1.0246457001441578
+              relative: 1.4894159098541704
+            potential:
+              absolute: 6.84685269835264
+              relative: 7.457744773683766
+          value: 7.386281948385884
+        - shares:
+            sold: 2.3021358869347655
+            bought: 5.637376656633329
+            open: 7.061401241503109
+          notation:
+            price:
+              time: time
+              value: 5.962133916683182
+            id: id
+          purchase:
+            charges: 2.027123023002322
+            exchangeRate: 3.616076749251911
+            price: 9.301444243932576
+            value: 4.145608029883936
+          weight: 1.2315135367772556
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
+          currency:
+            isoCode: isoCode
+            id: 1.4658129805029452
+          profitLoss:
+            intraday:
+              absolute: 1.0246457001441578
+              relative: 1.4894159098541704
+            potential:
+              absolute: 6.84685269835264
+              relative: 7.457744773683766
+          value: 7.386281948385884
+      properties:
+        positions:
+          description: Positions of the portfolio.
+          items:
+            $ref: '#/components/schemas/inline_response_200_9_data_positions'
+          maxItems: 1000
+          type: array
+      type: object
+      x-property-sort:
+      - positions
+    inline_response_200_9:
+      example:
+        data:
+          positions:
+          - shares:
+              sold: 2.3021358869347655
+              bought: 5.637376656633329
+              open: 7.061401241503109
+            notation:
+              price:
+                time: time
+                value: 5.962133916683182
+              id: id
+            purchase:
+              charges: 2.027123023002322
+              exchangeRate: 3.616076749251911
+              price: 9.301444243932576
+              value: 4.145608029883936
+            weight: 1.2315135367772556
+            instrument:
+              name: name
+              id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
+              isin: isin
+            currency:
+              isoCode: isoCode
+              id: 1.4658129805029452
+            profitLoss:
+              intraday:
+                absolute: 1.0246457001441578
+                relative: 1.4894159098541704
+              potential:
+                absolute: 6.84685269835264
+                relative: 7.457744773683766
+            value: 7.386281948385884
+          - shares:
+              sold: 2.3021358869347655
+              bought: 5.637376656633329
+              open: 7.061401241503109
+            notation:
+              price:
+                time: time
+                value: 5.962133916683182
+              id: id
+            purchase:
+              charges: 2.027123023002322
+              exchangeRate: 3.616076749251911
+              price: 9.301444243932576
+              value: 4.145608029883936
+            weight: 1.2315135367772556
+            instrument:
+              name: name
+              id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
+              isin: isin
+            currency:
+              isoCode: isoCode
+              id: 1.4658129805029452
+            profitLoss:
+              intraday:
+                absolute: 1.0246457001441578
+                relative: 1.4894159098541704
+              potential:
+                absolute: 6.84685269835264
+                relative: 7.457744773683766
+            value: 7.386281948385884
+          - shares:
+              sold: 2.3021358869347655
+              bought: 5.637376656633329
+              open: 7.061401241503109
+            notation:
+              price:
+                time: time
+                value: 5.962133916683182
+              id: id
+            purchase:
+              charges: 2.027123023002322
+              exchangeRate: 3.616076749251911
+              price: 9.301444243932576
+              value: 4.145608029883936
+            weight: 1.2315135367772556
+            instrument:
+              name: name
+              id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
+              isin: isin
+            currency:
+              isoCode: isoCode
+              id: 1.4658129805029452
+            profitLoss:
+              intraday:
+                absolute: 1.0246457001441578
+                relative: 1.4894159098541704
+              potential:
+                absolute: 6.84685269835264
+                relative: 7.457744773683766
+            value: 7.386281948385884
+          - shares:
+              sold: 2.3021358869347655
+              bought: 5.637376656633329
+              open: 7.061401241503109
+            notation:
+              price:
+                time: time
+                value: 5.962133916683182
+              id: id
+            purchase:
+              charges: 2.027123023002322
+              exchangeRate: 3.616076749251911
+              price: 9.301444243932576
+              value: 4.145608029883936
+            weight: 1.2315135367772556
+            instrument:
+              name: name
+              id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
+              isin: isin
+            currency:
+              isoCode: isoCode
+              id: 1.4658129805029452
+            profitLoss:
+              intraday:
+                absolute: 1.0246457001441578
+                relative: 1.4894159098541704
+              potential:
+                absolute: 6.84685269835264
+                relative: 7.457744773683766
+            value: 7.386281948385884
+          - shares:
+              sold: 2.3021358869347655
+              bought: 5.637376656633329
+              open: 7.061401241503109
+            notation:
+              price:
+                time: time
+                value: 5.962133916683182
+              id: id
+            purchase:
+              charges: 2.027123023002322
+              exchangeRate: 3.616076749251911
+              price: 9.301444243932576
+              value: 4.145608029883936
+            weight: 1.2315135367772556
+            instrument:
+              name: name
+              id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
+              isin: isin
+            currency:
+              isoCode: isoCode
+              id: 1.4658129805029452
+            profitLoss:
+              intraday:
+                absolute: 1.0246457001441578
+                relative: 1.4894159098541704
+              potential:
+                absolute: 6.84685269835264
+                relative: 7.457744773683766
+            value: 7.386281948385884
+        meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_9_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_7_meta'
+      type: object
+    _portfolio_position_closed_list_data_range:
+      description: Date range for the closed positions. A valid date range is between
+        1900-01-01 and the day after the current day. A date before the date of the
+        first transaction is implicitly adjusted to the date of the portfolio's first
+        transaction.
+      format: dateRange
+      properties:
+        start:
+          description: The starting point of the date range (inclusive).
+          format: date
+          type: string
+        end:
+          description: The ending point of the date range (inclusive).
+          format: date
+          type: string
+      required:
+      - end
+      - start
+      type: object
+      x-isClosedInterval: true
+      x-property-sort:
+      - start
+      - end
+    _portfolio_position_closed_list_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the portfolio.
+          format: id64
+          type: string
+          x-positive: true
+        range:
+          $ref: '#/components/schemas/_portfolio_position_closed_list_data_range'
+      required:
+      - id
+      type: object
+      x-property-sort:
+      - id
+      - range
+    _portfolio_position_closed_list_meta_pagination:
+      description: Pagination attributes for the offset-based pagination strategy.
+      properties:
+        offset:
+          default: 0
+          description: Non-negative number of entries to skip, or 0 (default).
+          exclusiveMinimum: false
+          format: int32
+          minimum: 0
+          type: number
+        limit:
+          default: 20
+          description: Non-negative maximum number of entries to return.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 100
+          minimum: 1
+          type: number
+      type: object
+      x-property-sort:
+      - offset
+      - limit
+    _portfolio_position_closed_list_meta:
+      description: The meta member contains the meta information of the request.
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          items:
+            exclusiveMaximum: false
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        language:
+          description: ISO 639-1 code of the language.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: isoLanguage
+          maxLength: 2
+          minLength: 2
+          type: string
+        sort:
+          default:
+          - positions.instrument.name
+          description: Sortable attributes. The sort order is ascending unless it
+            is prefixed with a minus sign, in which case it is descending. A list
+            of at most 8 (possibly prefixed) attribute name(s) is allowed.
+          items:
+            enum:
+            - positions.instrument.name
+            - -positions.instrument.name
+            - positions.instrument.shortName
+            - -positions.instrument.shortName
+            - positions.instrument.assetClass.code
+            - -positions.instrument.assetClass.code
+            - positions.instrument.type.name
+            - -positions.instrument.type.name
+            - positions.transaction.buy.value
+            - -positions.transaction.buy.value
+            - positions.transaction.sell.value
+            - -positions.transaction.sell.value
+            - positions.shares
+            - -positions.shares
+            - positions.payout.amount
+            - -positions.payout.amount
+            type: string
+          maxItems: 8
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/_portfolio_position_closed_list_meta_pagination'
+      type: object
+      x-property-sort:
+      - attributes
+      - language
+      - sort
+      - pagination
+    inline_object_8:
+      properties:
+        data:
+          $ref: '#/components/schemas/_portfolio_position_closed_list_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_position_closed_list_meta'
+      type: object
+    inline_response_200_10_data_instrument:
+      description: Details of the instrument.
+      example:
+        name: name
+        id: id
+        assetClass:
+          code: code
+          id: 0.8008281904610115
+        shortName: shortName
+        type:
+        - name: name
+          id: 6.027456183070403
+        - name: name
+          id: 6.027456183070403
+        isin: isin
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+        name:
+          description: Name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
+          x-default-sort-attribute: true
+          x-default-sort-direction: 1
+        shortName:
+          description: Short name of the instrument.
+          format: localizedString
+          type: string
+          x-sortable: true
+        isin:
+          description: International Securities Identification Number
+          format: isin
+          type: string
+        assetClass:
+          $ref: '#/components/schemas/inline_response_200_9_data_instrument_assetClass'
+        type:
+          description: Instrument type as defined by FactSet Digital Solutions. Instrument
+            categories are arranged in a hierarchy, with level 1 representing the
+            most coarse granularity and further levels successively refining the granularity
+            (see MDG category system 18).
+          items:
+            $ref: '#/components/schemas/inline_response_200_9_data_instrument_type'
+          type: array
+      type: object
+      x-property-sort:
+      - id
+      - name
+      - shortName
+      - isin
+      - assetClass
+      - type
+    inline_response_200_10_data_transaction_buy_notation:
+      description: Notation of the opening transaction.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_10_data_transaction_buy_currency:
+      description: Currency of the opening transaction. See endpoint `/basic/valueUnit/currency/main/list`
         for possible values.
       example:
         isoCode: isoCode
@@ -2393,31 +4511,65 @@ components:
       x-property-sort:
       - id
       - isoCode
-    inline_response_200_6_data_notation_price:
-      description: Price of the notation.
+    inline_response_200_10_data_transaction_buy:
+      description: Opening transaction of the closed position.
       example:
+        charges: 1.4658129805029452
+        exchangeRate: 5.637376656633329
+        notation:
+          id: id
+        price: 6.027456183070403
+        currency:
+          isoCode: isoCode
+          id: 0.8008281904610115
+        id: id
         time: time
-        value: 6.027456183070403
+        value: 5.962133916683182
       properties:
+        id:
+          description: Identifier of the opening transaction.
+          format: id64
+          type: string
+          x-positive: true
         time:
-          description: Date and time of the trade price
+          description: Date and time of the opening transaction.
           format: datetime
           type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_buy_notation'
+        currency:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_buy_currency'
+        price:
+          description: Purchase price of the position in the portfolio's base currency.
+          format: real
+          type: number
+        charges:
+          description: Charges accrued in the portfolio's base currency.
+          format: real
+          type: number
         value:
-          description: Trade price.
+          description: Purchase value of the position in the portfolio's base currency.
+          format: real
+          type: number
+          x-sortable: true
+        exchangeRate:
+          description: The exchange rate between the notation's currency and the portfolio
+            currency at the time of the opening trade.
           format: real
           type: number
       type: object
       x-property-sort:
+      - id
       - time
+      - notation
+      - currency
+      - price
+      - charges
       - value
-    inline_response_200_6_data_notation:
-      description: Notation of the transaction establishing the position, i.e. its
-        first transaction.
+      - exchangeRate
+    inline_response_200_10_data_transaction_sell_notation:
+      description: Notation of the closing transaction.
       example:
-        price:
-          time: time
-          value: 6.027456183070403
         id: id
       properties:
         id:
@@ -2425,464 +4577,426 @@ components:
           format: id64
           type: string
           x-positive: true
-        price:
-          $ref: '#/components/schemas/inline_response_200_6_data_notation_price'
       type: object
       x-property-sort:
       - id
-      - price
-    inline_response_200_6_data_shares:
-      description: Number of shares in the position.
+    inline_response_200_10_data_transaction_sell_currency:
+      description: Currency of the closing transaction. See endpoint `/basic/valueUnit/currency/main/list`
+        for possible values.
       example:
-        sold: 5.962133916683182
-        bought: 1.4658129805029452
-        open: 5.637376656633329
+        isoCode: isoCode
+        id: 2.3021358869347655
       properties:
-        bought:
-          description: Number of shares bought.
-          format: real
+        id:
+          description: Identifier of the currency.
+          format: id32
           type: number
-        sold:
-          description: Number of shares sold.
-          format: real
-          type: number
-        open:
-          description: Open number of shares.
-          format: real
-          type: number
+          x-positive: true
+        isoCode:
+          description: ISO 4217 code of the currency.
+          type: string
       type: object
       x-property-sort:
-      - bought
-      - sold
-      - open
-    inline_response_200_6_data_purchase:
-      description: Purchase details of the position.
+      - id
+      - isoCode
+    inline_response_200_10_data_transaction_sell:
+      description: Closing transaction of the position.
       example:
         charges: 9.301444243932576
-        exchangeRate: 7.061401241503109
-        price: 2.3021358869347655
+        exchangeRate: 2.027123023002322
+        notation:
+          id: id
+        price: 7.061401241503109
+        currency:
+          isoCode: isoCode
+          id: 2.3021358869347655
+        id: id
+        time: time
         value: 3.616076749251911
       properties:
+        id:
+          description: Identifier of the closing transaction.
+          format: id64
+          type: string
+          x-positive: true
+        time:
+          description: Date and time of the closing transaction.
+          format: datetime
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_sell_notation'
+        currency:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_sell_currency'
         price:
-          description: Weighted average purchase price of the position.
-          format: real
-          type: number
-        exchangeRate:
-          description: Weighted average exchange rate of the position between the
-            position and portfolio currency.
+          description: Selling price of the position in the portfolio's base currency.
           format: real
           type: number
         charges:
-          description: Sum of additional purchase fees for the position in portfolio's
-            base currency.
+          description: Charges accrued in the portfolio's base currency.
           format: real
           type: number
         value:
-          description: Aggregated purchase value of all buy transactions of the position.
+          description: Sales value of the position in the portfolio's base currency.
+          format: real
+          type: number
+          x-sortable: true
+        exchangeRate:
+          description: The exchange rate between the notation's currency and the portfolio
+            currency at the time of the closing trade.
           format: real
           type: number
       type: object
       x-property-sort:
+      - id
+      - time
+      - notation
+      - currency
       - price
-      - exchangeRate
       - charges
       - value
-    inline_response_200_6_data_profitLoss:
+      - exchangeRate
+    inline_response_200_10_data_transaction:
+      description: Opening and closing transaction of the closed position.
+      example:
+        buy:
+          charges: 1.4658129805029452
+          exchangeRate: 5.637376656633329
+          notation:
+            id: id
+          price: 6.027456183070403
+          currency:
+            isoCode: isoCode
+            id: 0.8008281904610115
+          id: id
+          time: time
+          value: 5.962133916683182
+        sell:
+          charges: 9.301444243932576
+          exchangeRate: 2.027123023002322
+          notation:
+            id: id
+          price: 7.061401241503109
+          currency:
+            isoCode: isoCode
+            id: 2.3021358869347655
+          id: id
+          time: time
+          value: 3.616076749251911
+      properties:
+        buy:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_buy'
+        sell:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction_sell'
+      type: object
+      x-property-sort:
+      - buy
+      - sell
+    inline_response_200_10_data_payout:
+      description: Amount of money received from payouts in the portfolio's base currency.
+      example:
+        amount: 7.386281948385884
+      properties:
+        amount:
+          description: Amount of the payout.
+          format: real
+          type: number
+          x-sortable: true
+      type: object
+      x-property-sort:
+      - amount
+    inline_response_200_10_data_profitLoss:
       description: Profit and loss of the position. Positive values indicate profit;
         negative values indicate loss. All calculations are performed in the currency
         of the portfolio.
       example:
-        intraday:
-          absolute: 1.1730742509559433
-          relative: 4.965218492984954
-        potential:
-          absolute: 1.0246457001441578
-          relative: 1.4894159098541704
+        absolute: 1.2315135367772556
+        relative: 1.0246457001441578
       properties:
-        intraday:
-          $ref: '#/components/schemas/inline_response_200_1_data_profitLoss_today'
-        potential:
-          $ref: '#/components/schemas/inline_response_200_1_data_profitLoss_potential'
-      type: object
-      x-property-sort:
-      - intraday
-      - potential
-    inline_response_200_6_data_positions:
-      example:
-        shares:
-          sold: 5.962133916683182
-          bought: 1.4658129805029452
-          open: 5.637376656633329
-        notation:
-          price:
-            time: time
-            value: 6.027456183070403
-          id: id
-        purchase:
-          charges: 9.301444243932576
-          exchangeRate: 7.061401241503109
-          price: 2.3021358869347655
-          value: 3.616076749251911
-        instrument:
-          id: id
-          isin: isin
-        currency:
-          isoCode: isoCode
-          id: 0.8008281904610115
-        profitLoss:
-          intraday:
-            absolute: 1.1730742509559433
-            relative: 4.965218492984954
-          potential:
-            absolute: 1.0246457001441578
-            relative: 1.4894159098541704
-        value: 2.027123023002322
-      properties:
-        instrument:
-          $ref: '#/components/schemas/inline_response_200_6_data_instrument'
-        currency:
-          $ref: '#/components/schemas/inline_response_200_6_data_currency'
-        notation:
-          $ref: '#/components/schemas/inline_response_200_6_data_notation'
-        shares:
-          $ref: '#/components/schemas/inline_response_200_6_data_shares'
-        purchase:
-          $ref: '#/components/schemas/inline_response_200_6_data_purchase'
-        value:
-          description: Current value of the position.
+        absolute:
+          description: Absolute value of profit or loss.
           format: real
           type: number
+        relative:
+          description: Relative value of profit or loss.
+          format: percentage
+          type: number
+          x-convertToRelative: false
+      type: object
+      x-property-sort:
+      - absolute
+      - relative
+    inline_response_200_10_data_positions:
+      example:
+        shares: 4.145608029883936
+        payout:
+          amount: 7.386281948385884
+        instrument:
+          name: name
+          id: id
+          assetClass:
+            code: code
+            id: 0.8008281904610115
+          shortName: shortName
+          type:
+          - name: name
+            id: 6.027456183070403
+          - name: name
+            id: 6.027456183070403
+          isin: isin
         profitLoss:
-          $ref: '#/components/schemas/inline_response_200_6_data_profitLoss'
+          absolute: 1.2315135367772556
+          relative: 1.0246457001441578
+        transaction:
+          buy:
+            charges: 1.4658129805029452
+            exchangeRate: 5.637376656633329
+            notation:
+              id: id
+            price: 6.027456183070403
+            currency:
+              isoCode: isoCode
+              id: 0.8008281904610115
+            id: id
+            time: time
+            value: 5.962133916683182
+          sell:
+            charges: 9.301444243932576
+            exchangeRate: 2.027123023002322
+            notation:
+              id: id
+            price: 7.061401241503109
+            currency:
+              isoCode: isoCode
+              id: 2.3021358869347655
+            id: id
+            time: time
+            value: 3.616076749251911
+      properties:
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_10_data_instrument'
+        transaction:
+          $ref: '#/components/schemas/inline_response_200_10_data_transaction'
+        shares:
+          description: Number of shares in the closed position.
+          format: real
+          type: number
+          x-sortable: true
+        payout:
+          $ref: '#/components/schemas/inline_response_200_10_data_payout'
+        profitLoss:
+          $ref: '#/components/schemas/inline_response_200_10_data_profitLoss'
       type: object
       x-property-sort:
       - instrument
-      - currency
-      - notation
+      - transaction
       - shares
-      - purchase
-      - value
+      - payout
       - profitLoss
-    inline_response_200_6_data:
-      description: List of positions.
+    inline_response_200_10_data:
+      description: List of closed positions.
       example:
         positions:
-        - shares:
-            sold: 5.962133916683182
-            bought: 1.4658129805029452
-            open: 5.637376656633329
-          notation:
-            price:
-              time: time
-              value: 6.027456183070403
-            id: id
-          purchase:
-            charges: 9.301444243932576
-            exchangeRate: 7.061401241503109
-            price: 2.3021358869347655
-            value: 3.616076749251911
+        - shares: 4.145608029883936
+          payout:
+            amount: 7.386281948385884
           instrument:
+            name: name
             id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
             isin: isin
-          currency:
-            isoCode: isoCode
-            id: 0.8008281904610115
           profitLoss:
-            intraday:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
-            potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
-          value: 2.027123023002322
-        - shares:
-            sold: 5.962133916683182
-            bought: 1.4658129805029452
-            open: 5.637376656633329
-          notation:
-            price:
+            absolute: 1.2315135367772556
+            relative: 1.0246457001441578
+          transaction:
+            buy:
+              charges: 1.4658129805029452
+              exchangeRate: 5.637376656633329
+              notation:
+                id: id
+              price: 6.027456183070403
+              currency:
+                isoCode: isoCode
+                id: 0.8008281904610115
+              id: id
               time: time
-              value: 6.027456183070403
-            id: id
-          purchase:
-            charges: 9.301444243932576
-            exchangeRate: 7.061401241503109
-            price: 2.3021358869347655
-            value: 3.616076749251911
-          instrument:
-            id: id
-            isin: isin
-          currency:
-            isoCode: isoCode
-            id: 0.8008281904610115
-          profitLoss:
-            intraday:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
-            potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
-          value: 2.027123023002322
-        - shares:
-            sold: 5.962133916683182
-            bought: 1.4658129805029452
-            open: 5.637376656633329
-          notation:
-            price:
+              value: 5.962133916683182
+            sell:
+              charges: 9.301444243932576
+              exchangeRate: 2.027123023002322
+              notation:
+                id: id
+              price: 7.061401241503109
+              currency:
+                isoCode: isoCode
+                id: 2.3021358869347655
+              id: id
               time: time
-              value: 6.027456183070403
-            id: id
-          purchase:
-            charges: 9.301444243932576
-            exchangeRate: 7.061401241503109
-            price: 2.3021358869347655
-            value: 3.616076749251911
+              value: 3.616076749251911
+        - shares: 4.145608029883936
+          payout:
+            amount: 7.386281948385884
           instrument:
+            name: name
             id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
             isin: isin
-          currency:
-            isoCode: isoCode
-            id: 0.8008281904610115
           profitLoss:
-            intraday:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
-            potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
-          value: 2.027123023002322
-        - shares:
-            sold: 5.962133916683182
-            bought: 1.4658129805029452
-            open: 5.637376656633329
-          notation:
-            price:
+            absolute: 1.2315135367772556
+            relative: 1.0246457001441578
+          transaction:
+            buy:
+              charges: 1.4658129805029452
+              exchangeRate: 5.637376656633329
+              notation:
+                id: id
+              price: 6.027456183070403
+              currency:
+                isoCode: isoCode
+                id: 0.8008281904610115
+              id: id
               time: time
-              value: 6.027456183070403
-            id: id
-          purchase:
-            charges: 9.301444243932576
-            exchangeRate: 7.061401241503109
-            price: 2.3021358869347655
-            value: 3.616076749251911
-          instrument:
-            id: id
-            isin: isin
-          currency:
-            isoCode: isoCode
-            id: 0.8008281904610115
-          profitLoss:
-            intraday:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
-            potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
-          value: 2.027123023002322
-        - shares:
-            sold: 5.962133916683182
-            bought: 1.4658129805029452
-            open: 5.637376656633329
-          notation:
-            price:
+              value: 5.962133916683182
+            sell:
+              charges: 9.301444243932576
+              exchangeRate: 2.027123023002322
+              notation:
+                id: id
+              price: 7.061401241503109
+              currency:
+                isoCode: isoCode
+                id: 2.3021358869347655
+              id: id
               time: time
-              value: 6.027456183070403
-            id: id
-          purchase:
-            charges: 9.301444243932576
-            exchangeRate: 7.061401241503109
-            price: 2.3021358869347655
-            value: 3.616076749251911
-          instrument:
-            id: id
-            isin: isin
-          currency:
-            isoCode: isoCode
-            id: 0.8008281904610115
-          profitLoss:
-            intraday:
-              absolute: 1.1730742509559433
-              relative: 4.965218492984954
-            potential:
-              absolute: 1.0246457001441578
-              relative: 1.4894159098541704
-          value: 2.027123023002322
+              value: 3.616076749251911
       properties:
         positions:
-          description: Positions of the Portfolio.
+          description: Closed positions of the portfolio.
           items:
-            $ref: '#/components/schemas/inline_response_200_6_data_positions'
-          maxItems: 1000
+            $ref: '#/components/schemas/inline_response_200_10_data_positions'
           type: array
       type: object
       x-property-sort:
       - positions
-    inline_response_200_6:
+    inline_response_200_10:
       example:
         data:
           positions:
-          - shares:
-              sold: 5.962133916683182
-              bought: 1.4658129805029452
-              open: 5.637376656633329
-            notation:
-              price:
-                time: time
-                value: 6.027456183070403
-              id: id
-            purchase:
-              charges: 9.301444243932576
-              exchangeRate: 7.061401241503109
-              price: 2.3021358869347655
-              value: 3.616076749251911
+          - shares: 4.145608029883936
+            payout:
+              amount: 7.386281948385884
             instrument:
+              name: name
               id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
               isin: isin
-            currency:
-              isoCode: isoCode
-              id: 0.8008281904610115
             profitLoss:
-              intraday:
-                absolute: 1.1730742509559433
-                relative: 4.965218492984954
-              potential:
-                absolute: 1.0246457001441578
-                relative: 1.4894159098541704
-            value: 2.027123023002322
-          - shares:
-              sold: 5.962133916683182
-              bought: 1.4658129805029452
-              open: 5.637376656633329
-            notation:
-              price:
+              absolute: 1.2315135367772556
+              relative: 1.0246457001441578
+            transaction:
+              buy:
+                charges: 1.4658129805029452
+                exchangeRate: 5.637376656633329
+                notation:
+                  id: id
+                price: 6.027456183070403
+                currency:
+                  isoCode: isoCode
+                  id: 0.8008281904610115
+                id: id
                 time: time
-                value: 6.027456183070403
-              id: id
-            purchase:
-              charges: 9.301444243932576
-              exchangeRate: 7.061401241503109
-              price: 2.3021358869347655
-              value: 3.616076749251911
-            instrument:
-              id: id
-              isin: isin
-            currency:
-              isoCode: isoCode
-              id: 0.8008281904610115
-            profitLoss:
-              intraday:
-                absolute: 1.1730742509559433
-                relative: 4.965218492984954
-              potential:
-                absolute: 1.0246457001441578
-                relative: 1.4894159098541704
-            value: 2.027123023002322
-          - shares:
-              sold: 5.962133916683182
-              bought: 1.4658129805029452
-              open: 5.637376656633329
-            notation:
-              price:
+                value: 5.962133916683182
+              sell:
+                charges: 9.301444243932576
+                exchangeRate: 2.027123023002322
+                notation:
+                  id: id
+                price: 7.061401241503109
+                currency:
+                  isoCode: isoCode
+                  id: 2.3021358869347655
+                id: id
                 time: time
-                value: 6.027456183070403
-              id: id
-            purchase:
-              charges: 9.301444243932576
-              exchangeRate: 7.061401241503109
-              price: 2.3021358869347655
-              value: 3.616076749251911
+                value: 3.616076749251911
+          - shares: 4.145608029883936
+            payout:
+              amount: 7.386281948385884
             instrument:
+              name: name
               id: id
+              assetClass:
+                code: code
+                id: 0.8008281904610115
+              shortName: shortName
+              type:
+              - name: name
+                id: 6.027456183070403
+              - name: name
+                id: 6.027456183070403
               isin: isin
-            currency:
-              isoCode: isoCode
-              id: 0.8008281904610115
             profitLoss:
-              intraday:
-                absolute: 1.1730742509559433
-                relative: 4.965218492984954
-              potential:
-                absolute: 1.0246457001441578
-                relative: 1.4894159098541704
-            value: 2.027123023002322
-          - shares:
-              sold: 5.962133916683182
-              bought: 1.4658129805029452
-              open: 5.637376656633329
-            notation:
-              price:
+              absolute: 1.2315135367772556
+              relative: 1.0246457001441578
+            transaction:
+              buy:
+                charges: 1.4658129805029452
+                exchangeRate: 5.637376656633329
+                notation:
+                  id: id
+                price: 6.027456183070403
+                currency:
+                  isoCode: isoCode
+                  id: 0.8008281904610115
+                id: id
                 time: time
-                value: 6.027456183070403
-              id: id
-            purchase:
-              charges: 9.301444243932576
-              exchangeRate: 7.061401241503109
-              price: 2.3021358869347655
-              value: 3.616076749251911
-            instrument:
-              id: id
-              isin: isin
-            currency:
-              isoCode: isoCode
-              id: 0.8008281904610115
-            profitLoss:
-              intraday:
-                absolute: 1.1730742509559433
-                relative: 4.965218492984954
-              potential:
-                absolute: 1.0246457001441578
-                relative: 1.4894159098541704
-            value: 2.027123023002322
-          - shares:
-              sold: 5.962133916683182
-              bought: 1.4658129805029452
-              open: 5.637376656633329
-            notation:
-              price:
+                value: 5.962133916683182
+              sell:
+                charges: 9.301444243932576
+                exchangeRate: 2.027123023002322
+                notation:
+                  id: id
+                price: 7.061401241503109
+                currency:
+                  isoCode: isoCode
+                  id: 2.3021358869347655
+                id: id
                 time: time
-                value: 6.027456183070403
-              id: id
-            purchase:
-              charges: 9.301444243932576
-              exchangeRate: 7.061401241503109
-              price: 2.3021358869347655
-              value: 3.616076749251911
-            instrument:
-              id: id
-              isin: isin
-            currency:
-              isoCode: isoCode
-              id: 0.8008281904610115
-            profitLoss:
-              intraday:
-                absolute: 1.1730742509559433
-                relative: 4.965218492984954
-              potential:
-                absolute: 1.0246457001441578
-                relative: 1.4894159098541704
-            value: 2.027123023002322
+                value: 3.616076749251911
         meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
           status:
             code: 0.8008281904610115
       properties:
         data:
-          $ref: '#/components/schemas/inline_response_200_6_data'
+          $ref: '#/components/schemas/inline_response_200_10_data'
         meta:
-          $ref: '#/components/schemas/inline_response_201_meta'
+          $ref: '#/components/schemas/inline_response_200_7_meta'
       type: object
-    _portfolio_transaction_create_data_notation:
-      description: Notation of the position.
-      properties:
-        id:
-          description: Identifier of the notation.
-          format: id64
-          type: string
-          x-positive: true
-      required:
-      - id
-      type: object
-      x-property-sort:
-      - id
     _portfolio_transaction_create_data_parentTransaction:
       description: Parent transactions can be used to link transactions together.
         Only sell or cover short sell can be have buy transaction as its parent. All
@@ -2919,7 +5033,7 @@ components:
           - Sell short
           - Cover short sale
         notation:
-          $ref: '#/components/schemas/_portfolio_transaction_create_data_notation'
+          $ref: '#/components/schemas/_portfolio_payout_create_data_notation'
         time:
           description: Date and time of the trade.
           format: datetime
@@ -2933,10 +5047,12 @@ components:
           format: real
           type: number
         charges:
+          default: 0
           description: Charges accrued in portfolio‘s base currency.
           format: real
           type: number
         exchangeRate:
+          default: 1
           description: The exchange rate between the notation's currency and the portfolio
             currency.
           format: real
@@ -2961,17 +5077,14 @@ components:
       - charges
       - exchangeRate
       - parentTransaction
-    inline_object_4:
+    inline_object_9:
       properties:
         data:
           $ref: '#/components/schemas/_portfolio_transaction_create_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
-    inline_response_201_1_data:
+    inline_response_201_2_data:
       example:
         id: id
       properties:
@@ -2983,7 +5096,7 @@ components:
       type: object
       x-property-sort:
       - id
-    inline_response_201_1:
+    inline_response_201_2:
       example:
         data:
           id: id
@@ -2992,7 +5105,7 @@ components:
             code: 0.8008281904610115
       properties:
         data:
-          $ref: '#/components/schemas/inline_response_201_1_data'
+          $ref: '#/components/schemas/inline_response_201_2_data'
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
@@ -3001,19 +5114,6 @@ components:
       properties:
         id:
           description: Identifier of the transaction.
-          format: id64
-          type: string
-          x-positive: true
-      required:
-      - id
-      type: object
-      x-property-sort:
-      - id
-    _portfolio_transaction_delete_data_notation:
-      description: Notation of the transaction.
-      properties:
-        id:
-          description: Identifier of the notation
           format: id64
           type: string
           x-positive: true
@@ -3033,7 +5133,7 @@ components:
         transaction:
           $ref: '#/components/schemas/_portfolio_transaction_delete_data_transaction'
         notation:
-          $ref: '#/components/schemas/_portfolio_transaction_delete_data_notation'
+          $ref: '#/components/schemas/_portfolio_payout_modify_data_payout_notation'
       required:
       - id
       - notation
@@ -3043,30 +5143,14 @@ components:
       - id
       - transaction
       - notation
-    inline_object_5:
+    inline_object_10:
       properties:
         data:
           $ref: '#/components/schemas/_portfolio_transaction_delete_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
-    inline_response_200_7:
-      example:
-        data: '{}'
-        meta:
-          status:
-            code: 0.8008281904610115
-      properties:
-        data:
-          description: The response is always empty.
-          type: object
-        meta:
-          $ref: '#/components/schemas/inline_response_201_meta'
-      type: object
-    inline_response_200_8_notation:
+    inline_response_200_11_notation:
       description: Notation of the transaction.
       example:
         id: id
@@ -3079,7 +5163,7 @@ components:
       type: object
       x-property-sort:
       - id
-    inline_response_200_8_data:
+    inline_response_200_11_data:
       example:
         charges: 1.4658129805029452
         numberShares: 0.8008281904610115
@@ -3087,6 +5171,19 @@ components:
         notation:
           id: id
         price: 6.027456183070403
+        instrument:
+          name: name
+          id: id
+          assetClass:
+            code: code
+            id: 0.8008281904610115
+          shortName: shortName
+          type:
+          - name: name
+            id: 6.027456183070403
+          - name: name
+            id: 6.027456183070403
+          isin: isin
         id: id
         time: time
         type: buy
@@ -3096,8 +5193,10 @@ components:
           format: id64
           type: string
           x-positive: true
+        instrument:
+          $ref: '#/components/schemas/inline_response_200_9_data_instrument'
         notation:
-          $ref: '#/components/schemas/inline_response_200_8_notation'
+          $ref: '#/components/schemas/inline_response_200_11_notation'
         type:
           description: Type of transaction
           enum:
@@ -3108,6 +5207,7 @@ components:
           - short
           - cover
           type: string
+          x-sortable: true
           x-enum-description:
           - Buy
           - Sell
@@ -3119,10 +5219,12 @@ components:
           description: Date and time of the trade.
           format: datetime
           type: string
+          x-sortable: true
         numberShares:
           description: Number of shares bought or sold.
           format: real
           type: number
+          x-sortable: true
         price:
           description: Price the securities were purchased / sold for.
           format: real
@@ -3139,6 +5241,7 @@ components:
       type: object
       x-property-sort:
       - id
+      - instrument
       - notation
       - type
       - time
@@ -3146,7 +5249,7 @@ components:
       - price
       - charges
       - exchangeRate
-    inline_response_200_8:
+    inline_response_200_11:
       example:
         data:
         - charges: 1.4658129805029452
@@ -3155,6 +5258,19 @@ components:
           notation:
             id: id
           price: 6.027456183070403
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
           id: id
           time: time
           type: buy
@@ -3164,20 +5280,36 @@ components:
           notation:
             id: id
           price: 6.027456183070403
+          instrument:
+            name: name
+            id: id
+            assetClass:
+              code: code
+              id: 0.8008281904610115
+            shortName: shortName
+            type:
+            - name: name
+              id: 6.027456183070403
+            - name: name
+              id: 6.027456183070403
+            isin: isin
           id: id
           time: time
           type: buy
         meta:
+          pagination:
+            total: 6.027456183070403
+            isEstimatedTotal: true
           status:
             code: 0.8008281904610115
       properties:
         data:
           description: List of transactions.
           items:
-            $ref: '#/components/schemas/inline_response_200_8_data'
+            $ref: '#/components/schemas/inline_response_200_11_data'
           type: array
         meta:
-          $ref: '#/components/schemas/inline_response_201_meta'
+          $ref: '#/components/schemas/inline_response_200_7_meta'
       type: object
     _portfolio_transaction_modify_data_transaction:
       description: Transaction of the portfolio.
@@ -3188,7 +5320,7 @@ components:
           type: string
           x-positive: true
         notation:
-          $ref: '#/components/schemas/_portfolio_transaction_delete_data_notation'
+          $ref: '#/components/schemas/_portfolio_payout_modify_data_payout_notation'
         time:
           description: Date and time of the trade.
           format: datetime
@@ -3237,27 +5369,12 @@ components:
       x-property-sort:
       - id
       - transaction
-    inline_object_6:
+    inline_object_11:
       properties:
         data:
           $ref: '#/components/schemas/_portfolio_transaction_modify_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
-      type: object
-      x-property-sort:
-      - data
-      - meta
-    inline_response_200_9:
-      example:
-        data: '{}'
-        meta:
-          status:
-            code: 0.8008281904610115
-      properties:
-        data:
-          type: object
-        meta:
-          $ref: '#/components/schemas/inline_response_201_meta'
       type: object
     _portfolio_transaction_cash_create_data:
       description: The data member contains the request's primary data.
@@ -3285,16 +5402,13 @@ components:
       - id
       - time
       - amount
-    inline_object_7:
+    inline_object_12:
       properties:
         data:
           $ref: '#/components/schemas/_portfolio_transaction_cash_create_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     _portfolio_transaction_cash_delete_data:
       description: The data member contains the request's primary data.
       properties:
@@ -3312,21 +5426,20 @@ components:
       x-property-sort:
       - id
       - transaction
-    inline_object_8:
+    inline_object_13:
       properties:
         data:
           $ref: '#/components/schemas/_portfolio_transaction_cash_delete_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     _watchlist_create_data:
       description: The data member contains the request's primary data.
       properties:
         name:
           description: Name of the watchlist.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           maxLength: 100
           minLength: 1
           pattern: ^[\u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$
@@ -3337,27 +5450,26 @@ components:
       type: object
       x-property-sort:
       - name
-    inline_object_9:
+    inline_object_14:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_create_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
-    inline_response_201_2_data:
+    inline_response_201_3_data:
       example:
         id: id
       properties:
         id:
           description: Identifier of the watchlist.
+          format: id64
           type: string
+          x-positive: true
       type: object
       x-property-sort:
       - id
-    inline_response_201_2:
+    inline_response_201_3:
       example:
         data:
           id: id
@@ -3366,7 +5478,7 @@ components:
             code: 0.8008281904610115
       properties:
         data:
-          $ref: '#/components/schemas/inline_response_201_2_data'
+          $ref: '#/components/schemas/inline_response_201_3_data'
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
@@ -3383,17 +5495,60 @@ components:
       type: object
       x-property-sort:
       - id
-    inline_object_10:
+    inline_object_15:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_delete_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
+    inline_response_200_12_data:
+      description: Details of the watchlist.
+      example:
+        numberPositions: 0.8008281904610115
+        name: name
+        id: id
+        creation: creation
+      properties:
+        id:
+          description: Identifier of the watchlist.
+          format: id64
+          type: string
+          x-positive: true
+        name:
+          description: Name of the watchlist.
+          type: string
+        numberPositions:
+          description: Number of positions.
+          format: int32
+          type: number
+        creation:
+          description: Date and time of the watchlist creation.
+          format: datetime
+          type: string
+      type: object
       x-property-sort:
-      - data
-      - meta
-    inline_response_200_10_data:
+      - id
+      - name
+      - numberPositions
+      - creation
+    inline_response_200_12:
+      example:
+        data:
+          numberPositions: 0.8008281904610115
+          name: name
+          id: id
+          creation: creation
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_12_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_201_meta'
+      type: object
+    inline_response_200_13_data:
       example:
         numberPositions: 0.8008281904610115
         name: name
@@ -3410,8 +5565,8 @@ components:
           description: Name of the watchlist.
           type: string
           x-sortable: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
         numberPositions:
           description: Number of positions.
           format: int32
@@ -3428,7 +5583,7 @@ components:
       - name
       - numberPositions
       - creation
-    inline_response_200_10:
+    inline_response_200_13:
       example:
         data:
         - numberPositions: 0.8008281904610115
@@ -3446,7 +5601,7 @@ components:
         data:
           description: List of watchlist.
           items:
-            $ref: '#/components/schemas/inline_response_200_10_data'
+            $ref: '#/components/schemas/inline_response_200_13_data'
           type: array
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
@@ -3461,6 +5616,8 @@ components:
           x-positive: true
         name:
           description: Name of the watchlist.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
           maxLength: 100
           minLength: 1
           pattern: ^[\u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$
@@ -3473,16 +5630,13 @@ components:
       x-property-sort:
       - id
       - name
-    inline_object_11:
+    inline_object_16:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_modify_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
     _watchlist_position_create_data:
       description: The data member contains the request's primary data.
       properties:
@@ -3492,14 +5646,15 @@ components:
           type: string
           x-positive: true
         notation:
-          $ref: '#/components/schemas/_portfolio_transaction_create_data_notation'
+          $ref: '#/components/schemas/_portfolio_payout_create_data_notation'
         comment:
           description: Personal note for the watchlist position.
+          exclusiveMaximum: false
           maxLength: 200
           pattern: ^[\u0020-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$
           type: string
-          x-trim: false
           x-allowNullValue: true
+          x-trim: false
       required:
       - id
       type: object
@@ -3507,17 +5662,14 @@ components:
       - id
       - notation
       - comment
-    inline_object_12:
+    inline_object_17:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_position_create_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
-    inline_response_201_3_data:
+    inline_response_201_4_data:
       example:
         id: 0.8008281904610115
       properties:
@@ -3529,7 +5681,7 @@ components:
       type: object
       x-property-sort:
       - id
-    inline_response_201_3:
+    inline_response_201_4:
       example:
         data:
           id: 0.8008281904610115
@@ -3538,7 +5690,7 @@ components:
             code: 0.8008281904610115
       properties:
         data:
-          $ref: '#/components/schemas/inline_response_201_3_data'
+          $ref: '#/components/schemas/inline_response_201_4_data'
         meta:
           $ref: '#/components/schemas/inline_response_201_meta'
       type: object
@@ -3571,17 +5723,95 @@ components:
       x-property-sort:
       - id
       - position
-    inline_object_13:
+    inline_object_18:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_position_delete_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
+    _watchlist_position_get_data_position:
+      description: Position of the watchlist.
+      properties:
+        id:
+          description: Identifier of the position
+          format: id32
+          type: number
+          x-positive: true
+      required:
+      - id
+      type: object
       x-property-sort:
-      - data
-      - meta
-    inline_response_200_11_notation:
+      - id
+    _watchlist_position_get_data:
+      description: The data member contains the request's primary data.
+      properties:
+        id:
+          description: Identifier of the watchlist.
+          format: id64
+          type: string
+          x-positive: true
+        position:
+          $ref: '#/components/schemas/_watchlist_position_get_data_position'
+      required:
+      - id
+      - position
+      type: object
+      x-property-sort:
+      - id
+      - position
+    inline_object_19:
+      properties:
+        data:
+          $ref: '#/components/schemas/_watchlist_position_get_data'
+        meta:
+          $ref: '#/components/schemas/_portfolio_create_meta'
+      type: object
+    inline_response_200_14_data_notation:
+      description: Notation of the position.
+      example:
+        id: id
+      properties:
+        id:
+          description: Identifier of the notation.
+          format: id64
+          type: string
+          x-positive: true
+      type: object
+      x-property-sort:
+      - id
+    inline_response_200_14_data:
+      description: Position of the watchlist.
+      example:
+        notation:
+          id: id
+        comment: comment
+      properties:
+        notation:
+          $ref: '#/components/schemas/inline_response_200_14_data_notation'
+        comment:
+          description: Personal note for the watchlist position.
+          type: string
+      type: object
+      x-property-sort:
+      - notation
+      - comment
+    inline_response_200_14:
+      example:
+        data:
+          notation:
+            id: id
+          comment: comment
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_14_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_201_meta'
+      type: object
+    inline_response_200_15_notation:
       description: Notation of the position.
       example:
         id: id
@@ -3595,7 +5825,7 @@ components:
       type: object
       x-property-sort:
       - id
-    inline_response_200_11_data:
+    inline_response_200_15_data:
       example:
         notation:
           id: id
@@ -3607,11 +5837,11 @@ components:
           format: id32
           type: number
           x-sortable: true
-          x-positive: true
-          x-default-sort-direction: 1
           x-default-sort-attribute: true
+          x-default-sort-direction: 1
+          x-positive: true
         notation:
-          $ref: '#/components/schemas/inline_response_200_11_notation'
+          $ref: '#/components/schemas/inline_response_200_15_notation'
         comment:
           description: Personal note for the watchlist position.
           type: string
@@ -3620,7 +5850,7 @@ components:
       - id
       - notation
       - comment
-    inline_response_200_11:
+    inline_response_200_15:
       example:
         data:
         - notation:
@@ -3650,7 +5880,7 @@ components:
         data:
           description: Positions of the watchlist.
           items:
-            $ref: '#/components/schemas/inline_response_200_11_data'
+            $ref: '#/components/schemas/inline_response_200_15_data'
           maxItems: 100
           type: array
         meta:
@@ -3680,14 +5910,15 @@ components:
         position:
           $ref: '#/components/schemas/_watchlist_position_modify_data_position'
         notation:
-          $ref: '#/components/schemas/_portfolio_transaction_create_data_notation'
+          $ref: '#/components/schemas/_portfolio_payout_create_data_notation'
         comment:
           description: Personal note for the watchlist position.
+          exclusiveMaximum: false
           maxLength: 200
           pattern: ^[\u0020-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$
           type: string
-          x-trim: false
           x-allowNullValue: true
+          x-trim: false
       required:
       - id
       - position
@@ -3697,28 +5928,24 @@ components:
       - position
       - notation
       - comment
-    inline_object_14:
+    inline_object_20:
       properties:
         data:
           $ref: '#/components/schemas/_watchlist_position_modify_data'
         meta:
           $ref: '#/components/schemas/_portfolio_create_meta'
       type: object
-      x-property-sort:
-      - data
-      - meta
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-interface-version: 1
-x-documenter-version: 5.36.0
-x-api-version: 2.7.2
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-interface-version: 2
+x-documenter-version: 6.0.1
+x-api-version: 3.3.0
 

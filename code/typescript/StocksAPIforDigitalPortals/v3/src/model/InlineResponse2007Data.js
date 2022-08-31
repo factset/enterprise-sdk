@@ -12,11 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2007Currency from './InlineResponse2007Currency';
-import InlineResponse2007Dates from './InlineResponse2007Dates';
-import InlineResponse2007Gross from './InlineResponse2007Gross';
-import InlineResponse2007Occurrence from './InlineResponse2007Occurrence';
-import InlineResponse2007Type from './InlineResponse2007Type';
+import InlineResponse2006Fsym from './InlineResponse2006Fsym';
+import InlineResponse2007Compliance from './InlineResponse2007Compliance';
+import InlineResponse2007Estimates from './InlineResponse2007Estimates';
+import InlineResponse2007Instrument from './InlineResponse2007Instrument';
+import InlineResponse2007Market from './InlineResponse2007Market';
+import InlineResponse2007Nsin from './InlineResponse2007Nsin';
+import InlineResponse2007Performance from './InlineResponse2007Performance';
+import InlineResponse2007Recommendation from './InlineResponse2007Recommendation';
+import InlineResponse2007ReportedKeyFigures from './InlineResponse2007ReportedKeyFigures';
+import InlineResponse2007RsiWilder from './InlineResponse2007RsiWilder';
+import InlineResponse2007SimpleMovingAverage from './InlineResponse2007SimpleMovingAverage';
+import InlineResponse2007TradingValue from './InlineResponse2007TradingValue';
+import InlineResponse2007ValueUnit from './InlineResponse2007ValueUnit';
+import InlineResponse2007Volatility from './InlineResponse2007Volatility';
 
 /**
  * The InlineResponse2007Data model module.
@@ -54,20 +63,50 @@ class InlineResponse2007Data {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = InlineResponse2007Type.constructFromObject(data['type']);
+            if (data.hasOwnProperty('valueUnit')) {
+                obj['valueUnit'] = InlineResponse2007ValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('occurrence')) {
-                obj['occurrence'] = InlineResponse2007Occurrence.constructFromObject(data['occurrence']);
+            if (data.hasOwnProperty('market')) {
+                obj['market'] = InlineResponse2007Market.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('dates')) {
-                obj['dates'] = InlineResponse2007Dates.constructFromObject(data['dates']);
+            if (data.hasOwnProperty('symbol')) {
+                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
-                obj['currency'] = InlineResponse2007Currency.constructFromObject(data['currency']);
+            if (data.hasOwnProperty('nsin')) {
+                obj['nsin'] = InlineResponse2007Nsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('gross')) {
-                obj['gross'] = InlineResponse2007Gross.constructFromObject(data['gross']);
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2006Fsym.constructFromObject(data['fsym']);
+            }
+            if (data.hasOwnProperty('instrument')) {
+                obj['instrument'] = InlineResponse2007Instrument.constructFromObject(data['instrument']);
+            }
+            if (data.hasOwnProperty('compliance')) {
+                obj['compliance'] = InlineResponse2007Compliance.constructFromObject(data['compliance']);
+            }
+            if (data.hasOwnProperty('reportedKeyFigures')) {
+                obj['reportedKeyFigures'] = InlineResponse2007ReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
+            }
+            if (data.hasOwnProperty('performance')) {
+                obj['performance'] = InlineResponse2007Performance.constructFromObject(data['performance']);
+            }
+            if (data.hasOwnProperty('volatility')) {
+                obj['volatility'] = InlineResponse2007Volatility.constructFromObject(data['volatility']);
+            }
+            if (data.hasOwnProperty('tradingValue')) {
+                obj['tradingValue'] = InlineResponse2007TradingValue.constructFromObject(data['tradingValue']);
+            }
+            if (data.hasOwnProperty('simpleMovingAverage')) {
+                obj['simpleMovingAverage'] = InlineResponse2007SimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
+            }
+            if (data.hasOwnProperty('rsiWilder')) {
+                obj['rsiWilder'] = InlineResponse2007RsiWilder.constructFromObject(data['rsiWilder']);
+            }
+            if (data.hasOwnProperty('recommendation')) {
+                obj['recommendation'] = InlineResponse2007Recommendation.constructFromObject(data['recommendation']);
+            }
+            if (data.hasOwnProperty('estimates')) {
+                obj['estimates'] = InlineResponse2007Estimates.constructFromObject(data['estimates']);
             }
         }
         return obj;
@@ -77,35 +116,86 @@ class InlineResponse2007Data {
 }
 
 /**
- * Identifier of a dividend.
+ * Identifier of the notation.
  * @member {String} id
  */
 InlineResponse2007Data.prototype['id'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Type} type
+ * @member {module:model/InlineResponse2007ValueUnit} valueUnit
  */
-InlineResponse2007Data.prototype['type'] = undefined;
+InlineResponse2007Data.prototype['valueUnit'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Occurrence} occurrence
+ * @member {module:model/InlineResponse2007Market} market
  */
-InlineResponse2007Data.prototype['occurrence'] = undefined;
+InlineResponse2007Data.prototype['market'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Dates} dates
+ * The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
+ * @member {String} symbol
  */
-InlineResponse2007Data.prototype['dates'] = undefined;
+InlineResponse2007Data.prototype['symbol'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Currency} currency
+ * @member {module:model/InlineResponse2007Nsin} nsin
  */
-InlineResponse2007Data.prototype['currency'] = undefined;
+InlineResponse2007Data.prototype['nsin'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2007Gross} gross
+ * @member {module:model/InlineResponse2006Fsym} fsym
  */
-InlineResponse2007Data.prototype['gross'] = undefined;
+InlineResponse2007Data.prototype['fsym'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Instrument} instrument
+ */
+InlineResponse2007Data.prototype['instrument'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Compliance} compliance
+ */
+InlineResponse2007Data.prototype['compliance'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007ReportedKeyFigures} reportedKeyFigures
+ */
+InlineResponse2007Data.prototype['reportedKeyFigures'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Performance} performance
+ */
+InlineResponse2007Data.prototype['performance'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Volatility} volatility
+ */
+InlineResponse2007Data.prototype['volatility'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007TradingValue} tradingValue
+ */
+InlineResponse2007Data.prototype['tradingValue'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007SimpleMovingAverage} simpleMovingAverage
+ */
+InlineResponse2007Data.prototype['simpleMovingAverage'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007RsiWilder} rsiWilder
+ */
+InlineResponse2007Data.prototype['rsiWilder'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Recommendation} recommendation
+ */
+InlineResponse2007Data.prototype['recommendation'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2007Estimates} estimates
+ */
+InlineResponse2007Data.prototype['estimates'] = undefined;
 
 
 

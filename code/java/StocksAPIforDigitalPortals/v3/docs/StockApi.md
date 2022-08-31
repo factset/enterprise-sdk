@@ -1,6 +1,6 @@
 # StockApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## getStockDividendTypeList
 
-> InlineResponse2008 getStockDividendTypeList(attributes, language)
+> InlineResponse2004 getStockDividendTypeList(attributes, language)
 
 List of dividend types.
 
@@ -64,9 +64,9 @@ public class Example {
 
         StockApi apiInstance = new StockApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2008 result = apiInstance.getStockDividendTypeList(attributes, language);
+            InlineResponse2004 result = apiInstance.getStockDividendTypeList(attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -86,11 +86,11 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkMonth1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
 
@@ -149,12 +149,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -173,14 +173,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkMonth3Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
 
@@ -239,12 +239,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -263,14 +263,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkWeek1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
 
@@ -329,12 +329,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -353,14 +353,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear1Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
 
@@ -419,12 +419,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -443,14 +443,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear3Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
 
@@ -509,12 +509,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -533,14 +533,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ## getStockNotationKeyFiguresBenchmarkYear5Get
 
-> InlineResponse2009 getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language)
+> InlineResponse2005 getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language)
 
 End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
 
@@ -599,12 +599,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the notation.
-        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | List of identifiers of benchmark notations. See the group description for the list of valid values.
+        String id = "id_example"; // String | 
+        java.util.Set<String> idNotationBenchmark = Arrays.asList(); // java.util.Set<String> | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2009 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language);
+            InlineResponse2005 result = apiInstance.getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -623,14 +623,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the notation. |
- **idNotationBenchmark** | **List&lt;String&gt;**| List of identifiers of benchmark notations. See the group description for the list of valid values. |
+ **id** | **String**|  |
+ **idNotationBenchmark** | **List&lt;String&gt;**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -649,7 +649,7 @@ Name | Type | Description  | Notes
 
 ## getStockOwnerList
 
-> InlineResponse2006 getStockOwnerList(id, attributes, language)
+> InlineResponse2002 getStockOwnerList(id, attributes, language)
 
 List of owners for a specific type of a company&#39;s shares.
 
@@ -689,11 +689,11 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of the instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        String language = "language_example"; // String | ISO 639-1 code of the language.
+        String language = "language_example"; // String | 
         try {
-            InlineResponse2006 result = apiInstance.getStockOwnerList(id, attributes, language);
+            InlineResponse2002 result = apiInstance.getStockOwnerList(id, attributes, language);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -712,13 +712,13 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of the instrument. |
+ **id** | **String**|  |
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
- **language** | **String**| ISO 639-1 code of the language. | [optional]
+ **language** | **String**|  | [optional]
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -737,7 +737,7 @@ Name | Type | Description  | Notes
 
 ## getStockRecommendationAggregateGet
 
-> InlineResponse2001 getStockRecommendationAggregateGet(id, attributes)
+> InlineResponse200 getStockRecommendationAggregateGet(id, attributes)
 
 Target price and aggregated recommendations for a stock.
 
@@ -777,10 +777,10 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
+        String id = "id_example"; // String | 
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
-            InlineResponse2001 result = apiInstance.getStockRecommendationAggregateGet(id, attributes);
+            InlineResponse200 result = apiInstance.getStockRecommendationAggregateGet(id, attributes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -799,7 +799,95 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
+ **id** | **String**|  |
+ **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+
+## getStockRecommendationAggregateHistoryList
+
+> InlineResponse2001 getStockRecommendationAggregateHistoryList(id, snapshots, attributes)
+
+Current and historical trade recommendations and target prices for a stock.
+
+Current and historical trade recommendations and target prices for a stock.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
+import com.factset.sdk.StocksAPIforDigitalPortals.ApiException;
+import com.factset.sdk.StocksAPIforDigitalPortals.Configuration;
+import com.factset.sdk.StocksAPIforDigitalPortals.auth.*;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.*;
+import com.factset.sdk.StocksAPIforDigitalPortals.api.StockApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        StockApi apiInstance = new StockApi(defaultClient);
+        String id = "id_example"; // String | 
+        java.util.Set<String> snapshots = Arrays.asList(); // java.util.Set<String> | 
+        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
+        try {
+            InlineResponse2001 result = apiInstance.getStockRecommendationAggregateHistoryList(id, snapshots, attributes);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling StockApi#getStockRecommendationAggregateHistoryList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **snapshots** | **List&lt;String&gt;**|  | [enum: latest, 1w, 1m, 3m, 6m, 1y]
  **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
 
 ### Return type
@@ -821,97 +909,9 @@ Name | Type | Description  | Notes
 | **200** | Successful Response |  -  |
 
 
-## getStockRecommendationAggregateHistoryList
-
-> InlineResponse2002 getStockRecommendationAggregateHistoryList(id, snapshots, attributes)
-
-Current and historical trade recommendations and target prices for a stock.
-
-Current and historical trade recommendations and target prices for a stock.
-
-### Example
-
-```java
-// Import classes:
-import com.factset.sdk.StocksAPIforDigitalPortals.ApiClient;
-import com.factset.sdk.StocksAPIforDigitalPortals.ApiException;
-import com.factset.sdk.StocksAPIforDigitalPortals.Configuration;
-import com.factset.sdk.StocksAPIforDigitalPortals.auth.*;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.*;
-import com.factset.sdk.StocksAPIforDigitalPortals.api.StockApi;
-
-import com.factset.sdk.utils.authentication.ConfidentialClient;
-
-public class Example {
-    public static void main(String[] args) throws Exception {
-        // Examples for each supported authentication method are below,
-        // choose one that satisfies your use case.
-
-        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-        // See https://github.com/FactSet/enterprise-sdk#oauth-20
-        // for information on how to create the app-config.json file
-        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
-        // for more information on using the ConfidentialClient class
-        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient()
-          .setFactSetOAuth2Client(confidentialClient);
-
-        /* Basic authentication: FactSetApiKey */
-        // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient()
-        //   .setUsername("YOUR USERNAME")
-        //   .setPassword("YOUR PASSWORD");
-
-        StockApi apiInstance = new StockApi(defaultClient);
-        String id = "id_example"; // String | Identifier of an instrument.
-        java.util.Set<String> snapshots = Arrays.asList(); // java.util.Set<String> | Choice of historic snapshots for aggregated recommendations.
-        java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
-        try {
-            InlineResponse2002 result = apiInstance.getStockRecommendationAggregateHistoryList(id, snapshots, attributes);
-            System.out.println(result);
-
-        } catch (ApiException e) {
-            System.err.println("Exception when calling StockApi#getStockRecommendationAggregateHistoryList");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Identifier of an instrument. |
- **snapshots** | **List&lt;String&gt;**| Choice of historic snapshots for aggregated recommendations. | [enum: latest, 1w, 1m, 3m, 6m, 1y]
- **attributes** | **List&lt;String&gt;**| Limit the attributes returned in the response to the specified set. | [optional]
-
-### Return type
-
-[**InlineResponse2002**](InlineResponse2002.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-
-
 ## postStockDividendList
 
-> InlineResponse2007 postStockDividendList(body)
+> InlineResponse2003 postStockDividendList(inlineObject)
 
 List of dividends for a stock.
 
@@ -951,9 +951,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        InlineObject1 body = new InlineObject1(); // InlineObject1 | 
+        InlineObject inlineObject = new InlineObject(); // InlineObject | 
         try {
-            InlineResponse2007 result = apiInstance.postStockDividendList(body);
+            InlineResponse2003 result = apiInstance.postStockDividendList(inlineObject);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -972,11 +972,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject1**](InlineObject1.md)|  |
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  |
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -995,7 +995,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationRankingIntradayList
 
-> InlineResponse20010 postStockNotationRankingIntradayList(body)
+> InlineResponse2006 postStockNotationRankingIntradayList(inlineObject1)
 
 Ranking of stocks&#39; notations using intraday figures.
 
@@ -1041,9 +1041,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        InlineObject2 body = new InlineObject2(); // InlineObject2 | 
+        InlineObject1 inlineObject1 = new InlineObject1(); // InlineObject1 | 
         try {
-            InlineResponse20010 result = apiInstance.postStockNotationRankingIntradayList(body);
+            InlineResponse2006 result = apiInstance.postStockNotationRankingIntradayList(inlineObject1);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1062,11 +1062,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -1085,7 +1085,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationScreenerSearch
 
-> InlineResponse20011 postStockNotationScreenerSearch(body)
+> InlineResponse2007 postStockNotationScreenerSearch(inlineObject2)
 
 Screener for stocks&#39; notations based on stock-specific parameters.
 
@@ -1129,9 +1129,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        InlineObject3 body = new InlineObject3(); // InlineObject3 | 
+        InlineObject2 inlineObject2 = new InlineObject2(); // InlineObject2 | 
         try {
-            InlineResponse20011 result = apiInstance.postStockNotationScreenerSearch(body);
+            InlineResponse2007 result = apiInstance.postStockNotationScreenerSearch(inlineObject2);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1150,11 +1150,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject3**](InlineObject3.md)|  | [optional]
+ **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -1173,7 +1173,7 @@ Name | Type | Description  | Notes
 
 ## postStockNotationScreenerValueRangesGet
 
-> InlineResponse20012 postStockNotationScreenerValueRangesGet(body)
+> InlineResponse2008 postStockNotationScreenerValueRangesGet(inlineObject3)
 
 Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
 
@@ -1213,9 +1213,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         StockApi apiInstance = new StockApi(defaultClient);
-        InlineObject4 body = new InlineObject4(); // InlineObject4 | 
+        InlineObject3 inlineObject3 = new InlineObject3(); // InlineObject3 | 
         try {
-            InlineResponse20012 result = apiInstance.postStockNotationScreenerValueRangesGet(body);
+            InlineResponse2008 result = apiInstance.postStockNotationScreenerValueRangesGet(inlineObject3);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -1234,11 +1234,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InlineObject4**](InlineObject4.md)|  | [optional]
+ **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional]
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 

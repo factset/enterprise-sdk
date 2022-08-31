@@ -13,6 +13,7 @@ docs/CorporateActionsRequest.md
 docs/CorporateActionsResponse.md
 docs/Distribution.md
 docs/Dividend.md
+docs/DividendAdjust.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/EventCategory.md
@@ -46,6 +47,7 @@ src/model/CorporateActionsRequest.js
 src/model/CorporateActionsResponse.js
 src/model/Distribution.js
 src/model/Dividend.js
+src/model/DividendAdjust.js
 src/model/ErrorResponse.js
 src/model/ErrorResponseSubErrors.js
 src/model/EventCategory.js

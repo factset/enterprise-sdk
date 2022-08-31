@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-factsetintradaytickhistory",
-  "projectVersion": "0.21.0",
+  "projectVersion": "0.21.1",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Intraday Tick History client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetintradaytickhistory",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetIntradayTickHistory/0.21.0",
+  "httpUserAgent": "fds-sdk/javascript/FactSetIntradayTickHistory/0.21.1",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

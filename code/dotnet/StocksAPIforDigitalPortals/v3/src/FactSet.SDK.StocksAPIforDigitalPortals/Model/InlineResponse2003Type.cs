@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.StocksAPIforDigitalPortals.Client.OpenA
 namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Type of the board. See endpoint &#x60;/company/board/type/list&#x60; for possible values.
+    /// Dividend type.
     /// </summary>
     [DataContract(Name = "inline_response_200_3_type")]
     public partial class InlineResponse2003Type : IEquatable<InlineResponse2003Type>, IValidatableObject
@@ -34,7 +34,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2003Type" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a type..</param>
+        /// <param name="id">Identifier of the type..</param>
         /// <param name="name">Name of the type..</param>
         public InlineResponse2003Type(decimal id = default(decimal), string name = default(string))
         {
@@ -43,9 +43,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// Identifier of a type.
+        /// Identifier of the type.
         /// </summary>
-        /// <value>Identifier of a type.</value>
+        /// <value>Identifier of the type.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public decimal Id { get; set; }
 

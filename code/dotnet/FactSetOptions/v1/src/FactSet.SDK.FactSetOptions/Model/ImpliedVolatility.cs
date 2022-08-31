@@ -39,7 +39,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="date">The date the data is as of in YYYY-MM-DD format..</param>
         /// <param name="fsymId">FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options).</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public ImpliedVolatility(double impliedVolatility = default(double), DateTime date = default(DateTime), string fsymId = default(string), string requestId = default(string))
+        public ImpliedVolatility(double? impliedVolatility = default(double?), DateTime? date = default(DateTime?), string fsymId = default(string), string requestId = default(string))
         {
             this._ImpliedVolatility = impliedVolatility;
             this.Date = date;
@@ -51,22 +51,22 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// The estimated volatility of a security&#39;s price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option&#39;s premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. 
         /// </summary>
         /// <value>The estimated volatility of a security&#39;s price * In general, implied volatility increases when the market is bearish and decreases when the market is bullish. This is due to the common belief that bearish markets are more risky than bullish markets.  * In addition to known factors such as market price, interest rate, expiration date, and strike price, implied volatility is used in calculating an option&#39;s premium.  * Barone-Adesi model used for American Style options and Black-Scholes model for European Style options. </value>
-        [DataMember(Name = "impliedVolatility", EmitDefaultValue = false)]
-        public double _ImpliedVolatility { get; set; }
+        [DataMember(Name = "impliedVolatility", EmitDefaultValue = true)]
+        public double? _ImpliedVolatility { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
@@ -125,7 +125,8 @@ namespace FactSet.SDK.FactSetOptions.Model
             return 
                 (
                     this._ImpliedVolatility == input._ImpliedVolatility ||
-                    this._ImpliedVolatility.Equals(input._ImpliedVolatility)
+                    (this._ImpliedVolatility != null &&
+                    this._ImpliedVolatility.Equals(input._ImpliedVolatility))
                 ) && 
                 (
                     this.Date == input.Date ||
@@ -153,7 +154,10 @@ namespace FactSet.SDK.FactSetOptions.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this._ImpliedVolatility.GetHashCode();
+                if (this._ImpliedVolatility != null)
+                {
+                    hashCode = (hashCode * 59) + this._ImpliedVolatility.GetHashCode();
+                }
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();

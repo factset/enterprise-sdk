@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **Object** | This member is always empty. |  [optional]
-**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
+**data** | [**InlineResponse2001Data**](InlineResponse2001Data.md) |  |  [optional]
+**meta** | [**InlineResponse201Meta**](InlineResponse201Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

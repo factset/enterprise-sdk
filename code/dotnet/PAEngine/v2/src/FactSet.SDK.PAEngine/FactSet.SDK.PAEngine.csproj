@@ -13,7 +13,7 @@
     <Description>PA Engine client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.PAEngine</RootNamespace>
-    <Version>0.8.3</Version>
+    <Version>0.8.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.PAEngine.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
@@ -24,7 +24,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FactSet.Protobuf.Stach.Extensions" Version="1.2.0" />
     <PackageReference Include="FactSet.SDK.Utils" Version="1.*" />
     <PackageReference Include="JsonSubTypes" Version="1.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

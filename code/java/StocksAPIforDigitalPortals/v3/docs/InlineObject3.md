@@ -8,7 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**StockNotationScreenerSearchData**](StockNotationScreenerSearchData.md) |  |  [optional]
-**meta** | [**StockNotationScreenerSearchMeta**](StockNotationScreenerSearchMeta.md) |  |  [optional]
+**meta** | [**StockNotationScreenerValueRangesGetMeta**](StockNotationScreenerValueRangesGetMeta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -53,7 +53,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="price">The price of the option based on the &#x60;quoteType&#x60; calculation. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. .</param>
         /// <param name="quoteType">The calculated quote type, based on the calculated status. This represents the type for &#x60;price&#x60; field. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. .</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public OptionsPrices(double askTime = default(double), double bidTime = default(double), DateTime date = default(DateTime), string fsymId = default(string), double price52WeekHigh = default(double), double price52WeekLow = default(double), double priceAsk = default(double), double priceBid = default(double), double priceMidBidAsk = default(double), double priceOpen = default(double), double priceHigh = default(double), double priceLow = default(double), decimal priceSettlement = default(decimal), double priceStrike = default(double), double priceUnderlying = default(double), double price = default(double), string quoteType = default(string), string requestId = default(string))
+        public OptionsPrices(double? askTime = default(double?), double? bidTime = default(double?), DateTime? date = default(DateTime?), string fsymId = default(string), double? price52WeekHigh = default(double?), double? price52WeekLow = default(double?), double? priceAsk = default(double?), double? priceBid = default(double?), double? priceMidBidAsk = default(double?), double? priceOpen = default(double?), double? priceHigh = default(double?), double? priceLow = default(double?), decimal? priceSettlement = default(decimal?), double? priceStrike = default(double?), double? priceUnderlying = default(double?), double? price = default(double?), string quoteType = default(string), string requestId = default(string))
         {
             this.AskTime = askTime;
             this.BidTime = bidTime;
@@ -79,120 +79,120 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// Returns the Bid time
         /// </summary>
         /// <value>Returns the Bid time</value>
-        [DataMember(Name = "askTime", EmitDefaultValue = false)]
-        public double AskTime { get; set; }
+        [DataMember(Name = "askTime", EmitDefaultValue = true)]
+        public double? AskTime { get; set; }
 
         /// <summary>
         /// Returns the Last Trade time
         /// </summary>
         /// <value>Returns the Last Trade time</value>
-        [DataMember(Name = "bidTime", EmitDefaultValue = false)]
-        public double BidTime { get; set; }
+        [DataMember(Name = "bidTime", EmitDefaultValue = true)]
+        public double? BidTime { get; set; }
 
         /// <summary>
         /// The date of data in YYYY-MM-DD format
         /// </summary>
         /// <value>The date of data in YYYY-MM-DD format</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// 52-Week High Price
         /// </summary>
         /// <value>52-Week High Price</value>
-        [DataMember(Name = "price52WeekHigh", EmitDefaultValue = false)]
-        public double Price52WeekHigh { get; set; }
+        [DataMember(Name = "price52WeekHigh", EmitDefaultValue = true)]
+        public double? Price52WeekHigh { get; set; }
 
         /// <summary>
         /// 52-Week Low Price
         /// </summary>
         /// <value>52-Week Low Price</value>
-        [DataMember(Name = "price52WeekLow", EmitDefaultValue = false)]
-        public double Price52WeekLow { get; set; }
+        [DataMember(Name = "price52WeekLow", EmitDefaultValue = true)]
+        public double? Price52WeekLow { get; set; }
 
         /// <summary>
         /// Ask price of the option
         /// </summary>
         /// <value>Ask price of the option</value>
-        [DataMember(Name = "priceAsk", EmitDefaultValue = false)]
-        public double PriceAsk { get; set; }
+        [DataMember(Name = "priceAsk", EmitDefaultValue = true)]
+        public double? PriceAsk { get; set; }
 
         /// <summary>
         /// Bid price of the option
         /// </summary>
         /// <value>Bid price of the option</value>
-        [DataMember(Name = "priceBid", EmitDefaultValue = false)]
-        public double PriceBid { get; set; }
+        [DataMember(Name = "priceBid", EmitDefaultValue = true)]
+        public double? PriceBid { get; set; }
 
         /// <summary>
         /// Mid/Bid/Ask price of the option
         /// </summary>
         /// <value>Mid/Bid/Ask price of the option</value>
-        [DataMember(Name = "priceMidBidAsk", EmitDefaultValue = false)]
-        public double PriceMidBidAsk { get; set; }
+        [DataMember(Name = "priceMidBidAsk", EmitDefaultValue = true)]
+        public double? PriceMidBidAsk { get; set; }
 
         /// <summary>
         /// Open price of the option
         /// </summary>
         /// <value>Open price of the option</value>
-        [DataMember(Name = "priceOpen", EmitDefaultValue = false)]
-        public double PriceOpen { get; set; }
+        [DataMember(Name = "priceOpen", EmitDefaultValue = true)]
+        public double? PriceOpen { get; set; }
 
         /// <summary>
         /// High price of the option
         /// </summary>
         /// <value>High price of the option</value>
-        [DataMember(Name = "priceHigh", EmitDefaultValue = false)]
-        public double PriceHigh { get; set; }
+        [DataMember(Name = "priceHigh", EmitDefaultValue = true)]
+        public double? PriceHigh { get; set; }
 
         /// <summary>
         /// Low price of the option
         /// </summary>
         /// <value>Low price of the option</value>
-        [DataMember(Name = "priceLow", EmitDefaultValue = false)]
-        public double PriceLow { get; set; }
+        [DataMember(Name = "priceLow", EmitDefaultValue = true)]
+        public double? PriceLow { get; set; }
 
         /// <summary>
         /// Settlement price of the option
         /// </summary>
         /// <value>Settlement price of the option</value>
-        [DataMember(Name = "priceSettlement", EmitDefaultValue = false)]
-        public decimal PriceSettlement { get; set; }
+        [DataMember(Name = "priceSettlement", EmitDefaultValue = true)]
+        public decimal? PriceSettlement { get; set; }
 
         /// <summary>
         /// The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.
         /// </summary>
         /// <value>The stated price per share for which underlying stock may be purchased (for a call) or sold (for a put) by the option holder upon exercise of the option contract.</value>
-        [DataMember(Name = "priceStrike", EmitDefaultValue = false)]
-        public double PriceStrike { get; set; }
+        [DataMember(Name = "priceStrike", EmitDefaultValue = true)]
+        public double? PriceStrike { get; set; }
 
         /// <summary>
         /// The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.
         /// </summary>
         /// <value>The price of the security that must be delivered when a derivative contract, such as a put or call option, is exercised.</value>
-        [DataMember(Name = "priceUnderlying", EmitDefaultValue = false)]
-        public double PriceUnderlying { get; set; }
+        [DataMember(Name = "priceUnderlying", EmitDefaultValue = true)]
+        public double? PriceUnderlying { get; set; }
 
         /// <summary>
         /// The price of the option based on the &#x60;quoteType&#x60; calculation. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. 
         /// </summary>
         /// <value>The price of the option based on the &#x60;quoteType&#x60; calculation. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. </value>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public double Price { get; set; }
+        [DataMember(Name = "price", EmitDefaultValue = true)]
+        public double? Price { get; set; }
 
         /// <summary>
         /// The calculated quote type, based on the calculated status. This represents the type for &#x60;price&#x60; field. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. 
         /// </summary>
         /// <value>The calculated quote type, based on the calculated status. This represents the type for &#x60;price&#x60; field. For US Options - Returns \&quot;Ask Price\&quot; if calc status&#x3D;&#x3D;20, otherwise returns \&quot;Mid Bid/Ask Price\&quot;. For International Options - Returns \&quot;Settlement Price\&quot;. </value>
-        [DataMember(Name = "quoteType", EmitDefaultValue = false)]
+        [DataMember(Name = "quoteType", EmitDefaultValue = true)]
         public string QuoteType { get; set; }
 
         /// <summary>
@@ -265,11 +265,13 @@ namespace FactSet.SDK.FactSetOptions.Model
             return 
                 (
                     this.AskTime == input.AskTime ||
-                    this.AskTime.Equals(input.AskTime)
+                    (this.AskTime != null &&
+                    this.AskTime.Equals(input.AskTime))
                 ) && 
                 (
                     this.BidTime == input.BidTime ||
-                    this.BidTime.Equals(input.BidTime)
+                    (this.BidTime != null &&
+                    this.BidTime.Equals(input.BidTime))
                 ) && 
                 (
                     this.Date == input.Date ||
@@ -283,51 +285,63 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Price52WeekHigh == input.Price52WeekHigh ||
-                    this.Price52WeekHigh.Equals(input.Price52WeekHigh)
+                    (this.Price52WeekHigh != null &&
+                    this.Price52WeekHigh.Equals(input.Price52WeekHigh))
                 ) && 
                 (
                     this.Price52WeekLow == input.Price52WeekLow ||
-                    this.Price52WeekLow.Equals(input.Price52WeekLow)
+                    (this.Price52WeekLow != null &&
+                    this.Price52WeekLow.Equals(input.Price52WeekLow))
                 ) && 
                 (
                     this.PriceAsk == input.PriceAsk ||
-                    this.PriceAsk.Equals(input.PriceAsk)
+                    (this.PriceAsk != null &&
+                    this.PriceAsk.Equals(input.PriceAsk))
                 ) && 
                 (
                     this.PriceBid == input.PriceBid ||
-                    this.PriceBid.Equals(input.PriceBid)
+                    (this.PriceBid != null &&
+                    this.PriceBid.Equals(input.PriceBid))
                 ) && 
                 (
                     this.PriceMidBidAsk == input.PriceMidBidAsk ||
-                    this.PriceMidBidAsk.Equals(input.PriceMidBidAsk)
+                    (this.PriceMidBidAsk != null &&
+                    this.PriceMidBidAsk.Equals(input.PriceMidBidAsk))
                 ) && 
                 (
                     this.PriceOpen == input.PriceOpen ||
-                    this.PriceOpen.Equals(input.PriceOpen)
+                    (this.PriceOpen != null &&
+                    this.PriceOpen.Equals(input.PriceOpen))
                 ) && 
                 (
                     this.PriceHigh == input.PriceHigh ||
-                    this.PriceHigh.Equals(input.PriceHigh)
+                    (this.PriceHigh != null &&
+                    this.PriceHigh.Equals(input.PriceHigh))
                 ) && 
                 (
                     this.PriceLow == input.PriceLow ||
-                    this.PriceLow.Equals(input.PriceLow)
+                    (this.PriceLow != null &&
+                    this.PriceLow.Equals(input.PriceLow))
                 ) && 
                 (
                     this.PriceSettlement == input.PriceSettlement ||
-                    this.PriceSettlement.Equals(input.PriceSettlement)
+                    (this.PriceSettlement != null &&
+                    this.PriceSettlement.Equals(input.PriceSettlement))
                 ) && 
                 (
                     this.PriceStrike == input.PriceStrike ||
-                    this.PriceStrike.Equals(input.PriceStrike)
+                    (this.PriceStrike != null &&
+                    this.PriceStrike.Equals(input.PriceStrike))
                 ) && 
                 (
                     this.PriceUnderlying == input.PriceUnderlying ||
-                    this.PriceUnderlying.Equals(input.PriceUnderlying)
+                    (this.PriceUnderlying != null &&
+                    this.PriceUnderlying.Equals(input.PriceUnderlying))
                 ) && 
                 (
                     this.Price == input.Price ||
-                    this.Price.Equals(input.Price)
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
                     this.QuoteType == input.QuoteType ||
@@ -350,8 +364,14 @@ namespace FactSet.SDK.FactSetOptions.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AskTime.GetHashCode();
-                hashCode = (hashCode * 59) + this.BidTime.GetHashCode();
+                if (this.AskTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.AskTime.GetHashCode();
+                }
+                if (this.BidTime != null)
+                {
+                    hashCode = (hashCode * 59) + this.BidTime.GetHashCode();
+                }
                 if (this.Date != null)
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
@@ -360,18 +380,54 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Price52WeekHigh.GetHashCode();
-                hashCode = (hashCode * 59) + this.Price52WeekLow.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceAsk.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceBid.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceMidBidAsk.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceOpen.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceSettlement.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceStrike.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceUnderlying.GetHashCode();
-                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                if (this.Price52WeekHigh != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price52WeekHigh.GetHashCode();
+                }
+                if (this.Price52WeekLow != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price52WeekLow.GetHashCode();
+                }
+                if (this.PriceAsk != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceAsk.GetHashCode();
+                }
+                if (this.PriceBid != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceBid.GetHashCode();
+                }
+                if (this.PriceMidBidAsk != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceMidBidAsk.GetHashCode();
+                }
+                if (this.PriceOpen != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceOpen.GetHashCode();
+                }
+                if (this.PriceHigh != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
+                }
+                if (this.PriceLow != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
+                }
+                if (this.PriceSettlement != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceSettlement.GetHashCode();
+                }
+                if (this.PriceStrike != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceStrike.GetHashCode();
+                }
+                if (this.PriceUnderlying != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceUnderlying.GetHashCode();
+                }
+                if (this.Price != null)
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.QuoteType != null)
                 {
                     hashCode = (hashCode * 59) + this.QuoteType.GetHashCode();

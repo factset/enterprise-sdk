@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationRankingIntradayListData;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationRankingIntradayListMeta;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationScreenerSearchData;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.StockNotationScreenerSearchMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,15 +43,15 @@ public class InlineObject2 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private StockNotationRankingIntradayListData data;
+  private StockNotationScreenerSearchData data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private StockNotationRankingIntradayListMeta meta;
+  private StockNotationScreenerSearchMeta meta;
 
   public InlineObject2() { 
   }
 
-  public InlineObject2 data(StockNotationRankingIntradayListData data) {
+  public InlineObject2 data(StockNotationScreenerSearchData data) {
     this.data = data;
     return this;
   }
@@ -65,19 +65,19 @@ public class InlineObject2 implements Serializable {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StockNotationRankingIntradayListData getData() {
+  public StockNotationScreenerSearchData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(StockNotationRankingIntradayListData data) {
+  public void setData(StockNotationScreenerSearchData data) {
     this.data = data;
   }
 
 
-  public InlineObject2 meta(StockNotationRankingIntradayListMeta meta) {
+  public InlineObject2 meta(StockNotationScreenerSearchMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -91,14 +91,14 @@ public class InlineObject2 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StockNotationRankingIntradayListMeta getMeta() {
+  public StockNotationScreenerSearchMeta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(StockNotationRankingIntradayListMeta meta) {
+  public void setMeta(StockNotationScreenerSearchMeta meta) {
     this.meta = meta;
   }
 

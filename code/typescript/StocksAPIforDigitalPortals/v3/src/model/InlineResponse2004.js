@@ -62,7 +62,7 @@ class InlineResponse2004 {
 }
 
 /**
- * List of deliveries, with their officer functions,sorted by name of the delivery and identifier of the function, both ascending.
+ * List of dividend types, sorted by ascending identifier value.
  * @member {Array.<module:model/InlineResponse2004Data>} data
  */
 InlineResponse2004.prototype['data'] = undefined;

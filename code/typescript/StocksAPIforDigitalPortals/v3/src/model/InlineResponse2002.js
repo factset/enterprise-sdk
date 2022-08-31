@@ -62,7 +62,7 @@ class InlineResponse2002 {
 }
 
 /**
- * List of trade recommendations and target prices for a stock, in unspecified order.
+ * List of owners with their respective share sorted descending by the fraction owned.
  * @member {Array.<module:model/InlineResponse2002Data>} data
  */
 InlineResponse2002.prototype['data'] = undefined;

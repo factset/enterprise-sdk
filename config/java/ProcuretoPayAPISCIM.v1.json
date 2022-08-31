@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "procuretopayapiscim",
-  "artifactVersion": "0.21.0",
+  "artifactVersion": "0.21.1",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Procure to Pay API: SCIM client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/ProcuretoPayAPISCIM/0.21.0",
+  "httpUserAgent": "fds-sdk/java/ProcuretoPayAPISCIM/0.21.1",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {

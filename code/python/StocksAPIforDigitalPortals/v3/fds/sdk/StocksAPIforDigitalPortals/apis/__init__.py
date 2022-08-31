@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.company_api import CompanyApi
+#   from .api.stock_api import StockApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,5 +14,4 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.StocksAPIforDigitalPortals.api.company_api import CompanyApi
 from fds.sdk.StocksAPIforDigitalPortals.api.stock_api import StockApi

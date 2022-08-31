@@ -34,58 +34,139 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2007Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a dividend..</param>
-        /// <param name="type">type.</param>
-        /// <param name="occurrence">occurrence.</param>
-        /// <param name="dates">dates.</param>
-        /// <param name="currency">currency.</param>
-        /// <param name="gross">gross.</param>
-        public InlineResponse2007Data(string id = default(string), InlineResponse2007Type type = default(InlineResponse2007Type), InlineResponse2007Occurrence occurrence = default(InlineResponse2007Occurrence), InlineResponse2007Dates dates = default(InlineResponse2007Dates), InlineResponse2007Currency currency = default(InlineResponse2007Currency), InlineResponse2007Gross gross = default(InlineResponse2007Gross))
+        /// <param name="id">Identifier of the notation..</param>
+        /// <param name="valueUnit">valueUnit.</param>
+        /// <param name="market">market.</param>
+        /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
+        /// <param name="nsin">nsin.</param>
+        /// <param name="fsym">fsym.</param>
+        /// <param name="instrument">instrument.</param>
+        /// <param name="compliance">compliance.</param>
+        /// <param name="reportedKeyFigures">reportedKeyFigures.</param>
+        /// <param name="performance">performance.</param>
+        /// <param name="volatility">volatility.</param>
+        /// <param name="tradingValue">tradingValue.</param>
+        /// <param name="simpleMovingAverage">simpleMovingAverage.</param>
+        /// <param name="rsiWilder">rsiWilder.</param>
+        /// <param name="recommendation">recommendation.</param>
+        /// <param name="estimates">estimates.</param>
+        public InlineResponse2007Data(string id = default(string), InlineResponse2007ValueUnit valueUnit = default(InlineResponse2007ValueUnit), InlineResponse2007Market market = default(InlineResponse2007Market), string symbol = default(string), InlineResponse2007Nsin nsin = default(InlineResponse2007Nsin), InlineResponse2006Fsym fsym = default(InlineResponse2006Fsym), InlineResponse2007Instrument instrument = default(InlineResponse2007Instrument), InlineResponse2007Compliance compliance = default(InlineResponse2007Compliance), InlineResponse2007ReportedKeyFigures reportedKeyFigures = default(InlineResponse2007ReportedKeyFigures), InlineResponse2007Performance performance = default(InlineResponse2007Performance), InlineResponse2007Volatility volatility = default(InlineResponse2007Volatility), InlineResponse2007TradingValue tradingValue = default(InlineResponse2007TradingValue), InlineResponse2007SimpleMovingAverage simpleMovingAverage = default(InlineResponse2007SimpleMovingAverage), InlineResponse2007RsiWilder rsiWilder = default(InlineResponse2007RsiWilder), InlineResponse2007Recommendation recommendation = default(InlineResponse2007Recommendation), InlineResponse2007Estimates estimates = default(InlineResponse2007Estimates))
         {
             this.Id = id;
-            this.Type = type;
-            this.Occurrence = occurrence;
-            this.Dates = dates;
-            this.Currency = currency;
-            this.Gross = gross;
+            this.ValueUnit = valueUnit;
+            this.Market = market;
+            this.Symbol = symbol;
+            this.Nsin = nsin;
+            this.Fsym = fsym;
+            this.Instrument = instrument;
+            this.Compliance = compliance;
+            this.ReportedKeyFigures = reportedKeyFigures;
+            this.Performance = performance;
+            this.Volatility = volatility;
+            this.TradingValue = tradingValue;
+            this.SimpleMovingAverage = simpleMovingAverage;
+            this.RsiWilder = rsiWilder;
+            this.Recommendation = recommendation;
+            this.Estimates = estimates;
         }
 
         /// <summary>
-        /// Identifier of a dividend.
+        /// Identifier of the notation.
         /// </summary>
-        /// <value>Identifier of a dividend.</value>
+        /// <value>Identifier of the notation.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets ValueUnit
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public InlineResponse2007Type Type { get; set; }
+        [DataMember(Name = "valueUnit", EmitDefaultValue = false)]
+        public InlineResponse2007ValueUnit ValueUnit { get; set; }
 
         /// <summary>
-        /// Gets or Sets Occurrence
+        /// Gets or Sets Market
         /// </summary>
-        [DataMember(Name = "occurrence", EmitDefaultValue = false)]
-        public InlineResponse2007Occurrence Occurrence { get; set; }
+        [DataMember(Name = "market", EmitDefaultValue = false)]
+        public InlineResponse2007Market Market { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dates
+        /// The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.
         /// </summary>
-        [DataMember(Name = "dates", EmitDefaultValue = false)]
-        public InlineResponse2007Dates Dates { get; set; }
+        /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
+        [DataMember(Name = "symbol", EmitDefaultValue = false)]
+        public string Symbol { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// Gets or Sets Nsin
         /// </summary>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public InlineResponse2007Currency Currency { get; set; }
+        [DataMember(Name = "nsin", EmitDefaultValue = false)]
+        public InlineResponse2007Nsin Nsin { get; set; }
 
         /// <summary>
-        /// Gets or Sets Gross
+        /// Gets or Sets Fsym
         /// </summary>
-        [DataMember(Name = "gross", EmitDefaultValue = false)]
-        public InlineResponse2007Gross Gross { get; set; }
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2006Fsym Fsym { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Instrument
+        /// </summary>
+        [DataMember(Name = "instrument", EmitDefaultValue = false)]
+        public InlineResponse2007Instrument Instrument { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Compliance
+        /// </summary>
+        [DataMember(Name = "compliance", EmitDefaultValue = false)]
+        public InlineResponse2007Compliance Compliance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReportedKeyFigures
+        /// </summary>
+        [DataMember(Name = "reportedKeyFigures", EmitDefaultValue = false)]
+        public InlineResponse2007ReportedKeyFigures ReportedKeyFigures { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Performance
+        /// </summary>
+        [DataMember(Name = "performance", EmitDefaultValue = false)]
+        public InlineResponse2007Performance Performance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Volatility
+        /// </summary>
+        [DataMember(Name = "volatility", EmitDefaultValue = false)]
+        public InlineResponse2007Volatility Volatility { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TradingValue
+        /// </summary>
+        [DataMember(Name = "tradingValue", EmitDefaultValue = false)]
+        public InlineResponse2007TradingValue TradingValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SimpleMovingAverage
+        /// </summary>
+        [DataMember(Name = "simpleMovingAverage", EmitDefaultValue = false)]
+        public InlineResponse2007SimpleMovingAverage SimpleMovingAverage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RsiWilder
+        /// </summary>
+        [DataMember(Name = "rsiWilder", EmitDefaultValue = false)]
+        public InlineResponse2007RsiWilder RsiWilder { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Recommendation
+        /// </summary>
+        [DataMember(Name = "recommendation", EmitDefaultValue = false)]
+        public InlineResponse2007Recommendation Recommendation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Estimates
+        /// </summary>
+        [DataMember(Name = "estimates", EmitDefaultValue = false)]
+        public InlineResponse2007Estimates Estimates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,11 +177,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
-            sb.Append("  Dates: ").Append(Dates).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Gross: ").Append(Gross).Append("\n");
+            sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
+            sb.Append("  Market: ").Append(Market).Append("\n");
+            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Nsin: ").Append(Nsin).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
+            sb.Append("  Instrument: ").Append(Instrument).Append("\n");
+            sb.Append("  Compliance: ").Append(Compliance).Append("\n");
+            sb.Append("  ReportedKeyFigures: ").Append(ReportedKeyFigures).Append("\n");
+            sb.Append("  Performance: ").Append(Performance).Append("\n");
+            sb.Append("  Volatility: ").Append(Volatility).Append("\n");
+            sb.Append("  TradingValue: ").Append(TradingValue).Append("\n");
+            sb.Append("  SimpleMovingAverage: ").Append(SimpleMovingAverage).Append("\n");
+            sb.Append("  RsiWilder: ").Append(RsiWilder).Append("\n");
+            sb.Append("  Recommendation: ").Append(Recommendation).Append("\n");
+            sb.Append("  Estimates: ").Append(Estimates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,29 +233,79 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.ValueUnit == input.ValueUnit ||
+                    (this.ValueUnit != null &&
+                    this.ValueUnit.Equals(input.ValueUnit))
                 ) && 
                 (
-                    this.Occurrence == input.Occurrence ||
-                    (this.Occurrence != null &&
-                    this.Occurrence.Equals(input.Occurrence))
+                    this.Market == input.Market ||
+                    (this.Market != null &&
+                    this.Market.Equals(input.Market))
                 ) && 
                 (
-                    this.Dates == input.Dates ||
-                    (this.Dates != null &&
-                    this.Dates.Equals(input.Dates))
+                    this.Symbol == input.Symbol ||
+                    (this.Symbol != null &&
+                    this.Symbol.Equals(input.Symbol))
                 ) && 
                 (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
+                    this.Nsin == input.Nsin ||
+                    (this.Nsin != null &&
+                    this.Nsin.Equals(input.Nsin))
                 ) && 
                 (
-                    this.Gross == input.Gross ||
-                    (this.Gross != null &&
-                    this.Gross.Equals(input.Gross))
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
+                ) && 
+                (
+                    this.Instrument == input.Instrument ||
+                    (this.Instrument != null &&
+                    this.Instrument.Equals(input.Instrument))
+                ) && 
+                (
+                    this.Compliance == input.Compliance ||
+                    (this.Compliance != null &&
+                    this.Compliance.Equals(input.Compliance))
+                ) && 
+                (
+                    this.ReportedKeyFigures == input.ReportedKeyFigures ||
+                    (this.ReportedKeyFigures != null &&
+                    this.ReportedKeyFigures.Equals(input.ReportedKeyFigures))
+                ) && 
+                (
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
+                ) && 
+                (
+                    this.Volatility == input.Volatility ||
+                    (this.Volatility != null &&
+                    this.Volatility.Equals(input.Volatility))
+                ) && 
+                (
+                    this.TradingValue == input.TradingValue ||
+                    (this.TradingValue != null &&
+                    this.TradingValue.Equals(input.TradingValue))
+                ) && 
+                (
+                    this.SimpleMovingAverage == input.SimpleMovingAverage ||
+                    (this.SimpleMovingAverage != null &&
+                    this.SimpleMovingAverage.Equals(input.SimpleMovingAverage))
+                ) && 
+                (
+                    this.RsiWilder == input.RsiWilder ||
+                    (this.RsiWilder != null &&
+                    this.RsiWilder.Equals(input.RsiWilder))
+                ) && 
+                (
+                    this.Recommendation == input.Recommendation ||
+                    (this.Recommendation != null &&
+                    this.Recommendation.Equals(input.Recommendation))
+                ) && 
+                (
+                    this.Estimates == input.Estimates ||
+                    (this.Estimates != null &&
+                    this.Estimates.Equals(input.Estimates))
                 );
         }
 
@@ -181,25 +322,65 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Type != null)
+                if (this.ValueUnit != null)
                 {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
                 }
-                if (this.Occurrence != null)
+                if (this.Market != null)
                 {
-                    hashCode = (hashCode * 59) + this.Occurrence.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
                 }
-                if (this.Dates != null)
+                if (this.Symbol != null)
                 {
-                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
                 }
-                if (this.Currency != null)
+                if (this.Nsin != null)
                 {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
                 }
-                if (this.Gross != null)
+                if (this.Fsym != null)
                 {
-                    hashCode = (hashCode * 59) + this.Gross.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
+                if (this.Instrument != null)
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
+                if (this.Compliance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
+                }
+                if (this.ReportedKeyFigures != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportedKeyFigures.GetHashCode();
+                }
+                if (this.Performance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
+                if (this.Volatility != null)
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
+                if (this.TradingValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                }
+                if (this.SimpleMovingAverage != null)
+                {
+                    hashCode = (hashCode * 59) + this.SimpleMovingAverage.GetHashCode();
+                }
+                if (this.RsiWilder != null)
+                {
+                    hashCode = (hashCode * 59) + this.RsiWilder.GetHashCode();
+                }
+                if (this.Recommendation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recommendation.GetHashCode();
+                }
+                if (this.Estimates != null)
+                {
+                    hashCode = (hashCode * 59) + this.Estimates.GetHashCode();
                 }
                 return hashCode;
             }

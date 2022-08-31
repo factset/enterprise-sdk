@@ -7,9 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **BigDecimal** | Identifier of a delivery. |  [optional]
-**name** | **String** | Name of the delivery. |  [optional]
-**functions** | [**java.util.List&lt;InlineResponse2004Functions&gt;**](InlineResponse2004Functions.md) | List of officer functions. |  [optional]
+**id** | **BigDecimal** | Identifier of a dividend type. |  [optional]
+**name** | **String** | Name of the dividend type. |  [optional]
 
 
 ## Implemented Interfaces

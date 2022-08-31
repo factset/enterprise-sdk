@@ -34,36 +34,52 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2005Data" /> class.
         /// </summary>
-        /// <param name="id">Identifier of a type..</param>
-        /// <param name="name">Name of the type..</param>
-        /// <param name="description">Description of the type..</param>
-        public InlineResponse2005Data(decimal id = default(decimal), string name = default(string), string description = default(string))
+        /// <param name="notation">notation.</param>
+        /// <param name="beta">Beta of the notation..</param>
+        /// <param name="correlation">Correlation of the notation..</param>
+        /// <param name="outperformance">Outperformance of the notation..</param>
+        /// <param name="status">status.</param>
+        public InlineResponse2005Data(InlineResponse2005Notation notation = default(InlineResponse2005Notation), decimal beta = default(decimal), decimal correlation = default(decimal), decimal outperformance = default(decimal), InlineResponse2005Status status = default(InlineResponse2005Status))
         {
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
+            this.Notation = notation;
+            this.Beta = beta;
+            this.Correlation = correlation;
+            this.Outperformance = outperformance;
+            this.Status = status;
         }
 
         /// <summary>
-        /// Identifier of a type.
+        /// Gets or Sets Notation
         /// </summary>
-        /// <value>Identifier of a type.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public decimal Id { get; set; }
+        [DataMember(Name = "notation", EmitDefaultValue = false)]
+        public InlineResponse2005Notation Notation { get; set; }
 
         /// <summary>
-        /// Name of the type.
+        /// Beta of the notation.
         /// </summary>
-        /// <value>Name of the type.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>Beta of the notation.</value>
+        [DataMember(Name = "beta", EmitDefaultValue = false)]
+        public decimal Beta { get; set; }
 
         /// <summary>
-        /// Description of the type.
+        /// Correlation of the notation.
         /// </summary>
-        /// <value>Description of the type.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        /// <value>Correlation of the notation.</value>
+        [DataMember(Name = "correlation", EmitDefaultValue = false)]
+        public decimal Correlation { get; set; }
+
+        /// <summary>
+        /// Outperformance of the notation.
+        /// </summary>
+        /// <value>Outperformance of the notation.</value>
+        [DataMember(Name = "outperformance", EmitDefaultValue = false)]
+        public decimal Outperformance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public InlineResponse2005Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +89,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Data {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Notation: ").Append(Notation).Append("\n");
+            sb.Append("  Beta: ").Append(Beta).Append("\n");
+            sb.Append("  Correlation: ").Append(Correlation).Append("\n");
+            sb.Append("  Outperformance: ").Append(Outperformance).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,18 +130,26 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
+                    this.Notation == input.Notation ||
+                    (this.Notation != null &&
+                    this.Notation.Equals(input.Notation))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Beta == input.Beta ||
+                    this.Beta.Equals(input.Beta)
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Correlation == input.Correlation ||
+                    this.Correlation.Equals(input.Correlation)
+                ) && 
+                (
+                    this.Outperformance == input.Outperformance ||
+                    this.Outperformance.Equals(input.Outperformance)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -136,14 +162,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                if (this.Name != null)
+                if (this.Notation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
                 }
-                if (this.Description != null)
+                hashCode = (hashCode * 59) + this.Beta.GetHashCode();
+                hashCode = (hashCode * 59) + this.Correlation.GetHashCode();
+                hashCode = (hashCode * 59) + this.Outperformance.GetHashCode();
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

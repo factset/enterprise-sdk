@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Number** | Identifier of a type. | [optional] 
-**name** | **String** | Name of the type. | [optional] 
-**description** | **String** | Description of the type. | [optional] 
+**notation** | [**InlineResponse2005Notation**](InlineResponse2005Notation.md) |  | [optional] 
+**beta** | **Number** | Beta of the notation. | [optional] 
+**correlation** | **Number** | Correlation of the notation. | [optional] 
+**outperformance** | **Number** | Outperformance of the notation. | [optional] 
+**status** | [**InlineResponse2005Status**](InlineResponse2005Status.md) |  | [optional] 
 
 

@@ -56,7 +56,7 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// <param name="date">The date the data is as of in YYYY-MM-DD format..</param>
         /// <param name="settlementMethod">The contract settlement method. Possible values are - |method|description| |- --|- --| |C|Cash| |P|Physical| |NA|Not Covered| .</param>
         /// <param name="requestId">The requested identifier submitted in the query..</param>
-        public OptionsReferences(string fsymId = default(string), string adjustedFlag = default(string), int callPutFlag = default(int), string callPutPairSymbol = default(string), int contractSize = default(int), string currency = default(string), string exchange = default(string), DateTime expirationDate = default(DateTime), string expirationFrequency = default(string), string expirationMonth = default(string), int lepoFlag = default(int), string name = default(string), string occ21Symbol = default(string), string opra17Symbol = default(string), string rootTicker = default(string), int style = default(int), int type = default(int), string underlyingFsymSecurityId = default(string), DateTime date = default(DateTime), string settlementMethod = default(string), string requestId = default(string))
+        public OptionsReferences(string fsymId = default(string), string adjustedFlag = default(string), int? callPutFlag = default(int?), string callPutPairSymbol = default(string), int? contractSize = default(int?), string currency = default(string), string exchange = default(string), DateTime? expirationDate = default(DateTime?), string expirationFrequency = default(string), string expirationMonth = default(string), int? lepoFlag = default(int?), string name = default(string), string occ21Symbol = default(string), string opra17Symbol = default(string), string rootTicker = default(string), int? style = default(int?), int? type = default(int?), string underlyingFsymSecurityId = default(string), DateTime? date = default(DateTime?), string settlementMethod = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.AdjustedFlag = adjustedFlag;
@@ -85,142 +85,142 @@ namespace FactSet.SDK.FactSetOptions.Model
         /// FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)
         /// </summary>
         /// <value>FactSet&#39;s Option Symbol. For more detail, visit [OA 12636](https://my.apps.factset.com/oa/pages/12636#options)</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.
         /// </summary>
         /// <value>Indicates whether or not a given option contract is adjusted for corporate actions in Y/N format.</value>
-        [DataMember(Name = "adjustedFlag", EmitDefaultValue = false)]
+        [DataMember(Name = "adjustedFlag", EmitDefaultValue = true)]
         public string AdjustedFlag { get; set; }
 
         /// <summary>
         /// Returns a 0 if the option is a call, returns a 1 if the option is a put.
         /// </summary>
         /// <value>Returns a 0 if the option is a call, returns a 1 if the option is a put.</value>
-        [DataMember(Name = "callPutFlag", EmitDefaultValue = false)]
-        public int CallPutFlag { get; set; }
+        [DataMember(Name = "callPutFlag", EmitDefaultValue = true)]
+        public int? CallPutFlag { get; set; }
 
         /// <summary>
         /// Returns the corresponding put symbol given a call symbol; and vice-versa.
         /// </summary>
         /// <value>Returns the corresponding put symbol given a call symbol; and vice-versa.</value>
-        [DataMember(Name = "callPutPairSymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "callPutPairSymbol", EmitDefaultValue = true)]
         public string CallPutPairSymbol { get; set; }
 
         /// <summary>
         /// The Option Contract Size
         /// </summary>
         /// <value>The Option Contract Size</value>
-        [DataMember(Name = "contractSize", EmitDefaultValue = false)]
-        public int ContractSize { get; set; }
+        [DataMember(Name = "contractSize", EmitDefaultValue = true)]
+        public int? ContractSize { get; set; }
 
         /// <summary>
         /// Option Currency in ISO3 format.
         /// </summary>
         /// <value>Option Currency in ISO3 format.</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.
         /// </summary>
         /// <value>Option Exchange ISO. Visit [OA 14925](https://my.apps.factset.com/oa/pages/14925) for a list of Exchange ISOs.</value>
-        [DataMember(Name = "exchange", EmitDefaultValue = false)]
+        [DataMember(Name = "exchange", EmitDefaultValue = true)]
         public string Exchange { get; set; }
 
         /// <summary>
         /// The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format
         /// </summary>
         /// <value>The date on which an options contract is no longer valid and, therefore, ceases to exist, in YYYY-MM-DD format</value>
-        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        [DataMember(Name = "expirationDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ExpirationDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.
         /// </summary>
         /// <value>Returns the corresponding expiration frequency for a given option symbol. If an option has more than four expiration months, then a Long-term Equity Anticipation Security (LEAPS) indicator will be returned.</value>
-        [DataMember(Name = "expirationFrequency", EmitDefaultValue = false)]
+        [DataMember(Name = "expirationFrequency", EmitDefaultValue = true)]
         public string ExpirationFrequency { get; set; }
 
         /// <summary>
         /// Option Expiration month in MMM format.
         /// </summary>
         /// <value>Option Expiration month in MMM format.</value>
-        [DataMember(Name = "expirationMonth", EmitDefaultValue = false)]
+        [DataMember(Name = "expirationMonth", EmitDefaultValue = true)]
         public string ExpirationMonth { get; set; }
 
         /// <summary>
         /// Indicates whether or not a given options contract is a Low Exercise Price Option \&quot;LEPO\&quot; (0/1). This is unique to European Options (e.g. ASX exchange).
         /// </summary>
         /// <value>Indicates whether or not a given options contract is a Low Exercise Price Option \&quot;LEPO\&quot; (0/1). This is unique to European Options (e.g. ASX exchange).</value>
-        [DataMember(Name = "lepoFlag", EmitDefaultValue = false)]
-        public int LepoFlag { get; set; }
+        [DataMember(Name = "lepoFlag", EmitDefaultValue = true)]
+        public int? LepoFlag { get; set; }
 
         /// <summary>
         /// Option Descriptive Security Name
         /// </summary>
         /// <value>Option Descriptive Security Name</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) 
         /// </summary>
         /// <value>Options Clearing Corporation OSI Series Key This option symbol has up to 21 alphanumeric characters (excluding -ISO and # sign) and uses the following syntax- (Underlying Symbol + # + Expiration Year + Expiration Month + Expiration Day + Call/Put Indicator + Five-Digit Strike Dollar + Three-Digit Strike Decimal + - + ISO) </value>
-        [DataMember(Name = "occ21Symbol", EmitDefaultValue = false)]
+        [DataMember(Name = "occ21Symbol", EmitDefaultValue = true)]
         public string Occ21Symbol { get; set; }
 
         /// <summary>
         /// Options Price Reporting Authority&#39;s OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) 
         /// </summary>
         /// <value>Options Price Reporting Authority&#39;s OSI Series Key. This option symbol has up to 17 alphanumeric characters (excluding the -ISO and #) and uses the following syntax - (Underlying Symbol + # + Call/Put Expiration Month Code + Expiration Day + Expiration Year + Decimal Indicator + Strike Price + - + ISO) </value>
-        [DataMember(Name = "opra17Symbol", EmitDefaultValue = false)]
+        [DataMember(Name = "opra17Symbol", EmitDefaultValue = true)]
         public string Opra17Symbol { get; set; }
 
         /// <summary>
         /// The Root Ticker for the underlying security.
         /// </summary>
         /// <value>The Root Ticker for the underlying security.</value>
-        [DataMember(Name = "rootTicker", EmitDefaultValue = false)]
+        [DataMember(Name = "rootTicker", EmitDefaultValue = true)]
         public string RootTicker { get; set; }
 
         /// <summary>
         /// Returns the style of the option id requested, where -   |style|description| |- --|- --| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March &#39;06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. 
         /// </summary>
         /// <value>Returns the style of the option id requested, where -   |style|description| |- --|- --| |0|American| |1|European|  An American style option can be exercised anytime during its life. The majority of exchange-traded options are American.  Since investors have the freedom to exercise their American options at any point during the life of the contract, they are more valuable than European options which can only be exercised at maturity.  Consider this example -  If you bought a Ford March Call option expiring in March of 2006 in March 2005, you would have the right to exercise the call option at anytime up until its expiration date. Had the Ford option been a European option, you could only exercise the option at the expiry date in March &#39;06. During the year, the share price could have been most optimal for exercise in December of 2005, but you would have to wait to exercise your option until March 2006, where it could be out-of-the-money and virtually worthless.  Note that the name of this option style has nothing to do with the geographic location. </value>
-        [DataMember(Name = "style", EmitDefaultValue = false)]
-        public int Style { get; set; }
+        [DataMember(Name = "style", EmitDefaultValue = true)]
+        public int? Style { get; set; }
 
         /// <summary>
         /// The option type code, where  |code|description| |- --|- --| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| 
         /// </summary>
         /// <value>The option type code, where  |code|description| |- --|- --| |0|Equity Option| |2|Index Option| |99|Option on an ETF| |60|Option on a Future| |19|Option on a Spot FX Rate| </value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public int Type { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public int? Type { get; set; }
 
         /// <summary>
         /// Underlying FactSet Security Permanent Identifier in XXXXXX-S format.
         /// </summary>
         /// <value>Underlying FactSet Security Permanent Identifier in XXXXXX-S format.</value>
-        [DataMember(Name = "underlyingFsymSecurityId", EmitDefaultValue = false)]
+        [DataMember(Name = "underlyingFsymSecurityId", EmitDefaultValue = true)]
         public string UnderlyingFsymSecurityId { get; set; }
 
         /// <summary>
         /// The date the data is as of in YYYY-MM-DD format.
         /// </summary>
         /// <value>The date the data is as of in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The contract settlement method. Possible values are - |method|description| |- --|- --| |C|Cash| |P|Physical| |NA|Not Covered| 
         /// </summary>
         /// <value>The contract settlement method. Possible values are - |method|description| |- --|- --| |C|Cash| |P|Physical| |NA|Not Covered| </value>
-        [DataMember(Name = "settlementMethod", EmitDefaultValue = false)]
+        [DataMember(Name = "settlementMethod", EmitDefaultValue = true)]
         public string SettlementMethod { get; set; }
 
         /// <summary>
@@ -306,7 +306,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.CallPutFlag == input.CallPutFlag ||
-                    this.CallPutFlag.Equals(input.CallPutFlag)
+                    (this.CallPutFlag != null &&
+                    this.CallPutFlag.Equals(input.CallPutFlag))
                 ) && 
                 (
                     this.CallPutPairSymbol == input.CallPutPairSymbol ||
@@ -315,7 +316,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.ContractSize == input.ContractSize ||
-                    this.ContractSize.Equals(input.ContractSize)
+                    (this.ContractSize != null &&
+                    this.ContractSize.Equals(input.ContractSize))
                 ) && 
                 (
                     this.Currency == input.Currency ||
@@ -344,7 +346,8 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.LepoFlag == input.LepoFlag ||
-                    this.LepoFlag.Equals(input.LepoFlag)
+                    (this.LepoFlag != null &&
+                    this.LepoFlag.Equals(input.LepoFlag))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -368,11 +371,13 @@ namespace FactSet.SDK.FactSetOptions.Model
                 ) && 
                 (
                     this.Style == input.Style ||
-                    this.Style.Equals(input.Style)
+                    (this.Style != null &&
+                    this.Style.Equals(input.Style))
                 ) && 
                 (
                     this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.UnderlyingFsymSecurityId == input.UnderlyingFsymSecurityId ||
@@ -413,12 +418,18 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.AdjustedFlag.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CallPutFlag.GetHashCode();
+                if (this.CallPutFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallPutFlag.GetHashCode();
+                }
                 if (this.CallPutPairSymbol != null)
                 {
                     hashCode = (hashCode * 59) + this.CallPutPairSymbol.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ContractSize.GetHashCode();
+                if (this.ContractSize != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContractSize.GetHashCode();
+                }
                 if (this.Currency != null)
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
@@ -439,7 +450,10 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.ExpirationMonth.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.LepoFlag.GetHashCode();
+                if (this.LepoFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.LepoFlag.GetHashCode();
+                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -456,8 +470,14 @@ namespace FactSet.SDK.FactSetOptions.Model
                 {
                     hashCode = (hashCode * 59) + this.RootTicker.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Style.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.Style != null)
+                {
+                    hashCode = (hashCode * 59) + this.Style.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.UnderlyingFsymSecurityId != null)
                 {
                     hashCode = (hashCode * 59) + this.UnderlyingFsymSecurityId.GetHashCode();

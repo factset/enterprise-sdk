@@ -30,9 +30,15 @@ from fds.sdk.StocksAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_officers import InlineResponse2003Officers
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_currency import InlineResponse2003Currency
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_dates import InlineResponse2003Dates
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_gross import InlineResponse2003Gross
+    from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_occurrence import InlineResponse2003Occurrence
     from fds.sdk.StocksAPIforDigitalPortals.model.inline_response2003_type import InlineResponse2003Type
-    globals()['InlineResponse2003Officers'] = InlineResponse2003Officers
+    globals()['InlineResponse2003Currency'] = InlineResponse2003Currency
+    globals()['InlineResponse2003Dates'] = InlineResponse2003Dates
+    globals()['InlineResponse2003Gross'] = InlineResponse2003Gross
+    globals()['InlineResponse2003Occurrence'] = InlineResponse2003Occurrence
     globals()['InlineResponse2003Type'] = InlineResponse2003Type
 
 
@@ -89,8 +95,12 @@ class InlineResponse2003Data(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'type': (InlineResponse2003Type,),  # noqa: E501
-            'officers': ([InlineResponse2003Officers],),  # noqa: E501
+            'occurrence': (InlineResponse2003Occurrence,),  # noqa: E501
+            'dates': (InlineResponse2003Dates,),  # noqa: E501
+            'currency': (InlineResponse2003Currency,),  # noqa: E501
+            'gross': (InlineResponse2003Gross,),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +109,12 @@ class InlineResponse2003Data(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'officers': 'officers',  # noqa: E501
+        'occurrence': 'occurrence',  # noqa: E501
+        'dates': 'dates',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
+        'gross': 'gross',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,8 +158,12 @@ class InlineResponse2003Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): Identifier of a dividend.. [optional]  # noqa: E501
             type (InlineResponse2003Type): [optional]  # noqa: E501
-            officers ([InlineResponse2003Officers]): List of officers that are members of the board.. [optional]  # noqa: E501
+            occurrence (InlineResponse2003Occurrence): [optional]  # noqa: E501
+            dates (InlineResponse2003Dates): [optional]  # noqa: E501
+            currency (InlineResponse2003Currency): [optional]  # noqa: E501
+            gross (InlineResponse2003Gross): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +245,12 @@ class InlineResponse2003Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): Identifier of a dividend.. [optional]  # noqa: E501
             type (InlineResponse2003Type): [optional]  # noqa: E501
-            officers ([InlineResponse2003Officers]): List of officers that are members of the board.. [optional]  # noqa: E501
+            occurrence (InlineResponse2003Occurrence): [optional]  # noqa: E501
+            dates (InlineResponse2003Dates): [optional]  # noqa: E501
+            currency (InlineResponse2003Currency): [optional]  # noqa: E501
+            gross (InlineResponse2003Gross): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

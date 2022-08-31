@@ -65,11 +65,11 @@ public class InlineResponse2003 implements Serializable {
   }
 
    /**
-   * List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.
+   * List of dividends.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of boards of the company, with their officers. The list of boards is sorted byidentifier of the type and the list of officers by name of the officer, both ascending.")
+  @ApiModelProperty(value = "List of dividends.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

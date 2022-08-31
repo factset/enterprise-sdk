@@ -17,7 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Officers;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Currency;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Dates;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Gross;
+import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Occurrence;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineResponse2003Type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,21 +38,63 @@ import com.factset.sdk.StocksAPIforDigitalPortals.JSON;
  * InlineResponse2003Data
  */
 @JsonPropertyOrder({
+  InlineResponse2003Data.JSON_PROPERTY_ID,
   InlineResponse2003Data.JSON_PROPERTY_TYPE,
-  InlineResponse2003Data.JSON_PROPERTY_OFFICERS
+  InlineResponse2003Data.JSON_PROPERTY_OCCURRENCE,
+  InlineResponse2003Data.JSON_PROPERTY_DATES,
+  InlineResponse2003Data.JSON_PROPERTY_CURRENCY,
+  InlineResponse2003Data.JSON_PROPERTY_GROSS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2003Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private InlineResponse2003Type type;
 
-  public static final String JSON_PROPERTY_OFFICERS = "officers";
-  private java.util.List<InlineResponse2003Officers> officers = null;
+  public static final String JSON_PROPERTY_OCCURRENCE = "occurrence";
+  private InlineResponse2003Occurrence occurrence;
+
+  public static final String JSON_PROPERTY_DATES = "dates";
+  private InlineResponse2003Dates dates;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private InlineResponse2003Currency currency;
+
+  public static final String JSON_PROPERTY_GROSS = "gross";
+  private InlineResponse2003Gross gross;
 
   public InlineResponse2003Data() { 
   }
+
+  public InlineResponse2003Data id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Identifier of a dividend.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Identifier of a dividend.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public InlineResponse2003Data type(InlineResponse2003Type type) {
     this.type = type;
@@ -77,37 +122,107 @@ public class InlineResponse2003Data implements Serializable {
   }
 
 
-  public InlineResponse2003Data officers(java.util.List<InlineResponse2003Officers> officers) {
-    this.officers = officers;
-    return this;
-  }
-
-  public InlineResponse2003Data addOfficersItem(InlineResponse2003Officers officersItem) {
-    if (this.officers == null) {
-      this.officers = new java.util.ArrayList<>();
-    }
-    this.officers.add(officersItem);
+  public InlineResponse2003Data occurrence(InlineResponse2003Occurrence occurrence) {
+    this.occurrence = occurrence;
     return this;
   }
 
    /**
-   * List of officers that are members of the board.
-   * @return officers
+   * Get occurrence
+   * @return occurrence
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of officers that are members of the board.")
-  @JsonProperty(JSON_PROPERTY_OFFICERS)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<InlineResponse2003Officers> getOfficers() {
-    return officers;
+  public InlineResponse2003Occurrence getOccurrence() {
+    return occurrence;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OFFICERS)
+  @JsonProperty(JSON_PROPERTY_OCCURRENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOfficers(java.util.List<InlineResponse2003Officers> officers) {
-    this.officers = officers;
+  public void setOccurrence(InlineResponse2003Occurrence occurrence) {
+    this.occurrence = occurrence;
+  }
+
+
+  public InlineResponse2003Data dates(InlineResponse2003Dates dates) {
+    this.dates = dates;
+    return this;
+  }
+
+   /**
+   * Get dates
+   * @return dates
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2003Dates getDates() {
+    return dates;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDates(InlineResponse2003Dates dates) {
+    this.dates = dates;
+  }
+
+
+  public InlineResponse2003Data currency(InlineResponse2003Currency currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2003Currency getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(InlineResponse2003Currency currency) {
+    this.currency = currency;
+  }
+
+
+  public InlineResponse2003Data gross(InlineResponse2003Gross gross) {
+    this.gross = gross;
+    return this;
+  }
+
+   /**
+   * Get gross
+   * @return gross
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GROSS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2003Gross getGross() {
+    return gross;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROSS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGross(InlineResponse2003Gross gross) {
+    this.gross = gross;
   }
 
 
@@ -123,21 +238,29 @@ public class InlineResponse2003Data implements Serializable {
       return false;
     }
     InlineResponse2003Data inlineResponse2003Data = (InlineResponse2003Data) o;
-    return Objects.equals(this.type, inlineResponse2003Data.type) &&
-        Objects.equals(this.officers, inlineResponse2003Data.officers);
+    return Objects.equals(this.id, inlineResponse2003Data.id) &&
+        Objects.equals(this.type, inlineResponse2003Data.type) &&
+        Objects.equals(this.occurrence, inlineResponse2003Data.occurrence) &&
+        Objects.equals(this.dates, inlineResponse2003Data.dates) &&
+        Objects.equals(this.currency, inlineResponse2003Data.currency) &&
+        Objects.equals(this.gross, inlineResponse2003Data.gross);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, officers);
+    return Objects.hash(id, type, occurrence, dates, currency, gross);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003Data {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    officers: ").append(toIndentedString(officers)).append("\n");
+    sb.append("    occurrence: ").append(toIndentedString(occurrence)).append("\n");
+    sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    gross: ").append(toIndentedString(gross)).append("\n");
     sb.append("}");
     return sb.toString();
   }

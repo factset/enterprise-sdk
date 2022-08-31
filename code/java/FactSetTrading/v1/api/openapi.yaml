@@ -11,7 +11,7 @@ info:
   title: EMS API
   version: "1"
 servers:
-- url: https://api.factset.com
+- url: /
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -97,7 +97,7 @@ paths:
                       timeInForce:
                         tif: GTC
             schema:
-              $ref: '#/components/schemas/EMSOrdersRoot'
+              $ref: '#/components/schemas/EMSOrdersDataMetaModel'
       responses:
         "200":
           content:
@@ -122,7 +122,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersCreateResponseEmsResponse'
           description: Expected response, returns the list of orders.
         "400":
           content:
@@ -158,7 +158,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSReplaceOrdersRoot'
+              $ref: '#/components/schemas/EMSReplaceOrdersDataMetaModel'
       responses:
         "200":
           content:
@@ -183,7 +183,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersCreateResponseEmsResponse'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -219,7 +219,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EMSCancelOrdersRoot'
+              $ref: '#/components/schemas/EMSCancelOrdersDataMetaModel'
       responses:
         "200":
           content:
@@ -244,7 +244,7 @@ paths:
                       orderType: market
                       orderQuantity: 500
               schema:
-                $ref: '#/components/schemas/EMSOrdersCreateResponseRoot'
+                $ref: '#/components/schemas/EMSOrdersCreateResponseEmsResponse'
           description: Expected response, returns the list of order ids.
         "400":
           content:
@@ -307,7 +307,7 @@ components:
             $ref: '#/components/schemas/EMSCancelOrder'
           type: array
       type: object
-    EMSCancelOrdersRoot:
+    EMSCancelOrdersDataMetaModel:
       additionalProperties: false
       example:
         data:
@@ -677,7 +677,7 @@ components:
             $ref: '#/components/schemas/EMSOrderMetadata'
           type: object
       type: object
-    EMSOrdersCreateResponseRoot:
+    EMSOrdersCreateResponseEmsResponse:
       additionalProperties: false
       example:
         data:
@@ -705,7 +705,7 @@ components:
       required:
       - data
       type: object
-    EMSOrdersRoot:
+    EMSOrdersDataMetaModel:
       additionalProperties: false
       example:
         data:
@@ -786,280 +786,128 @@ components:
     EMSReplaceOrder:
       additionalProperties: false
       example:
-        settlementType: regular
-        orderType: market
-        side: buy
-        executionInstructions: not_held
-        orderId: "12322123"
-        effectiveTime: 20210622-12:15:30
-        maxFloor: 100
-        instrument:
-          symbol: TATAMOTORS
-          securityType: securityType
-          maturityMonthYear: maturityMonthYear
-          maturityDay: maturityDay
-          securityExchange: securityExchange
-          securityDescription: securityDescription
-          cfiCode: cfiCode
-          issuer: issuer
-        settlementDate: "20210622"
-        orderQuantity: 350
-        maxShow: 100
-        userDefinedFields:
-          key: userDefinedFields
-        stopPrice: 800
         originalOrderId: originalOrderId
-        price: 800
-        currency: USD
-        prevClosePrice: 100
-        timeInForce:
-          tif: DAY
-          expireTime: expireTime
-          expireDate: expireDate
-        strikePrice: 400
-        isCovered: false
-        handlingInstructions: auto_ord_pub
-        account: Test.ACCT
-        locateRequired: false
+        order:
+          settlementType: regular
+          orderType: market
+          side: buy
+          executionInstructions: not_held
+          orderId: "12322123"
+          effectiveTime: 20210622-12:15:30
+          maxFloor: 100
+          instrument:
+            symbol: TATAMOTORS
+            securityType: securityType
+            maturityMonthYear: maturityMonthYear
+            maturityDay: maturityDay
+            securityExchange: securityExchange
+            securityDescription: securityDescription
+            cfiCode: cfiCode
+            issuer: issuer
+          settlementDate: "20210622"
+          orderQuantity: 350
+          maxShow: 100
+          userDefinedFields:
+            key: userDefinedFields
+          stopPrice: 800
+          price: 800
+          currency: USD
+          prevClosePrice: 100
+          timeInForce:
+            tif: DAY
+            expireTime: expireTime
+            expireDate: expireDate
+          strikePrice: 400
+          isCovered: false
+          handlingInstructions: auto_ord_pub
+          account: Test.ACCT
+          locateRequired: false
       properties:
         originalOrderId:
           type: string
-        orderId:
-          description: Unique id for the order
-          example: "12322123"
-          type: string
-        instrument:
-          $ref: '#/components/schemas/Instrument'
-        side:
-          description: Side can be buy or sell
-          enum:
-          - buy
-          - sell
-          example: buy
-          type: string
-        orderType:
-          description: Type of the order
-          enum:
-          - market
-          - limit
-          - stop
-          - stop_limit
-          - market_on_close
-          - limit_or_better
-          example: market
-          type: string
-        orderQuantity:
-          description: Order quantity
-          example: 350
-          format: double
-          type: number
-        price:
-          description: Order Price
-          example: 800
-          format: double
-          type: number
-        stopPrice:
-          description: Stop Price
-          example: 800
-          format: double
-          type: number
-        strikePrice:
-          description: Strike Price
-          example: 400
-          format: double
-          type: number
-        currency:
-          description: Currency
-          example: USD
-          type: string
-        isCovered:
-          description: Currency
-          example: false
-          type: boolean
-        maxShow:
-          description: Max Show
-          example: 100
-          format: double
-          type: number
-        maxFloor:
-          description: Max Floor
-          example: 100
-          format: double
-          type: number
-        prevClosePrice:
-          description: Previous close price
-          example: 100
-          format: double
-          type: number
-        settlementType:
-          description: Settlement type
-          example: regular
-          type: string
-        settlementDate:
-          description: Settlement date in YYYYMMDD format
-          example: "20210622"
-          type: string
-        handlingInstructions:
-          description: Handling instructions
-          enum:
-          - auto_ord_pvt
-          - auto_ord_pub
-          - best_execution
-          example: auto_ord_pub
-          type: string
-        executionInstructions:
-          description: Execution instructions
-          enum:
-          - not_held
-          - work
-          - go_along
-          - over_the_day
-          - held
-          - participate_dont_initiate
-          - strict_scale
-          - try_to_scale
-          - stay_on_bidside
-          - stay_on_offerside
-          - no_cross
-          - ok_to_cross
-          - call_first
-          - percent_of_volume
-          - do_not_increase
-          - do_not_reduce
-          - all_or_none
-          - reinstate_on_system_failure
-          - institutions_only
-          - reinstate_on_trading_halt
-          - cancel_on_trading_halt
-          - last_peg
-          - mid_price_peg
-          - non_negotiable
-          - opening_peg
-          - market_peg
-          - cancel_on_system_failure
-          - primary_peg
-          - suspend
-          - fixed_peg_to_local_best_bid
-          - customer_display_instruction
-          - netting
-          - peg_to_vwap
-          - trade_along
-          - try_to_stop
-          - cancel_if_not_best
-          - trailing_stop_peg
-          - strict_limit
-          - ignore_price_validity_checks
-          - peg_to_limit_price
-          - work_to_target_strategy
-          - intermarket_sweep
-          - external_routing_allowed
-          - external_routing_not_allowed
-          - imbalance_only
-          - single_execution_requested_for_block_trade
-          - best_execution
-          example: not_held
-          type: string
-        locateRequired:
-          description: Locate Required
-          example: false
-          type: boolean
-        effectiveTime:
-          description: Effective time in YYYYMMDD-HH:MM:SS format expressed in UTC
-          example: 20210622-12:15:30
-          type: string
-        account:
-          description: Account
-          example: Test.ACCT
-          type: string
-        timeInForce:
-          $ref: '#/components/schemas/TimeInForce'
-        userDefinedFields:
-          additionalProperties:
-            type: string
-          description: User defined fields
-          type: object
+        order:
+          $ref: '#/components/schemas/EMSOrder'
       required:
-      - handlingInstructions
-      - instrument
-      - orderType
+      - order
       - originalOrderId
-      - side
       type: object
     EMSReplaceOrders:
       additionalProperties: false
       example:
         investorId: DEMO-12345
         orders:
-        - settlementType: regular
-          orderType: market
-          side: buy
-          executionInstructions: not_held
-          orderId: "12322123"
-          effectiveTime: 20210622-12:15:30
-          maxFloor: 100
-          instrument:
-            symbol: TATAMOTORS
-            securityType: securityType
-            maturityMonthYear: maturityMonthYear
-            maturityDay: maturityDay
-            securityExchange: securityExchange
-            securityDescription: securityDescription
-            cfiCode: cfiCode
-            issuer: issuer
-          settlementDate: "20210622"
-          orderQuantity: 350
-          maxShow: 100
-          userDefinedFields:
-            key: userDefinedFields
-          stopPrice: 800
-          originalOrderId: originalOrderId
-          price: 800
-          currency: USD
-          prevClosePrice: 100
-          timeInForce:
-            tif: DAY
-            expireTime: expireTime
-            expireDate: expireDate
-          strikePrice: 400
-          isCovered: false
-          handlingInstructions: auto_ord_pub
-          account: Test.ACCT
-          locateRequired: false
-        - settlementType: regular
-          orderType: market
-          side: buy
-          executionInstructions: not_held
-          orderId: "12322123"
-          effectiveTime: 20210622-12:15:30
-          maxFloor: 100
-          instrument:
-            symbol: TATAMOTORS
-            securityType: securityType
-            maturityMonthYear: maturityMonthYear
-            maturityDay: maturityDay
-            securityExchange: securityExchange
-            securityDescription: securityDescription
-            cfiCode: cfiCode
-            issuer: issuer
-          settlementDate: "20210622"
-          orderQuantity: 350
-          maxShow: 100
-          userDefinedFields:
-            key: userDefinedFields
-          stopPrice: 800
-          originalOrderId: originalOrderId
-          price: 800
-          currency: USD
-          prevClosePrice: 100
-          timeInForce:
-            tif: DAY
-            expireTime: expireTime
-            expireDate: expireDate
-          strikePrice: 400
-          isCovered: false
-          handlingInstructions: auto_ord_pub
-          account: Test.ACCT
-          locateRequired: false
+        - originalOrderId: originalOrderId
+          order:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            locateRequired: false
+        - originalOrderId: originalOrderId
+          order:
+            settlementType: regular
+            orderType: market
+            side: buy
+            executionInstructions: not_held
+            orderId: "12322123"
+            effectiveTime: 20210622-12:15:30
+            maxFloor: 100
+            instrument:
+              symbol: TATAMOTORS
+              securityType: securityType
+              maturityMonthYear: maturityMonthYear
+              maturityDay: maturityDay
+              securityExchange: securityExchange
+              securityDescription: securityDescription
+              cfiCode: cfiCode
+              issuer: issuer
+            settlementDate: "20210622"
+            orderQuantity: 350
+            maxShow: 100
+            userDefinedFields:
+              key: userDefinedFields
+            stopPrice: 800
+            price: 800
+            currency: USD
+            prevClosePrice: 100
+            timeInForce:
+              tif: DAY
+              expireTime: expireTime
+              expireDate: expireDate
+            strikePrice: 400
+            isCovered: false
+            handlingInstructions: auto_ord_pub
+            account: Test.ACCT
+            locateRequired: false
       properties:
         investorId:
           description: Investor Id
@@ -1070,82 +918,84 @@ components:
             $ref: '#/components/schemas/EMSReplaceOrder'
           type: array
       type: object
-    EMSReplaceOrdersRoot:
+    EMSReplaceOrdersDataMetaModel:
       additionalProperties: false
       example:
         data:
           investorId: DEMO-12345
           orders:
-          - settlementType: regular
-            orderType: market
-            side: buy
-            executionInstructions: not_held
-            orderId: "12322123"
-            effectiveTime: 20210622-12:15:30
-            maxFloor: 100
-            instrument:
-              symbol: TATAMOTORS
-              securityType: securityType
-              maturityMonthYear: maturityMonthYear
-              maturityDay: maturityDay
-              securityExchange: securityExchange
-              securityDescription: securityDescription
-              cfiCode: cfiCode
-              issuer: issuer
-            settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
-            userDefinedFields:
-              key: userDefinedFields
-            stopPrice: 800
-            originalOrderId: originalOrderId
-            price: 800
-            currency: USD
-            prevClosePrice: 100
-            timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
-            strikePrice: 400
-            isCovered: false
-            handlingInstructions: auto_ord_pub
-            account: Test.ACCT
-            locateRequired: false
-          - settlementType: regular
-            orderType: market
-            side: buy
-            executionInstructions: not_held
-            orderId: "12322123"
-            effectiveTime: 20210622-12:15:30
-            maxFloor: 100
-            instrument:
-              symbol: TATAMOTORS
-              securityType: securityType
-              maturityMonthYear: maturityMonthYear
-              maturityDay: maturityDay
-              securityExchange: securityExchange
-              securityDescription: securityDescription
-              cfiCode: cfiCode
-              issuer: issuer
-            settlementDate: "20210622"
-            orderQuantity: 350
-            maxShow: 100
-            userDefinedFields:
-              key: userDefinedFields
-            stopPrice: 800
-            originalOrderId: originalOrderId
-            price: 800
-            currency: USD
-            prevClosePrice: 100
-            timeInForce:
-              tif: DAY
-              expireTime: expireTime
-              expireDate: expireDate
-            strikePrice: 400
-            isCovered: false
-            handlingInstructions: auto_ord_pub
-            account: Test.ACCT
-            locateRequired: false
+          - originalOrderId: originalOrderId
+            order:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: not_held
+              orderId: "12322123"
+              effectiveTime: 20210622-12:15:30
+              maxFloor: 100
+              instrument:
+                symbol: TATAMOTORS
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350
+              maxShow: 100
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800
+              price: 800
+              currency: USD
+              prevClosePrice: 100
+              timeInForce:
+                tif: DAY
+                expireTime: expireTime
+                expireDate: expireDate
+              strikePrice: 400
+              isCovered: false
+              handlingInstructions: auto_ord_pub
+              account: Test.ACCT
+              locateRequired: false
+          - originalOrderId: originalOrderId
+            order:
+              settlementType: regular
+              orderType: market
+              side: buy
+              executionInstructions: not_held
+              orderId: "12322123"
+              effectiveTime: 20210622-12:15:30
+              maxFloor: 100
+              instrument:
+                symbol: TATAMOTORS
+                securityType: securityType
+                maturityMonthYear: maturityMonthYear
+                maturityDay: maturityDay
+                securityExchange: securityExchange
+                securityDescription: securityDescription
+                cfiCode: cfiCode
+                issuer: issuer
+              settlementDate: "20210622"
+              orderQuantity: 350
+              maxShow: 100
+              userDefinedFields:
+                key: userDefinedFields
+              stopPrice: 800
+              price: 800
+              currency: USD
+              prevClosePrice: 100
+              timeInForce:
+                tif: DAY
+                expireTime: expireTime
+                expireDate: expireDate
+              strikePrice: 400
+              isCovered: false
+              handlingInstructions: auto_ord_pub
+              account: Test.ACCT
+              locateRequired: false
       properties:
         data:
           $ref: '#/components/schemas/EMSReplaceOrders'
