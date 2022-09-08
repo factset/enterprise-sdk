@@ -5,6 +5,9 @@
 LICENSE
 README.md
 docs/Adjust.md
+docs/AnnualizedDividendResponse.md
+docs/AnnualizedDividendsObject.md
+docs/AnnualizedDividendsRequest.md
 docs/Calendar.md
 docs/CancelledDividend.md
 docs/CashDividendsResponse.md
@@ -40,6 +43,9 @@ src/api/PricesApi.js
 src/api/ReturnsApi.js
 src/index.js
 src/model/Adjust.js
+src/model/AnnualizedDividendResponse.js
+src/model/AnnualizedDividendsObject.js
+src/model/AnnualizedDividendsRequest.js
 src/model/Calendar.js
 src/model/CancelledDividend.js
 src/model/CashDividendsResponse.js

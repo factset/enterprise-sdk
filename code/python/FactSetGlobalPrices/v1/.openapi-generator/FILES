@@ -5,6 +5,9 @@
 LICENSE
 README.md
 docs/Adjust.md
+docs/AnnualizedDividendResponse.md
+docs/AnnualizedDividendsObject.md
+docs/AnnualizedDividendsRequest.md
 docs/Calendar.md
 docs/CancelledDividend.md
 docs/CashDividendsResponse.md
@@ -48,6 +51,9 @@ fds/sdk/FactSetGlobalPrices/configuration.py
 fds/sdk/FactSetGlobalPrices/exceptions.py
 fds/sdk/FactSetGlobalPrices/model/__init__.py
 fds/sdk/FactSetGlobalPrices/model/adjust.py
+fds/sdk/FactSetGlobalPrices/model/annualized_dividend_response.py
+fds/sdk/FactSetGlobalPrices/model/annualized_dividends_object.py
+fds/sdk/FactSetGlobalPrices/model/annualized_dividends_request.py
 fds/sdk/FactSetGlobalPrices/model/calendar.py
 fds/sdk/FactSetGlobalPrices/model/cancelled_dividend.py
 fds/sdk/FactSetGlobalPrices/model/cash_dividends_response.py

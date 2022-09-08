@@ -35,9 +35,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        EMSOrdersCreateResponseEmsResponse Cancel(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel));
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        EMSOrdersCreateResponseRoot Cancel(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot));
 
         /// <summary>
         /// Cancel the orders on EMS system.
@@ -46,9 +46,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        ApiResponse<EMSOrdersCreateResponseEmsResponse> CancelWithHttpInfo(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel));
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        ApiResponse<EMSOrdersCreateResponseRoot> CancelWithHttpInfo(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot));
         /// <summary>
         /// Send orders to EMS for execution.
         /// </summary>
@@ -56,9 +56,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders and place them on EMS for execution.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        EMSOrdersCreateResponseEmsResponse Create(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel));
+        /// <param name="eMSOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        EMSOrdersCreateResponseRoot Create(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot));
 
         /// <summary>
         /// Send orders to EMS for execution.
@@ -67,9 +67,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders and place them on EMS for execution.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        ApiResponse<EMSOrdersCreateResponseEmsResponse> CreateWithHttpInfo(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel));
+        /// <param name="eMSOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        ApiResponse<EMSOrdersCreateResponseRoot> CreateWithHttpInfo(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot));
         /// <summary>
         /// Replace the orders on EMS system.
         /// </summary>
@@ -77,9 +77,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be replaced on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        EMSOrdersCreateResponseEmsResponse Replace(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel));
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        EMSOrdersCreateResponseRoot Replace(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot));
 
         /// <summary>
         /// Replace the orders on EMS system.
@@ -88,9 +88,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be replaced on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        ApiResponse<EMSOrdersCreateResponseEmsResponse> ReplaceWithHttpInfo(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel));
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        ApiResponse<EMSOrdersCreateResponseRoot> ReplaceWithHttpInfo(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot));
         #endregion Synchronous Operations
     }
 
@@ -107,10 +107,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse> CancelAsync(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot> CancelAsync(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel the orders on EMS system.
@@ -119,10 +119,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> CancelWithHttpInfoAsync(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> CancelWithHttpInfoAsync(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send orders to EMS for execution.
         /// </summary>
@@ -130,10 +130,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders and place them on EMS for execution.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse> CreateAsync(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot> CreateAsync(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send orders to EMS for execution.
@@ -142,10 +142,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders and place them on EMS for execution.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> CreateWithHttpInfoAsync(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> CreateWithHttpInfoAsync(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace the orders on EMS system.
         /// </summary>
@@ -153,10 +153,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be replaced on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse> ReplaceAsync(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot> ReplaceAsync(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Replace the orders on EMS system.
@@ -165,10 +165,10 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// This endpoint takes the list of orders to be replaced on the EMS system.
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> ReplaceWithHttpInfoAsync(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> ReplaceWithHttpInfoAsync(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -190,17 +190,17 @@ namespace FactSet.SDK.FactSetTrading.Api
         # region Response Type Disctionaries
                 private static readonly Dictionary<HttpStatusCode, System.Type> CancelResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseEmsResponse) },
+            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseEmsResponse) },
+            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
         private static readonly Dictionary<HttpStatusCode, System.Type> ReplaceResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
-            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseEmsResponse) },
+            { (HttpStatusCode)200, typeof(EMSOrdersCreateResponseRoot) },
             { (HttpStatusCode)400, typeof(ClientErrorResponse) },
         };
 
@@ -317,11 +317,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Cancel the orders on EMS system. This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        public EMSOrdersCreateResponseEmsResponse Cancel(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel))
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        public EMSOrdersCreateResponseRoot Cancel(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot))
         {
-            var localVarResponse = CancelWithHttpInfo(eMSCancelOrdersDataMetaModel);
+            var localVarResponse = CancelWithHttpInfo(eMSCancelOrdersRoot);
             return localVarResponse.Data;
         }
 
@@ -329,9 +329,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Cancel the orders on EMS system. This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        public ApiResponse<EMSOrdersCreateResponseEmsResponse> CancelWithHttpInfo(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel))
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        public ApiResponse<EMSOrdersCreateResponseRoot> CancelWithHttpInfo(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot))
         {
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
 
@@ -356,7 +356,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSCancelOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSCancelOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -382,7 +382,7 @@ namespace FactSet.SDK.FactSetTrading.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/cancel", localVarRequestOptions, this.Configuration);
+            EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/cancel", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Cancel", localVarResponse);
@@ -398,12 +398,12 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Cancel the orders on EMS system. This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse>CancelAsync(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot>CancelAsync(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await CancelWithHttpInfoAsync(eMSCancelOrdersDataMetaModel, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CancelWithHttpInfoAsync(eMSCancelOrdersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -411,11 +411,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Cancel the orders on EMS system. This endpoint takes the list of orders to be cancelled on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSCancelOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSCancelOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> CancelWithHttpInfoAsync(EMSCancelOrdersDataMetaModel eMSCancelOrdersDataMetaModel = default(EMSCancelOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> CancelWithHttpInfoAsync(EMSCancelOrdersRoot eMSCancelOrdersRoot = default(EMSCancelOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
@@ -441,7 +441,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSCancelOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSCancelOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -466,7 +466,7 @@ namespace FactSet.SDK.FactSetTrading.Api
             localVarRequestOptions.ResponseTypeDictionary = CancelResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -484,11 +484,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Send orders to EMS for execution. This endpoint takes the list of orders and place them on EMS for execution.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        public EMSOrdersCreateResponseEmsResponse Create(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel))
+        /// <param name="eMSOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        public EMSOrdersCreateResponseRoot Create(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot))
         {
-            var localVarResponse = CreateWithHttpInfo(eMSOrdersDataMetaModel);
+            var localVarResponse = CreateWithHttpInfo(eMSOrdersRoot);
             return localVarResponse.Data;
         }
 
@@ -496,9 +496,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Send orders to EMS for execution. This endpoint takes the list of orders and place them on EMS for execution.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        public ApiResponse<EMSOrdersCreateResponseEmsResponse> CreateWithHttpInfo(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel))
+        /// <param name="eMSOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        public ApiResponse<EMSOrdersCreateResponseRoot> CreateWithHttpInfo(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot))
         {
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
 
@@ -523,7 +523,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -549,7 +549,7 @@ namespace FactSet.SDK.FactSetTrading.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/create", localVarRequestOptions, this.Configuration);
+            EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Create", localVarResponse);
@@ -565,12 +565,12 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Send orders to EMS for execution. This endpoint takes the list of orders and place them on EMS for execution.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse>CreateAsync(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot>CreateAsync(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await CreateWithHttpInfoAsync(eMSOrdersDataMetaModel, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateWithHttpInfoAsync(eMSOrdersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -578,11 +578,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Send orders to EMS for execution. This endpoint takes the list of orders and place them on EMS for execution.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> CreateWithHttpInfoAsync(EMSOrdersDataMetaModel eMSOrdersDataMetaModel = default(EMSOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> CreateWithHttpInfoAsync(EMSOrdersRoot eMSOrdersRoot = default(EMSOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
@@ -608,7 +608,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -633,7 +633,7 @@ namespace FactSet.SDK.FactSetTrading.Api
             localVarRequestOptions.ResponseTypeDictionary = CreateResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -651,11 +651,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Replace the orders on EMS system. This endpoint takes the list of orders to be replaced on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
-        /// <returns>EMSOrdersCreateResponseEmsResponse</returns>
-        public EMSOrdersCreateResponseEmsResponse Replace(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel))
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
+        /// <returns>EMSOrdersCreateResponseRoot</returns>
+        public EMSOrdersCreateResponseRoot Replace(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot))
         {
-            var localVarResponse = ReplaceWithHttpInfo(eMSReplaceOrdersDataMetaModel);
+            var localVarResponse = ReplaceWithHttpInfo(eMSReplaceOrdersRoot);
             return localVarResponse.Data;
         }
 
@@ -663,9 +663,9 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Replace the orders on EMS system. This endpoint takes the list of orders to be replaced on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
-        /// <returns>ApiResponse of EMSOrdersCreateResponseEmsResponse</returns>
-        public ApiResponse<EMSOrdersCreateResponseEmsResponse> ReplaceWithHttpInfo(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel))
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
+        /// <returns>ApiResponse of EMSOrdersCreateResponseRoot</returns>
+        public ApiResponse<EMSOrdersCreateResponseRoot> ReplaceWithHttpInfo(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot))
         {
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
 
@@ -690,7 +690,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSReplaceOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSReplaceOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -716,7 +716,7 @@ namespace FactSet.SDK.FactSetTrading.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/replace", localVarRequestOptions, this.Configuration);
+            EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/replace", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Replace", localVarResponse);
@@ -732,12 +732,12 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Replace the orders on EMS system. This endpoint takes the list of orders to be replaced on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of EMSOrdersCreateResponseEmsResponse</returns>
-        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseEmsResponse>ReplaceAsync(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EMSOrdersCreateResponseRoot</returns>
+        public async System.Threading.Tasks.Task<EMSOrdersCreateResponseRoot>ReplaceAsync(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            var localVarResponse = await ReplaceWithHttpInfoAsync(eMSReplaceOrdersDataMetaModel, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ReplaceWithHttpInfoAsync(eMSReplaceOrdersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -745,11 +745,11 @@ namespace FactSet.SDK.FactSetTrading.Api
         /// Replace the orders on EMS system. This endpoint takes the list of orders to be replaced on the EMS system.
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetTrading.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eMSReplaceOrdersDataMetaModel"> (optional)</param>
+        /// <param name="eMSReplaceOrdersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseEmsResponse)</returns>
+        /// <returns>Task of ApiResponse (EMSOrdersCreateResponseRoot)</returns>
 
-        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseEmsResponse>> ReplaceWithHttpInfoAsync(EMSReplaceOrdersDataMetaModel eMSReplaceOrdersDataMetaModel = default(EMSReplaceOrdersDataMetaModel), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<EMSOrdersCreateResponseRoot>> ReplaceWithHttpInfoAsync(EMSReplaceOrdersRoot eMSReplaceOrdersRoot = default(EMSReplaceOrdersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetTrading.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTrading.Client.RequestOptions();
@@ -775,7 +775,7 @@ namespace FactSet.SDK.FactSetTrading.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = eMSReplaceOrdersDataMetaModel;
+            localVarRequestOptions.Data = eMSReplaceOrdersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
@@ -800,7 +800,7 @@ namespace FactSet.SDK.FactSetTrading.Api
             localVarRequestOptions.ResponseTypeDictionary = ReplaceResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseEmsResponse>("/trading/ems/v1/orders/replace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EMSOrdersCreateResponseRoot>("/trading/ems/v1/orders/replace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

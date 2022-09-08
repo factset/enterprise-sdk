@@ -7,6 +7,9 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/Adjust.md
+docs/AnnualizedDividendResponse.md
+docs/AnnualizedDividendsObject.md
+docs/AnnualizedDividendsRequest.md
 docs/Calendar.md
 docs/CancelledDividend.md
 docs/CashDividendsResponse.md
@@ -65,6 +68,9 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/auth/OAuth.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Adjust.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/AnnualizedDividendResponse.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/AnnualizedDividendsObject.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/AnnualizedDividendsRequest.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Calendar.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/CancelledDividend.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/CashDividendsResponse.java

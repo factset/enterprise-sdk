@@ -188,6 +188,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/corporateActionsResponse'
+  /factset-global-prices/v1/annualized-dividends:
+    get:
+      tags:
+        - Corporate Actions
+      summary: Gets Indicated Annualized Dividend information.
+      operationId: getannualizedDividends
+      description: >
+        Gets the Annualized dividend or the latest reported dividend.
+
+        The annualized dividend calculations does not involve cancelled
+        dividends.
+      parameters:
+        - $ref: '#/components/parameters/idsMax100'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: Array of annualized dividend information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/annualizedDividendResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Corporate Actions
+      summary: Gets Indicated Annualized Dividend information.
+      description: >-
+        Gets the Annualized dividend or the latest reported dividend. The
+        annualized dividend calculations does not involve cancelled dividends.
+      operationId: getannualizedDividendsForList
+      requestBody:
+        required: true
+        description: Request object for `Annualized Response`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/annualizedDividendsRequest'
+      responses:
+        '200':
+          description: Array of security prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/annualizedDividendResponse'
   /factset-global-prices/v1/returns:
     get:
       tags:
@@ -608,6 +661,8 @@ components:
           |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance.Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |dividendFrequencyDesc|Dividend Frequency for different event types in the form of a text as per the descriptions found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
+          |dividendFrequencyCode|Dividend Frequency for different event types in the form of a code as per the details found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
           |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
           |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
           |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
@@ -878,6 +933,81 @@ components:
           $ref: '#/components/schemas/cancelledDividend'
       required:
         - ids
+    annualizedDividendsRequest:
+      title: Annualized Dividends Request Body
+      description: Annualized Dividends Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idsMax100'
+        currency:
+          $ref: '#/components/schemas/requestCurrency'
+      required:
+        - ids
+    annualizedDividendResponse:
+      type: object
+      title: Annualized Dividends Response
+      properties:
+        data:
+          description: Array of Annualized Dividends Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/annualizedDividendsObject'
+    annualizedDividendsObject:
+      title: Annualized Dividends Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            security's best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+          x-fds-dh: REGIONAL_FDS_ID
+          nullable: true
+        eventId:
+          description: FactSet identifier that uniquely identifies the Event.
+          type: string
+          example: JTHPFN-A
+          x-fds-dh: EVENT_ID
+          nullable: true
+        effectiveDate:
+          description: >-
+            Effective Date or Ex-Date of Annualized Dividend in YYYY-MM-DD
+            format.
+          type: string
+          example: 2022-03-11T00:00:00.000Z
+          x-fds-dh: IAD_EXDATE
+          nullable: true
+        iadDefTradingAdj:
+          description: >-
+            Annualized Dividend value in the trading currency. The value is
+            adjusted for splits
+          type: number
+          format: float
+          x-fds-dh: IAD_DEF_SPLIT
+          example: 0.7584434
+          nullable: true
+        currency:
+          description: >-
+            Currency ISO code associated with the annualized dividends.For more
+            details, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          x-fds-dh: IAD_DEF_CURR_ISO
+          nullable: true
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL-US
+      additionalProperties: true
     idsMax100:
       title: ids
       type: array
@@ -989,6 +1119,8 @@ components:
           |dividendStatus|Identifies the cancelled dividents and helps to evaluate their price and portfolio performance.|
           |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |dividendFrequencyDesc|Dividend Frequency for different event types in the form of a text as per the descriptions found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
+          |dividendFrequencyCode|Dividend Frequency for different event types in the form of a code as per the details found here [OA#8764](https://my.apps.factset.com/oa/pages/8764#Frequency)|
           |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
           |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
           |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.**Only applicable for Australian Securities**.|

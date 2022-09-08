@@ -14,6 +14,11 @@
     },
     "version": "1"
   },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
   "paths": {
     "/trading/ems/v1/orders/create": {
       "post": {
@@ -27,7 +32,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSOrdersDataMetaModel"
+                "$ref": "#/components/schemas/EMSOrdersRoot"
               },
               "examples": {
                 "Multiple Orders": {
@@ -139,7 +144,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseEmsResponse"
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -213,7 +218,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSReplaceOrdersDataMetaModel"
+                "$ref": "#/components/schemas/EMSReplaceOrdersRoot"
               }
             }
           }
@@ -224,7 +229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseEmsResponse"
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -298,7 +303,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EMSCancelOrdersDataMetaModel"
+                "$ref": "#/components/schemas/EMSCancelOrdersRoot"
               }
             }
           }
@@ -309,7 +314,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EMSOrdersCreateResponseEmsResponse"
+                  "$ref": "#/components/schemas/EMSOrdersCreateResponseRoot"
                 },
                 "example": {
                   "data": {
@@ -414,7 +419,7 @@
         },
         "additionalProperties": false
       },
-      "EMSCancelOrdersDataMetaModel": {
+      "EMSCancelOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
@@ -701,7 +706,7 @@
         },
         "additionalProperties": false
       },
-      "EMSOrdersCreateResponseEmsResponse": {
+      "EMSOrdersCreateResponseRoot": {
         "required": [
           "data"
         ],
@@ -713,7 +718,7 @@
         },
         "additionalProperties": false
       },
-      "EMSOrdersDataMetaModel": {
+      "EMSOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {
@@ -755,7 +760,7 @@
         },
         "additionalProperties": false
       },
-      "EMSReplaceOrdersDataMetaModel": {
+      "EMSReplaceOrdersRoot": {
         "type": "object",
         "properties": {
           "data": {

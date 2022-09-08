@@ -1,6 +1,6 @@
 # fds.sdk.FactSetTrading.OrdersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **cancel**
-> EMSOrdersCreateResponseEmsResponse cancel()
+> EMSOrdersCreateResponseRoot cancel()
 
 Cancel the orders on EMS system.
 
@@ -56,7 +56,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_cancel_orders_data_meta_model = EMSCancelOrdersDataMetaModel(
+    ems_cancel_orders_root = EMSCancelOrdersRoot(
         data=EMSCancelOrders(
             investor_id="investor_id_example",
             orders=[
@@ -65,13 +65,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSCancelOrdersDataMetaModel |  (optional)
+    ) # EMSCancelOrdersRoot |  (optional)
 
     try:
         # Cancel the orders on EMS system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.cancel(ems_cancel_orders_data_meta_model=ems_cancel_orders_data_meta_model)
+        api_response = api_instance.cancel(ems_cancel_orders_root=ems_cancel_orders_root)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -83,11 +83,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_cancel_orders_data_meta_model** | [**EMSCancelOrdersDataMetaModel**](EMSCancelOrdersDataMetaModel.md)|  | [optional]
+ **ems_cancel_orders_root** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create**
-> EMSOrdersCreateResponseEmsResponse create()
+> EMSOrdersCreateResponseRoot create()
 
 Send orders to EMS for execution.
 
@@ -161,7 +161,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_orders_data_meta_model = EMSOrdersDataMetaModel(
+    ems_orders_root = EMSOrdersRoot(
         data=EMSOrders(
             investor_id="DEMO-12345",
             orders=[
@@ -206,13 +206,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSOrdersDataMetaModel |  (optional)
+    ) # EMSOrdersRoot |  (optional)
 
     try:
         # Send orders to EMS for execution.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.create(ems_orders_data_meta_model=ems_orders_data_meta_model)
+        api_response = api_instance.create(ems_orders_root=ems_orders_root)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -224,11 +224,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_orders_data_meta_model** | [**EMSOrdersDataMetaModel**](EMSOrdersDataMetaModel.md)|  | [optional]
+ **ems_orders_root** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace**
-> EMSOrdersCreateResponseEmsResponse replace()
+> EMSOrdersCreateResponseRoot replace()
 
 Replace the orders on EMS system.
 
@@ -302,7 +302,7 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = orders_api.OrdersApi(api_client)
 
-    ems_replace_orders_data_meta_model = EMSReplaceOrdersDataMetaModel(
+    ems_replace_orders_root = EMSReplaceOrdersRoot(
         data=EMSReplaceOrders(
             investor_id="DEMO-12345",
             orders=[
@@ -350,13 +350,13 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
                 ),
             ],
         ),
-    ) # EMSReplaceOrdersDataMetaModel |  (optional)
+    ) # EMSReplaceOrdersRoot |  (optional)
 
     try:
         # Replace the orders on EMS system.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.replace(ems_replace_orders_data_meta_model=ems_replace_orders_data_meta_model)
+        api_response = api_instance.replace(ems_replace_orders_root=ems_replace_orders_root)
         pprint(api_response)
 
     except fds.sdk.FactSetTrading.ApiException as e:
@@ -368,11 +368,11 @@ with fds.sdk.FactSetTrading.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ems_replace_orders_data_meta_model** | [**EMSReplaceOrdersDataMetaModel**](EMSReplaceOrdersDataMetaModel.md)|  | [optional]
+ **ems_replace_orders_root** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 

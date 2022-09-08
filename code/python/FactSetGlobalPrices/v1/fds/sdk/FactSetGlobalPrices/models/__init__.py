@@ -10,6 +10,9 @@
 # sys.setrecursionlimit(n)
 
 from fds.sdk.FactSetGlobalPrices.model.adjust import Adjust
+from fds.sdk.FactSetGlobalPrices.model.annualized_dividend_response import AnnualizedDividendResponse
+from fds.sdk.FactSetGlobalPrices.model.annualized_dividends_object import AnnualizedDividendsObject
+from fds.sdk.FactSetGlobalPrices.model.annualized_dividends_request import AnnualizedDividendsRequest
 from fds.sdk.FactSetGlobalPrices.model.calendar import Calendar
 from fds.sdk.FactSetGlobalPrices.model.cancelled_dividend import CancelledDividend
 from fds.sdk.FactSetGlobalPrices.model.cash_dividends_response import CashDividendsResponse

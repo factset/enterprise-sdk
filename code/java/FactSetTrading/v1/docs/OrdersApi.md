@@ -1,6 +1,6 @@
 # OrdersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## cancel
 
-> EMSOrdersCreateResponseEmsResponse cancel(emSCancelOrdersDataMetaModel)
+> EMSOrdersCreateResponseRoot cancel(emSCancelOrdersRoot)
 
 Cancel the orders on EMS system.
 
@@ -52,9 +52,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         OrdersApi apiInstance = new OrdersApi(defaultClient);
-        EMSCancelOrdersDataMetaModel emSCancelOrdersDataMetaModel = new EMSCancelOrdersDataMetaModel(); // EMSCancelOrdersDataMetaModel | 
+        EMSCancelOrdersRoot emSCancelOrdersRoot = new EMSCancelOrdersRoot(); // EMSCancelOrdersRoot | 
         try {
-            EMSOrdersCreateResponseEmsResponse result = apiInstance.cancel(emSCancelOrdersDataMetaModel);
+            EMSOrdersCreateResponseRoot result = apiInstance.cancel(emSCancelOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -73,11 +73,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSCancelOrdersDataMetaModel** | [**EMSCancelOrdersDataMetaModel**](EMSCancelOrdersDataMetaModel.md)|  | [optional]
+ **emSCancelOrdersRoot** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ## create
 
-> EMSOrdersCreateResponseEmsResponse create(emSOrdersDataMetaModel)
+> EMSOrdersCreateResponseRoot create(emSOrdersRoot)
 
 Send orders to EMS for execution.
 
@@ -143,9 +143,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         OrdersApi apiInstance = new OrdersApi(defaultClient);
-        EMSOrdersDataMetaModel emSOrdersDataMetaModel = new EMSOrdersDataMetaModel(); // EMSOrdersDataMetaModel | 
+        EMSOrdersRoot emSOrdersRoot = new EMSOrdersRoot(); // EMSOrdersRoot | 
         try {
-            EMSOrdersCreateResponseEmsResponse result = apiInstance.create(emSOrdersDataMetaModel);
+            EMSOrdersCreateResponseRoot result = apiInstance.create(emSOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -164,11 +164,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSOrdersDataMetaModel** | [**EMSOrdersDataMetaModel**](EMSOrdersDataMetaModel.md)|  | [optional]
+ **emSOrdersRoot** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ## replace
 
-> EMSOrdersCreateResponseEmsResponse replace(emSReplaceOrdersDataMetaModel)
+> EMSOrdersCreateResponseRoot replace(emSReplaceOrdersRoot)
 
 Replace the orders on EMS system.
 
@@ -234,9 +234,9 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         OrdersApi apiInstance = new OrdersApi(defaultClient);
-        EMSReplaceOrdersDataMetaModel emSReplaceOrdersDataMetaModel = new EMSReplaceOrdersDataMetaModel(); // EMSReplaceOrdersDataMetaModel | 
+        EMSReplaceOrdersRoot emSReplaceOrdersRoot = new EMSReplaceOrdersRoot(); // EMSReplaceOrdersRoot | 
         try {
-            EMSOrdersCreateResponseEmsResponse result = apiInstance.replace(emSReplaceOrdersDataMetaModel);
+            EMSOrdersCreateResponseRoot result = apiInstance.replace(emSReplaceOrdersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -255,11 +255,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **emSReplaceOrdersDataMetaModel** | [**EMSReplaceOrdersDataMetaModel**](EMSReplaceOrdersDataMetaModel.md)|  | [optional]
+ **emSReplaceOrdersRoot** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional]
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 

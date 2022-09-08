@@ -1,6 +1,6 @@
 # factsettrading.OrdersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## cancel
 
-> EMSOrdersCreateResponseEmsResponse cancel(opts)
+> EMSOrdersCreateResponseRoot cancel(opts)
 
 Cancel the orders on EMS system.
 
@@ -45,7 +45,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new OrdersApi();
 const opts = {
-  'eMSCancelOrdersDataMetaModel': new factsettrading.EMSCancelOrdersDataMetaModel() // EMSCancelOrdersDataMetaModel | 
+  'eMSCancelOrdersRoot': new factsettrading.EMSCancelOrdersRoot() // EMSCancelOrdersRoot | 
 };
 
 // Call api endpoint
@@ -68,11 +68,11 @@ apiInstance.cancel(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSCancelOrdersDataMetaModel** | [**EMSCancelOrdersDataMetaModel**](EMSCancelOrdersDataMetaModel.md)|  | [optional] 
+ **eMSCancelOrdersRoot** | [**EMSCancelOrdersRoot**](EMSCancelOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## create
 
-> EMSOrdersCreateResponseEmsResponse create(opts)
+> EMSOrdersCreateResponseRoot create(opts)
 
 Send orders to EMS for execution.
 
@@ -119,7 +119,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new OrdersApi();
 const opts = {
-  'eMSOrdersDataMetaModel': {"data":{"investorId":"MyOrganization","orders":[{"orderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"market_on_close","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"}]}} // EMSOrdersDataMetaModel | 
+  'eMSOrdersRoot': {"data":{"investorId":"MyOrganization","orders":[{"orderId":"OR0000001","instrument":{"symbol":"GOOGL"},"side":"buy","orderType":"market","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000002","instrument":{"symbol":"MSFT"},"side":"sell","orderType":"limit","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"},{"orderId":"OR0000003","instrument":{"symbol":"TSLA"},"side":"buy","orderType":"market_on_close","orderQuantity":1000,"price":450,"currency":"USD","handlingInstructions":"auto_ord_pub"}]}} // EMSOrdersRoot | 
 };
 
 // Call api endpoint
@@ -142,11 +142,11 @@ apiInstance.create(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSOrdersDataMetaModel** | [**EMSOrdersDataMetaModel**](EMSOrdersDataMetaModel.md)|  | [optional] 
+ **eMSOrdersRoot** | [**EMSOrdersRoot**](EMSOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## replace
 
-> EMSOrdersCreateResponseEmsResponse replace(opts)
+> EMSOrdersCreateResponseRoot replace(opts)
 
 Replace the orders on EMS system.
 
@@ -193,7 +193,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new OrdersApi();
 const opts = {
-  'eMSReplaceOrdersDataMetaModel': new factsettrading.EMSReplaceOrdersDataMetaModel() // EMSReplaceOrdersDataMetaModel | 
+  'eMSReplaceOrdersRoot': new factsettrading.EMSReplaceOrdersRoot() // EMSReplaceOrdersRoot | 
 };
 
 // Call api endpoint
@@ -216,11 +216,11 @@ apiInstance.replace(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **eMSReplaceOrdersDataMetaModel** | [**EMSReplaceOrdersDataMetaModel**](EMSReplaceOrdersDataMetaModel.md)|  | [optional] 
+ **eMSReplaceOrdersRoot** | [**EMSReplaceOrdersRoot**](EMSReplaceOrdersRoot.md)|  | [optional] 
 
 ### Return type
 
-[**EMSOrdersCreateResponseEmsResponse**](EMSOrdersCreateResponseEmsResponse.md)
+[**EMSOrdersCreateResponseRoot**](EMSOrdersCreateResponseRoot.md)
 
 ### Authorization
 

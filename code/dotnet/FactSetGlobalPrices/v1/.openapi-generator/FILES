@@ -5,6 +5,9 @@ LICENSE
 README.md
 appveyor.yml
 docs/Adjust.md
+docs/AnnualizedDividendResponse.md
+docs/AnnualizedDividendsObject.md
+docs/AnnualizedDividendsRequest.md
 docs/Calendar.md
 docs/CancelledDividend.md
 docs/CashDividendsResponse.md
@@ -54,6 +57,9 @@ src/FactSet.SDK.FactSetGlobalPrices/Client/RetryConfiguration.cs
 src/FactSet.SDK.FactSetGlobalPrices/FactSet.SDK.FactSetGlobalPrices.csproj
 src/FactSet.SDK.FactSetGlobalPrices/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Adjust.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/AnnualizedDividendResponse.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/AnnualizedDividendsObject.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/AnnualizedDividendsRequest.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Calendar.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/CancelledDividend.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/CashDividendsResponse.cs

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetTrading",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.21.3",
   "packageGuid": "{bda92720-460a-5e1b-8abf-aaf43bb055ab}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,7 +16,7 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetTrading/0.21.2",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetTrading/0.21.3",
   "files": {
     "LICENSE": {}
   },

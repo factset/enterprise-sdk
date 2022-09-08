@@ -13,6 +13,9 @@
 
 import ApiClient from './ApiClient';
 import Adjust from './model/Adjust';
+import AnnualizedDividendResponse from './model/AnnualizedDividendResponse';
+import AnnualizedDividendsObject from './model/AnnualizedDividendsObject';
+import AnnualizedDividendsRequest from './model/AnnualizedDividendsRequest';
 import Calendar from './model/Calendar';
 import CancelledDividend from './model/CancelledDividend';
 import CashDividendsResponse from './model/CashDividendsResponse';
@@ -84,6 +87,24 @@ export {
      * @property {module:model/Adjust}
      */
     Adjust,
+
+    /**
+     * The AnnualizedDividendResponse model constructor.
+     * @property {module:model/AnnualizedDividendResponse}
+     */
+    AnnualizedDividendResponse,
+
+    /**
+     * The AnnualizedDividendsObject model constructor.
+     * @property {module:model/AnnualizedDividendsObject}
+     */
+    AnnualizedDividendsObject,
+
+    /**
+     * The AnnualizedDividendsRequest model constructor.
+     * @property {module:model/AnnualizedDividendsRequest}
+     */
+    AnnualizedDividendsRequest,
 
     /**
      * The Calendar model constructor.
