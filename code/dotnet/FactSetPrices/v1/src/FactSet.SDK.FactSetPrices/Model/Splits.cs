@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="splitFactor">Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split..</param>
         /// <param name="splitComment">Description for the type of split or spin off..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Splits(string fsymId = default(string), DateTime date = default(DateTime), double splitFactor = default(double), string splitComment = default(string), string requestId = default(string))
+        public Splits(string fsymId = default(string), DateTime? date = default(DateTime?), double? splitFactor = default(double?), string splitComment = default(string), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -53,29 +53,29 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Ex-Date of the split expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ex-Date of the split expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.
         /// </summary>
         /// <value>Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.</value>
-        [DataMember(Name = "splitFactor", EmitDefaultValue = false)]
-        public double SplitFactor { get; set; }
+        [DataMember(Name = "splitFactor", EmitDefaultValue = true)]
+        public double? SplitFactor { get; set; }
 
         /// <summary>
         /// Description for the type of split or spin off.
         /// </summary>
         /// <value>Description for the type of split or spin off.</value>
-        [DataMember(Name = "splitComment", EmitDefaultValue = false)]
+        [DataMember(Name = "splitComment", EmitDefaultValue = true)]
         public string SplitComment { get; set; }
 
         /// <summary>
@@ -145,7 +145,8 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.SplitFactor == input.SplitFactor ||
-                    this.SplitFactor.Equals(input.SplitFactor)
+                    (this.SplitFactor != null &&
+                    this.SplitFactor.Equals(input.SplitFactor))
                 ) && 
                 (
                     this.SplitComment == input.SplitComment ||
@@ -176,7 +177,10 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SplitFactor.GetHashCode();
+                if (this.SplitFactor != null)
+                {
+                    hashCode = (hashCode * 59) + this.SplitFactor.GetHashCode();
+                }
                 if (this.SplitComment != null)
                 {
                     hashCode = (hashCode * 59) + this.SplitComment.GetHashCode();

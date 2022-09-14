@@ -82,12 +82,12 @@ class Rollover(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'americas_roll_time': (datetime,),  # noqa: E501
-            'americas_zero_date': (date,),  # noqa: E501
-            'asiapacific_roll_time': (datetime,),  # noqa: E501
-            'asiapacific_zero_date': (date,),  # noqa: E501
-            'europe_roll_time': (datetime,),  # noqa: E501
-            'europe_zero_date': (date,),  # noqa: E501
+            'americas_roll_time': (datetime, none_type,),  # noqa: E501
+            'americas_zero_date': (date, none_type,),  # noqa: E501
+            'asiapacific_roll_time': (datetime, none_type,),  # noqa: E501
+            'asiapacific_zero_date': (date, none_type,),  # noqa: E501
+            'europe_roll_time': (datetime, none_type,),  # noqa: E501
+            'europe_zero_date': (date, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -145,12 +145,12 @@ class Rollover(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            americas_roll_time (datetime): Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            americas_zero_date (date): Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.. [optional]  # noqa: E501
-            asiapacific_roll_time (datetime): Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            asiapacific_zero_date (date): Current relative zero date for Asia/Pacific. This is in Eastern Time Zone. [optional]  # noqa: E501
-            europe_roll_time (datetime): Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            europe_zero_date (date): Current relative zero date for Europe. This is in Eastern Time Zone. [optional]  # noqa: E501
+            americas_roll_time (datetime, none_type): Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            americas_zero_date (date, none_type): Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.. [optional]  # noqa: E501
+            asiapacific_roll_time (datetime, none_type): Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            asiapacific_zero_date (date, none_type): Current relative zero date for Asia/Pacific. This is in Eastern Time Zone. [optional]  # noqa: E501
+            europe_roll_time (datetime, none_type): Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            europe_zero_date (date, none_type): Current relative zero date for Europe. This is in Eastern Time Zone. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,12 +232,12 @@ class Rollover(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            americas_roll_time (datetime): Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            americas_zero_date (date): Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.. [optional]  # noqa: E501
-            asiapacific_roll_time (datetime): Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            asiapacific_zero_date (date): Current relative zero date for Asia/Pacific. This is in Eastern Time Zone. [optional]  # noqa: E501
-            europe_roll_time (datetime): Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
-            europe_zero_date (date): Current relative zero date for Europe. This is in Eastern Time Zone. [optional]  # noqa: E501
+            americas_roll_time (datetime, none_type): Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            americas_zero_date (date, none_type): Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.. [optional]  # noqa: E501
+            asiapacific_roll_time (datetime, none_type): Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            asiapacific_zero_date (date, none_type): Current relative zero date for Asia/Pacific. This is in Eastern Time Zone. [optional]  # noqa: E501
+            europe_roll_time (datetime, none_type): Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.. [optional]  # noqa: E501
+            europe_zero_date (date, none_type): Current relative zero date for Europe. This is in Eastern Time Zone. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

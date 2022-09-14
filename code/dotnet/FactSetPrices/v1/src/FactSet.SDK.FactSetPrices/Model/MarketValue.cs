@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="entityMarketValueExNonTraded">Aggregate across all share classes and excludes non-traded shares. Values are in base units. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867)..</param>
         /// <param name="securityMarketValue">Returns the security level market value calculated as the share price multiplied by the number of shares at the security level. **Note:** History is available back to Oct-1999 for North American securities, and 1-Jan-2001 for non-North American securities..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public MarketValue(string fsymId = default(string), DateTime date = default(DateTime), string currency = default(string), double entityMarketValue = default(double), double entityMarketValueExNonTraded = default(double), double securityMarketValue = default(double), string requestId = default(string))
+        public MarketValue(string fsymId = default(string), DateTime? date = default(DateTime?), string currency = default(string), double? entityMarketValue = default(double?), double? entityMarketValueExNonTraded = default(double?), double? securityMarketValue = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -57,44 +57,44 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Ending date for the period expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ending date for the period expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Aggregate market value across all share classes and includes non-traded shares which are added to the calculation basis by the proportion of their nominal or par value. Values are in base units. To value non-traded shares, the price of the parent equity provides the most appropriate approximation of what the non-traded shares would be worth in the open market. For unique companies with an ADR as the parent equity, since it is the only traded security associated with that company, when calculating company-level market value, the price of the ADR is used, but is scaled by the ADR ratio since there&#39;s not always a one-to-one relationship between ADR shares and the non-traded shares which they represent. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867). 
         /// </summary>
         /// <value>Aggregate market value across all share classes and includes non-traded shares which are added to the calculation basis by the proportion of their nominal or par value. Values are in base units. To value non-traded shares, the price of the parent equity provides the most appropriate approximation of what the non-traded shares would be worth in the open market. For unique companies with an ADR as the parent equity, since it is the only traded security associated with that company, when calculating company-level market value, the price of the ADR is used, but is scaled by the ADR ratio since there&#39;s not always a one-to-one relationship between ADR shares and the non-traded shares which they represent. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867). </value>
-        [DataMember(Name = "entityMarketValue", EmitDefaultValue = false)]
-        public double EntityMarketValue { get; set; }
+        [DataMember(Name = "entityMarketValue", EmitDefaultValue = true)]
+        public double? EntityMarketValue { get; set; }
 
         /// <summary>
         /// Aggregate across all share classes and excludes non-traded shares. Values are in base units. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867).
         /// </summary>
         /// <value>Aggregate across all share classes and excludes non-traded shares. Values are in base units. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867).</value>
-        [DataMember(Name = "entityMarketValueExNonTraded", EmitDefaultValue = false)]
-        public double EntityMarketValueExNonTraded { get; set; }
+        [DataMember(Name = "entityMarketValueExNonTraded", EmitDefaultValue = true)]
+        public double? EntityMarketValueExNonTraded { get; set; }
 
         /// <summary>
         /// Returns the security level market value calculated as the share price multiplied by the number of shares at the security level. **Note:** History is available back to Oct-1999 for North American securities, and 1-Jan-2001 for non-North American securities.
         /// </summary>
         /// <value>Returns the security level market value calculated as the share price multiplied by the number of shares at the security level. **Note:** History is available back to Oct-1999 for North American securities, and 1-Jan-2001 for non-North American securities.</value>
-        [DataMember(Name = "securityMarketValue", EmitDefaultValue = false)]
-        public double SecurityMarketValue { get; set; }
+        [DataMember(Name = "securityMarketValue", EmitDefaultValue = true)]
+        public double? SecurityMarketValue { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -170,15 +170,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.EntityMarketValue == input.EntityMarketValue ||
-                    this.EntityMarketValue.Equals(input.EntityMarketValue)
+                    (this.EntityMarketValue != null &&
+                    this.EntityMarketValue.Equals(input.EntityMarketValue))
                 ) && 
                 (
                     this.EntityMarketValueExNonTraded == input.EntityMarketValueExNonTraded ||
-                    this.EntityMarketValueExNonTraded.Equals(input.EntityMarketValueExNonTraded)
+                    (this.EntityMarketValueExNonTraded != null &&
+                    this.EntityMarketValueExNonTraded.Equals(input.EntityMarketValueExNonTraded))
                 ) && 
                 (
                     this.SecurityMarketValue == input.SecurityMarketValue ||
-                    this.SecurityMarketValue.Equals(input.SecurityMarketValue)
+                    (this.SecurityMarketValue != null &&
+                    this.SecurityMarketValue.Equals(input.SecurityMarketValue))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -208,9 +211,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.EntityMarketValue.GetHashCode();
-                hashCode = (hashCode * 59) + this.EntityMarketValueExNonTraded.GetHashCode();
-                hashCode = (hashCode * 59) + this.SecurityMarketValue.GetHashCode();
+                if (this.EntityMarketValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityMarketValue.GetHashCode();
+                }
+                if (this.EntityMarketValueExNonTraded != null)
+                {
+                    hashCode = (hashCode * 59) + this.EntityMarketValueExNonTraded.GetHashCode();
+                }
+                if (this.SecurityMarketValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecurityMarketValue.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

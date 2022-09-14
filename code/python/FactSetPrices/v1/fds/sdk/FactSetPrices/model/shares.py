@@ -82,12 +82,12 @@ class Shares(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'adj_date': (date,),  # noqa: E501
-            'shares_security': (float,),  # noqa: E501
-            'shares_company': (float,),  # noqa: E501
-            'shares_company_nontraded': (float,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'adj_date': (date, none_type,),  # noqa: E501
+            'shares_security': (float, none_type,),  # noqa: E501
+            'shares_company': (float, none_type,),  # noqa: E501
+            'shares_company_nontraded': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -147,12 +147,12 @@ class Shares(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Date expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.. [optional]  # noqa: E501
-            shares_security (float): **Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435). [optional]  # noqa: E501
-            shares_company (float): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
-            shares_company_nontraded (float): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Date expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.. [optional]  # noqa: E501
+            shares_security (float, none_type): **Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435). [optional]  # noqa: E501
+            shares_company (float, none_type): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
+            shares_company_nontraded (float, none_type): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -235,12 +235,12 @@ class Shares(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Date expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.. [optional]  # noqa: E501
-            shares_security (float): **Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435). [optional]  # noqa: E501
-            shares_company (float): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
-            shares_company_nontraded (float): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Date expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.. [optional]  # noqa: E501
+            shares_security (float, none_type): **Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435). [optional]  # noqa: E501
+            shares_company (float, none_type): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
+            shares_company_nontraded (float, none_type): **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867). [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

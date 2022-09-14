@@ -82,7 +82,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
         /// </summary>
         /// <value>Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).</value>
-        [DataMember(Name = "divsNGFlag", EmitDefaultValue = false)]
+        [DataMember(Name = "divsNGFlag", EmitDefaultValue = true)]
         public DivsNGFlagEnum? DivsNGFlag { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Dividend" /> class.
@@ -101,7 +101,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="divsNGFlag">Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512)..</param>
         /// <param name="divsNGEquiv">Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512)..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Dividend(string fsymId = default(string), DateTime divsExDate = default(DateTime), DateTime adjDate = default(DateTime), string currency = default(string), double divsPaid = default(double), DateTime divsRecDate = default(DateTime), DateTime divsPayDate = default(DateTime), int divsTypeC = default(int), string divsTypeD = default(string), string divsTaxC = default(string), string divsTaxD = default(string), DivsNGFlagEnum? divsNGFlag = default(DivsNGFlagEnum?), double divsNGEquiv = default(double), string requestId = default(string))
+        public Dividend(string fsymId = default(string), DateTime? divsExDate = default(DateTime?), DateTime? adjDate = default(DateTime?), string currency = default(string), double? divsPaid = default(double?), DateTime? divsRecDate = default(DateTime?), DateTime? divsPayDate = default(DateTime?), int? divsTypeC = default(int?), string divsTypeD = default(string), string divsTaxC = default(string), string divsTaxD = default(string), DivsNGFlagEnum? divsNGFlag = default(DivsNGFlagEnum?), double? divsNGEquiv = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.DivsExDate = divsExDate;
@@ -123,89 +123,89 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Ex-Date of the dividend expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ex-Date of the dividend expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "divsExDate", EmitDefaultValue = false)]
+        [DataMember(Name = "divsExDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DivsExDate { get; set; }
+        public DateTime? DivsExDate { get; set; }
 
         /// <summary>
         /// Date of last split for which prices and volume have been adjusted.
         /// </summary>
         /// <value>Date of last split for which prices and volume have been adjusted.</value>
-        [DataMember(Name = "adjDate", EmitDefaultValue = false)]
+        [DataMember(Name = "adjDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AdjDate { get; set; }
+        public DateTime? AdjDate { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Amount of the dividend paid.
         /// </summary>
         /// <value>Amount of the dividend paid.</value>
-        [DataMember(Name = "divsPaid", EmitDefaultValue = false)]
-        public double DivsPaid { get; set; }
+        [DataMember(Name = "divsPaid", EmitDefaultValue = true)]
+        public double? DivsPaid { get; set; }
 
         /// <summary>
         /// Date the dividend was recorded expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Date the dividend was recorded expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "divsRecDate", EmitDefaultValue = false)]
+        [DataMember(Name = "divsRecDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DivsRecDate { get; set; }
+        public DateTime? DivsRecDate { get; set; }
 
         /// <summary>
         /// Date the dividend will be paid expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Date the dividend will be paid expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "divsPayDate", EmitDefaultValue = false)]
+        [DataMember(Name = "divsPayDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DivsPayDate { get; set; }
+        public DateTime? DivsPayDate { get; set; }
 
         /// <summary>
         /// Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).
         /// </summary>
         /// <value>Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).</value>
-        [DataMember(Name = "divsTypeC", EmitDefaultValue = false)]
-        public int DivsTypeC { get; set; }
+        [DataMember(Name = "divsTypeC", EmitDefaultValue = true)]
+        public int? DivsTypeC { get; set; }
 
         /// <summary>
         /// Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).
         /// </summary>
         /// <value>Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).</value>
-        [DataMember(Name = "divsTypeD", EmitDefaultValue = false)]
+        [DataMember(Name = "divsTypeD", EmitDefaultValue = true)]
         public string DivsTypeD { get; set; }
 
         /// <summary>
         /// Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).
         /// </summary>
         /// <value>Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).</value>
-        [DataMember(Name = "divsTaxC", EmitDefaultValue = false)]
+        [DataMember(Name = "divsTaxC", EmitDefaultValue = true)]
         public string DivsTaxC { get; set; }
 
         /// <summary>
         /// Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).
         /// </summary>
         /// <value>Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).</value>
-        [DataMember(Name = "divsTaxD", EmitDefaultValue = false)]
+        [DataMember(Name = "divsTaxD", EmitDefaultValue = true)]
         public string DivsTaxD { get; set; }
 
         /// <summary>
         /// Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
         /// </summary>
         /// <value>Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).</value>
-        [DataMember(Name = "divsNGEquiv", EmitDefaultValue = false)]
-        public double DivsNGEquiv { get; set; }
+        [DataMember(Name = "divsNGEquiv", EmitDefaultValue = true)]
+        public double? DivsNGEquiv { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -293,7 +293,8 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.DivsPaid == input.DivsPaid ||
-                    this.DivsPaid.Equals(input.DivsPaid)
+                    (this.DivsPaid != null &&
+                    this.DivsPaid.Equals(input.DivsPaid))
                 ) && 
                 (
                     this.DivsRecDate == input.DivsRecDate ||
@@ -307,7 +308,8 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.DivsTypeC == input.DivsTypeC ||
-                    this.DivsTypeC.Equals(input.DivsTypeC)
+                    (this.DivsTypeC != null &&
+                    this.DivsTypeC.Equals(input.DivsTypeC))
                 ) && 
                 (
                     this.DivsTypeD == input.DivsTypeD ||
@@ -330,7 +332,8 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.DivsNGEquiv == input.DivsNGEquiv ||
-                    this.DivsNGEquiv.Equals(input.DivsNGEquiv)
+                    (this.DivsNGEquiv != null &&
+                    this.DivsNGEquiv.Equals(input.DivsNGEquiv))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -364,7 +367,10 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DivsPaid.GetHashCode();
+                if (this.DivsPaid != null)
+                {
+                    hashCode = (hashCode * 59) + this.DivsPaid.GetHashCode();
+                }
                 if (this.DivsRecDate != null)
                 {
                     hashCode = (hashCode * 59) + this.DivsRecDate.GetHashCode();
@@ -373,7 +379,10 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.DivsPayDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DivsTypeC.GetHashCode();
+                if (this.DivsTypeC != null)
+                {
+                    hashCode = (hashCode * 59) + this.DivsTypeC.GetHashCode();
+                }
                 if (this.DivsTypeD != null)
                 {
                     hashCode = (hashCode * 59) + this.DivsTypeD.GetHashCode();
@@ -387,7 +396,10 @@ namespace FactSet.SDK.FactSetPrices.Model
                     hashCode = (hashCode * 59) + this.DivsTaxD.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DivsNGFlag.GetHashCode();
-                hashCode = (hashCode * 59) + this.DivsNGEquiv.GetHashCode();
+                if (this.DivsNGEquiv != null)
+                {
+                    hashCode = (hashCode * 59) + this.DivsNGEquiv.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

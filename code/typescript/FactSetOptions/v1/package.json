@@ -2,7 +2,7 @@
   "name": "@factset/sdk-factsetoptions",
   "version": "1.0.0",
   "description": "FactSet Options client library for JavaScript",
-  "license": "Apache-2.0",
+  "license": "Apache License, Version 2.0",
   "author": "FactSet Research Systems",
   "keywords": ["FactSet", "API", "SDK"],
   "main": "dist/index.js",

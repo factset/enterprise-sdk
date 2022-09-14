@@ -26,6 +26,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -48,22 +52,22 @@ public class Shares implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_ADJ_DATE = "adjDate";
-  private LocalDate adjDate;
+  private JsonNullable<LocalDate> adjDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_SHARES_SECURITY = "sharesSecurity";
-  private BigDecimal sharesSecurity;
+  private JsonNullable<BigDecimal> sharesSecurity = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_SHARES_COMPANY = "sharesCompany";
-  private BigDecimal sharesCompany;
+  private JsonNullable<BigDecimal> sharesCompany = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_SHARES_COMPANY_NONTRADED = "sharesCompanyNontraded";
-  private BigDecimal sharesCompanyNontraded;
+  private JsonNullable<BigDecimal> sharesCompanyNontraded = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -72,7 +76,7 @@ public class Shares implements Serializable {
   }
 
   public Shares fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -82,23 +86,31 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Shares date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -108,23 +120,31 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "Date expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public Shares adjDate(LocalDate adjDate) {
-    this.adjDate = adjDate;
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
     return this;
   }
 
@@ -134,23 +154,31 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.")
-  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAdjDate() {
-    return adjDate;
+        return adjDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjDate(LocalDate adjDate) {
+
+  public JsonNullable<LocalDate> getAdjDate_JsonNullable() {
+    return adjDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
+  public void setAdjDate_JsonNullable(JsonNullable<LocalDate> adjDate) {
     this.adjDate = adjDate;
+  }
+
+  public void setAdjDate(LocalDate adjDate) {
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
   }
 
 
   public Shares sharesSecurity(BigDecimal sharesSecurity) {
-    this.sharesSecurity = sharesSecurity;
+    this.sharesSecurity = JsonNullable.<BigDecimal>of(sharesSecurity);
     return this;
   }
 
@@ -160,23 +188,31 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "299532000", value = "**Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435)")
-  @JsonProperty(JSON_PROPERTY_SHARES_SECURITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getSharesSecurity() {
-    return sharesSecurity;
+        return sharesSecurity.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SHARES_SECURITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSharesSecurity(BigDecimal sharesSecurity) {
+
+  public JsonNullable<BigDecimal> getSharesSecurity_JsonNullable() {
+    return sharesSecurity;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARES_SECURITY)
+  public void setSharesSecurity_JsonNullable(JsonNullable<BigDecimal> sharesSecurity) {
     this.sharesSecurity = sharesSecurity;
+  }
+
+  public void setSharesSecurity(BigDecimal sharesSecurity) {
+    this.sharesSecurity = JsonNullable.<BigDecimal>of(sharesSecurity);
   }
 
 
   public Shares sharesCompany(BigDecimal sharesCompany) {
-    this.sharesCompany = sharesCompany;
+    this.sharesCompany = JsonNullable.<BigDecimal>of(sharesCompany);
     return this;
   }
 
@@ -186,23 +222,31 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "649532000", value = "**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)")
-  @JsonProperty(JSON_PROPERTY_SHARES_COMPANY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getSharesCompany() {
-    return sharesCompany;
+        return sharesCompany.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SHARES_COMPANY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSharesCompany(BigDecimal sharesCompany) {
+
+  public JsonNullable<BigDecimal> getSharesCompany_JsonNullable() {
+    return sharesCompany;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARES_COMPANY)
+  public void setSharesCompany_JsonNullable(JsonNullable<BigDecimal> sharesCompany) {
     this.sharesCompany = sharesCompany;
+  }
+
+  public void setSharesCompany(BigDecimal sharesCompany) {
+    this.sharesCompany = JsonNullable.<BigDecimal>of(sharesCompany);
   }
 
 
   public Shares sharesCompanyNontraded(BigDecimal sharesCompanyNontraded) {
-    this.sharesCompanyNontraded = sharesCompanyNontraded;
+    this.sharesCompanyNontraded = JsonNullable.<BigDecimal>of(sharesCompanyNontraded);
     return this;
   }
 
@@ -212,18 +256,26 @@ public class Shares implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "657532000", value = "**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)")
-  @JsonProperty(JSON_PROPERTY_SHARES_COMPANY_NONTRADED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getSharesCompanyNontraded() {
-    return sharesCompanyNontraded;
+        return sharesCompanyNontraded.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SHARES_COMPANY_NONTRADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSharesCompanyNontraded(BigDecimal sharesCompanyNontraded) {
+
+  public JsonNullable<BigDecimal> getSharesCompanyNontraded_JsonNullable() {
+    return sharesCompanyNontraded;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SHARES_COMPANY_NONTRADED)
+  public void setSharesCompanyNontraded_JsonNullable(JsonNullable<BigDecimal> sharesCompanyNontraded) {
     this.sharesCompanyNontraded = sharesCompanyNontraded;
+  }
+
+  public void setSharesCompanyNontraded(BigDecimal sharesCompanyNontraded) {
+    this.sharesCompanyNontraded = JsonNullable.<BigDecimal>of(sharesCompanyNontraded);
   }
 
 
@@ -265,18 +317,29 @@ public class Shares implements Serializable {
       return false;
     }
     Shares shares = (Shares) o;
-    return Objects.equals(this.fsymId, shares.fsymId) &&
-        Objects.equals(this.date, shares.date) &&
-        Objects.equals(this.adjDate, shares.adjDate) &&
-        Objects.equals(this.sharesSecurity, shares.sharesSecurity) &&
-        Objects.equals(this.sharesCompany, shares.sharesCompany) &&
-        Objects.equals(this.sharesCompanyNontraded, shares.sharesCompanyNontraded) &&
+    return equalsNullable(this.fsymId, shares.fsymId) &&
+        equalsNullable(this.date, shares.date) &&
+        equalsNullable(this.adjDate, shares.adjDate) &&
+        equalsNullable(this.sharesSecurity, shares.sharesSecurity) &&
+        equalsNullable(this.sharesCompany, shares.sharesCompany) &&
+        equalsNullable(this.sharesCompanyNontraded, shares.sharesCompanyNontraded) &&
         Objects.equals(this.requestId, shares.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, adjDate, sharesSecurity, sharesCompany, sharesCompanyNontraded, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(adjDate), hashCodeNullable(sharesSecurity), hashCodeNullable(sharesCompany), hashCodeNullable(sharesCompanyNontraded), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

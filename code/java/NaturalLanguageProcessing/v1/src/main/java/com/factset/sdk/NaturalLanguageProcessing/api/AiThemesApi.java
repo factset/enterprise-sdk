@@ -16,14 +16,14 @@ import com.factset.sdk.NaturalLanguageProcessing.models.ThemeParametersRoot;
 import com.factset.sdk.NaturalLanguageProcessing.models.ThemesRoot;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ThemesApi {
+public class AiThemesApi {
   private ApiClient apiClient;
 
-  public ThemesApi() {
+  public AiThemesApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public ThemesApi(ApiClient apiClient) {
+  public AiThemesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -57,7 +57,7 @@ public class ThemesApi {
 
   /**
    * POST request to extract themes from text
-   * This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text.  Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+   * This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
    * @param themeParametersRoot  (required)
    * @return ThemesRoot
    * @throws ApiException if fails to make API call
@@ -79,7 +79,7 @@ public class ThemesApi {
 
   /**
    * POST request to extract themes from text
-   * This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text.  Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+   * This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
    * @param themeParametersRoot  (required)
    * @return ApiResponse&lt;ThemesRoot&gt;
    * @throws ApiException if fails to make API call
@@ -133,7 +133,7 @@ public class ThemesApi {
         
         ThemesRoot
       
-    > apiResponse = apiClient.invokeAPI("ThemesApi.cognitiveNlpV1ThemesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("AiThemesApi.cognitiveNlpV1ThemesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, cognitiveNlpV1ThemesPostResponseTypeMap, false);
 

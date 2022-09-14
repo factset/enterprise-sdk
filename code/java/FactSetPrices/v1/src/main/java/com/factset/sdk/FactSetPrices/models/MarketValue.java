@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -47,22 +51,22 @@ public class MarketValue implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_MARKET_VALUE = "entityMarketValue";
-  private Double entityMarketValue;
+  private JsonNullable<Double> entityMarketValue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ENTITY_MARKET_VALUE_EX_NON_TRADED = "entityMarketValueExNonTraded";
-  private Double entityMarketValueExNonTraded;
+  private JsonNullable<Double> entityMarketValueExNonTraded = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_MARKET_VALUE = "securityMarketValue";
-  private Double securityMarketValue;
+  private JsonNullable<Double> securityMarketValue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -71,7 +75,7 @@ public class MarketValue implements Serializable {
   }
 
   public MarketValue fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -81,23 +85,31 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "HTM0LK-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public MarketValue date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -107,23 +119,31 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Jul 07 00:00:00 UTC 2020", value = "Ending date for the period expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public MarketValue currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -133,23 +153,31 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public MarketValue entityMarketValue(Double entityMarketValue) {
-    this.entityMarketValue = entityMarketValue;
+    this.entityMarketValue = JsonNullable.<Double>of(entityMarketValue);
     return this;
   }
 
@@ -159,23 +187,31 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1022362841136.31", value = "Aggregate market value across all share classes and includes non-traded shares which are added to the calculation basis by the proportion of their nominal or par value. Values are in base units. To value non-traded shares, the price of the parent equity provides the most appropriate approximation of what the non-traded shares would be worth in the open market. For unique companies with an ADR as the parent equity, since it is the only traded security associated with that company, when calculating company-level market value, the price of the ADR is used, but is scaled by the ADR ratio since there's not always a one-to-one relationship between ADR shares and the non-traded shares which they represent. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867). ")
-  @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getEntityMarketValue() {
-    return entityMarketValue;
+        return entityMarketValue.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityMarketValue(Double entityMarketValue) {
+
+  public JsonNullable<Double> getEntityMarketValue_JsonNullable() {
+    return entityMarketValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE)
+  public void setEntityMarketValue_JsonNullable(JsonNullable<Double> entityMarketValue) {
     this.entityMarketValue = entityMarketValue;
+  }
+
+  public void setEntityMarketValue(Double entityMarketValue) {
+    this.entityMarketValue = JsonNullable.<Double>of(entityMarketValue);
   }
 
 
   public MarketValue entityMarketValueExNonTraded(Double entityMarketValueExNonTraded) {
-    this.entityMarketValueExNonTraded = entityMarketValueExNonTraded;
+    this.entityMarketValueExNonTraded = JsonNullable.<Double>of(entityMarketValueExNonTraded);
     return this;
   }
 
@@ -185,23 +221,31 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "952768582453.33", value = "Aggregate across all share classes and excludes non-traded shares. Values are in base units. For more details visit [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867).")
-  @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE_EX_NON_TRADED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getEntityMarketValueExNonTraded() {
-    return entityMarketValueExNonTraded;
+        return entityMarketValueExNonTraded.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE_EX_NON_TRADED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityMarketValueExNonTraded(Double entityMarketValueExNonTraded) {
+
+  public JsonNullable<Double> getEntityMarketValueExNonTraded_JsonNullable() {
+    return entityMarketValueExNonTraded;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ENTITY_MARKET_VALUE_EX_NON_TRADED)
+  public void setEntityMarketValueExNonTraded_JsonNullable(JsonNullable<Double> entityMarketValueExNonTraded) {
     this.entityMarketValueExNonTraded = entityMarketValueExNonTraded;
+  }
+
+  public void setEntityMarketValueExNonTraded(Double entityMarketValueExNonTraded) {
+    this.entityMarketValueExNonTraded = JsonNullable.<Double>of(entityMarketValueExNonTraded);
   }
 
 
   public MarketValue securityMarketValue(Double securityMarketValue) {
-    this.securityMarketValue = securityMarketValue;
+    this.securityMarketValue = JsonNullable.<Double>of(securityMarketValue);
     return this;
   }
 
@@ -211,18 +255,26 @@ public class MarketValue implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "449970657342.5", value = "Returns the security level market value calculated as the share price multiplied by the number of shares at the security level. **Note:** History is available back to Oct-1999 for North American securities, and 1-Jan-2001 for non-North American securities.")
-  @JsonProperty(JSON_PROPERTY_SECURITY_MARKET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getSecurityMarketValue() {
-    return securityMarketValue;
+        return securityMarketValue.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_MARKET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityMarketValue(Double securityMarketValue) {
+
+  public JsonNullable<Double> getSecurityMarketValue_JsonNullable() {
+    return securityMarketValue;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_MARKET_VALUE)
+  public void setSecurityMarketValue_JsonNullable(JsonNullable<Double> securityMarketValue) {
     this.securityMarketValue = securityMarketValue;
+  }
+
+  public void setSecurityMarketValue(Double securityMarketValue) {
+    this.securityMarketValue = JsonNullable.<Double>of(securityMarketValue);
   }
 
 
@@ -264,18 +316,29 @@ public class MarketValue implements Serializable {
       return false;
     }
     MarketValue marketValue = (MarketValue) o;
-    return Objects.equals(this.fsymId, marketValue.fsymId) &&
-        Objects.equals(this.date, marketValue.date) &&
-        Objects.equals(this.currency, marketValue.currency) &&
-        Objects.equals(this.entityMarketValue, marketValue.entityMarketValue) &&
-        Objects.equals(this.entityMarketValueExNonTraded, marketValue.entityMarketValueExNonTraded) &&
-        Objects.equals(this.securityMarketValue, marketValue.securityMarketValue) &&
+    return equalsNullable(this.fsymId, marketValue.fsymId) &&
+        equalsNullable(this.date, marketValue.date) &&
+        equalsNullable(this.currency, marketValue.currency) &&
+        equalsNullable(this.entityMarketValue, marketValue.entityMarketValue) &&
+        equalsNullable(this.entityMarketValueExNonTraded, marketValue.entityMarketValueExNonTraded) &&
+        equalsNullable(this.securityMarketValue, marketValue.securityMarketValue) &&
         Objects.equals(this.requestId, marketValue.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, currency, entityMarketValue, entityMarketValueExNonTraded, securityMarketValue, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(currency), hashCodeNullable(entityMarketValue), hashCodeNullable(entityMarketValueExNonTraded), hashCodeNullable(securityMarketValue), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

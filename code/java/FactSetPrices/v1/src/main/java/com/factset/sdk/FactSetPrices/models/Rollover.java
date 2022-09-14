@@ -26,6 +26,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -47,28 +51,28 @@ public class Rollover implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_AMERICAS_ROLL_TIME = "americasRollTime";
-  private OffsetDateTime americasRollTime;
+  private JsonNullable<OffsetDateTime> americasRollTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_AMERICAS_ZERO_DATE = "americasZeroDate";
-  private LocalDate americasZeroDate;
+  private JsonNullable<LocalDate> americasZeroDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_ASIAPACIFIC_ROLL_TIME = "asiapacificRollTime";
-  private OffsetDateTime asiapacificRollTime;
+  private JsonNullable<OffsetDateTime> asiapacificRollTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_ASIAPACIFIC_ZERO_DATE = "asiapacificZeroDate";
-  private LocalDate asiapacificZeroDate;
+  private JsonNullable<LocalDate> asiapacificZeroDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_EUROPE_ROLL_TIME = "europeRollTime";
-  private OffsetDateTime europeRollTime;
+  private JsonNullable<OffsetDateTime> europeRollTime = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_EUROPE_ZERO_DATE = "europeZeroDate";
-  private LocalDate europeZeroDate;
+  private JsonNullable<LocalDate> europeZeroDate = JsonNullable.<LocalDate>undefined();
 
   public Rollover() { 
   }
 
   public Rollover americasRollTime(OffsetDateTime americasRollTime) {
-    this.americasRollTime = americasRollTime;
+    this.americasRollTime = JsonNullable.<OffsetDateTime>of(americasRollTime);
     return this;
   }
 
@@ -78,23 +82,31 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
-  @JsonProperty(JSON_PROPERTY_AMERICAS_ROLL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getAmericasRollTime() {
-    return americasRollTime;
+        return americasRollTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_AMERICAS_ROLL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmericasRollTime(OffsetDateTime americasRollTime) {
+
+  public JsonNullable<OffsetDateTime> getAmericasRollTime_JsonNullable() {
+    return americasRollTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AMERICAS_ROLL_TIME)
+  public void setAmericasRollTime_JsonNullable(JsonNullable<OffsetDateTime> americasRollTime) {
     this.americasRollTime = americasRollTime;
+  }
+
+  public void setAmericasRollTime(OffsetDateTime americasRollTime) {
+    this.americasRollTime = JsonNullable.<OffsetDateTime>of(americasRollTime);
   }
 
 
   public Rollover americasZeroDate(LocalDate americasZeroDate) {
-    this.americasZeroDate = americasZeroDate;
+    this.americasZeroDate = JsonNullable.<LocalDate>of(americasZeroDate);
     return this;
   }
 
@@ -104,23 +116,31 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.")
-  @JsonProperty(JSON_PROPERTY_AMERICAS_ZERO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAmericasZeroDate() {
-    return americasZeroDate;
+        return americasZeroDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_AMERICAS_ZERO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmericasZeroDate(LocalDate americasZeroDate) {
+
+  public JsonNullable<LocalDate> getAmericasZeroDate_JsonNullable() {
+    return americasZeroDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_AMERICAS_ZERO_DATE)
+  public void setAmericasZeroDate_JsonNullable(JsonNullable<LocalDate> americasZeroDate) {
     this.americasZeroDate = americasZeroDate;
+  }
+
+  public void setAmericasZeroDate(LocalDate americasZeroDate) {
+    this.americasZeroDate = JsonNullable.<LocalDate>of(americasZeroDate);
   }
 
 
   public Rollover asiapacificRollTime(OffsetDateTime asiapacificRollTime) {
-    this.asiapacificRollTime = asiapacificRollTime;
+    this.asiapacificRollTime = JsonNullable.<OffsetDateTime>of(asiapacificRollTime);
     return this;
   }
 
@@ -130,23 +150,31 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
-  @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ROLL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getAsiapacificRollTime() {
-    return asiapacificRollTime;
+        return asiapacificRollTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ROLL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsiapacificRollTime(OffsetDateTime asiapacificRollTime) {
+
+  public JsonNullable<OffsetDateTime> getAsiapacificRollTime_JsonNullable() {
+    return asiapacificRollTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ROLL_TIME)
+  public void setAsiapacificRollTime_JsonNullable(JsonNullable<OffsetDateTime> asiapacificRollTime) {
     this.asiapacificRollTime = asiapacificRollTime;
+  }
+
+  public void setAsiapacificRollTime(OffsetDateTime asiapacificRollTime) {
+    this.asiapacificRollTime = JsonNullable.<OffsetDateTime>of(asiapacificRollTime);
   }
 
 
   public Rollover asiapacificZeroDate(LocalDate asiapacificZeroDate) {
-    this.asiapacificZeroDate = asiapacificZeroDate;
+    this.asiapacificZeroDate = JsonNullable.<LocalDate>of(asiapacificZeroDate);
     return this;
   }
 
@@ -156,23 +184,31 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Jun 18 00:00:00 UTC 2020", value = "Current relative zero date for Asia/Pacific. This is in Eastern Time Zone")
-  @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ZERO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAsiapacificZeroDate() {
-    return asiapacificZeroDate;
+        return asiapacificZeroDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ZERO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsiapacificZeroDate(LocalDate asiapacificZeroDate) {
+
+  public JsonNullable<LocalDate> getAsiapacificZeroDate_JsonNullable() {
+    return asiapacificZeroDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ASIAPACIFIC_ZERO_DATE)
+  public void setAsiapacificZeroDate_JsonNullable(JsonNullable<LocalDate> asiapacificZeroDate) {
     this.asiapacificZeroDate = asiapacificZeroDate;
+  }
+
+  public void setAsiapacificZeroDate(LocalDate asiapacificZeroDate) {
+    this.asiapacificZeroDate = JsonNullable.<LocalDate>of(asiapacificZeroDate);
   }
 
 
   public Rollover europeRollTime(OffsetDateTime europeRollTime) {
-    this.europeRollTime = europeRollTime;
+    this.europeRollTime = JsonNullable.<OffsetDateTime>of(europeRollTime);
     return this;
   }
 
@@ -182,23 +218,31 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
-  @JsonProperty(JSON_PROPERTY_EUROPE_ROLL_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public OffsetDateTime getEuropeRollTime() {
-    return europeRollTime;
+        return europeRollTime.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EUROPE_ROLL_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEuropeRollTime(OffsetDateTime europeRollTime) {
+
+  public JsonNullable<OffsetDateTime> getEuropeRollTime_JsonNullable() {
+    return europeRollTime;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EUROPE_ROLL_TIME)
+  public void setEuropeRollTime_JsonNullable(JsonNullable<OffsetDateTime> europeRollTime) {
     this.europeRollTime = europeRollTime;
+  }
+
+  public void setEuropeRollTime(OffsetDateTime europeRollTime) {
+    this.europeRollTime = JsonNullable.<OffsetDateTime>of(europeRollTime);
   }
 
 
   public Rollover europeZeroDate(LocalDate europeZeroDate) {
-    this.europeZeroDate = europeZeroDate;
+    this.europeZeroDate = JsonNullable.<LocalDate>of(europeZeroDate);
     return this;
   }
 
@@ -208,18 +252,26 @@ public class Rollover implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for Europe. This is in Eastern Time Zone")
-  @JsonProperty(JSON_PROPERTY_EUROPE_ZERO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getEuropeZeroDate() {
-    return europeZeroDate;
+        return europeZeroDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EUROPE_ZERO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEuropeZeroDate(LocalDate europeZeroDate) {
+
+  public JsonNullable<LocalDate> getEuropeZeroDate_JsonNullable() {
+    return europeZeroDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EUROPE_ZERO_DATE)
+  public void setEuropeZeroDate_JsonNullable(JsonNullable<LocalDate> europeZeroDate) {
     this.europeZeroDate = europeZeroDate;
+  }
+
+  public void setEuropeZeroDate(LocalDate europeZeroDate) {
+    this.europeZeroDate = JsonNullable.<LocalDate>of(europeZeroDate);
   }
 
 
@@ -235,17 +287,28 @@ public class Rollover implements Serializable {
       return false;
     }
     Rollover rollover = (Rollover) o;
-    return Objects.equals(this.americasRollTime, rollover.americasRollTime) &&
-        Objects.equals(this.americasZeroDate, rollover.americasZeroDate) &&
-        Objects.equals(this.asiapacificRollTime, rollover.asiapacificRollTime) &&
-        Objects.equals(this.asiapacificZeroDate, rollover.asiapacificZeroDate) &&
-        Objects.equals(this.europeRollTime, rollover.europeRollTime) &&
-        Objects.equals(this.europeZeroDate, rollover.europeZeroDate);
+    return equalsNullable(this.americasRollTime, rollover.americasRollTime) &&
+        equalsNullable(this.americasZeroDate, rollover.americasZeroDate) &&
+        equalsNullable(this.asiapacificRollTime, rollover.asiapacificRollTime) &&
+        equalsNullable(this.asiapacificZeroDate, rollover.asiapacificZeroDate) &&
+        equalsNullable(this.europeRollTime, rollover.europeRollTime) &&
+        equalsNullable(this.europeZeroDate, rollover.europeZeroDate);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(americasRollTime, americasZeroDate, asiapacificRollTime, asiapacificZeroDate, europeRollTime, europeZeroDate);
+    return Objects.hash(hashCodeNullable(americasRollTime), hashCodeNullable(americasZeroDate), hashCodeNullable(asiapacificRollTime), hashCodeNullable(asiapacificZeroDate), hashCodeNullable(europeRollTime), hashCodeNullable(europeZeroDate));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

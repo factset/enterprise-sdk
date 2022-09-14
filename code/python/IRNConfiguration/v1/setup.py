@@ -40,7 +40,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="Apache-2.0",
+    license="Apache License, Version 2.0",
     long_description_content_type="text/markdown",
     long_description=read("README.md")
 )

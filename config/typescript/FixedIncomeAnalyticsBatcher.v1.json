@@ -8,7 +8,8 @@
   "disallowAdditionalPropertiesIfNotPresent": false,
   "httpUserAgent": "fds-sdk/javascript/FixedIncomeAnalyticsBatcher/0.21.1",
   "usePromises": true,
-  "licenseName": "Apache-2.0",
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "files": {
     "LICENSE": {}
   }

@@ -82,15 +82,15 @@ class Price(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'adj_date': (date,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'price': (float,),  # noqa: E501
-            'price_open': (float,),  # noqa: E501
-            'price_high': (float,),  # noqa: E501
-            'price_low': (float,),  # noqa: E501
-            'volume': (float,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'adj_date': (date, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'price': (float, none_type,),  # noqa: E501
+            'price_open': (float, none_type,),  # noqa: E501
+            'price_high': (float, none_type,),  # noqa: E501
+            'price_low': (float, none_type,),  # noqa: E501
+            'volume': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -153,15 +153,15 @@ class Price(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Ending date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            price (float): Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_open (float): Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_high (float): High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_low (float): Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            volume (float): Returns the cumulative volume over dates requested. Data is returned in thousands.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Ending date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            price (float, none_type): Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_open (float, none_type): Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_high (float, none_type): High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_low (float, none_type): Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            volume (float, none_type): Returns the cumulative volume over dates requested. Data is returned in thousands.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -244,15 +244,15 @@ class Price(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Ending date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            price (float): Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_open (float): Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_high (float): High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            price_low (float): Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
-            volume (float): Returns the cumulative volume over dates requested. Data is returned in thousands.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Ending date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            price (float, none_type): Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_open (float, none_type): Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_high (float, none_type): High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            price_low (float, none_type): Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.. [optional]  # noqa: E501
+            volume (float, none_type): Returns the cumulative volume over dates requested. Data is returned in thousands.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

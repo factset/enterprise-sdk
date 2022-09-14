@@ -1,10 +1,10 @@
-# fds.sdk.NaturalLanguageProcessing.ThemesApi
+# fds.sdk.NaturalLanguageProcessing.AIThemesApi
 
 All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitive_nlp_v1_themes_post**](ThemesApi.md#cognitive_nlp_v1_themes_post) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**cognitive_nlp_v1_themes_post**](AIThemesApi.md#cognitive_nlp_v1_themes_post) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
 
 
 # **cognitive_nlp_v1_themes_post**
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 POST request to extract themes from text
 
-This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.  Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
+This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
 
 ### Example
 
@@ -22,7 +22,7 @@ This endpoint extracts themes from unstructured text. Each theme (`themeText`) i
 ```python
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NaturalLanguageProcessing
-from fds.sdk.NaturalLanguageProcessing.api import themes_api
+from fds.sdk.NaturalLanguageProcessing.api import ai_themes_api
 from fds.sdk.NaturalLanguageProcessing.models import *
 from dateutil.parser import parse as dateutil_parser
 from pprint import pprint
@@ -52,7 +52,7 @@ configuration = fds.sdk.NaturalLanguageProcessing.Configuration(
 # Enter a context with an instance of the API client
 with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = themes_api.ThemesApi(api_client)
+    api_instance = ai_themes_api.AIThemesApi(api_client)
 
     theme_parameters_root = ThemeParametersRoot(
         data=ThemeParameters(
@@ -68,7 +68,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
         pprint(api_response)
 
     except fds.sdk.NaturalLanguageProcessing.ApiException as e:
-        print("Exception when calling ThemesApi->cognitive_nlp_v1_themes_post: %s\n" % e)
+        print("Exception when calling AIThemesApi->cognitive_nlp_v1_themes_post: %s\n" % e)
 ```
 
 

@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="priceMid">MID Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America..</param>
         /// <param name="priceAsk">ASK Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public FixedIncomePrice(string fsymId = default(string), DateTime date = default(DateTime), string securityType = default(string), string issuerEntityId = default(string), string issuerType = default(string), double priceBid = default(double), double priceMid = default(double), double priceAsk = default(double), string requestId = default(string))
+        public FixedIncomePrice(string fsymId = default(string), DateTime? date = default(DateTime?), string securityType = default(string), string issuerEntityId = default(string), string issuerType = default(string), double? priceBid = default(double?), double? priceMid = default(double?), double? priceAsk = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -61,58 +61,58 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Security Identifier. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).
         /// </summary>
         /// <value>Factset Security Identifier. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Ending date for the period expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ending date for the period expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Returns the security type code of fixed income instruments.   * AGCY - Agency   * BDNT - Bond/Note   * BDWT  - Bond with Warrants   * BKAC  - Bankers Acceptance   * BLDN - Bill/Discount Note   * BOND  - Bond   * CAP  - Embedded ceiling or short interest rates   * CAPS - Capital Security   * CAPT - Capital Trust Security   * CD - Certificate of Deposit (Munis)   * CDO - Collateralized Debt Obligation   * CMO  - Collateralized mortgage obligation   * COMP - Commercial Paper   * CONV - Convertible/Exchangeable   * CONVP - Convertible Preferred   * CORP - Corporate   * COVR - Covered Bond   * CP  - Commercial Paper   * CRL - Credit Linked Security   * DEB - Debenture   * DERI  - Derivative (generic type)   * EBON - Eurobond   * EQL - Equity Linked Security   * FORW  - Forward deliveries   * GRTR  - Grantor trust   * HY - Hypotheken Pfandbriefe   * IIDX - Inflation Indexed Security   * INVF  - Inverse floaters   * LAUTH - Local Authority/Political Division   * LINK  - Linked securities   * LKS - Linked Securities   * MAPL - Mixed Asset Portfolio Linked Security   * MM - Money Market   * NOTE  - Note   * OF - Obligations FonciÃres   * OPTN  - Options   * OTHL - Other Linked Security   * PAYS  - Payment streams   * PFD - Preferred   * PFND - Pfandbriefe   * POOL  - Pooled derivatives   * PSEC - Preferred Security   * PSTK - Preferred Stock   * REPO  - REPOS   * RMIC  - REMIC   * SHFL  - Short floats (auction)   * STRIPS - STRIPS   * SWAP  - Embedded swaps   * TR  - Trust   * TRUPS - Trust Preferred Security 
         /// </summary>
         /// <value>Returns the security type code of fixed income instruments.   * AGCY - Agency   * BDNT - Bond/Note   * BDWT  - Bond with Warrants   * BKAC  - Bankers Acceptance   * BLDN - Bill/Discount Note   * BOND  - Bond   * CAP  - Embedded ceiling or short interest rates   * CAPS - Capital Security   * CAPT - Capital Trust Security   * CD - Certificate of Deposit (Munis)   * CDO - Collateralized Debt Obligation   * CMO  - Collateralized mortgage obligation   * COMP - Commercial Paper   * CONV - Convertible/Exchangeable   * CONVP - Convertible Preferred   * CORP - Corporate   * COVR - Covered Bond   * CP  - Commercial Paper   * CRL - Credit Linked Security   * DEB - Debenture   * DERI  - Derivative (generic type)   * EBON - Eurobond   * EQL - Equity Linked Security   * FORW  - Forward deliveries   * GRTR  - Grantor trust   * HY - Hypotheken Pfandbriefe   * IIDX - Inflation Indexed Security   * INVF  - Inverse floaters   * LAUTH - Local Authority/Political Division   * LINK  - Linked securities   * LKS - Linked Securities   * MAPL - Mixed Asset Portfolio Linked Security   * MM - Money Market   * NOTE  - Note   * OF - Obligations FonciÃres   * OPTN  - Options   * OTHL - Other Linked Security   * PAYS  - Payment streams   * PFD - Preferred   * PFND - Pfandbriefe   * POOL  - Pooled derivatives   * PSEC - Preferred Security   * PSTK - Preferred Stock   * REPO  - REPOS   * RMIC  - REMIC   * SHFL  - Short floats (auction)   * STRIPS - STRIPS   * SWAP  - Embedded swaps   * TR  - Trust   * TRUPS - Trust Preferred Security </value>
-        [DataMember(Name = "securityType", EmitDefaultValue = false)]
+        [DataMember(Name = "securityType", EmitDefaultValue = true)]
         public string SecurityType { get; set; }
 
         /// <summary>
         /// Fixed Income Issuer Entity ID (-E).
         /// </summary>
         /// <value>Fixed Income Issuer Entity ID (-E).</value>
-        [DataMember(Name = "issuerEntityId", EmitDefaultValue = false)]
+        [DataMember(Name = "issuerEntityId", EmitDefaultValue = true)]
         public string IssuerEntityId { get; set; }
 
         /// <summary>
         /// Returns the issuer type code of fixed income instruments.   * AGCY - Agency   * CORP - Corporate   * LAUTH - Local Authority/Political Division   * MUNI - Municipals   * SOV - Sovereign   * SUPR - Supranational   * SCOL - Securitized/Collateralized 
         /// </summary>
         /// <value>Returns the issuer type code of fixed income instruments.   * AGCY - Agency   * CORP - Corporate   * LAUTH - Local Authority/Political Division   * MUNI - Municipals   * SOV - Sovereign   * SUPR - Supranational   * SCOL - Securitized/Collateralized </value>
-        [DataMember(Name = "issuerType", EmitDefaultValue = false)]
+        [DataMember(Name = "issuerType", EmitDefaultValue = true)]
         public string IssuerType { get; set; }
 
         /// <summary>
         /// BID PRICE. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.
         /// </summary>
         /// <value>BID PRICE. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.</value>
-        [DataMember(Name = "priceBid", EmitDefaultValue = false)]
-        public double PriceBid { get; set; }
+        [DataMember(Name = "priceBid", EmitDefaultValue = true)]
+        public double? PriceBid { get; set; }
 
         /// <summary>
         /// MID Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.
         /// </summary>
         /// <value>MID Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.</value>
-        [DataMember(Name = "priceMid", EmitDefaultValue = false)]
-        public double PriceMid { get; set; }
+        [DataMember(Name = "priceMid", EmitDefaultValue = true)]
+        public double? PriceMid { get; set; }
 
         /// <summary>
         /// ASK Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.
         /// </summary>
         /// <value>ASK Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.</value>
-        [DataMember(Name = "priceAsk", EmitDefaultValue = false)]
-        public double PriceAsk { get; set; }
+        [DataMember(Name = "priceAsk", EmitDefaultValue = true)]
+        public double? PriceAsk { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -200,15 +200,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.PriceBid == input.PriceBid ||
-                    this.PriceBid.Equals(input.PriceBid)
+                    (this.PriceBid != null &&
+                    this.PriceBid.Equals(input.PriceBid))
                 ) && 
                 (
                     this.PriceMid == input.PriceMid ||
-                    this.PriceMid.Equals(input.PriceMid)
+                    (this.PriceMid != null &&
+                    this.PriceMid.Equals(input.PriceMid))
                 ) && 
                 (
                     this.PriceAsk == input.PriceAsk ||
-                    this.PriceAsk.Equals(input.PriceAsk)
+                    (this.PriceAsk != null &&
+                    this.PriceAsk.Equals(input.PriceAsk))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -246,9 +249,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.IssuerType.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PriceBid.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceMid.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceAsk.GetHashCode();
+                if (this.PriceBid != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceBid.GetHashCode();
+                }
+                if (this.PriceMid != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceMid.GetHashCode();
+                }
+                if (this.PriceAsk != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceAsk.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

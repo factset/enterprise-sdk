@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -46,19 +50,19 @@ public class ModelReturn implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_ADJ_DATE = "adjDate";
-  private LocalDate adjDate;
+  private JsonNullable<LocalDate> adjDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_RETURN = "totalReturn";
-  private Double totalReturn;
+  private JsonNullable<Double> totalReturn = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -67,7 +71,7 @@ public class ModelReturn implements Serializable {
   }
 
   public ModelReturn fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -77,23 +81,31 @@ public class ModelReturn implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public ModelReturn date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -103,23 +115,31 @@ public class ModelReturn implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public ModelReturn adjDate(LocalDate adjDate) {
-    this.adjDate = adjDate;
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
     return this;
   }
 
@@ -129,23 +149,31 @@ public class ModelReturn implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which return has been adjusted.")
-  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAdjDate() {
-    return adjDate;
+        return adjDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjDate(LocalDate adjDate) {
+
+  public JsonNullable<LocalDate> getAdjDate_JsonNullable() {
+    return adjDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
+  public void setAdjDate_JsonNullable(JsonNullable<LocalDate> adjDate) {
     this.adjDate = adjDate;
+  }
+
+  public void setAdjDate(LocalDate adjDate) {
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
   }
 
 
   public ModelReturn currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -155,23 +183,31 @@ public class ModelReturn implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public ModelReturn totalReturn(Double totalReturn) {
-    this.totalReturn = totalReturn;
+    this.totalReturn = JsonNullable.<Double>of(totalReturn);
     return this;
   }
 
@@ -181,18 +217,26 @@ public class ModelReturn implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.0345", value = "The simple or compound return for the requested `frequency` and/or `rolling_period`. Depending on the input parameters the return will adjust accordingly. If you simply use `frequency` and no `rolling_period`, the return value will represent the frequency period. If you use `rolling_period`, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)")
-  @JsonProperty(JSON_PROPERTY_TOTAL_RETURN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTotalReturn() {
-    return totalReturn;
+        return totalReturn.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TOTAL_RETURN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalReturn(Double totalReturn) {
+
+  public JsonNullable<Double> getTotalReturn_JsonNullable() {
+    return totalReturn;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TOTAL_RETURN)
+  public void setTotalReturn_JsonNullable(JsonNullable<Double> totalReturn) {
     this.totalReturn = totalReturn;
+  }
+
+  public void setTotalReturn(Double totalReturn) {
+    this.totalReturn = JsonNullable.<Double>of(totalReturn);
   }
 
 
@@ -234,17 +278,28 @@ public class ModelReturn implements Serializable {
       return false;
     }
     ModelReturn _return = (ModelReturn) o;
-    return Objects.equals(this.fsymId, _return.fsymId) &&
-        Objects.equals(this.date, _return.date) &&
-        Objects.equals(this.adjDate, _return.adjDate) &&
-        Objects.equals(this.currency, _return.currency) &&
-        Objects.equals(this.totalReturn, _return.totalReturn) &&
+    return equalsNullable(this.fsymId, _return.fsymId) &&
+        equalsNullable(this.date, _return.date) &&
+        equalsNullable(this.adjDate, _return.adjDate) &&
+        equalsNullable(this.currency, _return.currency) &&
+        equalsNullable(this.totalReturn, _return.totalReturn) &&
         Objects.equals(this.requestId, _return.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, adjDate, currency, totalReturn, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(adjDate), hashCodeNullable(currency), hashCodeNullable(totalReturn), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -82,19 +82,19 @@ class References(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'sec_type': (str,),  # noqa: E501
-            'sec_type_code': (str,),  # noqa: E501
-            'sec_type_code_det': (str,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'country': (str,),  # noqa: E501
-            'primary_exchange': (str,),  # noqa: E501
-            'exchange_country': (str,),  # noqa: E501
-            'local_index': (str,),  # noqa: E501
-            'next_trading_holiday_date': (date,),  # noqa: E501
-            'first_date': (date,),  # noqa: E501
-            'last_date': (date,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'sec_type': (str, none_type,),  # noqa: E501
+            'sec_type_code': (str, none_type,),  # noqa: E501
+            'sec_type_code_det': (str, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
+            'primary_exchange': (str, none_type,),  # noqa: E501
+            'exchange_country': (str, none_type,),  # noqa: E501
+            'local_index': (str, none_type,),  # noqa: E501
+            'next_trading_holiday_date': (date, none_type,),  # noqa: E501
+            'first_date': (date, none_type,),  # noqa: E501
+            'last_date': (date, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -161,19 +161,19 @@ class References(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            name (str): The name of the security.. [optional]  # noqa: E501
-            sec_type (str): Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            sec_type_code (str): General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            sec_type_code_det (str): Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            country (str): Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.. [optional]  # noqa: E501
-            primary_exchange (str): Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).. [optional]  # noqa: E501
-            exchange_country (str): Returns the location of the exchange where the company's stock is traded.. [optional]  # noqa: E501
-            local_index (str): The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).. [optional]  # noqa: E501
-            next_trading_holiday_date (date): The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).. [optional]  # noqa: E501
-            first_date (date): The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.. [optional]  # noqa: E501
-            last_date (date): Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            name (str, none_type): The name of the security.. [optional]  # noqa: E501
+            sec_type (str, none_type): Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            sec_type_code (str, none_type): General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            sec_type_code_det (str, none_type): Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            country (str, none_type): Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.. [optional]  # noqa: E501
+            primary_exchange (str, none_type): Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).. [optional]  # noqa: E501
+            exchange_country (str, none_type): Returns the location of the exchange where the company's stock is traded.. [optional]  # noqa: E501
+            local_index (str, none_type): The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).. [optional]  # noqa: E501
+            next_trading_holiday_date (date, none_type): The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).. [optional]  # noqa: E501
+            first_date (date, none_type): The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.. [optional]  # noqa: E501
+            last_date (date, none_type): Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -256,19 +256,19 @@ class References(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            name (str): The name of the security.. [optional]  # noqa: E501
-            sec_type (str): Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            sec_type_code (str): General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            sec_type_code_det (str): Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            country (str): Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.. [optional]  # noqa: E501
-            primary_exchange (str): Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).. [optional]  # noqa: E501
-            exchange_country (str): Returns the location of the exchange where the company's stock is traded.. [optional]  # noqa: E501
-            local_index (str): The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).. [optional]  # noqa: E501
-            next_trading_holiday_date (date): The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).. [optional]  # noqa: E501
-            first_date (date): The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.. [optional]  # noqa: E501
-            last_date (date): Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            name (str, none_type): The name of the security.. [optional]  # noqa: E501
+            sec_type (str, none_type): Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            sec_type_code (str, none_type): General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            sec_type_code_det (str, none_type): Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            country (str, none_type): Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.. [optional]  # noqa: E501
+            primary_exchange (str, none_type): Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).. [optional]  # noqa: E501
+            exchange_country (str, none_type): Returns the location of the exchange where the company's stock is traded.. [optional]  # noqa: E501
+            local_index (str, none_type): The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).. [optional]  # noqa: E501
+            next_trading_holiday_date (date, none_type): The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).. [optional]  # noqa: E501
+            first_date (date, none_type): The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.. [optional]  # noqa: E501
+            last_date (date, none_type): Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

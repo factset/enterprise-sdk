@@ -5542,22 +5542,26 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: Ending date for the period expressed in YYYY-MM-DD format.
           example: 2013-08-01
           format: date
+          nullable: true
           type: string
         adjDate:
           description: Date of last split for which prices and volume have been adjusted.
             Use /factset-prices/v#/splits endpoint for details regarding the split.
           example: 2005-02-07
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         price:
           description: Closing Price as of the date(s) requested. By default the price
@@ -5565,6 +5569,7 @@ components:
             Prices updated nightly at approximately at 9pm ET.
           example: 125
           format: double
+          nullable: true
           type: number
         priceOpen:
           description: Open price as of the date(s) requested. By default the price
@@ -5572,6 +5577,7 @@ components:
             Prices updated nightly at approximately at 9pm ET.
           example: 123.75
           format: double
+          nullable: true
           type: number
         priceHigh:
           description: High closing price as of the date(s) requested. By default
@@ -5579,6 +5585,7 @@ components:
             adjusted.  Prices updated nightly at approximately at 9pm ET.
           example: 126
           format: double
+          nullable: true
           type: number
         priceLow:
           description: Low closing price as of the date(s) requested. By default the
@@ -5586,12 +5593,14 @@ components:
             updated nightly at approximately at 9pm ET.
           example: 121.25
           format: double
+          nullable: true
           type: number
         volume:
           description: Returns the cumulative volume over dates requested. Data is
             returned in thousands.
           example: 120341
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -5673,11 +5682,13 @@ components:
           description: Factset Security Identifier. Six alpha-numeric characters,
             excluding vowels, with an -S suffix (XXXXXX-S).
           example: NL6DQ8-S
+          nullable: true
           type: string
         date:
           description: Ending date for the period expressed in YYYY-MM-DD format.
           example: 2020-06-09
           format: date
+          nullable: true
           type: string
         securityType:
           description: |
@@ -5733,10 +5744,12 @@ components:
               * TR  - Trust
               * TRUPS - Trust Preferred Security
           example: BDNT
+          nullable: true
           type: string
         issuerEntityId:
           description: Fixed Income Issuer Entity ID (-E).
           example: 000C7F-E
+          nullable: true
           type: string
         issuerType:
           description: |
@@ -5749,6 +5762,7 @@ components:
               * SUPR - Supranational
               * SCOL - Securitized/Collateralized
           example: CORP
+          nullable: true
           type: string
         priceBid:
           description: BID PRICE. For North American issues, the value is an evaluated
@@ -5761,6 +5775,7 @@ components:
             Price is returned for issues outside of North America.
           example: 134.959
           format: double
+          nullable: true
           type: number
         priceMid:
           description: MID Price. For North American issues, the value is an evaluated
@@ -5773,6 +5788,7 @@ components:
             Price is returned for issues outside of North America.
           example: 137.695
           format: double
+          nullable: true
           type: number
         priceAsk:
           description: ASK Price. For North American issues, the value is an evaluated
@@ -5785,6 +5801,7 @@ components:
             Price is returned for issues outside of North America.
           example: 134.959
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -5874,30 +5891,36 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: HTM0LK-R
+          nullable: true
           type: string
         name:
           description: The name of the security.
           example: ALPHABET INC
+          nullable: true
           type: string
         secType:
           description: 'Security Type Description. For more details, visit [Online
             Assistant Page #10149](https://oa.apps.factset.com/pages/10149).'
           example: Common stock
+          nullable: true
           type: string
         secTypeCode:
           description: 'General Security Type Code. For more details regarding what
             the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).'
           example: "0"
+          nullable: true
           type: string
         secTypeCodeDet:
           description: 'Detailed Security Type Code. For more details regarding what
             the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).'
           example: "10"
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         country:
           description: Country Name. Returns the country where the security is *traded*
@@ -5906,27 +5929,32 @@ components:
             or CANADA. For securities covered by the Global Pricing database, the
             item returns the country where the company is *incorporated*.
           example: UNITED STATES
+          nullable: true
           type: string
         primaryExchange:
           description: 'Primary Exchange Name. For more details, visit [Online Assistant
             Page #16610](https://oa.apps.factset.com/pages/16610).'
           example: NASDAQ
+          nullable: true
           type: string
         exchangeCountry:
           description: Returns the location of the exchange where the company's stock
             is traded.
           example: UNITED STATES
+          nullable: true
           type: string
         localIndex:
           description: 'The Local Index ID for the company''s home country benchmark.
             For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).'
           example: SP50
+          nullable: true
           type: string
         nextTradingHolidayDate:
           description: 'The Next Trading Holiday. For more details regarding Global
             Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).'
           example: 2020-09-07
           format: date
+          nullable: true
           type: string
         firstDate:
           description: The Security's Date of First Trade. It will return the first
@@ -5936,12 +5964,14 @@ components:
             details.
           example: 2004-08-19
           format: date
+          nullable: true
           type: string
         lastDate:
           description: Date of Last Trade.  It will return the last date that the
             FactSet Pricing database as a record for this security listing.
           example: 2020-09-04
           format: date
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -6031,6 +6061,7 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: End date of the return. Date in YYYY-MM-DD format. Depending
@@ -6038,16 +6069,19 @@ components:
             period requested.
           example: 2013-08-01
           format: date
+          nullable: true
           type: string
         adjDate:
           description: Date of last split for which return has been adjusted.
           example: 2005-02-07
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         totalReturn:
           description: 'The simple or compound return for the requested `frequency`
@@ -6059,6 +6093,7 @@ components:
             [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)'
           example: 1.0345
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -6166,56 +6201,67 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         divsExDate:
           description: Ex-Date of the dividend expressed in YYYY-MM-DD format.
           example: 2013-08-01
           format: date
+          nullable: true
           type: string
         adjDate:
           description: Date of last split for which prices and volume have been adjusted.
           example: 2005-02-07
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         divsPaid:
           description: Amount of the dividend paid.
           example: 5
           format: double
+          nullable: true
           type: number
         divsRecDate:
           description: Date the dividend was recorded expressed in YYYY-MM-DD format.
           example: 2013-07-10
           format: date
+          nullable: true
           type: string
         divsPayDate:
           description: Date the dividend will be paid expressed in YYYY-MM-DD format.
           example: 2013-08-08
           format: date
+          nullable: true
           type: string
         divsTypeC:
           description: 'Dividend type code. For code descriptions, visit [Online Assistant
             Page #8764](https://oa.apps.factset.com/pages/8764).'
           example: 1049
+          nullable: true
           type: integer
         divsTypeD:
           description: 'Description of dividend type. For type descriptions, visit
             [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).'
           example: U.S. Currency
+          nullable: true
           type: string
         divsTaxC:
           description: 'Tax Marker Code. For code descriptions, visit [Online Assistant
             Page #15265](https://oa.apps.factset.com/pages/15265).'
           example: FC
+          nullable: true
           type: string
         divsTaxD:
           description: 'Description of Tax Marker. For type descriptions, visit [Online
             Assistant Page #15265](https://oa.apps.factset.com/pages/15265).'
           example: Free of tax
+          nullable: true
           type: string
         divsNGFlag:
           description: 'Net/Gross Marker Code. For details describing Net vs. Gross
@@ -6227,12 +6273,14 @@ components:
           - X
           - V
           - "0"
+          nullable: true
           type: string
         divsNGEquiv:
           description: 'Net/Gross equivalent (opposite of dividend paid). For details
             describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).'
           example: 5.5
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -6295,11 +6343,13 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: Ex-Date of the split expressed in YYYY-MM-DD format.
           example: 2013-08-01
           format: date
+          nullable: true
           type: string
         splitFactor:
           description: Split adjustment factor for n splits ago. A 2-for-1 split returns
@@ -6307,10 +6357,12 @@ components:
             split.
           example: 2
           format: double
+          nullable: true
           type: number
         splitComment:
           description: Description for the type of split or spin off.
           example: 'Split: 2 for 1'
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -6395,11 +6447,13 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: Date expressed in YYYY-MM-DD format.
           example: 2013-08-01
           format: date
+          nullable: true
           type: string
         adjDate:
           description: Date of last split for which return has been adjusted. Use
@@ -6407,6 +6461,7 @@ components:
             date will return as 0001-01-01.
           example: 2005-02-07
           format: date
+          nullable: true
           type: string
         sharesSecurity:
           description: '**Security-level** Common Shares Outstanding in base units.
@@ -6414,12 +6469,14 @@ components:
             will include treasury shares. For details visit [Online Assistant Page
             #10435](https://oa.apps.factset.com/pages/10435)'
           example: 299532000
+          nullable: true
           type: number
         sharesCompany:
           description: '**Company-level** Shares Outstanding aggregated across all
             share classes. Non-traded shares are *excluded*. In base units. For more
             details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)'
           example: 649532000
+          nullable: true
           type: number
         sharesCompanyNontraded:
           description: '**Company-level** Shares Outstanding aggregated across all
@@ -6427,6 +6484,7 @@ components:
             by the proportion of their nominal or par value. In base units. For more
             details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)'
           example: 657532000
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -6515,16 +6573,19 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: HTM0LK-R
+          nullable: true
           type: string
         date:
           description: Ending date for the period expressed in YYYY-MM-DD format.
           example: 2020-07-07
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         entityMarketValue:
           description: 'Aggregate market value across all share classes and includes
@@ -6540,6 +6601,7 @@ components:
             [Online Assistant Page #16867](https://my.apps.factset.com/oa/pages/16867). '
           example: 1022362841136.31
           format: double
+          nullable: true
           type: number
         entityMarketValueExNonTraded:
           description: 'Aggregate across all share classes and excludes non-traded
@@ -6547,6 +6609,7 @@ components:
             Page #16867](https://my.apps.factset.com/oa/pages/16867).'
           example: 952768582453.33
           format: double
+          nullable: true
           type: number
         securityMarketValue:
           description: Returns the security level market value calculated as the share
@@ -6555,6 +6618,7 @@ components:
             1-Jan-2001 for non-North American securities.
           example: 449970657342.5
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier that was used for the request.
@@ -6641,16 +6705,19 @@ components:
           description: Date of last split for which prices have been adjusted.
           example: 2005-02-07
           format: date
+          nullable: true
           type: string
         date:
           description: Specific reference date for the period expressed in YYYY-MM-DD
             format.
           example: 2020-07-07
           format: date
+          nullable: true
           type: string
         period:
           description: The period of measure requested using the period query parameter.
           example: 52W
+          nullable: true
           type: string
         fsymId:
           description: Factset Regional Security Identifier. Six alpha-numeric characters,
@@ -6661,6 +6728,7 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: HTM0LK-R
+          nullable: true
           type: string
         priceHigh:
           description: High price over the period requested. This can represent the
@@ -6669,6 +6737,7 @@ components:
             not spinoff adjusted.
           example: 126
           format: double
+          nullable: true
           type: number
         priceLow:
           description: Low price over the period requested. This can represent the
@@ -6677,18 +6746,21 @@ components:
             not spinoff adjusted.
           example: 121.25
           format: double
+          nullable: true
           type: number
         priceHighDate:
           description: Date in which the highest price occurred over the requested
             period  for the given id expressed in YYYY-MM-DD format.
           example: 2020-03-05
           format: date
+          nullable: true
           type: string
         priceLowDate:
           description: Date in which the lowest price occurred over the requested
             period for the given id expressed in YYYY-MM-DD format.
           example: 2019-09-14
           format: date
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -6817,17 +6889,20 @@ components:
             once a SEDOL representing the region/currency has been allocated and the
             identifiers are on FactSet.
           example: SJY281-R
+          nullable: true
           type: string
         date:
           description: Specific reference date for the period expressed in YYYY-MM-DD
             format.
           example: 2020-09-09
           format: date
+          nullable: true
           type: string
         currency:
           description: 'Currency ISO code. For more details, visit [Online Assistant
             Page #1470](https://oa.apps.factset.com/pages/1470).'
           example: USD
+          nullable: true
           type: string
         requestId:
           description: Identifier that was used for the request.
@@ -6838,90 +6913,106 @@ components:
             one day from the given date.
           example: 0.86627007
           format: double
+          nullable: true
           type: number
         oneMonth:
           description: Returns the price performance of the security for the past
             one month.
           example: -2.1606863
           format: double
+          nullable: true
           type: number
         threeMonth:
           description: Returns the price performance of the security for the past
             three months.
           example: -7.2874727
           format: double
+          nullable: true
           type: number
         sixMonth:
           description: Returns the price performance of the security for the past
             six months.
           example: 3.7772775
           format: double
+          nullable: true
           type: number
         nineMonth:
           description: Returns the price performance of the security for the past
             nine months.
           example: -8.706689
           format: double
+          nullable: true
           type: number
         oneYear:
           description: Returns the price performance of the security for the past
             one year.
           example: -14.263678
           format: double
+          nullable: true
           type: number
         quarterToDate:
           description: Returns the price performance of the security from the previous
             calendar quarter end to the given date.
           example: 1.2337565
           format: double
+          nullable: true
           type: number
         weekToDate:
           description: Returns the price performance of the security from the previous
             week (usually Friday) to the given date.
           example: -0.03270507
           format: double
+          nullable: true
           type: number
         monthToDate:
           description: Returns the price performance of the security from the previous
             month-end to the given date.
           example: -0.851506
           format: double
+          nullable: true
           type: number
         yearToDate:
           description: Returns the price performance of the security from the previous
             calendar year-end to the given date.
           example: -8.788413
           format: double
+          nullable: true
           type: number
         twoYearAnnualized:
           description: Returns the annualized compound total return for two years.
           example: -3.7836754
           format: double
+          nullable: true
           type: number
         threeYearAnnualized:
           description: Returns the annualized compound total return for three years.
           example: -0.49112806
           format: double
+          nullable: true
           type: number
         fiveYearAnnualized:
           description: Returns the annualized compound total return for five years.
           example: 0.8408688
           format: double
+          nullable: true
           type: number
         tenYearAnnualized:
           description: Returns the annualized compound total return for ten years.
           example: 2.8786583
           format: double
+          nullable: true
           type: number
         twentyYearAnnualized:
           description: Returns the annualized compound total return for twenty years.
           example: 1.8996516
           format: double
+          nullable: true
           type: number
         thirtyYearAnnualized:
           description: Returns the annualized compound total return for thirty years.
           example: 7.5250373
           format: double
+          nullable: true
           type: number
         ipoToDateAnnualized:
           description: Returns the annualized compound total return from the ipo date.
@@ -6929,6 +7020,7 @@ components:
             IPO price itself.
           example: 6.5763993
           format: double
+          nullable: true
           type: number
         dividendAdjust:
           description: |
@@ -6937,6 +7029,7 @@ components:
               * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.
               * **EXDATE_C** = Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company.
           example: PRICE
+          nullable: true
           type: string
       title: Return Snapshot Object
       type: object
@@ -6977,36 +7070,42 @@ components:
             Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
             following ISO 8601.
           format: date-time
+          nullable: true
           type: string
         americasZeroDate:
           description: Current relative zero date for the Americas. Date is expressed
             in Eastern Time and expressed as YYYY-MM-DD.
           example: 2020-06-17
           format: date
+          nullable: true
           type: string
         asiapacificRollTime:
           description: Time of last zero date rollover for Asia/Pacific. This is in
             Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
             following ISO 8601.
           format: date-time
+          nullable: true
           type: string
         asiapacificZeroDate:
           description: Current relative zero date for Asia/Pacific. This is in Eastern
             Time Zone
           example: 2020-06-18
           format: date
+          nullable: true
           type: string
         europeRollTime:
           description: Time of last zero date rollover for Europe. This is in Eastern
             Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
             following ISO 8601.
           format: date-time
+          nullable: true
           type: string
         europeZeroDate:
           description: Current relative zero date for Europe. This is in Eastern Time
             Zone
           example: 2020-06-17
           format: date
+          nullable: true
           type: string
       title: Rollover Object
       type: object

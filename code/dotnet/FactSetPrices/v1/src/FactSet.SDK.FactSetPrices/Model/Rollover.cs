@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="asiapacificZeroDate">Current relative zero date for Asia/Pacific. This is in Eastern Time Zone.</param>
         /// <param name="europeRollTime">Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601..</param>
         /// <param name="europeZeroDate">Current relative zero date for Europe. This is in Eastern Time Zone.</param>
-        public Rollover(DateTime americasRollTime = default(DateTime), DateTime americasZeroDate = default(DateTime), DateTime asiapacificRollTime = default(DateTime), DateTime asiapacificZeroDate = default(DateTime), DateTime europeRollTime = default(DateTime), DateTime europeZeroDate = default(DateTime))
+        public Rollover(DateTime? americasRollTime = default(DateTime?), DateTime? americasZeroDate = default(DateTime?), DateTime? asiapacificRollTime = default(DateTime?), DateTime? asiapacificZeroDate = default(DateTime?), DateTime? europeRollTime = default(DateTime?), DateTime? europeZeroDate = default(DateTime?))
         {
             this.AmericasRollTime = americasRollTime;
             this.AmericasZeroDate = americasZeroDate;
@@ -55,46 +55,46 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
         /// </summary>
         /// <value>Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.</value>
-        [DataMember(Name = "americasRollTime", EmitDefaultValue = false)]
-        public DateTime AmericasRollTime { get; set; }
+        [DataMember(Name = "americasRollTime", EmitDefaultValue = true)]
+        public DateTime? AmericasRollTime { get; set; }
 
         /// <summary>
         /// Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.
         /// </summary>
         /// <value>Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.</value>
-        [DataMember(Name = "americasZeroDate", EmitDefaultValue = false)]
+        [DataMember(Name = "americasZeroDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AmericasZeroDate { get; set; }
+        public DateTime? AmericasZeroDate { get; set; }
 
         /// <summary>
         /// Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
         /// </summary>
         /// <value>Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.</value>
-        [DataMember(Name = "asiapacificRollTime", EmitDefaultValue = false)]
-        public DateTime AsiapacificRollTime { get; set; }
+        [DataMember(Name = "asiapacificRollTime", EmitDefaultValue = true)]
+        public DateTime? AsiapacificRollTime { get; set; }
 
         /// <summary>
         /// Current relative zero date for Asia/Pacific. This is in Eastern Time Zone
         /// </summary>
         /// <value>Current relative zero date for Asia/Pacific. This is in Eastern Time Zone</value>
-        [DataMember(Name = "asiapacificZeroDate", EmitDefaultValue = false)]
+        [DataMember(Name = "asiapacificZeroDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AsiapacificZeroDate { get; set; }
+        public DateTime? AsiapacificZeroDate { get; set; }
 
         /// <summary>
         /// Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
         /// </summary>
         /// <value>Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.</value>
-        [DataMember(Name = "europeRollTime", EmitDefaultValue = false)]
-        public DateTime EuropeRollTime { get; set; }
+        [DataMember(Name = "europeRollTime", EmitDefaultValue = true)]
+        public DateTime? EuropeRollTime { get; set; }
 
         /// <summary>
         /// Current relative zero date for Europe. This is in Eastern Time Zone
         /// </summary>
         /// <value>Current relative zero date for Europe. This is in Eastern Time Zone</value>
-        [DataMember(Name = "europeZeroDate", EmitDefaultValue = false)]
+        [DataMember(Name = "europeZeroDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime EuropeZeroDate { get; set; }
+        public DateTime? EuropeZeroDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

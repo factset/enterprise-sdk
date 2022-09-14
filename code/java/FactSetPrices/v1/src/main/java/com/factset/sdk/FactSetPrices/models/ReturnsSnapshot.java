@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -62,76 +66,76 @@ public class ReturnsSnapshot implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
   public static final String JSON_PROPERTY_ONE_DAY = "oneDay";
-  private Double oneDay;
+  private JsonNullable<Double> oneDay = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ONE_MONTH = "oneMonth";
-  private Double oneMonth;
+  private JsonNullable<Double> oneMonth = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_THREE_MONTH = "threeMonth";
-  private Double threeMonth;
+  private JsonNullable<Double> threeMonth = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SIX_MONTH = "sixMonth";
-  private Double sixMonth;
+  private JsonNullable<Double> sixMonth = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_NINE_MONTH = "nineMonth";
-  private Double nineMonth;
+  private JsonNullable<Double> nineMonth = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_ONE_YEAR = "oneYear";
-  private Double oneYear;
+  private JsonNullable<Double> oneYear = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_QUARTER_TO_DATE = "quarterToDate";
-  private Double quarterToDate;
+  private JsonNullable<Double> quarterToDate = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_WEEK_TO_DATE = "weekToDate";
-  private Double weekToDate;
+  private JsonNullable<Double> weekToDate = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_MONTH_TO_DATE = "monthToDate";
-  private Double monthToDate;
+  private JsonNullable<Double> monthToDate = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
-  private Double yearToDate;
+  private JsonNullable<Double> yearToDate = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TWO_YEAR_ANNUALIZED = "twoYearAnnualized";
-  private Double twoYearAnnualized;
+  private JsonNullable<Double> twoYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_THREE_YEAR_ANNUALIZED = "threeYearAnnualized";
-  private Double threeYearAnnualized;
+  private JsonNullable<Double> threeYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_FIVE_YEAR_ANNUALIZED = "fiveYearAnnualized";
-  private Double fiveYearAnnualized;
+  private JsonNullable<Double> fiveYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TEN_YEAR_ANNUALIZED = "tenYearAnnualized";
-  private Double tenYearAnnualized;
+  private JsonNullable<Double> tenYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_TWENTY_YEAR_ANNUALIZED = "twentyYearAnnualized";
-  private Double twentyYearAnnualized;
+  private JsonNullable<Double> twentyYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_THIRTY_YEAR_ANNUALIZED = "thirtyYearAnnualized";
-  private Double thirtyYearAnnualized;
+  private JsonNullable<Double> thirtyYearAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_IPO_TO_DATE_ANNUALIZED = "ipoToDateAnnualized";
-  private Double ipoToDateAnnualized;
+  private JsonNullable<Double> ipoToDateAnnualized = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_DIVIDEND_ADJUST = "dividendAdjust";
-  private String dividendAdjust;
+  private JsonNullable<String> dividendAdjust = JsonNullable.<String>undefined();
 
   public ReturnsSnapshot() { 
   }
 
   public ReturnsSnapshot fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -141,23 +145,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public ReturnsSnapshot date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -167,23 +179,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed Sep 09 00:00:00 UTC 2020", value = "Specific reference date for the period expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public ReturnsSnapshot currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -193,18 +213,26 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
@@ -235,7 +263,7 @@ public class ReturnsSnapshot implements Serializable {
 
 
   public ReturnsSnapshot oneDay(Double oneDay) {
-    this.oneDay = oneDay;
+    this.oneDay = JsonNullable.<Double>of(oneDay);
     return this;
   }
 
@@ -245,23 +273,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.86627007", value = "Returns the price performance of the security for the previous one day from the given date.")
-  @JsonProperty(JSON_PROPERTY_ONE_DAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getOneDay() {
-    return oneDay;
+        return oneDay.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ONE_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOneDay(Double oneDay) {
+
+  public JsonNullable<Double> getOneDay_JsonNullable() {
+    return oneDay;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ONE_DAY)
+  public void setOneDay_JsonNullable(JsonNullable<Double> oneDay) {
     this.oneDay = oneDay;
+  }
+
+  public void setOneDay(Double oneDay) {
+    this.oneDay = JsonNullable.<Double>of(oneDay);
   }
 
 
   public ReturnsSnapshot oneMonth(Double oneMonth) {
-    this.oneMonth = oneMonth;
+    this.oneMonth = JsonNullable.<Double>of(oneMonth);
     return this;
   }
 
@@ -271,23 +307,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-2.1606863", value = "Returns the price performance of the security for the past one month.")
-  @JsonProperty(JSON_PROPERTY_ONE_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getOneMonth() {
-    return oneMonth;
+        return oneMonth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ONE_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOneMonth(Double oneMonth) {
+
+  public JsonNullable<Double> getOneMonth_JsonNullable() {
+    return oneMonth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ONE_MONTH)
+  public void setOneMonth_JsonNullable(JsonNullable<Double> oneMonth) {
     this.oneMonth = oneMonth;
+  }
+
+  public void setOneMonth(Double oneMonth) {
+    this.oneMonth = JsonNullable.<Double>of(oneMonth);
   }
 
 
   public ReturnsSnapshot threeMonth(Double threeMonth) {
-    this.threeMonth = threeMonth;
+    this.threeMonth = JsonNullable.<Double>of(threeMonth);
     return this;
   }
 
@@ -297,23 +341,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-7.2874727", value = "Returns the price performance of the security for the past three months.")
-  @JsonProperty(JSON_PROPERTY_THREE_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getThreeMonth() {
-    return threeMonth;
+        return threeMonth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_THREE_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setThreeMonth(Double threeMonth) {
+
+  public JsonNullable<Double> getThreeMonth_JsonNullable() {
+    return threeMonth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_THREE_MONTH)
+  public void setThreeMonth_JsonNullable(JsonNullable<Double> threeMonth) {
     this.threeMonth = threeMonth;
+  }
+
+  public void setThreeMonth(Double threeMonth) {
+    this.threeMonth = JsonNullable.<Double>of(threeMonth);
   }
 
 
   public ReturnsSnapshot sixMonth(Double sixMonth) {
-    this.sixMonth = sixMonth;
+    this.sixMonth = JsonNullable.<Double>of(sixMonth);
     return this;
   }
 
@@ -323,23 +375,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3.7772775", value = "Returns the price performance of the security for the past six months.")
-  @JsonProperty(JSON_PROPERTY_SIX_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getSixMonth() {
-    return sixMonth;
+        return sixMonth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SIX_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSixMonth(Double sixMonth) {
+
+  public JsonNullable<Double> getSixMonth_JsonNullable() {
+    return sixMonth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SIX_MONTH)
+  public void setSixMonth_JsonNullable(JsonNullable<Double> sixMonth) {
     this.sixMonth = sixMonth;
+  }
+
+  public void setSixMonth(Double sixMonth) {
+    this.sixMonth = JsonNullable.<Double>of(sixMonth);
   }
 
 
   public ReturnsSnapshot nineMonth(Double nineMonth) {
-    this.nineMonth = nineMonth;
+    this.nineMonth = JsonNullable.<Double>of(nineMonth);
     return this;
   }
 
@@ -349,23 +409,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-8.706689", value = "Returns the price performance of the security for the past nine months.")
-  @JsonProperty(JSON_PROPERTY_NINE_MONTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getNineMonth() {
-    return nineMonth;
+        return nineMonth.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NINE_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNineMonth(Double nineMonth) {
+
+  public JsonNullable<Double> getNineMonth_JsonNullable() {
+    return nineMonth;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NINE_MONTH)
+  public void setNineMonth_JsonNullable(JsonNullable<Double> nineMonth) {
     this.nineMonth = nineMonth;
+  }
+
+  public void setNineMonth(Double nineMonth) {
+    this.nineMonth = JsonNullable.<Double>of(nineMonth);
   }
 
 
   public ReturnsSnapshot oneYear(Double oneYear) {
-    this.oneYear = oneYear;
+    this.oneYear = JsonNullable.<Double>of(oneYear);
     return this;
   }
 
@@ -375,23 +443,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-14.263678", value = "Returns the price performance of the security for the past one year.")
-  @JsonProperty(JSON_PROPERTY_ONE_YEAR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getOneYear() {
-    return oneYear;
+        return oneYear.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ONE_YEAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOneYear(Double oneYear) {
+
+  public JsonNullable<Double> getOneYear_JsonNullable() {
+    return oneYear;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ONE_YEAR)
+  public void setOneYear_JsonNullable(JsonNullable<Double> oneYear) {
     this.oneYear = oneYear;
+  }
+
+  public void setOneYear(Double oneYear) {
+    this.oneYear = JsonNullable.<Double>of(oneYear);
   }
 
 
   public ReturnsSnapshot quarterToDate(Double quarterToDate) {
-    this.quarterToDate = quarterToDate;
+    this.quarterToDate = JsonNullable.<Double>of(quarterToDate);
     return this;
   }
 
@@ -401,23 +477,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.2337565", value = "Returns the price performance of the security from the previous calendar quarter end to the given date.")
-  @JsonProperty(JSON_PROPERTY_QUARTER_TO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getQuarterToDate() {
-    return quarterToDate;
+        return quarterToDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_QUARTER_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuarterToDate(Double quarterToDate) {
+
+  public JsonNullable<Double> getQuarterToDate_JsonNullable() {
+    return quarterToDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_QUARTER_TO_DATE)
+  public void setQuarterToDate_JsonNullable(JsonNullable<Double> quarterToDate) {
     this.quarterToDate = quarterToDate;
+  }
+
+  public void setQuarterToDate(Double quarterToDate) {
+    this.quarterToDate = JsonNullable.<Double>of(quarterToDate);
   }
 
 
   public ReturnsSnapshot weekToDate(Double weekToDate) {
-    this.weekToDate = weekToDate;
+    this.weekToDate = JsonNullable.<Double>of(weekToDate);
     return this;
   }
 
@@ -427,23 +511,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-0.03270507", value = "Returns the price performance of the security from the previous week (usually Friday) to the given date.")
-  @JsonProperty(JSON_PROPERTY_WEEK_TO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getWeekToDate() {
-    return weekToDate;
+        return weekToDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_WEEK_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeekToDate(Double weekToDate) {
+
+  public JsonNullable<Double> getWeekToDate_JsonNullable() {
+    return weekToDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_WEEK_TO_DATE)
+  public void setWeekToDate_JsonNullable(JsonNullable<Double> weekToDate) {
     this.weekToDate = weekToDate;
+  }
+
+  public void setWeekToDate(Double weekToDate) {
+    this.weekToDate = JsonNullable.<Double>of(weekToDate);
   }
 
 
   public ReturnsSnapshot monthToDate(Double monthToDate) {
-    this.monthToDate = monthToDate;
+    this.monthToDate = JsonNullable.<Double>of(monthToDate);
     return this;
   }
 
@@ -453,23 +545,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-0.851506", value = "Returns the price performance of the security from the previous month-end to the given date.")
-  @JsonProperty(JSON_PROPERTY_MONTH_TO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getMonthToDate() {
-    return monthToDate;
+        return monthToDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MONTH_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMonthToDate(Double monthToDate) {
+
+  public JsonNullable<Double> getMonthToDate_JsonNullable() {
+    return monthToDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MONTH_TO_DATE)
+  public void setMonthToDate_JsonNullable(JsonNullable<Double> monthToDate) {
     this.monthToDate = monthToDate;
+  }
+
+  public void setMonthToDate(Double monthToDate) {
+    this.monthToDate = JsonNullable.<Double>of(monthToDate);
   }
 
 
   public ReturnsSnapshot yearToDate(Double yearToDate) {
-    this.yearToDate = yearToDate;
+    this.yearToDate = JsonNullable.<Double>of(yearToDate);
     return this;
   }
 
@@ -479,23 +579,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-8.788413", value = "Returns the price performance of the security from the previous calendar year-end to the given date.")
-  @JsonProperty(JSON_PROPERTY_YEAR_TO_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getYearToDate() {
-    return yearToDate;
+        return yearToDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_YEAR_TO_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setYearToDate(Double yearToDate) {
+
+  public JsonNullable<Double> getYearToDate_JsonNullable() {
+    return yearToDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_YEAR_TO_DATE)
+  public void setYearToDate_JsonNullable(JsonNullable<Double> yearToDate) {
     this.yearToDate = yearToDate;
+  }
+
+  public void setYearToDate(Double yearToDate) {
+    this.yearToDate = JsonNullable.<Double>of(yearToDate);
   }
 
 
   public ReturnsSnapshot twoYearAnnualized(Double twoYearAnnualized) {
-    this.twoYearAnnualized = twoYearAnnualized;
+    this.twoYearAnnualized = JsonNullable.<Double>of(twoYearAnnualized);
     return this;
   }
 
@@ -505,23 +613,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-3.7836754", value = "Returns the annualized compound total return for two years.")
-  @JsonProperty(JSON_PROPERTY_TWO_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTwoYearAnnualized() {
-    return twoYearAnnualized;
+        return twoYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TWO_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoYearAnnualized(Double twoYearAnnualized) {
+
+  public JsonNullable<Double> getTwoYearAnnualized_JsonNullable() {
+    return twoYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TWO_YEAR_ANNUALIZED)
+  public void setTwoYearAnnualized_JsonNullable(JsonNullable<Double> twoYearAnnualized) {
     this.twoYearAnnualized = twoYearAnnualized;
+  }
+
+  public void setTwoYearAnnualized(Double twoYearAnnualized) {
+    this.twoYearAnnualized = JsonNullable.<Double>of(twoYearAnnualized);
   }
 
 
   public ReturnsSnapshot threeYearAnnualized(Double threeYearAnnualized) {
-    this.threeYearAnnualized = threeYearAnnualized;
+    this.threeYearAnnualized = JsonNullable.<Double>of(threeYearAnnualized);
     return this;
   }
 
@@ -531,23 +647,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-0.49112806", value = "Returns the annualized compound total return for three years.")
-  @JsonProperty(JSON_PROPERTY_THREE_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getThreeYearAnnualized() {
-    return threeYearAnnualized;
+        return threeYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_THREE_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setThreeYearAnnualized(Double threeYearAnnualized) {
+
+  public JsonNullable<Double> getThreeYearAnnualized_JsonNullable() {
+    return threeYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_THREE_YEAR_ANNUALIZED)
+  public void setThreeYearAnnualized_JsonNullable(JsonNullable<Double> threeYearAnnualized) {
     this.threeYearAnnualized = threeYearAnnualized;
+  }
+
+  public void setThreeYearAnnualized(Double threeYearAnnualized) {
+    this.threeYearAnnualized = JsonNullable.<Double>of(threeYearAnnualized);
   }
 
 
   public ReturnsSnapshot fiveYearAnnualized(Double fiveYearAnnualized) {
-    this.fiveYearAnnualized = fiveYearAnnualized;
+    this.fiveYearAnnualized = JsonNullable.<Double>of(fiveYearAnnualized);
     return this;
   }
 
@@ -557,23 +681,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.8408688", value = "Returns the annualized compound total return for five years.")
-  @JsonProperty(JSON_PROPERTY_FIVE_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getFiveYearAnnualized() {
-    return fiveYearAnnualized;
+        return fiveYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIVE_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiveYearAnnualized(Double fiveYearAnnualized) {
+
+  public JsonNullable<Double> getFiveYearAnnualized_JsonNullable() {
+    return fiveYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIVE_YEAR_ANNUALIZED)
+  public void setFiveYearAnnualized_JsonNullable(JsonNullable<Double> fiveYearAnnualized) {
     this.fiveYearAnnualized = fiveYearAnnualized;
+  }
+
+  public void setFiveYearAnnualized(Double fiveYearAnnualized) {
+    this.fiveYearAnnualized = JsonNullable.<Double>of(fiveYearAnnualized);
   }
 
 
   public ReturnsSnapshot tenYearAnnualized(Double tenYearAnnualized) {
-    this.tenYearAnnualized = tenYearAnnualized;
+    this.tenYearAnnualized = JsonNullable.<Double>of(tenYearAnnualized);
     return this;
   }
 
@@ -583,23 +715,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2.8786583", value = "Returns the annualized compound total return for ten years.")
-  @JsonProperty(JSON_PROPERTY_TEN_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTenYearAnnualized() {
-    return tenYearAnnualized;
+        return tenYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TEN_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTenYearAnnualized(Double tenYearAnnualized) {
+
+  public JsonNullable<Double> getTenYearAnnualized_JsonNullable() {
+    return tenYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TEN_YEAR_ANNUALIZED)
+  public void setTenYearAnnualized_JsonNullable(JsonNullable<Double> tenYearAnnualized) {
     this.tenYearAnnualized = tenYearAnnualized;
+  }
+
+  public void setTenYearAnnualized(Double tenYearAnnualized) {
+    this.tenYearAnnualized = JsonNullable.<Double>of(tenYearAnnualized);
   }
 
 
   public ReturnsSnapshot twentyYearAnnualized(Double twentyYearAnnualized) {
-    this.twentyYearAnnualized = twentyYearAnnualized;
+    this.twentyYearAnnualized = JsonNullable.<Double>of(twentyYearAnnualized);
     return this;
   }
 
@@ -609,23 +749,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1.8996516", value = "Returns the annualized compound total return for twenty years.")
-  @JsonProperty(JSON_PROPERTY_TWENTY_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getTwentyYearAnnualized() {
-    return twentyYearAnnualized;
+        return twentyYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TWENTY_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwentyYearAnnualized(Double twentyYearAnnualized) {
+
+  public JsonNullable<Double> getTwentyYearAnnualized_JsonNullable() {
+    return twentyYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TWENTY_YEAR_ANNUALIZED)
+  public void setTwentyYearAnnualized_JsonNullable(JsonNullable<Double> twentyYearAnnualized) {
     this.twentyYearAnnualized = twentyYearAnnualized;
+  }
+
+  public void setTwentyYearAnnualized(Double twentyYearAnnualized) {
+    this.twentyYearAnnualized = JsonNullable.<Double>of(twentyYearAnnualized);
   }
 
 
   public ReturnsSnapshot thirtyYearAnnualized(Double thirtyYearAnnualized) {
-    this.thirtyYearAnnualized = thirtyYearAnnualized;
+    this.thirtyYearAnnualized = JsonNullable.<Double>of(thirtyYearAnnualized);
     return this;
   }
 
@@ -635,23 +783,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "7.5250373", value = "Returns the annualized compound total return for thirty years.")
-  @JsonProperty(JSON_PROPERTY_THIRTY_YEAR_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getThirtyYearAnnualized() {
-    return thirtyYearAnnualized;
+        return thirtyYearAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_THIRTY_YEAR_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setThirtyYearAnnualized(Double thirtyYearAnnualized) {
+
+  public JsonNullable<Double> getThirtyYearAnnualized_JsonNullable() {
+    return thirtyYearAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_THIRTY_YEAR_ANNUALIZED)
+  public void setThirtyYearAnnualized_JsonNullable(JsonNullable<Double> thirtyYearAnnualized) {
     this.thirtyYearAnnualized = thirtyYearAnnualized;
+  }
+
+  public void setThirtyYearAnnualized(Double thirtyYearAnnualized) {
+    this.thirtyYearAnnualized = JsonNullable.<Double>of(thirtyYearAnnualized);
   }
 
 
   public ReturnsSnapshot ipoToDateAnnualized(Double ipoToDateAnnualized) {
-    this.ipoToDateAnnualized = ipoToDateAnnualized;
+    this.ipoToDateAnnualized = JsonNullable.<Double>of(ipoToDateAnnualized);
     return this;
   }
 
@@ -661,23 +817,31 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "6.5763993", value = "Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself.")
-  @JsonProperty(JSON_PROPERTY_IPO_TO_DATE_ANNUALIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getIpoToDateAnnualized() {
-    return ipoToDateAnnualized;
+        return ipoToDateAnnualized.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IPO_TO_DATE_ANNUALIZED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpoToDateAnnualized(Double ipoToDateAnnualized) {
+
+  public JsonNullable<Double> getIpoToDateAnnualized_JsonNullable() {
+    return ipoToDateAnnualized;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IPO_TO_DATE_ANNUALIZED)
+  public void setIpoToDateAnnualized_JsonNullable(JsonNullable<Double> ipoToDateAnnualized) {
     this.ipoToDateAnnualized = ipoToDateAnnualized;
+  }
+
+  public void setIpoToDateAnnualized(Double ipoToDateAnnualized) {
+    this.ipoToDateAnnualized = JsonNullable.<Double>of(ipoToDateAnnualized);
   }
 
 
   public ReturnsSnapshot dividendAdjust(String dividendAdjust) {
-    this.dividendAdjust = dividendAdjust;
+    this.dividendAdjust = JsonNullable.<String>of(dividendAdjust);
     return this;
   }
 
@@ -687,18 +851,26 @@ public class ReturnsSnapshot implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "PRICE", value = "Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** = Price Change - Dividends Excluded.   * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** = Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. ")
-  @JsonProperty(JSON_PROPERTY_DIVIDEND_ADJUST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDividendAdjust() {
-    return dividendAdjust;
+        return dividendAdjust.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVIDEND_ADJUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDividendAdjust(String dividendAdjust) {
+
+  public JsonNullable<String> getDividendAdjust_JsonNullable() {
+    return dividendAdjust;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVIDEND_ADJUST)
+  public void setDividendAdjust_JsonNullable(JsonNullable<String> dividendAdjust) {
     this.dividendAdjust = dividendAdjust;
+  }
+
+  public void setDividendAdjust(String dividendAdjust) {
+    this.dividendAdjust = JsonNullable.<String>of(dividendAdjust);
   }
 
 
@@ -714,33 +886,44 @@ public class ReturnsSnapshot implements Serializable {
       return false;
     }
     ReturnsSnapshot returnsSnapshot = (ReturnsSnapshot) o;
-    return Objects.equals(this.fsymId, returnsSnapshot.fsymId) &&
-        Objects.equals(this.date, returnsSnapshot.date) &&
-        Objects.equals(this.currency, returnsSnapshot.currency) &&
+    return equalsNullable(this.fsymId, returnsSnapshot.fsymId) &&
+        equalsNullable(this.date, returnsSnapshot.date) &&
+        equalsNullable(this.currency, returnsSnapshot.currency) &&
         Objects.equals(this.requestId, returnsSnapshot.requestId) &&
-        Objects.equals(this.oneDay, returnsSnapshot.oneDay) &&
-        Objects.equals(this.oneMonth, returnsSnapshot.oneMonth) &&
-        Objects.equals(this.threeMonth, returnsSnapshot.threeMonth) &&
-        Objects.equals(this.sixMonth, returnsSnapshot.sixMonth) &&
-        Objects.equals(this.nineMonth, returnsSnapshot.nineMonth) &&
-        Objects.equals(this.oneYear, returnsSnapshot.oneYear) &&
-        Objects.equals(this.quarterToDate, returnsSnapshot.quarterToDate) &&
-        Objects.equals(this.weekToDate, returnsSnapshot.weekToDate) &&
-        Objects.equals(this.monthToDate, returnsSnapshot.monthToDate) &&
-        Objects.equals(this.yearToDate, returnsSnapshot.yearToDate) &&
-        Objects.equals(this.twoYearAnnualized, returnsSnapshot.twoYearAnnualized) &&
-        Objects.equals(this.threeYearAnnualized, returnsSnapshot.threeYearAnnualized) &&
-        Objects.equals(this.fiveYearAnnualized, returnsSnapshot.fiveYearAnnualized) &&
-        Objects.equals(this.tenYearAnnualized, returnsSnapshot.tenYearAnnualized) &&
-        Objects.equals(this.twentyYearAnnualized, returnsSnapshot.twentyYearAnnualized) &&
-        Objects.equals(this.thirtyYearAnnualized, returnsSnapshot.thirtyYearAnnualized) &&
-        Objects.equals(this.ipoToDateAnnualized, returnsSnapshot.ipoToDateAnnualized) &&
-        Objects.equals(this.dividendAdjust, returnsSnapshot.dividendAdjust);
+        equalsNullable(this.oneDay, returnsSnapshot.oneDay) &&
+        equalsNullable(this.oneMonth, returnsSnapshot.oneMonth) &&
+        equalsNullable(this.threeMonth, returnsSnapshot.threeMonth) &&
+        equalsNullable(this.sixMonth, returnsSnapshot.sixMonth) &&
+        equalsNullable(this.nineMonth, returnsSnapshot.nineMonth) &&
+        equalsNullable(this.oneYear, returnsSnapshot.oneYear) &&
+        equalsNullable(this.quarterToDate, returnsSnapshot.quarterToDate) &&
+        equalsNullable(this.weekToDate, returnsSnapshot.weekToDate) &&
+        equalsNullable(this.monthToDate, returnsSnapshot.monthToDate) &&
+        equalsNullable(this.yearToDate, returnsSnapshot.yearToDate) &&
+        equalsNullable(this.twoYearAnnualized, returnsSnapshot.twoYearAnnualized) &&
+        equalsNullable(this.threeYearAnnualized, returnsSnapshot.threeYearAnnualized) &&
+        equalsNullable(this.fiveYearAnnualized, returnsSnapshot.fiveYearAnnualized) &&
+        equalsNullable(this.tenYearAnnualized, returnsSnapshot.tenYearAnnualized) &&
+        equalsNullable(this.twentyYearAnnualized, returnsSnapshot.twentyYearAnnualized) &&
+        equalsNullable(this.thirtyYearAnnualized, returnsSnapshot.thirtyYearAnnualized) &&
+        equalsNullable(this.ipoToDateAnnualized, returnsSnapshot.ipoToDateAnnualized) &&
+        equalsNullable(this.dividendAdjust, returnsSnapshot.dividendAdjust);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, currency, requestId, oneDay, oneMonth, threeMonth, sixMonth, nineMonth, oneYear, quarterToDate, weekToDate, monthToDate, yearToDate, twoYearAnnualized, threeYearAnnualized, fiveYearAnnualized, tenYearAnnualized, twentyYearAnnualized, thirtyYearAnnualized, ipoToDateAnnualized, dividendAdjust);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(currency), requestId, hashCodeNullable(oneDay), hashCodeNullable(oneMonth), hashCodeNullable(threeMonth), hashCodeNullable(sixMonth), hashCodeNullable(nineMonth), hashCodeNullable(oneYear), hashCodeNullable(quarterToDate), hashCodeNullable(weekToDate), hashCodeNullable(monthToDate), hashCodeNullable(yearToDate), hashCodeNullable(twoYearAnnualized), hashCodeNullable(threeYearAnnualized), hashCodeNullable(fiveYearAnnualized), hashCodeNullable(tenYearAnnualized), hashCodeNullable(twentyYearAnnualized), hashCodeNullable(thirtyYearAnnualized), hashCodeNullable(ipoToDateAnnualized), hashCodeNullable(dividendAdjust));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

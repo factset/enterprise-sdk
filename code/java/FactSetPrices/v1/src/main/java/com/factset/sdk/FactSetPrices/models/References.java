@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -54,43 +58,43 @@ public class References implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SEC_TYPE = "secType";
-  private String secType;
+  private JsonNullable<String> secType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SEC_TYPE_CODE = "secTypeCode";
-  private String secTypeCode;
+  private JsonNullable<String> secTypeCode = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SEC_TYPE_CODE_DET = "secTypeCodeDet";
-  private String secTypeCodeDet;
+  private JsonNullable<String> secTypeCodeDet = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  private String country;
+  private JsonNullable<String> country = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRIMARY_EXCHANGE = "primaryExchange";
-  private String primaryExchange;
+  private JsonNullable<String> primaryExchange = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_EXCHANGE_COUNTRY = "exchangeCountry";
-  private String exchangeCountry;
+  private JsonNullable<String> exchangeCountry = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOCAL_INDEX = "localIndex";
-  private String localIndex;
+  private JsonNullable<String> localIndex = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NEXT_TRADING_HOLIDAY_DATE = "nextTradingHolidayDate";
-  private LocalDate nextTradingHolidayDate;
+  private JsonNullable<LocalDate> nextTradingHolidayDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_FIRST_DATE = "firstDate";
-  private LocalDate firstDate;
+  private JsonNullable<LocalDate> firstDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LAST_DATE = "lastDate";
-  private LocalDate lastDate;
+  private JsonNullable<LocalDate> lastDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -99,7 +103,7 @@ public class References implements Serializable {
   }
 
   public References fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -109,23 +113,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "HTM0LK-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public References name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -135,23 +147,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "ALPHABET INC", value = "The name of the security.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public References secType(String secType) {
-    this.secType = secType;
+    this.secType = JsonNullable.<String>of(secType);
     return this;
   }
 
@@ -161,23 +181,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Common stock", value = "Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
-  @JsonProperty(JSON_PROPERTY_SEC_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecType() {
-    return secType;
+        return secType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SEC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecType(String secType) {
+
+  public JsonNullable<String> getSecType_JsonNullable() {
+    return secType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEC_TYPE)
+  public void setSecType_JsonNullable(JsonNullable<String> secType) {
     this.secType = secType;
+  }
+
+  public void setSecType(String secType) {
+    this.secType = JsonNullable.<String>of(secType);
   }
 
 
   public References secTypeCode(String secTypeCode) {
-    this.secTypeCode = secTypeCode;
+    this.secTypeCode = JsonNullable.<String>of(secTypeCode);
     return this;
   }
 
@@ -187,23 +215,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0", value = "General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
-  @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecTypeCode() {
-    return secTypeCode;
+        return secTypeCode.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecTypeCode(String secTypeCode) {
+
+  public JsonNullable<String> getSecTypeCode_JsonNullable() {
+    return secTypeCode;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE)
+  public void setSecTypeCode_JsonNullable(JsonNullable<String> secTypeCode) {
     this.secTypeCode = secTypeCode;
+  }
+
+  public void setSecTypeCode(String secTypeCode) {
+    this.secTypeCode = JsonNullable.<String>of(secTypeCode);
   }
 
 
   public References secTypeCodeDet(String secTypeCodeDet) {
-    this.secTypeCodeDet = secTypeCodeDet;
+    this.secTypeCodeDet = JsonNullable.<String>of(secTypeCodeDet);
     return this;
   }
 
@@ -213,23 +249,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).")
-  @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE_DET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecTypeCodeDet() {
-    return secTypeCodeDet;
+        return secTypeCodeDet.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE_DET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecTypeCodeDet(String secTypeCodeDet) {
+
+  public JsonNullable<String> getSecTypeCodeDet_JsonNullable() {
+    return secTypeCodeDet;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEC_TYPE_CODE_DET)
+  public void setSecTypeCodeDet_JsonNullable(JsonNullable<String> secTypeCodeDet) {
     this.secTypeCodeDet = secTypeCodeDet;
+  }
+
+  public void setSecTypeCodeDet(String secTypeCodeDet) {
+    this.secTypeCodeDet = JsonNullable.<String>of(secTypeCodeDet);
   }
 
 
   public References currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -239,23 +283,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public References country(String country) {
-    this.country = country;
+    this.country = JsonNullable.<String>of(country);
     return this;
   }
 
@@ -265,23 +317,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "UNITED STATES", value = "Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.")
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCountry() {
-    return country;
+        return country.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCountry(String country) {
+
+  public JsonNullable<String> getCountry_JsonNullable() {
+    return country;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  public void setCountry_JsonNullable(JsonNullable<String> country) {
     this.country = country;
+  }
+
+  public void setCountry(String country) {
+    this.country = JsonNullable.<String>of(country);
   }
 
 
   public References primaryExchange(String primaryExchange) {
-    this.primaryExchange = primaryExchange;
+    this.primaryExchange = JsonNullable.<String>of(primaryExchange);
     return this;
   }
 
@@ -291,23 +351,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "NASDAQ", value = "Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).")
-  @JsonProperty(JSON_PROPERTY_PRIMARY_EXCHANGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getPrimaryExchange() {
-    return primaryExchange;
+        return primaryExchange.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_EXCHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrimaryExchange(String primaryExchange) {
+
+  public JsonNullable<String> getPrimaryExchange_JsonNullable() {
+    return primaryExchange;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRIMARY_EXCHANGE)
+  public void setPrimaryExchange_JsonNullable(JsonNullable<String> primaryExchange) {
     this.primaryExchange = primaryExchange;
+  }
+
+  public void setPrimaryExchange(String primaryExchange) {
+    this.primaryExchange = JsonNullable.<String>of(primaryExchange);
   }
 
 
   public References exchangeCountry(String exchangeCountry) {
-    this.exchangeCountry = exchangeCountry;
+    this.exchangeCountry = JsonNullable.<String>of(exchangeCountry);
     return this;
   }
 
@@ -317,23 +385,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "UNITED STATES", value = "Returns the location of the exchange where the company's stock is traded.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGE_COUNTRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getExchangeCountry() {
-    return exchangeCountry;
+        return exchangeCountry.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_EXCHANGE_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchangeCountry(String exchangeCountry) {
+
+  public JsonNullable<String> getExchangeCountry_JsonNullable() {
+    return exchangeCountry;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EXCHANGE_COUNTRY)
+  public void setExchangeCountry_JsonNullable(JsonNullable<String> exchangeCountry) {
     this.exchangeCountry = exchangeCountry;
+  }
+
+  public void setExchangeCountry(String exchangeCountry) {
+    this.exchangeCountry = JsonNullable.<String>of(exchangeCountry);
   }
 
 
   public References localIndex(String localIndex) {
-    this.localIndex = localIndex;
+    this.localIndex = JsonNullable.<String>of(localIndex);
     return this;
   }
 
@@ -343,23 +419,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SP50", value = "The Local Index ID for the company's home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).")
-  @JsonProperty(JSON_PROPERTY_LOCAL_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getLocalIndex() {
-    return localIndex;
+        return localIndex.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LOCAL_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocalIndex(String localIndex) {
+
+  public JsonNullable<String> getLocalIndex_JsonNullable() {
+    return localIndex;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LOCAL_INDEX)
+  public void setLocalIndex_JsonNullable(JsonNullable<String> localIndex) {
     this.localIndex = localIndex;
+  }
+
+  public void setLocalIndex(String localIndex) {
+    this.localIndex = JsonNullable.<String>of(localIndex);
   }
 
 
   public References nextTradingHolidayDate(LocalDate nextTradingHolidayDate) {
-    this.nextTradingHolidayDate = nextTradingHolidayDate;
+    this.nextTradingHolidayDate = JsonNullable.<LocalDate>of(nextTradingHolidayDate);
     return this;
   }
 
@@ -369,23 +453,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Sep 07 00:00:00 UTC 2020", value = "The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).")
-  @JsonProperty(JSON_PROPERTY_NEXT_TRADING_HOLIDAY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getNextTradingHolidayDate() {
-    return nextTradingHolidayDate;
+        return nextTradingHolidayDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NEXT_TRADING_HOLIDAY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNextTradingHolidayDate(LocalDate nextTradingHolidayDate) {
+
+  public JsonNullable<LocalDate> getNextTradingHolidayDate_JsonNullable() {
+    return nextTradingHolidayDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NEXT_TRADING_HOLIDAY_DATE)
+  public void setNextTradingHolidayDate_JsonNullable(JsonNullable<LocalDate> nextTradingHolidayDate) {
     this.nextTradingHolidayDate = nextTradingHolidayDate;
+  }
+
+  public void setNextTradingHolidayDate(LocalDate nextTradingHolidayDate) {
+    this.nextTradingHolidayDate = JsonNullable.<LocalDate>of(nextTradingHolidayDate);
   }
 
 
   public References firstDate(LocalDate firstDate) {
-    this.firstDate = firstDate;
+    this.firstDate = JsonNullable.<LocalDate>of(firstDate);
     return this;
   }
 
@@ -395,23 +487,31 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 19 00:00:00 UTC 2004", value = "The Security's Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.")
-  @JsonProperty(JSON_PROPERTY_FIRST_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getFirstDate() {
-    return firstDate;
+        return firstDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FIRST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstDate(LocalDate firstDate) {
+
+  public JsonNullable<LocalDate> getFirstDate_JsonNullable() {
+    return firstDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FIRST_DATE)
+  public void setFirstDate_JsonNullable(JsonNullable<LocalDate> firstDate) {
     this.firstDate = firstDate;
+  }
+
+  public void setFirstDate(LocalDate firstDate) {
+    this.firstDate = JsonNullable.<LocalDate>of(firstDate);
   }
 
 
   public References lastDate(LocalDate lastDate) {
-    this.lastDate = lastDate;
+    this.lastDate = JsonNullable.<LocalDate>of(lastDate);
     return this;
   }
 
@@ -421,18 +521,26 @@ public class References implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Fri Sep 04 00:00:00 UTC 2020", value = "Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.")
-  @JsonProperty(JSON_PROPERTY_LAST_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getLastDate() {
-    return lastDate;
+        return lastDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LAST_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastDate(LocalDate lastDate) {
+
+  public JsonNullable<LocalDate> getLastDate_JsonNullable() {
+    return lastDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LAST_DATE)
+  public void setLastDate_JsonNullable(JsonNullable<LocalDate> lastDate) {
     this.lastDate = lastDate;
+  }
+
+  public void setLastDate(LocalDate lastDate) {
+    this.lastDate = JsonNullable.<LocalDate>of(lastDate);
   }
 
 
@@ -474,25 +582,36 @@ public class References implements Serializable {
       return false;
     }
     References references = (References) o;
-    return Objects.equals(this.fsymId, references.fsymId) &&
-        Objects.equals(this.name, references.name) &&
-        Objects.equals(this.secType, references.secType) &&
-        Objects.equals(this.secTypeCode, references.secTypeCode) &&
-        Objects.equals(this.secTypeCodeDet, references.secTypeCodeDet) &&
-        Objects.equals(this.currency, references.currency) &&
-        Objects.equals(this.country, references.country) &&
-        Objects.equals(this.primaryExchange, references.primaryExchange) &&
-        Objects.equals(this.exchangeCountry, references.exchangeCountry) &&
-        Objects.equals(this.localIndex, references.localIndex) &&
-        Objects.equals(this.nextTradingHolidayDate, references.nextTradingHolidayDate) &&
-        Objects.equals(this.firstDate, references.firstDate) &&
-        Objects.equals(this.lastDate, references.lastDate) &&
+    return equalsNullable(this.fsymId, references.fsymId) &&
+        equalsNullable(this.name, references.name) &&
+        equalsNullable(this.secType, references.secType) &&
+        equalsNullable(this.secTypeCode, references.secTypeCode) &&
+        equalsNullable(this.secTypeCodeDet, references.secTypeCodeDet) &&
+        equalsNullable(this.currency, references.currency) &&
+        equalsNullable(this.country, references.country) &&
+        equalsNullable(this.primaryExchange, references.primaryExchange) &&
+        equalsNullable(this.exchangeCountry, references.exchangeCountry) &&
+        equalsNullable(this.localIndex, references.localIndex) &&
+        equalsNullable(this.nextTradingHolidayDate, references.nextTradingHolidayDate) &&
+        equalsNullable(this.firstDate, references.firstDate) &&
+        equalsNullable(this.lastDate, references.lastDate) &&
         Objects.equals(this.requestId, references.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, name, secType, secTypeCode, secTypeCodeDet, currency, country, primaryExchange, exchangeCountry, localIndex, nextTradingHolidayDate, firstDate, lastDate, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(name), hashCodeNullable(secType), hashCodeNullable(secTypeCode), hashCodeNullable(secTypeCodeDet), hashCodeNullable(currency), hashCodeNullable(country), hashCodeNullable(primaryExchange), hashCodeNullable(exchangeCountry), hashCodeNullable(localIndex), hashCodeNullable(nextTradingHolidayDate), hashCodeNullable(firstDate), hashCodeNullable(lastDate), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -1,13 +1,14 @@
 {
   "packageName": "fds.sdk.NaturalLanguageProcessing",
   "projectName": "fds.sdk.NaturalLanguageProcessing",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageAuthor": "FactSet Research Systems",
-  "packageLicense": "Apache-2.0",
+  "packageLicense": "Apache License, Version 2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Natural Language Processing client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/NaturalLanguageProcessing/v1",
-  "httpUserAgent": "fds-sdk/python/NaturalLanguageProcessing/0.21.1",
+  "httpUserAgent": "fds-sdk/python/NaturalLanguageProcessing/0.21.2",
   "files": {
     "LICENSE": {}
   }

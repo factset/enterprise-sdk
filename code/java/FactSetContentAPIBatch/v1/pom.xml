@@ -16,7 +16,7 @@
 
     <licenses>
         <license>
-            <name>The Apache Software License, Version 2.0</name>
+            <name>Apache License, Version 2.0</name>
             <url>http://www.factset.com/api/license.html</url>
             <distribution>repo</distribution>
         </license>

@@ -49,7 +49,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="firstDate">The Security&#39;s Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details..</param>
         /// <param name="lastDate">Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public References(string fsymId = default(string), string name = default(string), string secType = default(string), string secTypeCode = default(string), string secTypeCodeDet = default(string), string currency = default(string), string country = default(string), string primaryExchange = default(string), string exchangeCountry = default(string), string localIndex = default(string), DateTime nextTradingHolidayDate = default(DateTime), DateTime firstDate = default(DateTime), DateTime lastDate = default(DateTime), string requestId = default(string))
+        public References(string fsymId = default(string), string name = default(string), string secType = default(string), string secTypeCode = default(string), string secTypeCodeDet = default(string), string currency = default(string), string country = default(string), string primaryExchange = default(string), string exchangeCountry = default(string), string localIndex = default(string), DateTime? nextTradingHolidayDate = default(DateTime?), DateTime? firstDate = default(DateTime?), DateTime? lastDate = default(DateTime?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Name = name;
@@ -71,95 +71,95 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// The name of the security.
         /// </summary>
         /// <value>The name of the security.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
         /// </summary>
         /// <value>Security Type Description. For more details, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).</value>
-        [DataMember(Name = "secType", EmitDefaultValue = false)]
+        [DataMember(Name = "secType", EmitDefaultValue = true)]
         public string SecType { get; set; }
 
         /// <summary>
         /// General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
         /// </summary>
         /// <value>General Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).</value>
-        [DataMember(Name = "secTypeCode", EmitDefaultValue = false)]
+        [DataMember(Name = "secTypeCode", EmitDefaultValue = true)]
         public string SecTypeCode { get; set; }
 
         /// <summary>
         /// Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).
         /// </summary>
         /// <value>Detailed Security Type Code. For more details regarding what the code represents, visit [Online Assistant Page #10149](https://oa.apps.factset.com/pages/10149).</value>
-        [DataMember(Name = "secTypeCodeDet", EmitDefaultValue = false)]
+        [DataMember(Name = "secTypeCodeDet", EmitDefaultValue = true)]
         public string SecTypeCodeDet { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.
         /// </summary>
         /// <value>Country Name. Returns the country where the security is *traded* from the North American Pricing database. Therefore, for securities covered by the North American Pricing database, will return either UNITED STATES. or CANADA. For securities covered by the Global Pricing database, the item returns the country where the company is *incorporated*.</value>
-        [DataMember(Name = "country", EmitDefaultValue = false)]
+        [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).
         /// </summary>
         /// <value>Primary Exchange Name. For more details, visit [Online Assistant Page #16610](https://oa.apps.factset.com/pages/16610).</value>
-        [DataMember(Name = "primaryExchange", EmitDefaultValue = false)]
+        [DataMember(Name = "primaryExchange", EmitDefaultValue = true)]
         public string PrimaryExchange { get; set; }
 
         /// <summary>
         /// Returns the location of the exchange where the company&#39;s stock is traded.
         /// </summary>
         /// <value>Returns the location of the exchange where the company&#39;s stock is traded.</value>
-        [DataMember(Name = "exchangeCountry", EmitDefaultValue = false)]
+        [DataMember(Name = "exchangeCountry", EmitDefaultValue = true)]
         public string ExchangeCountry { get; set; }
 
         /// <summary>
         /// The Local Index ID for the company&#39;s home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).
         /// </summary>
         /// <value>The Local Index ID for the company&#39;s home country benchmark. For more details, visit [Online Assistant Page #10698](https://oa.apps.factset.com/pages/10698).</value>
-        [DataMember(Name = "localIndex", EmitDefaultValue = false)]
+        [DataMember(Name = "localIndex", EmitDefaultValue = true)]
         public string LocalIndex { get; set; }
 
         /// <summary>
         /// The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).
         /// </summary>
         /// <value>The Next Trading Holiday. For more details regarding Global Trading Holiday Schedules, visit [Online Assistant Page #10397](https://oa.apps.factset.com/pages/10397).</value>
-        [DataMember(Name = "nextTradingHolidayDate", EmitDefaultValue = false)]
+        [DataMember(Name = "nextTradingHolidayDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime NextTradingHolidayDate { get; set; }
+        public DateTime? NextTradingHolidayDate { get; set; }
 
         /// <summary>
         /// The Security&#39;s Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.
         /// </summary>
         /// <value>The Security&#39;s Date of First Trade. It will return the first date that the FactSet Pricing database began to cover the security and it may not coincide with the actual IPO date. Pricing information for this security will not be available before the date returned. For more details.</value>
-        [DataMember(Name = "firstDate", EmitDefaultValue = false)]
+        [DataMember(Name = "firstDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime FirstDate { get; set; }
+        public DateTime? FirstDate { get; set; }
 
         /// <summary>
         /// Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.
         /// </summary>
         /// <value>Date of Last Trade.  It will return the last date that the FactSet Pricing database as a record for this security listing.</value>
-        [DataMember(Name = "lastDate", EmitDefaultValue = false)]
+        [DataMember(Name = "lastDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime LastDate { get; set; }
+        public DateTime? LastDate { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.

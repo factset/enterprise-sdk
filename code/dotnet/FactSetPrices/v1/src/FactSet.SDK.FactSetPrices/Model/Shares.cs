@@ -42,7 +42,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="sharesCompany">**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867).</param>
         /// <param name="sharesCompanyNontraded">**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867).</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Shares(string fsymId = default(string), DateTime date = default(DateTime), DateTime adjDate = default(DateTime), decimal sharesSecurity = default(decimal), decimal sharesCompany = default(decimal), decimal sharesCompanyNontraded = default(decimal), string requestId = default(string))
+        public Shares(string fsymId = default(string), DateTime? date = default(DateTime?), DateTime? adjDate = default(DateTime?), decimal? sharesSecurity = default(decimal?), decimal? sharesCompany = default(decimal?), decimal? sharesCompanyNontraded = default(decimal?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -57,45 +57,45 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Date expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Date expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.
         /// </summary>
         /// <value>Date of last split for which return has been adjusted. Use the /factset-prices/v#/splits endpoint for details on split. If not available, date will return as 0001-01-01.</value>
-        [DataMember(Name = "adjDate", EmitDefaultValue = false)]
+        [DataMember(Name = "adjDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AdjDate { get; set; }
+        public DateTime? AdjDate { get; set; }
 
         /// <summary>
         /// **Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435)
         /// </summary>
         /// <value>**Security-level** Common Shares Outstanding in base units. Shares sourced primarily from SEC filings. Securities in certain countries will include treasury shares. For details visit [Online Assistant Page #10435](https://oa.apps.factset.com/pages/10435)</value>
-        [DataMember(Name = "sharesSecurity", EmitDefaultValue = false)]
-        public decimal SharesSecurity { get; set; }
+        [DataMember(Name = "sharesSecurity", EmitDefaultValue = true)]
+        public decimal? SharesSecurity { get; set; }
 
         /// <summary>
         /// **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)
         /// </summary>
         /// <value>**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *excluded*. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)</value>
-        [DataMember(Name = "sharesCompany", EmitDefaultValue = false)]
-        public decimal SharesCompany { get; set; }
+        [DataMember(Name = "sharesCompany", EmitDefaultValue = true)]
+        public decimal? SharesCompany { get; set; }
 
         /// <summary>
         /// **Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)
         /// </summary>
         /// <value>**Company-level** Shares Outstanding aggregated across all share classes. Non-traded shares are *included* to the calculation basis by the proportion of their nominal or par value. In base units. For more details, visit [Online Assistant Page #16867](https://oa.apps.factset.com/pages/16867)</value>
-        [DataMember(Name = "sharesCompanyNontraded", EmitDefaultValue = false)]
-        public decimal SharesCompanyNontraded { get; set; }
+        [DataMember(Name = "sharesCompanyNontraded", EmitDefaultValue = true)]
+        public decimal? SharesCompanyNontraded { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -171,15 +171,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.SharesSecurity == input.SharesSecurity ||
-                    this.SharesSecurity.Equals(input.SharesSecurity)
+                    (this.SharesSecurity != null &&
+                    this.SharesSecurity.Equals(input.SharesSecurity))
                 ) && 
                 (
                     this.SharesCompany == input.SharesCompany ||
-                    this.SharesCompany.Equals(input.SharesCompany)
+                    (this.SharesCompany != null &&
+                    this.SharesCompany.Equals(input.SharesCompany))
                 ) && 
                 (
                     this.SharesCompanyNontraded == input.SharesCompanyNontraded ||
-                    this.SharesCompanyNontraded.Equals(input.SharesCompanyNontraded)
+                    (this.SharesCompanyNontraded != null &&
+                    this.SharesCompanyNontraded.Equals(input.SharesCompanyNontraded))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -209,9 +212,18 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.AdjDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SharesSecurity.GetHashCode();
-                hashCode = (hashCode * 59) + this.SharesCompany.GetHashCode();
-                hashCode = (hashCode * 59) + this.SharesCompanyNontraded.GetHashCode();
+                if (this.SharesSecurity != null)
+                {
+                    hashCode = (hashCode * 59) + this.SharesSecurity.GetHashCode();
+                }
+                if (this.SharesCompany != null)
+                {
+                    hashCode = (hashCode * 59) + this.SharesCompany.GetHashCode();
+                }
+                if (this.SharesCompanyNontraded != null)
+                {
+                    hashCode = (hashCode * 59) + this.SharesCompanyNontraded.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

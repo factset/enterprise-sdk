@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -49,28 +53,28 @@ public class HighLow implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_ADJ_DATE = "adjDate";
-  private LocalDate adjDate;
+  private JsonNullable<LocalDate> adjDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_PERIOD = "period";
-  private String period;
+  private JsonNullable<String> period = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE_HIGH = "priceHigh";
-  private Double priceHigh;
+  private JsonNullable<Double> priceHigh = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PRICE_LOW = "priceLow";
-  private Double priceLow;
+  private JsonNullable<Double> priceLow = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PRICE_HIGH_DATE = "priceHighDate";
-  private LocalDate priceHighDate;
+  private JsonNullable<LocalDate> priceHighDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_PRICE_LOW_DATE = "priceLowDate";
-  private LocalDate priceLowDate;
+  private JsonNullable<LocalDate> priceLowDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -79,7 +83,7 @@ public class HighLow implements Serializable {
   }
 
   public HighLow adjDate(LocalDate adjDate) {
-    this.adjDate = adjDate;
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
     return this;
   }
 
@@ -89,23 +93,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which prices have been adjusted.")
-  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAdjDate() {
-    return adjDate;
+        return adjDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjDate(LocalDate adjDate) {
+
+  public JsonNullable<LocalDate> getAdjDate_JsonNullable() {
+    return adjDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
+  public void setAdjDate_JsonNullable(JsonNullable<LocalDate> adjDate) {
     this.adjDate = adjDate;
+  }
+
+  public void setAdjDate(LocalDate adjDate) {
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
   }
 
 
   public HighLow date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -115,23 +127,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Jul 07 00:00:00 UTC 2020", value = "Specific reference date for the period expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public HighLow period(String period) {
-    this.period = period;
+    this.period = JsonNullable.<String>of(period);
     return this;
   }
 
@@ -141,23 +161,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "52W", value = "The period of measure requested using the period query parameter.")
-  @JsonProperty(JSON_PROPERTY_PERIOD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getPeriod() {
-    return period;
+        return period.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriod(String period) {
+
+  public JsonNullable<String> getPeriod_JsonNullable() {
+    return period;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERIOD)
+  public void setPeriod_JsonNullable(JsonNullable<String> period) {
     this.period = period;
+  }
+
+  public void setPeriod(String period) {
+    this.period = JsonNullable.<String>of(period);
   }
 
 
   public HighLow fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -167,23 +195,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "HTM0LK-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public HighLow priceHigh(Double priceHigh) {
-    this.priceHigh = priceHigh;
+    this.priceHigh = JsonNullable.<Double>of(priceHigh);
     return this;
   }
 
@@ -193,23 +229,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "126", value = "High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.")
-  @JsonProperty(JSON_PROPERTY_PRICE_HIGH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPriceHigh() {
-    return priceHigh;
+        return priceHigh.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_HIGH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceHigh(Double priceHigh) {
+
+  public JsonNullable<Double> getPriceHigh_JsonNullable() {
+    return priceHigh;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_HIGH)
+  public void setPriceHigh_JsonNullable(JsonNullable<Double> priceHigh) {
     this.priceHigh = priceHigh;
+  }
+
+  public void setPriceHigh(Double priceHigh) {
+    this.priceHigh = JsonNullable.<Double>of(priceHigh);
   }
 
 
   public HighLow priceLow(Double priceLow) {
-    this.priceLow = priceLow;
+    this.priceLow = JsonNullable.<Double>of(priceLow);
     return this;
   }
 
@@ -219,23 +263,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "121.25", value = "Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.")
-  @JsonProperty(JSON_PROPERTY_PRICE_LOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPriceLow() {
-    return priceLow;
+        return priceLow.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_LOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceLow(Double priceLow) {
+
+  public JsonNullable<Double> getPriceLow_JsonNullable() {
+    return priceLow;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_LOW)
+  public void setPriceLow_JsonNullable(JsonNullable<Double> priceLow) {
     this.priceLow = priceLow;
+  }
+
+  public void setPriceLow(Double priceLow) {
+    this.priceLow = JsonNullable.<Double>of(priceLow);
   }
 
 
   public HighLow priceHighDate(LocalDate priceHighDate) {
-    this.priceHighDate = priceHighDate;
+    this.priceHighDate = JsonNullable.<LocalDate>of(priceHighDate);
     return this;
   }
 
@@ -245,23 +297,31 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Mar 05 00:00:00 UTC 2020", value = "Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_PRICE_HIGH_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getPriceHighDate() {
-    return priceHighDate;
+        return priceHighDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_HIGH_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceHighDate(LocalDate priceHighDate) {
+
+  public JsonNullable<LocalDate> getPriceHighDate_JsonNullable() {
+    return priceHighDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_HIGH_DATE)
+  public void setPriceHighDate_JsonNullable(JsonNullable<LocalDate> priceHighDate) {
     this.priceHighDate = priceHighDate;
+  }
+
+  public void setPriceHighDate(LocalDate priceHighDate) {
+    this.priceHighDate = JsonNullable.<LocalDate>of(priceHighDate);
   }
 
 
   public HighLow priceLowDate(LocalDate priceLowDate) {
-    this.priceLowDate = priceLowDate;
+    this.priceLowDate = JsonNullable.<LocalDate>of(priceLowDate);
     return this;
   }
 
@@ -271,18 +331,26 @@ public class HighLow implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Sat Sep 14 00:00:00 UTC 2019", value = "Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_PRICE_LOW_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getPriceLowDate() {
-    return priceLowDate;
+        return priceLowDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_LOW_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceLowDate(LocalDate priceLowDate) {
+
+  public JsonNullable<LocalDate> getPriceLowDate_JsonNullable() {
+    return priceLowDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_LOW_DATE)
+  public void setPriceLowDate_JsonNullable(JsonNullable<LocalDate> priceLowDate) {
     this.priceLowDate = priceLowDate;
+  }
+
+  public void setPriceLowDate(LocalDate priceLowDate) {
+    this.priceLowDate = JsonNullable.<LocalDate>of(priceLowDate);
   }
 
 
@@ -324,20 +392,31 @@ public class HighLow implements Serializable {
       return false;
     }
     HighLow highLow = (HighLow) o;
-    return Objects.equals(this.adjDate, highLow.adjDate) &&
-        Objects.equals(this.date, highLow.date) &&
-        Objects.equals(this.period, highLow.period) &&
-        Objects.equals(this.fsymId, highLow.fsymId) &&
-        Objects.equals(this.priceHigh, highLow.priceHigh) &&
-        Objects.equals(this.priceLow, highLow.priceLow) &&
-        Objects.equals(this.priceHighDate, highLow.priceHighDate) &&
-        Objects.equals(this.priceLowDate, highLow.priceLowDate) &&
+    return equalsNullable(this.adjDate, highLow.adjDate) &&
+        equalsNullable(this.date, highLow.date) &&
+        equalsNullable(this.period, highLow.period) &&
+        equalsNullable(this.fsymId, highLow.fsymId) &&
+        equalsNullable(this.priceHigh, highLow.priceHigh) &&
+        equalsNullable(this.priceLow, highLow.priceLow) &&
+        equalsNullable(this.priceHighDate, highLow.priceHighDate) &&
+        equalsNullable(this.priceLowDate, highLow.priceLowDate) &&
         Objects.equals(this.requestId, highLow.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjDate, date, period, fsymId, priceHigh, priceLow, priceHighDate, priceLowDate, requestId);
+    return Objects.hash(hashCodeNullable(adjDate), hashCodeNullable(date), hashCodeNullable(period), hashCodeNullable(fsymId), hashCodeNullable(priceHigh), hashCodeNullable(priceLow), hashCodeNullable(priceHighDate), hashCodeNullable(priceLowDate), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

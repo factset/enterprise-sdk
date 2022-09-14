@@ -44,7 +44,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="priceHighDate">Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format..</param>
         /// <param name="priceLowDate">Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public HighLow(DateTime adjDate = default(DateTime), DateTime date = default(DateTime), string period = default(string), string fsymId = default(string), double priceHigh = default(double), double priceLow = default(double), DateTime priceHighDate = default(DateTime), DateTime priceLowDate = default(DateTime), string requestId = default(string))
+        public HighLow(DateTime? adjDate = default(DateTime?), DateTime? date = default(DateTime?), string period = default(string), string fsymId = default(string), double? priceHigh = default(double?), double? priceLow = default(double?), DateTime? priceHighDate = default(DateTime?), DateTime? priceLowDate = default(DateTime?), string requestId = default(string))
         {
             this.AdjDate = adjDate;
             this.Date = date;
@@ -61,61 +61,61 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Date of last split for which prices have been adjusted.
         /// </summary>
         /// <value>Date of last split for which prices have been adjusted.</value>
-        [DataMember(Name = "adjDate", EmitDefaultValue = false)]
+        [DataMember(Name = "adjDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AdjDate { get; set; }
+        public DateTime? AdjDate { get; set; }
 
         /// <summary>
         /// Specific reference date for the period expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Specific reference date for the period expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// The period of measure requested using the period query parameter.
         /// </summary>
         /// <value>The period of measure requested using the period query parameter.</value>
-        [DataMember(Name = "period", EmitDefaultValue = false)]
+        [DataMember(Name = "period", EmitDefaultValue = true)]
         public string Period { get; set; }
 
         /// <summary>
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.
         /// </summary>
         /// <value>High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.</value>
-        [DataMember(Name = "priceHigh", EmitDefaultValue = false)]
-        public double PriceHigh { get; set; }
+        [DataMember(Name = "priceHigh", EmitDefaultValue = true)]
+        public double? PriceHigh { get; set; }
 
         /// <summary>
         /// Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.
         /// </summary>
         /// <value>Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.</value>
-        [DataMember(Name = "priceLow", EmitDefaultValue = false)]
-        public double PriceLow { get; set; }
+        [DataMember(Name = "priceLow", EmitDefaultValue = true)]
+        public double? PriceLow { get; set; }
 
         /// <summary>
         /// Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "priceHighDate", EmitDefaultValue = false)]
+        [DataMember(Name = "priceHighDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime PriceHighDate { get; set; }
+        public DateTime? PriceHighDate { get; set; }
 
         /// <summary>
         /// Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "priceLowDate", EmitDefaultValue = false)]
+        [DataMember(Name = "priceLowDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime PriceLowDate { get; set; }
+        public DateTime? PriceLowDate { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -198,11 +198,13 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.PriceHigh == input.PriceHigh ||
-                    this.PriceHigh.Equals(input.PriceHigh)
+                    (this.PriceHigh != null &&
+                    this.PriceHigh.Equals(input.PriceHigh))
                 ) && 
                 (
                     this.PriceLow == input.PriceLow ||
-                    this.PriceLow.Equals(input.PriceLow)
+                    (this.PriceLow != null &&
+                    this.PriceLow.Equals(input.PriceLow))
                 ) && 
                 (
                     this.PriceHighDate == input.PriceHighDate ||
@@ -246,8 +248,14 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
+                if (this.PriceHigh != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
+                }
+                if (this.PriceLow != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
+                }
                 if (this.PriceHighDate != null)
                 {
                     hashCode = (hashCode * 59) + this.PriceHighDate.GetHashCode();

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -49,28 +53,28 @@ public class FixedIncomePrice implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_SECURITY_TYPE = "securityType";
-  private String securityType;
+  private JsonNullable<String> securityType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ISSUER_ENTITY_ID = "issuerEntityId";
-  private String issuerEntityId;
+  private JsonNullable<String> issuerEntityId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ISSUER_TYPE = "issuerType";
-  private String issuerType;
+  private JsonNullable<String> issuerType = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_PRICE_BID = "priceBid";
-  private Double priceBid;
+  private JsonNullable<Double> priceBid = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PRICE_MID = "priceMid";
-  private Double priceMid;
+  private JsonNullable<Double> priceMid = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_PRICE_ASK = "priceAsk";
-  private Double priceAsk;
+  private JsonNullable<Double> priceAsk = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -79,7 +83,7 @@ public class FixedIncomePrice implements Serializable {
   }
 
   public FixedIncomePrice fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -89,23 +93,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "NL6DQ8-S", value = "Factset Security Identifier. Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public FixedIncomePrice date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -115,23 +127,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Tue Jun 09 00:00:00 UTC 2020", value = "Ending date for the period expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public FixedIncomePrice securityType(String securityType) {
-    this.securityType = securityType;
+    this.securityType = JsonNullable.<String>of(securityType);
     return this;
   }
 
@@ -141,23 +161,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BDNT", value = "Returns the security type code of fixed income instruments.   * AGCY - Agency   * BDNT - Bond/Note   * BDWT  - Bond with Warrants   * BKAC  - Bankers Acceptance   * BLDN - Bill/Discount Note   * BOND  - Bond   * CAP  - Embedded ceiling or short interest rates   * CAPS - Capital Security   * CAPT - Capital Trust Security   * CD - Certificate of Deposit (Munis)   * CDO - Collateralized Debt Obligation   * CMO  - Collateralized mortgage obligation   * COMP - Commercial Paper   * CONV - Convertible/Exchangeable   * CONVP - Convertible Preferred   * CORP - Corporate   * COVR - Covered Bond   * CP  - Commercial Paper   * CRL - Credit Linked Security   * DEB - Debenture   * DERI  - Derivative (generic type)   * EBON - Eurobond   * EQL - Equity Linked Security   * FORW  - Forward deliveries   * GRTR  - Grantor trust   * HY - Hypotheken Pfandbriefe   * IIDX - Inflation Indexed Security   * INVF  - Inverse floaters   * LAUTH - Local Authority/Political Division   * LINK  - Linked securities   * LKS - Linked Securities   * MAPL - Mixed Asset Portfolio Linked Security   * MM - Money Market   * NOTE  - Note   * OF - Obligations FonciÃres   * OPTN  - Options   * OTHL - Other Linked Security   * PAYS  - Payment streams   * PFD - Preferred   * PFND - Pfandbriefe   * POOL  - Pooled derivatives   * PSEC - Preferred Security   * PSTK - Preferred Stock   * REPO  - REPOS   * RMIC  - REMIC   * SHFL  - Short floats (auction)   * STRIPS - STRIPS   * SWAP  - Embedded swaps   * TR  - Trust   * TRUPS - Trust Preferred Security ")
-  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSecurityType() {
-    return securityType;
+        return securityType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityType(String securityType) {
+
+  public JsonNullable<String> getSecurityType_JsonNullable() {
+    return securityType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECURITY_TYPE)
+  public void setSecurityType_JsonNullable(JsonNullable<String> securityType) {
     this.securityType = securityType;
+  }
+
+  public void setSecurityType(String securityType) {
+    this.securityType = JsonNullable.<String>of(securityType);
   }
 
 
   public FixedIncomePrice issuerEntityId(String issuerEntityId) {
-    this.issuerEntityId = issuerEntityId;
+    this.issuerEntityId = JsonNullable.<String>of(issuerEntityId);
     return this;
   }
 
@@ -167,23 +195,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "000C7F-E", value = "Fixed Income Issuer Entity ID (-E).")
-  @JsonProperty(JSON_PROPERTY_ISSUER_ENTITY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIssuerEntityId() {
-    return issuerEntityId;
+        return issuerEntityId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ISSUER_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIssuerEntityId(String issuerEntityId) {
+
+  public JsonNullable<String> getIssuerEntityId_JsonNullable() {
+    return issuerEntityId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISSUER_ENTITY_ID)
+  public void setIssuerEntityId_JsonNullable(JsonNullable<String> issuerEntityId) {
     this.issuerEntityId = issuerEntityId;
+  }
+
+  public void setIssuerEntityId(String issuerEntityId) {
+    this.issuerEntityId = JsonNullable.<String>of(issuerEntityId);
   }
 
 
   public FixedIncomePrice issuerType(String issuerType) {
-    this.issuerType = issuerType;
+    this.issuerType = JsonNullable.<String>of(issuerType);
     return this;
   }
 
@@ -193,23 +229,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "CORP", value = "Returns the issuer type code of fixed income instruments.   * AGCY - Agency   * CORP - Corporate   * LAUTH - Local Authority/Political Division   * MUNI - Municipals   * SOV - Sovereign   * SUPR - Supranational   * SCOL - Securitized/Collateralized ")
-  @JsonProperty(JSON_PROPERTY_ISSUER_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getIssuerType() {
-    return issuerType;
+        return issuerType.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ISSUER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIssuerType(String issuerType) {
+
+  public JsonNullable<String> getIssuerType_JsonNullable() {
+    return issuerType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ISSUER_TYPE)
+  public void setIssuerType_JsonNullable(JsonNullable<String> issuerType) {
     this.issuerType = issuerType;
+  }
+
+  public void setIssuerType(String issuerType) {
+    this.issuerType = JsonNullable.<String>of(issuerType);
   }
 
 
   public FixedIncomePrice priceBid(Double priceBid) {
-    this.priceBid = priceBid;
+    this.priceBid = JsonNullable.<Double>of(priceBid);
     return this;
   }
 
@@ -219,23 +263,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "134.959", value = "BID PRICE. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.")
-  @JsonProperty(JSON_PROPERTY_PRICE_BID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPriceBid() {
-    return priceBid;
+        return priceBid.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_BID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceBid(Double priceBid) {
+
+  public JsonNullable<Double> getPriceBid_JsonNullable() {
+    return priceBid;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_BID)
+  public void setPriceBid_JsonNullable(JsonNullable<Double> priceBid) {
     this.priceBid = priceBid;
+  }
+
+  public void setPriceBid(Double priceBid) {
+    this.priceBid = JsonNullable.<Double>of(priceBid);
   }
 
 
   public FixedIncomePrice priceMid(Double priceMid) {
-    this.priceMid = priceMid;
+    this.priceMid = JsonNullable.<Double>of(priceMid);
     return this;
   }
 
@@ -245,23 +297,31 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "137.695", value = "MID Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.")
-  @JsonProperty(JSON_PROPERTY_PRICE_MID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPriceMid() {
-    return priceMid;
+        return priceMid.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_MID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceMid(Double priceMid) {
+
+  public JsonNullable<Double> getPriceMid_JsonNullable() {
+    return priceMid;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_MID)
+  public void setPriceMid_JsonNullable(JsonNullable<Double> priceMid) {
     this.priceMid = priceMid;
+  }
+
+  public void setPriceMid(Double priceMid) {
+    this.priceMid = JsonNullable.<Double>of(priceMid);
   }
 
 
   public FixedIncomePrice priceAsk(Double priceAsk) {
-    this.priceAsk = priceAsk;
+    this.priceAsk = JsonNullable.<Double>of(priceAsk);
     return this;
   }
 
@@ -271,18 +331,26 @@ public class FixedIncomePrice implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "134.959", value = "ASK Price. For North American issues, the value is an evaluated price, where available, else it is an exchange-traded price. Please note that distinct Bid and Ask Prices are not available for North American issues; Bid, Mid, and Ask Prices will be identical for North American issues. For issues outside of North America (International), the value is an evaluated price. Please note that distinct Bid and Ask Prices are only available for issues outside of North America. By default, the Mid Price is returned for issues outside of North America.")
-  @JsonProperty(JSON_PROPERTY_PRICE_ASK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getPriceAsk() {
-    return priceAsk;
+        return priceAsk.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PRICE_ASK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriceAsk(Double priceAsk) {
+
+  public JsonNullable<Double> getPriceAsk_JsonNullable() {
+    return priceAsk;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PRICE_ASK)
+  public void setPriceAsk_JsonNullable(JsonNullable<Double> priceAsk) {
     this.priceAsk = priceAsk;
+  }
+
+  public void setPriceAsk(Double priceAsk) {
+    this.priceAsk = JsonNullable.<Double>of(priceAsk);
   }
 
 
@@ -324,20 +392,31 @@ public class FixedIncomePrice implements Serializable {
       return false;
     }
     FixedIncomePrice fixedIncomePrice = (FixedIncomePrice) o;
-    return Objects.equals(this.fsymId, fixedIncomePrice.fsymId) &&
-        Objects.equals(this.date, fixedIncomePrice.date) &&
-        Objects.equals(this.securityType, fixedIncomePrice.securityType) &&
-        Objects.equals(this.issuerEntityId, fixedIncomePrice.issuerEntityId) &&
-        Objects.equals(this.issuerType, fixedIncomePrice.issuerType) &&
-        Objects.equals(this.priceBid, fixedIncomePrice.priceBid) &&
-        Objects.equals(this.priceMid, fixedIncomePrice.priceMid) &&
-        Objects.equals(this.priceAsk, fixedIncomePrice.priceAsk) &&
+    return equalsNullable(this.fsymId, fixedIncomePrice.fsymId) &&
+        equalsNullable(this.date, fixedIncomePrice.date) &&
+        equalsNullable(this.securityType, fixedIncomePrice.securityType) &&
+        equalsNullable(this.issuerEntityId, fixedIncomePrice.issuerEntityId) &&
+        equalsNullable(this.issuerType, fixedIncomePrice.issuerType) &&
+        equalsNullable(this.priceBid, fixedIncomePrice.priceBid) &&
+        equalsNullable(this.priceMid, fixedIncomePrice.priceMid) &&
+        equalsNullable(this.priceAsk, fixedIncomePrice.priceAsk) &&
         Objects.equals(this.requestId, fixedIncomePrice.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, securityType, issuerEntityId, issuerType, priceBid, priceMid, priceAsk, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(securityType), hashCodeNullable(issuerEntityId), hashCodeNullable(issuerType), hashCodeNullable(priceBid), hashCodeNullable(priceMid), hashCodeNullable(priceAsk), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

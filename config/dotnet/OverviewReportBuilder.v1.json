@@ -14,6 +14,7 @@
   "gitUserId": "factset",
   "gitRepoId": "enterprise-sdk",
   "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
   "httpUserAgent": "fds-sdk/dotnet/OverviewReportBuilder/1.0.0",

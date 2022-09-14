@@ -1,10 +1,10 @@
-# FactSet.SDK.NaturalLanguageProcessing.Api.ThemesApi
+# FactSet.SDK.NaturalLanguageProcessing.Api.AIThemesApi
 
 All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1ThemesPost**](ThemesApi.md#cognitivenlpv1themespost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**CognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitivenlpv1themespost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
 
 
 <a name="cognitivenlpv1themespost"></a>
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 POST request to extract themes from text
 
-This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.  Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
+This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
 
 ### Example
 ```csharp
@@ -49,7 +49,7 @@ namespace Example
             // config.Username = "USERNAME-SERIAL";
             // config.Password = "API-KEY";
 
-            var apiInstance = new ThemesApi(config);
+            var apiInstance = new AIThemesApi(config);
 
             var themeParametersRoot = new ThemeParametersRoot(); // ThemeParametersRoot | 
 
@@ -61,7 +61,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling ThemesApi.CognitiveNlpV1ThemesPost: " + e.Message );
+                Console.WriteLine("Exception when calling AIThemesApi.CognitiveNlpV1ThemesPost: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }

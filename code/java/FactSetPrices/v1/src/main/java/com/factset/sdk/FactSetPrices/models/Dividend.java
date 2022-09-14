@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -54,37 +58,37 @@ public class Dividend implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DIVS_EX_DATE = "divsExDate";
-  private LocalDate divsExDate;
+  private JsonNullable<LocalDate> divsExDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_ADJ_DATE = "adjDate";
-  private LocalDate adjDate;
+  private JsonNullable<LocalDate> adjDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
-  private String currency;
+  private JsonNullable<String> currency = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DIVS_PAID = "divsPaid";
-  private Double divsPaid;
+  private JsonNullable<Double> divsPaid = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_DIVS_REC_DATE = "divsRecDate";
-  private LocalDate divsRecDate;
+  private JsonNullable<LocalDate> divsRecDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_DIVS_PAY_DATE = "divsPayDate";
-  private LocalDate divsPayDate;
+  private JsonNullable<LocalDate> divsPayDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_DIVS_TYPE_C = "divsTypeC";
-  private Integer divsTypeC;
+  private JsonNullable<Integer> divsTypeC = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_DIVS_TYPE_D = "divsTypeD";
-  private String divsTypeD;
+  private JsonNullable<String> divsTypeD = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DIVS_TAX_C = "divsTaxC";
-  private String divsTaxC;
+  private JsonNullable<String> divsTaxC = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DIVS_TAX_D = "divsTaxD";
-  private String divsTaxD;
+  private JsonNullable<String> divsTaxD = JsonNullable.<String>undefined();
 
   /**
    * Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).
@@ -125,15 +129,15 @@ public class Dividend implements Serializable {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_DIVS_N_G_FLAG = "divsNGFlag";
-  private DivsNGFlagEnum divsNGFlag;
+  private JsonNullable<DivsNGFlagEnum> divsNGFlag = JsonNullable.<DivsNGFlagEnum>undefined();
 
   public static final String JSON_PROPERTY_DIVS_N_G_EQUIV = "divsNGEquiv";
-  private Double divsNGEquiv;
+  private JsonNullable<Double> divsNGEquiv = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -142,7 +146,7 @@ public class Dividend implements Serializable {
   }
 
   public Dividend fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -152,23 +156,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Dividend divsExDate(LocalDate divsExDate) {
-    this.divsExDate = divsExDate;
+    this.divsExDate = JsonNullable.<LocalDate>of(divsExDate);
     return this;
   }
 
@@ -178,23 +190,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "Ex-Date of the dividend expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DIVS_EX_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDivsExDate() {
-    return divsExDate;
+        return divsExDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_EX_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsExDate(LocalDate divsExDate) {
+
+  public JsonNullable<LocalDate> getDivsExDate_JsonNullable() {
+    return divsExDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_EX_DATE)
+  public void setDivsExDate_JsonNullable(JsonNullable<LocalDate> divsExDate) {
     this.divsExDate = divsExDate;
+  }
+
+  public void setDivsExDate(LocalDate divsExDate) {
+    this.divsExDate = JsonNullable.<LocalDate>of(divsExDate);
   }
 
 
   public Dividend adjDate(LocalDate adjDate) {
-    this.adjDate = adjDate;
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
     return this;
   }
 
@@ -204,23 +224,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Mon Feb 07 00:00:00 UTC 2005", value = "Date of last split for which prices and volume have been adjusted.")
-  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getAdjDate() {
-    return adjDate;
+        return adjDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_ADJ_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdjDate(LocalDate adjDate) {
+
+  public JsonNullable<LocalDate> getAdjDate_JsonNullable() {
+    return adjDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_ADJ_DATE)
+  public void setAdjDate_JsonNullable(JsonNullable<LocalDate> adjDate) {
     this.adjDate = adjDate;
+  }
+
+  public void setAdjDate(LocalDate adjDate) {
+    this.adjDate = JsonNullable.<LocalDate>of(adjDate);
   }
 
 
   public Dividend currency(String currency) {
-    this.currency = currency;
+    this.currency = JsonNullable.<String>of(currency);
     return this;
   }
 
@@ -230,23 +258,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "USD", value = "Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).")
-  @JsonProperty(JSON_PROPERTY_CURRENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getCurrency() {
-    return currency;
+        return currency.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+
+  public JsonNullable<String> getCurrency_JsonNullable() {
+    return currency;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  public void setCurrency_JsonNullable(JsonNullable<String> currency) {
     this.currency = currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = JsonNullable.<String>of(currency);
   }
 
 
   public Dividend divsPaid(Double divsPaid) {
-    this.divsPaid = divsPaid;
+    this.divsPaid = JsonNullable.<Double>of(divsPaid);
     return this;
   }
 
@@ -256,23 +292,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "5", value = "Amount of the dividend paid.")
-  @JsonProperty(JSON_PROPERTY_DIVS_PAID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getDivsPaid() {
-    return divsPaid;
+        return divsPaid.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_PAID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsPaid(Double divsPaid) {
+
+  public JsonNullable<Double> getDivsPaid_JsonNullable() {
+    return divsPaid;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_PAID)
+  public void setDivsPaid_JsonNullable(JsonNullable<Double> divsPaid) {
     this.divsPaid = divsPaid;
+  }
+
+  public void setDivsPaid(Double divsPaid) {
+    this.divsPaid = JsonNullable.<Double>of(divsPaid);
   }
 
 
   public Dividend divsRecDate(LocalDate divsRecDate) {
-    this.divsRecDate = divsRecDate;
+    this.divsRecDate = JsonNullable.<LocalDate>of(divsRecDate);
     return this;
   }
 
@@ -282,23 +326,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Wed Jul 10 00:00:00 UTC 2013", value = "Date the dividend was recorded expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DIVS_REC_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDivsRecDate() {
-    return divsRecDate;
+        return divsRecDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_REC_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsRecDate(LocalDate divsRecDate) {
+
+  public JsonNullable<LocalDate> getDivsRecDate_JsonNullable() {
+    return divsRecDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_REC_DATE)
+  public void setDivsRecDate_JsonNullable(JsonNullable<LocalDate> divsRecDate) {
     this.divsRecDate = divsRecDate;
+  }
+
+  public void setDivsRecDate(LocalDate divsRecDate) {
+    this.divsRecDate = JsonNullable.<LocalDate>of(divsRecDate);
   }
 
 
   public Dividend divsPayDate(LocalDate divsPayDate) {
-    this.divsPayDate = divsPayDate;
+    this.divsPayDate = JsonNullable.<LocalDate>of(divsPayDate);
     return this;
   }
 
@@ -308,23 +360,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 08 00:00:00 UTC 2013", value = "Date the dividend will be paid expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DIVS_PAY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDivsPayDate() {
-    return divsPayDate;
+        return divsPayDate.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_PAY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsPayDate(LocalDate divsPayDate) {
+
+  public JsonNullable<LocalDate> getDivsPayDate_JsonNullable() {
+    return divsPayDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_PAY_DATE)
+  public void setDivsPayDate_JsonNullable(JsonNullable<LocalDate> divsPayDate) {
     this.divsPayDate = divsPayDate;
+  }
+
+  public void setDivsPayDate(LocalDate divsPayDate) {
+    this.divsPayDate = JsonNullable.<LocalDate>of(divsPayDate);
   }
 
 
   public Dividend divsTypeC(Integer divsTypeC) {
-    this.divsTypeC = divsTypeC;
+    this.divsTypeC = JsonNullable.<Integer>of(divsTypeC);
     return this;
   }
 
@@ -334,23 +394,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1049", value = "Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).")
-  @JsonProperty(JSON_PROPERTY_DIVS_TYPE_C)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Integer getDivsTypeC() {
-    return divsTypeC;
+        return divsTypeC.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_TYPE_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsTypeC(Integer divsTypeC) {
+
+  public JsonNullable<Integer> getDivsTypeC_JsonNullable() {
+    return divsTypeC;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_TYPE_C)
+  public void setDivsTypeC_JsonNullable(JsonNullable<Integer> divsTypeC) {
     this.divsTypeC = divsTypeC;
+  }
+
+  public void setDivsTypeC(Integer divsTypeC) {
+    this.divsTypeC = JsonNullable.<Integer>of(divsTypeC);
   }
 
 
   public Dividend divsTypeD(String divsTypeD) {
-    this.divsTypeD = divsTypeD;
+    this.divsTypeD = JsonNullable.<String>of(divsTypeD);
     return this;
   }
 
@@ -360,23 +428,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "U.S. Currency", value = "Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).")
-  @JsonProperty(JSON_PROPERTY_DIVS_TYPE_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDivsTypeD() {
-    return divsTypeD;
+        return divsTypeD.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_TYPE_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsTypeD(String divsTypeD) {
+
+  public JsonNullable<String> getDivsTypeD_JsonNullable() {
+    return divsTypeD;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_TYPE_D)
+  public void setDivsTypeD_JsonNullable(JsonNullable<String> divsTypeD) {
     this.divsTypeD = divsTypeD;
+  }
+
+  public void setDivsTypeD(String divsTypeD) {
+    this.divsTypeD = JsonNullable.<String>of(divsTypeD);
   }
 
 
   public Dividend divsTaxC(String divsTaxC) {
-    this.divsTaxC = divsTaxC;
+    this.divsTaxC = JsonNullable.<String>of(divsTaxC);
     return this;
   }
 
@@ -386,23 +462,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FC", value = "Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).")
-  @JsonProperty(JSON_PROPERTY_DIVS_TAX_C)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDivsTaxC() {
-    return divsTaxC;
+        return divsTaxC.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_TAX_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsTaxC(String divsTaxC) {
+
+  public JsonNullable<String> getDivsTaxC_JsonNullable() {
+    return divsTaxC;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_TAX_C)
+  public void setDivsTaxC_JsonNullable(JsonNullable<String> divsTaxC) {
     this.divsTaxC = divsTaxC;
+  }
+
+  public void setDivsTaxC(String divsTaxC) {
+    this.divsTaxC = JsonNullable.<String>of(divsTaxC);
   }
 
 
   public Dividend divsTaxD(String divsTaxD) {
-    this.divsTaxD = divsTaxD;
+    this.divsTaxD = JsonNullable.<String>of(divsTaxD);
     return this;
   }
 
@@ -412,23 +496,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Free of tax", value = "Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).")
-  @JsonProperty(JSON_PROPERTY_DIVS_TAX_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDivsTaxD() {
-    return divsTaxD;
+        return divsTaxD.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_TAX_D)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsTaxD(String divsTaxD) {
+
+  public JsonNullable<String> getDivsTaxD_JsonNullable() {
+    return divsTaxD;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_TAX_D)
+  public void setDivsTaxD_JsonNullable(JsonNullable<String> divsTaxD) {
     this.divsTaxD = divsTaxD;
+  }
+
+  public void setDivsTaxD(String divsTaxD) {
+    this.divsTaxD = JsonNullable.<String>of(divsTaxD);
   }
 
 
   public Dividend divsNGFlag(DivsNGFlagEnum divsNGFlag) {
-    this.divsNGFlag = divsNGFlag;
+    this.divsNGFlag = JsonNullable.<DivsNGFlagEnum>of(divsNGFlag);
     return this;
   }
 
@@ -438,23 +530,31 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).")
-  @JsonProperty(JSON_PROPERTY_DIVS_N_G_FLAG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public DivsNGFlagEnum getDivsNGFlag() {
-    return divsNGFlag;
+        return divsNGFlag.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_N_G_FLAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsNGFlag(DivsNGFlagEnum divsNGFlag) {
+
+  public JsonNullable<DivsNGFlagEnum> getDivsNGFlag_JsonNullable() {
+    return divsNGFlag;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_N_G_FLAG)
+  public void setDivsNGFlag_JsonNullable(JsonNullable<DivsNGFlagEnum> divsNGFlag) {
     this.divsNGFlag = divsNGFlag;
+  }
+
+  public void setDivsNGFlag(DivsNGFlagEnum divsNGFlag) {
+    this.divsNGFlag = JsonNullable.<DivsNGFlagEnum>of(divsNGFlag);
   }
 
 
   public Dividend divsNGEquiv(Double divsNGEquiv) {
-    this.divsNGEquiv = divsNGEquiv;
+    this.divsNGEquiv = JsonNullable.<Double>of(divsNGEquiv);
     return this;
   }
 
@@ -464,18 +564,26 @@ public class Dividend implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "5.5", value = "Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).")
-  @JsonProperty(JSON_PROPERTY_DIVS_N_G_EQUIV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getDivsNGEquiv() {
-    return divsNGEquiv;
+        return divsNGEquiv.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DIVS_N_G_EQUIV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDivsNGEquiv(Double divsNGEquiv) {
+
+  public JsonNullable<Double> getDivsNGEquiv_JsonNullable() {
+    return divsNGEquiv;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DIVS_N_G_EQUIV)
+  public void setDivsNGEquiv_JsonNullable(JsonNullable<Double> divsNGEquiv) {
     this.divsNGEquiv = divsNGEquiv;
+  }
+
+  public void setDivsNGEquiv(Double divsNGEquiv) {
+    this.divsNGEquiv = JsonNullable.<Double>of(divsNGEquiv);
   }
 
 
@@ -517,25 +625,36 @@ public class Dividend implements Serializable {
       return false;
     }
     Dividend dividend = (Dividend) o;
-    return Objects.equals(this.fsymId, dividend.fsymId) &&
-        Objects.equals(this.divsExDate, dividend.divsExDate) &&
-        Objects.equals(this.adjDate, dividend.adjDate) &&
-        Objects.equals(this.currency, dividend.currency) &&
-        Objects.equals(this.divsPaid, dividend.divsPaid) &&
-        Objects.equals(this.divsRecDate, dividend.divsRecDate) &&
-        Objects.equals(this.divsPayDate, dividend.divsPayDate) &&
-        Objects.equals(this.divsTypeC, dividend.divsTypeC) &&
-        Objects.equals(this.divsTypeD, dividend.divsTypeD) &&
-        Objects.equals(this.divsTaxC, dividend.divsTaxC) &&
-        Objects.equals(this.divsTaxD, dividend.divsTaxD) &&
-        Objects.equals(this.divsNGFlag, dividend.divsNGFlag) &&
-        Objects.equals(this.divsNGEquiv, dividend.divsNGEquiv) &&
+    return equalsNullable(this.fsymId, dividend.fsymId) &&
+        equalsNullable(this.divsExDate, dividend.divsExDate) &&
+        equalsNullable(this.adjDate, dividend.adjDate) &&
+        equalsNullable(this.currency, dividend.currency) &&
+        equalsNullable(this.divsPaid, dividend.divsPaid) &&
+        equalsNullable(this.divsRecDate, dividend.divsRecDate) &&
+        equalsNullable(this.divsPayDate, dividend.divsPayDate) &&
+        equalsNullable(this.divsTypeC, dividend.divsTypeC) &&
+        equalsNullable(this.divsTypeD, dividend.divsTypeD) &&
+        equalsNullable(this.divsTaxC, dividend.divsTaxC) &&
+        equalsNullable(this.divsTaxD, dividend.divsTaxD) &&
+        equalsNullable(this.divsNGFlag, dividend.divsNGFlag) &&
+        equalsNullable(this.divsNGEquiv, dividend.divsNGEquiv) &&
         Objects.equals(this.requestId, dividend.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, divsExDate, adjDate, currency, divsPaid, divsRecDate, divsPayDate, divsTypeC, divsTypeD, divsTaxC, divsTaxD, divsNGFlag, divsNGEquiv, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(divsExDate), hashCodeNullable(adjDate), hashCodeNullable(currency), hashCodeNullable(divsPaid), hashCodeNullable(divsRecDate), hashCodeNullable(divsPayDate), hashCodeNullable(divsTypeC), hashCodeNullable(divsTypeD), hashCodeNullable(divsTaxC), hashCodeNullable(divsTaxD), hashCodeNullable(divsNGFlag), hashCodeNullable(divsNGEquiv), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

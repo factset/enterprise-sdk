@@ -57,7 +57,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="thirtyYearAnnualized">Returns the annualized compound total return for thirty years..</param>
         /// <param name="ipoToDateAnnualized">Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself..</param>
         /// <param name="dividendAdjust">Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** &#x3D; Price Change - Dividends Excluded.   * **EXDATE** &#x3D; Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** &#x3D; Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. .</param>
-        public ReturnsSnapshot(string fsymId = default(string), DateTime date = default(DateTime), string currency = default(string), string requestId = default(string), double oneDay = default(double), double oneMonth = default(double), double threeMonth = default(double), double sixMonth = default(double), double nineMonth = default(double), double oneYear = default(double), double quarterToDate = default(double), double weekToDate = default(double), double monthToDate = default(double), double yearToDate = default(double), double twoYearAnnualized = default(double), double threeYearAnnualized = default(double), double fiveYearAnnualized = default(double), double tenYearAnnualized = default(double), double twentyYearAnnualized = default(double), double thirtyYearAnnualized = default(double), double ipoToDateAnnualized = default(double), string dividendAdjust = default(string))
+        public ReturnsSnapshot(string fsymId = default(string), DateTime? date = default(DateTime?), string currency = default(string), string requestId = default(string), double? oneDay = default(double?), double? oneMonth = default(double?), double? threeMonth = default(double?), double? sixMonth = default(double?), double? nineMonth = default(double?), double? oneYear = default(double?), double? quarterToDate = default(double?), double? weekToDate = default(double?), double? monthToDate = default(double?), double? yearToDate = default(double?), double? twoYearAnnualized = default(double?), double? threeYearAnnualized = default(double?), double? fiveYearAnnualized = default(double?), double? tenYearAnnualized = default(double?), double? twentyYearAnnualized = default(double?), double? thirtyYearAnnualized = default(double?), double? ipoToDateAnnualized = default(double?), string dividendAdjust = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -87,22 +87,22 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Specific reference date for the period expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Specific reference date for the period expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -116,126 +116,126 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Returns the price performance of the security for the previous one day from the given date.
         /// </summary>
         /// <value>Returns the price performance of the security for the previous one day from the given date.</value>
-        [DataMember(Name = "oneDay", EmitDefaultValue = false)]
-        public double OneDay { get; set; }
+        [DataMember(Name = "oneDay", EmitDefaultValue = true)]
+        public double? OneDay { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security for the past one month.
         /// </summary>
         /// <value>Returns the price performance of the security for the past one month.</value>
-        [DataMember(Name = "oneMonth", EmitDefaultValue = false)]
-        public double OneMonth { get; set; }
+        [DataMember(Name = "oneMonth", EmitDefaultValue = true)]
+        public double? OneMonth { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security for the past three months.
         /// </summary>
         /// <value>Returns the price performance of the security for the past three months.</value>
-        [DataMember(Name = "threeMonth", EmitDefaultValue = false)]
-        public double ThreeMonth { get; set; }
+        [DataMember(Name = "threeMonth", EmitDefaultValue = true)]
+        public double? ThreeMonth { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security for the past six months.
         /// </summary>
         /// <value>Returns the price performance of the security for the past six months.</value>
-        [DataMember(Name = "sixMonth", EmitDefaultValue = false)]
-        public double SixMonth { get; set; }
+        [DataMember(Name = "sixMonth", EmitDefaultValue = true)]
+        public double? SixMonth { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security for the past nine months.
         /// </summary>
         /// <value>Returns the price performance of the security for the past nine months.</value>
-        [DataMember(Name = "nineMonth", EmitDefaultValue = false)]
-        public double NineMonth { get; set; }
+        [DataMember(Name = "nineMonth", EmitDefaultValue = true)]
+        public double? NineMonth { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security for the past one year.
         /// </summary>
         /// <value>Returns the price performance of the security for the past one year.</value>
-        [DataMember(Name = "oneYear", EmitDefaultValue = false)]
-        public double OneYear { get; set; }
+        [DataMember(Name = "oneYear", EmitDefaultValue = true)]
+        public double? OneYear { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security from the previous calendar quarter end to the given date.
         /// </summary>
         /// <value>Returns the price performance of the security from the previous calendar quarter end to the given date.</value>
-        [DataMember(Name = "quarterToDate", EmitDefaultValue = false)]
-        public double QuarterToDate { get; set; }
+        [DataMember(Name = "quarterToDate", EmitDefaultValue = true)]
+        public double? QuarterToDate { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security from the previous week (usually Friday) to the given date.
         /// </summary>
         /// <value>Returns the price performance of the security from the previous week (usually Friday) to the given date.</value>
-        [DataMember(Name = "weekToDate", EmitDefaultValue = false)]
-        public double WeekToDate { get; set; }
+        [DataMember(Name = "weekToDate", EmitDefaultValue = true)]
+        public double? WeekToDate { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security from the previous month-end to the given date.
         /// </summary>
         /// <value>Returns the price performance of the security from the previous month-end to the given date.</value>
-        [DataMember(Name = "monthToDate", EmitDefaultValue = false)]
-        public double MonthToDate { get; set; }
+        [DataMember(Name = "monthToDate", EmitDefaultValue = true)]
+        public double? MonthToDate { get; set; }
 
         /// <summary>
         /// Returns the price performance of the security from the previous calendar year-end to the given date.
         /// </summary>
         /// <value>Returns the price performance of the security from the previous calendar year-end to the given date.</value>
-        [DataMember(Name = "yearToDate", EmitDefaultValue = false)]
-        public double YearToDate { get; set; }
+        [DataMember(Name = "yearToDate", EmitDefaultValue = true)]
+        public double? YearToDate { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for two years.
         /// </summary>
         /// <value>Returns the annualized compound total return for two years.</value>
-        [DataMember(Name = "twoYearAnnualized", EmitDefaultValue = false)]
-        public double TwoYearAnnualized { get; set; }
+        [DataMember(Name = "twoYearAnnualized", EmitDefaultValue = true)]
+        public double? TwoYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for three years.
         /// </summary>
         /// <value>Returns the annualized compound total return for three years.</value>
-        [DataMember(Name = "threeYearAnnualized", EmitDefaultValue = false)]
-        public double ThreeYearAnnualized { get; set; }
+        [DataMember(Name = "threeYearAnnualized", EmitDefaultValue = true)]
+        public double? ThreeYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for five years.
         /// </summary>
         /// <value>Returns the annualized compound total return for five years.</value>
-        [DataMember(Name = "fiveYearAnnualized", EmitDefaultValue = false)]
-        public double FiveYearAnnualized { get; set; }
+        [DataMember(Name = "fiveYearAnnualized", EmitDefaultValue = true)]
+        public double? FiveYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for ten years.
         /// </summary>
         /// <value>Returns the annualized compound total return for ten years.</value>
-        [DataMember(Name = "tenYearAnnualized", EmitDefaultValue = false)]
-        public double TenYearAnnualized { get; set; }
+        [DataMember(Name = "tenYearAnnualized", EmitDefaultValue = true)]
+        public double? TenYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for twenty years.
         /// </summary>
         /// <value>Returns the annualized compound total return for twenty years.</value>
-        [DataMember(Name = "twentyYearAnnualized", EmitDefaultValue = false)]
-        public double TwentyYearAnnualized { get; set; }
+        [DataMember(Name = "twentyYearAnnualized", EmitDefaultValue = true)]
+        public double? TwentyYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return for thirty years.
         /// </summary>
         /// <value>Returns the annualized compound total return for thirty years.</value>
-        [DataMember(Name = "thirtyYearAnnualized", EmitDefaultValue = false)]
-        public double ThirtyYearAnnualized { get; set; }
+        [DataMember(Name = "thirtyYearAnnualized", EmitDefaultValue = true)]
+        public double? ThirtyYearAnnualized { get; set; }
 
         /// <summary>
         /// Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself.
         /// </summary>
         /// <value>Returns the annualized compound total return from the ipo date. The calculation uses the closing price as of the IPO date, and not the IPO price itself.</value>
-        [DataMember(Name = "ipoToDateAnnualized", EmitDefaultValue = false)]
-        public double IpoToDateAnnualized { get; set; }
+        [DataMember(Name = "ipoToDateAnnualized", EmitDefaultValue = true)]
+        public double? IpoToDateAnnualized { get; set; }
 
         /// <summary>
         /// Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** &#x3D; Price Change - Dividends Excluded.   * **EXDATE** &#x3D; Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** &#x3D; Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. 
         /// </summary>
         /// <value>Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** &#x3D; Price Change - Dividends Excluded.   * **EXDATE** &#x3D; Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** &#x3D; Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company. </value>
-        [DataMember(Name = "dividendAdjust", EmitDefaultValue = false)]
+        [DataMember(Name = "dividendAdjust", EmitDefaultValue = true)]
         public string DividendAdjust { get; set; }
 
         /// <summary>
@@ -325,71 +325,88 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.OneDay == input.OneDay ||
-                    this.OneDay.Equals(input.OneDay)
+                    (this.OneDay != null &&
+                    this.OneDay.Equals(input.OneDay))
                 ) && 
                 (
                     this.OneMonth == input.OneMonth ||
-                    this.OneMonth.Equals(input.OneMonth)
+                    (this.OneMonth != null &&
+                    this.OneMonth.Equals(input.OneMonth))
                 ) && 
                 (
                     this.ThreeMonth == input.ThreeMonth ||
-                    this.ThreeMonth.Equals(input.ThreeMonth)
+                    (this.ThreeMonth != null &&
+                    this.ThreeMonth.Equals(input.ThreeMonth))
                 ) && 
                 (
                     this.SixMonth == input.SixMonth ||
-                    this.SixMonth.Equals(input.SixMonth)
+                    (this.SixMonth != null &&
+                    this.SixMonth.Equals(input.SixMonth))
                 ) && 
                 (
                     this.NineMonth == input.NineMonth ||
-                    this.NineMonth.Equals(input.NineMonth)
+                    (this.NineMonth != null &&
+                    this.NineMonth.Equals(input.NineMonth))
                 ) && 
                 (
                     this.OneYear == input.OneYear ||
-                    this.OneYear.Equals(input.OneYear)
+                    (this.OneYear != null &&
+                    this.OneYear.Equals(input.OneYear))
                 ) && 
                 (
                     this.QuarterToDate == input.QuarterToDate ||
-                    this.QuarterToDate.Equals(input.QuarterToDate)
+                    (this.QuarterToDate != null &&
+                    this.QuarterToDate.Equals(input.QuarterToDate))
                 ) && 
                 (
                     this.WeekToDate == input.WeekToDate ||
-                    this.WeekToDate.Equals(input.WeekToDate)
+                    (this.WeekToDate != null &&
+                    this.WeekToDate.Equals(input.WeekToDate))
                 ) && 
                 (
                     this.MonthToDate == input.MonthToDate ||
-                    this.MonthToDate.Equals(input.MonthToDate)
+                    (this.MonthToDate != null &&
+                    this.MonthToDate.Equals(input.MonthToDate))
                 ) && 
                 (
                     this.YearToDate == input.YearToDate ||
-                    this.YearToDate.Equals(input.YearToDate)
+                    (this.YearToDate != null &&
+                    this.YearToDate.Equals(input.YearToDate))
                 ) && 
                 (
                     this.TwoYearAnnualized == input.TwoYearAnnualized ||
-                    this.TwoYearAnnualized.Equals(input.TwoYearAnnualized)
+                    (this.TwoYearAnnualized != null &&
+                    this.TwoYearAnnualized.Equals(input.TwoYearAnnualized))
                 ) && 
                 (
                     this.ThreeYearAnnualized == input.ThreeYearAnnualized ||
-                    this.ThreeYearAnnualized.Equals(input.ThreeYearAnnualized)
+                    (this.ThreeYearAnnualized != null &&
+                    this.ThreeYearAnnualized.Equals(input.ThreeYearAnnualized))
                 ) && 
                 (
                     this.FiveYearAnnualized == input.FiveYearAnnualized ||
-                    this.FiveYearAnnualized.Equals(input.FiveYearAnnualized)
+                    (this.FiveYearAnnualized != null &&
+                    this.FiveYearAnnualized.Equals(input.FiveYearAnnualized))
                 ) && 
                 (
                     this.TenYearAnnualized == input.TenYearAnnualized ||
-                    this.TenYearAnnualized.Equals(input.TenYearAnnualized)
+                    (this.TenYearAnnualized != null &&
+                    this.TenYearAnnualized.Equals(input.TenYearAnnualized))
                 ) && 
                 (
                     this.TwentyYearAnnualized == input.TwentyYearAnnualized ||
-                    this.TwentyYearAnnualized.Equals(input.TwentyYearAnnualized)
+                    (this.TwentyYearAnnualized != null &&
+                    this.TwentyYearAnnualized.Equals(input.TwentyYearAnnualized))
                 ) && 
                 (
                     this.ThirtyYearAnnualized == input.ThirtyYearAnnualized ||
-                    this.ThirtyYearAnnualized.Equals(input.ThirtyYearAnnualized)
+                    (this.ThirtyYearAnnualized != null &&
+                    this.ThirtyYearAnnualized.Equals(input.ThirtyYearAnnualized))
                 ) && 
                 (
                     this.IpoToDateAnnualized == input.IpoToDateAnnualized ||
-                    this.IpoToDateAnnualized.Equals(input.IpoToDateAnnualized)
+                    (this.IpoToDateAnnualized != null &&
+                    this.IpoToDateAnnualized.Equals(input.IpoToDateAnnualized))
                 ) && 
                 (
                     this.DividendAdjust == input.DividendAdjust ||
@@ -423,23 +440,74 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.OneDay.GetHashCode();
-                hashCode = (hashCode * 59) + this.OneMonth.GetHashCode();
-                hashCode = (hashCode * 59) + this.ThreeMonth.GetHashCode();
-                hashCode = (hashCode * 59) + this.SixMonth.GetHashCode();
-                hashCode = (hashCode * 59) + this.NineMonth.GetHashCode();
-                hashCode = (hashCode * 59) + this.OneYear.GetHashCode();
-                hashCode = (hashCode * 59) + this.QuarterToDate.GetHashCode();
-                hashCode = (hashCode * 59) + this.WeekToDate.GetHashCode();
-                hashCode = (hashCode * 59) + this.MonthToDate.GetHashCode();
-                hashCode = (hashCode * 59) + this.YearToDate.GetHashCode();
-                hashCode = (hashCode * 59) + this.TwoYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.ThreeYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.FiveYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.TenYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.TwentyYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.ThirtyYearAnnualized.GetHashCode();
-                hashCode = (hashCode * 59) + this.IpoToDateAnnualized.GetHashCode();
+                if (this.OneDay != null)
+                {
+                    hashCode = (hashCode * 59) + this.OneDay.GetHashCode();
+                }
+                if (this.OneMonth != null)
+                {
+                    hashCode = (hashCode * 59) + this.OneMonth.GetHashCode();
+                }
+                if (this.ThreeMonth != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThreeMonth.GetHashCode();
+                }
+                if (this.SixMonth != null)
+                {
+                    hashCode = (hashCode * 59) + this.SixMonth.GetHashCode();
+                }
+                if (this.NineMonth != null)
+                {
+                    hashCode = (hashCode * 59) + this.NineMonth.GetHashCode();
+                }
+                if (this.OneYear != null)
+                {
+                    hashCode = (hashCode * 59) + this.OneYear.GetHashCode();
+                }
+                if (this.QuarterToDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.QuarterToDate.GetHashCode();
+                }
+                if (this.WeekToDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.WeekToDate.GetHashCode();
+                }
+                if (this.MonthToDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MonthToDate.GetHashCode();
+                }
+                if (this.YearToDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.YearToDate.GetHashCode();
+                }
+                if (this.TwoYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.TwoYearAnnualized.GetHashCode();
+                }
+                if (this.ThreeYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThreeYearAnnualized.GetHashCode();
+                }
+                if (this.FiveYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.FiveYearAnnualized.GetHashCode();
+                }
+                if (this.TenYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.TenYearAnnualized.GetHashCode();
+                }
+                if (this.TwentyYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.TwentyYearAnnualized.GetHashCode();
+                }
+                if (this.ThirtyYearAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThirtyYearAnnualized.GetHashCode();
+                }
+                if (this.IpoToDateAnnualized != null)
+                {
+                    hashCode = (hashCode * 59) + this.IpoToDateAnnualized.GetHashCode();
+                }
                 if (this.DividendAdjust != null)
                 {
                     hashCode = (hashCode * 59) + this.DividendAdjust.GetHashCode();

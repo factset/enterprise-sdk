@@ -1,10 +1,10 @@
-# ThemesApi
+# AiThemesApi
 
 All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1ThemesPost**](ThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**cognitiveNlpV1ThemesPost**](AiThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
 
 
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 POST request to extract themes from text
 
-This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. 
+This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.
 Example Output:
 ```json
 {
@@ -40,7 +40,7 @@ import com.factset.sdk.NaturalLanguageProcessing.ApiException;
 import com.factset.sdk.NaturalLanguageProcessing.Configuration;
 import com.factset.sdk.NaturalLanguageProcessing.auth.*;
 import com.factset.sdk.NaturalLanguageProcessing.models.*;
-import com.factset.sdk.NaturalLanguageProcessing.api.ThemesApi;
+import com.factset.sdk.NaturalLanguageProcessing.api.AiThemesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -64,14 +64,14 @@ public class Example {
         //   .setUsername("YOUR USERNAME")
         //   .setPassword("YOUR PASSWORD");
 
-        ThemesApi apiInstance = new ThemesApi(defaultClient);
+        AiThemesApi apiInstance = new AiThemesApi(defaultClient);
         ThemeParametersRoot themeParametersRoot = new ThemeParametersRoot(); // ThemeParametersRoot | 
         try {
             ThemesRoot result = apiInstance.cognitiveNlpV1ThemesPost(themeParametersRoot);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling ThemesApi#cognitiveNlpV1ThemesPost");
+            System.err.println("Exception when calling AiThemesApi#cognitiveNlpV1ThemesPost");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

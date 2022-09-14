@@ -45,7 +45,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="priceLow">Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET..</param>
         /// <param name="volume">Returns the cumulative volume over dates requested. Data is returned in thousands..</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Price(string fsymId = default(string), DateTime date = default(DateTime), DateTime adjDate = default(DateTime), string currency = default(string), double price = default(double), double priceOpen = default(double), double priceHigh = default(double), double priceLow = default(double), double volume = default(double), string requestId = default(string))
+        public Price(string fsymId = default(string), DateTime? date = default(DateTime?), DateTime? adjDate = default(DateTime?), string currency = default(string), double? price = default(double?), double? priceOpen = default(double?), double? priceHigh = default(double?), double? priceLow = default(double?), double? volume = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -63,66 +63,66 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// Ending date for the period expressed in YYYY-MM-DD format.
         /// </summary>
         /// <value>Ending date for the period expressed in YYYY-MM-DD format.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.
         /// </summary>
         /// <value>Date of last split for which prices and volume have been adjusted. Use /factset-prices/v#/splits endpoint for details regarding the split.</value>
-        [DataMember(Name = "adjDate", EmitDefaultValue = false)]
+        [DataMember(Name = "adjDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AdjDate { get; set; }
+        public DateTime? AdjDate { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.
         /// </summary>
         /// <value>Closing Price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.</value>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public double _Price { get; set; }
+        [DataMember(Name = "price", EmitDefaultValue = true)]
+        public double? _Price { get; set; }
 
         /// <summary>
         /// Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.
         /// </summary>
         /// <value>Open price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted. Prices updated nightly at approximately at 9pm ET.</value>
-        [DataMember(Name = "priceOpen", EmitDefaultValue = false)]
-        public double PriceOpen { get; set; }
+        [DataMember(Name = "priceOpen", EmitDefaultValue = true)]
+        public double? PriceOpen { get; set; }
 
         /// <summary>
         /// High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.
         /// </summary>
         /// <value>High closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.</value>
-        [DataMember(Name = "priceHigh", EmitDefaultValue = false)]
-        public double PriceHigh { get; set; }
+        [DataMember(Name = "priceHigh", EmitDefaultValue = true)]
+        public double? PriceHigh { get; set; }
 
         /// <summary>
         /// Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.
         /// </summary>
         /// <value>Low closing price as of the date(s) requested. By default the price is in local trading currency, split adjusted and not spinoff adjusted.  Prices updated nightly at approximately at 9pm ET.</value>
-        [DataMember(Name = "priceLow", EmitDefaultValue = false)]
-        public double PriceLow { get; set; }
+        [DataMember(Name = "priceLow", EmitDefaultValue = true)]
+        public double? PriceLow { get; set; }
 
         /// <summary>
         /// Returns the cumulative volume over dates requested. Data is returned in thousands.
         /// </summary>
         /// <value>Returns the cumulative volume over dates requested. Data is returned in thousands.</value>
-        [DataMember(Name = "volume", EmitDefaultValue = false)]
-        public double Volume { get; set; }
+        [DataMember(Name = "volume", EmitDefaultValue = true)]
+        public double? Volume { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -206,23 +206,28 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this._Price == input._Price ||
-                    this._Price.Equals(input._Price)
+                    (this._Price != null &&
+                    this._Price.Equals(input._Price))
                 ) && 
                 (
                     this.PriceOpen == input.PriceOpen ||
-                    this.PriceOpen.Equals(input.PriceOpen)
+                    (this.PriceOpen != null &&
+                    this.PriceOpen.Equals(input.PriceOpen))
                 ) && 
                 (
                     this.PriceHigh == input.PriceHigh ||
-                    this.PriceHigh.Equals(input.PriceHigh)
+                    (this.PriceHigh != null &&
+                    this.PriceHigh.Equals(input.PriceHigh))
                 ) && 
                 (
                     this.PriceLow == input.PriceLow ||
-                    this.PriceLow.Equals(input.PriceLow)
+                    (this.PriceLow != null &&
+                    this.PriceLow.Equals(input.PriceLow))
                 ) && 
                 (
                     this.Volume == input.Volume ||
-                    this.Volume.Equals(input.Volume)
+                    (this.Volume != null &&
+                    this.Volume.Equals(input.Volume))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -256,11 +261,26 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this._Price.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceOpen.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
-                hashCode = (hashCode * 59) + this.Volume.GetHashCode();
+                if (this._Price != null)
+                {
+                    hashCode = (hashCode * 59) + this._Price.GetHashCode();
+                }
+                if (this.PriceOpen != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceOpen.GetHashCode();
+                }
+                if (this.PriceHigh != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceHigh.GetHashCode();
+                }
+                if (this.PriceLow != null)
+                {
+                    hashCode = (hashCode * 59) + this.PriceLow.GetHashCode();
+                }
+                if (this.Volume != null)
+                {
+                    hashCode = (hashCode * 59) + this.Volume.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

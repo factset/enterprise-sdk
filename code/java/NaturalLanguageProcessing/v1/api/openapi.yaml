@@ -5,24 +5,36 @@ info:
   description: APIs that leverage Natural Language Processing to help extract meaningful
     data from unstructured text
   title: Natural Language Processing API
-  version: 1.0.0
+  version: 1.1.0
 servers:
 - url: https://api.factset.com
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- description: AI Themes
-  name: themes
+- description: AI Text Summarization Endpoints
+  name: AI Text Summarization
+- description: AI Themes Endpoint
+  name: AI Themes
 paths:
   /cognitive/nlp/v1/themes:
     post:
-      description: "This endpoint extracts themes from unstructured text. Each theme\
-        \ (`themeText`) is also given a score (`themeScore`). This score shows the\
-        \ relevancy of the theme within the text. \nExample Output:\n```json\n{\n\
-        \  \"data\": [\n  {\n    \"themeText\": \"home entertainment results\",\n\
-        \    \"themeScore\": 0.92\n  },\n  {\n    \"themeText\": \".....\",\n    \"\
-        themeScore\": .....\n  }]\n}\n```\n"
+      description: |
+        This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.
+        Example Output:
+        ```json
+        {
+          "data": [
+          {
+            "themeText": "home entertainment results",
+            "themeScore": 0.92
+          },
+          {
+            "themeText": ".....",
+            "themeScore": .....
+          }]
+        }
+        ```
       requestBody:
         content:
           application/json:
@@ -124,11 +136,299 @@ paths:
               style: simple
       summary: POST request to extract themes from text
       tags:
-      - themes
+      - AI Themes
       x-contentType: application/json
+      x-accepts: application/json
+  /cognitive/nlp/v1/summarization/headline:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationResultID'
+          description: Unique Result ID
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Access Denied
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Internal Server Error
+      summary: POST request for summarizing an input text
+      tags:
+      - AI Text Summarization
+      x-contentType: application/json
+      x-accepts: application/json
+  /cognitive/nlp/v1/summarization/headline-and-summary:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationResultID'
+          description: Unique Result ID
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Access Denied
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Internal Server Error
+      summary: POST request for summarizing an input text
+      tags:
+      - AI Text Summarization
+      x-contentType: application/json
+      x-accepts: application/json
+  /cognitive/nlp/v1/summarization/summary:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SummarizationRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationResultID'
+          description: Unique Result ID
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Access Denied
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Internal Server Error
+      summary: POST request for summarizing an input text
+      tags:
+      - AI Text Summarization
+      x-contentType: application/json
+      x-accepts: application/json
+  /cognitive/nlp/v1/summarization/result/{result_id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: result_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SummarizationResult'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Access Denied
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+          description: Internal Server Error
+      summary: GET request for obtaining response of a particular processing job
+      tags:
+      - AI Text Summarization
       x-accepts: application/json
 components:
   schemas:
+    SummarizationRequest:
+      example:
+        text: 'Advanced Energy Transforms Indoor Farming With Intelligent New Lighting
+          Power and Control System Friday, December 11, 2020 01:00:00 PM (GMT)Innovative
+          technology breaks down barriers to indoor, vertical and greenhouse farming
+          by reducing power consumption, cutting costs and increasing crop yield Advanced
+          Energy (Nasdaq: AEIS) – a global leader in highly engineered, precision
+          power conversion, measurement, and control solutions – today unveiled its
+          newest lighting and power control system for indoor, vertical and greenhouse
+          farming. This press release features multimedia. Advanced Energy''s new
+          Artesyn iTS provides the industry''s first solution for switching or sharing
+          a single power source between two different rooms. This reduces installation
+          costs by cutting the number of iHP power supplies needed in half and it
+          substantially reduces ongoing utility costs. (Photo: Business Wire)AE''s
+          new lighting and power system transforms the use of LED technology in horticultural
+          lighting systems, which plays a fundamental role in cutting-edge farming
+          practices that can address production challenges in food, pharmaceutical
+          ingredients, plants and flowers. Utilizing AE''s system, customers reduce
+          their power conversion costs by as much as 50 percent, significantly lower
+          installation and operating costs, and increase the quality of crop yield.
+          "Our groundbreaking lighting, power and control system delivers significant
+          improvements over conventional lighting solutions and opens up new opportunities
+          for the industry," said Joe Voyles, vice president, industrial marketing,
+          at Advanced Energy. "We are transforming our customers'' operations by both
+          reducing the amount of needed equipment and improving the efficiency of
+          the lighting systems, thereby reducing cost and energy spend. Not only do
+          these innovative new products increase the efficiency and quality of fruit
+          and vegetable production, but they also open the door to establishing indoor
+          farming facilities in harsh environments anywhere in the world." The new
+          system consists of the patented Artesyn iTS (intelligent Transfer Switch)
+          and iHPS configurable power supply. Alongside Artesyn''s compact new 12
+          kW 300 VDC module, AE delivers a cost-effective platform for the most advanced
+          indoor farming applications. The system is estimated to produce a 38 percent
+          savings to lighting power and control installation cost, while eliminating
+          substantial amounts of wasted energy. The new iHPS is a "short" version
+          of AE''s market-leading iHP power supply. The shorter design allows for
+          more space within the lighting and power cabinet for other crucial components,
+          reduces the weight and cost, and increases the life of the system. The new
+          iTS provides the industry''s first solution for switching or sharing a single
+          power source between two different rooms. This reduces installation costs
+          by cutting the number of iHP power supplies needed in half and it substantially
+          reduces ongoing utility costs.'
+      properties:
+        text:
+          description: The text that needs to be summarized
+          example: 'Advanced Energy Transforms Indoor Farming With Intelligent New
+            Lighting Power and Control System Friday, December 11, 2020 01:00:00 PM
+            (GMT)Innovative technology breaks down barriers to indoor, vertical and
+            greenhouse farming by reducing power consumption, cutting costs and increasing
+            crop yield Advanced Energy (Nasdaq: AEIS) – a global leader in highly
+            engineered, precision power conversion, measurement, and control solutions
+            – today unveiled its newest lighting and power control system for indoor,
+            vertical and greenhouse farming. This press release features multimedia.
+            Advanced Energy''s new Artesyn iTS provides the industry''s first solution
+            for switching or sharing a single power source between two different rooms.
+            This reduces installation costs by cutting the number of iHP power supplies
+            needed in half and it substantially reduces ongoing utility costs. (Photo:
+            Business Wire)AE''s new lighting and power system transforms the use of
+            LED technology in horticultural lighting systems, which plays a fundamental
+            role in cutting-edge farming practices that can address production challenges
+            in food, pharmaceutical ingredients, plants and flowers. Utilizing AE''s
+            system, customers reduce their power conversion costs by as much as 50
+            percent, significantly lower installation and operating costs, and increase
+            the quality of crop yield. "Our groundbreaking lighting, power and control
+            system delivers significant improvements over conventional lighting solutions
+            and opens up new opportunities for the industry," said Joe Voyles, vice
+            president, industrial marketing, at Advanced Energy. "We are transforming
+            our customers'' operations by both reducing the amount of needed equipment
+            and improving the efficiency of the lighting systems, thereby reducing
+            cost and energy spend. Not only do these innovative new products increase
+            the efficiency and quality of fruit and vegetable production, but they
+            also open the door to establishing indoor farming facilities in harsh
+            environments anywhere in the world." The new system consists of the patented
+            Artesyn iTS (intelligent Transfer Switch) and iHPS configurable power
+            supply. Alongside Artesyn''s compact new 12 kW 300 VDC module, AE delivers
+            a cost-effective platform for the most advanced indoor farming applications.
+            The system is estimated to produce a 38 percent savings to lighting power
+            and control installation cost, while eliminating substantial amounts of
+            wasted energy. The new iHPS is a "short" version of AE''s market-leading
+            iHP power supply. The shorter design allows for more space within the
+            lighting and power cabinet for other crucial components, reduces the weight
+            and cost, and increases the life of the system. The new iTS provides the
+            industry''s first solution for switching or sharing a single power source
+            between two different rooms. This reduces installation costs by cutting
+            the number of iHP power supplies needed in half and it substantially reduces
+            ongoing utility costs.'
+          title: Text
+          type: string
+      required:
+      - text
+      type: object
+    SummarizationResult:
+      example:
+        summary: Advanced Energy unveiled its newest lighting and power control system
+          for indoor, vertical and greenhouse farming. The new system consists of
+          the patented Artesyn iTS (intelligent Transfer Switch) and iHPS power supply.
+          Alongside Artesyn's compact new 12 kW 300 VDC module, AE delivers a cost-effective
+          platform for the most advanced indoor farming applications. The system is
+          estimated to produce a 38 percent savings to lighting power and control
+          installation cost, while eliminating substantial amounts of wasted energy.
+        headline: Advanced Energy unveils new lighting and power control system for
+          indoor, vertical and greenhouse farming.
+      properties:
+        headline:
+          description: A short headline generated for the input text.
+          example: Advanced Energy unveils new lighting and power control system for
+            indoor, vertical and greenhouse farming.
+          type: string
+        summary:
+          description: The generated summary for the input text.
+          example: Advanced Energy unveiled its newest lighting and power control
+            system for indoor, vertical and greenhouse farming. The new system consists
+            of the patented Artesyn iTS (intelligent Transfer Switch) and iHPS power
+            supply. Alongside Artesyn's compact new 12 kW 300 VDC module, AE delivers
+            a cost-effective platform for the most advanced indoor farming applications.
+            The system is estimated to produce a 38 percent savings to lighting power
+            and control installation cost, while eliminating substantial amounts of
+            wasted energy.
+          type: string
+      type: object
+    SummarizationResultID:
+      example:
+        result_id: result_id
+      properties:
+        result_id:
+          description: ID for retrieving the summary result
+          title: ID
+          type: string
+      type: object
     ThemeParameters:
       additionalProperties: false
       example:
@@ -255,6 +555,32 @@ components:
       required:
       - themeScore
       - themeText
+      type: object
+    HTTPError:
+      properties:
+        detail:
+          type: object
+        message:
+          type: string
+      type: object
+    ValidationError:
+      properties:
+        detail:
+          $ref: '#/components/schemas/ValidationError_detail'
+        message:
+          type: string
+      type: object
+    ValidationError_detail__location_:
+      properties:
+        <field_name>:
+          items:
+            type: string
+          type: array
+      type: object
+    ValidationError_detail:
+      properties:
+        <location>:
+          $ref: '#/components/schemas/ValidationError_detail__location_'
       type: object
   securitySchemes:
     FactSetOAuth2:

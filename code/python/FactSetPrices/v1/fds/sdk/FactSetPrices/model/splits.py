@@ -82,10 +82,10 @@ class Splits(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'split_factor': (float,),  # noqa: E501
-            'split_comment': (str,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'split_factor': (float, none_type,),  # noqa: E501
+            'split_comment': (str, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -143,10 +143,10 @@ class Splits(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Ex-Date of the split expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            split_factor (float): Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.. [optional]  # noqa: E501
-            split_comment (str): Description for the type of split or spin off.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Ex-Date of the split expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            split_factor (float, none_type): Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.. [optional]  # noqa: E501
+            split_comment (str, none_type): Description for the type of split or spin off.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -229,10 +229,10 @@ class Splits(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            date (date): Ex-Date of the split expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            split_factor (float): Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.. [optional]  # noqa: E501
-            split_comment (str): Description for the type of split or spin off.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            date (date, none_type): Ex-Date of the split expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            split_factor (float, none_type): Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.. [optional]  # noqa: E501
+            split_comment (str, none_type): Description for the type of split or spin off.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

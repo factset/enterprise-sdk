@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -45,16 +49,16 @@ public class Splits implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
-  private String fsymId;
+  private JsonNullable<String> fsymId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private LocalDate date;
+  private JsonNullable<LocalDate> date = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_SPLIT_FACTOR = "splitFactor";
-  private Double splitFactor;
+  private JsonNullable<Double> splitFactor = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SPLIT_COMMENT = "splitComment";
-  private String splitComment;
+  private JsonNullable<String> splitComment = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
@@ -63,7 +67,7 @@ public class Splits implements Serializable {
   }
 
   public Splits fsymId(String fsymId) {
-    this.fsymId = fsymId;
+    this.fsymId = JsonNullable.<String>of(fsymId);
     return this;
   }
 
@@ -73,23 +77,31 @@ public class Splits implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SJY281-R", value = "Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.")
-  @JsonProperty(JSON_PROPERTY_FSYM_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getFsymId() {
-    return fsymId;
+        return fsymId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_FSYM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFsymId(String fsymId) {
+
+  public JsonNullable<String> getFsymId_JsonNullable() {
+    return fsymId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FSYM_ID)
+  public void setFsymId_JsonNullable(JsonNullable<String> fsymId) {
     this.fsymId = fsymId;
+  }
+
+  public void setFsymId(String fsymId) {
+    this.fsymId = JsonNullable.<String>of(fsymId);
   }
 
 
   public Splits date(LocalDate date) {
-    this.date = date;
+    this.date = JsonNullable.<LocalDate>of(date);
     return this;
   }
 
@@ -99,23 +111,31 @@ public class Splits implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Thu Aug 01 00:00:00 UTC 2013", value = "Ex-Date of the split expressed in YYYY-MM-DD format.")
-  @JsonProperty(JSON_PROPERTY_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public LocalDate getDate() {
-    return date;
+        return date.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDate(LocalDate date) {
+
+  public JsonNullable<LocalDate> getDate_JsonNullable() {
+    return date;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DATE)
+  public void setDate_JsonNullable(JsonNullable<LocalDate> date) {
     this.date = date;
+  }
+
+  public void setDate(LocalDate date) {
+    this.date = JsonNullable.<LocalDate>of(date);
   }
 
 
   public Splits splitFactor(Double splitFactor) {
-    this.splitFactor = splitFactor;
+    this.splitFactor = JsonNullable.<Double>of(splitFactor);
     return this;
   }
 
@@ -125,23 +145,31 @@ public class Splits implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Split adjustment factor for n splits ago. A 2-for-1 split returns .50, the number you would multiply the stock price by to adjust for the split.")
-  @JsonProperty(JSON_PROPERTY_SPLIT_FACTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Double getSplitFactor() {
-    return splitFactor;
+        return splitFactor.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SPLIT_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSplitFactor(Double splitFactor) {
+
+  public JsonNullable<Double> getSplitFactor_JsonNullable() {
+    return splitFactor;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SPLIT_FACTOR)
+  public void setSplitFactor_JsonNullable(JsonNullable<Double> splitFactor) {
     this.splitFactor = splitFactor;
+  }
+
+  public void setSplitFactor(Double splitFactor) {
+    this.splitFactor = JsonNullable.<Double>of(splitFactor);
   }
 
 
   public Splits splitComment(String splitComment) {
-    this.splitComment = splitComment;
+    this.splitComment = JsonNullable.<String>of(splitComment);
     return this;
   }
 
@@ -151,18 +179,26 @@ public class Splits implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Split: 2 for 1", value = "Description for the type of split or spin off.")
-  @JsonProperty(JSON_PROPERTY_SPLIT_COMMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getSplitComment() {
-    return splitComment;
+        return splitComment.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_SPLIT_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSplitComment(String splitComment) {
+
+  public JsonNullable<String> getSplitComment_JsonNullable() {
+    return splitComment;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SPLIT_COMMENT)
+  public void setSplitComment_JsonNullable(JsonNullable<String> splitComment) {
     this.splitComment = splitComment;
+  }
+
+  public void setSplitComment(String splitComment) {
+    this.splitComment = JsonNullable.<String>of(splitComment);
   }
 
 
@@ -204,16 +240,27 @@ public class Splits implements Serializable {
       return false;
     }
     Splits splits = (Splits) o;
-    return Objects.equals(this.fsymId, splits.fsymId) &&
-        Objects.equals(this.date, splits.date) &&
-        Objects.equals(this.splitFactor, splits.splitFactor) &&
-        Objects.equals(this.splitComment, splits.splitComment) &&
+    return equalsNullable(this.fsymId, splits.fsymId) &&
+        equalsNullable(this.date, splits.date) &&
+        equalsNullable(this.splitFactor, splits.splitFactor) &&
+        equalsNullable(this.splitComment, splits.splitComment) &&
         Objects.equals(this.requestId, splits.requestId);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fsymId, date, splitFactor, splitComment, requestId);
+    return Objects.hash(hashCodeNullable(fsymId), hashCodeNullable(date), hashCodeNullable(splitFactor), hashCodeNullable(splitComment), requestId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

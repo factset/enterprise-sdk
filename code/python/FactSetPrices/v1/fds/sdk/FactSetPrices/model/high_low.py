@@ -82,14 +82,14 @@ class HighLow(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'adj_date': (date,),  # noqa: E501
-            'date': (date,),  # noqa: E501
-            'period': (str,),  # noqa: E501
-            'fsym_id': (str,),  # noqa: E501
-            'price_high': (float,),  # noqa: E501
-            'price_low': (float,),  # noqa: E501
-            'price_high_date': (date,),  # noqa: E501
-            'price_low_date': (date,),  # noqa: E501
+            'adj_date': (date, none_type,),  # noqa: E501
+            'date': (date, none_type,),  # noqa: E501
+            'period': (str, none_type,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'price_high': (float, none_type,),  # noqa: E501
+            'price_low': (float, none_type,),  # noqa: E501
+            'price_high_date': (date, none_type,),  # noqa: E501
+            'price_low_date': (date, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -151,14 +151,14 @@ class HighLow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            adj_date (date): Date of last split for which prices have been adjusted.. [optional]  # noqa: E501
-            date (date): Specific reference date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            period (str): The period of measure requested using the period query parameter.. [optional]  # noqa: E501
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            price_high (float): High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
-            price_low (float): Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
-            price_high_date (date): Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            price_low_date (date): Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices have been adjusted.. [optional]  # noqa: E501
+            date (date, none_type): Specific reference date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            period (str, none_type): The period of measure requested using the period query parameter.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            price_high (float, none_type): High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
+            price_low (float, none_type): Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
+            price_high_date (date, none_type): Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            price_low_date (date, none_type): Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -241,14 +241,14 @@ class HighLow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            adj_date (date): Date of last split for which prices have been adjusted.. [optional]  # noqa: E501
-            date (date): Specific reference date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            period (str): The period of measure requested using the period query parameter.. [optional]  # noqa: E501
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            price_high (float): High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
-            price_low (float): Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
-            price_high_date (date): Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            price_low_date (date): Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices have been adjusted.. [optional]  # noqa: E501
+            date (date, none_type): Specific reference date for the period expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            period (str, none_type): The period of measure requested using the period query parameter.. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            price_high (float, none_type): High price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
+            price_low (float, none_type): Low price over the period requested. This can represent the intra-day or closing price depending on the priceType requested. By default the price is as of closing in local trading currency, split adjusted and not spinoff adjusted.. [optional]  # noqa: E501
+            price_high_date (date, none_type): Date in which the highest price occurred over the requested period  for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            price_low_date (date, none_type): Date in which the lowest price occurred over the requested period for the given id expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

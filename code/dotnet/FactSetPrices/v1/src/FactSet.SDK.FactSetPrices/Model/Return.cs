@@ -41,7 +41,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <param name="currency">Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
         /// <param name="totalReturn">The simple or compound return for the requested &#x60;frequency&#x60; and/or &#x60;rolling_period&#x60;. Depending on the input parameters the return will adjust accordingly. If you simply use &#x60;frequency&#x60; and no &#x60;rolling_period&#x60;, the return value will represent the frequency period. If you use &#x60;rolling_period&#x60;, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748).</param>
         /// <param name="requestId">Identifier that was used for the request..</param>
-        public Return(string fsymId = default(string), DateTime date = default(DateTime), DateTime adjDate = default(DateTime), string currency = default(string), double totalReturn = default(double), string requestId = default(string))
+        public Return(string fsymId = default(string), DateTime? date = default(DateTime?), DateTime? adjDate = default(DateTime?), string currency = default(string), double? totalReturn = default(double?), string requestId = default(string))
         {
             this.FsymId = fsymId;
             this.Date = date;
@@ -55,38 +55,38 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.
         /// </summary>
         /// <value>Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security&#39;s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.</value>
-        [DataMember(Name = "fsymId", EmitDefaultValue = false)]
+        [DataMember(Name = "fsymId", EmitDefaultValue = true)]
         public string FsymId { get; set; }
 
         /// <summary>
         /// End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested.
         /// </summary>
         /// <value>End date of the return. Date in YYYY-MM-DD format. Depending on Frequency and Calendar settings, this could represent the entire return period requested.</value>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// Date of last split for which return has been adjusted.
         /// </summary>
         /// <value>Date of last split for which return has been adjusted.</value>
-        [DataMember(Name = "adjDate", EmitDefaultValue = false)]
+        [DataMember(Name = "adjDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime AdjDate { get; set; }
+        public DateTime? AdjDate { get; set; }
 
         /// <summary>
         /// Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         /// </summary>
         /// <value>Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).</value>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// The simple or compound return for the requested &#x60;frequency&#x60; and/or &#x60;rolling_period&#x60;. Depending on the input parameters the return will adjust accordingly. If you simply use &#x60;frequency&#x60; and no &#x60;rolling_period&#x60;, the return value will represent the frequency period. If you use &#x60;rolling_period&#x60;, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
         /// </summary>
         /// <value>The simple or compound return for the requested &#x60;frequency&#x60; and/or &#x60;rolling_period&#x60;. Depending on the input parameters the return will adjust accordingly. If you simply use &#x60;frequency&#x60; and no &#x60;rolling_period&#x60;, the return value will represent the frequency period. If you use &#x60;rolling_period&#x60;, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)</value>
-        [DataMember(Name = "totalReturn", EmitDefaultValue = false)]
-        public double TotalReturn { get; set; }
+        [DataMember(Name = "totalReturn", EmitDefaultValue = true)]
+        public double? TotalReturn { get; set; }
 
         /// <summary>
         /// Identifier that was used for the request.
@@ -166,7 +166,8 @@ namespace FactSet.SDK.FactSetPrices.Model
                 ) && 
                 (
                     this.TotalReturn == input.TotalReturn ||
-                    this.TotalReturn.Equals(input.TotalReturn)
+                    (this.TotalReturn != null &&
+                    this.TotalReturn.Equals(input.TotalReturn))
                 ) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -200,7 +201,10 @@ namespace FactSet.SDK.FactSetPrices.Model
                 {
                     hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalReturn.GetHashCode();
+                if (this.TotalReturn != null)
+                {
+                    hashCode = (hashCode * 59) + this.TotalReturn.GetHashCode();
+                }
                 if (this.RequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.RequestId.GetHashCode();

@@ -57,6 +57,7 @@ class Dividend(ModelNormal):
 
     allowed_values = {
         ('divs_ng_flag',): {
+            'None': None,
             'N': "N",
             'G': "G",
             'T': "T",
@@ -90,19 +91,19 @@ class Dividend(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'fsym_id': (str,),  # noqa: E501
-            'divs_ex_date': (date,),  # noqa: E501
-            'adj_date': (date,),  # noqa: E501
-            'currency': (str,),  # noqa: E501
-            'divs_paid': (float,),  # noqa: E501
-            'divs_rec_date': (date,),  # noqa: E501
-            'divs_pay_date': (date,),  # noqa: E501
-            'divs_type_c': (int,),  # noqa: E501
-            'divs_type_d': (str,),  # noqa: E501
-            'divs_tax_c': (str,),  # noqa: E501
-            'divs_tax_d': (str,),  # noqa: E501
-            'divs_ng_flag': (str,),  # noqa: E501
-            'divs_ng_equiv': (float,),  # noqa: E501
+            'fsym_id': (str, none_type,),  # noqa: E501
+            'divs_ex_date': (date, none_type,),  # noqa: E501
+            'adj_date': (date, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'divs_paid': (float, none_type,),  # noqa: E501
+            'divs_rec_date': (date, none_type,),  # noqa: E501
+            'divs_pay_date': (date, none_type,),  # noqa: E501
+            'divs_type_c': (int, none_type,),  # noqa: E501
+            'divs_type_d': (str, none_type,),  # noqa: E501
+            'divs_tax_c': (str, none_type,),  # noqa: E501
+            'divs_tax_d': (str, none_type,),  # noqa: E501
+            'divs_ng_flag': (str, none_type,),  # noqa: E501
+            'divs_ng_equiv': (float, none_type,),  # noqa: E501
             'request_id': (str,),  # noqa: E501
         }
 
@@ -169,19 +170,19 @@ class Dividend(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            divs_ex_date (date): Ex-Date of the dividend expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which prices and volume have been adjusted.. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            divs_paid (float): Amount of the dividend paid.. [optional]  # noqa: E501
-            divs_rec_date (date): Date the dividend was recorded expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            divs_pay_date (date): Date the dividend will be paid expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            divs_type_c (int): Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
-            divs_type_d (str): Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
-            divs_tax_c (str): Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
-            divs_tax_d (str): Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
-            divs_ng_flag (str): Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
-            divs_ng_equiv (float): Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            divs_ex_date (date, none_type): Ex-Date of the dividend expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices and volume have been adjusted.. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            divs_paid (float, none_type): Amount of the dividend paid.. [optional]  # noqa: E501
+            divs_rec_date (date, none_type): Date the dividend was recorded expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            divs_pay_date (date, none_type): Date the dividend will be paid expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            divs_type_c (int, none_type): Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
+            divs_type_d (str, none_type): Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
+            divs_tax_c (str, none_type): Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
+            divs_tax_d (str, none_type): Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
+            divs_ng_flag (str, none_type): Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
+            divs_ng_equiv (float, none_type): Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 
@@ -264,19 +265,19 @@ class Dividend(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fsym_id (str): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
-            divs_ex_date (date): Ex-Date of the dividend expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            adj_date (date): Date of last split for which prices and volume have been adjusted.. [optional]  # noqa: E501
-            currency (str): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
-            divs_paid (float): Amount of the dividend paid.. [optional]  # noqa: E501
-            divs_rec_date (date): Date the dividend was recorded expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            divs_pay_date (date): Date the dividend will be paid expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
-            divs_type_c (int): Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
-            divs_type_d (str): Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
-            divs_tax_c (str): Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
-            divs_tax_d (str): Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
-            divs_ng_flag (str): Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
-            divs_ng_equiv (float): Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
+            fsym_id (str, none_type): Factset Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security's best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.. [optional]  # noqa: E501
+            divs_ex_date (date, none_type): Ex-Date of the dividend expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            adj_date (date, none_type): Date of last split for which prices and volume have been adjusted.. [optional]  # noqa: E501
+            currency (str, none_type): Currency ISO code. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
+            divs_paid (float, none_type): Amount of the dividend paid.. [optional]  # noqa: E501
+            divs_rec_date (date, none_type): Date the dividend was recorded expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            divs_pay_date (date, none_type): Date the dividend will be paid expressed in YYYY-MM-DD format.. [optional]  # noqa: E501
+            divs_type_c (int, none_type): Dividend type code. For code descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
+            divs_type_d (str, none_type): Description of dividend type. For type descriptions, visit [Online Assistant Page #8764](https://oa.apps.factset.com/pages/8764).. [optional]  # noqa: E501
+            divs_tax_c (str, none_type): Tax Marker Code. For code descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
+            divs_tax_d (str, none_type): Description of Tax Marker. For type descriptions, visit [Online Assistant Page #15265](https://oa.apps.factset.com/pages/15265).. [optional]  # noqa: E501
+            divs_ng_flag (str, none_type): Net/Gross Marker Code. For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
+            divs_ng_equiv (float, none_type): Net/Gross equivalent (opposite of dividend paid). For details describing Net vs. Gross dividends, visit [Online Assistant Page #11512](https://oa.apps.factset.com/pages/11512).. [optional]  # noqa: E501
             request_id (str): Identifier that was used for the request.. [optional]  # noqa: E501
         """
 

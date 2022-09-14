@@ -1,10 +1,10 @@
-# naturallanguageprocessing.ThemesApi
+# naturallanguageprocessing.AIThemesApi
 
 All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1ThemesPost**](ThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**cognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
 
 
 
@@ -14,12 +14,12 @@ Method | HTTP request | Description
 
 POST request to extract themes from text
 
-This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text.  Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
+This endpoint extracts themes from unstructured text. Each theme (&#x60;themeText&#x60;) is also given a score (&#x60;themeScore&#x60;). This score shows the relevancy of the theme within the text. Example Output: &#x60;&#x60;&#x60;json {   \&quot;data\&quot;: [   {     \&quot;themeText\&quot;: \&quot;home entertainment results\&quot;,     \&quot;themeScore\&quot;: 0.92   },   {     \&quot;themeText\&quot;: \&quot;.....\&quot;,     \&quot;themeScore\&quot;: .....   }] } &#x60;&#x60;&#x60; 
 
 ### Example
 
 ```javascript
-const { ApiClient, ThemesApi } = require('@factset/sdk-naturallanguageprocessing');
+const { ApiClient, AIThemesApi } = require('@factset/sdk-naturallanguageprocessing');
 const { ConfidentialClient } = require('@factset/sdk-utils');
 
 const apiClient = ApiClient.instance;
@@ -41,7 +41,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.username = 'USERNAME-SERIAL';
 // FactSetApiKey.password = 'API-KEY';
 
-const apiInstance = new ThemesApi();
+const apiInstance = new AIThemesApi();
 const themeParametersRoot = new naturallanguageprocessing.ThemeParametersRoot(); // ThemeParametersRoot | 
 
 // Call api endpoint
