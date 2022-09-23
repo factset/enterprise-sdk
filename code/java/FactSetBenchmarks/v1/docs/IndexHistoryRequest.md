@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **hedgeType** | **HedgeType** |  |  [optional]
 **currency** | **String** | Currency for response. |  [optional]
 **calendar** | **Calendar** |  |  [optional]
+**impliedDate** | **ImpliedDate** |  |  [optional]
 
 
 ## Implemented Interfaces

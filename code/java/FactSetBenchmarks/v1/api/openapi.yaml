@@ -6,7 +6,7 @@ info:
   description: |
     FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.
   title: FactSet Benchmarks API
-  version: 1.5.0
+  version: 1.7.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -838,6 +838,22 @@ paths:
           enum:
           - FIVEDAY
           - SEVENDAY
+          type: string
+        style: form
+      - description: This parameter controls the **date** returned in the date field.
+          The default value is **N**. By default, the date field returns the actual
+          date of the observation. This means it will repeat values for weekends and
+          holidays. If  set to **Y**, the date field will return the implied date
+          of the observation, making all the dates unique.
+        explode: true
+        in: query
+        name: impliedDate
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
           type: string
         style: form
       responses:
@@ -1891,6 +1907,7 @@ components:
           hedgeType: UNHEDGED
           totalReturnLevel: 6826.22108948631
           totalReturnPercent: 0.643080929117001
+          observationDate: 2020-08-05
         - currency: LOCAL
           date: 2020-08-06
           fsymId: SP50
@@ -1903,6 +1920,7 @@ components:
           hedgeType: UNHEDGED
           totalReturnLevel: 6870.86168040129
           totalReturnPercent: 0.653957589855003
+          observationDate: 2020-08-06
         - currency: LOCAL
           date: 2020-08-05
           fsymId: R.3000
@@ -1915,6 +1933,7 @@ components:
           hedgeType: UNHEDGED
           totalReturnLevel: 10542.973182
           totalReturnPercent: 0.751900743100942
+          observationDate: 2020-08-05
         - currency: LOCAL
           date: 2020-08-06
           fsymId: R.3000
@@ -1927,6 +1946,7 @@ components:
           hedgeType: UNHEDGED
           totalReturnLevel: 10597.086657
           totalReturnPercent: 0.513265793869122
+          observationDate: 2020-08-06
     allRatiosRequest:
       description: |
         Requesting all available index level ratios for S&P 500 on LTM basis as of latest calendar year end
@@ -2526,6 +2546,23 @@ components:
         - HEDGED
         type: string
       style: form
+    impliedDate:
+      description: This parameter controls the **date** returned in the date field.
+        The default value is **N**. By default, the date field returns the actual
+        date of the observation. This means it will repeat values for weekends and
+        holidays. If  set to **Y**, the date field will return the implied date of
+        the observation, making all the dates unique.
+      explode: true
+      in: query
+      name: impliedDate
+      required: false
+      schema:
+        default: "N"
+        enum:
+        - "Y"
+        - "N"
+        type: string
+      style: form
     calendar:
       description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
@@ -2886,50 +2923,60 @@ components:
         fsymId:
           description: Benchmark Id
           example: SPY-US
+          nullable: true
           type: string
         date:
           description: Date of weight and shares.
           example: 2020-07-01
           format: date
+          nullable: true
           type: string
         fsymSecurityId:
           description: FactSet Security Identifier (-S). If Cash or Generic Id holding,
             response will just pass through generic id (e.g. CASH_USD).
           example: TKPJVY-S
+          nullable: true
           type: string
         fsymRegionalId:
           description: FactSet Regional Identifier (-R). If Cash or Generic Id holding,
             response will just pass through generic id (e.g. CASH_USD).
           example: F07Q7W-R
+          nullable: true
           type: string
         currency:
           description: Currency code for prices.
           example: USD
+          nullable: true
           type: string
         weightClose:
           description: Weight of Security in benchmark (percent).
           example: 0.085717610340781
           format: double
+          nullable: true
           type: number
         adjHolding:
           description: Shares held adjusted. Units in Millions.
           example: 0.884722
           format: double
+          nullable: true
           type: number
         unadjHolding:
           description: Shares held unadjusted. Units in Millions.
           example: 0.884722
           format: double
+          nullable: true
           type: number
         price:
           description: Price of shares held.
           example: 267.97
           format: double
+          nullable: true
           type: number
         adjMarketValue:
           description: Market value adjusted. Market Value represented in Millions.
           example: 237.07895434
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier specified in the request
@@ -3008,35 +3055,42 @@ components:
         fsymId:
           description: Benchmark Id
           example: LHMN0001
+          nullable: true
           type: string
         date:
           description: Date of weight and shares.
           example: 2021-04-12
           format: date
+          nullable: true
           type: string
         fsymSecurityId:
           description: FactSet Security Identifier (-S).
           example: FV4SC0-S
+          nullable: true
           type: string
         weightClose:
           description: Weight of Security in benchmark (percent).
           example: 0.00303380596473456
           format: double
+          nullable: true
           type: number
         amountOutstanding:
           description: Amount Outstanding for the Fixed Income Security.
           example: 700000
           format: double
+          nullable: true
           type: number
         price:
           description: Fixed Income Price of security held.
           example: 106.976
           format: double
+          nullable: true
           type: number
         adjMarketValue:
           description: Market value adjusted. Market Value represented in Millions.
           example: 757.233375
           format: double
+          nullable: true
           type: number
         requestId:
           description: Identifier specified in the request
@@ -3142,79 +3196,94 @@ components:
           description: Requested Identifier. Must be a valid Benchmark Identifier
             recognized by FactSet.
           example: SP50
+          nullable: true
           type: string
         date:
           description: The respective date for values as of the date requested in
             YYYY-MM-DD format.
           example: 2020-07-01
           format: date
+          nullable: true
           type: string
         name:
           description: Proper Name of Index.
           example: S&P 500
+          nullable: true
           type: string
         constituentNumber:
           description: The total number of constituents as of the date requested.
           example: 502
+          nullable: true
           type: integer
         currency:
           description: Currency Code used in adjustments. If no Currency was requested,
             the service will default to the local Calendar.
           example: USD
+          nullable: true
           type: string
         marketValue:
           description: Index Level Market Capitalization as of the date requested
             expressed in millions.
           example: 27696158.012077
           format: double
+          nullable: true
           type: number
         price:
           description: Index Level Price
           example: 3349.15600690205
           format: double
+          nullable: true
           type: number
         priceReturnPercent1D:
           description: Index Level Price - 1 Day percent change
           example: 0.642620385795123
           format: double
+          nullable: true
           type: number
         priceReturnPercentQTD:
           description: Index Level Price - Quarter-to-Date percent change
           example: 8.02735451465131
           format: double
+          nullable: true
           type: number
         priceReturnPercentYTD:
           description: Index Level Price - Year-to-Date percent change
           example: 3.66394447660916
           format: double
+          nullable: true
           type: number
         totalReturnLevel:
           description: Index Level Total Return Amount. (Gross or Net depends on requested
             returnType)
           example: 6870.86168040129
           format: double
+          nullable: true
           type: number
         totalReturnPercent1D:
           description: Index Level Total Return - 1 Day percent change. (Gross or
             Net depends on requested returnType)
           example: 0.653957589855003
           format: double
+          nullable: true
           type: number
         totalReturnPercentQTD:
           description: Index Level Total Return - Quarter-to-Date percent change.
             (Gross or Net depends on requested returnType)
           example: 8.17415047623613
           format: double
+          nullable: true
           type: number
         totalReturnPercentYTD:
           description: Index Level Total Return - Year-to-Date percent change. (Gross
             or Net depends on requested returnType)
           example: 4.84152796547426
           format: double
+          nullable: true
           type: number
         returnType:
           description: The requested Return Type - GROSS or NET
           example: GROSS
+          nullable: true
           type: string
         requestId:
           description: Benchmark Identifier specified in the request
@@ -3258,6 +3327,8 @@ components:
           type: string
         calendar:
           $ref: '#/components/schemas/calendar'
+        impliedDate:
+          $ref: '#/components/schemas/impliedDate'
       required:
       - ids
       title: Index History Request
@@ -3270,6 +3341,7 @@ components:
           fsymId: SP50
           marketValue: 27696158.012077
           priceReturnPercent: 0.642620385795123
+          observationDate: 2020-07-21
           hedgeType: UNHEDGED
           constituentNumber: 502
           price: 3349.15600690205
@@ -3283,6 +3355,7 @@ components:
           fsymId: SP50
           marketValue: 27696158.012077
           priceReturnPercent: 0.642620385795123
+          observationDate: 2020-07-21
           hedgeType: UNHEDGED
           constituentNumber: 502
           price: 3349.15600690205
@@ -3307,6 +3380,7 @@ components:
         fsymId: SP50
         marketValue: 27696158.012077
         priceReturnPercent: 0.642620385795123
+        observationDate: 2020-07-21
         hedgeType: UNHEDGED
         constituentNumber: 502
         price: 3349.15600690205
@@ -3320,63 +3394,81 @@ components:
           description: Requested Identifier. Must be a valid Benchmark Identifier
             recognized by FactSet.
           example: SP50
+          nullable: true
           type: string
         date:
           description: The respective date for values as of the date requested in
             YYYY-MM-DD format.
           example: 2020-07-01
           format: date
+          nullable: true
           type: string
         name:
           description: Proper Name of Index.
           example: S&P 500
+          nullable: true
           type: string
         constituentNumber:
           description: The total number of constituents as of the date requested.
           example: 502
+          nullable: true
           type: integer
         currency:
           description: Currency Code used in adjustments. If no Currency was requested,
             the service will default to LOCAL ('LOC').
           example: USD
+          nullable: true
           type: string
         marketValue:
           description: Index Level Market Capitalization as of the date requested
             expressed in millions.
           example: 27696158.012077
           format: double
+          nullable: true
           type: number
         price:
           description: Index Level Price
           example: 3349.15600690205
           format: double
+          nullable: true
           type: number
         priceReturnPercent:
           description: Index Level Price Percent Change
           example: 0.642620385795123
           format: double
+          nullable: true
           type: number
         totalReturnLevel:
           description: Index Level Total Return Amount
           example: 6870.86168040129
           format: double
+          nullable: true
           type: number
         totalReturnPercent:
           description: Index Level Total Return Percent Change
           example: 0.653957589855003
           format: double
+          nullable: true
           type: number
         returnType:
           description: The requested Return Type - GROSS or NET
           example: GROSS
+          nullable: true
           type: string
         hedgeType:
           description: The requested Hedge Type - HEDGED or UNHEDGED
           example: UNHEDGED
+          nullable: true
           type: string
         requestId:
           description: Benchmark Identifier specified in the request
           example: SP50
+          type: string
+        observationDate:
+          description: This field will always return the date of the data that was
+            actually returned.
+          example: 2020-07-21
+          nullable: true
           type: string
       title: Index History Object
       type: object
@@ -3511,16 +3603,19 @@ components:
           description: Requested Identifier. Must be a valid Benchmark Identifier
             recognized by FactSet.
           example: SP50
+          nullable: true
           type: string
         date:
           description: The respective date for values as of the date requested in
             YYYY-MM-DD format.
           example: 2020-12-31
           format: date
+          nullable: true
           type: string
         name:
           description: Proper Name of Index.
           example: S&P 500
+          nullable: true
           type: string
         requestId:
           description: Benchmark Identifier specified in the request.
@@ -3529,19 +3624,23 @@ components:
         metric:
           description: Metric requested
           example: GROSS_MARGIN
+          nullable: true
           type: string
         periodicity:
           description: The periodicity submitted in the request.
           example: LTM
+          nullable: true
           type: string
         currency:
           description: The currency submitted in the request.
           example: USD
+          nullable: true
           type: string
         value:
           description: Ratio value based on the metric requested.
           example: 35.4094680290153
           format: double
+          nullable: true
           type: number
       title: Benchmark Ratios Object
       type: object
@@ -3584,22 +3683,27 @@ components:
         fsymId:
           description: Benchmark Id
           example: "990100"
+          nullable: true
           type: string
         name:
           description: Name of the Benchmark ID
           example: MSCI World Index
+          nullable: true
           type: string
         familyName:
           description: Name of the Benchmarks Family
           example: MSCI
+          nullable: true
           type: string
         market:
           description: Market grouping related to the Benchmark Family
           example: Developed
+          nullable: true
           type: string
         categoryDescription:
           description: Extended name or description of Benchmark Family & Market
           example: International Indices
+          nullable: true
           type: string
       title: Benchmark Id List Object
       type: object
@@ -3674,6 +3778,18 @@ components:
       - HEDGED
       example: UNHEDGED
       title: Hedge Type
+      type: string
+    impliedDate:
+      default: "N"
+      description: This parameter controls the **date** returned in the date field.
+        The default value is **N**. By default, the date field returns the actual
+        date of the observation. This means it will repeat values for weekends and
+        holidays. If  set to **Y**, the date field will return the implied date of
+        the observation, making all the dates unique.
+      enum:
+      - "Y"
+      - "N"
+      title: Implied Date
       type: string
     calendar:
       default: FIVEDAY

@@ -26,6 +26,7 @@ docs/FixedIncomeBenchmarkConstituentsResponse.md
 docs/Frequency.md
 docs/HedgeType.md
 docs/HelperApi.md
+docs/ImpliedDate.md
 docs/IndexHistory.md
 docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
@@ -84,6 +85,7 @@ src/main/java/com/factset/sdk/FactSetBenchmarks/models/FixedIncomeBenchmarkConst
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/FixedIncomeBenchmarkConstituentsResponse.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/Frequency.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/HedgeType.java
+src/main/java/com/factset/sdk/FactSetBenchmarks/models/ImpliedDate.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistory.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryRequest.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryResponse.java

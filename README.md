@@ -14,10 +14,10 @@ The auto-generated source code for the API client libraries can be found in the 
 
 | **Language**          | **Client libraries**                                                                                  | **Utility library**                                                                |
 | --------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| .NET                  | [.NET source](https://github.com/factset/enterprise-sdk/tree/master/code/dotnet)                      | [.NET utilities](https://github.com/factset/enterprise-sdk-utils-dotnet)           |
-| Java                  | [Java source](https://github.com/factset/enterprise-sdk/tree/master/code/java)                        | [Java utilities](https://github.com/factset/enterprise-sdk-utils-java)             |
-| Python                | [Python source](https://github.com/factset/enterprise-sdk/tree/master/code/python)                    | [Python utilities](https://github.com/factset/enterprise-sdk-utils-python)         |
-| TypeScript/JavaScript | [TypeScript/JavaScript source](https://github.com/factset/enterprise-sdk/tree/master/code/typescript) | [TypeScript utilities](https://github.com/factset/enterprise-sdk-utils-typescript) |
+| .NET                  | [.NET source](https://github.com/factset/enterprise-sdk/tree/main/code/dotnet)                      | [.NET utilities](https://github.com/factset/enterprise-sdk-utils-dotnet)           |
+| Java                  | [Java source](https://github.com/factset/enterprise-sdk/tree/main/code/java)                        | [Java utilities](https://github.com/factset/enterprise-sdk-utils-java)             |
+| Python                | [Python source](https://github.com/factset/enterprise-sdk/tree/main/code/python)                    | [Python utilities](https://github.com/factset/enterprise-sdk-utils-python)         |
+| TypeScript/JavaScript | [TypeScript/JavaScript source](https://github.com/factset/enterprise-sdk/tree/main/code/typescript) | [TypeScript utilities](https://github.com/factset/enterprise-sdk-utils-typescript) |
 
 ### Definitions
 

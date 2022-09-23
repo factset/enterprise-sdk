@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **hedgeType** | [**HedgeType**](HedgeType.md) |  | [optional] 
 **currency** | **String** | Currency for response. | [optional] 
 **calendar** | [**Calendar**](Calendar.md) |  | [optional] 
+**impliedDate** | [**ImpliedDate**](ImpliedDate.md) |  | [optional] 
 
 

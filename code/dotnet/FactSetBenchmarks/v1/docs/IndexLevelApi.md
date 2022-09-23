@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 <a name="getindexhistory"></a>
 # **GetIndexHistory**
-> IndexHistoryResponse GetIndexHistory (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string returnType = null, string hedgeType = null, string currency = null, string calendar = null)
+> IndexHistoryResponse GetIndexHistory (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string returnType = null, string hedgeType = null, string currency = null, string calendar = null, string impliedDate = null)
 
 Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
 
@@ -264,11 +264,12 @@ namespace Example
             var hedgeType = "UNHEDGED";  // string | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional)  (default to UNHEDGED)
             var currency = "currency_example";  // string | Currency for response. (optional) 
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
+            var impliedDate = "Y";  // string | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional)  (default to N)
 
             try
             {
                 // Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
-                IndexHistoryResponse result = apiInstance.GetIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar);
+                IndexHistoryResponse result = apiInstance.GetIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar, impliedDate);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -294,6 +295,7 @@ Name | Type | Description  | Notes
  **hedgeType** | **string**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED]
  **currency** | **string**| Currency for response. | [optional] 
  **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
+ **impliedDate** | **string**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N]
 
 ### Return type
 [**IndexHistoryResponse**](IndexHistoryResponse.md)

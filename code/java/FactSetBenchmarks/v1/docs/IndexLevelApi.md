@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ## getIndexHistory
 
-> IndexHistoryResponse getIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar)
+> IndexHistoryResponse getIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar, impliedDate)
 
 Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
 
@@ -256,8 +256,9 @@ public class Example {
         String hedgeType = "UNHEDGED"; // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
         String currency = "currency_example"; // String | Currency for response.
         String calendar = "FIVEDAY"; // String | Calendar of data returned. SEVENDAY includes weekends.
+        String impliedDate = "Y"; // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
         try {
-            IndexHistoryResponse result = apiInstance.getIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar);
+            IndexHistoryResponse result = apiInstance.getIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar, impliedDate);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -284,6 +285,7 @@ Name | Type | Description  | Notes
  **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED] [enum: UNHEDGED, HEDGED]
  **currency** | **String**| Currency for response. | [optional]
  **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY] [enum: FIVEDAY, SEVENDAY]
+ **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N] [enum: Y, N]
 
 ### Return type
 

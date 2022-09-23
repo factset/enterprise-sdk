@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **returnType** | **String** | The requested Return Type - GROSS or NET | [optional] 
 **hedgeType** | **String** | The requested Hedge Type - HEDGED or UNHEDGED | [optional] 
 **requestId** | **String** | Benchmark Identifier specified in the request | [optional] 
+**observationDate** | **String** | This field will always return the date of the data that was actually returned. | [optional] 
 
 

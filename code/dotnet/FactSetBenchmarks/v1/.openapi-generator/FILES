@@ -24,6 +24,7 @@ docs/FixedIncomeBenchmarkConstituentsResponse.md
 docs/Frequency.md
 docs/HedgeType.md
 docs/HelperApi.md
+docs/ImpliedDate.md
 docs/IndexHistory.md
 docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
@@ -73,6 +74,7 @@ src/FactSet.SDK.FactSetBenchmarks/Model/FixedIncomeBenchmarkConstituentsRequest.
 src/FactSet.SDK.FactSetBenchmarks/Model/FixedIncomeBenchmarkConstituentsResponse.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/Frequency.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/HedgeType.cs
+src/FactSet.SDK.FactSetBenchmarks/Model/ImpliedDate.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistory.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistoryRequest.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistoryResponse.cs

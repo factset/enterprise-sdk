@@ -278,12 +278,13 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) if omitted the server will use the default value of "UNHEDGED"
     currency = "currency_example" # str | Currency for response. (optional)
     calendar = "FIVEDAY" # str | Calendar of data returned. SEVENDAY includes weekends. (optional) if omitted the server will use the default value of "FIVEDAY"
+    implied_date = "N" # str | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional) if omitted the server will use the default value of "N"
 
     try:
         # Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_index_history(ids, start_date=start_date, end_date=end_date, frequency=frequency, return_type=return_type, hedge_type=hedge_type, currency=currency, calendar=calendar)
+        api_response = api_instance.get_index_history(ids, start_date=start_date, end_date=end_date, frequency=frequency, return_type=return_type, hedge_type=hedge_type, currency=currency, calendar=calendar, implied_date=implied_date)
         pprint(api_response)
 
     except fds.sdk.FactSetBenchmarks.ApiException as e:
@@ -303,6 +304,7 @@ Name | Type | Description  | Notes
  **hedge_type** | **str**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] if omitted the server will use the default value of "UNHEDGED"
  **currency** | **str**| Currency for response. | [optional]
  **calendar** | **str**| Calendar of data returned. SEVENDAY includes weekends. | [optional] if omitted the server will use the default value of "FIVEDAY"
+ **implied_date** | **str**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
@@ -387,6 +389,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
         hedge_type=HedgeType("UNHEDGED"),
         currency="USD",
         calendar=Calendar("FIVEDAY"),
+        implied_date=ImpliedDate("N"),
     ) # IndexHistoryRequest | Requests Index Level History Prices and Returns for a list of identifiers and specified date range.
 
     try:

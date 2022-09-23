@@ -308,6 +308,7 @@ public class IndexLevelApi {
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return IndexHistoryResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -321,8 +322,8 @@ public class IndexLevelApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public IndexHistoryResponse getIndexHistory(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar) throws ApiException {
-    return getIndexHistoryWithHttpInfo(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar).getData();
+  public IndexHistoryResponse getIndexHistory(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar, String impliedDate) throws ApiException {
+    return getIndexHistoryWithHttpInfo(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar, impliedDate).getData();
   }
 
   /**
@@ -336,6 +337,7 @@ public class IndexLevelApi {
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
+   * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return ApiResponse&lt;IndexHistoryResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -349,7 +351,7 @@ public class IndexLevelApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<IndexHistoryResponse> getIndexHistoryWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar) throws ApiException {
+  public ApiResponse<IndexHistoryResponse> getIndexHistoryWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar, String impliedDate) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -374,6 +376,7 @@ public class IndexLevelApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "hedgeType", hedgeType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "impliedDate", impliedDate));
 
     
     

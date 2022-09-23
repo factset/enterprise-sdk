@@ -213,7 +213,8 @@ const opts = {
   'returnType': "'GROSS'", // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
   'hedgeType': "'UNHEDGED'", // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
   'currency': "currency_example", // String | Currency for response.
-  'calendar': FIVEDAY // String | Calendar of data returned. SEVENDAY includes weekends.
+  'calendar': FIVEDAY, // String | Calendar of data returned. SEVENDAY includes weekends.
+  'impliedDate': "'N'" // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
 };
 
 // Call api endpoint
@@ -244,6 +245,7 @@ Name | Type | Description  | Notes
  **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to &#39;UNHEDGED&#39;]
  **currency** | **String**| Currency for response. | [optional] 
  **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to &#39;FIVEDAY&#39;]
+ **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to &#39;N&#39;]
 
 ### Return type
 
