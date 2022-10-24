@@ -22,11 +22,12 @@ class Template {
     /**
      * Constructs a new <code>Template</code>.
      * @alias module:model/Template
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
+    constructor(templateName, headline) { 
         
-        Template.initialize(this, headline);
+        Template.initialize(this, templateName, headline);
     }
 
     /**
@@ -34,7 +35,8 @@ class Template {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -49,6 +51,9 @@ class Template {
         if (data) {
             obj = obj || new Template();
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -64,6 +69,11 @@ class Template {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+Template.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline

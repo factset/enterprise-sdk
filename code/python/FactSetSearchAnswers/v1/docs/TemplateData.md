@@ -4,11 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**template_name** | **str** |  | 
 **footer** | **str** |  | [optional] 
 **fdc3_context** | [**Fdc3Context**](Fdc3Context.md) |  | [optional] 
 **application_links** | [**[ApplicationLink]**](ApplicationLink.md) |  | [optional] 
 **link** | **str** |  | [optional] 
-**blurb** | **str** |  | [optional] 
+**text** | **str** |  | [optional] 
 **body** | **str** |  | [optional] 
 **footing** | [**TitledTextBlock**](TitledTextBlock.md) |  | [optional] 
 **percent_change** | [**PercentChange**](PercentChange.md) |  | [optional] 

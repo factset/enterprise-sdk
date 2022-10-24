@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **headers** | **[String]** |  | [optional] 
-**rows** | [**[RankedTableRow]**](RankedTableRow.md) |  | [optional] 
+**rows** | [**[RankedTableRow]**](RankedTableRow.md) |  | 
 
 

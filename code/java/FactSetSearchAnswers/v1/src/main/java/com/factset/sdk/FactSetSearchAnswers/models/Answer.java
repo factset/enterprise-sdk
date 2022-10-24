@@ -17,8 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.FactSetSearchAnswers.models.AnswerAllOf;
-import com.factset.sdk.FactSetSearchAnswers.models.DataAnswer;
 import com.factset.sdk.FactSetSearchAnswers.models.TemplateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,61 +34,55 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * Answer
  */
 @JsonPropertyOrder({
-  Answer.JSON_PROPERTY_TEMPLATE,
-  Answer.JSON_PROPERTY_TEMPLATE_DATA,
-  Answer.JSON_PROPERTY_TITLE
+  Answer.JSON_PROPERTY_TITLE,
+  Answer.JSON_PROPERTY_TEMPLATE_DATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Answer implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private String template;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
   public static final String JSON_PROPERTY_TEMPLATE_DATA = "templateData";
   private TemplateData templateData;
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
 
   public Answer() { 
   }
 
   @JsonCreator
   public Answer(
-    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
-    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) TemplateData templateData, 
-    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title, 
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) TemplateData templateData
   ) {
     this();
-    this.template = template;
-    this.templateData = templateData;
     this.title = title;
+    this.templateData = templateData;
   }
 
-  public Answer template(String template) {
-    this.template = template;
+  public Answer title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * Get template
-   * @return template
+   * Get title
+   * @return title
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getTemplate() {
-    return template;
+  public String getTitle() {
+    return title;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(String template) {
-    this.template = template;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -120,32 +112,6 @@ public class Answer implements Serializable {
   }
 
 
-  public Answer title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
   /**
    * Return true if this Answer object is equal to o.
    */
@@ -158,23 +124,21 @@ public class Answer implements Serializable {
       return false;
     }
     Answer answer = (Answer) o;
-    return Objects.equals(this.template, answer.template) &&
-        Objects.equals(this.templateData, answer.templateData) &&
-        Objects.equals(this.title, answer.title);
+    return Objects.equals(this.title, answer.title) &&
+        Objects.equals(this.templateData, answer.templateData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(template, templateData, title);
+    return Objects.hash(title, templateData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Answer {\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    templateData: ").append(toIndentedString(templateData)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    templateData: ").append(toIndentedString(templateData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

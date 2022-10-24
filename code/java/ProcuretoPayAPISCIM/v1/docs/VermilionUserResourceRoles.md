@@ -2,7 +2,6 @@
 
 # VermilionUserResourceRoles
 
-A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.
 
 ## Properties
 

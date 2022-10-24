@@ -88,6 +88,7 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
         """
         lazy_import()
         return {
+            'template_name': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
         }
 
@@ -97,6 +98,7 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
 
 
     attribute_map = {
+        'template_name': 'templateName',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
     }
 
@@ -107,8 +109,11 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, template_name, *args, **kwargs):  # noqa: E501
         """AnswerWithoutDataAllOfTemplateData - a model defined in OpenAPI
+
+        Args:
+            template_name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,6 +174,7 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.template_name = template_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +195,11 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, template_name, *args, **kwargs):  # noqa: E501
         """AnswerWithoutDataAllOfTemplateData - a model defined in OpenAPI
+
+        Args:
+            template_name (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,6 +258,7 @@ class AnswerWithoutDataAllOfTemplateData(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.template_name = template_name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

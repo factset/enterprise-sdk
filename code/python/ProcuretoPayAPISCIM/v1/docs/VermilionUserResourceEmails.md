@@ -1,6 +1,5 @@
 # VermilionUserResourceEmails
 
-Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.
 
 ## Properties
 Name | Type | Description | Notes

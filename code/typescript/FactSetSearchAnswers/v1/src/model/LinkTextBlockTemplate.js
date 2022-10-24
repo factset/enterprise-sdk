@@ -27,11 +27,12 @@ class LinkTextBlockTemplate {
      * @alias module:model/LinkTextBlockTemplate
      * @implements module:model/TemplateWithLinks
      * @implements module:model/LinkTextBlockTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        TemplateWithLinks.initialize(this, headline);LinkTextBlockTemplateAllOf.initialize(this);
-        LinkTextBlockTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);LinkTextBlockTemplateAllOf.initialize(this);
+        LinkTextBlockTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -39,7 +40,8 @@ class LinkTextBlockTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -56,6 +58,9 @@ class LinkTextBlockTemplate {
             TemplateWithLinks.constructFromObject(data, obj);
             LinkTextBlockTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -71,8 +76,8 @@ class LinkTextBlockTemplate {
             if (data.hasOwnProperty('link')) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
-            if (data.hasOwnProperty('blurb')) {
-                obj['blurb'] = ApiClient.convertToType(data['blurb'], 'String');
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
         }
         return obj;
@@ -80,6 +85,11 @@ class LinkTextBlockTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+LinkTextBlockTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -107,12 +117,16 @@ LinkTextBlockTemplate.prototype['applicationLinks'] = undefined;
 LinkTextBlockTemplate.prototype['link'] = undefined;
 
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-LinkTextBlockTemplate.prototype['blurb'] = undefined;
+LinkTextBlockTemplate.prototype['text'] = undefined;
 
 
 // Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -135,9 +149,9 @@ TemplateWithLinks.prototype['applicationLinks'] = undefined;
  */
 LinkTextBlockTemplateAllOf.prototype['link'] = undefined;
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-LinkTextBlockTemplateAllOf.prototype['blurb'] = undefined;
+LinkTextBlockTemplateAllOf.prototype['text'] = undefined;
 
 
 

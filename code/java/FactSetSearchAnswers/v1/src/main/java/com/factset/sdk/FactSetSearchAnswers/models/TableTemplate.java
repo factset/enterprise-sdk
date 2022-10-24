@@ -38,6 +38,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * TableTemplate
  */
 @JsonPropertyOrder({
+  TableTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   TableTemplate.JSON_PROPERTY_HEADLINE,
   TableTemplate.JSON_PROPERTY_FOOTER,
   TableTemplate.JSON_PROPERTY_FDC3_CONTEXT,
@@ -47,6 +48,9 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -68,11 +72,39 @@ public class TableTemplate implements Serializable {
 
   @JsonCreator
   public TableTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public TableTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public TableTemplate headline(String headline) {
     this.headline = headline;
@@ -224,7 +256,8 @@ public class TableTemplate implements Serializable {
       return false;
     }
     TableTemplate tableTemplate = (TableTemplate) o;
-    return Objects.equals(this.headline, tableTemplate.headline) &&
+    return Objects.equals(this.templateName, tableTemplate.templateName) &&
+        Objects.equals(this.headline, tableTemplate.headline) &&
         Objects.equals(this.footer, tableTemplate.footer) &&
         Objects.equals(this.fdc3Context, tableTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, tableTemplate.applicationLinks) &&
@@ -233,13 +266,14 @@ public class TableTemplate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, table);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, table);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TableTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");

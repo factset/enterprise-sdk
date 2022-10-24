@@ -1,0 +1,1048 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Security-Modeling API",
+    "description": "Allow clients to fetch Analytics through APIs.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "3"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com"
+    }
+  ],
+  "paths": {
+    "/analytics/security-modeling/v3/securities/upsert": {
+      "post": {
+        "tags": [
+          "SecurityModeling"
+        ],
+        "summary": "Create or update securities",
+        "description": "This endpoint is to create or update existing securities.",
+        "operationId": "upsertSecurities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SMCreateParametersRoot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a status of operation along with errors and warnings if found any.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMCreateResponseRoot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SMFields": {
+        "required": [
+          "securityType"
+        ],
+        "type": "object",
+        "properties": {
+          "securityType": {
+            "enum": [
+              "Bond"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMBondFields": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SMFields"
+          }
+        ],
+        "properties": {
+          "144aFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "aperiodicMultipliers": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "aperiodicResetDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "aperiodicSpreads": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "businessDayConv": {
+            "type": "string",
+            "nullable": true
+          },
+          "callAnnounceDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "callDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "callFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "callNoticeDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "callPrices": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "cashRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "cognity": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversionIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversionRatio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "conversionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "convertibleFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "coupon": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "couponType": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditSpreadAdjustmentSingle": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "dayCountBasis": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultedDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "federalTaxExemptFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "firstPayDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstResetDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "floatFormula": {
+            "type": "string",
+            "nullable": true
+          },
+          "fltDayCountBasis": {
+            "type": "string",
+            "nullable": true
+          },
+          "fltFirstPayDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "fltPayFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "histCouponDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "histCoupons": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "histRcvAssumpDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "histRcvAssumpMonths": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "histRcvAssumpRates": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "histRcvAssumpTargetDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "inflationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastModifiedSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastModifiedSourceMeta": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastModifiedTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "lifeCap": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lifeFloor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lockoutDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "lookBackDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "makeWholeCallFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "makeWholeExpireDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "makeWholeSpread": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "matrixDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "matrixMultipliers": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "matrixPricedFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "matrixSpreads": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "matrixUseScheduleFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "maturityDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "maturityPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "monthsToRecovery": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "multiplier": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "notionalFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "observationShift": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "origAmtIssued": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "parentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "parserInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentDelay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "payFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "periodCap": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "periodFloor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "pikExpDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "pikRate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "preferredSecExDateLen": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "preferredSecExDateUnits": {
+            "type": "string",
+            "nullable": true
+          },
+          "preferredSecFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "principalType": {
+            "type": "string",
+            "nullable": true
+          },
+          "putDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "putNoticeDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "putFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "putPrices": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "pvtPlacementFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ratingFitch": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratingFitchDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingFitchValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingMoodysDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingMoodysValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingSpDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ratingSpValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "recoveryPercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "redemptionDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "redemptionOpt": {
+            "type": "string",
+            "nullable": true
+          },
+          "redemptionPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "reinstatedDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "resetDelay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "resetFreq": {
+            "type": "string",
+            "nullable": true
+          },
+          "secondaryToVendorFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sector": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay1": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay2": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay3": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorBarclay4": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorDef": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorIndustry": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMain": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill1": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill2": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill3": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorMerrill4": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorSubGroup": {
+            "type": "string",
+            "nullable": true
+          },
+          "sinkAmts": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "sinkDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "spread": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "statusValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "stepCashRates": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "stepCouponDates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "stepCoupons": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "stepPikRates": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "vendorCoverageDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "vRDNFlag": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OneOfSMFields": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SMBondFields"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "securityType",
+          "mapping": {
+            "Bond": "#/components/schemas/SMBondFields"
+          }
+        }
+      },
+      "SMCreateParameters": {
+        "required": [
+          "fields",
+          "securityName"
+        ],
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "asofdate": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "$ref": "#/components/schemas/OneOfSMFields"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMCreateParametersRoot": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMCreateParameters"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMWarning": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMCreateResponse": {
+        "type": "object",
+        "properties": {
+          "securityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "success",
+              "failure"
+            ],
+            "type": "string"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMWarning"
+            },
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMError"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SMCreateResponseRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SMCreateResponse"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
+}

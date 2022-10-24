@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**templateName** | **String** |  | 
 **headline** | **String** |  | 
 **footer** | **String** |  |  [optional]
 **fdc3Context** | [**Fdc3Context**](Fdc3Context.md) |  |  [optional]
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **value** | **String** |  |  [optional]
 **label** | **String** |  |  [optional]
 **date** | **String** |  |  [optional]
-**blurb** | **String** |  |  [optional]
+**text** | **String** |  |  [optional]
 
 
 ## Implemented Interfaces

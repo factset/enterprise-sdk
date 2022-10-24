@@ -2,7 +2,7 @@
 
 # PeopleDecisions
 
-Concordance Entity Task Status object. Shows the settings and status of a taskId and some statistics on the matches. 
+Concordance People Decisions object. Returned to show the Decision reached for each Entity 
 
 ## Properties
 
@@ -20,18 +20,22 @@ Name | Type | Description | Notes
 **clientPersonName** | **String** | The name provided by the client. |  [optional]
 **email** | **String** | The email address of the client. |  [optional]
 **entity** | **String** | Full name corresponding to the matched entity. |  [optional]
-**mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  |  [optional]
+**mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Concordance status of the submitted, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  |  [optional]
 **firstName** | **String** | Name of the column in the input file that contains the first name. |  [optional]
 **lastName** | **String** | Name of the column in the input file that contains the first name.  |  [optional]
 **middleName** | **String** | Name of the column in the input file that contains the middle name.  |  [optional]
 **personId** | **String** | The id of the person. |  [optional]
+**salutation** | **String** | The salutation is same as the normal salutation we use .The salutation can be Mr, Mrs.The salutation should not be given along with personName.  |  [optional]
+**nameMatchSource** | **String** | Type of name that the nameMatchString matched.  |  [optional]
 **nameMatchString** | **String** | String on which the Concordance algorithm mapped the submitted entity. |  [optional]
+**matchFlag** | **Boolean** | Flag denoting if the row is a match.  |  [optional]
 **personName** | **String** | Name of the column in the input file that contains the person name.  |  [optional]
 **suffix** | **String** | Name of the column in the input file that contains the person&#39;s suffix.  |  [optional]
 **similarityScore** | **Double** | Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity.  |  [optional]
 **rowIndex** | **Integer** | Row number for match in the request or input file. |  [optional]
 **taskId** | **Integer** | Identifier denoting a specific Concordance task submitted by the user. |  [optional]
 **title** | **String** | The title of the person. |  [optional]
+**universeId** | **Integer** | The universe identifier |  [optional]
 
 
 

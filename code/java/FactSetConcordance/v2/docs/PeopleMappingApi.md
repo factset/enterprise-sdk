@@ -54,7 +54,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         PeopleMappingApi apiInstance = new PeopleMappingApi(defaultClient);
-        EntityMappingDeleteRequest entityMappingDeleteRequest = new EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
+        EntityMappingDeleteRequest entityMappingDeleteRequest = new EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete people mappings specified by the client
         try {
             PeopleMappingDeleteResponse result = apiInstance.getPeopleMappingDeleteForList(entityMappingDeleteRequest);
             System.out.println(result);
@@ -75,7 +75,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityMappingDeleteRequest** | [**EntityMappingDeleteRequest**](EntityMappingDeleteRequest.md)| A request to delete entity mappings specified by the client |
+ **entityMappingDeleteRequest** | [**EntityMappingDeleteRequest**](EntityMappingDeleteRequest.md)| A request to delete people mappings specified by the client |
 
 ### Return type
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Response object for the entity-match object in a snowflake friendly response model. |  -  |
+| **200** | Response object for the people-mapping-delete endpoint. |  -  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **link** | **String** |  | [optional] 
-**blurb** | **String** |  | [optional] 
+**text** | **String** |  | [optional] 
 
 

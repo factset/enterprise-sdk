@@ -30,9 +30,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 
 
 /**
- * A list of entitlements for the User that represent a thing the User has.
+ * VermilionUserResourceEntitlements
  */
-@ApiModel(description = "A list of entitlements for the User that represent a thing the User has.")
 @JsonPropertyOrder({
   VermilionUserResourceEntitlements.JSON_PROPERTY_VALUE,
   VermilionUserResourceEntitlements.JSON_PROPERTY_DISPLAY,

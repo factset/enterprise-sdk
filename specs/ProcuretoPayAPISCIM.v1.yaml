@@ -732,6 +732,38 @@ components:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserResource'
+          examples:
+            Minimum:
+              value:
+                schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: '1598276'
+            Expanded:
+              value:
+                schemas:
+                  - urn:ietf:params:scim:schemas:core:2.0:User
+                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                externalId: C3574707-FFF9-433C-A17F-DFF806C72A7F
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: '1598276'
+                  roleName: Wealth Manager
+                  products:
+                    - value: '1396'
+                  assertionValue: exampleAssertionValue
     patchUserResource:
       content:
         application/scim+json:
@@ -802,8 +834,7 @@ components:
             Operations:
               - op: replace
                 path: name.formatted
-                value:
-                  - value: John Doe
+                value: John Doe
     vermilionGroupResource:
       description: Vermilion group resource.
       required: true
@@ -2141,42 +2172,50 @@ components:
           type: string
           description: The tenant this user is in
           example: MASTER
+        tenancies:
+          type: array
+          description: Tenancies assigned to the user.
+          items:
+            type: string
+            example: MASTER
         emails:
-          type: object
+          type: array
           description: >-
             Email addresses for the user. The value SHOULD be canonicalized by
             the service provider, e.g., 'bjensen@example.com' instead of
             'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and
             'other'.
-          properties:
-            value:
-              type: string
-              description: >-
-                Email addresses for the user. The value SHOULD be canonicalized
-                by the service provider, e.g., 'bjensen@example.com' instead of
-                'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home',
-                and 'other'.
-              example: john.doe@example.com
-            display:
-              type: string
-              description: >-
-                A human-readable name, primarily used for display purposes. 
-                READ-ONLY.
-              example: john.doe@example.com
-            type:
-              type: string
-              description: >-
-                A label indicating the attribute's function, e.g., 'work' or
-                'home'.
-              example: work
-            primary:
-              type: boolean
-              description: >-
-                A Boolean value indicating the 'primary' or preferred attribute
-                value for this attribute, e.g., the psreferred mailing address
-                or primary email address.  The primary attribute value 'true'
-                MUST appear no more than once.
-              example: true
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: >-
+                  Email addresses for the user. The value SHOULD be
+                  canonicalized by the service provider, e.g.,
+                  'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.
+                  Canonical type values of 'work', 'home', and 'other'.
+                example: john.doe@example.com
+              display:
+                type: string
+                description: >-
+                  A human-readable name, primarily used for display purposes. 
+                  READ-ONLY.
+                example: john.doe@example.com
+              type:
+                type: string
+                description: >-
+                  A label indicating the attribute's function, e.g., 'work' or
+                  'home'.
+                example: work
+              primary:
+                type: boolean
+                description: >-
+                  A Boolean value indicating the 'primary' or preferred
+                  attribute value for this attribute, e.g., the psreferred
+                  mailing address or primary email address.  The primary
+                  attribute value 'true' MUST appear no more than once.
+                example: true
         phoneNumbers:
           type: array
           description: >-
@@ -2272,51 +2311,55 @@ components:
                   'indirect'.
                 example: direct
         entitlements:
-          type: object
+          type: array
           description: >-
             A list of entitlements for the User that represent a thing the User
             has.
-          properties:
-            value:
-              type: string
-              description: The value of an entitlement.
-            display:
-              type: string
-              description: >-
-                A human-readable name, primarily used for display purposes.
-                READ-ONLY.
-            type:
-              type: string
-              description: A label indicating the attribute's function.
-            primary:
-              type: boolean
-              description: >-
-                A Boolean value indicating the 'primary' or preferred attribute
-                value for this attribute. The primary attribute value 'true'
-                MUST appear no more than once.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The value of an entitlement.
+              display:
+                type: string
+                description: >-
+                  A human-readable name, primarily used for display purposes.
+                  READ-ONLY.
+              type:
+                type: string
+                description: A label indicating the attribute's function.
+              primary:
+                type: boolean
+                description: >-
+                  A Boolean value indicating the 'primary' or preferred
+                  attribute value for this attribute. The primary attribute
+                  value 'true' MUST appear no more than once.
         roles:
-          type: object
+          type: array
           description: >-
             A list of roles for the User that collectively represent who the
             User is, e.g., 'Student', 'Faculty'.
-          properties:
-            value:
-              type: string
-              description: The value of a role.
-            display:
-              type: string
-              description: >-
-                A human-readable name, primarily used for display purposes.
-                READ-ONLY.
-            type:
-              type: string
-              description: A label indicating the attribute's function.
-            primary:
-              type: boolean
-              description: >-
-                A Boolean value indicating the 'primary' or preferred attribute
-                value for this attribute.  The primary attribute value 'true'
-                MUST appear no more than once.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+                description: The value of a role.
+              display:
+                type: string
+                description: >-
+                  A human-readable name, primarily used for display purposes.
+                  READ-ONLY.
+              type:
+                type: string
+                description: A label indicating the attribute's function.
+              primary:
+                type: boolean
+                description: >-
+                  A Boolean value indicating the 'primary' or preferred
+                  attribute value for this attribute.  The primary attribute
+                  value 'true' MUST appear no more than once.
         domainCode:
           type: string
           description: >-

@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TemplateName** | **string** |  | 
 **Headline** | **string** |  | 
 **Footer** | **string** |  | [optional] 
 **Fdc3Context** | [**Fdc3Context**](Fdc3Context.md) |  | [optional] 
 **ApplicationLinks** | [**List&lt;ApplicationLink&gt;**](ApplicationLink.md) |  | [optional] 
 **Link** | **string** |  | [optional] 
-**Blurb** | **string** |  | [optional] 
+**Text** | **string** |  | [optional] 
 **Body** | **string** |  | [optional] 
 **Footing** | [**TitledTextBlock**](TitledTextBlock.md) |  | [optional] 
 **PercentChange** | [**PercentChange**](PercentChange.md) |  | [optional] 

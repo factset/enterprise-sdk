@@ -4,9 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TemplateName** | **string** |  | 
 **Headline** | **string** |  | 
 **Footer** | **string** |  | [optional] 
 **Fdc3Context** | [**Fdc3Context**](Fdc3Context.md) |  | [optional] 
+**ApplicationLinks** | [**List&lt;ApplicationLink&gt;**](ApplicationLink.md) |  | [optional] 
 **PercentChange** | [**PercentChange**](PercentChange.md) |  | [optional] 
 **Label** | **string** |  | [optional] 
 

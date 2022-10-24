@@ -55,7 +55,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     api_instance = snowflake_api.SnowflakeApi(api_client)
 
     snowflake_entity_match_request = SnowflakeEntityMatchRequest(
-        data=[0,"FactSet","US","CT","www.factset.com",1],
+        data=[0,"FactSet","US","CT","www.factset.com",1,10],
     ) # SnowflakeEntityMatchRequest | A request to match an entity name and its attributes within Snowflake.
 
     try:

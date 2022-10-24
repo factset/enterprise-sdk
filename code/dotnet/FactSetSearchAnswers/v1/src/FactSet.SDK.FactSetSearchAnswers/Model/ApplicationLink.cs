@@ -41,25 +41,21 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="ApplicationLink" /> class.
         /// </summary>
         /// <param name="name">name (required).</param>
-        /// <param name="workstationLink">workstationLink (required).</param>
+        /// <param name="workstationLink">workstationLink.</param>
         /// <param name="webLink">webLink (required).</param>
-        public ApplicationLink(string name, string workstationLink, string webLink)
+        public ApplicationLink(string name, string webLink,string workstationLink = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null) {
                 throw new ArgumentNullException("name is a required property for ApplicationLink and cannot be null");
             }
             this.Name = name;
-            // to ensure "workstationLink" is required (not null)
-            if (workstationLink == null) {
-                throw new ArgumentNullException("workstationLink is a required property for ApplicationLink and cannot be null");
-            }
-            this.WorkstationLink = workstationLink;
             // to ensure "webLink" is required (not null)
             if (webLink == null) {
                 throw new ArgumentNullException("webLink is a required property for ApplicationLink and cannot be null");
             }
             this.WebLink = webLink;
+            this.WorkstationLink = workstationLink;
         }
 
         /// <summary>
@@ -71,7 +67,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Gets or Sets WorkstationLink
         /// </summary>
-        [DataMember(Name = "workstationLink", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "workstationLink", EmitDefaultValue = false)]
         public string WorkstationLink { get; set; }
 
         /// <summary>

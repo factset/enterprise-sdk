@@ -22,12 +22,11 @@ class ApplicationLink {
      * Constructs a new <code>ApplicationLink</code>.
      * @alias module:model/ApplicationLink
      * @param name {String} 
-     * @param workstationLink {String} 
      * @param webLink {String} 
      */
-    constructor(name, workstationLink, webLink) { 
+    constructor(name, webLink) { 
         
-        ApplicationLink.initialize(this, name, workstationLink, webLink);
+        ApplicationLink.initialize(this, name, webLink);
     }
 
     /**
@@ -35,9 +34,8 @@ class ApplicationLink {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, workstationLink, webLink) { 
+    static initialize(obj, name, webLink) { 
         obj['name'] = name;
-        obj['workstationLink'] = workstationLink;
         obj['webLink'] = webLink;
     }
 

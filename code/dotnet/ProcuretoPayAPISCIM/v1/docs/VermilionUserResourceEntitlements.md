@@ -1,5 +1,4 @@
 # FactSet.SDK.ProcuretoPayAPISCIM.Model.VermilionUserResourceEntitlements
-A list of entitlements for the User that represent a thing the User has.
 
 ## Properties
 

@@ -49,8 +49,8 @@ class LinkTextBlockTemplateAllOf {
             if (data.hasOwnProperty('link')) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
-            if (data.hasOwnProperty('blurb')) {
-                obj['blurb'] = ApiClient.convertToType(data['blurb'], 'String');
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
         }
         return obj;
@@ -65,9 +65,9 @@ class LinkTextBlockTemplateAllOf {
 LinkTextBlockTemplateAllOf.prototype['link'] = undefined;
 
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-LinkTextBlockTemplateAllOf.prototype['blurb'] = undefined;
+LinkTextBlockTemplateAllOf.prototype['text'] = undefined;
 
 
 

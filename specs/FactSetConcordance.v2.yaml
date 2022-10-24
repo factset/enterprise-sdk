@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.0.0
+  version: 2.3.1
   title: FactSet Concordance API
   description: >
     The FactSet Concordance API provides the ability to programmatically look up
@@ -93,7 +93,7 @@ paths:
         will be saved to that universe. Additional attributes can be supplied to
         narrow the search, such as State, URL, and Entity Types. Finds the best
         candidate entities matching the given company name. Additional
-        attributes can be supplied to narrow the search.  <p>**Max of 25 Names
+        attributes can be supplied to narrow the search. <p>**Max of 25 Names
         inputted.** Use the "Entity Match - Bulk" workflow to submit larger
         universes of names to be concorded via a file.</p><p> Supported types of
         Entities in which the names can match to include -
@@ -370,7 +370,7 @@ paths:
         '500':
           $ref: '#/components/responses/500'
         default:
-          $ref: '#/components/responses/ErrorResponse'
+          $ref: '#/components/responses/errorResponse'
   /factset-concordance/v2/entity-universe:
     get:
       summary: Retrieve all saved mappings within a requested universe
@@ -499,7 +499,7 @@ paths:
         '500':
           $ref: '#/components/responses/500'
         default:
-          $ref: '#/components/responses/ErrorResponse'
+          $ref: '#/components/responses/errorResponse'
   /factset-concordance/v2/universes:
     get:
       summary: Fetch metadata for universes
@@ -516,7 +516,7 @@ paths:
         '200':
           $ref: '#/components/responses/UniversesResponse'
         default:
-          $ref: '#/components/responses/ErrorResponse'
+          $ref: '#/components/responses/errorResponse'
   /factset-concordance/v2/entity-universe-statistics:
     get:
       summary: Get statistics on a given universe
@@ -532,7 +532,7 @@ paths:
         '200':
           $ref: '#/components/responses/EntityUniverseStatisticsResponse'
         default:
-          $ref: '#/components/responses/ErrorResponse'
+          $ref: '#/components/responses/errorResponse'
   /factset-concordance/v2/universe-statistics:
     get:
       summary: Get statistics on a given universe
@@ -548,7 +548,7 @@ paths:
         '200':
           $ref: '#/components/responses/universeStatisticsResponse'
         default:
-          $ref: '#/components/responses/ErrorResponse'
+          $ref: '#/components/responses/errorResponse'
   /factset-concordance/v2/entity-mapping:
     post:
       summary: Saves a single-mapping specified by the client.
@@ -794,7 +794,7 @@ paths:
                 firstNameColumn:
                   description: >
                     First name of the person.**Do not include with
-                    `personNameColumn`**. 
+                    `personNameColumn`**.
                   type: string
                   example: Bill
                 lastNameColumn:
@@ -1179,6 +1179,7 @@ components:
       description: Limits the number of records in the response.
       schema:
         type: integer
+        maximum: 10000
       example: 10
     status:
       name: status
@@ -1393,6 +1394,7 @@ components:
       description: Limits the number of records in the response.
       schema:
         type: integer
+        maximum: 10000
       example: 10
     peopleStatus:
       name: status
@@ -1447,7 +1449,7 @@ components:
           schema:
             $ref: '#/components/schemas/EntityMappingDeleteRequest'
     PeopleMappingDeleteRequestV2:
-      description: A request to delete entity mappings specified by the client
+      description: A request to delete people mappings specified by the client
       required: true
       content:
         application/json:
@@ -1698,9 +1700,7 @@ components:
           schema:
             $ref: '#/components/schemas/EntityMappingDeleteResponse'
     PeopleMappingDeleteResponse:
-      description: >-
-        Response object for the entity-match object in a snowflake friendly
-        response model.
+      description: Response object for the people-mapping-delete endpoint.
       content:
         application/json:
           schema:
@@ -1733,7 +1733,7 @@ components:
             Failed Task:
               $ref: '#/components/examples/FailedTasks1'
     PeopleDecisionsResponse:
-      description: Response object for Entity Decisions endpoint.
+      description: Response object for People Decisions endpoint.
       content:
         application/json;charset=utf-8:
           schema:
@@ -1741,12 +1741,12 @@ components:
           examples:
             People Decisions:
               $ref: '#/components/examples/PeopleDecisions'
-    ErrorResponse:
+    errorResponse:
       description: Error Response
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/errorResponse'
           examples:
             Not Found:
               $ref: '#/components/examples/NotFound'
@@ -2070,6 +2070,7 @@ components:
         limit:
           description: Limits the number of records in the response.
           type: integer
+          maximum: 10000
           example: 10
         mapStatus:
           description: >
@@ -2085,7 +2086,8 @@ components:
               - MAPPED
               - UNMAPPED
               - INDETERMINATE
-          example: MAPPED
+          example:
+            - MAPPED
         clientId:
           description: >-
             fetch only the mappings that has client id included in the specified
@@ -2146,6 +2148,7 @@ components:
         limit:
           description: Limits the number of records in the response.
           type: integer
+          maximum: 10000
           example: 10
         mapStatus:
           description: >
@@ -2197,6 +2200,7 @@ components:
               - CT
               - www.factset.com
               - 1
+              - 10
           minItems: 1
           maxItems: 25
     PeopleMatchRequest:
@@ -2409,6 +2413,7 @@ components:
             similarityScore: 1.0,
             stateCode: ca,
             stateName: California,
+            universeId: 10,
             taskId: null,
             url: www.apple.com,
           - clientCountry: null,
@@ -2441,6 +2446,7 @@ components:
             similarityScore: 1.0,
             stateCode: ct,
             stateName: Connecticut,
+            universeId: 10,
             taskId: null,
             url: www.factset.com
       properties:
@@ -2463,12 +2469,12 @@ components:
           items:
             $ref: '#/components/schemas/EntityMapping'
     PeopleMappingDeleteResponse:
-      title: Entity Delete Mapping Response
+      title: People Delete Mapping Response
       type: object
       properties:
         data:
           description: >-
-            Array of `Entity Mapping` objects that have been successfully
+            Array of `People Mapping` objects that have been successfully
             deleted.
           type: array
           items:
@@ -2492,7 +2498,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PeopleTaskStatus'
-    ErrorResponse:
+    errorResponse:
       title: Error Response
       type: object
       properties:
@@ -2578,7 +2584,7 @@ components:
           nullable: true
         mapStatus:
           description: |
-            Concordance status of the submitted, where - 
+            Concordance status of the submitted, where -
               * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
               * UNMAPPED - The requested Entity Name is unmapped by FactSet.
               * INDETERMINATE - The requested Entity Name has unable to make a mapping.
@@ -3356,7 +3362,7 @@ components:
           nullable: true
         mapStatus:
           description: |
-            Concordance status of the submitted, where - 
+            Concordance status of the submitted, where -
               * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
               * UNMAPPED - The requested Entity Name is unmapped by FactSet.
               * INDETERMINATE - The requested Entity Name has unable to make a mapping.
@@ -3415,10 +3421,44 @@ components:
           type: integer
           example: 1
           nullable: true
+        taskId:
+          description: >
+            Identifier denoting a specific Concordance task submitted by the
+            user. This value will be null for /people-match endpoint responses
+            and is only available when using the "Bulk" workflow.
+          type: integer
+          example: 31
+          nullable: true
+        suffix:
+          description: The suffix in the name of the person
+          type: string
+          example: III
+          nullable: true
+        salutation:
+          description: Title of a person's name
+          type: string
+          example: Mr.
+          nullable: true
+        personName:
+          description: Full name of the person matched
+          type: string
+          example: GATES WILLIAM H III
+          nullable: true
+        email:
+          description: Email of the person
+          type: string
+          example: abc@efg.com
+          nullable: true
+        clientId:
+          description: User defined person id provided when matched with FactSet person.
+          type: string
+          example: abc-123
+          nullable: true
     PeopleTask:
       title: People Task
-      description: |
-        People Match object showing the decision reached for each Entity.
+      description: >
+        Concordance People Task object. Shows task related metadata and some
+        statistics on the matches.
       type: object
       properties:
         clientIdColumn:
@@ -3515,6 +3555,60 @@ components:
           type: string
           example: Analysis1
           nullable: true
+        unmappedCount:
+          description: Number of records with status of UNMAPPED the Input File.
+          type: integer
+          example: 2
+          nullable: true
+        tryCount:
+          description: Number of tries made so far for the request.
+          type: integer
+          example: 3
+          nullable: true
+        decisionRate:
+          description: Percentage of mapped entities in the Input File.
+          type: number
+          format: double
+          example: 0.7272727272727273
+          nullable: true
+        processStartTime:
+          description: Process start time in UTC.
+          type: string
+          format: date-time
+          example: 2020-07-03T15:12:06.722Z
+          nullable: true
+        processDuration:
+          description: Process duration in seconds.
+          type: number
+          format: double
+          example: 1.51603
+          nullable: true
+        mappedCount:
+          description: Number of records with status of MAPPED the Input File.
+          type: integer
+          example: 8
+          nullable: true
+        message:
+          description: Textual message for the status.
+          type: string
+          example: Waiting for the input file
+          nullable: true
+        error:
+          type: string
+          nullable: true
+        errorTitle:
+          type: string
+          nullable: true
+        inputCount:
+          description: Number of records in the Input File.
+          type: integer
+          example: 11
+          nullable: true
+        indeterminateCount:
+          description: Number of records with status of INDETERMINATE the Input File.
+          type: integer
+          example: 1
+          nullable: true
         universeId:
           description: The universe identifier
           type: integer
@@ -3526,8 +3620,15 @@ components:
           type: string
           example: Jane Smith
           nullable: true
+        userFullName:
+          description: |
+            Full name of the person associated with the `userSerial`.
+          type: string
+          example: Jane Smith
+          nullable: true
         userSerial:
-          description: user-serial of the person who initiated the entity task.
+          description: |
+            user-serial of the person who initiated the people task
           type: string
           example: FDSQAR_C-000000
           nullable: true
@@ -3664,6 +3765,32 @@ components:
           type: string
           example: test31
           nullable: true
+        unmappedCount:
+          description: Number of records with status of UNMAPPED the Input File.
+          type: integer
+          example: 2
+          nullable: true
+        tryCount:
+          description: Number of tries made so far for the request.
+          type: integer
+          example: 3
+          nullable: true
+        message:
+          description: Textual message for the status.
+          type: string
+          example: Waiting for the input file
+          nullable: true
+        error:
+          type: string
+          nullable: true
+        errorTitle:
+          type: string
+          nullable: true
+        indeterminateCount:
+          description: Number of records with status of INDETERMINATE the Input File.
+          type: integer
+          example: 1
+          nullable: true
         taskSubmitTime:
           description: Time the Task was submitted in UTC.
           type: string
@@ -3693,10 +3820,10 @@ components:
           example: FDSQAR_C-000000
           nullable: true
     PeopleDecisions:
-      title: Entity Task Status
+      title: People Decisions
       description: >
-        Concordance Entity Task Status object. Shows the settings and status of
-        a taskId and some statistics on the matches.
+        Concordance People Decisions object. Returned to show the Decision
+        reached for each Entity
       type: object
       properties:
         activeRole:
@@ -3776,7 +3903,7 @@ components:
           nullable: true
         mapStatus:
           description: |
-            Concordance status of the submitted, where - 
+            Concordance status of the submitted, where -
               * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
               * UNMAPPED - The requested Entity Name is unmapped by FactSet.
               * INDETERMINATE - The requested Entity Name has unable to make a mapping.
@@ -3809,6 +3936,19 @@ components:
           type: string
           example: 0DPHLH-E
           nullable: true
+        salutation:
+          description: >
+            The salutation is same as the normal salutation we use .The
+            salutation can be Mr, Mrs.The salutation should not be given along
+            with personName.
+          type: string
+          example: Mr
+        nameMatchSource:
+          description: |
+            Type of name that the nameMatchString matched.
+          type: string
+          example: Presentation Name
+          nullable: true
         nameMatchString:
           description: >-
             String on which the Concordance algorithm mapped the submitted
@@ -3816,6 +3956,10 @@ components:
           type: string
           example: factset
           nullable: true
+        matchFlag:
+          description: |
+            Flag denoting if the row is a match.
+          type: boolean
         personName:
           description: |
             Name of the column in the input file that contains the person name.
@@ -3854,45 +3998,11 @@ components:
           type: string
           example: Director.
           nullable: true
-    errorResponse:
-      type: object
-      title: Error Response
-      properties:
-        status:
-          description: status
-          type: string
-          example: Bad Request
-        timestamp:
-          description: Timestamp in YYYY-MM-DD HH:MM:SS.SSS
-          type: string
-          example: '2019-11-01 11:09:41.918'
-          format: date-time
-        path:
-          description: The Endpoint path {package}/version/{endpoint}
-          type: string
-          example: /factset-concordance/v2/{endpoint}
-        message:
-          description: The plain text error message
-          type: string
-          example: Validation Error
-        subErrors:
-          description: Sub-Errors related to the error message. Null if not applicable.
-          type: object
-          properties:
-            object:
-              description: The operation ID
-              type: string
-            field:
-              description: Parameter Field Name
-              type: string
-            message:
-              description: Error message
-              type: string
-            rejectedValue:
-              description: Rejected Values in an Array
-              type: array
-              items:
-                type: string
+        universeId:
+          description: The universe identifier
+          type: integer
+          example: 1
+          nullable: true
   examples:
     EntityRequests:
       summary: Entity Match Request

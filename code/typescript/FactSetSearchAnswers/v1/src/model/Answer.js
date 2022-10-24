@@ -12,8 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import AnswerAllOf from './AnswerAllOf';
-import DataAnswer from './DataAnswer';
 import TemplateData from './TemplateData';
 
 /**
@@ -24,15 +22,12 @@ class Answer {
     /**
      * Constructs a new <code>Answer</code>.
      * @alias module:model/Answer
-     * @implements module:model/DataAnswer
-     * @implements module:model/AnswerAllOf
-     * @param template {String} 
-     * @param templateData {module:model/TemplateData} 
      * @param title {String} 
+     * @param templateData {module:model/TemplateData} 
      */
-    constructor(template, templateData, title) { 
-        DataAnswer.initialize(this, template);AnswerAllOf.initialize(this, templateData, title);
-        Answer.initialize(this, template, templateData, title);
+    constructor(title, templateData) { 
+        
+        Answer.initialize(this, title, templateData);
     }
 
     /**
@@ -40,10 +35,9 @@ class Answer {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, template, templateData, title) { 
-        obj['template'] = template;
-        obj['templateData'] = templateData;
+    static initialize(obj, title, templateData) { 
         obj['title'] = title;
+        obj['templateData'] = templateData;
     }
 
     /**
@@ -56,17 +50,12 @@ class Answer {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Answer();
-            DataAnswer.constructFromObject(data, obj);
-            AnswerAllOf.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = ApiClient.convertToType(data['template'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
             if (data.hasOwnProperty('templateData')) {
                 obj['templateData'] = TemplateData.constructFromObject(data['templateData']);
-            }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -76,35 +65,16 @@ class Answer {
 }
 
 /**
- * @member {String} template
+ * @member {String} title
  */
-Answer.prototype['template'] = undefined;
+Answer.prototype['title'] = undefined;
 
 /**
  * @member {module:model/TemplateData} templateData
  */
 Answer.prototype['templateData'] = undefined;
 
-/**
- * @member {String} title
- */
-Answer.prototype['title'] = undefined;
 
-
-// Implement DataAnswer interface:
-/**
- * @member {String} template
- */
-DataAnswer.prototype['template'] = undefined;
-// Implement AnswerAllOf interface:
-/**
- * @member {module:model/TemplateData} templateData
- */
-AnswerAllOf.prototype['templateData'] = undefined;
-/**
- * @member {String} title
- */
-AnswerAllOf.prototype['title'] = undefined;
 
 
 

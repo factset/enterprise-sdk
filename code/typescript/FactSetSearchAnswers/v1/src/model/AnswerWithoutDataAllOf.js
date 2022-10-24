@@ -23,10 +23,11 @@ class AnswerWithoutDataAllOf {
      * Constructs a new <code>AnswerWithoutDataAllOf</code>.
      * @alias module:model/AnswerWithoutDataAllOf
      * @param title {String} 
+     * @param templateData {module:model/AnswerWithoutDataAllOfTemplateData} 
      */
-    constructor(title) { 
+    constructor(title, templateData) { 
         
-        AnswerWithoutDataAllOf.initialize(this, title);
+        AnswerWithoutDataAllOf.initialize(this, title, templateData);
     }
 
     /**
@@ -34,8 +35,9 @@ class AnswerWithoutDataAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title) { 
+    static initialize(obj, title, templateData) { 
         obj['title'] = title;
+        obj['templateData'] = templateData;
     }
 
     /**

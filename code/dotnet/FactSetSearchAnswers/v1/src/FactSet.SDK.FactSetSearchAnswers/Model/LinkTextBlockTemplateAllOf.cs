@@ -36,11 +36,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="LinkTextBlockTemplateAllOf" /> class.
         /// </summary>
         /// <param name="link">link.</param>
-        /// <param name="blurb">blurb.</param>
-        public LinkTextBlockTemplateAllOf(string link = default(string), string blurb = default(string))
+        /// <param name="text">text.</param>
+        public LinkTextBlockTemplateAllOf(string link = default(string), string text = default(string))
         {
             this.Link = link;
-            this.Blurb = blurb;
+            this.Text = text;
         }
 
         /// <summary>
@@ -50,10 +50,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public string Link { get; set; }
 
         /// <summary>
-        /// Gets or Sets Blurb
+        /// Gets or Sets Text
         /// </summary>
-        [DataMember(Name = "blurb", EmitDefaultValue = false)]
-        public string Blurb { get; set; }
+        [DataMember(Name = "text", EmitDefaultValue = false)]
+        public string Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +64,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LinkTextBlockTemplateAllOf {\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
-            sb.Append("  Blurb: ").Append(Blurb).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,9 +106,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                     this.Link.Equals(input.Link))
                 ) && 
                 (
-                    this.Blurb == input.Blurb ||
-                    (this.Blurb != null &&
-                    this.Blurb.Equals(input.Blurb))
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -125,9 +125,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 {
                     hashCode = (hashCode * 59) + this.Link.GetHashCode();
                 }
-                if (this.Blurb != null)
+                if (this.Text != null)
                 {
-                    hashCode = (hashCode * 59) + this.Blurb.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
                 }
                 return hashCode;
             }

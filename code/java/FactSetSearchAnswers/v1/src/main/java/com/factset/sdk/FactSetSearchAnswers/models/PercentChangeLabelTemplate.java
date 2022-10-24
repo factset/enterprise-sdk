@@ -17,10 +17,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.FactSetSearchAnswers.models.ApplicationLink;
 import com.factset.sdk.FactSetSearchAnswers.models.Fdc3Context;
 import com.factset.sdk.FactSetSearchAnswers.models.PercentChange;
 import com.factset.sdk.FactSetSearchAnswers.models.PercentChangeLabelTemplateAllOf;
-import com.factset.sdk.FactSetSearchAnswers.models.Template;
+import com.factset.sdk.FactSetSearchAnswers.models.TemplateWithLinks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,15 +38,20 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * PercentChangeLabelTemplate
  */
 @JsonPropertyOrder({
+  PercentChangeLabelTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   PercentChangeLabelTemplate.JSON_PROPERTY_HEADLINE,
   PercentChangeLabelTemplate.JSON_PROPERTY_FOOTER,
   PercentChangeLabelTemplate.JSON_PROPERTY_FDC3_CONTEXT,
+  PercentChangeLabelTemplate.JSON_PROPERTY_APPLICATION_LINKS,
   PercentChangeLabelTemplate.JSON_PROPERTY_PERCENT_CHANGE,
   PercentChangeLabelTemplate.JSON_PROPERTY_LABEL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PercentChangeLabelTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -55,6 +61,9 @@ public class PercentChangeLabelTemplate implements Serializable {
 
   public static final String JSON_PROPERTY_FDC3_CONTEXT = "fdc3Context";
   private Fdc3Context fdc3Context;
+
+  public static final String JSON_PROPERTY_APPLICATION_LINKS = "applicationLinks";
+  private java.util.List<ApplicationLink> applicationLinks = null;
 
   public static final String JSON_PROPERTY_PERCENT_CHANGE = "percentChange";
   private PercentChange percentChange;
@@ -67,11 +76,39 @@ public class PercentChangeLabelTemplate implements Serializable {
 
   @JsonCreator
   public PercentChangeLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public PercentChangeLabelTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public PercentChangeLabelTemplate headline(String headline) {
     this.headline = headline;
@@ -151,6 +188,40 @@ public class PercentChangeLabelTemplate implements Serializable {
   }
 
 
+  public PercentChangeLabelTemplate applicationLinks(java.util.List<ApplicationLink> applicationLinks) {
+    this.applicationLinks = applicationLinks;
+    return this;
+  }
+
+  public PercentChangeLabelTemplate addApplicationLinksItem(ApplicationLink applicationLinksItem) {
+    if (this.applicationLinks == null) {
+      this.applicationLinks = new java.util.ArrayList<>();
+    }
+    this.applicationLinks.add(applicationLinksItem);
+    return this;
+  }
+
+   /**
+   * Get applicationLinks
+   * @return applicationLinks
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APPLICATION_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<ApplicationLink> getApplicationLinks() {
+    return applicationLinks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationLinks(java.util.List<ApplicationLink> applicationLinks) {
+    this.applicationLinks = applicationLinks;
+  }
+
+
   public PercentChangeLabelTemplate percentChange(PercentChange percentChange) {
     this.percentChange = percentChange;
     return this;
@@ -215,25 +286,29 @@ public class PercentChangeLabelTemplate implements Serializable {
       return false;
     }
     PercentChangeLabelTemplate percentChangeLabelTemplate = (PercentChangeLabelTemplate) o;
-    return Objects.equals(this.headline, percentChangeLabelTemplate.headline) &&
+    return Objects.equals(this.templateName, percentChangeLabelTemplate.templateName) &&
+        Objects.equals(this.headline, percentChangeLabelTemplate.headline) &&
         Objects.equals(this.footer, percentChangeLabelTemplate.footer) &&
         Objects.equals(this.fdc3Context, percentChangeLabelTemplate.fdc3Context) &&
+        Objects.equals(this.applicationLinks, percentChangeLabelTemplate.applicationLinks) &&
         Objects.equals(this.percentChange, percentChangeLabelTemplate.percentChange) &&
         Objects.equals(this.label, percentChangeLabelTemplate.label);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, percentChange, label);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, percentChange, label);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PercentChangeLabelTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");
+    sb.append("    applicationLinks: ").append(toIndentedString(applicationLinks)).append("\n");
     sb.append("    percentChange: ").append(toIndentedString(percentChange)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("}");

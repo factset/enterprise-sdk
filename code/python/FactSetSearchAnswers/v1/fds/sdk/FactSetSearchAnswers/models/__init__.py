@@ -13,7 +13,6 @@ from fds.sdk.FactSetSearchAnswers.model.adaptive_card_answer_success_response im
 from fds.sdk.FactSetSearchAnswers.model.adaptive_card_data_item import AdaptiveCardDataItem
 from fds.sdk.FactSetSearchAnswers.model.adaptive_card_with_thumbnail import AdaptiveCardWithThumbnail
 from fds.sdk.FactSetSearchAnswers.model.answer import Answer
-from fds.sdk.FactSetSearchAnswers.model.answer_all_of import AnswerAllOf
 from fds.sdk.FactSetSearchAnswers.model.answer_failure_response import AnswerFailureResponse
 from fds.sdk.FactSetSearchAnswers.model.answer_without_data import AnswerWithoutData
 from fds.sdk.FactSetSearchAnswers.model.answer_without_data_all_of import AnswerWithoutDataAllOf
@@ -24,7 +23,6 @@ from fds.sdk.FactSetSearchAnswers.model.colored_value import ColoredValue
 from fds.sdk.FactSetSearchAnswers.model.colored_value_label_date_template import ColoredValueLabelDateTemplate
 from fds.sdk.FactSetSearchAnswers.model.colored_value_label_date_template_all_of import ColoredValueLabelDateTemplateAllOf
 from fds.sdk.FactSetSearchAnswers.model.country_id import CountryID
-from fds.sdk.FactSetSearchAnswers.model.data_answer import DataAnswer
 from fds.sdk.FactSetSearchAnswers.model.data_answer_data import DataAnswerData
 from fds.sdk.FactSetSearchAnswers.model.data_answer_success_response import DataAnswerSuccessResponse
 from fds.sdk.FactSetSearchAnswers.model.data_pair import DataPair
@@ -39,8 +37,10 @@ from fds.sdk.FactSetSearchAnswers.model.label_value_change_label_value_change_te
 from fds.sdk.FactSetSearchAnswers.model.label_value_change_label_value_change_template_all_of import LabelValueChangeLabelValueChangeTemplateAllOf
 from fds.sdk.FactSetSearchAnswers.model.link_text_block_template import LinkTextBlockTemplate
 from fds.sdk.FactSetSearchAnswers.model.link_text_block_template_all_of import LinkTextBlockTemplateAllOf
+from fds.sdk.FactSetSearchAnswers.model.no_answers_base import NoAnswersBase
 from fds.sdk.FactSetSearchAnswers.model.no_answers_found import NoAnswersFound
 from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of import NoAnswersFoundAllOf
+from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of_template_data import NoAnswersFoundAllOfTemplateData
 from fds.sdk.FactSetSearchAnswers.model.percent_change import PercentChange
 from fds.sdk.FactSetSearchAnswers.model.percent_change_label_template import PercentChangeLabelTemplate
 from fds.sdk.FactSetSearchAnswers.model.percent_change_label_template_all_of import PercentChangeLabelTemplateAllOf

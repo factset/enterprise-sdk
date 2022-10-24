@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**TemplateName** | **string** |  | 
 **Headline** | **string** |  | 
 **Footer** | **string** |  | [optional] 
 **Fdc3Context** | [**Fdc3Context**](Fdc3Context.md) |  | [optional] 

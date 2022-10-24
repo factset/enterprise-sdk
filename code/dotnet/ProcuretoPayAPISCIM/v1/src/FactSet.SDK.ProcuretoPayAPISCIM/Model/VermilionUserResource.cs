@@ -49,16 +49,17 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         /// <param name="password">The User&#39;s cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User&#39;s password..</param>
         /// <param name="authenticatedUserName">The authenticated user name of the user.</param>
         /// <param name="tenant">The tenant this user is in.</param>
-        /// <param name="emails">emails.</param>
+        /// <param name="tenancies">Tenancies assigned to the user..</param>
+        /// <param name="emails">Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;..</param>
         /// <param name="phoneNumbers">Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., &#39;tel:+1-201-555-0123&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, &#39;mobile&#39;, &#39;fax&#39;, &#39;pager&#39;.</param>
         /// <param name="photos">URLs of photos of the User..</param>
         /// <param name="groups">A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated..</param>
-        /// <param name="entitlements">entitlements.</param>
-        /// <param name="roles">roles.</param>
+        /// <param name="entitlements">A list of entitlements for the User that represent a thing the User has..</param>
+        /// <param name="roles">A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;..</param>
         /// <param name="domainCode">Domain code of Enterprise Hosting pod in which user resides. REQUIRED. (required).</param>
         /// <param name="isAdministrator">Whether the user can perform maintenance on other users. REQUIRED. (required).</param>
         /// <param name="meta">meta.</param>
-        public VermilionUserResource(string userName, string domainCode, bool isAdministrator,List<string> schemas = default(List<string>), string id = default(string), VermilionUserResourceName name = default(VermilionUserResourceName), string displayName = default(string), string profileUrl = default(string), string userType = default(string), string preferredLanguage = default(string), bool active = default(bool), string password = default(string), string authenticatedUserName = default(string), string tenant = default(string), VermilionUserResourceEmails emails = default(VermilionUserResourceEmails), List<VermilionUserResourcePhoneNumbers> phoneNumbers = default(List<VermilionUserResourcePhoneNumbers>), List<VermilionUserResourcePhotos> photos = default(List<VermilionUserResourcePhotos>), List<VermilionUserResourceGroups> groups = default(List<VermilionUserResourceGroups>), VermilionUserResourceEntitlements entitlements = default(VermilionUserResourceEntitlements), VermilionUserResourceRoles roles = default(VermilionUserResourceRoles), VermilionUserResourceMeta meta = default(VermilionUserResourceMeta))
+        public VermilionUserResource(string userName, string domainCode, bool isAdministrator,List<string> schemas = default(List<string>), string id = default(string), VermilionUserResourceName name = default(VermilionUserResourceName), string displayName = default(string), string profileUrl = default(string), string userType = default(string), string preferredLanguage = default(string), bool active = default(bool), string password = default(string), string authenticatedUserName = default(string), string tenant = default(string), List<string> tenancies = default(List<string>), List<VermilionUserResourceEmails> emails = default(List<VermilionUserResourceEmails>), List<VermilionUserResourcePhoneNumbers> phoneNumbers = default(List<VermilionUserResourcePhoneNumbers>), List<VermilionUserResourcePhotos> photos = default(List<VermilionUserResourcePhotos>), List<VermilionUserResourceGroups> groups = default(List<VermilionUserResourceGroups>), List<VermilionUserResourceEntitlements> entitlements = default(List<VermilionUserResourceEntitlements>), List<VermilionUserResourceRoles> roles = default(List<VermilionUserResourceRoles>), VermilionUserResourceMeta meta = default(VermilionUserResourceMeta))
         {
             // to ensure "domainCode" is required (not null)
             if (domainCode == null) {
@@ -76,6 +77,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             this.Password = password;
             this.AuthenticatedUserName = authenticatedUserName;
             this.Tenant = tenant;
+            this.Tenancies = tenancies;
             this.Emails = emails;
             this.PhoneNumbers = phoneNumbers;
             this.Photos = photos;
@@ -183,10 +185,18 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         public string Tenant { get; set; }
 
         /// <summary>
-        /// Gets or Sets Emails
+        /// Tenancies assigned to the user.
         /// </summary>
+        /// <value>Tenancies assigned to the user.</value>
+        [DataMember(Name = "tenancies", EmitDefaultValue = false)]
+        public List<string> Tenancies { get; set; }
+
+        /// <summary>
+        /// Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;.
+        /// </summary>
+        /// <value>Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;.</value>
         [DataMember(Name = "emails", EmitDefaultValue = false)]
-        public VermilionUserResourceEmails Emails { get; set; }
+        public List<VermilionUserResourceEmails> Emails { get; set; }
 
         /// <summary>
         /// Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., &#39;tel:+1-201-555-0123&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, &#39;mobile&#39;, &#39;fax&#39;, &#39;pager&#39;
@@ -210,16 +220,18 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
         public List<VermilionUserResourceGroups> Groups { get; set; }
 
         /// <summary>
-        /// Gets or Sets Entitlements
+        /// A list of entitlements for the User that represent a thing the User has.
         /// </summary>
+        /// <value>A list of entitlements for the User that represent a thing the User has.</value>
         [DataMember(Name = "entitlements", EmitDefaultValue = false)]
-        public VermilionUserResourceEntitlements Entitlements { get; set; }
+        public List<VermilionUserResourceEntitlements> Entitlements { get; set; }
 
         /// <summary>
-        /// Gets or Sets Roles
+        /// A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.
         /// </summary>
+        /// <value>A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.</value>
         [DataMember(Name = "roles", EmitDefaultValue = false)]
-        public VermilionUserResourceRoles Roles { get; set; }
+        public List<VermilionUserResourceRoles> Roles { get; set; }
 
         /// <summary>
         /// Domain code of Enterprise Hosting pod in which user resides. REQUIRED.
@@ -261,6 +273,7 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  AuthenticatedUserName: ").Append(AuthenticatedUserName).Append("\n");
             sb.Append("  Tenant: ").Append(Tenant).Append("\n");
+            sb.Append("  Tenancies: ").Append(Tenancies).Append("\n");
             sb.Append("  Emails: ").Append(Emails).Append("\n");
             sb.Append("  PhoneNumbers: ").Append(PhoneNumbers).Append("\n");
             sb.Append("  Photos: ").Append(Photos).Append("\n");
@@ -366,9 +379,16 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                     this.Tenant.Equals(input.Tenant))
                 ) && 
                 (
+                    this.Tenancies == input.Tenancies ||
+                    this.Tenancies != null &&
+                    input.Tenancies != null &&
+                    this.Tenancies.SequenceEqual(input.Tenancies)
+                ) && 
+                (
                     this.Emails == input.Emails ||
-                    (this.Emails != null &&
-                    this.Emails.Equals(input.Emails))
+                    this.Emails != null &&
+                    input.Emails != null &&
+                    this.Emails.SequenceEqual(input.Emails)
                 ) && 
                 (
                     this.PhoneNumbers == input.PhoneNumbers ||
@@ -390,13 +410,15 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                 ) && 
                 (
                     this.Entitlements == input.Entitlements ||
-                    (this.Entitlements != null &&
-                    this.Entitlements.Equals(input.Entitlements))
+                    this.Entitlements != null &&
+                    input.Entitlements != null &&
+                    this.Entitlements.SequenceEqual(input.Entitlements)
                 ) && 
                 (
                     this.Roles == input.Roles ||
-                    (this.Roles != null &&
-                    this.Roles.Equals(input.Roles))
+                    this.Roles != null &&
+                    input.Roles != null &&
+                    this.Roles.SequenceEqual(input.Roles)
                 ) && 
                 (
                     this.DomainCode == input.DomainCode ||
@@ -467,6 +489,10 @@ namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
                 if (this.Tenant != null)
                 {
                     hashCode = (hashCode * 59) + this.Tenant.GetHashCode();
+                }
+                if (this.Tenancies != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tenancies.GetHashCode();
                 }
                 if (this.Emails != null)
                 {

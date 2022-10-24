@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **value** | **String** |  | [optional] 
 **label** | **String** |  | [optional] 
 **date** | **String** |  | [optional] 
-**blurb** | **String** |  | [optional] 
+**text** | **String** |  | [optional] 
 
 

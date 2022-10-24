@@ -88,6 +88,7 @@ class Template(ModelNormal):
         """
         lazy_import()
         return {
+            'template_name': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
             'footer': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
@@ -99,6 +100,7 @@ class Template(ModelNormal):
 
 
     attribute_map = {
+        'template_name': 'templateName',  # noqa: E501
         'headline': 'headline',  # noqa: E501
         'footer': 'footer',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
@@ -111,10 +113,11 @@ class Template(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, headline, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, template_name, headline, *args, **kwargs):  # noqa: E501
         """Template - a model defined in OpenAPI
 
         Args:
+            template_name (str):
             headline (str):
 
         Keyword Args:
@@ -177,6 +180,7 @@ class Template(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.template_name = template_name
         self.headline = headline
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -198,10 +202,11 @@ class Template(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, headline, *args, **kwargs):  # noqa: E501
+    def __init__(self, template_name, headline, *args, **kwargs):  # noqa: E501
         """Template - a model defined in OpenAPI
 
         Args:
+            template_name (str):
             headline (str):
 
         Keyword Args:
@@ -262,6 +267,7 @@ class Template(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.template_name = template_name
         self.headline = headline
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

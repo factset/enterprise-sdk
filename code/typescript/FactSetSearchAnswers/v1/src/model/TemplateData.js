@@ -54,11 +54,12 @@ class TemplateData {
      * @implements module:model/ValueLabelDateTextBlockTemplate
      * @implements module:model/ValueLabelDateDataPairListTemplate
      * @implements module:model/LabelValueChangeLabelValueChangeTemplate
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        LinkTextBlockTemplate.initialize(this, headline);TextBlockFootingTemplate.initialize(this, headline);PercentChangeLabelTemplate.initialize(this, headline);ValueChangeDateLabelTemplate.initialize(this, headline);RankedTableTemplate.initialize(this, headline);TableTemplate.initialize(this, headline);TableTableTemplate.initialize(this, headline);ValueLabelTemplate.initialize(this, headline);ValueLabelDateTemplate.initialize(this, headline);ColoredValueLabelDateTemplate.initialize(this, headline);ValueLabelDateTextBlockTemplate.initialize(this, headline);ValueLabelDateDataPairListTemplate.initialize(this, headline);LabelValueChangeLabelValueChangeTemplate.initialize(this, headline);
-        TemplateData.initialize(this, headline);
+    constructor(templateName, headline) { 
+        LinkTextBlockTemplate.initialize(this, templateName, headline);TextBlockFootingTemplate.initialize(this, templateName, headline);PercentChangeLabelTemplate.initialize(this, templateName, headline);ValueChangeDateLabelTemplate.initialize(this, templateName, headline);RankedTableTemplate.initialize(this, templateName, headline);TableTemplate.initialize(this, templateName, headline);TableTableTemplate.initialize(this, templateName, headline);ValueLabelTemplate.initialize(this, templateName, headline);ValueLabelDateTemplate.initialize(this, templateName, headline);ColoredValueLabelDateTemplate.initialize(this, templateName, headline);ValueLabelDateTextBlockTemplate.initialize(this, templateName, headline);ValueLabelDateDataPairListTemplate.initialize(this, templateName, headline);LabelValueChangeLabelValueChangeTemplate.initialize(this, templateName, headline);
+        TemplateData.initialize(this, templateName, headline);
     }
 
     /**
@@ -66,7 +67,8 @@ class TemplateData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -78,13 +80,18 @@ class TemplateData {
      * @return {module:model/TemplateData} The populated <code>TemplateData</code> instance.
      */
     static constructFromObject(data, obj) {
-        switch (data['template']) {
+        switch (data['templateName']) {
         }
         return obj;
     }
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+TemplateData.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -112,9 +119,9 @@ TemplateData.prototype['applicationLinks'] = undefined;
 TemplateData.prototype['link'] = undefined;
 
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-TemplateData.prototype['blurb'] = undefined;
+TemplateData.prototype['text'] = undefined;
 
 /**
  * @member {String} body
@@ -184,6 +191,10 @@ TemplateData.prototype['label2'] = undefined;
 
 // Implement LinkTextBlockTemplate interface:
 /**
+ * @member {String} templateName
+ */
+LinkTextBlockTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 LinkTextBlockTemplate.prototype['headline'] = undefined;
@@ -204,10 +215,14 @@ LinkTextBlockTemplate.prototype['applicationLinks'] = undefined;
  */
 LinkTextBlockTemplate.prototype['link'] = undefined;
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-LinkTextBlockTemplate.prototype['blurb'] = undefined;
+LinkTextBlockTemplate.prototype['text'] = undefined;
 // Implement TextBlockFootingTemplate interface:
+/**
+ * @member {String} templateName
+ */
+TextBlockFootingTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -234,6 +249,10 @@ TextBlockFootingTemplate.prototype['body'] = undefined;
 TextBlockFootingTemplate.prototype['footing'] = undefined;
 // Implement PercentChangeLabelTemplate interface:
 /**
+ * @member {String} templateName
+ */
+PercentChangeLabelTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 PercentChangeLabelTemplate.prototype['headline'] = undefined;
@@ -246,6 +265,10 @@ PercentChangeLabelTemplate.prototype['footer'] = undefined;
  */
 PercentChangeLabelTemplate.prototype['fdc3Context'] = undefined;
 /**
+ * @member {Array.<module:model/ApplicationLink>} applicationLinks
+ */
+PercentChangeLabelTemplate.prototype['applicationLinks'] = undefined;
+/**
  * @member {module:model/PercentChange} percentChange
  */
 PercentChangeLabelTemplate.prototype['percentChange'] = undefined;
@@ -254,6 +277,10 @@ PercentChangeLabelTemplate.prototype['percentChange'] = undefined;
  */
 PercentChangeLabelTemplate.prototype['label'] = undefined;
 // Implement ValueChangeDateLabelTemplate interface:
+/**
+ * @member {String} templateName
+ */
+ValueChangeDateLabelTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -288,6 +315,10 @@ ValueChangeDateLabelTemplate.prototype['date'] = undefined;
 ValueChangeDateLabelTemplate.prototype['label'] = undefined;
 // Implement RankedTableTemplate interface:
 /**
+ * @member {String} templateName
+ */
+RankedTableTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 RankedTableTemplate.prototype['headline'] = undefined;
@@ -304,6 +335,10 @@ RankedTableTemplate.prototype['fdc3Context'] = undefined;
  */
 RankedTableTemplate.prototype['table'] = undefined;
 // Implement TableTemplate interface:
+/**
+ * @member {String} templateName
+ */
+TableTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -325,6 +360,10 @@ TableTemplate.prototype['applicationLinks'] = undefined;
  */
 TableTemplate.prototype['table'] = undefined;
 // Implement TableTableTemplate interface:
+/**
+ * @member {String} templateName
+ */
+TableTableTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -351,6 +390,10 @@ TableTableTemplate.prototype['table1'] = undefined;
 TableTableTemplate.prototype['table2'] = undefined;
 // Implement ValueLabelTemplate interface:
 /**
+ * @member {String} templateName
+ */
+ValueLabelTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 ValueLabelTemplate.prototype['headline'] = undefined;
@@ -375,6 +418,10 @@ ValueLabelTemplate.prototype['value'] = undefined;
  */
 ValueLabelTemplate.prototype['label'] = undefined;
 // Implement ValueLabelDateTemplate interface:
+/**
+ * @member {String} templateName
+ */
+ValueLabelDateTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -405,6 +452,10 @@ ValueLabelDateTemplate.prototype['label'] = undefined;
 ValueLabelDateTemplate.prototype['date'] = undefined;
 // Implement ColoredValueLabelDateTemplate interface:
 /**
+ * @member {String} templateName
+ */
+ColoredValueLabelDateTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 ColoredValueLabelDateTemplate.prototype['headline'] = undefined;
@@ -434,6 +485,10 @@ ColoredValueLabelDateTemplate.prototype['label'] = undefined;
 ColoredValueLabelDateTemplate.prototype['date'] = undefined;
 // Implement ValueLabelDateTextBlockTemplate interface:
 /**
+ * @member {String} templateName
+ */
+ValueLabelDateTextBlockTemplate.prototype['templateName'] = undefined;
+/**
  * @member {String} headline
  */
 ValueLabelDateTextBlockTemplate.prototype['headline'] = undefined;
@@ -462,10 +517,14 @@ ValueLabelDateTextBlockTemplate.prototype['label'] = undefined;
  */
 ValueLabelDateTextBlockTemplate.prototype['date'] = undefined;
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-ValueLabelDateTextBlockTemplate.prototype['blurb'] = undefined;
+ValueLabelDateTextBlockTemplate.prototype['text'] = undefined;
 // Implement ValueLabelDateDataPairListTemplate interface:
+/**
+ * @member {String} templateName
+ */
+ValueLabelDateDataPairListTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
@@ -499,6 +558,10 @@ ValueLabelDateDataPairListTemplate.prototype['date'] = undefined;
  */
 ValueLabelDateDataPairListTemplate.prototype['list'] = undefined;
 // Implement LabelValueChangeLabelValueChangeTemplate interface:
+/**
+ * @member {String} templateName
+ */
+LabelValueChangeLabelValueChangeTemplate.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */

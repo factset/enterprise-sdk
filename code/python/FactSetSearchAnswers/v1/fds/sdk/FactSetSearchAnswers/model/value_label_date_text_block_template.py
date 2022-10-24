@@ -94,6 +94,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
         """
         lazy_import()
         return {
+            'template_name': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
             'footer': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
@@ -101,7 +102,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
             'value': (str,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'date': (str,),  # noqa: E501
-            'blurb': (str,),  # noqa: E501
+            'text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
 
 
     attribute_map = {
+        'template_name': 'templateName',  # noqa: E501
         'headline': 'headline',  # noqa: E501
         'footer': 'footer',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
@@ -117,7 +119,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
         'value': 'value',  # noqa: E501
         'label': 'label',  # noqa: E501
         'date': 'date',  # noqa: E501
-        'blurb': 'blurb',  # noqa: E501
+        'text': 'text',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,6 +131,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
         """ValueLabelDateTextBlockTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -166,7 +169,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
             value (str): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             date (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,6 +239,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
         """ValueLabelDateTextBlockTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -273,7 +277,7 @@ class ValueLabelDateTextBlockTemplate(ModelComposed):
             value (str): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             date (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

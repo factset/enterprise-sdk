@@ -53,6 +53,7 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
   VermilionUserResource.JSON_PROPERTY_PASSWORD,
   VermilionUserResource.JSON_PROPERTY_AUTHENTICATED_USER_NAME,
   VermilionUserResource.JSON_PROPERTY_TENANT,
+  VermilionUserResource.JSON_PROPERTY_TENANCIES,
   VermilionUserResource.JSON_PROPERTY_EMAILS,
   VermilionUserResource.JSON_PROPERTY_PHONE_NUMBERS,
   VermilionUserResource.JSON_PROPERTY_PHOTOS,
@@ -103,8 +104,11 @@ public class VermilionUserResource implements Serializable {
   public static final String JSON_PROPERTY_TENANT = "tenant";
   private String tenant;
 
+  public static final String JSON_PROPERTY_TENANCIES = "tenancies";
+  private java.util.List<String> tenancies = null;
+
   public static final String JSON_PROPERTY_EMAILS = "emails";
-  private VermilionUserResourceEmails emails;
+  private java.util.List<VermilionUserResourceEmails> emails = null;
 
   public static final String JSON_PROPERTY_PHONE_NUMBERS = "phoneNumbers";
   private java.util.List<VermilionUserResourcePhoneNumbers> phoneNumbers = null;
@@ -116,10 +120,10 @@ public class VermilionUserResource implements Serializable {
   private java.util.List<VermilionUserResourceGroups> groups = null;
 
   public static final String JSON_PROPERTY_ENTITLEMENTS = "entitlements";
-  private VermilionUserResourceEntitlements entitlements;
+  private java.util.List<VermilionUserResourceEntitlements> entitlements = null;
 
   public static final String JSON_PROPERTY_ROLES = "roles";
-  private VermilionUserResourceRoles roles;
+  private java.util.List<VermilionUserResourceRoles> roles = null;
 
   public static final String JSON_PROPERTY_DOMAIN_CODE = "domainCode";
   private String domainCode;
@@ -443,28 +447,70 @@ public class VermilionUserResource implements Serializable {
   }
 
 
-  public VermilionUserResource emails(VermilionUserResourceEmails emails) {
-    this.emails = emails;
+  public VermilionUserResource tenancies(java.util.List<String> tenancies) {
+    this.tenancies = tenancies;
+    return this;
+  }
+
+  public VermilionUserResource addTenanciesItem(String tenanciesItem) {
+    if (this.tenancies == null) {
+      this.tenancies = new java.util.ArrayList<>();
+    }
+    this.tenancies.add(tenanciesItem);
     return this;
   }
 
    /**
-   * Get emails
+   * Tenancies assigned to the user.
+   * @return tenancies
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tenancies assigned to the user.")
+  @JsonProperty(JSON_PROPERTY_TENANCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<String> getTenancies() {
+    return tenancies;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TENANCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTenancies(java.util.List<String> tenancies) {
+    this.tenancies = tenancies;
+  }
+
+
+  public VermilionUserResource emails(java.util.List<VermilionUserResourceEmails> emails) {
+    this.emails = emails;
+    return this;
+  }
+
+  public VermilionUserResource addEmailsItem(VermilionUserResourceEmails emailsItem) {
+    if (this.emails == null) {
+      this.emails = new java.util.ArrayList<>();
+    }
+    this.emails.add(emailsItem);
+    return this;
+  }
+
+   /**
+   * Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;.
    * @return emails
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.")
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public VermilionUserResourceEmails getEmails() {
+  public java.util.List<VermilionUserResourceEmails> getEmails() {
     return emails;
   }
 
 
   @JsonProperty(JSON_PROPERTY_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmails(VermilionUserResourceEmails emails) {
+  public void setEmails(java.util.List<VermilionUserResourceEmails> emails) {
     this.emails = emails;
   }
 
@@ -571,54 +617,70 @@ public class VermilionUserResource implements Serializable {
   }
 
 
-  public VermilionUserResource entitlements(VermilionUserResourceEntitlements entitlements) {
+  public VermilionUserResource entitlements(java.util.List<VermilionUserResourceEntitlements> entitlements) {
     this.entitlements = entitlements;
     return this;
   }
 
+  public VermilionUserResource addEntitlementsItem(VermilionUserResourceEntitlements entitlementsItem) {
+    if (this.entitlements == null) {
+      this.entitlements = new java.util.ArrayList<>();
+    }
+    this.entitlements.add(entitlementsItem);
+    return this;
+  }
+
    /**
-   * Get entitlements
+   * A list of entitlements for the User that represent a thing the User has.
    * @return entitlements
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of entitlements for the User that represent a thing the User has.")
   @JsonProperty(JSON_PROPERTY_ENTITLEMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public VermilionUserResourceEntitlements getEntitlements() {
+  public java.util.List<VermilionUserResourceEntitlements> getEntitlements() {
     return entitlements;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ENTITLEMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntitlements(VermilionUserResourceEntitlements entitlements) {
+  public void setEntitlements(java.util.List<VermilionUserResourceEntitlements> entitlements) {
     this.entitlements = entitlements;
   }
 
 
-  public VermilionUserResource roles(VermilionUserResourceRoles roles) {
+  public VermilionUserResource roles(java.util.List<VermilionUserResourceRoles> roles) {
     this.roles = roles;
     return this;
   }
 
+  public VermilionUserResource addRolesItem(VermilionUserResourceRoles rolesItem) {
+    if (this.roles == null) {
+      this.roles = new java.util.ArrayList<>();
+    }
+    this.roles.add(rolesItem);
+    return this;
+  }
+
    /**
-   * Get roles
+   * A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.
    * @return roles
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public VermilionUserResourceRoles getRoles() {
+  public java.util.List<VermilionUserResourceRoles> getRoles() {
     return roles;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRoles(VermilionUserResourceRoles roles) {
+  public void setRoles(java.util.List<VermilionUserResourceRoles> roles) {
     this.roles = roles;
   }
 
@@ -725,6 +787,7 @@ public class VermilionUserResource implements Serializable {
         Objects.equals(this.password, vermilionUserResource.password) &&
         Objects.equals(this.authenticatedUserName, vermilionUserResource.authenticatedUserName) &&
         Objects.equals(this.tenant, vermilionUserResource.tenant) &&
+        Objects.equals(this.tenancies, vermilionUserResource.tenancies) &&
         Objects.equals(this.emails, vermilionUserResource.emails) &&
         Objects.equals(this.phoneNumbers, vermilionUserResource.phoneNumbers) &&
         Objects.equals(this.photos, vermilionUserResource.photos) &&
@@ -738,7 +801,7 @@ public class VermilionUserResource implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(schemas, id, userName, name, displayName, profileUrl, userType, preferredLanguage, active, password, authenticatedUserName, tenant, emails, phoneNumbers, photos, groups, entitlements, roles, domainCode, isAdministrator, meta);
+    return Objects.hash(schemas, id, userName, name, displayName, profileUrl, userType, preferredLanguage, active, password, authenticatedUserName, tenant, tenancies, emails, phoneNumbers, photos, groups, entitlements, roles, domainCode, isAdministrator, meta);
   }
 
   @Override
@@ -757,6 +820,7 @@ public class VermilionUserResource implements Serializable {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    authenticatedUserName: ").append(toIndentedString(authenticatedUserName)).append("\n");
     sb.append("    tenant: ").append(toIndentedString(tenant)).append("\n");
+    sb.append("    tenancies: ").append(toIndentedString(tenancies)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    phoneNumbers: ").append(toIndentedString(phoneNumbers)).append("\n");
     sb.append("    photos: ").append(toIndentedString(photos)).append("\n");

@@ -38,6 +38,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * ValueChangeDateLabelTemplate
  */
 @JsonPropertyOrder({
+  ValueChangeDateLabelTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   ValueChangeDateLabelTemplate.JSON_PROPERTY_HEADLINE,
   ValueChangeDateLabelTemplate.JSON_PROPERTY_FOOTER,
   ValueChangeDateLabelTemplate.JSON_PROPERTY_FDC3_CONTEXT,
@@ -50,6 +51,9 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValueChangeDateLabelTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -80,11 +84,39 @@ public class ValueChangeDateLabelTemplate implements Serializable {
 
   @JsonCreator
   public ValueChangeDateLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public ValueChangeDateLabelTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public ValueChangeDateLabelTemplate headline(String headline) {
     this.headline = headline;
@@ -314,7 +346,8 @@ public class ValueChangeDateLabelTemplate implements Serializable {
       return false;
     }
     ValueChangeDateLabelTemplate valueChangeDateLabelTemplate = (ValueChangeDateLabelTemplate) o;
-    return Objects.equals(this.headline, valueChangeDateLabelTemplate.headline) &&
+    return Objects.equals(this.templateName, valueChangeDateLabelTemplate.templateName) &&
+        Objects.equals(this.headline, valueChangeDateLabelTemplate.headline) &&
         Objects.equals(this.footer, valueChangeDateLabelTemplate.footer) &&
         Objects.equals(this.fdc3Context, valueChangeDateLabelTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, valueChangeDateLabelTemplate.applicationLinks) &&
@@ -326,13 +359,14 @@ public class ValueChangeDateLabelTemplate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, valueChange, date, label);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, value, valueChange, date, label);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueChangeDateLabelTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");

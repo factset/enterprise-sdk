@@ -115,12 +115,13 @@ class VermilionUserResource(ModelNormal):
             'password': (str,),  # noqa: E501
             'authenticated_user_name': (str,),  # noqa: E501
             'tenant': (str,),  # noqa: E501
-            'emails': (VermilionUserResourceEmails,),  # noqa: E501
+            'tenancies': ([str],),  # noqa: E501
+            'emails': ([VermilionUserResourceEmails],),  # noqa: E501
             'phone_numbers': ([VermilionUserResourcePhoneNumbers],),  # noqa: E501
             'photos': ([VermilionUserResourcePhotos],),  # noqa: E501
             'groups': ([VermilionUserResourceGroups],),  # noqa: E501
-            'entitlements': (VermilionUserResourceEntitlements,),  # noqa: E501
-            'roles': (VermilionUserResourceRoles,),  # noqa: E501
+            'entitlements': ([VermilionUserResourceEntitlements],),  # noqa: E501
+            'roles': ([VermilionUserResourceRoles],),  # noqa: E501
             'meta': (VermilionUserResourceMeta,),  # noqa: E501
         }
 
@@ -144,6 +145,7 @@ class VermilionUserResource(ModelNormal):
         'password': 'password',  # noqa: E501
         'authenticated_user_name': 'authenticatedUserName',  # noqa: E501
         'tenant': 'tenant',  # noqa: E501
+        'tenancies': 'tenancies',  # noqa: E501
         'emails': 'emails',  # noqa: E501
         'phone_numbers': 'phoneNumbers',  # noqa: E501
         'photos': 'photos',  # noqa: E501
@@ -212,12 +214,13 @@ class VermilionUserResource(ModelNormal):
             password (str): The User's cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User's password.. [optional]  # noqa: E501
             authenticated_user_name (str): The authenticated user name of the user. [optional]  # noqa: E501
             tenant (str): The tenant this user is in. [optional]  # noqa: E501
-            emails (VermilionUserResourceEmails): [optional]  # noqa: E501
+            tenancies ([str]): Tenancies assigned to the user.. [optional]  # noqa: E501
+            emails ([VermilionUserResourceEmails]): Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.. [optional]  # noqa: E501
             phone_numbers ([VermilionUserResourcePhoneNumbers]): Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager'. [optional]  # noqa: E501
             photos ([VermilionUserResourcePhotos]): URLs of photos of the User.. [optional]  # noqa: E501
             groups ([VermilionUserResourceGroups]): A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.. [optional]  # noqa: E501
-            entitlements (VermilionUserResourceEntitlements): [optional]  # noqa: E501
-            roles (VermilionUserResourceRoles): [optional]  # noqa: E501
+            entitlements ([VermilionUserResourceEntitlements]): A list of entitlements for the User that represent a thing the User has.. [optional]  # noqa: E501
+            roles ([VermilionUserResourceRoles]): A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.. [optional]  # noqa: E501
             meta (VermilionUserResourceMeta): [optional]  # noqa: E501
         """
 
@@ -317,12 +320,13 @@ class VermilionUserResource(ModelNormal):
             password (str): The User's cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User's password.. [optional]  # noqa: E501
             authenticated_user_name (str): The authenticated user name of the user. [optional]  # noqa: E501
             tenant (str): The tenant this user is in. [optional]  # noqa: E501
-            emails (VermilionUserResourceEmails): [optional]  # noqa: E501
+            tenancies ([str]): Tenancies assigned to the user.. [optional]  # noqa: E501
+            emails ([VermilionUserResourceEmails]): Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.. [optional]  # noqa: E501
             phone_numbers ([VermilionUserResourcePhoneNumbers]): Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager'. [optional]  # noqa: E501
             photos ([VermilionUserResourcePhotos]): URLs of photos of the User.. [optional]  # noqa: E501
             groups ([VermilionUserResourceGroups]): A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.. [optional]  # noqa: E501
-            entitlements (VermilionUserResourceEntitlements): [optional]  # noqa: E501
-            roles (VermilionUserResourceRoles): [optional]  # noqa: E501
+            entitlements ([VermilionUserResourceEntitlements]): A list of entitlements for the User that represent a thing the User has.. [optional]  # noqa: E501
+            roles ([VermilionUserResourceRoles]): A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.. [optional]  # noqa: E501
             meta (VermilionUserResourceMeta): [optional]  # noqa: E501
         """
 

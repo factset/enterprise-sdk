@@ -2278,6 +2278,38 @@ components:
     userResource:
       content:
         application/scim+json:
+          examples:
+            Minimum:
+              value:
+                schemas:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: "1598276"
+            Expanded:
+              value:
+                schemas:
+                - urn:ietf:params:scim:schemas:core:2.0:User
+                - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                externalId: C3574707-FFF9-433C-A17F-DFF806C72A7F
+                name:
+                  familyName: Doe
+                  givenName: John
+                email: jdoe@factset.com
+                urn:scim:schemas:extension:FactSet:Core:1.0:User:
+                  username: FIN_WEALTH
+                  location:
+                    value: "1598276"
+                  roleName: Wealth Manager
+                  products:
+                  - value: "1396"
+                  assertionValue: exampleAssertionValue
           schema:
             $ref: '#/components/schemas/UserResource'
       description: User resource.
@@ -2350,8 +2382,7 @@ components:
             Operations:
             - op: replace
               path: name.formatted
-              value:
-              - value: John Doe
+              value: John Doe
           schema:
             $ref: '#/components/schemas/Patch'
     vermilionGroupResource:
@@ -3157,8 +3188,19 @@ components:
           description: The tenant this user is in
           example: MASTER
           type: string
+        tenancies:
+          description: Tenancies assigned to the user.
+          items:
+            example: MASTER
+            type: string
+          type: array
         emails:
-          $ref: '#/components/schemas/VermilionUserResource_emails'
+          description: Email addresses for the user. The value SHOULD be canonicalized
+            by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.
+            Canonical type values of 'work', 'home', and 'other'.
+          items:
+            $ref: '#/components/schemas/VermilionUserResource_emails'
+          type: array
         phoneNumbers:
           description: Phone numbers for the User. The value SHOULD be canonicalized
             by the service provider according to the format specified in RFC 3966,
@@ -3179,9 +3221,17 @@ components:
             $ref: '#/components/schemas/VermilionUserResource_groups'
           type: array
         entitlements:
-          $ref: '#/components/schemas/VermilionUserResource_entitlements'
+          description: A list of entitlements for the User that represent a thing
+            the User has.
+          items:
+            $ref: '#/components/schemas/VermilionUserResource_entitlements'
+          type: array
         roles:
-          $ref: '#/components/schemas/VermilionUserResource_roles'
+          description: A list of roles for the User that collectively represent who
+            the User is, e.g., 'Student', 'Faculty'.
+          items:
+            $ref: '#/components/schemas/VermilionUserResource_roles'
+          type: array
         domainCode:
           description: Domain code of Enterprise Hosting pod in which user resides.
             REQUIRED.
@@ -3871,9 +3921,6 @@ components:
           type: string
       type: object
     VermilionUserResource_emails:
-      description: Email addresses for the user. The value SHOULD be canonicalized
-        by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.
-        Canonical type values of 'work', 'home', and 'other'.
       properties:
         value:
           description: Email addresses for the user. The value SHOULD be canonicalized
@@ -3963,8 +4010,6 @@ components:
           type: string
       type: object
     VermilionUserResource_entitlements:
-      description: A list of entitlements for the User that represent a thing the
-        User has.
       properties:
         value:
           description: The value of an entitlement.
@@ -3983,8 +4028,6 @@ components:
           type: boolean
       type: object
     VermilionUserResource_roles:
-      description: A list of roles for the User that collectively represent who the
-        User is, e.g., 'Student', 'Faculty'.
       properties:
         value:
           description: The value of a role.

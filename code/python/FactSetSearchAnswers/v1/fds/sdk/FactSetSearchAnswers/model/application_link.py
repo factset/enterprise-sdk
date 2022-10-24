@@ -83,8 +83,8 @@ class ApplicationLink(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'workstation_link': (str,),  # noqa: E501
             'web_link': (str,),  # noqa: E501
+            'workstation_link': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +94,8 @@ class ApplicationLink(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'workstation_link': 'workstationLink',  # noqa: E501
         'web_link': 'webLink',  # noqa: E501
+        'workstation_link': 'workstationLink',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,12 +105,11 @@ class ApplicationLink(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, workstation_link, web_link, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, web_link, *args, **kwargs):  # noqa: E501
         """ApplicationLink - a model defined in OpenAPI
 
         Args:
             name (str):
-            workstation_link (str):
             web_link (str):
 
         Keyword Args:
@@ -144,6 +143,7 @@ class ApplicationLink(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            workstation_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,7 +172,6 @@ class ApplicationLink(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.workstation_link = workstation_link
         self.web_link = web_link
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -194,12 +193,11 @@ class ApplicationLink(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, workstation_link, web_link, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, web_link, *args, **kwargs):  # noqa: E501
         """ApplicationLink - a model defined in OpenAPI
 
         Args:
             name (str):
-            workstation_link (str):
             web_link (str):
 
         Keyword Args:
@@ -233,6 +231,7 @@ class ApplicationLink(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            workstation_link (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +258,6 @@ class ApplicationLink(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.workstation_link = workstation_link
         self.web_link = web_link
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

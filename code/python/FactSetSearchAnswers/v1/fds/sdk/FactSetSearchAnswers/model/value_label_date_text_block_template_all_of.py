@@ -85,7 +85,7 @@ class ValueLabelDateTextBlockTemplateAllOf(ModelNormal):
             'value': (str,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'date': (str,),  # noqa: E501
-            'blurb': (str,),  # noqa: E501
+            'text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +97,7 @@ class ValueLabelDateTextBlockTemplateAllOf(ModelNormal):
         'value': 'value',  # noqa: E501
         'label': 'label',  # noqa: E501
         'date': 'date',  # noqa: E501
-        'blurb': 'blurb',  # noqa: E501
+        'text': 'text',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,7 +144,7 @@ class ValueLabelDateTextBlockTemplateAllOf(ModelNormal):
             value (str): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             date (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +229,7 @@ class ValueLabelDateTextBlockTemplateAllOf(ModelNormal):
             value (str): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
             date (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

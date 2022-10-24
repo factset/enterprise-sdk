@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetConcordance.Model.PeopleTask
-People Match object showing the decision reached for each Entity. 
+Concordance People Task object. Shows task related metadata and some statistics on the matches. 
 
 ## Properties
 
@@ -21,9 +21,21 @@ Name | Type | Description | Notes
 **TaskSubmitTime** | **DateTime?** | Time the Task was submitted in UTC. | [optional] 
 **TaskId** | **int?** | The task identifier | [optional] 
 **TaskName** | **string** | The task name | [optional] 
+**UnmappedCount** | **int?** | Number of records with status of UNMAPPED the Input File. | [optional] 
+**TryCount** | **int?** | Number of tries made so far for the request. | [optional] 
+**DecisionRate** | **double?** | Percentage of mapped entities in the Input File. | [optional] 
+**ProcessStartTime** | **DateTime?** | Process start time in UTC. | [optional] 
+**ProcessDuration** | **double?** | Process duration in seconds. | [optional] 
+**MappedCount** | **int?** | Number of records with status of MAPPED the Input File. | [optional] 
+**Message** | **string** | Textual message for the status. | [optional] 
+**Error** | **string** |  | [optional] 
+**ErrorTitle** | **string** |  | [optional] 
+**InputCount** | **int?** | Number of records in the Input File. | [optional] 
+**IndeterminateCount** | **int?** | Number of records with status of INDETERMINATE the Input File. | [optional] 
 **UniverseId** | **int?** | The universe identifier | [optional] 
 **UniverseName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
-**UserSerial** | **string** | user-serial of the person who initiated the entity task. | [optional] 
+**UserFullName** | **string** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
+**UserSerial** | **string** | user-serial of the person who initiated the people task  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -40,53 +40,33 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnswerWithoutData" /> class.
         /// </summary>
-        /// <param name="template">template (required).</param>
         /// <param name="message">message (required).</param>
-        /// <param name="querySuggestions">querySuggestions (required).</param>
         /// <param name="title">title (required).</param>
-        /// <param name="templateData">templateData.</param>
-        public AnswerWithoutData(string template, string message, List<string> querySuggestions, string title,AnswerWithoutDataAllOfTemplateData templateData = default(AnswerWithoutDataAllOfTemplateData))
+        /// <param name="templateData">templateData (required).</param>
+        public AnswerWithoutData(string message, string title, AnswerWithoutDataAllOfTemplateData templateData)
         {
-            // to ensure "template" is required (not null)
-            if (template == null) {
-                throw new ArgumentNullException("template is a required property for AnswerWithoutData and cannot be null");
-            }
-            this.Template = template;
             // to ensure "message" is required (not null)
             if (message == null) {
                 throw new ArgumentNullException("message is a required property for AnswerWithoutData and cannot be null");
             }
             this.Message = message;
-            // to ensure "querySuggestions" is required (not null)
-            if (querySuggestions == null) {
-                throw new ArgumentNullException("querySuggestions is a required property for AnswerWithoutData and cannot be null");
-            }
-            this.QuerySuggestions = querySuggestions;
             // to ensure "title" is required (not null)
             if (title == null) {
                 throw new ArgumentNullException("title is a required property for AnswerWithoutData and cannot be null");
             }
             this.Title = title;
+            // to ensure "templateData" is required (not null)
+            if (templateData == null) {
+                throw new ArgumentNullException("templateData is a required property for AnswerWithoutData and cannot be null");
+            }
             this.TemplateData = templateData;
         }
-
-        /// <summary>
-        /// Gets or Sets Template
-        /// </summary>
-        [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = false)]
-        public string Template { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
         public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets QuerySuggestions
-        /// </summary>
-        [DataMember(Name = "querySuggestions", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> QuerySuggestions { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
@@ -97,7 +77,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Gets or Sets TemplateData
         /// </summary>
-        [DataMember(Name = "templateData", EmitDefaultValue = false)]
+        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
         public AnswerWithoutDataAllOfTemplateData TemplateData { get; set; }
 
         /// <summary>
@@ -108,9 +88,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnswerWithoutData {\n");
-            sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  QuerySuggestions: ").Append(QuerySuggestions).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("}\n");
@@ -149,20 +127,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
-                    this.Template == input.Template ||
-                    (this.Template != null &&
-                    this.Template.Equals(input.Template))
-                ) && 
-                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.QuerySuggestions == input.QuerySuggestions ||
-                    this.QuerySuggestions != null &&
-                    input.QuerySuggestions != null &&
-                    this.QuerySuggestions.SequenceEqual(input.QuerySuggestions)
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -185,17 +152,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Template != null)
-                {
-                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
-                }
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                if (this.QuerySuggestions != null)
-                {
-                    hashCode = (hashCode * 59) + this.QuerySuggestions.GetHashCode();
                 }
                 if (this.Title != null)
                 {

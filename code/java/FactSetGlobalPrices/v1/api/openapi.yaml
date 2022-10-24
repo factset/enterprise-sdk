@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
   title: FactSet Global Prices API
-  version: 1.4.0
+  version: 1.5.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -857,8 +857,11 @@ paths:
         style: form
       - description: "Controls the dividend reinvestment for the returns calculation.\n\
           \  * **PRICE** = Price Change - Dividends Excluded.\n  * **EXDATE** = Simple\
-          \ Return - Dividends Received on exdate but not reinvested.\n  * **EXDATE_C**\
-          \ = Compound Return - Dividends reinvested on exdate.\n\n  \n"
+          \ Return - Dividends Received on exdate but not reinvested.\n  * **PAYDATE**\
+          \ = Simple Return - Dividends Received on paydate but not reinvested.\n\
+          \  * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.\n\
+          \  * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.\n\
+          \n  \n"
         explode: true
         in: query
         name: dividendAdjust
@@ -868,7 +871,9 @@ paths:
           enum:
           - PRICE
           - EXDATE
+          - PAYDATE
           - EXDATE_C
+          - PAYDATE_C
           type: string
         style: form
       responses:
@@ -1726,8 +1731,10 @@ components:
     dividendAdjust:
       description: "Controls the dividend reinvestment for the returns calculation.\n\
         \  * **PRICE** = Price Change - Dividends Excluded.\n  * **EXDATE** = Simple\
-        \ Return - Dividends Received on exdate but not reinvested.\n  * **EXDATE_C**\
-        \ = Compound Return - Dividends reinvested on exdate.\n\n  \n"
+        \ Return - Dividends Received on exdate but not reinvested.\n  * **PAYDATE**\
+        \ = Simple Return - Dividends Received on paydate but not reinvested.\n  *\
+        \ **EXDATE_C** = Compound Return - Dividends reinvested on exdate.\n  * **PAYDATE_C**\
+        \ = Compound Return - Dividends reinvested on paydate.\n\n  \n"
       explode: true
       in: query
       name: dividendAdjust
@@ -1737,7 +1744,9 @@ components:
         enum:
         - PRICE
         - EXDATE
+        - PAYDATE
         - EXDATE_C
+        - PAYDATE_C
         type: string
       style: form
     calendar:
@@ -2754,11 +2763,15 @@ components:
         Controls the dividend reinvestment for the returns calculation.
           * **PRICE** = Price Change - Dividends Excluded.
           * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **PAYDATE** = Simple Return - Dividends Received on paydate but not reinvested.
           * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+          * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.
       enum:
       - PRICE
       - EXDATE
+      - PAYDATE
       - EXDATE_C
+      - PAYDATE_C
       example: EXDATE_C
       title: dividendAdjust
       type: string

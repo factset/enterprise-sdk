@@ -419,7 +419,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                var discriminatorObj = JObject.Parse(jsonString)["template"];
+                var discriminatorObj = JObject.Parse(jsonString)["templateName"];
                 string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
                 switch (discriminatorValue)
                 {

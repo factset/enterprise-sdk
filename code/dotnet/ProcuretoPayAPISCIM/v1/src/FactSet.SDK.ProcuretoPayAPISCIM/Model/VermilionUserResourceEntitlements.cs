@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ProcuretoPayAPISCIM.Client.OpenAPIDateC
 namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
 {
     /// <summary>
-    /// A list of entitlements for the User that represent a thing the User has.
+    /// VermilionUserResourceEntitlements
     /// </summary>
     [DataContract(Name = "VermilionUserResource_entitlements")]
     public partial class VermilionUserResourceEntitlements : IEquatable<VermilionUserResourceEntitlements>, IValidatableObject

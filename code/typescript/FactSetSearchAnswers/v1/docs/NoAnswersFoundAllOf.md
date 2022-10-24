@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | 
 **querySuggestions** | **[String]** |  | 
+**templateData** | [**NoAnswersFoundAllOfTemplateData**](NoAnswersFoundAllOfTemplateData.md) |  | 
 
 

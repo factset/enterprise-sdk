@@ -22,10 +22,11 @@ class RankedTable {
     /**
      * Constructs a new <code>RankedTable</code>.
      * @alias module:model/RankedTable
+     * @param rows {Array.<module:model/RankedTableRow>} 
      */
-    constructor() { 
+    constructor(rows) { 
         
-        RankedTable.initialize(this);
+        RankedTable.initialize(this, rows);
     }
 
     /**
@@ -33,7 +34,8 @@ class RankedTable {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, rows) { 
+        obj['rows'] = rows;
     }
 
     /**

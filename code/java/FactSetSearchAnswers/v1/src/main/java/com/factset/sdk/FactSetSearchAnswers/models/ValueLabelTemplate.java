@@ -37,6 +37,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * ValueLabelTemplate
  */
 @JsonPropertyOrder({
+  ValueLabelTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   ValueLabelTemplate.JSON_PROPERTY_HEADLINE,
   ValueLabelTemplate.JSON_PROPERTY_FOOTER,
   ValueLabelTemplate.JSON_PROPERTY_FDC3_CONTEXT,
@@ -47,6 +48,9 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValueLabelTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -71,11 +75,39 @@ public class ValueLabelTemplate implements Serializable {
 
   @JsonCreator
   public ValueLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public ValueLabelTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public ValueLabelTemplate headline(String headline) {
     this.headline = headline;
@@ -253,7 +285,8 @@ public class ValueLabelTemplate implements Serializable {
       return false;
     }
     ValueLabelTemplate valueLabelTemplate = (ValueLabelTemplate) o;
-    return Objects.equals(this.headline, valueLabelTemplate.headline) &&
+    return Objects.equals(this.templateName, valueLabelTemplate.templateName) &&
+        Objects.equals(this.headline, valueLabelTemplate.headline) &&
         Objects.equals(this.footer, valueLabelTemplate.footer) &&
         Objects.equals(this.fdc3Context, valueLabelTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, valueLabelTemplate.applicationLinks) &&
@@ -263,13 +296,14 @@ public class ValueLabelTemplate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, label);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, value, label);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueLabelTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");

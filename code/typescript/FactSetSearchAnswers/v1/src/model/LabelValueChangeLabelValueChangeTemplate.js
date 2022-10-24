@@ -28,11 +28,12 @@ class LabelValueChangeLabelValueChangeTemplate {
      * @alias module:model/LabelValueChangeLabelValueChangeTemplate
      * @implements module:model/TemplateWithLinks
      * @implements module:model/LabelValueChangeLabelValueChangeTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        TemplateWithLinks.initialize(this, headline);LabelValueChangeLabelValueChangeTemplateAllOf.initialize(this);
-        LabelValueChangeLabelValueChangeTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);LabelValueChangeLabelValueChangeTemplateAllOf.initialize(this);
+        LabelValueChangeLabelValueChangeTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -40,7 +41,8 @@ class LabelValueChangeLabelValueChangeTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -57,6 +59,9 @@ class LabelValueChangeLabelValueChangeTemplate {
             TemplateWithLinks.constructFromObject(data, obj);
             LabelValueChangeLabelValueChangeTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -90,6 +95,11 @@ class LabelValueChangeLabelValueChangeTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+LabelValueChangeLabelValueChangeTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -138,6 +148,10 @@ LabelValueChangeLabelValueChangeTemplate.prototype['label2'] = undefined;
 
 
 // Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */

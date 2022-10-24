@@ -55,8 +55,8 @@ class ValueLabelDateTextBlockTemplateAllOf {
             if (data.hasOwnProperty('date')) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('blurb')) {
-                obj['blurb'] = ApiClient.convertToType(data['blurb'], 'String');
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
         }
         return obj;
@@ -81,9 +81,9 @@ ValueLabelDateTextBlockTemplateAllOf.prototype['label'] = undefined;
 ValueLabelDateTextBlockTemplateAllOf.prototype['date'] = undefined;
 
 /**
- * @member {String} blurb
+ * @member {String} text
  */
-ValueLabelDateTextBlockTemplateAllOf.prototype['blurb'] = undefined;
+ValueLabelDateTextBlockTemplateAllOf.prototype['text'] = undefined;
 
 
 

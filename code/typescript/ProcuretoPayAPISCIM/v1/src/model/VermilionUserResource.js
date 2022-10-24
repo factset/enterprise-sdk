@@ -96,8 +96,11 @@ class VermilionUserResource {
             if (data.hasOwnProperty('tenant')) {
                 obj['tenant'] = ApiClient.convertToType(data['tenant'], 'String');
             }
+            if (data.hasOwnProperty('tenancies')) {
+                obj['tenancies'] = ApiClient.convertToType(data['tenancies'], ['String']);
+            }
             if (data.hasOwnProperty('emails')) {
-                obj['emails'] = VermilionUserResourceEmails.constructFromObject(data['emails']);
+                obj['emails'] = ApiClient.convertToType(data['emails'], [VermilionUserResourceEmails]);
             }
             if (data.hasOwnProperty('phoneNumbers')) {
                 obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [VermilionUserResourcePhoneNumbers]);
@@ -109,10 +112,10 @@ class VermilionUserResource {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [VermilionUserResourceGroups]);
             }
             if (data.hasOwnProperty('entitlements')) {
-                obj['entitlements'] = VermilionUserResourceEntitlements.constructFromObject(data['entitlements']);
+                obj['entitlements'] = ApiClient.convertToType(data['entitlements'], [VermilionUserResourceEntitlements]);
             }
             if (data.hasOwnProperty('roles')) {
-                obj['roles'] = VermilionUserResourceRoles.constructFromObject(data['roles']);
+                obj['roles'] = ApiClient.convertToType(data['roles'], [VermilionUserResourceRoles]);
             }
             if (data.hasOwnProperty('domainCode')) {
                 obj['domainCode'] = ApiClient.convertToType(data['domainCode'], 'String');
@@ -200,7 +203,14 @@ VermilionUserResource.prototype['authenticatedUserName'] = undefined;
 VermilionUserResource.prototype['tenant'] = undefined;
 
 /**
- * @member {module:model/VermilionUserResourceEmails} emails
+ * Tenancies assigned to the user.
+ * @member {Array.<String>} tenancies
+ */
+VermilionUserResource.prototype['tenancies'] = undefined;
+
+/**
+ * Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.
+ * @member {Array.<module:model/VermilionUserResourceEmails>} emails
  */
 VermilionUserResource.prototype['emails'] = undefined;
 
@@ -223,12 +233,14 @@ VermilionUserResource.prototype['photos'] = undefined;
 VermilionUserResource.prototype['groups'] = undefined;
 
 /**
- * @member {module:model/VermilionUserResourceEntitlements} entitlements
+ * A list of entitlements for the User that represent a thing the User has.
+ * @member {Array.<module:model/VermilionUserResourceEntitlements>} entitlements
  */
 VermilionUserResource.prototype['entitlements'] = undefined;
 
 /**
- * @member {module:model/VermilionUserResourceRoles} roles
+ * A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.
+ * @member {Array.<module:model/VermilionUserResourceRoles>} roles
  */
 VermilionUserResource.prototype['roles'] = undefined;
 

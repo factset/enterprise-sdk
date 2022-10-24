@@ -37,6 +37,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * ValueLabelDateTextBlockTemplate
  */
 @JsonPropertyOrder({
+  ValueLabelDateTextBlockTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_HEADLINE,
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_FOOTER,
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_FDC3_CONTEXT,
@@ -44,11 +45,14 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_VALUE,
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_LABEL,
   ValueLabelDateTextBlockTemplate.JSON_PROPERTY_DATE,
-  ValueLabelDateTextBlockTemplate.JSON_PROPERTY_BLURB
+  ValueLabelDateTextBlockTemplate.JSON_PROPERTY_TEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValueLabelDateTextBlockTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -71,19 +75,47 @@ public class ValueLabelDateTextBlockTemplate implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
-  public static final String JSON_PROPERTY_BLURB = "blurb";
-  private String blurb;
+  public static final String JSON_PROPERTY_TEXT = "text";
+  private String text;
 
   public ValueLabelDateTextBlockTemplate() { 
   }
 
   @JsonCreator
   public ValueLabelDateTextBlockTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public ValueLabelDateTextBlockTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public ValueLabelDateTextBlockTemplate headline(String headline) {
     this.headline = headline;
@@ -275,29 +307,29 @@ public class ValueLabelDateTextBlockTemplate implements Serializable {
   }
 
 
-  public ValueLabelDateTextBlockTemplate blurb(String blurb) {
-    this.blurb = blurb;
+  public ValueLabelDateTextBlockTemplate text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Get blurb
-   * @return blurb
+   * Get text
+   * @return text
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBlurb() {
-    return blurb;
+  public String getText() {
+    return text;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlurb(String blurb) {
-    this.blurb = blurb;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -313,25 +345,27 @@ public class ValueLabelDateTextBlockTemplate implements Serializable {
       return false;
     }
     ValueLabelDateTextBlockTemplate valueLabelDateTextBlockTemplate = (ValueLabelDateTextBlockTemplate) o;
-    return Objects.equals(this.headline, valueLabelDateTextBlockTemplate.headline) &&
+    return Objects.equals(this.templateName, valueLabelDateTextBlockTemplate.templateName) &&
+        Objects.equals(this.headline, valueLabelDateTextBlockTemplate.headline) &&
         Objects.equals(this.footer, valueLabelDateTextBlockTemplate.footer) &&
         Objects.equals(this.fdc3Context, valueLabelDateTextBlockTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, valueLabelDateTextBlockTemplate.applicationLinks) &&
         Objects.equals(this.value, valueLabelDateTextBlockTemplate.value) &&
         Objects.equals(this.label, valueLabelDateTextBlockTemplate.label) &&
         Objects.equals(this.date, valueLabelDateTextBlockTemplate.date) &&
-        Objects.equals(this.blurb, valueLabelDateTextBlockTemplate.blurb);
+        Objects.equals(this.text, valueLabelDateTextBlockTemplate.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, label, date, blurb);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, value, label, date, text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValueLabelDateTextBlockTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");
@@ -339,7 +373,7 @@ public class ValueLabelDateTextBlockTemplate implements Serializable {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    blurb: ").append(toIndentedString(blurb)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -56,12 +56,10 @@ public class ApplicationLink implements Serializable {
   @JsonCreator
   public ApplicationLink(
     @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name, 
-    @JsonProperty(value=JSON_PROPERTY_WORKSTATION_LINK, required=true) String workstationLink, 
     @JsonProperty(value=JSON_PROPERTY_WEB_LINK, required=true) String webLink
   ) {
     this();
     this.name = name;
-    this.workstationLink = workstationLink;
     this.webLink = webLink;
   }
 
@@ -100,10 +98,10 @@ public class ApplicationLink implements Serializable {
    * Get workstationLink
    * @return workstationLink
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WORKSTATION_LINK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getWorkstationLink() {
     return workstationLink;
@@ -111,7 +109,7 @@ public class ApplicationLink implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_WORKSTATION_LINK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWorkstationLink(String workstationLink) {
     this.workstationLink = workstationLink;
   }

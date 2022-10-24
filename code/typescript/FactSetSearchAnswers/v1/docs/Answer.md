@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**template** | **String** |  | 
-**templateData** | [**TemplateData**](TemplateData.md) |  | 
 **title** | **String** |  | 
+**templateData** | [**TemplateData**](TemplateData.md) |  | 
 
 

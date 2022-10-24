@@ -338,7 +338,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new UsersApi();
 const id = "id_example"; // String | ID of resource.
-const userResource = new procuretopayapiscim.UserResource(); // UserResource | User resource.
+const userResource = {"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:scim:schemas:extension:FactSet:Core:1.0:User"],"name":{"familyName":"Doe","givenName":"John"},"email":"jdoe@factset.com","urn:scim:schemas:extension:FactSet:Core:1.0:User":{"username":"FIN_WEALTH","location":{"value":"1598276"}}}; // UserResource | User resource.
 
 // Call api endpoint
 apiInstance.usersIdPut(id, userResource).then(
@@ -409,7 +409,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new UsersApi();
-const userResource = new procuretopayapiscim.UserResource(); // UserResource | User resource.
+const userResource = {"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:scim:schemas:extension:FactSet:Core:1.0:User"],"name":{"familyName":"Doe","givenName":"John"},"email":"jdoe@factset.com","urn:scim:schemas:extension:FactSet:Core:1.0:User":{"username":"FIN_WEALTH","location":{"value":"1598276"}}}; // UserResource | User resource.
 
 // Call api endpoint
 apiInstance.usersPost(userResource).then(

@@ -14,7 +14,7 @@
 import ApiClient from '../ApiClient';
 import AnswerWithoutDataAllOf from './AnswerWithoutDataAllOf';
 import AnswerWithoutDataAllOfTemplateData from './AnswerWithoutDataAllOfTemplateData';
-import NoAnswersFound from './NoAnswersFound';
+import NoAnswersBase from './NoAnswersBase';
 
 /**
  * The AnswerWithoutData model module.
@@ -24,16 +24,15 @@ class AnswerWithoutData {
     /**
      * Constructs a new <code>AnswerWithoutData</code>.
      * @alias module:model/AnswerWithoutData
-     * @implements module:model/NoAnswersFound
+     * @implements module:model/NoAnswersBase
      * @implements module:model/AnswerWithoutDataAllOf
-     * @param template {String} 
      * @param message {String} 
-     * @param querySuggestions {Array.<String>} 
      * @param title {String} 
+     * @param templateData {module:model/AnswerWithoutDataAllOfTemplateData} 
      */
-    constructor(template, message, querySuggestions, title) { 
-        NoAnswersFound.initialize(this, template, message, querySuggestions);AnswerWithoutDataAllOf.initialize(this, title);
-        AnswerWithoutData.initialize(this, template, message, querySuggestions, title);
+    constructor(message, title, templateData) { 
+        NoAnswersBase.initialize(this, message);AnswerWithoutDataAllOf.initialize(this, title, templateData);
+        AnswerWithoutData.initialize(this, message, title, templateData);
     }
 
     /**
@@ -41,11 +40,10 @@ class AnswerWithoutData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, template, message, querySuggestions, title) { 
-        obj['template'] = template;
+    static initialize(obj, message, title, templateData) { 
         obj['message'] = message;
-        obj['querySuggestions'] = querySuggestions;
         obj['title'] = title;
+        obj['templateData'] = templateData;
     }
 
     /**
@@ -58,17 +56,11 @@ class AnswerWithoutData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AnswerWithoutData();
-            NoAnswersFound.constructFromObject(data, obj);
+            NoAnswersBase.constructFromObject(data, obj);
             AnswerWithoutDataAllOf.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = ApiClient.convertToType(data['template'], 'String');
-            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
-            }
-            if (data.hasOwnProperty('querySuggestions')) {
-                obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
             }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -84,19 +76,9 @@ class AnswerWithoutData {
 }
 
 /**
- * @member {String} template
- */
-AnswerWithoutData.prototype['template'] = undefined;
-
-/**
  * @member {String} message
  */
 AnswerWithoutData.prototype['message'] = undefined;
-
-/**
- * @member {Array.<String>} querySuggestions
- */
-AnswerWithoutData.prototype['querySuggestions'] = undefined;
 
 /**
  * @member {String} title
@@ -109,19 +91,11 @@ AnswerWithoutData.prototype['title'] = undefined;
 AnswerWithoutData.prototype['templateData'] = undefined;
 
 
-// Implement NoAnswersFound interface:
-/**
- * @member {String} template
- */
-NoAnswersFound.prototype['template'] = undefined;
+// Implement NoAnswersBase interface:
 /**
  * @member {String} message
  */
-NoAnswersFound.prototype['message'] = undefined;
-/**
- * @member {Array.<String>} querySuggestions
- */
-NoAnswersFound.prototype['querySuggestions'] = undefined;
+NoAnswersBase.prototype['message'] = undefined;
 // Implement AnswerWithoutDataAllOf interface:
 /**
  * @member {String} title

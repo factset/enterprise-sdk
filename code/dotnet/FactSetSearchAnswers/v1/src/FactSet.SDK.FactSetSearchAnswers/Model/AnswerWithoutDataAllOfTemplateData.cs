@@ -35,11 +35,28 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnswerWithoutDataAllOfTemplateData" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected AnswerWithoutDataAllOfTemplateData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnswerWithoutDataAllOfTemplateData" /> class.
+        /// </summary>
+        /// <param name="templateName">templateName (required).</param>
         /// <param name="fdc3Context">fdc3Context.</param>
-        public AnswerWithoutDataAllOfTemplateData(Fdc3Context fdc3Context = default(Fdc3Context))
+        public AnswerWithoutDataAllOfTemplateData(string templateName,Fdc3Context fdc3Context = default(Fdc3Context))
         {
+            // to ensure "templateName" is required (not null)
+            if (templateName == null) {
+                throw new ArgumentNullException("templateName is a required property for AnswerWithoutDataAllOfTemplateData and cannot be null");
+            }
+            this.TemplateName = templateName;
             this.Fdc3Context = fdc3Context;
         }
+
+        /// <summary>
+        /// Gets or Sets TemplateName
+        /// </summary>
+        [DataMember(Name = "templateName", IsRequired = true, EmitDefaultValue = false)]
+        public string TemplateName { get; set; }
 
         /// <summary>
         /// Gets or Sets Fdc3Context
@@ -55,6 +72,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnswerWithoutDataAllOfTemplateData {\n");
+            sb.Append("  TemplateName: ").Append(TemplateName).Append("\n");
             sb.Append("  Fdc3Context: ").Append(Fdc3Context).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,6 +110,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
+                    this.TemplateName == input.TemplateName ||
+                    (this.TemplateName != null &&
+                    this.TemplateName.Equals(input.TemplateName))
+                ) && 
+                (
                     this.Fdc3Context == input.Fdc3Context ||
                     (this.Fdc3Context != null &&
                     this.Fdc3Context.Equals(input.Fdc3Context))
@@ -107,6 +130,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TemplateName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.Fdc3Context != null)
                 {
                     hashCode = (hashCode * 59) + this.Fdc3Context.GetHashCode();

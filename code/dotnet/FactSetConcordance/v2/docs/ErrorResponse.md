@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | status | [optional] 
-**Timestamp** | **DateTime** | Timestamp in YYYY-MM-DD HH:MM:SS.SSS | [optional] 
+**Status** | **string** | Status. | [optional] 
+**Timestamp** | **DateTime** | Timestamp in yyyy-mm-ddThh:mm:ss.sss format. | [optional] 
 **Path** | **string** | The Endpoint path {package}/version/{endpoint} | [optional] 
-**Message** | **string** | The plain text error message | [optional] 
+**Message** | **string** | The plain text error message. | [optional] 
 **SubErrors** | [**ErrorResponseSubErrors**](ErrorResponseSubErrors.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -38,6 +38,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * ColoredValueLabelDateTemplate
  */
 @JsonPropertyOrder({
+  ColoredValueLabelDateTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   ColoredValueLabelDateTemplate.JSON_PROPERTY_HEADLINE,
   ColoredValueLabelDateTemplate.JSON_PROPERTY_FOOTER,
   ColoredValueLabelDateTemplate.JSON_PROPERTY_FDC3_CONTEXT,
@@ -49,6 +50,9 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ColoredValueLabelDateTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -76,11 +80,39 @@ public class ColoredValueLabelDateTemplate implements Serializable {
 
   @JsonCreator
   public ColoredValueLabelDateTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public ColoredValueLabelDateTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public ColoredValueLabelDateTemplate headline(String headline) {
     this.headline = headline;
@@ -284,7 +316,8 @@ public class ColoredValueLabelDateTemplate implements Serializable {
       return false;
     }
     ColoredValueLabelDateTemplate coloredValueLabelDateTemplate = (ColoredValueLabelDateTemplate) o;
-    return Objects.equals(this.headline, coloredValueLabelDateTemplate.headline) &&
+    return Objects.equals(this.templateName, coloredValueLabelDateTemplate.templateName) &&
+        Objects.equals(this.headline, coloredValueLabelDateTemplate.headline) &&
         Objects.equals(this.footer, coloredValueLabelDateTemplate.footer) &&
         Objects.equals(this.fdc3Context, coloredValueLabelDateTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, coloredValueLabelDateTemplate.applicationLinks) &&
@@ -295,13 +328,14 @@ public class ColoredValueLabelDateTemplate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, label, date);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, value, label, date);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ColoredValueLabelDateTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");

@@ -31,14 +31,16 @@ from fds.sdk.FactSetSearchAnswers.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.FactSetSearchAnswers.model.application_link import ApplicationLink
     from fds.sdk.FactSetSearchAnswers.model.fdc3_context import Fdc3Context
     from fds.sdk.FactSetSearchAnswers.model.percent_change import PercentChange
     from fds.sdk.FactSetSearchAnswers.model.percent_change_label_template_all_of import PercentChangeLabelTemplateAllOf
-    from fds.sdk.FactSetSearchAnswers.model.template import Template
+    from fds.sdk.FactSetSearchAnswers.model.template_with_links import TemplateWithLinks
+    globals()['ApplicationLink'] = ApplicationLink
     globals()['Fdc3Context'] = Fdc3Context
     globals()['PercentChange'] = PercentChange
     globals()['PercentChangeLabelTemplateAllOf'] = PercentChangeLabelTemplateAllOf
-    globals()['Template'] = Template
+    globals()['TemplateWithLinks'] = TemplateWithLinks
 
 
 class PercentChangeLabelTemplate(ModelComposed):
@@ -94,9 +96,11 @@ class PercentChangeLabelTemplate(ModelComposed):
         """
         lazy_import()
         return {
+            'template_name': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
             'footer': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
+            'application_links': ([ApplicationLink],),  # noqa: E501
             'percent_change': (PercentChange,),  # noqa: E501
             'label': (str,),  # noqa: E501
         }
@@ -107,9 +111,11 @@ class PercentChangeLabelTemplate(ModelComposed):
 
 
     attribute_map = {
+        'template_name': 'templateName',  # noqa: E501
         'headline': 'headline',  # noqa: E501
         'footer': 'footer',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
+        'application_links': 'applicationLinks',  # noqa: E501
         'percent_change': 'percentChange',  # noqa: E501
         'label': 'label',  # noqa: E501
     }
@@ -123,6 +129,7 @@ class PercentChangeLabelTemplate(ModelComposed):
         """PercentChangeLabelTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -156,6 +163,7 @@ class PercentChangeLabelTemplate(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             footer (str): [optional]  # noqa: E501
             fdc3_context (Fdc3Context): [optional]  # noqa: E501
+            application_links ([ApplicationLink]): [optional]  # noqa: E501
             percent_change (PercentChange): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
         """
@@ -227,6 +235,7 @@ class PercentChangeLabelTemplate(ModelComposed):
         """PercentChangeLabelTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -260,6 +269,7 @@ class PercentChangeLabelTemplate(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             footer (str): [optional]  # noqa: E501
             fdc3_context (Fdc3Context): [optional]  # noqa: E501
+            application_links ([ApplicationLink]): [optional]  # noqa: E501
             percent_change (PercentChange): [optional]  # noqa: E501
             label (str): [optional]  # noqa: E501
         """
@@ -328,7 +338,7 @@ class PercentChangeLabelTemplate(ModelComposed):
           ],
           'allOf': [
               PercentChangeLabelTemplateAllOf,
-              Template,
+              TemplateWithLinks,
           ],
           'oneOf': [
           ],

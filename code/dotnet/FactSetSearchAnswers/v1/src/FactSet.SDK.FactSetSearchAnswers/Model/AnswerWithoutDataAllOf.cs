@@ -41,14 +41,18 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// Initializes a new instance of the <see cref="AnswerWithoutDataAllOf" /> class.
         /// </summary>
         /// <param name="title">title (required).</param>
-        /// <param name="templateData">templateData.</param>
-        public AnswerWithoutDataAllOf(string title,AnswerWithoutDataAllOfTemplateData templateData = default(AnswerWithoutDataAllOfTemplateData))
+        /// <param name="templateData">templateData (required).</param>
+        public AnswerWithoutDataAllOf(string title, AnswerWithoutDataAllOfTemplateData templateData)
         {
             // to ensure "title" is required (not null)
             if (title == null) {
                 throw new ArgumentNullException("title is a required property for AnswerWithoutDataAllOf and cannot be null");
             }
             this.Title = title;
+            // to ensure "templateData" is required (not null)
+            if (templateData == null) {
+                throw new ArgumentNullException("templateData is a required property for AnswerWithoutDataAllOf and cannot be null");
+            }
             this.TemplateData = templateData;
         }
 
@@ -61,7 +65,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Gets or Sets TemplateData
         /// </summary>
-        [DataMember(Name = "templateData", EmitDefaultValue = false)]
+        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
         public AnswerWithoutDataAllOfTemplateData TemplateData { get; set; }
 
         /// <summary>

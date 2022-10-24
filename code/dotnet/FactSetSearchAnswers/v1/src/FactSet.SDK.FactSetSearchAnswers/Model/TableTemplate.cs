@@ -40,13 +40,19 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TableTemplate" /> class.
         /// </summary>
+        /// <param name="templateName">templateName (required).</param>
         /// <param name="headline">headline (required).</param>
         /// <param name="footer">footer.</param>
         /// <param name="fdc3Context">fdc3Context.</param>
         /// <param name="applicationLinks">applicationLinks.</param>
         /// <param name="table">table.</param>
-        public TableTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), Table table = default(Table))
+        public TableTemplate(string templateName, string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), Table table = default(Table))
         {
+            // to ensure "templateName" is required (not null)
+            if (templateName == null) {
+                throw new ArgumentNullException("templateName is a required property for TableTemplate and cannot be null");
+            }
+            this.TemplateName = templateName;
             // to ensure "headline" is required (not null)
             if (headline == null) {
                 throw new ArgumentNullException("headline is a required property for TableTemplate and cannot be null");
@@ -57,6 +63,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             this.ApplicationLinks = applicationLinks;
             this.Table = table;
         }
+
+        /// <summary>
+        /// Gets or Sets TemplateName
+        /// </summary>
+        [DataMember(Name = "templateName", IsRequired = true, EmitDefaultValue = false)]
+        public string TemplateName { get; set; }
 
         /// <summary>
         /// Gets or Sets Headline
@@ -96,6 +108,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TableTemplate {\n");
+            sb.Append("  TemplateName: ").Append(TemplateName).Append("\n");
             sb.Append("  Headline: ").Append(Headline).Append("\n");
             sb.Append("  Footer: ").Append(Footer).Append("\n");
             sb.Append("  Fdc3Context: ").Append(Fdc3Context).Append("\n");
@@ -137,6 +150,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
+                    this.TemplateName == input.TemplateName ||
+                    (this.TemplateName != null &&
+                    this.TemplateName.Equals(input.TemplateName))
+                ) && 
+                (
                     this.Headline == input.Headline ||
                     (this.Headline != null &&
                     this.Headline.Equals(input.Headline))
@@ -173,6 +191,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TemplateName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.Headline != null)
                 {
                     hashCode = (hashCode * 59) + this.Headline.GetHashCode();

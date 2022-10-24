@@ -1,0 +1,867 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Allow clients to fetch Analytics through APIs.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Security-Modeling API
+  version: "3"
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /analytics/security-modeling/v3/securities/upsert:
+    post:
+      description: This endpoint is to create or update existing securities.
+      operationId: upsertSecurities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SMCreateParametersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SMCreateResponseRoot'
+          description: Expected response, returns a status of operation along with
+            errors and warnings if found any.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Create or update securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    SMFields:
+      additionalProperties: false
+      properties:
+        securityType:
+          enum:
+          - Bond
+          type: string
+      required:
+      - securityType
+      type: object
+    SMBondFields:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/SMFields'
+      properties:
+        "144aFlag":
+          nullable: true
+          type: boolean
+        aperiodicMultipliers:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        aperiodicResetDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        aperiodicSpreads:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        businessDayConv:
+          nullable: true
+          type: string
+        callAnnounceDate:
+          nullable: true
+          type: string
+        callDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        callFreq:
+          nullable: true
+          type: string
+        callNoticeDays:
+          format: int32
+          nullable: true
+          type: integer
+        callPrices:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        cashRate:
+          format: double
+          nullable: true
+          type: number
+        cognity:
+          nullable: true
+          type: string
+        conversionIdentifier:
+          nullable: true
+          type: string
+        conversionRatio:
+          format: double
+          nullable: true
+          type: number
+        conversionType:
+          nullable: true
+          type: string
+        convertibleFlag:
+          nullable: true
+          type: boolean
+        country:
+          nullable: true
+          type: string
+        coupon:
+          format: double
+          nullable: true
+          type: number
+        couponType:
+          nullable: true
+          type: string
+        creditSpreadAdjustmentSingle:
+          format: double
+          nullable: true
+          type: number
+        currency:
+          nullable: true
+          type: string
+        dayCountBasis:
+          nullable: true
+          type: string
+        defaultedDate:
+          nullable: true
+          type: string
+        federalTaxExemptFlag:
+          nullable: true
+          type: boolean
+        firstPayDate:
+          nullable: true
+          type: string
+        firstResetDate:
+          nullable: true
+          type: string
+        floatFormula:
+          nullable: true
+          type: string
+        fltDayCountBasis:
+          nullable: true
+          type: string
+        fltFirstPayDate:
+          nullable: true
+          type: string
+        fltPayFreq:
+          nullable: true
+          type: string
+        histCouponDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        histCoupons:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        histRcvAssumpDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        histRcvAssumpMonths:
+          items:
+            format: int32
+            nullable: true
+            type: integer
+          nullable: true
+          type: array
+        histRcvAssumpRates:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        histRcvAssumpTargetDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        inflationType:
+          nullable: true
+          type: string
+        issueDate:
+          nullable: true
+          type: string
+        issueName:
+          nullable: true
+          type: string
+        issuerId:
+          nullable: true
+          type: string
+        lastModifiedSource:
+          nullable: true
+          type: string
+        lastModifiedSourceMeta:
+          nullable: true
+          type: string
+        lastModifiedTime:
+          nullable: true
+          type: string
+        lifeCap:
+          format: double
+          nullable: true
+          type: number
+        lifeFloor:
+          format: double
+          nullable: true
+          type: number
+        lockoutDays:
+          format: int32
+          nullable: true
+          type: integer
+        lookBackDays:
+          format: int32
+          nullable: true
+          type: integer
+        makeWholeCallFlag:
+          nullable: true
+          type: boolean
+        makeWholeExpireDate:
+          nullable: true
+          type: string
+        makeWholeSpread:
+          format: double
+          nullable: true
+          type: number
+        matrixDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        matrixMultipliers:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        matrixPricedFlag:
+          nullable: true
+          type: boolean
+        matrixSpreads:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        matrixUseScheduleFlag:
+          nullable: true
+          type: boolean
+        maturityDate:
+          nullable: true
+          type: string
+        maturityPrice:
+          format: double
+          nullable: true
+          type: number
+        monthsToRecovery:
+          format: double
+          nullable: true
+          type: number
+        multiplier:
+          format: double
+          nullable: true
+          type: number
+        notionalFlag:
+          nullable: true
+          type: boolean
+        observationShift:
+          format: int32
+          nullable: true
+          type: integer
+        origAmtIssued:
+          format: double
+          nullable: true
+          type: number
+        parentName:
+          nullable: true
+          type: string
+        parPrice:
+          format: double
+          nullable: true
+          type: number
+        parserInfo:
+          nullable: true
+          type: string
+        paymentDelay:
+          format: int32
+          nullable: true
+          type: integer
+        payFreq:
+          nullable: true
+          type: string
+        periodCap:
+          format: double
+          nullable: true
+          type: number
+        periodFloor:
+          format: double
+          nullable: true
+          type: number
+        pikExpDate:
+          nullable: true
+          type: string
+        pikRate:
+          format: int32
+          nullable: true
+          type: integer
+        preferredSecExDateLen:
+          format: int32
+          nullable: true
+          type: integer
+        preferredSecExDateUnits:
+          nullable: true
+          type: string
+        preferredSecFlag:
+          nullable: true
+          type: boolean
+        principalType:
+          nullable: true
+          type: string
+        putDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        putNoticeDays:
+          format: int32
+          nullable: true
+          type: integer
+        putFreq:
+          nullable: true
+          type: string
+        putPrices:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        pvtPlacementFlag:
+          nullable: true
+          type: boolean
+        ratingFitch:
+          nullable: true
+          type: string
+        ratingFitchDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingFitchValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingMoodysDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingMoodysValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingSpDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ratingSpValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        recoveryPercentage:
+          format: double
+          nullable: true
+          type: number
+        redemptionDate:
+          nullable: true
+          type: string
+        redemptionOpt:
+          nullable: true
+          type: string
+        redemptionPrice:
+          format: double
+          nullable: true
+          type: number
+        reinstatedDate:
+          nullable: true
+          type: string
+        resetDelay:
+          format: int32
+          nullable: true
+          type: integer
+        resetFreq:
+          nullable: true
+          type: string
+        secondaryToVendorFlag:
+          nullable: true
+          type: boolean
+        sector:
+          nullable: true
+          type: string
+        sectorBarclay1:
+          nullable: true
+          type: string
+        sectorBarclay2:
+          nullable: true
+          type: string
+        sectorBarclay3:
+          nullable: true
+          type: string
+        sectorBarclay4:
+          nullable: true
+          type: string
+        sectorDef:
+          nullable: true
+          type: string
+        sectorIndustry:
+          nullable: true
+          type: string
+        sectorMain:
+          nullable: true
+          type: string
+        sectorMerrill1:
+          nullable: true
+          type: string
+        sectorMerrill2:
+          nullable: true
+          type: string
+        sectorMerrill3:
+          nullable: true
+          type: string
+        sectorMerrill4:
+          nullable: true
+          type: string
+        sectorSubGroup:
+          nullable: true
+          type: string
+        sinkAmts:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        sinkDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        spread:
+          format: double
+          nullable: true
+          type: number
+        state:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        statusDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        statusValues:
+          items:
+            type: string
+          nullable: true
+          type: array
+        stepCashRates:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        stepCouponDates:
+          items:
+            type: string
+          nullable: true
+          type: array
+        stepCoupons:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        stepPikRates:
+          items:
+            format: double
+            nullable: true
+            type: number
+          nullable: true
+          type: array
+        vendorCoverageDate:
+          nullable: true
+          type: string
+        vRDNFlag:
+          nullable: true
+          type: boolean
+      type: object
+    OneOfSMFields:
+      discriminator:
+        mapping:
+          Bond: '#/components/schemas/SMBondFields'
+        propertyName: securityType
+      oneOf:
+      - $ref: '#/components/schemas/SMBondFields'
+    SMCreateParameters:
+      additionalProperties: false
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        location: location
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        fields:
+          $ref: '#/components/schemas/OneOfSMFields'
+      required:
+      - fields
+      - securityName
+      type: object
+    SMCreateParametersRoot:
+      additionalProperties: false
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMCreateParameters'
+          nullable: true
+          type: array
+      type: object
+    SMWarning:
+      additionalProperties: false
+      example:
+        detail: detail
+      properties:
+        detail:
+          nullable: true
+          type: string
+      type: object
+    SMError:
+      additionalProperties: false
+      example:
+        detail: detail
+      properties:
+        detail:
+          nullable: true
+          type: string
+      type: object
+    SMCreateResponse:
+      additionalProperties: false
+      example:
+        securityName: securityName
+        warnings:
+        - detail: detail
+        - detail: detail
+        errors:
+        - detail: detail
+        - detail: detail
+        status: success
+      properties:
+        securityName:
+          nullable: true
+          type: string
+        status:
+          enum:
+          - success
+          - failure
+          type: string
+        warnings:
+          items:
+            $ref: '#/components/schemas/SMWarning'
+          nullable: true
+          type: array
+        errors:
+          items:
+            $ref: '#/components/schemas/SMError'
+          nullable: true
+          type: array
+      type: object
+    SMCreateResponseRoot:
+      additionalProperties: false
+      example:
+        data:
+        - securityName: securityName
+          warnings:
+          - detail: detail
+          - detail: detail
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        - securityName: securityName
+          warnings:
+          - detail: detail
+          - detail: detail
+          errors:
+          - detail: detail
+          - detail: detail
+          status: success
+        meta: '{}'
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMCreateResponse'
+          type: array
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

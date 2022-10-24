@@ -1,11 +1,11 @@
 # FactSet.SDK.FactSetConcordance.Model.ErrorResponseSubErrors
-Sub-Errors related to the error message. Null if not applicable.
+Sub-errors related to the error message. Null if not applicable.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The operation ID | [optional] 
+**Object** | **string** | the operation ID | [optional] 
 **Field** | **string** | Parameter Field Name | [optional] 
 **Message** | **string** | Error message | [optional] 
 **RejectedValue** | **List&lt;string&gt;** | Rejected Values in an Array | [optional] 

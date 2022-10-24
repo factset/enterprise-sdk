@@ -28,11 +28,12 @@ class ValueChangeDateLabelTemplate {
      * @alias module:model/ValueChangeDateLabelTemplate
      * @implements module:model/TemplateWithLinks
      * @implements module:model/ValueChangeDateLabelTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        TemplateWithLinks.initialize(this, headline);ValueChangeDateLabelTemplateAllOf.initialize(this);
-        ValueChangeDateLabelTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);ValueChangeDateLabelTemplateAllOf.initialize(this);
+        ValueChangeDateLabelTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -40,7 +41,8 @@ class ValueChangeDateLabelTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -57,6 +59,9 @@ class ValueChangeDateLabelTemplate {
             TemplateWithLinks.constructFromObject(data, obj);
             ValueChangeDateLabelTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -87,6 +92,11 @@ class ValueChangeDateLabelTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+ValueChangeDateLabelTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -130,6 +140,10 @@ ValueChangeDateLabelTemplate.prototype['label'] = undefined;
 
 
 // Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */

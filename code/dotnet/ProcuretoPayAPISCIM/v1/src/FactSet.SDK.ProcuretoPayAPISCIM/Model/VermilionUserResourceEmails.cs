@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ProcuretoPayAPISCIM.Client.OpenAPIDateC
 namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
 {
     /// <summary>
-    /// Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;.
+    /// VermilionUserResourceEmails
     /// </summary>
     [DataContract(Name = "VermilionUserResource_emails")]
     public partial class VermilionUserResourceEmails : IEquatable<VermilionUserResourceEmails>, IValidatableObject

@@ -8,7 +8,6 @@ docs/AdaptiveCardAnswerSuccessResponse.md
 docs/AdaptiveCardDataItem.md
 docs/AdaptiveCardWithThumbnail.md
 docs/Answer.md
-docs/AnswerAllOf.md
 docs/AnswerFailureResponse.md
 docs/AnswerWithoutData.md
 docs/AnswerWithoutDataAllOf.md
@@ -20,7 +19,6 @@ docs/ColoredValue.md
 docs/ColoredValueLabelDateTemplate.md
 docs/ColoredValueLabelDateTemplateAllOf.md
 docs/CountryID.md
-docs/DataAnswer.md
 docs/DataAnswerData.md
 docs/DataAnswerSuccessResponse.md
 docs/DataPair.md
@@ -35,8 +33,10 @@ docs/LabelValueChangeLabelValueChangeTemplate.md
 docs/LabelValueChangeLabelValueChangeTemplateAllOf.md
 docs/LinkTextBlockTemplate.md
 docs/LinkTextBlockTemplateAllOf.md
+docs/NoAnswersBase.md
 docs/NoAnswersFound.md
 docs/NoAnswersFoundAllOf.md
+docs/NoAnswersFoundAllOfTemplateData.md
 docs/PercentChange.md
 docs/PercentChangeLabelTemplate.md
 docs/PercentChangeLabelTemplateAllOf.md
@@ -79,7 +79,6 @@ src/model/AdaptiveCardAnswerSuccessResponse.js
 src/model/AdaptiveCardDataItem.js
 src/model/AdaptiveCardWithThumbnail.js
 src/model/Answer.js
-src/model/AnswerAllOf.js
 src/model/AnswerFailureResponse.js
 src/model/AnswerWithoutData.js
 src/model/AnswerWithoutDataAllOf.js
@@ -90,7 +89,6 @@ src/model/ColoredValue.js
 src/model/ColoredValueLabelDateTemplate.js
 src/model/ColoredValueLabelDateTemplateAllOf.js
 src/model/CountryID.js
-src/model/DataAnswer.js
 src/model/DataAnswerData.js
 src/model/DataAnswerSuccessResponse.js
 src/model/DataPair.js
@@ -105,8 +103,10 @@ src/model/LabelValueChangeLabelValueChangeTemplate.js
 src/model/LabelValueChangeLabelValueChangeTemplateAllOf.js
 src/model/LinkTextBlockTemplate.js
 src/model/LinkTextBlockTemplateAllOf.js
+src/model/NoAnswersBase.js
 src/model/NoAnswersFound.js
 src/model/NoAnswersFoundAllOf.js
+src/model/NoAnswersFoundAllOfTemplateData.js
 src/model/PercentChange.js
 src/model/PercentChangeLabelTemplate.js
 src/model/PercentChangeLabelTemplateAllOf.js

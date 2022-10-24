@@ -28,11 +28,12 @@ class ColoredValueLabelDateTemplate {
      * @alias module:model/ColoredValueLabelDateTemplate
      * @implements module:model/TemplateWithLinks
      * @implements module:model/ColoredValueLabelDateTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        TemplateWithLinks.initialize(this, headline);ColoredValueLabelDateTemplateAllOf.initialize(this);
-        ColoredValueLabelDateTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);ColoredValueLabelDateTemplateAllOf.initialize(this);
+        ColoredValueLabelDateTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -40,7 +41,8 @@ class ColoredValueLabelDateTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -57,6 +59,9 @@ class ColoredValueLabelDateTemplate {
             TemplateWithLinks.constructFromObject(data, obj);
             ColoredValueLabelDateTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -84,6 +89,11 @@ class ColoredValueLabelDateTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+ColoredValueLabelDateTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -122,6 +132,10 @@ ColoredValueLabelDateTemplate.prototype['date'] = undefined;
 
 
 // Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */

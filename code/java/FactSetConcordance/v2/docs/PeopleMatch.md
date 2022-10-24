@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **lastName** | **String** | The last name of the person. |  [optional]
 **middleName** | **String** | The middle name of the client. |  [optional]
 **entity** | **String** | Full name corresponding to the matched entity. |  [optional]
-**mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Concordance status of the submitted, where -    * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  |  [optional]
+**mapStatus** | [**MapStatusEnum**](#MapStatusEnum) | Concordance status of the submitted, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name has unable to make a mapping.  |  [optional]
 **matchFlag** | **String** | Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity.  |  [optional]
 **nameMatchSource** | **String** | Additional statistic calculated by the algorithm that is used to ensure the validity of the match result. A confidenceScore of 1 is the highest level of confidence.  |  [optional]
 **nameMatchString** | **String** | String on which the Concordance algorithm mapped the submitted entity. |  [optional]
@@ -30,6 +30,12 @@ Name | Type | Description | Notes
 **similarityScore** | **Double** | Probability of the match being similar to the entity requested as determined by the Concordance algorithm. A similarityScore of 1 is the highest level of similarity.  |  [optional]
 **title** | **String** | The title that the person is holding. |  [optional]
 **universeId** | **Integer** | The universe identifier |  [optional]
+**taskId** | **Integer** | Identifier denoting a specific Concordance task submitted by the user. This value will be null for /people-match endpoint responses and is only available when using the \&quot;Bulk\&quot; workflow.  |  [optional]
+**suffix** | **String** | The suffix in the name of the person |  [optional]
+**salutation** | **String** | Title of a person&#39;s name |  [optional]
+**personName** | **String** | Full name of the person matched |  [optional]
+**email** | **String** | Email of the person |  [optional]
+**clientId** | **String** | User defined person id provided when matched with FactSet person. |  [optional]
 
 
 

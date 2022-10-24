@@ -20,7 +20,6 @@ import ApiClient from '../ApiClient';
 class VermilionUserResourceEntitlements {
     /**
      * Constructs a new <code>VermilionUserResourceEntitlements</code>.
-     * A list of entitlements for the User that represent a thing the User has.
      * @alias module:model/VermilionUserResourceEntitlements
      */
     constructor() { 

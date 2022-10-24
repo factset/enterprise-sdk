@@ -8,7 +8,6 @@ docs/AdaptiveCardAnswerSuccessResponse.md
 docs/AdaptiveCardDataItem.md
 docs/AdaptiveCardWithThumbnail.md
 docs/Answer.md
-docs/AnswerAllOf.md
 docs/AnswerFailureResponse.md
 docs/AnswerWithoutData.md
 docs/AnswerWithoutDataAllOf.md
@@ -20,7 +19,6 @@ docs/ColoredValue.md
 docs/ColoredValueLabelDateTemplate.md
 docs/ColoredValueLabelDateTemplateAllOf.md
 docs/CountryID.md
-docs/DataAnswer.md
 docs/DataAnswerData.md
 docs/DataAnswerSuccessResponse.md
 docs/DataPair.md
@@ -35,8 +33,10 @@ docs/LabelValueChangeLabelValueChangeTemplate.md
 docs/LabelValueChangeLabelValueChangeTemplateAllOf.md
 docs/LinkTextBlockTemplate.md
 docs/LinkTextBlockTemplateAllOf.md
+docs/NoAnswersBase.md
 docs/NoAnswersFound.md
 docs/NoAnswersFoundAllOf.md
+docs/NoAnswersFoundAllOfTemplateData.md
 docs/PercentChange.md
 docs/PercentChangeLabelTemplate.md
 docs/PercentChangeLabelTemplateAllOf.md
@@ -82,7 +82,6 @@ fds/sdk/FactSetSearchAnswers/model/adaptive_card_answer_success_response.py
 fds/sdk/FactSetSearchAnswers/model/adaptive_card_data_item.py
 fds/sdk/FactSetSearchAnswers/model/adaptive_card_with_thumbnail.py
 fds/sdk/FactSetSearchAnswers/model/answer.py
-fds/sdk/FactSetSearchAnswers/model/answer_all_of.py
 fds/sdk/FactSetSearchAnswers/model/answer_failure_response.py
 fds/sdk/FactSetSearchAnswers/model/answer_without_data.py
 fds/sdk/FactSetSearchAnswers/model/answer_without_data_all_of.py
@@ -93,7 +92,6 @@ fds/sdk/FactSetSearchAnswers/model/colored_value.py
 fds/sdk/FactSetSearchAnswers/model/colored_value_label_date_template.py
 fds/sdk/FactSetSearchAnswers/model/colored_value_label_date_template_all_of.py
 fds/sdk/FactSetSearchAnswers/model/country_id.py
-fds/sdk/FactSetSearchAnswers/model/data_answer.py
 fds/sdk/FactSetSearchAnswers/model/data_answer_data.py
 fds/sdk/FactSetSearchAnswers/model/data_answer_success_response.py
 fds/sdk/FactSetSearchAnswers/model/data_pair.py
@@ -108,8 +106,10 @@ fds/sdk/FactSetSearchAnswers/model/label_value_change_label_value_change_templat
 fds/sdk/FactSetSearchAnswers/model/label_value_change_label_value_change_template_all_of.py
 fds/sdk/FactSetSearchAnswers/model/link_text_block_template.py
 fds/sdk/FactSetSearchAnswers/model/link_text_block_template_all_of.py
+fds/sdk/FactSetSearchAnswers/model/no_answers_base.py
 fds/sdk/FactSetSearchAnswers/model/no_answers_found.py
 fds/sdk/FactSetSearchAnswers/model/no_answers_found_all_of.py
+fds/sdk/FactSetSearchAnswers/model/no_answers_found_all_of_template_data.py
 fds/sdk/FactSetSearchAnswers/model/percent_change.py
 fds/sdk/FactSetSearchAnswers/model/percent_change_label_template.py
 fds/sdk/FactSetSearchAnswers/model/percent_change_label_template_all_of.py

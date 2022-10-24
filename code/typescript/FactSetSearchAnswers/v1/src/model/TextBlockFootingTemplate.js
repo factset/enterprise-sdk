@@ -28,11 +28,12 @@ class TextBlockFootingTemplate {
      * @alias module:model/TextBlockFootingTemplate
      * @implements module:model/TemplateWithLinks
      * @implements module:model/TextBlockFootingTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        TemplateWithLinks.initialize(this, headline);TextBlockFootingTemplateAllOf.initialize(this);
-        TextBlockFootingTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);TextBlockFootingTemplateAllOf.initialize(this);
+        TextBlockFootingTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -40,7 +41,8 @@ class TextBlockFootingTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -57,6 +59,9 @@ class TextBlockFootingTemplate {
             TemplateWithLinks.constructFromObject(data, obj);
             TextBlockFootingTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -81,6 +86,11 @@ class TextBlockFootingTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+TextBlockFootingTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -114,6 +124,10 @@ TextBlockFootingTemplate.prototype['footing'] = undefined;
 
 
 // Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */

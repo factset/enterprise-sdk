@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **String** |  | 
-**templateData** | [**AnswerWithoutDataAllOfTemplateData**](AnswerWithoutDataAllOfTemplateData.md) |  | [optional] 
+**templateData** | [**AnswerWithoutDataAllOfTemplateData**](AnswerWithoutDataAllOfTemplateData.md) |  | 
 
 

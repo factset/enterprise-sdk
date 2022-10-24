@@ -40,33 +40,33 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoAnswersFoundAllOf" /> class.
         /// </summary>
-        /// <param name="message">message (required).</param>
         /// <param name="querySuggestions">querySuggestions (required).</param>
-        public NoAnswersFoundAllOf(string message, List<string> querySuggestions)
+        /// <param name="templateData">templateData (required).</param>
+        public NoAnswersFoundAllOf(List<string> querySuggestions, NoAnswersFoundAllOfTemplateData templateData)
         {
-            // to ensure "message" is required (not null)
-            if (message == null) {
-                throw new ArgumentNullException("message is a required property for NoAnswersFoundAllOf and cannot be null");
-            }
-            this.Message = message;
             // to ensure "querySuggestions" is required (not null)
             if (querySuggestions == null) {
                 throw new ArgumentNullException("querySuggestions is a required property for NoAnswersFoundAllOf and cannot be null");
             }
             this.QuerySuggestions = querySuggestions;
+            // to ensure "templateData" is required (not null)
+            if (templateData == null) {
+                throw new ArgumentNullException("templateData is a required property for NoAnswersFoundAllOf and cannot be null");
+            }
+            this.TemplateData = templateData;
         }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
-        public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets QuerySuggestions
         /// </summary>
         [DataMember(Name = "querySuggestions", IsRequired = true, EmitDefaultValue = false)]
         public List<string> QuerySuggestions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TemplateData
+        /// </summary>
+        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
+        public NoAnswersFoundAllOfTemplateData TemplateData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,8 +76,8 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class NoAnswersFoundAllOf {\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  QuerySuggestions: ").Append(QuerySuggestions).Append("\n");
+            sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,15 +114,15 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
                     this.QuerySuggestions == input.QuerySuggestions ||
                     this.QuerySuggestions != null &&
                     input.QuerySuggestions != null &&
                     this.QuerySuggestions.SequenceEqual(input.QuerySuggestions)
+                ) && 
+                (
+                    this.TemplateData == input.TemplateData ||
+                    (this.TemplateData != null &&
+                    this.TemplateData.Equals(input.TemplateData))
                 );
         }
 
@@ -135,13 +135,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
                 if (this.QuerySuggestions != null)
                 {
                     hashCode = (hashCode * 59) + this.QuerySuggestions.GetHashCode();
+                }
+                if (this.TemplateData != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateData.GetHashCode();
                 }
                 return hashCode;
             }

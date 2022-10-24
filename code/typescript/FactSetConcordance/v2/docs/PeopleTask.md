@@ -20,9 +20,21 @@ Name | Type | Description | Notes
 **taskSubmitTime** | **Date** | Time the Task was submitted in UTC. | [optional] 
 **taskId** | **Number** | The task identifier | [optional] 
 **taskName** | **String** | The task name | [optional] 
+**unmappedCount** | **Number** | Number of records with status of UNMAPPED the Input File. | [optional] 
+**tryCount** | **Number** | Number of tries made so far for the request. | [optional] 
+**decisionRate** | **Number** | Percentage of mapped entities in the Input File. | [optional] 
+**processStartTime** | **Date** | Process start time in UTC. | [optional] 
+**processDuration** | **Number** | Process duration in seconds. | [optional] 
+**mappedCount** | **Number** | Number of records with status of MAPPED the Input File. | [optional] 
+**message** | **String** | Textual message for the status. | [optional] 
+**error** | **String** |  | [optional] 
+**errorTitle** | **String** |  | [optional] 
+**inputCount** | **Number** | Number of records in the Input File. | [optional] 
+**indeterminateCount** | **Number** | Number of records with status of INDETERMINATE the Input File. | [optional] 
 **universeId** | **Number** | The universe identifier | [optional] 
 **universeName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
-**userSerial** | **String** | user-serial of the person who initiated the entity task. | [optional] 
+**userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
+**userSerial** | **String** | user-serial of the person who initiated the people task  | [optional] 
 
 
 

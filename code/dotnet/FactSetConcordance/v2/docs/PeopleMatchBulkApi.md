@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Response object for Entity Decisions endpoint. |  -  |
+| **200** | Response object for People Decisions endpoint. |  -  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -156,7 +156,7 @@ namespace Example
             var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
             var clientIdColumn = "clientIdColumn_example";  // string | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
             var entityColumn = "entityColumn_example";  // string | Header name of the column in the input file that contains the Entity Name to be matched. 
-            var firstNameColumn = "firstNameColumn_example";  // string | First name of the person.**Do not include with `personNameColumn`**.   (optional) 
+            var firstNameColumn = "firstNameColumn_example";  // string | First name of the person.**Do not include with `personNameColumn`**.  (optional) 
             var lastNameColumn = "lastNameColumn_example";  // string | Lat name of the person.**Do not include with `personNameColumn`**.  (optional) 
             var middleNameColumn = "middleNameColumn_example";  // string | Middle name of the person.**Do not include within `personNameColumn`**.  (optional) 
             var personNameColumn = "personNameColumn_example";  // string | Header name of the column in the input file that contains the name of the person to be matched. **Do not include with `firstNameColumn` and `lastNameColumn`.**  (optional) 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
  **inputFile** | **System.IO.Stream****System.IO.Stream**| The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  | 
  **clientIdColumn** | **string**| Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  | 
  **entityColumn** | **string**| Header name of the column in the input file that contains the Entity Name to be matched.  | 
- **firstNameColumn** | **string**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   | [optional] 
+ **firstNameColumn** | **string**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **lastNameColumn** | **string**| Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional] 
  **middleNameColumn** | **string**| Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  | [optional] 
  **personNameColumn** | **string**| Header name of the column in the input file that contains the name of the person to be matched. **Do not include with &#x60;firstNameColumn&#x60; and &#x60;lastNameColumn&#x60;.**  | [optional] 

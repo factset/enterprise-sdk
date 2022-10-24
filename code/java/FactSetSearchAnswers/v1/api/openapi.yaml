@@ -210,24 +210,30 @@ components:
         parameter:
           type: string
       type: object
-    DataAnswer:
+    Answer:
       properties:
-        template:
+        title:
+          type: string
+        templateData:
+          $ref: '#/components/schemas/TemplateData'
+      required:
+      - templateData
+      - title
+      type: object
+    NoAnswersBase:
+      properties:
+        message:
           type: string
       required:
-      - template
+      - message
       type: object
-    Answer:
-      allOf:
-      - $ref: '#/components/schemas/DataAnswer'
-      - $ref: '#/components/schemas/Answer_allOf'
     AnswerWithoutData:
       allOf:
-      - $ref: '#/components/schemas/NoAnswersFound'
+      - $ref: '#/components/schemas/NoAnswersBase'
       - $ref: '#/components/schemas/AnswerWithoutData_allOf'
     NoAnswersFound:
       allOf:
-      - $ref: '#/components/schemas/DataAnswer'
+      - $ref: '#/components/schemas/NoAnswersBase'
       - $ref: '#/components/schemas/NoAnswersFound_allOf'
     Fdc3Country:
       properties:
@@ -293,6 +299,8 @@ components:
       type: object
     Template:
       properties:
+        templateName:
+          type: string
         headline:
           type: string
         footer:
@@ -301,6 +309,7 @@ components:
           $ref: '#/components/schemas/Fdc3Context'
       required:
       - headline
+      - templateName
       type: object
     TemplateWithLinks:
       allOf:
@@ -316,7 +325,7 @@ components:
       - $ref: '#/components/schemas/TextBlockFootingTemplate_allOf'
     PercentChangeLabelTemplate:
       allOf:
-      - $ref: '#/components/schemas/Template'
+      - $ref: '#/components/schemas/TemplateWithLinks'
       - $ref: '#/components/schemas/PercentChangeLabelTemplate_allOf'
     ValueChangeDateLabelTemplate:
       allOf:
@@ -360,7 +369,7 @@ components:
       - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeTemplate_allOf'
     TemplateData:
       discriminator:
-        propertyName: template
+        propertyName: templateName
       oneOf:
       - $ref: '#/components/schemas/LinkTextBlockTemplate'
       - $ref: '#/components/schemas/TextBlockFootingTemplate'
@@ -450,7 +459,7 @@ components:
             $ref: '#/components/schemas/RankedTableRow'
           type: array
       required:
-      - tableRows
+      - rows
       type: object
     RankedTableRow:
       properties:
@@ -495,7 +504,6 @@ components:
       required:
       - name
       - webLink
-      - workstationLink
       type: object
     AdaptiveCardAnswerSuccessResponse:
       example:
@@ -535,20 +543,14 @@ components:
         format.
       nullable: true
       type: object
-    Answer_allOf:
-      properties:
-        templateData:
-          $ref: '#/components/schemas/TemplateData'
-        title:
-          type: string
-      required:
-      - templateData
-      - title
-      type: object
     AnswerWithoutData_allOf_templateData:
       properties:
+        templateName:
+          type: string
         fdc3Context:
           $ref: '#/components/schemas/Fdc3Context'
+      required:
+      - templateName
       type: object
     AnswerWithoutData_allOf:
       properties:
@@ -557,19 +559,27 @@ components:
         templateData:
           $ref: '#/components/schemas/AnswerWithoutData_allOf_templateData'
       required:
+      - templateData
       - title
+      type: object
+    NoAnswersFound_allOf_templateData:
+      properties:
+        templateName:
+          type: string
+      required:
+      - templateName
       type: object
     NoAnswersFound_allOf:
       properties:
-        message:
-          type: string
         querySuggestions:
           items:
             type: string
           type: array
+        templateData:
+          $ref: '#/components/schemas/NoAnswersFound_allOf_templateData'
       required:
-      - message
       - querySuggestions
+      - templateData
       type: object
     TemplateWithLinks_allOf:
       properties:
@@ -584,7 +594,7 @@ components:
       properties:
         link:
           type: string
-        blurb:
+        text:
           type: string
       type: object
     TextBlockFootingTemplate_allOf:
@@ -662,7 +672,7 @@ components:
           type: string
         date:
           type: string
-        blurb:
+        text:
           type: string
       type: object
     ValueLabelDateDataPairListTemplate_allOf:

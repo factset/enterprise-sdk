@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.FactSetSearchAnswers.models.NoAnswersFoundAllOfTemplateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,57 +34,31 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * NoAnswersFoundAllOf
  */
 @JsonPropertyOrder({
-  NoAnswersFoundAllOf.JSON_PROPERTY_MESSAGE,
-  NoAnswersFoundAllOf.JSON_PROPERTY_QUERY_SUGGESTIONS
+  NoAnswersFoundAllOf.JSON_PROPERTY_QUERY_SUGGESTIONS,
+  NoAnswersFoundAllOf.JSON_PROPERTY_TEMPLATE_DATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NoAnswersFoundAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
   public static final String JSON_PROPERTY_QUERY_SUGGESTIONS = "querySuggestions";
   private java.util.List<String> querySuggestions = new java.util.ArrayList<>();
+
+  public static final String JSON_PROPERTY_TEMPLATE_DATA = "templateData";
+  private NoAnswersFoundAllOfTemplateData templateData;
 
   public NoAnswersFoundAllOf() { 
   }
 
   @JsonCreator
   public NoAnswersFoundAllOf(
-    @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message, 
-    @JsonProperty(value=JSON_PROPERTY_QUERY_SUGGESTIONS, required=true) java.util.List<String> querySuggestions
+    @JsonProperty(value=JSON_PROPERTY_QUERY_SUGGESTIONS, required=true) java.util.List<String> querySuggestions, 
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) NoAnswersFoundAllOfTemplateData templateData
   ) {
     this();
-    this.message = message;
     this.querySuggestions = querySuggestions;
+    this.templateData = templateData;
   }
-
-  public NoAnswersFoundAllOf message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
 
   public NoAnswersFoundAllOf querySuggestions(java.util.List<String> querySuggestions) {
     this.querySuggestions = querySuggestions;
@@ -116,6 +91,32 @@ public class NoAnswersFoundAllOf implements Serializable {
   }
 
 
+  public NoAnswersFoundAllOf templateData(NoAnswersFoundAllOfTemplateData templateData) {
+    this.templateData = templateData;
+    return this;
+  }
+
+   /**
+   * Get templateData
+   * @return templateData
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public NoAnswersFoundAllOfTemplateData getTemplateData() {
+    return templateData;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateData(NoAnswersFoundAllOfTemplateData templateData) {
+    this.templateData = templateData;
+  }
+
+
   /**
    * Return true if this NoAnswersFound_allOf object is equal to o.
    */
@@ -128,21 +129,21 @@ public class NoAnswersFoundAllOf implements Serializable {
       return false;
     }
     NoAnswersFoundAllOf noAnswersFoundAllOf = (NoAnswersFoundAllOf) o;
-    return Objects.equals(this.message, noAnswersFoundAllOf.message) &&
-        Objects.equals(this.querySuggestions, noAnswersFoundAllOf.querySuggestions);
+    return Objects.equals(this.querySuggestions, noAnswersFoundAllOf.querySuggestions) &&
+        Objects.equals(this.templateData, noAnswersFoundAllOf.templateData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, querySuggestions);
+    return Objects.hash(querySuggestions, templateData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NoAnswersFoundAllOf {\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    querySuggestions: ").append(toIndentedString(querySuggestions)).append("\n");
+    sb.append("    templateData: ").append(toIndentedString(templateData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

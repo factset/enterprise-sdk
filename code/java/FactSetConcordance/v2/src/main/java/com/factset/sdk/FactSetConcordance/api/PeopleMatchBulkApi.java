@@ -89,7 +89,7 @@ public class PeopleMatchBulkApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Response object for Entity Decisions endpoint. </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Response object for People Decisions endpoint. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -112,7 +112,7 @@ public class PeopleMatchBulkApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Response object for Entity Decisions endpoint. </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Response object for People Decisions endpoint. </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -176,7 +176,7 @@ public class PeopleMatchBulkApi {
    * @param inputFile The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  (required)
    * @param clientIdColumn Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  (required)
    * @param entityColumn Header name of the column in the input file that contains the Entity Name to be matched.  (required)
-   * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   (optional)
+   * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param lastNameColumn Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param middleNameColumn Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  (optional)
    * @param personNameColumn Header name of the column in the input file that contains the name of the person to be matched. **Do not include with &#x60;firstNameColumn&#x60; and &#x60;lastNameColumn&#x60;.**  (optional)
@@ -208,7 +208,7 @@ public class PeopleMatchBulkApi {
    * @param inputFile The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  (required)
    * @param clientIdColumn Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  (required)
    * @param entityColumn Header name of the column in the input file that contains the Entity Name to be matched.  (required)
-   * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   (optional)
+   * @param firstNameColumn First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param lastNameColumn Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  (optional)
    * @param middleNameColumn Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  (optional)
    * @param personNameColumn Header name of the column in the input file that contains the name of the person to be matched. **Do not include with &#x60;firstNameColumn&#x60; and &#x60;lastNameColumn&#x60;.**  (optional)

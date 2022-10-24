@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ProcuretoPayAPISCIM.Client.OpenAPIDateC
 namespace FactSet.SDK.ProcuretoPayAPISCIM.Model
 {
     /// <summary>
-    /// A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.
+    /// VermilionUserResourceRoles
     /// </summary>
     [DataContract(Name = "VermilionUserResource_roles")]
     public partial class VermilionUserResourceRoles : IEquatable<VermilionUserResourceRoles>, IValidatableObject

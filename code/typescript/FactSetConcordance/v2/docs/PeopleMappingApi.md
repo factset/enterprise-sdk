@@ -45,7 +45,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new PeopleMappingApi();
-const entityMappingDeleteRequest = new factsetconcordance.EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
+const entityMappingDeleteRequest = new factsetconcordance.EntityMappingDeleteRequest(); // EntityMappingDeleteRequest | A request to delete people mappings specified by the client
 
 // Call api endpoint
 apiInstance.getPeopleMappingDeleteForList(entityMappingDeleteRequest).then(
@@ -67,7 +67,7 @@ apiInstance.getPeopleMappingDeleteForList(entityMappingDeleteRequest).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entityMappingDeleteRequest** | [**EntityMappingDeleteRequest**](EntityMappingDeleteRequest.md)| A request to delete entity mappings specified by the client | 
+ **entityMappingDeleteRequest** | [**EntityMappingDeleteRequest**](EntityMappingDeleteRequest.md)| A request to delete people mappings specified by the client | 
 
 ### Return type
 

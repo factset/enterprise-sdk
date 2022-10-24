@@ -38,13 +38,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="value">value.</param>
         /// <param name="label">label.</param>
         /// <param name="date">date.</param>
-        /// <param name="blurb">blurb.</param>
-        public ValueLabelDateTextBlockTemplateAllOf(string value = default(string), string label = default(string), string date = default(string), string blurb = default(string))
+        /// <param name="text">text.</param>
+        public ValueLabelDateTextBlockTemplateAllOf(string value = default(string), string label = default(string), string date = default(string), string text = default(string))
         {
             this.Value = value;
             this.Label = label;
             this.Date = date;
-            this.Blurb = blurb;
+            this.Text = text;
         }
 
         /// <summary>
@@ -66,10 +66,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public string Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Blurb
+        /// Gets or Sets Text
         /// </summary>
-        [DataMember(Name = "blurb", EmitDefaultValue = false)]
-        public string Blurb { get; set; }
+        [DataMember(Name = "text", EmitDefaultValue = false)]
+        public string Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,7 +82,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Blurb: ").Append(Blurb).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,9 +134,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                     this.Date.Equals(input.Date))
                 ) && 
                 (
-                    this.Blurb == input.Blurb ||
-                    (this.Blurb != null &&
-                    this.Blurb.Equals(input.Blurb))
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -161,9 +161,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 {
                     hashCode = (hashCode * 59) + this.Date.GetHashCode();
                 }
-                if (this.Blurb != null)
+                if (this.Text != null)
                 {
-                    hashCode = (hashCode * 59) + this.Blurb.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
                 }
                 return hashCode;
             }

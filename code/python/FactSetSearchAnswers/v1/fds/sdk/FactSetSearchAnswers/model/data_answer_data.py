@@ -33,12 +33,12 @@ from fds.sdk.FactSetSearchAnswers.exceptions import ApiAttributeError
 def lazy_import():
     from fds.sdk.FactSetSearchAnswers.model.answer import Answer
     from fds.sdk.FactSetSearchAnswers.model.answer_without_data import AnswerWithoutData
-    from fds.sdk.FactSetSearchAnswers.model.answer_without_data_all_of_template_data import AnswerWithoutDataAllOfTemplateData
     from fds.sdk.FactSetSearchAnswers.model.no_answers_found import NoAnswersFound
+    from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of_template_data import NoAnswersFoundAllOfTemplateData
     globals()['Answer'] = Answer
     globals()['AnswerWithoutData'] = AnswerWithoutData
-    globals()['AnswerWithoutDataAllOfTemplateData'] = AnswerWithoutDataAllOfTemplateData
     globals()['NoAnswersFound'] = NoAnswersFound
+    globals()['NoAnswersFoundAllOfTemplateData'] = NoAnswersFoundAllOfTemplateData
 
 
 class DataAnswerData(ModelComposed):
@@ -94,9 +94,8 @@ class DataAnswerData(ModelComposed):
         """
         lazy_import()
         return {
-            'template': (str,),  # noqa: E501
-            'template_data': (AnswerWithoutDataAllOfTemplateData,),  # noqa: E501
             'title': (str,),  # noqa: E501
+            'template_data': (NoAnswersFoundAllOfTemplateData,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'query_suggestions': ([str],),  # noqa: E501
         }
@@ -107,9 +106,8 @@ class DataAnswerData(ModelComposed):
 
 
     attribute_map = {
-        'template': 'template',  # noqa: E501
-        'template_data': 'templateData',  # noqa: E501
         'title': 'title',  # noqa: E501
+        'template_data': 'templateData',  # noqa: E501
         'message': 'message',  # noqa: E501
         'query_suggestions': 'querySuggestions',  # noqa: E501
     }
@@ -153,9 +151,8 @@ class DataAnswerData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template (str): [optional]  # noqa: E501
-            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
+            template_data (NoAnswersFoundAllOfTemplateData): [optional]  # noqa: E501
             message (str): [optional]  # noqa: E501
             query_suggestions ([str]): [optional]  # noqa: E501
         """
@@ -257,9 +254,8 @@ class DataAnswerData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template (str): [optional]  # noqa: E501
-            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
+            template_data (NoAnswersFoundAllOfTemplateData): [optional]  # noqa: E501
             message (str): [optional]  # noqa: E501
             query_suggestions ([str]): [optional]  # noqa: E501
         """

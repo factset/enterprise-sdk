@@ -20,7 +20,6 @@ import ApiClient from '../ApiClient';
 class VermilionUserResourceRoles {
     /**
      * Constructs a new <code>VermilionUserResourceRoles</code>.
-     * A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.
      * @alias module:model/VermilionUserResourceRoles
      */
     constructor() { 

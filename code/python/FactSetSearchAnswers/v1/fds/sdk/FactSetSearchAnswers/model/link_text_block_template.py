@@ -94,12 +94,13 @@ class LinkTextBlockTemplate(ModelComposed):
         """
         lazy_import()
         return {
+            'template_name': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
             'footer': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
             'application_links': ([ApplicationLink],),  # noqa: E501
             'link': (str,),  # noqa: E501
-            'blurb': (str,),  # noqa: E501
+            'text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,12 +109,13 @@ class LinkTextBlockTemplate(ModelComposed):
 
 
     attribute_map = {
+        'template_name': 'templateName',  # noqa: E501
         'headline': 'headline',  # noqa: E501
         'footer': 'footer',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
         'application_links': 'applicationLinks',  # noqa: E501
         'link': 'link',  # noqa: E501
-        'blurb': 'blurb',  # noqa: E501
+        'text': 'text',  # noqa: E501
     }
 
     read_only_vars = {
@@ -125,6 +127,7 @@ class LinkTextBlockTemplate(ModelComposed):
         """LinkTextBlockTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -160,7 +163,7 @@ class LinkTextBlockTemplate(ModelComposed):
             fdc3_context (Fdc3Context): [optional]  # noqa: E501
             application_links ([ApplicationLink]): [optional]  # noqa: E501
             link (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,6 +233,7 @@ class LinkTextBlockTemplate(ModelComposed):
         """LinkTextBlockTemplate - a model defined in OpenAPI
 
         Keyword Args:
+            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -265,7 +269,7 @@ class LinkTextBlockTemplate(ModelComposed):
             fdc3_context (Fdc3Context): [optional]  # noqa: E501
             application_links ([ApplicationLink]): [optional]  # noqa: E501
             link (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.4.0
+  version: 1.5.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -530,13 +530,17 @@ components:
         enum:
           - PRICE
           - EXDATE
+          - PAYDATE
           - EXDATE_C
+          - PAYDATE_C
         default: EXDATE_C
       description: |
         Controls the dividend reinvestment for the returns calculation.
           * **PRICE** = Price Change - Dividends Excluded.
           * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **PAYDATE** = Simple Return - Dividends Received on paydate but not reinvested.
           * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+          * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.
 
           
     calendar:
@@ -1260,13 +1264,17 @@ components:
       enum:
         - PRICE
         - EXDATE
+        - PAYDATE
         - EXDATE_C
+        - PAYDATE_C
       default: EXDATE_C
       description: |
         Controls the dividend reinvestment for the returns calculation.
           * **PRICE** = Price Change - Dividends Excluded.
           * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested.
+          * **PAYDATE** = Simple Return - Dividends Received on paydate but not reinvested.
           * **EXDATE_C** = Compound Return - Dividends reinvested on exdate.
+          * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.
       example: EXDATE_C
     calendar:
       title: Calendar

@@ -83,7 +83,7 @@ class LinkTextBlockTemplateAllOf(ModelNormal):
         """
         return {
             'link': (str,),  # noqa: E501
-            'blurb': (str,),  # noqa: E501
+            'text': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,7 +93,7 @@ class LinkTextBlockTemplateAllOf(ModelNormal):
 
     attribute_map = {
         'link': 'link',  # noqa: E501
-        'blurb': 'blurb',  # noqa: E501
+        'text': 'text',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,7 +138,7 @@ class LinkTextBlockTemplateAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             link (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class LinkTextBlockTemplateAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             link (str): [optional]  # noqa: E501
-            blurb (str): [optional]  # noqa: E501
+            text (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

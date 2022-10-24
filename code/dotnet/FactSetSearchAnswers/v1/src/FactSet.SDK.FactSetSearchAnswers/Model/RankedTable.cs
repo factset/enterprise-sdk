@@ -35,12 +35,21 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RankedTable" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected RankedTable() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RankedTable" /> class.
+        /// </summary>
         /// <param name="headers">headers.</param>
-        /// <param name="rows">rows.</param>
-        public RankedTable(List<string> headers = default(List<string>), List<RankedTableRow> rows = default(List<RankedTableRow>))
+        /// <param name="rows">rows (required).</param>
+        public RankedTable(List<RankedTableRow> rows,List<string> headers = default(List<string>))
         {
-            this.Headers = headers;
+            // to ensure "rows" is required (not null)
+            if (rows == null) {
+                throw new ArgumentNullException("rows is a required property for RankedTable and cannot be null");
+            }
             this.Rows = rows;
+            this.Headers = headers;
         }
 
         /// <summary>
@@ -52,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Gets or Sets Rows
         /// </summary>
-        [DataMember(Name = "rows", EmitDefaultValue = false)]
+        [DataMember(Name = "rows", IsRequired = true, EmitDefaultValue = false)]
         public List<RankedTableRow> Rows { get; set; }
 
         /// <summary>

@@ -33,10 +33,10 @@ from fds.sdk.FactSetSearchAnswers.exceptions import ApiAttributeError
 def lazy_import():
     from fds.sdk.FactSetSearchAnswers.model.answer_without_data_all_of import AnswerWithoutDataAllOf
     from fds.sdk.FactSetSearchAnswers.model.answer_without_data_all_of_template_data import AnswerWithoutDataAllOfTemplateData
-    from fds.sdk.FactSetSearchAnswers.model.no_answers_found import NoAnswersFound
+    from fds.sdk.FactSetSearchAnswers.model.no_answers_base import NoAnswersBase
     globals()['AnswerWithoutDataAllOf'] = AnswerWithoutDataAllOf
     globals()['AnswerWithoutDataAllOfTemplateData'] = AnswerWithoutDataAllOfTemplateData
-    globals()['NoAnswersFound'] = NoAnswersFound
+    globals()['NoAnswersBase'] = NoAnswersBase
 
 
 class AnswerWithoutData(ModelComposed):
@@ -92,9 +92,7 @@ class AnswerWithoutData(ModelComposed):
         """
         lazy_import()
         return {
-            'template': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
-            'query_suggestions': ([str],),  # noqa: E501
             'title': (str,),  # noqa: E501
             'template_data': (AnswerWithoutDataAllOfTemplateData,),  # noqa: E501
         }
@@ -105,9 +103,7 @@ class AnswerWithoutData(ModelComposed):
 
 
     attribute_map = {
-        'template': 'template',  # noqa: E501
         'message': 'message',  # noqa: E501
-        'query_suggestions': 'querySuggestions',  # noqa: E501
         'title': 'title',  # noqa: E501
         'template_data': 'templateData',  # noqa: E501
     }
@@ -121,10 +117,9 @@ class AnswerWithoutData(ModelComposed):
         """AnswerWithoutData - a model defined in OpenAPI
 
         Keyword Args:
-            template (str):
             message (str):
-            query_suggestions ([str]):
             title (str):
+            template_data (AnswerWithoutDataAllOfTemplateData):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -155,7 +150,6 @@ class AnswerWithoutData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,10 +219,9 @@ class AnswerWithoutData(ModelComposed):
         """AnswerWithoutData - a model defined in OpenAPI
 
         Keyword Args:
-            template (str):
             message (str):
-            query_suggestions ([str]):
             title (str):
+            template_data (AnswerWithoutDataAllOfTemplateData):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -259,7 +252,6 @@ class AnswerWithoutData(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -326,7 +318,7 @@ class AnswerWithoutData(ModelComposed):
           ],
           'allOf': [
               AnswerWithoutDataAllOf,
-              NoAnswersFound,
+              NoAnswersBase,
           ],
           'oneOf': [
           ],

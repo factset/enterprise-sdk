@@ -34,7 +34,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  */
 @JsonPropertyOrder({
   LinkTextBlockTemplateAllOf.JSON_PROPERTY_LINK,
-  LinkTextBlockTemplateAllOf.JSON_PROPERTY_BLURB
+  LinkTextBlockTemplateAllOf.JSON_PROPERTY_TEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LinkTextBlockTemplateAllOf implements Serializable {
@@ -43,8 +43,8 @@ public class LinkTextBlockTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_LINK = "link";
   private String link;
 
-  public static final String JSON_PROPERTY_BLURB = "blurb";
-  private String blurb;
+  public static final String JSON_PROPERTY_TEXT = "text";
+  private String text;
 
   public LinkTextBlockTemplateAllOf() { 
   }
@@ -75,29 +75,29 @@ public class LinkTextBlockTemplateAllOf implements Serializable {
   }
 
 
-  public LinkTextBlockTemplateAllOf blurb(String blurb) {
-    this.blurb = blurb;
+  public LinkTextBlockTemplateAllOf text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Get blurb
-   * @return blurb
+   * Get text
+   * @return text
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBlurb() {
-    return blurb;
+  public String getText() {
+    return text;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlurb(String blurb) {
-    this.blurb = blurb;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -114,12 +114,12 @@ public class LinkTextBlockTemplateAllOf implements Serializable {
     }
     LinkTextBlockTemplateAllOf linkTextBlockTemplateAllOf = (LinkTextBlockTemplateAllOf) o;
     return Objects.equals(this.link, linkTextBlockTemplateAllOf.link) &&
-        Objects.equals(this.blurb, linkTextBlockTemplateAllOf.blurb);
+        Objects.equals(this.text, linkTextBlockTemplateAllOf.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, blurb);
+    return Objects.hash(link, text);
   }
 
   @Override
@@ -127,7 +127,7 @@ public class LinkTextBlockTemplateAllOf implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkTextBlockTemplateAllOf {\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    blurb: ").append(toIndentedString(blurb)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

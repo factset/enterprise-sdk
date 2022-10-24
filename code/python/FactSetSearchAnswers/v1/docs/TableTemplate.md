@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**template_name** | **str** |  | 
 **headline** | **str** |  | 
 **footer** | **str** |  | [optional] 
 **fdc3_context** | [**Fdc3Context**](Fdc3Context.md) |  | [optional] 

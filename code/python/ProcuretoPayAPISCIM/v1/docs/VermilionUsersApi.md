@@ -455,12 +455,17 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         password="hunter2",
         authenticated_user_name="john.doe",
         tenant="MASTER",
-        emails=VermilionUserResourceEmails(
-            value="john.doe@example.com",
-            display="john.doe@example.com",
-            type="work",
-            primary=True,
-        ),
+        tenancies=[
+            "MASTER",
+        ],
+        emails=[
+            VermilionUserResourceEmails(
+                value="john.doe@example.com",
+                display="john.doe@example.com",
+                type="work",
+                primary=True,
+            ),
+        ],
         phone_numbers=[
             VermilionUserResourcePhoneNumbers(
                 value="tel:5558675309",
@@ -485,18 +490,22 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 type="direct",
             ),
         ],
-        entitlements=VermilionUserResourceEntitlements(
-            value="value_example",
-            display="display_example",
-            type="type_example",
-            primary=True,
-        ),
-        roles=VermilionUserResourceRoles(
-            value="value_example",
-            display="display_example",
-            type="type_example",
-            primary=True,
-        ),
+        entitlements=[
+            VermilionUserResourceEntitlements(
+                value="value_example",
+                display="display_example",
+                type="type_example",
+                primary=True,
+            ),
+        ],
+        roles=[
+            VermilionUserResourceRoles(
+                value="value_example",
+                display="display_example",
+                type="type_example",
+                primary=True,
+            ),
+        ],
         domain_code="domain_code_example",
         is_administrator=True,
     ) # VermilionUserResource | Vermilion user resource.
@@ -606,12 +615,17 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         password="hunter2",
         authenticated_user_name="john.doe",
         tenant="MASTER",
-        emails=VermilionUserResourceEmails(
-            value="john.doe@example.com",
-            display="john.doe@example.com",
-            type="work",
-            primary=True,
-        ),
+        tenancies=[
+            "MASTER",
+        ],
+        emails=[
+            VermilionUserResourceEmails(
+                value="john.doe@example.com",
+                display="john.doe@example.com",
+                type="work",
+                primary=True,
+            ),
+        ],
         phone_numbers=[
             VermilionUserResourcePhoneNumbers(
                 value="tel:5558675309",
@@ -636,18 +650,22 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 type="direct",
             ),
         ],
-        entitlements=VermilionUserResourceEntitlements(
-            value="value_example",
-            display="display_example",
-            type="type_example",
-            primary=True,
-        ),
-        roles=VermilionUserResourceRoles(
-            value="value_example",
-            display="display_example",
-            type="type_example",
-            primary=True,
-        ),
+        entitlements=[
+            VermilionUserResourceEntitlements(
+                value="value_example",
+                display="display_example",
+                type="type_example",
+                primary=True,
+            ),
+        ],
+        roles=[
+            VermilionUserResourceRoles(
+                value="value_example",
+                display="display_example",
+                type="type_example",
+                primary=True,
+            ),
+        ],
         domain_code="domain_code_example",
         is_administrator=True,
     ) # VermilionUserResource | Vermilion user resource.

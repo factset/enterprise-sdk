@@ -37,16 +37,20 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * LinkTextBlockTemplate
  */
 @JsonPropertyOrder({
+  LinkTextBlockTemplate.JSON_PROPERTY_TEMPLATE_NAME,
   LinkTextBlockTemplate.JSON_PROPERTY_HEADLINE,
   LinkTextBlockTemplate.JSON_PROPERTY_FOOTER,
   LinkTextBlockTemplate.JSON_PROPERTY_FDC3_CONTEXT,
   LinkTextBlockTemplate.JSON_PROPERTY_APPLICATION_LINKS,
   LinkTextBlockTemplate.JSON_PROPERTY_LINK,
-  LinkTextBlockTemplate.JSON_PROPERTY_BLURB
+  LinkTextBlockTemplate.JSON_PROPERTY_TEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LinkTextBlockTemplate implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
+  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -63,19 +67,47 @@ public class LinkTextBlockTemplate implements Serializable {
   public static final String JSON_PROPERTY_LINK = "link";
   private String link;
 
-  public static final String JSON_PROPERTY_BLURB = "blurb";
-  private String blurb;
+  public static final String JSON_PROPERTY_TEXT = "text";
+  private String text;
 
   public LinkTextBlockTemplate() { 
   }
 
   @JsonCreator
   public LinkTextBlockTemplate(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
+    this.templateName = templateName;
     this.headline = headline;
   }
+
+  public LinkTextBlockTemplate templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+   /**
+   * Get templateName
+   * @return templateName
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplateName() {
+    return templateName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
 
   public LinkTextBlockTemplate headline(String headline) {
     this.headline = headline;
@@ -215,29 +247,29 @@ public class LinkTextBlockTemplate implements Serializable {
   }
 
 
-  public LinkTextBlockTemplate blurb(String blurb) {
-    this.blurb = blurb;
+  public LinkTextBlockTemplate text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Get blurb
-   * @return blurb
+   * Get text
+   * @return text
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBlurb() {
-    return blurb;
+  public String getText() {
+    return text;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlurb(String blurb) {
-    this.blurb = blurb;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -253,29 +285,31 @@ public class LinkTextBlockTemplate implements Serializable {
       return false;
     }
     LinkTextBlockTemplate linkTextBlockTemplate = (LinkTextBlockTemplate) o;
-    return Objects.equals(this.headline, linkTextBlockTemplate.headline) &&
+    return Objects.equals(this.templateName, linkTextBlockTemplate.templateName) &&
+        Objects.equals(this.headline, linkTextBlockTemplate.headline) &&
         Objects.equals(this.footer, linkTextBlockTemplate.footer) &&
         Objects.equals(this.fdc3Context, linkTextBlockTemplate.fdc3Context) &&
         Objects.equals(this.applicationLinks, linkTextBlockTemplate.applicationLinks) &&
         Objects.equals(this.link, linkTextBlockTemplate.link) &&
-        Objects.equals(this.blurb, linkTextBlockTemplate.blurb);
+        Objects.equals(this.text, linkTextBlockTemplate.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, link, blurb);
+    return Objects.hash(templateName, headline, footer, fdc3Context, applicationLinks, link, text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LinkTextBlockTemplate {\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");
     sb.append("    applicationLinks: ").append(toIndentedString(applicationLinks)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
-    sb.append("    blurb: ").append(toIndentedString(blurb)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

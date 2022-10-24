@@ -30,9 +30,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 
 
 /**
- * A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;.
+ * VermilionUserResourceRoles
  */
-@ApiModel(description = "A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.")
 @JsonPropertyOrder({
   VermilionUserResourceRoles.JSON_PROPERTY_VALUE,
   VermilionUserResourceRoles.JSON_PROPERTY_DISPLAY,

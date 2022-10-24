@@ -22,10 +22,11 @@ class AnswerWithoutDataAllOfTemplateData {
     /**
      * Constructs a new <code>AnswerWithoutDataAllOfTemplateData</code>.
      * @alias module:model/AnswerWithoutDataAllOfTemplateData
+     * @param templateName {String} 
      */
-    constructor() { 
+    constructor(templateName) { 
         
-        AnswerWithoutDataAllOfTemplateData.initialize(this);
+        AnswerWithoutDataAllOfTemplateData.initialize(this, templateName);
     }
 
     /**
@@ -33,7 +34,8 @@ class AnswerWithoutDataAllOfTemplateData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, templateName) { 
+        obj['templateName'] = templateName;
     }
 
     /**
@@ -47,6 +49,9 @@ class AnswerWithoutDataAllOfTemplateData {
         if (data) {
             obj = obj || new AnswerWithoutDataAllOfTemplateData();
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('fdc3Context')) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
@@ -56,6 +61,11 @@ class AnswerWithoutDataAllOfTemplateData {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+AnswerWithoutDataAllOfTemplateData.prototype['templateName'] = undefined;
 
 /**
  * @member {module:model/Fdc3Context} fdc3Context

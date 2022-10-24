@@ -2,7 +2,7 @@
 
 # PeopleTask
 
-People Match object showing the decision reached for each Entity. 
+Concordance People Task object. Shows task related metadata and some statistics on the matches. 
 
 ## Properties
 
@@ -24,9 +24,21 @@ Name | Type | Description | Notes
 **taskSubmitTime** | **OffsetDateTime** | Time the Task was submitted in UTC. |  [optional]
 **taskId** | **Integer** | The task identifier |  [optional]
 **taskName** | **String** | The task name |  [optional]
+**unmappedCount** | **Integer** | Number of records with status of UNMAPPED the Input File. |  [optional]
+**tryCount** | **Integer** | Number of tries made so far for the request. |  [optional]
+**decisionRate** | **Double** | Percentage of mapped entities in the Input File. |  [optional]
+**processStartTime** | **OffsetDateTime** | Process start time in UTC. |  [optional]
+**processDuration** | **Double** | Process duration in seconds. |  [optional]
+**mappedCount** | **Integer** | Number of records with status of MAPPED the Input File. |  [optional]
+**message** | **String** | Textual message for the status. |  [optional]
+**error** | **String** |  |  [optional]
+**errorTitle** | **String** |  |  [optional]
+**inputCount** | **Integer** | Number of records in the Input File. |  [optional]
+**indeterminateCount** | **Integer** | Number of records with status of INDETERMINATE the Input File. |  [optional]
 **universeId** | **Integer** | The universe identifier |  [optional]
 **universeName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
-**userSerial** | **String** | user-serial of the person who initiated the entity task. |  [optional]
+**userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
+**userSerial** | **String** | user-serial of the person who initiated the people task  |  [optional]
 
 
 

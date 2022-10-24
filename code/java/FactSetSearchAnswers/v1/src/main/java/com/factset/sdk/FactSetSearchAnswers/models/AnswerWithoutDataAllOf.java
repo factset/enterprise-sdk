@@ -52,10 +52,12 @@ public class AnswerWithoutDataAllOf implements Serializable {
 
   @JsonCreator
   public AnswerWithoutDataAllOf(
-    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title, 
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) AnswerWithoutDataAllOfTemplateData templateData
   ) {
     this();
     this.title = title;
+    this.templateData = templateData;
   }
 
   public AnswerWithoutDataAllOf title(String title) {
@@ -93,10 +95,10 @@ public class AnswerWithoutDataAllOf implements Serializable {
    * Get templateData
    * @return templateData
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public AnswerWithoutDataAllOfTemplateData getTemplateData() {
     return templateData;
@@ -104,7 +106,7 @@ public class AnswerWithoutDataAllOf implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateData(AnswerWithoutDataAllOfTemplateData templateData) {
     this.templateData = templateData;
   }

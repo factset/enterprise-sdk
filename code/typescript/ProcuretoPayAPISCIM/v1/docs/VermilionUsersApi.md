@@ -265,7 +265,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new VermilionUsersApi();
 const id = "id_example"; // String | ID of resource.
 const opts = {
-  'patch': {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"name.formatted","value":[{"value":"John Doe"}]}]} // Patch | 
+  'patch': {"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","path":"name.formatted","value":"John Doe"}]} // Patch | 
 };
 
 // Call api endpoint

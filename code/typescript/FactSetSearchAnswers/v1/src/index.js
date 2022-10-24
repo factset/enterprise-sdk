@@ -16,7 +16,6 @@ import AdaptiveCardAnswerSuccessResponse from './model/AdaptiveCardAnswerSuccess
 import AdaptiveCardDataItem from './model/AdaptiveCardDataItem';
 import AdaptiveCardWithThumbnail from './model/AdaptiveCardWithThumbnail';
 import Answer from './model/Answer';
-import AnswerAllOf from './model/AnswerAllOf';
 import AnswerFailureResponse from './model/AnswerFailureResponse';
 import AnswerWithoutData from './model/AnswerWithoutData';
 import AnswerWithoutDataAllOf from './model/AnswerWithoutDataAllOf';
@@ -27,7 +26,6 @@ import ColoredValue from './model/ColoredValue';
 import ColoredValueLabelDateTemplate from './model/ColoredValueLabelDateTemplate';
 import ColoredValueLabelDateTemplateAllOf from './model/ColoredValueLabelDateTemplateAllOf';
 import CountryID from './model/CountryID';
-import DataAnswer from './model/DataAnswer';
 import DataAnswerData from './model/DataAnswerData';
 import DataAnswerSuccessResponse from './model/DataAnswerSuccessResponse';
 import DataPair from './model/DataPair';
@@ -42,8 +40,10 @@ import LabelValueChangeLabelValueChangeTemplate from './model/LabelValueChangeLa
 import LabelValueChangeLabelValueChangeTemplateAllOf from './model/LabelValueChangeLabelValueChangeTemplateAllOf';
 import LinkTextBlockTemplate from './model/LinkTextBlockTemplate';
 import LinkTextBlockTemplateAllOf from './model/LinkTextBlockTemplateAllOf';
+import NoAnswersBase from './model/NoAnswersBase';
 import NoAnswersFound from './model/NoAnswersFound';
 import NoAnswersFoundAllOf from './model/NoAnswersFoundAllOf';
+import NoAnswersFoundAllOfTemplateData from './model/NoAnswersFoundAllOfTemplateData';
 import PercentChange from './model/PercentChange';
 import PercentChangeLabelTemplate from './model/PercentChangeLabelTemplate';
 import PercentChangeLabelTemplateAllOf from './model/PercentChangeLabelTemplateAllOf';
@@ -142,12 +142,6 @@ export {
     Answer,
 
     /**
-     * The AnswerAllOf model constructor.
-     * @property {module:model/AnswerAllOf}
-     */
-    AnswerAllOf,
-
-    /**
      * The AnswerFailureResponse model constructor.
      * @property {module:model/AnswerFailureResponse}
      */
@@ -206,12 +200,6 @@ export {
      * @property {module:model/CountryID}
      */
     CountryID,
-
-    /**
-     * The DataAnswer model constructor.
-     * @property {module:model/DataAnswer}
-     */
-    DataAnswer,
 
     /**
      * The DataAnswerData model constructor.
@@ -298,6 +286,12 @@ export {
     LinkTextBlockTemplateAllOf,
 
     /**
+     * The NoAnswersBase model constructor.
+     * @property {module:model/NoAnswersBase}
+     */
+    NoAnswersBase,
+
+    /**
      * The NoAnswersFound model constructor.
      * @property {module:model/NoAnswersFound}
      */
@@ -308,6 +302,12 @@ export {
      * @property {module:model/NoAnswersFoundAllOf}
      */
     NoAnswersFoundAllOf,
+
+    /**
+     * The NoAnswersFoundAllOfTemplateData model constructor.
+     * @property {module:model/NoAnswersFoundAllOfTemplateData}
+     */
+    NoAnswersFoundAllOfTemplateData,
 
     /**
      * The PercentChange model constructor.

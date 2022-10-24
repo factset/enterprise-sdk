@@ -183,53 +183,61 @@ components:
           type: string
         parameter:
           type: string
-    DataAnswer:
+    Answer:
       type: object
       required:
-        - template
+        - title
+        - templateData
       properties:
-        template:
+        title:
           type: string
-    Answer:
-      allOf:
-        - $ref: '#/components/schemas/DataAnswer'
-        - type: object
-          required:
-            - templateData
-            - title
-          properties:
-            templateData:
-              $ref: '#/components/schemas/TemplateData'
-            title:
-              type: string
+        templateData:
+          $ref: '#/components/schemas/TemplateData'
+    NoAnswersBase:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
     AnswerWithoutData:
       allOf:
-        - $ref: '#/components/schemas/NoAnswersFound'
+        - $ref: '#/components/schemas/NoAnswersBase'
         - type: object
           required:
             - title
+            - templateData
           properties:
             title:
               type: string
             templateData:
               type: object
+              required:
+                - templateName
               properties:
+                templateName:
+                  type: string
                 fdc3Context:
                   $ref: '#/components/schemas/Fdc3Context'
     NoAnswersFound:
       allOf:
-        - $ref: '#/components/schemas/DataAnswer'
+        - $ref: '#/components/schemas/NoAnswersBase'
         - type: object
           required:
-            - message
             - querySuggestions
+            - templateData
           properties:
-            message:
-              type: string
             querySuggestions:
               type: array
               items:
                 type: string
+            templateData:
+              type: object
+              required:
+                - templateName
+              properties:
+                templateName:
+                  type: string
     Fdc3Country:
       type: object
       required:
@@ -296,7 +304,10 @@ components:
       type: object
       required:
         - headline
+        - templateName
       properties:
+        templateName:
+          type: string
         headline:
           type: string
         footer:
@@ -321,7 +332,7 @@ components:
           properties:
             link:
               type: string
-            blurb:
+            text:
               type: string
     TextBlockFootingTemplate:
       allOf:
@@ -334,7 +345,7 @@ components:
               $ref: '#/components/schemas/TitledTextBlock'
     PercentChangeLabelTemplate:
       allOf:
-        - $ref: '#/components/schemas/Template'
+        - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
           properties:
             percentChange:
@@ -419,7 +430,7 @@ components:
               type: string
             date:
               type: string
-            blurb:
+            text:
               type: string
     ValueLabelDateDataPairListTemplate:
       allOf:
@@ -467,7 +478,7 @@ components:
         - $ref: '#/components/schemas/ValueLabelDateDataPairListTemplate'
         - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeTemplate'
       discriminator:
-        propertyName: template
+        propertyName: templateName
     TitledTextBlock:
       type: object
       properties:
@@ -535,7 +546,7 @@ components:
     RankedTable:
       type: object
       required:
-        - tableRows
+        - rows
       properties:
         headers:
           type: array
@@ -581,7 +592,6 @@ components:
       type: object
       required:
         - name
-        - workstationLink
         - webLink
       properties:
         name:

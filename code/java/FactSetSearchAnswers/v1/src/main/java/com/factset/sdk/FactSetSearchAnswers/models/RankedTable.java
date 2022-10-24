@@ -45,9 +45,17 @@ public class RankedTable implements Serializable {
   private java.util.List<String> headers = null;
 
   public static final String JSON_PROPERTY_ROWS = "rows";
-  private java.util.List<RankedTableRow> rows = null;
+  private java.util.List<RankedTableRow> rows = new java.util.ArrayList<>();
 
   public RankedTable() { 
+  }
+
+  @JsonCreator
+  public RankedTable(
+    @JsonProperty(value=JSON_PROPERTY_ROWS, required=true) java.util.List<RankedTableRow> rows
+  ) {
+    this();
+    this.rows = rows;
   }
 
   public RankedTable headers(java.util.List<String> headers) {
@@ -90,9 +98,6 @@ public class RankedTable implements Serializable {
   }
 
   public RankedTable addRowsItem(RankedTableRow rowsItem) {
-    if (this.rows == null) {
-      this.rows = new java.util.ArrayList<>();
-    }
     this.rows.add(rowsItem);
     return this;
   }
@@ -101,10 +106,10 @@ public class RankedTable implements Serializable {
    * Get rows
    * @return rows
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ROWS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public java.util.List<RankedTableRow> getRows() {
     return rows;
@@ -112,7 +117,7 @@ public class RankedTable implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_ROWS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRows(java.util.List<RankedTableRow> rows) {
     this.rows = rows;
   }

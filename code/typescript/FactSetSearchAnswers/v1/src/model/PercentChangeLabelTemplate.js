@@ -12,10 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import ApplicationLink from './ApplicationLink';
 import Fdc3Context from './Fdc3Context';
 import PercentChange from './PercentChange';
 import PercentChangeLabelTemplateAllOf from './PercentChangeLabelTemplateAllOf';
-import Template from './Template';
+import TemplateWithLinks from './TemplateWithLinks';
 
 /**
  * The PercentChangeLabelTemplate model module.
@@ -25,13 +26,14 @@ class PercentChangeLabelTemplate {
     /**
      * Constructs a new <code>PercentChangeLabelTemplate</code>.
      * @alias module:model/PercentChangeLabelTemplate
-     * @implements module:model/Template
+     * @implements module:model/TemplateWithLinks
      * @implements module:model/PercentChangeLabelTemplateAllOf
+     * @param templateName {String} 
      * @param headline {String} 
      */
-    constructor(headline) { 
-        Template.initialize(this, headline);PercentChangeLabelTemplateAllOf.initialize(this);
-        PercentChangeLabelTemplate.initialize(this, headline);
+    constructor(templateName, headline) { 
+        TemplateWithLinks.initialize(this, templateName, headline);PercentChangeLabelTemplateAllOf.initialize(this);
+        PercentChangeLabelTemplate.initialize(this, templateName, headline);
     }
 
     /**
@@ -39,7 +41,8 @@ class PercentChangeLabelTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, headline) { 
+    static initialize(obj, templateName, headline) { 
+        obj['templateName'] = templateName;
         obj['headline'] = headline;
     }
 
@@ -53,9 +56,12 @@ class PercentChangeLabelTemplate {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PercentChangeLabelTemplate();
-            Template.constructFromObject(data, obj);
+            TemplateWithLinks.constructFromObject(data, obj);
             PercentChangeLabelTemplateAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('templateName')) {
+                obj['templateName'] = ApiClient.convertToType(data['templateName'], 'String');
+            }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
@@ -64,6 +70,9 @@ class PercentChangeLabelTemplate {
             }
             if (data.hasOwnProperty('fdc3Context')) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
+            }
+            if (data.hasOwnProperty('applicationLinks')) {
+                obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
             if (data.hasOwnProperty('percentChange')) {
                 obj['percentChange'] = PercentChange.constructFromObject(data['percentChange']);
@@ -77,6 +86,11 @@ class PercentChangeLabelTemplate {
 
 
 }
+
+/**
+ * @member {String} templateName
+ */
+PercentChangeLabelTemplate.prototype['templateName'] = undefined;
 
 /**
  * @member {String} headline
@@ -94,6 +108,11 @@ PercentChangeLabelTemplate.prototype['footer'] = undefined;
 PercentChangeLabelTemplate.prototype['fdc3Context'] = undefined;
 
 /**
+ * @member {Array.<module:model/ApplicationLink>} applicationLinks
+ */
+PercentChangeLabelTemplate.prototype['applicationLinks'] = undefined;
+
+/**
  * @member {module:model/PercentChange} percentChange
  */
 PercentChangeLabelTemplate.prototype['percentChange'] = undefined;
@@ -104,19 +123,27 @@ PercentChangeLabelTemplate.prototype['percentChange'] = undefined;
 PercentChangeLabelTemplate.prototype['label'] = undefined;
 
 
-// Implement Template interface:
+// Implement TemplateWithLinks interface:
+/**
+ * @member {String} templateName
+ */
+TemplateWithLinks.prototype['templateName'] = undefined;
 /**
  * @member {String} headline
  */
-Template.prototype['headline'] = undefined;
+TemplateWithLinks.prototype['headline'] = undefined;
 /**
  * @member {String} footer
  */
-Template.prototype['footer'] = undefined;
+TemplateWithLinks.prototype['footer'] = undefined;
 /**
  * @member {module:model/Fdc3Context} fdc3Context
  */
-Template.prototype['fdc3Context'] = undefined;
+TemplateWithLinks.prototype['fdc3Context'] = undefined;
+/**
+ * @member {Array.<module:model/ApplicationLink>} applicationLinks
+ */
+TemplateWithLinks.prototype['applicationLinks'] = undefined;
 // Implement PercentChangeLabelTemplateAllOf interface:
 /**
  * @member {module:model/PercentChange} percentChange

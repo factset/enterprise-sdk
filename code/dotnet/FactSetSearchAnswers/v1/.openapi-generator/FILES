@@ -8,7 +8,6 @@ docs/AdaptiveCardAnswerSuccessResponse.md
 docs/AdaptiveCardDataItem.md
 docs/AdaptiveCardWithThumbnail.md
 docs/Answer.md
-docs/AnswerAllOf.md
 docs/AnswerFailureResponse.md
 docs/AnswerWithoutData.md
 docs/AnswerWithoutDataAllOf.md
@@ -20,7 +19,6 @@ docs/ColoredValue.md
 docs/ColoredValueLabelDateTemplate.md
 docs/ColoredValueLabelDateTemplateAllOf.md
 docs/CountryID.md
-docs/DataAnswer.md
 docs/DataAnswerData.md
 docs/DataAnswerSuccessResponse.md
 docs/DataPair.md
@@ -35,8 +33,10 @@ docs/LabelValueChangeLabelValueChangeTemplate.md
 docs/LabelValueChangeLabelValueChangeTemplateAllOf.md
 docs/LinkTextBlockTemplate.md
 docs/LinkTextBlockTemplateAllOf.md
+docs/NoAnswersBase.md
 docs/NoAnswersFound.md
 docs/NoAnswersFoundAllOf.md
+docs/NoAnswersFoundAllOfTemplateData.md
 docs/PercentChange.md
 docs/PercentChangeLabelTemplate.md
 docs/PercentChangeLabelTemplateAllOf.md
@@ -93,7 +93,6 @@ src/FactSet.SDK.FactSetSearchAnswers/Model/AdaptiveCardAnswerSuccessResponse.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/AdaptiveCardDataItem.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/AdaptiveCardWithThumbnail.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/Answer.cs
-src/FactSet.SDK.FactSetSearchAnswers/Model/AnswerAllOf.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/AnswerFailureResponse.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/AnswerWithoutData.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/AnswerWithoutDataAllOf.cs
@@ -104,7 +103,6 @@ src/FactSet.SDK.FactSetSearchAnswers/Model/ColoredValue.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/ColoredValueLabelDateTemplate.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/ColoredValueLabelDateTemplateAllOf.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/CountryID.cs
-src/FactSet.SDK.FactSetSearchAnswers/Model/DataAnswer.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/DataAnswerData.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/DataAnswerSuccessResponse.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/DataPair.cs
@@ -119,8 +117,10 @@ src/FactSet.SDK.FactSetSearchAnswers/Model/LabelValueChangeLabelValueChangeTempl
 src/FactSet.SDK.FactSetSearchAnswers/Model/LabelValueChangeLabelValueChangeTemplateAllOf.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/LinkTextBlockTemplate.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/LinkTextBlockTemplateAllOf.cs
+src/FactSet.SDK.FactSetSearchAnswers/Model/NoAnswersBase.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/NoAnswersFound.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/NoAnswersFoundAllOf.cs
+src/FactSet.SDK.FactSetSearchAnswers/Model/NoAnswersFoundAllOfTemplateData.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/PercentChange.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/PercentChangeLabelTemplate.cs
 src/FactSet.SDK.FactSetSearchAnswers/Model/PercentChangeLabelTemplateAllOf.cs

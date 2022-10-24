@@ -36,7 +36,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
   ValueLabelDateTextBlockTemplateAllOf.JSON_PROPERTY_VALUE,
   ValueLabelDateTextBlockTemplateAllOf.JSON_PROPERTY_LABEL,
   ValueLabelDateTextBlockTemplateAllOf.JSON_PROPERTY_DATE,
-  ValueLabelDateTextBlockTemplateAllOf.JSON_PROPERTY_BLURB
+  ValueLabelDateTextBlockTemplateAllOf.JSON_PROPERTY_TEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
@@ -51,8 +51,8 @@ public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
-  public static final String JSON_PROPERTY_BLURB = "blurb";
-  private String blurb;
+  public static final String JSON_PROPERTY_TEXT = "text";
+  private String text;
 
   public ValueLabelDateTextBlockTemplateAllOf() { 
   }
@@ -135,29 +135,29 @@ public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
   }
 
 
-  public ValueLabelDateTextBlockTemplateAllOf blurb(String blurb) {
-    this.blurb = blurb;
+  public ValueLabelDateTextBlockTemplateAllOf text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Get blurb
-   * @return blurb
+   * Get text
+   * @return text
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBlurb() {
-    return blurb;
+  public String getText() {
+    return text;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BLURB)
+  @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlurb(String blurb) {
-    this.blurb = blurb;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -176,12 +176,12 @@ public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
     return Objects.equals(this.value, valueLabelDateTextBlockTemplateAllOf.value) &&
         Objects.equals(this.label, valueLabelDateTextBlockTemplateAllOf.label) &&
         Objects.equals(this.date, valueLabelDateTextBlockTemplateAllOf.date) &&
-        Objects.equals(this.blurb, valueLabelDateTextBlockTemplateAllOf.blurb);
+        Objects.equals(this.text, valueLabelDateTextBlockTemplateAllOf.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, label, date, blurb);
+    return Objects.hash(value, label, date, text);
   }
 
   @Override
@@ -191,7 +191,7 @@ public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    blurb: ").append(toIndentedString(blurb)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

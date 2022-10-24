@@ -16,12 +16,13 @@ Name | Type | Description | Notes
 **password** | **String** | The User&#39;s cleartext password. This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User&#39;s password. | [optional] 
 **authenticatedUserName** | **String** | The authenticated user name of the user | [optional] 
 **tenant** | **String** | The tenant this user is in | [optional] 
-**emails** | [**VermilionUserResourceEmails**](VermilionUserResourceEmails.md) |  | [optional] 
+**tenancies** | **[String]** | Tenancies assigned to the user. | [optional] 
+**emails** | [**[VermilionUserResourceEmails]**](VermilionUserResourceEmails.md) | Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;. | [optional] 
 **phoneNumbers** | [**[VermilionUserResourcePhoneNumbers]**](VermilionUserResourcePhoneNumbers.md) | Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., &#39;tel:+1-201-555-0123&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, &#39;mobile&#39;, &#39;fax&#39;, &#39;pager&#39; | [optional] 
 **photos** | [**[VermilionUserResourcePhotos]**](VermilionUserResourcePhotos.md) | URLs of photos of the User. | [optional] 
 **groups** | [**[VermilionUserResourceGroups]**](VermilionUserResourceGroups.md) | A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated. | [optional] 
-**entitlements** | [**VermilionUserResourceEntitlements**](VermilionUserResourceEntitlements.md) |  | [optional] 
-**roles** | [**VermilionUserResourceRoles**](VermilionUserResourceRoles.md) |  | [optional] 
+**entitlements** | [**[VermilionUserResourceEntitlements]**](VermilionUserResourceEntitlements.md) | A list of entitlements for the User that represent a thing the User has. | [optional] 
+**roles** | [**[VermilionUserResourceRoles]**](VermilionUserResourceRoles.md) | A list of roles for the User that collectively represent who the User is, e.g., &#39;Student&#39;, &#39;Faculty&#39;. | [optional] 
 **domainCode** | **String** | Domain code of Enterprise Hosting pod in which user resides. REQUIRED. | 
 **isAdministrator** | **Boolean** | Whether the user can perform maintenance on other users. REQUIRED. | 
 **meta** | [**VermilionUserResourceMeta**](VermilionUserResourceMeta.md) |  | [optional] 

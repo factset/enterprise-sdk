@@ -1,11 +1,11 @@
 # ErrorResponseSubErrors
 
-Sub-Errors related to the error message. Null if not applicable.
+Sub-errors related to the error message. Null if not applicable.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **str** | The operation ID | [optional] 
+**object** | **str** | the operation ID | [optional] 
 **field** | **str** | Parameter Field Name | [optional] 
 **message** | **str** | Error message | [optional] 
 **rejected_value** | **[str]** | Rejected Values in an Array | [optional] 

@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Response object for Entity Decisions endpoint. |  -  |
+**200** | Response object for People Decisions endpoint. |  -  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -159,7 +159,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     input_file = open('/path/to/file', 'rb') # file_type | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
     client_id_column = "ClientId" # str | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
     entity_column = "Microsoft" # str | Header name of the column in the input file that contains the Entity Name to be matched. 
-    first_name_column = "Bill" # str | First name of the person.**Do not include with `personNameColumn`**.   (optional)
+    first_name_column = "Bill" # str | First name of the person.**Do not include with `personNameColumn`**.  (optional)
     last_name_column = "Gates" # str | Lat name of the person.**Do not include with `personNameColumn`**.  (optional)
     middle_name_column = "Henry" # str | Middle name of the person.**Do not include within `personNameColumn`**.  (optional)
     person_name_column = "Bill Gates" # str | Header name of the column in the input file that contains the name of the person to be matched. **Do not include with `firstNameColumn` and `lastNameColumn`.**  (optional)
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
  **input_file** | **file_type**| The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data.  |
  **client_id_column** | **str**| Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\&quot;clientId\\\&quot;. This clientId can be used to create custom mappings or references.  |
  **entity_column** | **str**| Header name of the column in the input file that contains the Entity Name to be matched.  |
- **first_name_column** | **str**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.   | [optional]
+ **first_name_column** | **str**| First name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
  **last_name_column** | **str**| Lat name of the person.**Do not include with &#x60;personNameColumn&#x60;**.  | [optional]
  **middle_name_column** | **str**| Middle name of the person.**Do not include within &#x60;personNameColumn&#x60;**.  | [optional]
  **person_name_column** | **str**| Header name of the column in the input file that contains the name of the person to be matched. **Do not include with &#x60;firstNameColumn&#x60; and &#x60;lastNameColumn&#x60;.**  | [optional]

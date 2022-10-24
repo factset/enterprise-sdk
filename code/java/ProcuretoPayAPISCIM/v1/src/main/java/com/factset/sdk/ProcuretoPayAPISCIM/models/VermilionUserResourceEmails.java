@@ -30,9 +30,8 @@ import com.factset.sdk.ProcuretoPayAPISCIM.JSON;
 
 
 /**
- * Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., &#39;bjensen@example.com&#39; instead of &#39;bjensen@EXAMPLE.COM&#39;. Canonical type values of &#39;work&#39;, &#39;home&#39;, and &#39;other&#39;.
+ * VermilionUserResourceEmails
  */
-@ApiModel(description = "Email addresses for the user. The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.")
 @JsonPropertyOrder({
   VermilionUserResourceEmails.JSON_PROPERTY_VALUE,
   VermilionUserResourceEmails.JSON_PROPERTY_DISPLAY,

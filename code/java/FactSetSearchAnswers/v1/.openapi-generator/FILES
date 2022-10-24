@@ -10,7 +10,6 @@ docs/AdaptiveCardAnswerSuccessResponse.md
 docs/AdaptiveCardDataItem.md
 docs/AdaptiveCardWithThumbnail.md
 docs/Answer.md
-docs/AnswerAllOf.md
 docs/AnswerFailureResponse.md
 docs/AnswerWithoutData.md
 docs/AnswerWithoutDataAllOf.md
@@ -22,7 +21,6 @@ docs/ColoredValue.md
 docs/ColoredValueLabelDateTemplate.md
 docs/ColoredValueLabelDateTemplateAllOf.md
 docs/CountryID.md
-docs/DataAnswer.md
 docs/DataAnswerData.md
 docs/DataAnswerSuccessResponse.md
 docs/DataPair.md
@@ -37,8 +35,10 @@ docs/LabelValueChangeLabelValueChangeTemplate.md
 docs/LabelValueChangeLabelValueChangeTemplateAllOf.md
 docs/LinkTextBlockTemplate.md
 docs/LinkTextBlockTemplateAllOf.md
+docs/NoAnswersBase.md
 docs/NoAnswersFound.md
 docs/NoAnswersFoundAllOf.md
+docs/NoAnswersFoundAllOfTemplateData.md
 docs/PercentChange.md
 docs/PercentChangeLabelTemplate.md
 docs/PercentChangeLabelTemplateAllOf.md
@@ -104,7 +104,6 @@ src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AdaptiveCardAnswerSucc
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AdaptiveCardDataItem.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AdaptiveCardWithThumbnail.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/Answer.java
-src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AnswerAllOf.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AnswerFailureResponse.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AnswerWithoutData.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/AnswerWithoutDataAllOf.java
@@ -115,7 +114,6 @@ src/main/java/com/factset/sdk/FactSetSearchAnswers/models/ColoredValue.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/ColoredValueLabelDateTemplate.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/ColoredValueLabelDateTemplateAllOf.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/CountryID.java
-src/main/java/com/factset/sdk/FactSetSearchAnswers/models/DataAnswer.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/DataAnswerData.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/DataAnswerSuccessResponse.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/DataPair.java
@@ -130,8 +128,10 @@ src/main/java/com/factset/sdk/FactSetSearchAnswers/models/LabelValueChangeLabelV
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/LabelValueChangeLabelValueChangeTemplateAllOf.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/LinkTextBlockTemplate.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/LinkTextBlockTemplateAllOf.java
+src/main/java/com/factset/sdk/FactSetSearchAnswers/models/NoAnswersBase.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/NoAnswersFound.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/NoAnswersFoundAllOf.java
+src/main/java/com/factset/sdk/FactSetSearchAnswers/models/NoAnswersFoundAllOfTemplateData.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/PercentChange.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/PercentChangeLabelTemplate.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/models/PercentChangeLabelTemplateAllOf.java

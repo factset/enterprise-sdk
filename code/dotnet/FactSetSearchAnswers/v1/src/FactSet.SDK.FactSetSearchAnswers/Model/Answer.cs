@@ -40,45 +40,33 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Answer" /> class.
         /// </summary>
-        /// <param name="template">template (required).</param>
-        /// <param name="templateData">templateData (required).</param>
         /// <param name="title">title (required).</param>
-        public Answer(string template, TemplateData templateData, string title)
+        /// <param name="templateData">templateData (required).</param>
+        public Answer(string title, TemplateData templateData)
         {
-            // to ensure "template" is required (not null)
-            if (template == null) {
-                throw new ArgumentNullException("template is a required property for Answer and cannot be null");
-            }
-            this.Template = template;
-            // to ensure "templateData" is required (not null)
-            if (templateData == null) {
-                throw new ArgumentNullException("templateData is a required property for Answer and cannot be null");
-            }
-            this.TemplateData = templateData;
             // to ensure "title" is required (not null)
             if (title == null) {
                 throw new ArgumentNullException("title is a required property for Answer and cannot be null");
             }
             this.Title = title;
+            // to ensure "templateData" is required (not null)
+            if (templateData == null) {
+                throw new ArgumentNullException("templateData is a required property for Answer and cannot be null");
+            }
+            this.TemplateData = templateData;
         }
-
-        /// <summary>
-        /// Gets or Sets Template
-        /// </summary>
-        [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = false)]
-        public string Template { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TemplateData
-        /// </summary>
-        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
-        public TemplateData TemplateData { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TemplateData
+        /// </summary>
+        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
+        public TemplateData TemplateData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,9 +76,8 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Answer {\n");
-            sb.Append("  Template: ").Append(Template).Append("\n");
-            sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,19 +114,14 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
-                    this.Template == input.Template ||
-                    (this.Template != null &&
-                    this.Template.Equals(input.Template))
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 ) && 
                 (
                     this.TemplateData == input.TemplateData ||
                     (this.TemplateData != null &&
                     this.TemplateData.Equals(input.TemplateData))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
                 );
         }
 
@@ -152,17 +134,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Template != null)
+                if (this.Title != null)
                 {
-                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 if (this.TemplateData != null)
                 {
                     hashCode = (hashCode * 59) + this.TemplateData.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 return hashCode;
             }

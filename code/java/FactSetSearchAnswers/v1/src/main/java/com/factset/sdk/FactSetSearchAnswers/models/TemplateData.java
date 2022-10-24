@@ -113,7 +113,7 @@ public class TemplateData extends AbstractOpenApiSchema implements Serializable 
             Object deserialized = null;
             TemplateData newTemplateData = new TemplateData();
             Map<String,Object> result2 = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
-            String discriminatorValue = (String)result2.get("template");
+            String discriminatorValue = (String)result2.get("templateName");
             switch (discriminatorValue) {
                 case "ColoredValueLabelDateTemplate":
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(ColoredValueLabelDateTemplate.class);
@@ -632,7 +632,7 @@ public class TemplateData extends AbstractOpenApiSchema implements Serializable 
         mappings.put("ValueLabelDateTextBlockTemplate", ValueLabelDateTextBlockTemplate.class);
         mappings.put("ValueLabelTemplate", ValueLabelTemplate.class);
         mappings.put("TemplateData", TemplateData.class);
-        JSON.registerDiscriminator(TemplateData.class, "template", mappings);
+        JSON.registerDiscriminator(TemplateData.class, "templateName", mappings);
     }
 
     @Override

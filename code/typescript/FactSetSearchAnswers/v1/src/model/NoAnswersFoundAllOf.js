@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import NoAnswersFoundAllOfTemplateData from './NoAnswersFoundAllOfTemplateData';
 
 /**
  * The NoAnswersFoundAllOf model module.
@@ -21,12 +22,12 @@ class NoAnswersFoundAllOf {
     /**
      * Constructs a new <code>NoAnswersFoundAllOf</code>.
      * @alias module:model/NoAnswersFoundAllOf
-     * @param message {String} 
      * @param querySuggestions {Array.<String>} 
+     * @param templateData {module:model/NoAnswersFoundAllOfTemplateData} 
      */
-    constructor(message, querySuggestions) { 
+    constructor(querySuggestions, templateData) { 
         
-        NoAnswersFoundAllOf.initialize(this, message, querySuggestions);
+        NoAnswersFoundAllOf.initialize(this, querySuggestions, templateData);
     }
 
     /**
@@ -34,9 +35,9 @@ class NoAnswersFoundAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, message, querySuggestions) { 
-        obj['message'] = message;
+    static initialize(obj, querySuggestions, templateData) { 
         obj['querySuggestions'] = querySuggestions;
+        obj['templateData'] = templateData;
     }
 
     /**
@@ -50,11 +51,11 @@ class NoAnswersFoundAllOf {
         if (data) {
             obj = obj || new NoAnswersFoundAllOf();
 
-            if (data.hasOwnProperty('message')) {
-                obj['message'] = ApiClient.convertToType(data['message'], 'String');
-            }
             if (data.hasOwnProperty('querySuggestions')) {
                 obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
+            }
+            if (data.hasOwnProperty('templateData')) {
+                obj['templateData'] = NoAnswersFoundAllOfTemplateData.constructFromObject(data['templateData']);
             }
         }
         return obj;
@@ -64,14 +65,14 @@ class NoAnswersFoundAllOf {
 }
 
 /**
- * @member {String} message
- */
-NoAnswersFoundAllOf.prototype['message'] = undefined;
-
-/**
  * @member {Array.<String>} querySuggestions
  */
 NoAnswersFoundAllOf.prototype['querySuggestions'] = undefined;
+
+/**
+ * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
+ */
+NoAnswersFoundAllOf.prototype['templateData'] = undefined;
 
 
 

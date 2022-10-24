@@ -40,6 +40,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueLabelDateDataPairListTemplate" /> class.
         /// </summary>
+        /// <param name="templateName">templateName (required).</param>
         /// <param name="headline">headline (required).</param>
         /// <param name="footer">footer.</param>
         /// <param name="fdc3Context">fdc3Context.</param>
@@ -48,8 +49,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <param name="label">label.</param>
         /// <param name="date">date.</param>
         /// <param name="list">list.</param>
-        public ValueLabelDateDataPairListTemplate(string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), string date = default(string), List<DataPair> list = default(List<DataPair>))
+        public ValueLabelDateDataPairListTemplate(string templateName, string headline,string footer = default(string), Fdc3Context fdc3Context = default(Fdc3Context), List<ApplicationLink> applicationLinks = default(List<ApplicationLink>), string value = default(string), string label = default(string), string date = default(string), List<DataPair> list = default(List<DataPair>))
         {
+            // to ensure "templateName" is required (not null)
+            if (templateName == null) {
+                throw new ArgumentNullException("templateName is a required property for ValueLabelDateDataPairListTemplate and cannot be null");
+            }
+            this.TemplateName = templateName;
             // to ensure "headline" is required (not null)
             if (headline == null) {
                 throw new ArgumentNullException("headline is a required property for ValueLabelDateDataPairListTemplate and cannot be null");
@@ -63,6 +69,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             this.Date = date;
             this.List = list;
         }
+
+        /// <summary>
+        /// Gets or Sets TemplateName
+        /// </summary>
+        [DataMember(Name = "templateName", IsRequired = true, EmitDefaultValue = false)]
+        public string TemplateName { get; set; }
 
         /// <summary>
         /// Gets or Sets Headline
@@ -120,6 +132,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValueLabelDateDataPairListTemplate {\n");
+            sb.Append("  TemplateName: ").Append(TemplateName).Append("\n");
             sb.Append("  Headline: ").Append(Headline).Append("\n");
             sb.Append("  Footer: ").Append(Footer).Append("\n");
             sb.Append("  Fdc3Context: ").Append(Fdc3Context).Append("\n");
@@ -163,6 +176,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 return false;
             }
             return 
+                (
+                    this.TemplateName == input.TemplateName ||
+                    (this.TemplateName != null &&
+                    this.TemplateName.Equals(input.TemplateName))
+                ) && 
                 (
                     this.Headline == input.Headline ||
                     (this.Headline != null &&
@@ -216,6 +234,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TemplateName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateName.GetHashCode();
+                }
                 if (this.Headline != null)
                 {
                     hashCode = (hashCode * 59) + this.Headline.GetHashCode();

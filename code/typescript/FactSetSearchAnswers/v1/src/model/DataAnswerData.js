@@ -14,8 +14,8 @@
 import ApiClient from '../ApiClient';
 import Answer from './Answer';
 import AnswerWithoutData from './AnswerWithoutData';
-import AnswerWithoutDataAllOfTemplateData from './AnswerWithoutDataAllOfTemplateData';
 import NoAnswersFound from './NoAnswersFound';
+import NoAnswersFoundAllOfTemplateData from './NoAnswersFoundAllOfTemplateData';
 
 /**
  * The DataAnswerData model module.
@@ -28,15 +28,14 @@ class DataAnswerData {
      * @implements module:model/Answer
      * @implements module:model/AnswerWithoutData
      * @implements module:model/NoAnswersFound
-     * @param template {String} 
-     * @param templateData {module:model/AnswerWithoutDataAllOfTemplateData} 
      * @param title {String} 
+     * @param templateData {module:model/NoAnswersFoundAllOfTemplateData} 
      * @param message {String} 
      * @param querySuggestions {Array.<String>} 
      */
-    constructor(template, templateData, title, message, querySuggestions) { 
-        Answer.initialize(this, template, templateData, title);AnswerWithoutData.initialize(this, template, message, querySuggestions, title);NoAnswersFound.initialize(this, template, message, querySuggestions);
-        DataAnswerData.initialize(this, template, templateData, title, message, querySuggestions);
+    constructor(title, templateData, message, querySuggestions) { 
+        Answer.initialize(this, title, templateData);AnswerWithoutData.initialize(this, message, title, templateData);NoAnswersFound.initialize(this, message, querySuggestions, templateData);
+        DataAnswerData.initialize(this, title, templateData, message, querySuggestions);
     }
 
     /**
@@ -44,10 +43,9 @@ class DataAnswerData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, template, templateData, title, message, querySuggestions) { 
-        obj['template'] = template;
-        obj['templateData'] = templateData;
+    static initialize(obj, title, templateData, message, querySuggestions) { 
         obj['title'] = title;
+        obj['templateData'] = templateData;
         obj['message'] = message;
         obj['querySuggestions'] = querySuggestions;
     }
@@ -66,14 +64,11 @@ class DataAnswerData {
             AnswerWithoutData.constructFromObject(data, obj);
             NoAnswersFound.constructFromObject(data, obj);
 
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = ApiClient.convertToType(data['template'], 'String');
-            }
-            if (data.hasOwnProperty('templateData')) {
-                obj['templateData'] = AnswerWithoutDataAllOfTemplateData.constructFromObject(data['templateData']);
-            }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('templateData')) {
+                obj['templateData'] = NoAnswersFoundAllOfTemplateData.constructFromObject(data['templateData']);
             }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
@@ -89,19 +84,14 @@ class DataAnswerData {
 }
 
 /**
- * @member {String} template
- */
-DataAnswerData.prototype['template'] = undefined;
-
-/**
- * @member {module:model/AnswerWithoutDataAllOfTemplateData} templateData
- */
-DataAnswerData.prototype['templateData'] = undefined;
-
-/**
  * @member {String} title
  */
 DataAnswerData.prototype['title'] = undefined;
+
+/**
+ * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
+ */
+DataAnswerData.prototype['templateData'] = undefined;
 
 /**
  * @member {String} message
@@ -116,30 +106,18 @@ DataAnswerData.prototype['querySuggestions'] = undefined;
 
 // Implement Answer interface:
 /**
- * @member {String} template
+ * @member {String} title
  */
-Answer.prototype['template'] = undefined;
+Answer.prototype['title'] = undefined;
 /**
  * @member {module:model/TemplateData} templateData
  */
 Answer.prototype['templateData'] = undefined;
-/**
- * @member {String} title
- */
-Answer.prototype['title'] = undefined;
 // Implement AnswerWithoutData interface:
-/**
- * @member {String} template
- */
-AnswerWithoutData.prototype['template'] = undefined;
 /**
  * @member {String} message
  */
 AnswerWithoutData.prototype['message'] = undefined;
-/**
- * @member {Array.<String>} querySuggestions
- */
-AnswerWithoutData.prototype['querySuggestions'] = undefined;
 /**
  * @member {String} title
  */
@@ -150,10 +128,6 @@ AnswerWithoutData.prototype['title'] = undefined;
 AnswerWithoutData.prototype['templateData'] = undefined;
 // Implement NoAnswersFound interface:
 /**
- * @member {String} template
- */
-NoAnswersFound.prototype['template'] = undefined;
-/**
  * @member {String} message
  */
 NoAnswersFound.prototype['message'] = undefined;
@@ -161,6 +135,10 @@ NoAnswersFound.prototype['message'] = undefined;
  * @member {Array.<String>} querySuggestions
  */
 NoAnswersFound.prototype['querySuggestions'] = undefined;
+/**
+ * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
+ */
+NoAnswersFound.prototype['templateData'] = undefined;
 
 
 
