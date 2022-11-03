@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "publisher",
-  "artifactVersion": "0.8.4",
+  "artifactVersion": "0.8.5",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Publisher client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -26,7 +26,7 @@
   "library": "jersey2",
   "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/Publisher/0.8.4",
+  "httpUserAgent": "fds-sdk/java/Publisher/0.8.5",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
