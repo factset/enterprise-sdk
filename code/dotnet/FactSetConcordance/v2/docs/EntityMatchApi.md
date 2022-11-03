@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getentitymatch"></a>
 # **GetEntityMatch**
-> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null)
+> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bic = null, string bbgTicker = null, string cik = null, string crd = null, string cusip = null, string duns = null, string ein = null, string rssd = null, string fitch = null, string isin = null, string lei = null, string bbgFigi = null, string md = null, string ticker = null, string spr = null, string sedol = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null)
 
 Get Entity Candidates and Matches for a single name and attributes.
 
@@ -61,11 +61,32 @@ namespace Example
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |- --|- --|- --|- --|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional) 
             var excludeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |- --|- --|- --|- --| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional) 
             var includeParent = false;  // bool? | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional)  (default to false)
+            var bic = "bic_example";  // string | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional) 
+            var bbgTicker = "bbgTicker_example";  // string | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional) 
+            var cik = "cik_example";  // string | Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional) 
+            var crd = "crd_example";  // string | Input identifiers for the CRD - Central Registration Depository symbol type (optional) 
+            var cusip = "cusip_example";  // string | Input identifiers for the CUSIP symbol type (optional) 
+            var duns = "duns_example";  // string | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type (optional) 
+            var ein = "ein_example";  // string | Input identifiers for the EIN - Employer Identification Number symbol type (optional) 
+            var rssd = "rssd_example";  // string | Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional) 
+            var fitch = "fitch_example";  // string | Input identifiers for the Fitch - Fitch Ratings symbol type (optional) 
+            var isin = "isin_example";  // string | Input identifiers for the ISIN - International Securities Identification Number symbol type (optional) 
+            var lei = "lei_example";  // string | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional) 
+            var bbgFigi = "bbgFigi_example";  // string | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional) 
+            var md = "md_example";  // string | Input identifiers for the Moody's Ratings Identifier type (optional) 
+            var ticker = "ticker_example";  // string | Input identifiers for the Price Ticker symbol type (optional) 
+            var spr = "spr_example";  // string | Input identifiers for the S&PRating - S&P Ratings Identifier symbol type (optional) 
+            var sedol = "sedol_example";  // string | Input identifiers for the SEDOL symbol type (optional) 
+            var tickerExchange = "tickerExchange_example";  // string | Input identifiers for the TickerExchange (optional) 
+            var tickerRegion = TickerRegion;  // string | Input identifiers for the TickerRegion. (optional) 
+            var ukch = UKCompanyHouse;  // string | Input identifiers for the UKCH - UK Company House symbol type (optional) 
+            var valoren = "valoren_example";  // string | Input identifiers for the Valoren (\"Valor\") symbol type (optional) 
+            var wkn = "wkn_example";  // string | Input identifiers for the WKN - German Securities symbol type (optional) 
 
             try
             {
                 // Get Entity Candidates and Matches for a single name and attributes.
-                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent);
+                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bic, bbgTicker, cik, crd, cusip, duns, ein, rssd, fitch, isin, lei, bbgFigi, md, ticker, spr, sedol, tickerExchange, tickerRegion, ukch, valoren, wkn);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -92,6 +113,27 @@ Name | Type | Description  | Notes
  **includeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |- --|- --|- --|- --|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  | [optional] 
  **excludeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |- --|- --|- --|- --| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  | [optional] 
  **includeParent** | **bool?**| Flag to include parent entities in the list of candidates. This parameter does not influence the match result. | [optional] [default to false]
+ **bic** | **string**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional] 
+ **bbgTicker** | **string**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type | [optional] 
+ **cik** | **string**| Input identifiers for the CIK - Edgar Central Index Keys symbol type | [optional] 
+ **crd** | **string**| Input identifiers for the CRD - Central Registration Depository symbol type | [optional] 
+ **cusip** | **string**| Input identifiers for the CUSIP symbol type | [optional] 
+ **duns** | **string**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type | [optional] 
+ **ein** | **string**| Input identifiers for the EIN - Employer Identification Number symbol type | [optional] 
+ **rssd** | **string**| Input identifiers for the RSSD - Federal Reserve RSSD symbol type | [optional] 
+ **fitch** | **string**| Input identifiers for the Fitch - Fitch Ratings symbol type | [optional] 
+ **isin** | **string**| Input identifiers for the ISIN - International Securities Identification Number symbol type | [optional] 
+ **lei** | **string**| Input identifiers for the LEI - Legal Entity Identifier symbol type | [optional] 
+ **bbgFigi** | **string**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type | [optional] 
+ **md** | **string**| Input identifiers for the Moody&#39;s Ratings Identifier type | [optional] 
+ **ticker** | **string**| Input identifiers for the Price Ticker symbol type | [optional] 
+ **spr** | **string**| Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type | [optional] 
+ **sedol** | **string**| Input identifiers for the SEDOL symbol type | [optional] 
+ **tickerExchange** | **string**| Input identifiers for the TickerExchange | [optional] 
+ **tickerRegion** | **string**| Input identifiers for the TickerRegion. | [optional] 
+ **ukch** | **string**| Input identifiers for the UKCH - UK Company House symbol type | [optional] 
+ **valoren** | **string**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type | [optional] 
+ **wkn** | **string**| Input identifiers for the WKN - German Securities symbol type | [optional] 
 
 ### Return type
 [**EntityMatchesResponse**](EntityMatchesResponse.md)
@@ -124,7 +166,7 @@ Name | Type | Description  | Notes
 
 Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
-Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. <p>**Max of 25 Names inputted.** Use the \"Entity Match - Bulk\" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p> 
+Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  <p>**Max of 25 Names inputted.** Use the \"Entity Match - Bulk\" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p> 
 
 ### Example
 ```csharp

@@ -81,7 +81,7 @@ public class EntityMatchBulkApi {
   /**
    * Get the decisions of matches for the requested taskId.
    * Retrieves the &#x60;Decision&#x60; objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the results of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E). Results will be saved to the &#x60;universeId&#x60; specified in the input file. 
-   * @param taskId Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (required)
+   * @param taskId Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (required)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
    * @return EntityDecisionsResponse
@@ -104,7 +104,7 @@ public class EntityMatchBulkApi {
   /**
    * Get the decisions of matches for the requested taskId.
    * Retrieves the &#x60;Decision&#x60; objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the results of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E). Results will be saved to the &#x60;universeId&#x60; specified in the input file. 
-   * @param taskId Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (required)
+   * @param taskId Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (required)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
    * @return ApiResponse&lt;EntityDecisionsResponse&gt;
@@ -179,6 +179,28 @@ public class EntityMatchBulkApi {
    * @param countryColumn Header Name of the column in the input file that contains the country&#39;s ISO Code. This is used to filter the candidates before taking a match decision.  (optional)
    * @param urlColumn Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional)
    * @param stateColumn Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional)
+   * @param priorityColumn Header Name of the column in the inputfile that contains the priority for the client id.  (optional)
+   * @param bicColumn Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  (optional)
+   * @param bbgTickerColumn Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type (optional)
+   * @param cikColumn Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type (optional)
+   * @param crdColumn Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type (optional)
+   * @param cusipColumn Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type (optional)
+   * @param dunsColumn Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type (optional)
+   * @param einColumn Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type (optional)
+   * @param rssdColumn Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type (optional)
+   * @param fitchColumn Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type (optional)
+   * @param isinColumn Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type (optional)
+   * @param leiColumn Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type (optional)
+   * @param bbgFigiColumn Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type (optional)
+   * @param mdColumn Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type (optional)
+   * @param tickerColumn Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type (optional)
+   * @param sprColumn Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type (optional)
+   * @param sedolColumn Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type (optional)
+   * @param tickerExchangeColumn Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type (optional)
+   * @param tickerRegionColumn Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type (optional)
+   * @param ukchColumn Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type (optional)
+   * @param valorenColumn Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type (optional)
+   * @param wknColumn Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type (optional)
    * @param includeEntityType Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param excludeEntityType Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
@@ -196,8 +218,8 @@ public class EntityMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityTaskResponse getEntityTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType) throws ApiException {
-    return getEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType).getData();
+  public EntityTaskResponse getEntityTaskForList(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bicColumn, String bbgTickerColumn, String cikColumn, String crdColumn, String cusipColumn, String dunsColumn, String einColumn, String rssdColumn, String fitchColumn, String isinColumn, String leiColumn, String bbgFigiColumn, String mdColumn, String tickerColumn, String sprColumn, String sedolColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType) throws ApiException {
+    return getEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType).getData();
   }
 
   /**
@@ -211,6 +233,28 @@ public class EntityMatchBulkApi {
    * @param countryColumn Header Name of the column in the input file that contains the country&#39;s ISO Code. This is used to filter the candidates before taking a match decision.  (optional)
    * @param urlColumn Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional)
    * @param stateColumn Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional)
+   * @param priorityColumn Header Name of the column in the inputfile that contains the priority for the client id.  (optional)
+   * @param bicColumn Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  (optional)
+   * @param bbgTickerColumn Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type (optional)
+   * @param cikColumn Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type (optional)
+   * @param crdColumn Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type (optional)
+   * @param cusipColumn Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type (optional)
+   * @param dunsColumn Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type (optional)
+   * @param einColumn Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type (optional)
+   * @param rssdColumn Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type (optional)
+   * @param fitchColumn Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type (optional)
+   * @param isinColumn Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type (optional)
+   * @param leiColumn Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type (optional)
+   * @param bbgFigiColumn Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type (optional)
+   * @param mdColumn Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type (optional)
+   * @param tickerColumn Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type (optional)
+   * @param sprColumn Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type (optional)
+   * @param sedolColumn Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type (optional)
+   * @param tickerExchangeColumn Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type (optional)
+   * @param tickerRegionColumn Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type (optional)
+   * @param ukchColumn Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type (optional)
+   * @param valorenColumn Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type (optional)
+   * @param wknColumn Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type (optional)
    * @param includeEntityType Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param excludeEntityType Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  (optional)
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)
@@ -228,7 +272,7 @@ public class EntityMatchBulkApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityTaskResponse> getEntityTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType) throws ApiException {
+  public ApiResponse<EntityTaskResponse> getEntityTaskForListWithHttpInfo(Integer universeId, String taskName, File inputFile, String clientIdColumn, String nameColumn, String countryColumn, String urlColumn, String stateColumn, String priorityColumn, String bicColumn, String bbgTickerColumn, String cikColumn, String crdColumn, String cusipColumn, String dunsColumn, String einColumn, String rssdColumn, String fitchColumn, String isinColumn, String leiColumn, String bbgFigiColumn, String mdColumn, String tickerColumn, String sprColumn, String sedolColumn, String tickerExchangeColumn, String tickerRegionColumn, String ukchColumn, String valorenColumn, String wknColumn, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'universeId' is set
@@ -284,6 +328,50 @@ if (urlColumn != null)
       localVarFormParams.put("urlColumn", urlColumn);
 if (stateColumn != null)
       localVarFormParams.put("stateColumn", stateColumn);
+if (priorityColumn != null)
+      localVarFormParams.put("priorityColumn", priorityColumn);
+if (bicColumn != null)
+      localVarFormParams.put("bicColumn", bicColumn);
+if (bbgTickerColumn != null)
+      localVarFormParams.put("bbgTickerColumn", bbgTickerColumn);
+if (cikColumn != null)
+      localVarFormParams.put("cikColumn", cikColumn);
+if (crdColumn != null)
+      localVarFormParams.put("crdColumn", crdColumn);
+if (cusipColumn != null)
+      localVarFormParams.put("cusipColumn", cusipColumn);
+if (dunsColumn != null)
+      localVarFormParams.put("dunsColumn", dunsColumn);
+if (einColumn != null)
+      localVarFormParams.put("einColumn", einColumn);
+if (rssdColumn != null)
+      localVarFormParams.put("rssdColumn", rssdColumn);
+if (fitchColumn != null)
+      localVarFormParams.put("fitchColumn", fitchColumn);
+if (isinColumn != null)
+      localVarFormParams.put("isinColumn", isinColumn);
+if (leiColumn != null)
+      localVarFormParams.put("leiColumn", leiColumn);
+if (bbgFigiColumn != null)
+      localVarFormParams.put("bbgFigiColumn", bbgFigiColumn);
+if (mdColumn != null)
+      localVarFormParams.put("mdColumn", mdColumn);
+if (tickerColumn != null)
+      localVarFormParams.put("tickerColumn", tickerColumn);
+if (sprColumn != null)
+      localVarFormParams.put("sprColumn", sprColumn);
+if (sedolColumn != null)
+      localVarFormParams.put("sedolColumn", sedolColumn);
+if (tickerExchangeColumn != null)
+      localVarFormParams.put("tickerExchangeColumn", tickerExchangeColumn);
+if (tickerRegionColumn != null)
+      localVarFormParams.put("tickerRegionColumn", tickerRegionColumn);
+if (ukchColumn != null)
+      localVarFormParams.put("ukchColumn", ukchColumn);
+if (valorenColumn != null)
+      localVarFormParams.put("valorenColumn", valorenColumn);
+if (wknColumn != null)
+      localVarFormParams.put("wknColumn", wknColumn);
 if (includeEntityType != null)
       localVarFormParams.put("includeEntityType", includeEntityType);
 if (excludeEntityType != null)
@@ -320,7 +408,7 @@ if (excludeEntitySubType != null)
   /**
    * Gets the status of the requested taskId or all tasks for a User
    * Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.&lt;p&gt;Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. 
-   * @param taskId Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
+   * @param taskId Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
    * @param status Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)
@@ -344,7 +432,7 @@ if (excludeEntitySubType != null)
   /**
    * Gets the status of the requested taskId or all tasks for a User
    * Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.&lt;p&gt;Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. 
-   * @param taskId Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
+   * @param taskId Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
    * @param status Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)

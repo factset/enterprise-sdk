@@ -75,9 +75,9 @@ public enum GetInputSymbolType {
   
   TICKERREGION("tickerRegion"),
   
-  BBGSECURITYID("bbgSecurityId"),
+  BLOOMBERGFIGI("bloombergFigi"),
   
-  BBGTICKERCOMPOSITE("bbgTickerComposite");
+  BLOOMBERGTICKER("bloombergTicker");
 
   private String value;
 

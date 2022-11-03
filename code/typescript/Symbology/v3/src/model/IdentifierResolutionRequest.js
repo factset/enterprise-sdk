@@ -23,7 +23,7 @@ class IdentifierResolutionRequest {
      * Constructs a new <code>IdentifierResolutionRequest</code>.
      * Request object for Identifier Resolution endpoint.
      * @alias module:model/IdentifierResolutionRequest
-     * @param ids {Array.<String>} Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, 'requestId'.
+     * @param ids {Array.<String>} Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.
      * @param inputSymbolType {module:model/GetInputSymbolType} 
      * @param outputSymbolTypes {Array.<module:model/IdentifierResolutionRequest.OutputSymbolTypesEnum>} Requested identifiers to be returned. Multiple identifier types can be requested with each request.
      */
@@ -71,7 +71,7 @@ class IdentifierResolutionRequest {
 }
 
 /**
- * Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, 'requestId'.
+ * Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.
  * @member {Array.<String>} ids
  */
 IdentifierResolutionRequest.prototype['ids'] = undefined;

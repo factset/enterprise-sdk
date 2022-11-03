@@ -75,8 +75,8 @@ class GetInputSymbolType(ModelSimple):
             'ISIN': "ISIN",
             'TICKEREXCHANGE': "tickerExchange",
             'TICKERREGION': "tickerRegion",
-            'BBGSECURITYID': "bbgSecurityId",
-            'BBGTICKERCOMPOSITE': "bbgTickerComposite",
+            'BLOOMBERGFIGI': "bloombergFigi",
+            'BLOOMBERGTICKER': "bloombergTicker",
         },
     }
 
@@ -130,10 +130,10 @@ class GetInputSymbolType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bbgSecurityId", "bbgTickerComposite", ]  # noqa: E501
+            args[0] (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bloombergFigi", "bloombergTicker", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bbgSecurityId", "bbgTickerComposite", ]  # noqa: E501
+            value (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bloombergFigi", "bloombergTicker", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -216,10 +216,10 @@ class GetInputSymbolType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bbgSecurityId", "bbgTickerComposite", ]  # noqa: E501
+            args[0] (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bloombergFigi", "bloombergTicker", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bbgSecurityId", "bbgTickerComposite", ]  # noqa: E501
+            value (str): The type of symbol submitted for resolution to other identifiers. Only one type of symbol is accepted with each request.. if omitted defaults to "tickerRegion", must be one of ["BIC", "CIK", "CRD", "DUNS", "EIN", "FITCH", "LEI", "MD", "SPR", "VALOREN", "WKN", "UKCH", "RSSD", "SEDOL", "CUSIP", "fsymEntityId", "fsymSecurityId", "fsymRegionalId", "fsymListingId", "ISIN", "tickerExchange", "tickerRegion", "bloombergFigi", "bloombergTicker", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

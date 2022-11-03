@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errorMessage** | **String** |  | [optional] 
+**code** | **String** |  | [optional] 
+**title** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
 
 

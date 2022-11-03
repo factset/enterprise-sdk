@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | **[Object]** |  | [optional] 
-**meta** | [**NRTSnippetsMeta**](NRTSnippetsMeta.md) |  | [optional] 
+**meta** | [**IndexedNRTMeta**](IndexedNRTMeta.md) |  | [optional] 
 
 

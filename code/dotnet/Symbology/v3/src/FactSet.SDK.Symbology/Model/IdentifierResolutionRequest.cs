@@ -176,7 +176,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifierResolutionRequest" /> class.
         /// </summary>
-        /// <param name="ids">Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#39;requestId&#39;. (required).</param>
+        /// <param name="ids">Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. (required).</param>
         /// <param name="inputSymbolType">inputSymbolType (required).</param>
         /// <param name="outputSymbolTypes">Requested identifiers to be returned. Multiple identifier types can be requested with each request. (required).</param>
         public IdentifierResolutionRequest(List<string> ids, GetInputSymbolType inputSymbolType, List<OutputSymbolTypesEnum> outputSymbolTypes)
@@ -199,9 +199,9 @@ namespace FactSet.SDK.Symbology.Model
         }
 
         /// <summary>
-        /// Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#39;requestId&#39;.
+        /// Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
         /// </summary>
-        /// <value>Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#39;requestId&#39;.</value>
+        /// <value>Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 

@@ -38,8 +38,8 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * ISIN*
 * tickerExchange
 * tickerRegion
-* bbgSecurityId (input only)
-* bbgTickerComposite (input only)
+* bloombergFigi (input only)
+* bloombergTicker (input only)
 
 **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
 
@@ -154,8 +154,8 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * ISIN*
 * tickerExchange
 * tickerRegion
-* bbgSecurityId (input only)
-* bbgTickerComposite (input only)
+* bloombergFigi (input only)
+* bloombergTicker (input only)
 
 **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
 
@@ -218,7 +218,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Requested security or entity identifiers. All requested identifiers must be of the same type. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt;   *&lt;p&gt;NOTE:  GET Method URL request lines are also limited to a total   length of 8192 bytes (8KB). In cases where the service allows for thousands   of ids, which may lead to exceeding this request line limit of 8KB, its   advised for any requests with large request lines to be requested through   the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
- **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, DUNS, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bbgSecurityId, bbgTickerComposite]
+ **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, DUNS, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bloombergFigi, bloombergTicker]
  **outputSymbolTypes** | **List&lt;String&gt;**| The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type. | [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion]
 
 ### Return type

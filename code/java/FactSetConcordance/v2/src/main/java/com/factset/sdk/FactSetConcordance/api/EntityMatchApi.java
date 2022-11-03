@@ -79,6 +79,27 @@ public class EntityMatchApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
    * @param includeParent Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional, default to false)
+   * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
+   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
+   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
+   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type (optional)
+   * @param cusip Input identifiers for the CUSIP symbol type (optional)
+   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type (optional)
+   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type (optional)
+   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
+   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
+   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+   * @param lei Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
+   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
+   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type (optional)
+   * @param ticker Input identifiers for the Price Ticker symbol type (optional)
+   * @param spr Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type (optional)
+   * @param sedol Input identifiers for the SEDOL symbol type (optional)
+   * @param tickerExchange Input identifiers for the TickerExchange (optional)
+   * @param tickerRegion Input identifiers for the TickerRegion. (optional)
+   * @param ukch Input identifiers for the UKCH - UK Company House symbol type (optional)
+   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type (optional)
+   * @param wkn Input identifiers for the WKN - German Securities symbol type (optional)
    * @return EntityMatchesResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -92,8 +113,8 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent) throws ApiException {
-    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent).getData();
+  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bic, String bbgTicker, String cik, String crd, String cusip, String duns, String ein, String rssd, String fitch, String isin, String lei, String bbgFigi, String md, String ticker, String spr, String sedol, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
+    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bic, bbgTicker, cik, crd, cusip, duns, ein, rssd, fitch, isin, lei, bbgFigi, md, ticker, spr, sedol, tickerExchange, tickerRegion, ukch, valoren, wkn).getData();
   }
 
   /**
@@ -108,6 +129,27 @@ public class EntityMatchApi {
    * @param includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  (optional)
    * @param excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
    * @param includeParent Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional, default to false)
+   * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
+   * @param bbgTicker Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
+   * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
+   * @param crd Input identifiers for the CRD - Central Registration Depository symbol type (optional)
+   * @param cusip Input identifiers for the CUSIP symbol type (optional)
+   * @param duns Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type (optional)
+   * @param ein Input identifiers for the EIN - Employer Identification Number symbol type (optional)
+   * @param rssd Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
+   * @param fitch Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
+   * @param isin Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+   * @param lei Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
+   * @param bbgFigi Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
+   * @param md Input identifiers for the Moody&#39;s Ratings Identifier type (optional)
+   * @param ticker Input identifiers for the Price Ticker symbol type (optional)
+   * @param spr Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type (optional)
+   * @param sedol Input identifiers for the SEDOL symbol type (optional)
+   * @param tickerExchange Input identifiers for the TickerExchange (optional)
+   * @param tickerRegion Input identifiers for the TickerRegion. (optional)
+   * @param ukch Input identifiers for the UKCH - UK Company House symbol type (optional)
+   * @param valoren Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type (optional)
+   * @param wkn Input identifiers for the WKN - German Securities symbol type (optional)
    * @return ApiResponse&lt;EntityMatchesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -121,7 +163,7 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent) throws ApiException {
+  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bic, String bbgTicker, String cik, String crd, String cusip, String duns, String ein, String rssd, String fitch, String isin, String lei, String bbgFigi, String md, String ticker, String spr, String sedol, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
@@ -147,6 +189,27 @@ public class EntityMatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "includeEntitySubType", includeEntitySubType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "excludeEntitySubType", excludeEntitySubType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeParent", includeParent));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bic", bic));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bbgTicker", bbgTicker));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cik", cik));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "crd", crd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cusip", cusip));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "duns", duns));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ein", ein));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rssd", rssd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitch", fitch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isin", isin));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "lei", lei));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "bbgFigi", bbgFigi));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "md", md));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ticker", ticker));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "spr", spr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sedol", sedol));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tickerExchange", tickerExchange));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tickerRegion", tickerRegion));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ukch", ukch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "valoren", valoren));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "wkn", wkn));
 
     
     
@@ -177,7 +240,7 @@ public class EntityMatchApi {
   }
   /**
    * Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
-   * Finds the best candidate entities matching the given entity name. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. &lt;p&gt;**Max of 25 Names inputted.** Use the \&quot;Entity Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).&lt;/p&gt; 
+   * Finds the best candidate entities matching the given entity name. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  &lt;p&gt;**Max of 25 Names inputted.** Use the \&quot;Entity Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).&lt;/p&gt; 
    * @param entityMatchRequest A request to match a Entity. (required)
    * @return EntityMatchesResponse
    * @throws ApiException if fails to make API call
@@ -198,7 +261,7 @@ public class EntityMatchApi {
 
   /**
    * Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
-   * Finds the best candidate entities matching the given entity name. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. &lt;p&gt;**Max of 25 Names inputted.** Use the \&quot;Entity Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).&lt;/p&gt; 
+   * Finds the best candidate entities matching the given entity name. If a &#x60;universeId&#x60; is provided, any match for an input including a &#x60;clientId&#x60; will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  &lt;p&gt;**Max of 25 Names inputted.** Use the \&quot;Entity Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).&lt;/p&gt; 
    * @param entityMatchRequest A request to match a Entity. (required)
    * @return ApiResponse&lt;EntityMatchesResponse&gt;
    * @throws ApiException if fails to make API call

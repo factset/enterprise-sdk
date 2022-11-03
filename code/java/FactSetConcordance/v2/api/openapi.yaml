@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Concordance API provides the ability to programmatically look up several types of entities by their name and other attributes. It attempts to match attributes that you supply for the entity and returns as many match candidates as it can find. The result is a "concorded" FactSet Entity Permanent identifier.  The Entity Identifier can then be used as input throughout FactSet's Content soultions, such as Content APIs and Standard DataFeeds.<p> There are two types of workflows supported in the API. The first workflow type follows traditional API conventions in that a request is accepted and a response is returned synchronously. The second workflow type involves a background task. With this workflow, a task is created for uploading a set of queries, and then the client polls for the task to complete. Once the task has completed, the client retrieves the concordance results throught the decisions endpoint.</p>
   title: FactSet Concordance API
-  version: 2.3.1
+  version: 2.4.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -221,6 +221,187 @@ paths:
           example: false
           type: boolean
         style: form
+      - description: Input identifiers for the BICCode - Bank Indentification Code
+          symbol Type.
+        explode: true
+        in: query
+        name: bic
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the Bloomberg Listing and Regional Ticker
+          symbol Type
+        explode: true
+        in: query
+        name: bbgTicker
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the CIK - Edgar Central Index Keys symbol
+          type
+        explode: true
+        in: query
+        name: cik
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the CRD - Central Registration Depository
+          symbol type
+        explode: true
+        in: query
+        name: crd
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the CUSIP symbol type
+        explode: true
+        in: query
+        name: cusip
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the DUNS - Dun & Bradstreet Data Universal
+          Numbering System symbol type
+        explode: true
+        in: query
+        name: duns
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the EIN - Employer Identification Number
+          symbol type
+        explode: true
+        in: query
+        name: ein
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the RSSD - Federal Reserve RSSD symbol
+          type
+        explode: true
+        in: query
+        name: rssd
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the Fitch - Fitch Ratings symbol type
+        explode: true
+        in: query
+        name: fitch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the ISIN - International Securities Identification
+          Number symbol type
+        explode: true
+        in: query
+        name: isin
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the LEI - Legal Entity Identifier symbol
+          type
+        explode: true
+        in: query
+        name: lei
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the Bloomberg Listing/Regional/Security
+          ID symbol type
+        explode: true
+        in: query
+        name: bbgFigi
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the Moody's Ratings Identifier type
+        explode: true
+        in: query
+        name: md
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the Price Ticker symbol type
+        explode: true
+        in: query
+        name: ticker
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the S&PRating - S&P Ratings Identifier
+          symbol type
+        explode: true
+        in: query
+        name: spr
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the SEDOL symbol type
+        explode: true
+        in: query
+        name: sedol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the TickerExchange
+        explode: true
+        in: query
+        name: tickerExchange
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the TickerRegion.
+        explode: true
+        in: query
+        name: tickerRegion
+        required: false
+        schema:
+          example: TickerRegion
+          type: string
+        style: form
+      - description: Input identifiers for the UKCH - UK Company House symbol type
+        explode: true
+        in: query
+        name: ukch
+        required: false
+        schema:
+          example: UKCompanyHouse
+          type: string
+        style: form
+      - description: Input identifiers for the Valoren ("Valor") symbol type
+        explode: true
+        in: query
+        name: valoren
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Input identifiers for the WKN - German Securities symbol type
+        explode: true
+        in: query
+        name: wkn
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -301,7 +482,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. <p>**Max of 25 Names inputted.** Use the "Entity Match - Bulk" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -
+        Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  <p>**Max of 25 Names inputted.** Use the "Entity Match - Bulk" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -
           * Corporations, Joint Ventures, and Holding Companies
           * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p>
       operationId: getEntityMatchForList
@@ -438,6 +619,95 @@ paths:
                   description: |
                     Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.
                   example: STATE
+                  type: string
+                priorityColumn:
+                  description: |
+                    Header Name of the column in the inputfile that contains the priority for the client id.
+                  example: Priority
+                  type: string
+                bicColumn:
+                  description: |
+                    Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type
+                  type: string
+                bbgTickerColumn:
+                  description: Header Name of the column in the input file for the
+                    Bloomberg `Listing and Regional Ticker` symbol type
+                  type: string
+                cikColumn:
+                  description: Header Name of the column in the input file for the
+                    CIK, `Edgar Central Index Keys` symbol type
+                  type: string
+                crdColumn:
+                  description: Header Name of the column in the input file for the
+                    CRD, `Central Registration Depository` symbol type
+                  type: string
+                cusipColumn:
+                  description: Header Name of the column in the input file for the
+                    `CUSIP` symbol type
+                  type: string
+                dunsColumn:
+                  description: Header Name of the column in the input file for the
+                    DUNS, `Dun&Bradstreet` symbol type
+                  type: string
+                einColumn:
+                  description: Header Name of the column in the input file for the
+                    EIN, `EmployerIdentificationNumber` symbol type
+                  type: string
+                rssdColumn:
+                  description: Header Name of the column in the input file for the
+                    RSSD, `FederalReserveRSSDIdentifier` symbol type
+                  type: string
+                fitchColumn:
+                  description: Header Name of the column in the input file for the
+                    FitchCreditRating, `Fitch Ratings Identifier` symbol type
+                  type: string
+                isinColumn:
+                  description: Header Name of the column in the input file for the
+                    `ISIN`symbol type
+                  type: string
+                leiColumn:
+                  description: Header Name of the column in the input file for the
+                    LEI, `LegalEntityIdentifier` symbol type
+                  type: string
+                bbgFigiColumn:
+                  description: Header Name of the column in the input file for the
+                    `Bloomberg Listing/Regional/Security ID` symbol type
+                  type: string
+                mdColumn:
+                  description: Header Name of the column in the input file for the
+                    MoodysIssuer, `Moody's Ratings Identifier` symbol type
+                  type: string
+                tickerColumn:
+                  description: Header Name of the column in the input file for the
+                    `PriceTicker` symbol type
+                  type: string
+                sprColumn:
+                  description: Header Name of the column in the input file for the
+                    S&PRating, `S&P Ratings Identifier` symbol type
+                  type: string
+                sedolColumn:
+                  description: Header Name of the column in the input file for the
+                    `SEDOL` symbol type
+                  type: string
+                tickerExchangeColumn:
+                  description: Header Name of the column in the input file for the
+                    `TickerExchange` symbol type
+                  type: string
+                tickerRegionColumn:
+                  description: Header Name of the column in the input file for the
+                    `TickerRegion` symbol type
+                  type: string
+                ukchColumn:
+                  description: Header Name of the column in the input file for the
+                    `UKCompanyHouse` symbol type
+                  type: string
+                valorenColumn:
+                  description: Header Name of the column in the input file for the
+                    VALOR, `Valoren ("Valor") Identification` symbol type
+                  type: string
+                wknColumn:
+                  description: Header Name of the column in the input file for the
+                    WKN, `German Securities Identification` symbol type
                   type: string
                 includeEntityType:
                   description: |
@@ -578,8 +848,8 @@ paths:
           * ABORTED - The task was aborted.
       operationId: getEntityTaskStatus
       parameters:
-      - description: Concordance Task Identifier. The taskId is created in response
-          from the /entity-task endpoint.
+      - description: Name of the column for the type Concordance Task Identifier.
+          The taskId is created in response from the /entity-task endpoint.
         example: 31589
         explode: true
         in: query
@@ -721,8 +991,8 @@ paths:
         Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the results of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E). Results will be saved to the `universeId` specified in the input file.
       operationId: getEntityDecisions
       parameters:
-      - description: Concordance Task Identifier. The taskId is created in response
-          from the /entity-task endpoint.
+      - description: Name of the column for the type Concordance Task Identifier.
+          The taskId is created in response from the /entity-task endpoint.
         example: 31589
         explode: true
         in: query
@@ -1870,7 +2140,7 @@ paths:
                   $ref: '#/components/examples/PeopleResponse'
               schema:
                 $ref: '#/components/schemas/PeopleMappingDeleteResponse'
-          description: Response object for the people-mapping-delete endpoint.
+          description: Response object for the people-mapping-delete endpoint
         "400":
           content:
             application/json:
@@ -1964,7 +2234,7 @@ paths:
   /factset-concordance/v2/people-match:
     get:
       description: |
-        Finds the best people candidates matching the given name. <p>**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to  names. Otherwise, use the "People Match - Bulk" workflow to submit larger universes of names to be concorded via a file.</p><p>
+        Finds the best people candidates matching the given name. <p>**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to 25 names. Otherwise, use the "People Match - Bulk" workflow to submit larger universes of names to be concorded via a file.</p><p>
       operationId: getPeopleMatch
       parameters:
       - description: Name of Person to match.
@@ -2245,8 +2515,8 @@ paths:
                   example: Microsoft
                   type: string
                 firstNameColumn:
-                  description: |
-                    First name of the person.**Do not include with `personNameColumn`**.
+                  description: "First name of the person.**Do not include with `personNameColumn`**.\
+                    \ \n"
                   example: Bill
                   type: string
                 lastNameColumn:
@@ -2653,6 +2923,33 @@ components:
       value:
         data:
         - taskId: null
+          clientId: id
+          clientBbgFigi: BBG009S39JY5
+          clientBbgTicker: GOOGL UW
+          clientBic: ABXXHKH1
+          clientCik: 100331
+          clientCountry: US
+          clientCrd: 149722
+          clientCusip: 02079K305
+          clientDuns: 621513451
+          clientEin: 953540776
+          clientFitch: 47504
+          clientIsin: US02079K305
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientMd: 823736553
+          clientName: Amazon
+          clientPriority: HIGH
+          clientRssd: 1139297
+          clientSedol: BYZ5YB6
+          clientSpr: 301939
+          clientState: WA
+          clientTicker: GOOGL
+          clientTickerExchange: GOOGL-NAS
+          clientTickerRegion: GOOGL-US
+          clientUkch: CE012494
+          clientUrl: www.amazon.com
+          clientValoren: 685558
+          clientWkn: A0MU9T
           rowIndex: 0
           matchFlag: true
           entityId: 0016YD-E
@@ -2677,11 +2974,6 @@ components:
           factsetSectorName: Technology Services
           parentName: null,
           parentMatchFlag: null
-          clientId: abc-123
-          clientName: factset
-          clientCountry: US
-          clientState: CT
-          clientUrl: www.factset.com
           nameMatchString: factset
           nameMatchSource: Domain Name
     SuccessfulEntityTasks:
@@ -2699,6 +2991,28 @@ components:
           countryColumn: country
           stateColumn: state
           urlColumn: url
+          bicColumn: bicColumn
+          bbgTickerColumn: bbgTickerColumn
+          cikColumn: cikColumn
+          crdColumn: crdColumn
+          cusipColumn: cusipColumn
+          dunsColumn: dunsColumn
+          einColumn: einColumn
+          rssdColumn: rssdColumn
+          fitchColumn: fitchColumn
+          isinColumn: isinColumn
+          leiColumn: leiColumn
+          bbgFigiColumn: bbgFigiColumn
+          mdColumn: mdColumn
+          tickerColumn: tickerColumn
+          sprColumn: sprColumn
+          sedolColumn: sedolColumn
+          tickerExchangeColumn: tickerExchangeColumn
+          tickerRegionColumn: tickerRegionColumn
+          ukchColumn: ukchColumn
+          valorenColumn: valorenColumn
+          wknColumn: wknColumn
+          priorityColumn: null
           includeEntityType:
           - PUB
           excludeEntityType: null
@@ -2782,6 +3096,27 @@ components:
           taskAction: processfile
           status: PENDING
           inputFile: test_427608.csv
+          bicColumn: bicColumn
+          bbgTickerColumn: bbgTickerColumn
+          cikColumn: cikColumn
+          crdColumn: crdColumn
+          cusipColumn: cusipColumn
+          dunsColumn: dunsColumn
+          einColumn: einColumn
+          rssdColumn: rssdColumn
+          fitchColumn: fitchColumn
+          isinColumn: isinColumn
+          leiColumn: leiColumn
+          bbgFigiColumn: bbgFigiColumn
+          mdColumn: mdColumn
+          tickerColumn: tickerColumn
+          sprColumn: sprColumn
+          sedolColumn: sedolColumn
+          tickerExchangeColumn: tickerExchangeColumn
+          tickerRegionColumn: tickerRegionColumn
+          ukchColumn: ukchColumn
+          valorenColumn: valorenColumn
+          wknColumn: wknColumn
           clientIdColumn: id
           nameColumn: name
           countryColumn: country
@@ -2800,6 +3135,7 @@ components:
           mappedCount: null
           unmappedCount: null
           indeterminateCount: null
+          priorityColumn: null
           processStartTime: null
           processDuration: null
           tryCount: null
@@ -2823,6 +3159,7 @@ components:
           clientIdColumn: id
           nameColumn: name
           countryColumn: country
+          priorityColumn: null
           stateColumn: state
           urlColumn: url
           includeEntityType:
@@ -3044,6 +3381,32 @@ components:
       value:
         data:
         - taskId: 427749
+          clientBbgFigi: BBG009S39JY5
+          clientBbgTicker: GOOGL UW
+          clientBic: ABXXHKH1
+          clientCik: 100331
+          clientCountry: US
+          clientCrd: 149722
+          clientCusip: 02079K305
+          clientDuns: 621513451
+          clientEin: 953540776
+          clientFitch: 47504
+          clientIsin: US02079K305
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientMd: 823736553
+          clientName: Amazon
+          clientPriority: HIGH
+          clientRssd: 1139297
+          clientSedol: BYZ5YB6
+          clientSpr: 301939
+          clientState: WA
+          clientTicker: GOOGL
+          clientTickerExchange: GOOGL-NAS
+          clientTickerRegion: GOOGL-US
+          clientUkch: CE012494
+          clientUrl: www.amazon.com
+          clientValoren: 685558
+          clientWkn: A0MU9T
           rowIndex: 0
           matchFlag: null
           entityId: 0016YD-E
@@ -3069,10 +3432,6 @@ components:
           parentName: null,
           parentMatchFlag: null
           clientId: abc-123
-          clientName: factset
-          clientCountry: US
-          clientState: CT
-          clientUrl: www.factset.com
           nameMatchString: factset
           nameMatchSource: Domain Name
     NotFound:
@@ -3090,7 +3449,9 @@ components:
         - entityId: 00345-E
           entityName: FactSet Inc.
           clientId: abc-123
+          clientIsin: US02079K305
           clientName: factset
+          clientSedol: 2329770
           clientCountry: us
           clientState: ct
           clientUrl: www.factset.com
@@ -3101,7 +3462,9 @@ components:
         - entityId: null
           entityName: null
           clientId: def-456
+          clientIsin: US0378331005
           clientName: apple
+          clientSedol: 2046251
           clientCountry: us
           clientState: ca
           clientUrl: www.apple.com
@@ -3150,7 +3513,9 @@ components:
           entityId: 00345-E
           entityName: FactSet Inc.
           clientId: abc-123
+          clientIsin: US02079K305
           clientName: factset
+          clientSedol: BYZ5YB6
           clientCountry: US
           clientState: CT
           clientUrl: www.factset.com
@@ -3546,9 +3911,210 @@ components:
         example: false
         type: boolean
       style: form
+    bic:
+      description: Input identifiers for the BICCode - Bank Indentification Code symbol
+        Type.
+      explode: true
+      in: query
+      name: bic
+      required: false
+      schema:
+        type: string
+      style: form
+    bbgTicker:
+      description: Input identifiers for the Bloomberg Listing and Regional Ticker
+        symbol Type
+      explode: true
+      in: query
+      name: bbgTicker
+      required: false
+      schema:
+        type: string
+      style: form
+    cik:
+      description: Input identifiers for the CIK - Edgar Central Index Keys symbol
+        type
+      explode: true
+      in: query
+      name: cik
+      required: false
+      schema:
+        type: string
+      style: form
+    crd:
+      description: Input identifiers for the CRD - Central Registration Depository
+        symbol type
+      explode: true
+      in: query
+      name: crd
+      required: false
+      schema:
+        type: string
+      style: form
+    cusip:
+      description: Input identifiers for the CUSIP symbol type
+      explode: true
+      in: query
+      name: cusip
+      required: false
+      schema:
+        type: string
+      style: form
+    duns:
+      description: Input identifiers for the DUNS - Dun & Bradstreet Data Universal
+        Numbering System symbol type
+      explode: true
+      in: query
+      name: duns
+      required: false
+      schema:
+        type: string
+      style: form
+    ein:
+      description: Input identifiers for the EIN - Employer Identification Number
+        symbol type
+      explode: true
+      in: query
+      name: ein
+      required: false
+      schema:
+        type: string
+      style: form
+    rssd:
+      description: Input identifiers for the RSSD - Federal Reserve RSSD symbol type
+      explode: true
+      in: query
+      name: rssd
+      required: false
+      schema:
+        type: string
+      style: form
+    fitch:
+      description: Input identifiers for the Fitch - Fitch Ratings symbol type
+      explode: true
+      in: query
+      name: fitch
+      required: false
+      schema:
+        type: string
+      style: form
+    isin:
+      description: Input identifiers for the ISIN - International Securities Identification
+        Number symbol type
+      explode: true
+      in: query
+      name: isin
+      required: false
+      schema:
+        type: string
+      style: form
+    lei:
+      description: Input identifiers for the LEI - Legal Entity Identifier symbol
+        type
+      explode: true
+      in: query
+      name: lei
+      required: false
+      schema:
+        type: string
+      style: form
+    bbgFigi:
+      description: Input identifiers for the Bloomberg Listing/Regional/Security ID
+        symbol type
+      explode: true
+      in: query
+      name: bbgFigi
+      required: false
+      schema:
+        type: string
+      style: form
+    md:
+      description: Input identifiers for the Moody's Ratings Identifier type
+      explode: true
+      in: query
+      name: md
+      required: false
+      schema:
+        type: string
+      style: form
+    ticker:
+      description: Input identifiers for the Price Ticker symbol type
+      explode: true
+      in: query
+      name: ticker
+      required: false
+      schema:
+        type: string
+      style: form
+    spr:
+      description: Input identifiers for the S&PRating - S&P Ratings Identifier symbol
+        type
+      explode: true
+      in: query
+      name: spr
+      required: false
+      schema:
+        type: string
+      style: form
+    sedol:
+      description: Input identifiers for the SEDOL symbol type
+      explode: true
+      in: query
+      name: sedol
+      required: false
+      schema:
+        type: string
+      style: form
+    tickerExchange:
+      description: Input identifiers for the TickerExchange
+      explode: true
+      in: query
+      name: tickerExchange
+      required: false
+      schema:
+        type: string
+      style: form
+    tickerRegion:
+      description: Input identifiers for the TickerRegion.
+      explode: true
+      in: query
+      name: tickerRegion
+      required: false
+      schema:
+        example: TickerRegion
+        type: string
+      style: form
+    ukch:
+      description: Input identifiers for the UKCH - UK Company House symbol type
+      explode: true
+      in: query
+      name: ukch
+      required: false
+      schema:
+        example: UKCompanyHouse
+        type: string
+      style: form
+    valoren:
+      description: Input identifiers for the Valoren ("Valor") symbol type
+      explode: true
+      in: query
+      name: valoren
+      required: false
+      schema:
+        type: string
+      style: form
+    wkn:
+      description: Input identifiers for the WKN - German Securities symbol type
+      explode: true
+      in: query
+      name: wkn
+      required: false
+      schema:
+        type: string
+      style: form
     taskDecisionId:
-      description: Concordance Task Identifier. The taskId is created in response
-        from the /entity-task endpoint.
+      description: Name of the column for the type Concordance Task Identifier. The
+        taskId is created in response from the /entity-task endpoint.
       example: 31589
       explode: true
       in: query
@@ -3558,8 +4124,8 @@ components:
         type: integer
       style: form
     taskStatusId:
-      description: Concordance Task Identifier. The taskId is created in response
-        from the /entity-task endpoint.
+      description: Name of the column for the type Concordance Task Identifier. The
+        taskId is created in response from the /entity-task endpoint.
       example: 31589
       explode: true
       in: query
@@ -4147,7 +4713,7 @@ components:
               $ref: '#/components/examples/PeopleResponse'
           schema:
             $ref: '#/components/schemas/PeopleMappingDeleteResponse'
-      description: Response object for the people-mapping-delete endpoint.
+      description: Response object for the people-mapping-delete endpoint
     PeopleTaskResponse:
       content:
         application/json;charset=utf-8:
@@ -4196,30 +4762,140 @@ components:
       example:
         input:
         - country: US
-          clientId: abc-123
-          name: Amazon
+          cusip: 02079K305
+          cik: "100331"
+          bbgTicker: GOOGL UW
+          bbgFigi: BBG009S39JY5
+          tickerRegion: GOOGL-US
+          ein: "953540776"
+          ukch: CE012494
+          lei: 549300A6K7JX8EX2QZ33
+          crd: "149722"
+          md: "823736553"
           state: CT
+          wkn: A0MU9T
+          tickerExchange: GOOGL-NAS
+          ticker: PriceTicker
+          clientId: abc-123
+          valoren: "685558"
+          rssd: "1139297"
+          priority: HIGH
+          sedol: BYZ5YB6
           url: www.amazon.com
+          spr: "301939"
+          name: Amazon
+          fitch: "47504"
+          duns: "621513451"
+          bic: ABXXHKH1
+          isin: US02079K305
         - country: US
-          clientId: abc-123
-          name: Amazon
+          cusip: 02079K305
+          cik: "100331"
+          bbgTicker: GOOGL UW
+          bbgFigi: BBG009S39JY5
+          tickerRegion: GOOGL-US
+          ein: "953540776"
+          ukch: CE012494
+          lei: 549300A6K7JX8EX2QZ33
+          crd: "149722"
+          md: "823736553"
           state: CT
+          wkn: A0MU9T
+          tickerExchange: GOOGL-NAS
+          ticker: PriceTicker
+          clientId: abc-123
+          valoren: "685558"
+          rssd: "1139297"
+          priority: HIGH
+          sedol: BYZ5YB6
           url: www.amazon.com
+          spr: "301939"
+          name: Amazon
+          fitch: "47504"
+          duns: "621513451"
+          bic: ABXXHKH1
+          isin: US02079K305
         - country: US
-          clientId: abc-123
-          name: Amazon
+          cusip: 02079K305
+          cik: "100331"
+          bbgTicker: GOOGL UW
+          bbgFigi: BBG009S39JY5
+          tickerRegion: GOOGL-US
+          ein: "953540776"
+          ukch: CE012494
+          lei: 549300A6K7JX8EX2QZ33
+          crd: "149722"
+          md: "823736553"
           state: CT
+          wkn: A0MU9T
+          tickerExchange: GOOGL-NAS
+          ticker: PriceTicker
+          clientId: abc-123
+          valoren: "685558"
+          rssd: "1139297"
+          priority: HIGH
+          sedol: BYZ5YB6
           url: www.amazon.com
+          spr: "301939"
+          name: Amazon
+          fitch: "47504"
+          duns: "621513451"
+          bic: ABXXHKH1
+          isin: US02079K305
         - country: US
-          clientId: abc-123
-          name: Amazon
+          cusip: 02079K305
+          cik: "100331"
+          bbgTicker: GOOGL UW
+          bbgFigi: BBG009S39JY5
+          tickerRegion: GOOGL-US
+          ein: "953540776"
+          ukch: CE012494
+          lei: 549300A6K7JX8EX2QZ33
+          crd: "149722"
+          md: "823736553"
           state: CT
+          wkn: A0MU9T
+          tickerExchange: GOOGL-NAS
+          ticker: PriceTicker
+          clientId: abc-123
+          valoren: "685558"
+          rssd: "1139297"
+          priority: HIGH
+          sedol: BYZ5YB6
           url: www.amazon.com
+          spr: "301939"
+          name: Amazon
+          fitch: "47504"
+          duns: "621513451"
+          bic: ABXXHKH1
+          isin: US02079K305
         - country: US
-          clientId: abc-123
-          name: Amazon
+          cusip: 02079K305
+          cik: "100331"
+          bbgTicker: GOOGL UW
+          bbgFigi: BBG009S39JY5
+          tickerRegion: GOOGL-US
+          ein: "953540776"
+          ukch: CE012494
+          lei: 549300A6K7JX8EX2QZ33
+          crd: "149722"
+          md: "823736553"
           state: CT
+          wkn: A0MU9T
+          tickerExchange: GOOGL-NAS
+          ticker: PriceTicker
+          clientId: abc-123
+          valoren: "685558"
+          rssd: "1139297"
+          priority: HIGH
+          sedol: BYZ5YB6
           url: www.amazon.com
+          spr: "301939"
+          name: Amazon
+          fitch: "47504"
+          duns: "621513451"
+          bic: ABXXHKH1
+          isin: US02079K305
         includeParent: false
         includeEntitySubType:
         - PR
@@ -4365,13 +5041,35 @@ components:
       type: object
     EntityMappingRequest:
       example:
-        clientId: FDS-USA
+        clientLei: 549300A6K7JX8EX2QZ33
         clientName: FactSet
-        clientUrl: www.factset.com
+        clientCusip: 02079K305
         universeId: 1
+        clientRssd: "1139297"
+        clientCrd: "149722"
+        clientIsin: US02079K305
+        clientTickerRegion: GOOGL-US
+        clientWkn: A0MU9T
+        clientUkch: CE012494
+        clientSedol: BYZ5YB6
+        clientBbgTicker: GOOGL UW
+        clientBbgFigi: BBG009S39JY5
+        clientPriority: HIGH
+        clientTicker: PriceTicker
+        clientId: FDS-USA
+        clientUrl: www.factset.com
+        clientMd: "823736553"
+        clientTickerExchange: GOOGL-NAS
         entityId: 0016YD-E
-        clientState: CT
+        clientFitch: "47504"
+        clientSpr: "301939"
         clientCountry: US
+        clientDuns: "621513451"
+        clientBic: ABXXHKH1
+        clientState: CT
+        clientValoren: "685558"
+        clientCik: "100331"
+        clientEin: "953540776"
       properties:
         universeId:
           description: The universe to save this mapping to.
@@ -4406,6 +5104,101 @@ components:
         clientUrl:
           description: URL corresponding to the entity name.
           example: www.factset.com
+          type: string
+        clientBic:
+          description: User provided input for the - BICCode, bank indentification
+            code symbol type
+          example: ABXXHKH1
+          type: string
+        clientBbgTicker:
+          description: User provided input for Bloomberg Listing and Regional Ticker
+          example: GOOGL UW
+          type: string
+        clientCik:
+          description: User provided input CIK, Edgar Central Index Keys symbol type
+          example: "100331"
+          type: string
+        clientCrd:
+          description: User provided input -  CRD, Central Registration Depository
+            symbol type
+          example: "149722"
+          type: string
+        clientCusip:
+          description: User provided input for CUSIP symbol type
+          example: 02079K305
+          type: string
+        clientDuns:
+          description: User provided input for DUNS, Dun&Bradstreet symbol type'
+          example: "621513451"
+          type: string
+        clientEin:
+          description: User provided input for  EmployerIdentificationNumber, EIN
+            symbol type'
+          example: "953540776"
+          type: string
+        clientRssd:
+          description: User provided input for FederalReserveRSSDIdentifier, RSSD
+            symbol type'
+          example: "1139297"
+          type: string
+        clientFitch:
+          description: User provided input for  FitchCreditRating, Fitch Ratings Identifier
+            symbol type
+          example: "47504"
+          type: string
+        clientIsin:
+          description: User provided input for ISIN symbol type
+          example: US02079K305
+          type: string
+        clientLei:
+          description: User provided input for LegalEntityIdentifier, LEI symbol type
+          example: 549300A6K7JX8EX2QZ33
+          type: string
+        clientBbgFigi:
+          description: User provided input for Bloomberg Listing/Regional/Security
+            ID symbol type
+          example: BBG009S39JY5
+          type: string
+        clientMd:
+          description: User provided input for MoodysIssuer, Moody''s Ratings symbol
+            type
+          example: "823736553"
+          type: string
+        clientTicker:
+          description: User provided input for PriceTicker identifiers
+          example: PriceTicker
+          type: string
+        clientPriority:
+          description: Name of the priority column as provided by the user.
+          example: HIGH
+          type: string
+        clientSpr:
+          description: User provided input for S&PRatings Identifiers
+          example: "301939"
+          type: string
+        clientSedol:
+          description: User provided input for SEDOL identifiers
+          example: BYZ5YB6
+          type: string
+        clientTickerExchange:
+          description: User provided input for TickerExch identifiers
+          example: GOOGL-NAS
+          type: string
+        clientTickerRegion:
+          description: User provided input for TickerRegion identifiers
+          example: GOOGL-US
+          type: string
+        clientUkch:
+          description: User provided input for UKCompanyHouse identifiers
+          example: CE012494
+          type: string
+        clientValoren:
+          description: User provided input for Valoren ("Valor") symbol type
+          example: "685558"
+          type: string
+        clientWkn:
+          description: User provided input for  WKN, German Securities symbol type
+          example: A0MU9T
           type: string
       required:
       - clientId
@@ -4498,6 +5291,7 @@ components:
           - dfg-456
           items:
             type: string
+          minItems: 1
           type: array
       required:
       - clientId
@@ -4748,72 +5542,118 @@ components:
       description: Response object for Entity Matches.
       example:
         data:
-        - matchFlag: true
-          clientName: factset
-          regionName: North America
+        - clientCusip: 02079K305
+          symbolMatchType: SEDOL
           universeId: 1
+          clientRssd: "1139297"
           factsetIndustryName: Data Processing Services
-          factsetSectorName: Technology Services
+          clientCrd: "149722"
+          clientIsin: ISIN
           nameMatchString: factset
-          entityTypeDescription: Public Company
           mapStatus: MAPPED
           similarityScore: 1
-          parentMatchFlag: false
-          confidenceScore: 1
           entitySubTypeCode: PR
           factsetIndustryCode: "3305"
+          clientBbgTicker: GOOGL UW
           stateName: Connecticut
           entityName: FactSet Research Systems, Inc.
+          clientPriority: HIGH
+          clientTicker: PriceTicker
+          clientUrl: www.factset.com
+          clientDuns: "621513451"
+          clientBic: BICCode
+          parentName: parentName
+          stateCode: CT
+          countryName: United States
+          locationCity: Norwalk
+          matchFlag: true
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          regionName: North America
+          factsetSectorName: Technology Services
+          entityTypeDescription: Public Company
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
+          parentMatchFlag: false
+          clientUkch: CE012494
+          clientSedol: SEDOL
+          confidenceScore: 1
+          clientBbgFigi: BloombergId
           countryCode: US
           nameMatchSource: Domain Name
           clientId: abc-123
-          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: entityId
+          clientFitch: "47504"
+          clientSpr: "301939"
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
-          parentName: parentName
           sicCode: "7374"
           entityTypeCode: PUB
-          rowIndex: 0
-          stateCode: CT
           clientState: CT
-          countryName: United States
+          clientValoren: "685558"
+          rowIndex: 0
+          clientCik: "100331"
           taskId: 31
-          locationCity: Norwalk
-        - matchFlag: true
-          clientName: factset
-          regionName: North America
+          clientEin: "953540776"
+        - clientCusip: 02079K305
+          symbolMatchType: SEDOL
           universeId: 1
+          clientRssd: "1139297"
           factsetIndustryName: Data Processing Services
-          factsetSectorName: Technology Services
+          clientCrd: "149722"
+          clientIsin: ISIN
           nameMatchString: factset
-          entityTypeDescription: Public Company
           mapStatus: MAPPED
           similarityScore: 1
-          parentMatchFlag: false
-          confidenceScore: 1
           entitySubTypeCode: PR
           factsetIndustryCode: "3305"
+          clientBbgTicker: GOOGL UW
           stateName: Connecticut
           entityName: FactSet Research Systems, Inc.
+          clientPriority: HIGH
+          clientTicker: PriceTicker
+          clientUrl: www.factset.com
+          clientDuns: "621513451"
+          clientBic: BICCode
+          parentName: parentName
+          stateCode: CT
+          countryName: United States
+          locationCity: Norwalk
+          matchFlag: true
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          regionName: North America
+          factsetSectorName: Technology Services
+          entityTypeDescription: Public Company
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
+          parentMatchFlag: false
+          clientUkch: CE012494
+          clientSedol: SEDOL
+          confidenceScore: 1
+          clientBbgFigi: BloombergId
           countryCode: US
           nameMatchSource: Domain Name
           clientId: abc-123
-          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: entityId
+          clientFitch: "47504"
+          clientSpr: "301939"
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
-          parentName: parentName
           sicCode: "7374"
           entityTypeCode: PUB
-          rowIndex: 0
-          stateCode: CT
           clientState: CT
-          countryName: United States
+          clientValoren: "685558"
+          rowIndex: 0
+          clientCik: "100331"
           taskId: 31
-          locationCity: Norwalk
+          clientEin: "953540776"
       properties:
         data:
           description: Candidate list of `Entity Match` objects.
@@ -4825,44 +5665,66 @@ components:
     EntityTaskResponse:
       example:
         data:
-          clientIdColumn: ClientId
+          sprColumn: SPRating
           countryColumn: Country
           universeId: 1
           excludeEntityType:
           - EXT
           - EXT
-          error: error
           userSerial: FDSQAR_C-000000
-          inputFile: test31.csv
           nameColumn: Name
           processStartTime: 2020-07-03T15:12:06.722Z
-          includeEntitySubType:
-          - PR
-          - PR
-          errorTitle: errorTitle
           decisionRate: 0.7272727272727273
           mappedCount: 8
-          unmappedCount: 2
           universeName: My Universe
-          indeterminateCount: 1
+          tickerRegionColumn: TickerRegion
           excludeEntitySubType:
           - IB
           - IB
           userFullName: Jane Smith
-          hasResult: true
-          message: Waiting for the input file
+          einColumn: EmployerIdentificationNumber
+          fitchColumn: FitchCreditRating
           taskAction: processfile
+          priorityColumn: Priority
           stateColumn: State
-          urlColumn: URL
           includeEntityType:
           - PUB
           - PUB
-          tryCount: 3
           taskName: test31
+          sedolColumn: SEDOL
+          status: PENDING
+          mdColumn: MoodysIssuer
+          clientIdColumn: ClientId
+          leiColumn: LegalEntityIdentifier
+          crdColumn: CRD
+          dunsColumn: Dun&Bradstreet
+          bicColumn: BICCode
+          valorenColumn: VALOR
+          cikColumn: CIK
+          isinColumn: ISIN
+          error: error
+          tickerColumn: PriceTicker
+          inputFile: test31.csv
+          includeEntitySubType:
+          - PR
+          - PR
+          errorTitle: errorTitle
+          ukchColumn: UKCompanyHouse
+          bbgFigiColumn: BloombergId
+          unmappedCount: 2
+          indeterminateCount: 1
+          rssdColumn: FederalReserveRSSDIdentifier
+          cusipColumn: CUSIP
+          hasResult: true
+          message: Waiting for the input file
+          wknColumn: WKN
+          bbgTickerColumn: BloombergTicker
+          urlColumn: URL
+          tryCount: 3
           taskSubmitTime: 2020-06-24T22:02:21Z
           processDuration: 1.51603
+          tickerExchangeColumn: TickerExch
           taskId: 31
-          status: PENDING
           inputCount: 11
       properties:
         data:
@@ -4897,8 +5759,8 @@ components:
           priorityColumn: priorityColumn
           tryCount: 3
           taskSubmitTime: 2020-06-24T22:02:21Z
-          taskName: Analysis1
           processDuration: 1.51603
+          taskName: Analysis1
           lastNameColumn: Snow
           taskId: 31
           status: PENDING
@@ -4911,83 +5773,127 @@ components:
     EntityTaskStatusResponse:
       example:
         data:
-        - clientIdColumn: ClientId
+        - sprColumn: SPRating
           countryColumn: Country
           universeId: 1
           excludeEntityType:
           - EXT
           - EXT
-          error: error
           userSerial: FDSQAR_C-000000
-          inputFile: test31.csv
           nameColumn: Name
           processStartTime: 2020-07-03T15:12:06.722Z
-          includeEntitySubType:
-          - PR
-          - PR
-          errorTitle: errorTitle
           decisionRate: 0.7272727272727273
           mappedCount: 8
-          unmappedCount: 2
           universeName: My Universe
-          indeterminateCount: 1
+          tickerRegionColumn: TickerRegion
           excludeEntitySubType:
           - IB
           - IB
           userFullName: Jane Smith
-          hasResult: true
-          message: Waiting for the input file
+          einColumn: EmployerIdentificationNumber
+          fitchColumn: FitchCreditRating
           taskAction: processfile
+          priorityColumn: Priority
           stateColumn: State
-          urlColumn: URL
           includeEntityType:
           - PUB
           - PUB
-          tryCount: 3
           taskName: test31
+          sedolColumn: SEDOL
+          status: PENDING
+          mdColumn: MoodysIssuer
+          clientIdColumn: ClientId
+          leiColumn: LegalEntityIdentifier
+          crdColumn: CRD
+          dunsColumn: Dun&Bradstreet
+          bicColumn: BICCode
+          valorenColumn: VALOR
+          cikColumn: CIK
+          isinColumn: ISIN
+          error: error
+          tickerColumn: PriceTicker
+          inputFile: test31.csv
+          includeEntitySubType:
+          - PR
+          - PR
+          errorTitle: errorTitle
+          ukchColumn: UKCompanyHouse
+          bbgFigiColumn: BloombergId
+          unmappedCount: 2
+          indeterminateCount: 1
+          rssdColumn: FederalReserveRSSDIdentifier
+          cusipColumn: CUSIP
+          hasResult: true
+          message: Waiting for the input file
+          wknColumn: WKN
+          bbgTickerColumn: BloombergTicker
+          urlColumn: URL
+          tryCount: 3
           taskSubmitTime: 2020-06-24T22:02:21Z
           processDuration: 1.51603
+          tickerExchangeColumn: TickerExch
           taskId: 31
-          status: PENDING
           inputCount: 11
-        - clientIdColumn: ClientId
+        - sprColumn: SPRating
           countryColumn: Country
           universeId: 1
           excludeEntityType:
           - EXT
           - EXT
-          error: error
           userSerial: FDSQAR_C-000000
-          inputFile: test31.csv
           nameColumn: Name
           processStartTime: 2020-07-03T15:12:06.722Z
-          includeEntitySubType:
-          - PR
-          - PR
-          errorTitle: errorTitle
           decisionRate: 0.7272727272727273
           mappedCount: 8
-          unmappedCount: 2
           universeName: My Universe
-          indeterminateCount: 1
+          tickerRegionColumn: TickerRegion
           excludeEntitySubType:
           - IB
           - IB
           userFullName: Jane Smith
-          hasResult: true
-          message: Waiting for the input file
+          einColumn: EmployerIdentificationNumber
+          fitchColumn: FitchCreditRating
           taskAction: processfile
+          priorityColumn: Priority
           stateColumn: State
-          urlColumn: URL
           includeEntityType:
           - PUB
           - PUB
-          tryCount: 3
           taskName: test31
+          sedolColumn: SEDOL
+          status: PENDING
+          mdColumn: MoodysIssuer
+          clientIdColumn: ClientId
+          leiColumn: LegalEntityIdentifier
+          crdColumn: CRD
+          dunsColumn: Dun&Bradstreet
+          bicColumn: BICCode
+          valorenColumn: VALOR
+          cikColumn: CIK
+          isinColumn: ISIN
+          error: error
+          tickerColumn: PriceTicker
+          inputFile: test31.csv
+          includeEntitySubType:
+          - PR
+          - PR
+          errorTitle: errorTitle
+          ukchColumn: UKCompanyHouse
+          bbgFigiColumn: BloombergId
+          unmappedCount: 2
+          indeterminateCount: 1
+          rssdColumn: FederalReserveRSSDIdentifier
+          cusipColumn: CUSIP
+          hasResult: true
+          message: Waiting for the input file
+          wknColumn: WKN
+          bbgTickerColumn: BloombergTicker
+          urlColumn: URL
+          tryCount: 3
           taskSubmitTime: 2020-06-24T22:02:21Z
           processDuration: 1.51603
+          tickerExchangeColumn: TickerExch
           taskId: 31
-          status: PENDING
           inputCount: 11
       properties:
         data:
@@ -5000,72 +5906,118 @@ components:
     EntityDecisionsResponse:
       example:
         data:
-        - matchFlag: true
-          clientName: factset
-          regionName: North America
+        - clientCusip: 02079K305
+          symbolMatchType: SEDOL
           universeId: 1
+          clientRssd: "1139297"
           factsetIndustryName: Data Processing Services
-          factsetSectorName: Technology Services
+          clientCrd: "149722"
+          clientIsin: ISIN
           nameMatchString: factset
-          entityTypeDescription: Public Company
           mapStatus: MAPPED
           similarityScore: 1
-          parentMatchFlag: false
-          confidenceScore: 1
           entitySubTypeCode: PR
           factsetIndustryCode: "3305"
+          clientBbgTicker: GOOGL UW
           stateName: Connecticut
           entityName: FactSet Research Systems, Inc.
+          clientPriority: HIGH
+          clientTicker: PriceTicker
+          clientUrl: www.factset.com
+          clientDuns: "621513451"
+          clientBic: BICCode
+          parentName: parentName
+          stateCode: CT
+          countryName: United States
+          locationCity: Norwalk
+          matchFlag: true
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          regionName: North America
+          factsetSectorName: Technology Services
+          entityTypeDescription: Public Company
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
+          parentMatchFlag: false
+          clientUkch: CE012494
+          clientSedol: SEDOL
+          confidenceScore: 1
+          clientBbgFigi: BloombergId
           countryCode: US
           nameMatchSource: Domain Name
           clientId: abc-123
-          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: entityId
+          clientFitch: "47504"
+          clientSpr: "301939"
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
-          parentName: parentName
           sicCode: "7374"
           entityTypeCode: PUB
-          rowIndex: 0
-          stateCode: CT
           clientState: CT
-          countryName: United States
+          clientValoren: "685558"
+          rowIndex: 0
+          clientCik: "100331"
           taskId: 31
-          locationCity: Norwalk
-        - matchFlag: true
-          clientName: factset
-          regionName: North America
+          clientEin: "953540776"
+        - clientCusip: 02079K305
+          symbolMatchType: SEDOL
           universeId: 1
+          clientRssd: "1139297"
           factsetIndustryName: Data Processing Services
-          factsetSectorName: Technology Services
+          clientCrd: "149722"
+          clientIsin: ISIN
           nameMatchString: factset
-          entityTypeDescription: Public Company
           mapStatus: MAPPED
           similarityScore: 1
-          parentMatchFlag: false
-          confidenceScore: 1
           entitySubTypeCode: PR
           factsetIndustryCode: "3305"
+          clientBbgTicker: GOOGL UW
           stateName: Connecticut
           entityName: FactSet Research Systems, Inc.
+          clientPriority: HIGH
+          clientTicker: PriceTicker
+          clientUrl: www.factset.com
+          clientDuns: "621513451"
+          clientBic: BICCode
+          parentName: parentName
+          stateCode: CT
+          countryName: United States
+          locationCity: Norwalk
+          matchFlag: true
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          regionName: North America
+          factsetSectorName: Technology Services
+          entityTypeDescription: Public Company
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
+          parentMatchFlag: false
+          clientUkch: CE012494
+          clientSedol: SEDOL
+          confidenceScore: 1
+          clientBbgFigi: BloombergId
           countryCode: US
           nameMatchSource: Domain Name
           clientId: abc-123
-          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: entityId
+          clientFitch: "47504"
+          clientSpr: "301939"
           url: www.factset.com
           factsetSectorCode: "3300"
           clientCountry: US
-          parentName: parentName
           sicCode: "7374"
           entityTypeCode: PUB
-          rowIndex: 0
-          stateCode: CT
           clientState: CT
-          countryName: United States
+          clientValoren: "685558"
+          rowIndex: 0
+          clientCik: "100331"
           taskId: 31
-          locationCity: Norwalk
+          clientEin: "953540776"
       properties:
         data:
           description: Array of `Entity Match` objects.
@@ -5135,7 +6087,7 @@ components:
           taskId: 31
       properties:
         data:
-          description: Array of `People Match` objects.
+          description: Array of `People Decisions` objects.
           items:
             $ref: '#/components/schemas/PeopleDecisions'
           type: array
@@ -5144,28 +6096,72 @@ components:
     EntityUniverseResponse:
       example:
         data:
-        - updatedTime: 2020-06-24T22:02:21Z
-          clientId: abc-1234
+        - clientLei: 549300A6K7JX8EX2QZ33
           clientName: factset
-          clientUrl: www.factset.com
-          entityName: FactSet Inc.
+          clientCusip: 02079K305
+          clientRssd: "1139297"
           universeId: 1
-          createdTime: 2020-06-24T22:02:21Z
-          entityId: 00456-E
-          clientState: ct
-          clientCountry: us
+          clientCrd: "149722"
+          clientIsin: US02079K305
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
           mapStatus: MAPPED
-        - updatedTime: 2020-06-24T22:02:21Z
+          clientUkch: CE012494
+          clientSedol: BYZ5YB6
+          clientBbgTicker: GOOGL UW
+          entityName: FactSet Inc.
+          clientBbgFigi: BBG009S39JY5
+          clientPriority: HIGH
+          createdTime: 2020-06-24T22:02:21Z
+          clientTicker: GOOGL
+          updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
-          clientName: factset
           clientUrl: www.factset.com
-          entityName: FactSet Inc.
-          universeId: 1
-          createdTime: 2020-06-24T22:02:21Z
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
-          clientState: ct
+          clientFitch: "47504"
+          clientSpr: "301939"
           clientCountry: us
+          clientDuns: "621513451"
+          clientBic: ABXXHKH1
+          clientState: ct
+          clientValoren: "685558"
+          clientCik: "100331"
+          clientEin: "953540776"
+        - clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          clientCusip: 02079K305
+          clientRssd: "1139297"
+          universeId: 1
+          clientCrd: "149722"
+          clientIsin: US02079K305
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientUkch: CE012494
+          clientSedol: BYZ5YB6
+          clientBbgTicker: GOOGL UW
+          entityName: FactSet Inc.
+          clientBbgFigi: BBG009S39JY5
+          clientPriority: HIGH
+          createdTime: 2020-06-24T22:02:21Z
+          clientTicker: GOOGL
+          updatedTime: 2020-06-24T22:02:21Z
+          clientId: abc-1234
+          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
+          entityId: 00456-E
+          clientFitch: "47504"
+          clientSpr: "301939"
+          clientCountry: us
+          clientDuns: "621513451"
+          clientBic: ABXXHKH1
+          clientState: ct
+          clientValoren: "685558"
+          clientCik: "100331"
+          clientEin: "953540776"
       properties:
         data:
           items:
@@ -5216,17 +6212,39 @@ components:
     EntityResponse:
       example:
         data:
+          clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          clientCusip: 02079K305
+          clientRssd: "1139297"
+          universeId: 1
+          clientCrd: "149722"
+          clientIsin: US02079K305
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
+          mapStatus: MAPPED
+          clientUkch: CE012494
+          clientSedol: BYZ5YB6
+          clientBbgTicker: GOOGL UW
+          entityName: FactSet Inc.
+          clientBbgFigi: BBG009S39JY5
+          clientPriority: HIGH
+          createdTime: 2020-06-24T22:02:21Z
+          clientTicker: GOOGL
           updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
-          clientName: factset
           clientUrl: www.factset.com
-          entityName: FactSet Inc.
-          universeId: 1
-          createdTime: 2020-06-24T22:02:21Z
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
-          clientState: ct
+          clientFitch: "47504"
+          clientSpr: "301939"
           clientCountry: us
-          mapStatus: MAPPED
+          clientDuns: "621513451"
+          clientBic: ABXXHKH1
+          clientState: ct
+          clientValoren: "685558"
+          clientCik: "100331"
+          clientEin: "953540776"
       properties:
         data:
           $ref: '#/components/schemas/EntityMapping'
@@ -5428,28 +6446,72 @@ components:
     EntityMappingDeleteResponse:
       example:
         data:
-        - updatedTime: 2020-06-24T22:02:21Z
-          clientId: abc-1234
+        - clientLei: 549300A6K7JX8EX2QZ33
           clientName: factset
-          clientUrl: www.factset.com
-          entityName: FactSet Inc.
+          clientCusip: 02079K305
+          clientRssd: "1139297"
           universeId: 1
-          createdTime: 2020-06-24T22:02:21Z
-          entityId: 00456-E
-          clientState: ct
-          clientCountry: us
+          clientCrd: "149722"
+          clientIsin: US02079K305
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
           mapStatus: MAPPED
-        - updatedTime: 2020-06-24T22:02:21Z
+          clientUkch: CE012494
+          clientSedol: BYZ5YB6
+          clientBbgTicker: GOOGL UW
+          entityName: FactSet Inc.
+          clientBbgFigi: BBG009S39JY5
+          clientPriority: HIGH
+          createdTime: 2020-06-24T22:02:21Z
+          clientTicker: GOOGL
+          updatedTime: 2020-06-24T22:02:21Z
           clientId: abc-1234
-          clientName: factset
           clientUrl: www.factset.com
-          entityName: FactSet Inc.
-          universeId: 1
-          createdTime: 2020-06-24T22:02:21Z
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
-          clientState: ct
+          clientFitch: "47504"
+          clientSpr: "301939"
           clientCountry: us
+          clientDuns: "621513451"
+          clientBic: ABXXHKH1
+          clientState: ct
+          clientValoren: "685558"
+          clientCik: "100331"
+          clientEin: "953540776"
+        - clientLei: 549300A6K7JX8EX2QZ33
+          clientName: factset
+          clientCusip: 02079K305
+          clientRssd: "1139297"
+          universeId: 1
+          clientCrd: "149722"
+          clientIsin: US02079K305
+          clientTickerRegion: GOOGL-US
+          clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientUkch: CE012494
+          clientSedol: BYZ5YB6
+          clientBbgTicker: GOOGL UW
+          entityName: FactSet Inc.
+          clientBbgFigi: BBG009S39JY5
+          clientPriority: HIGH
+          createdTime: 2020-06-24T22:02:21Z
+          clientTicker: GOOGL
+          updatedTime: 2020-06-24T22:02:21Z
+          clientId: abc-1234
+          clientUrl: www.factset.com
+          clientMd: "823736553"
+          clientTickerExchange: GOOGL-NAS
+          entityId: 00456-E
+          clientFitch: "47504"
+          clientSpr: "301939"
+          clientCountry: us
+          clientDuns: "621513451"
+          clientBic: ABXXHKH1
+          clientState: ct
+          clientValoren: "685558"
+          clientCik: "100331"
+          clientEin: "953540776"
       properties:
         data:
           description: Array of `Entity Mapping` objects that have been successfully
@@ -5508,9 +6570,9 @@ components:
         - lastName: Snow
           matchFlag: "true"
           universeId: 1
+          suffix: III
           nameMatchString: philip snow
           title: Chief Executive Officer & Director
-          suffix: III
           clientSalutation: Mr
           clientMiddleName: Federick
           activeRole: "true"
@@ -5531,14 +6593,14 @@ components:
           middleName: Philip
           rowIndex: 0
           salutation: Mr.
-          entity: FACTSET RESEARCH SYSTEMS INC.
           taskId: 31
+          entity: FACTSET RESEARCH SYSTEMS INC.
         - lastName: Snow
           matchFlag: "true"
           universeId: 1
+          suffix: III
           nameMatchString: philip snow
           title: Chief Executive Officer & Director
-          suffix: III
           clientSalutation: Mr
           clientMiddleName: Federick
           activeRole: "true"
@@ -5559,8 +6621,8 @@ components:
           middleName: Philip
           rowIndex: 0
           salutation: Mr.
-          entity: FACTSET RESEARCH SYSTEMS INC.
           taskId: 31
+          entity: FACTSET RESEARCH SYSTEMS INC.
       properties:
         data:
           description: Candidate list of `People Match` objects.
@@ -5585,8 +6647,8 @@ components:
           errorTitle: errorTitle
           decisionRate: 0
           mappedCount: 8
-          salutationColumn: Salutation
           unmappedCount: 2
+          salutationColumn: Salutation
           universeName: Jane Smith
           indeterminateCount: 1
           entityColumn: Entity
@@ -5616,8 +6678,8 @@ components:
           errorTitle: errorTitle
           decisionRate: 0
           mappedCount: 8
-          salutationColumn: Salutation
           unmappedCount: 2
+          salutationColumn: Salutation
           universeName: Jane Smith
           indeterminateCount: 1
           entityColumn: Entity
@@ -5668,51 +6730,228 @@ components:
       description: |
         Entity Match object showing the decision reached for each Entity.
       example:
-        matchFlag: true
-        clientName: factset
-        regionName: North America
+        clientCusip: 02079K305
+        symbolMatchType: SEDOL
         universeId: 1
+        clientRssd: "1139297"
         factsetIndustryName: Data Processing Services
-        factsetSectorName: Technology Services
+        clientCrd: "149722"
+        clientIsin: ISIN
         nameMatchString: factset
-        entityTypeDescription: Public Company
         mapStatus: MAPPED
         similarityScore: 1
-        parentMatchFlag: false
-        confidenceScore: 1
         entitySubTypeCode: PR
         factsetIndustryCode: "3305"
+        clientBbgTicker: GOOGL UW
         stateName: Connecticut
         entityName: FactSet Research Systems, Inc.
+        clientPriority: HIGH
+        clientTicker: PriceTicker
+        clientUrl: www.factset.com
+        clientDuns: "621513451"
+        clientBic: BICCode
+        parentName: parentName
+        stateCode: CT
+        countryName: United States
+        locationCity: Norwalk
+        matchFlag: true
+        clientLei: 549300A6K7JX8EX2QZ33
+        clientName: factset
+        regionName: North America
+        factsetSectorName: Technology Services
+        entityTypeDescription: Public Company
+        clientTickerRegion: GOOGL-US
+        clientWkn: A0MU9T
+        parentMatchFlag: false
+        clientUkch: CE012494
+        clientSedol: SEDOL
+        confidenceScore: 1
+        clientBbgFigi: BloombergId
         countryCode: US
         nameMatchSource: Domain Name
         clientId: abc-123
-        clientUrl: www.factset.com
+        clientMd: "823736553"
+        clientTickerExchange: GOOGL-NAS
         entityId: entityId
+        clientFitch: "47504"
+        clientSpr: "301939"
         url: www.factset.com
         factsetSectorCode: "3300"
         clientCountry: US
-        parentName: parentName
         sicCode: "7374"
         entityTypeCode: PUB
-        rowIndex: 0
-        stateCode: CT
         clientState: CT
-        countryName: United States
+        clientValoren: "685558"
+        rowIndex: 0
+        clientCik: "100331"
         taskId: 31
-        locationCity: Norwalk
+        clientEin: "953540776"
       properties:
-        universeId:
-          description: The id of the universe that entities should be mapped to
-          example: 1
-          nullable: true
-          type: integer
         taskId:
           description: |
             Identifier denoting a specific Concordance task submitted by the user. This value will be null for /entity-match endpoint responses and is only available when using the "Bulk" workflow.
           example: 31
           nullable: true
           type: integer
+        universeId:
+          description: The id of the universe that entities should be mapped to
+          example: 1
+          nullable: true
+          type: integer
+        clientId:
+          description: Unique Identifer provided by the user in the request to represent
+            the entity Name being requested.
+          example: abc-123
+          nullable: true
+          type: string
+        clientName:
+          description: Name of the entity to match as specified in the request
+          example: factset
+          nullable: true
+          type: string
+        clientCountry:
+          description: ISO2 country code specified in the request.
+          example: US
+          nullable: true
+          type: string
+        clientState:
+          description: State code specified in the request.
+          example: CT
+          nullable: true
+          type: string
+        clientUrl:
+          description: URL specified in the request.
+          example: www.factset.com
+          nullable: true
+          type: string
+        clientBic:
+          description: Name of the column as provided by the user - BICCode, bank
+            indentification code
+          example: BICCode
+          nullable: true
+          type: string
+        clientBbgTicker:
+          description: Name of the column as provided by the user -  Bloomberg Listing
+            and Regional Ticker.
+          example: GOOGL UW
+          nullable: true
+          type: string
+        clientCik:
+          description: Name of the column as provided by the user -  CIK, Edgar Central
+            Index Keys
+          example: "100331"
+          nullable: true
+          type: string
+        clientCrd:
+          description: Name of the column as provided by the user -  CRD, Central
+            Registration Depository
+          example: "149722"
+          nullable: true
+          type: string
+        clientCusip:
+          description: Name of the column as provided by the user -  CUSIP.
+          example: 02079K305
+          nullable: true
+          type: string
+        clientDuns:
+          description: Name of the column as provided by the user -  DUNS, Dun&Bradstreet.
+          example: "621513451"
+          nullable: true
+          type: string
+        clientEin:
+          description: Name of the column as provided by the user -  EmployerIdentificationNumber,
+            EIN.
+          example: "953540776"
+          nullable: true
+          type: string
+        clientRssd:
+          description: Name of the column as provided by the user -  FederalReserveRSSDIdentifier,
+            RSSD.
+          example: "1139297"
+          nullable: true
+          type: string
+        clientFitch:
+          description: Name of the column as provided by the user -  FitchCreditRating,
+            Fitch Ratings Identifier.
+          example: "47504"
+          nullable: true
+          type: string
+        clientIsin:
+          description: Name of the column as provided by the user -  ISIN.
+          example: ISIN
+          nullable: true
+          type: string
+        clientLei:
+          description: Name of the column as provided by the user -  LegalEntityIdentifier,
+            LEI.
+          example: 549300A6K7JX8EX2QZ33
+          nullable: true
+          type: string
+        clientBbgFigi:
+          description: Name of the column as provided by the user -  Bloomberg Listing/Regional/Security
+            ID.
+          example: BloombergId
+          nullable: true
+          type: string
+        clientMd:
+          description: Name of the column as provided by the user -  MoodysIssuer,
+            Moody's Ratings Identifier.
+          example: "823736553"
+          nullable: true
+          type: string
+        clientTicker:
+          description: Name of the column as provided by the user -  PriceTicker.
+          example: PriceTicker
+          nullable: true
+          type: string
+        clientPriority:
+          description: Name of the priority column as provided by the user.
+          example: HIGH
+          nullable: true
+          type: string
+        clientSpr:
+          description: Name of the column as provided by the user -  S&PRating, S&P
+            Ratings Identifier.
+          example: "301939"
+          nullable: true
+          type: string
+        clientSedol:
+          description: Name of the column as provided by the user -  SEDOL.
+          example: SEDOL
+          nullable: true
+          type: string
+        clientTickerExchange:
+          description: Name of the column as provided by the user -  TickerExch.
+          example: GOOGL-NAS
+          nullable: true
+          type: string
+        clientTickerRegion:
+          description: Name of the column as provided by the user -  TickerRegion
+          example: GOOGL-US
+          nullable: true
+          type: string
+        clientUkch:
+          description: Name of the column as provided by the user -  UKCompanyHouse
+          example: CE012494
+          nullable: true
+          type: string
+        clientValoren:
+          description: Name of the column as provided by the user -  VALOR, Valoren
+            ("Valor") Identification.
+          example: "685558"
+          nullable: true
+          type: string
+        clientWkn:
+          description: Name of the column as provided by the user -  WKN, German Securities
+            Identification.
+          example: A0MU9T
+          nullable: true
+          type: string
+        symbolMatchType:
+          description: Source type of the Symbol that matched
+          example: SEDOL
+          nullable: true
+          type: string
         rowIndex:
           description: Row number for match in the request or input file.
           nullable: true
@@ -5737,11 +6976,10 @@ components:
           nullable: true
           type: string
         mapStatus:
-          description: |
-            Concordance status of the submitted, where -
-              * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
-              * UNMAPPED - The requested Entity Name is unmapped by FactSet.
-              * INDETERMINATE - The requested Entity Name has unable to make a mapping.
+          description: "Concordance status of the submitted, where - \n  * MAPPED\
+            \ - The requested Entity Name is successfully mapped to a FactSet Entity\
+            \ Id (-E)\n  * UNMAPPED - The requested Entity Name is unmapped by FactSet.\n\
+            \  * INDETERMINATE - The requested Entity Name has unable to make a mapping.\n"
           enum:
           - MAPPED
           - UNMAPPED
@@ -5851,32 +7089,6 @@ components:
           example: false
           nullable: true
           type: boolean
-        clientId:
-          description: Unique Identifer provided by the user in the request to represent
-            the entity Name being requested.
-          example: abc-123
-          nullable: true
-          type: string
-        clientName:
-          description: Name of the entity to match as specified in the request
-          example: factset
-          nullable: true
-          type: string
-        clientCountry:
-          description: ISO2 country code specified in the request.
-          example: US
-          nullable: true
-          type: string
-        clientState:
-          description: State code specified in the request.
-          example: CT
-          nullable: true
-          type: string
-        clientUrl:
-          description: URL specified in the request.
-          example: www.factset.com
-          nullable: true
-          type: string
         nameMatchString:
           description: String on which the Concordance algorithm mapped the submitted
             entity.
@@ -5894,44 +7106,66 @@ components:
       description: |
         Concordance Entity Task Status object. Shows the settings and status of a taskId and some statistics on the matches.
       example:
-        clientIdColumn: ClientId
+        sprColumn: SPRating
         countryColumn: Country
         universeId: 1
         excludeEntityType:
         - EXT
         - EXT
-        error: error
         userSerial: FDSQAR_C-000000
-        inputFile: test31.csv
         nameColumn: Name
         processStartTime: 2020-07-03T15:12:06.722Z
-        includeEntitySubType:
-        - PR
-        - PR
-        errorTitle: errorTitle
         decisionRate: 0.7272727272727273
         mappedCount: 8
-        unmappedCount: 2
         universeName: My Universe
-        indeterminateCount: 1
+        tickerRegionColumn: TickerRegion
         excludeEntitySubType:
         - IB
         - IB
         userFullName: Jane Smith
-        hasResult: true
-        message: Waiting for the input file
+        einColumn: EmployerIdentificationNumber
+        fitchColumn: FitchCreditRating
         taskAction: processfile
+        priorityColumn: Priority
         stateColumn: State
-        urlColumn: URL
         includeEntityType:
         - PUB
         - PUB
-        tryCount: 3
         taskName: test31
+        sedolColumn: SEDOL
+        status: PENDING
+        mdColumn: MoodysIssuer
+        clientIdColumn: ClientId
+        leiColumn: LegalEntityIdentifier
+        crdColumn: CRD
+        dunsColumn: Dun&Bradstreet
+        bicColumn: BICCode
+        valorenColumn: VALOR
+        cikColumn: CIK
+        isinColumn: ISIN
+        error: error
+        tickerColumn: PriceTicker
+        inputFile: test31.csv
+        includeEntitySubType:
+        - PR
+        - PR
+        errorTitle: errorTitle
+        ukchColumn: UKCompanyHouse
+        bbgFigiColumn: BloombergId
+        unmappedCount: 2
+        indeterminateCount: 1
+        rssdColumn: FederalReserveRSSDIdentifier
+        cusipColumn: CUSIP
+        hasResult: true
+        message: Waiting for the input file
+        wknColumn: WKN
+        bbgTickerColumn: BloombergTicker
+        urlColumn: URL
+        tryCount: 3
         taskSubmitTime: 2020-06-24T22:02:21Z
         processDuration: 1.51603
+        tickerExchangeColumn: TickerExch
         taskId: 31
-        status: PENDING
         inputCount: 11
       properties:
         taskId:
@@ -5973,6 +7207,131 @@ components:
           description: Name of the column in the input file that contains a unique
             identifier supplied by the user.
           example: ClientId
+          nullable: true
+          type: string
+        priorityColumn:
+          description: |
+            Header Name of the column in the inputfile that contains the priority for the client id
+          example: Priority
+          nullable: true
+          type: string
+        bicColumn:
+          description: Header Name of the column in the input file for the type BICCode,
+            bank indentification code.
+          example: BICCode
+          nullable: true
+          type: string
+        bbgTickerColumn:
+          description: Header Name of the column in the input file for the type Bloomberg
+            Listing and Regional Ticker.
+          example: BloombergTicker
+          nullable: true
+          type: string
+        cikColumn:
+          description: Header Name of the column in the input file for the type CIK,
+            Edgar Central Index Keys.
+          example: CIK
+          nullable: true
+          type: string
+        crdColumn:
+          description: Header Name of the column in the input file for the type CRD,
+            Central Registration Depository.
+          example: CRD
+          nullable: true
+          type: string
+        cusipColumn:
+          description: Header Name of the column in the input file for the type CUSIP.
+          example: CUSIP
+          nullable: true
+          type: string
+        dunsColumn:
+          description: Header Name of the column in the input file for the type DUNS,
+            Dun&Bradstreet.
+          example: Dun&Bradstreet
+          nullable: true
+          type: string
+        einColumn:
+          description: Header Name of the column in the input file for the type EmployerIdentificationNumber,
+            EIN.
+          example: EmployerIdentificationNumber
+          nullable: true
+          type: string
+        rssdColumn:
+          description: Header Name of the column in the input file for the type FederalReserveRSSDIdentifier,
+            RSSD.
+          example: FederalReserveRSSDIdentifier
+          nullable: true
+          type: string
+        fitchColumn:
+          description: Header Name of the column in the input file for the type FitchCreditRating,
+            Fitch Ratings Identifier.
+          example: FitchCreditRating
+          nullable: true
+          type: string
+        isinColumn:
+          description: Header Name of the column in the input file for the type ISIN.
+          example: ISIN
+          nullable: true
+          type: string
+        leiColumn:
+          description: Header Name of the column in the input file for the type LegalEntityIdentifier,
+            LEI.
+          example: LegalEntityIdentifier
+          nullable: true
+          type: string
+        bbgFigiColumn:
+          description: Header Name of the column in the input file for the type Bloomberg
+            Listing/Regional/Security ID.
+          example: BloombergId
+          nullable: true
+          type: string
+        mdColumn:
+          description: Header Name of the column in the input file for the type MoodysIssuer,
+            Moody's Ratings Identifier.
+          example: MoodysIssuer
+          nullable: true
+          type: string
+        tickerColumn:
+          description: Header Name of the column in the input file for the type PriceTicker.
+          example: PriceTicker
+          nullable: true
+          type: string
+        sprColumn:
+          description: Header Name of the column in the input file for the type S&PRating,
+            S&P Ratings Identifier
+          example: SPRating
+          nullable: true
+          type: string
+        sedolColumn:
+          description: Header Name of the column in the input file for the type SEDOL.
+          example: SEDOL
+          nullable: true
+          type: string
+        tickerExchangeColumn:
+          description: Header Name of the column in the input file for the type TickerExch.
+          example: TickerExch
+          nullable: true
+          type: string
+        tickerRegionColumn:
+          description: Header Name of the column in the input file for the type TickerRegion.
+          example: TickerRegion
+          nullable: true
+          type: string
+        ukchColumn:
+          description: Header Name of the column in the input file for the type UKCompanyHouse.
+          example: UKCompanyHouse
+          nullable: true
+          type: string
+        valorenColumn:
+          description: Header Name of the column in the input file for the type VALOR,
+            Valoren ("Valor") Identification.
+          example: VALOR
+          nullable: true
+          type: string
+        wknColumn:
+          description: Header Name of the column in the input file for the type WKN,
+            German Securities Identification.
+          example: WKN
           nullable: true
           type: string
         nameColumn:
@@ -6125,17 +7484,39 @@ components:
       description: |
         Concordance Company Entity Mapping object. Shows the mapping detail related to user's universe.
       example:
+        clientLei: 549300A6K7JX8EX2QZ33
+        clientName: factset
+        clientCusip: 02079K305
+        clientRssd: "1139297"
+        universeId: 1
+        clientCrd: "149722"
+        clientIsin: US02079K305
+        clientTickerRegion: GOOGL-US
+        clientWkn: A0MU9T
+        mapStatus: MAPPED
+        clientUkch: CE012494
+        clientSedol: BYZ5YB6
+        clientBbgTicker: GOOGL UW
+        entityName: FactSet Inc.
+        clientBbgFigi: BBG009S39JY5
+        clientPriority: HIGH
+        createdTime: 2020-06-24T22:02:21Z
+        clientTicker: GOOGL
         updatedTime: 2020-06-24T22:02:21Z
         clientId: abc-1234
-        clientName: factset
         clientUrl: www.factset.com
-        entityName: FactSet Inc.
-        universeId: 1
-        createdTime: 2020-06-24T22:02:21Z
+        clientMd: "823736553"
+        clientTickerExchange: GOOGL-NAS
         entityId: 00456-E
-        clientState: ct
+        clientFitch: "47504"
+        clientSpr: "301939"
         clientCountry: us
-        mapStatus: MAPPED
+        clientDuns: "621513451"
+        clientBic: ABXXHKH1
+        clientState: ct
+        clientValoren: "685558"
+        clientCik: "100331"
+        clientEin: "953540776"
       properties:
         entityId:
           description: FactSet Entity Identifier of the entity matched to the submitted
@@ -6167,6 +7548,129 @@ components:
         clientState:
           description: State code specified in the request
           example: ct
+          nullable: true
+          type: string
+        clientPriority:
+          description: Priority associated to the id.
+          example: HIGH
+          nullable: true
+          type: string
+        clientBbgFigi:
+          description: Name as provided by the user for the type Bloomberg listing/regional/security
+            id.
+          example: BBG009S39JY5
+          nullable: true
+          type: string
+        clientBbgTicker:
+          description: Name as provided by the user for the type Bloomberg listing
+            and regional ticker.
+          example: GOOGL UW
+          nullable: true
+          type: string
+        clientBic:
+          description: Name as provided by the user for the type BIC - Bank Indentification
+            Code.
+          example: ABXXHKH1
+          nullable: true
+          type: string
+        clientCik:
+          description: Name as provided by the user for the type CIK - Edgar Central
+            Index Keys.
+          example: "100331"
+          nullable: true
+          type: string
+        clientCrd:
+          description: Name as provided by the user for the type CRD - Central Registration
+            Depository.
+          example: "149722"
+          nullable: true
+          type: string
+        clientCusip:
+          description: Name as provided by the user for the type CUSIP.
+          example: 02079K305
+          nullable: true
+          type: string
+        clientDuns:
+          description: Name as provided by the user for the type DUNS - Dun & Bradstreet
+            Data Universal Numbering System.
+          example: "621513451"
+          nullable: true
+          type: string
+        clientEin:
+          description: Name as provided by the user for the type EIN - Employer Identification
+            Number.
+          example: "953540776"
+          nullable: true
+          type: string
+        clientFitch:
+          description: Name as provided by the user for the type Fitch - Fitch Ratings
+            Identifier.
+          example: "47504"
+          nullable: true
+          type: string
+        clientIsin:
+          description: Name as provided by the user for the type ISIN - International
+            Securities Identification Number.
+          example: US02079K305
+          nullable: true
+          type: string
+        clientLei:
+          description: Name as provided by the user for the type LEI - Legal Entity
+            Identifier.
+          example: 549300A6K7JX8EX2QZ33
+          nullable: true
+          type: string
+        clientMd:
+          description: Name as provided by the user for the type Moody's ratings identifier.
+          example: "823736553"
+          nullable: true
+          type: string
+        clientRssd:
+          description: Name as provided by the user for the type RSSD - Federal Reserve
+            RSSD Identifier.
+          example: "1139297"
+          nullable: true
+          type: string
+        clientSedol:
+          description: Name as provided by the user for the type SEDOL.
+          example: BYZ5YB6
+          nullable: true
+          type: string
+        clientSpr:
+          description: Name as provided by the user for the type S&P ratings identifier.
+          example: "301939"
+          nullable: true
+          type: string
+        clientTicker:
+          description: Name as provided by the user for the type price ticker.
+          example: GOOGL
+          nullable: true
+          type: string
+        clientTickerExchange:
+          description: Name as provided by the user for the type ticker exchange.
+          example: GOOGL-NAS
+          nullable: true
+          type: string
+        clientTickerRegion:
+          description: Name as provided by the user for the type ticker region.
+          example: GOOGL-US
+          nullable: true
+          type: string
+        clientUkch:
+          description: Name as provided by the user for the type UK company house
+            identifier.
+          example: CE012494
+          nullable: true
+          type: string
+        clientValoren:
+          description: Name as provided by the user for the type Valoren - Valor Identification.
+          example: "685558"
+          nullable: true
+          type: string
+        clientWkn:
+          description: Name as provided by the user for the type WKN - German Securities
+            Identification.
+          example: A0MU9T
           nullable: true
           type: string
         clientUrl:
@@ -6507,9 +8011,9 @@ components:
         lastName: Snow
         matchFlag: "true"
         universeId: 1
+        suffix: III
         nameMatchString: philip snow
         title: Chief Executive Officer & Director
-        suffix: III
         clientSalutation: Mr
         clientMiddleName: Federick
         activeRole: "true"
@@ -6530,9 +8034,15 @@ components:
         middleName: Philip
         rowIndex: 0
         salutation: Mr.
-        entity: FACTSET RESEARCH SYSTEMS INC.
         taskId: 31
+        entity: FACTSET RESEARCH SYSTEMS INC.
       properties:
+        taskId:
+          description: |
+            Identifier denoting a specific Concordance task submitted by the user. This value will be null for /people-match endpoint responses and is only available when using the "Bulk" workflow.
+          example: 31
+          nullable: true
+          type: integer
         activeRole:
           description: This tells whether the person is now active in the entity
           example: "true"
@@ -6605,17 +8115,41 @@ components:
           example: Philip
           nullable: true
           type: string
+        suffix:
+          description: The suffix in the name of the person
+          example: III
+          nullable: true
+          type: string
+        salutation:
+          description: Title of a person's name
+          example: Mr.
+          nullable: true
+          type: string
+        personName:
+          description: Full name of the person matched
+          example: GATES WILLIAM H III
+          nullable: true
+          type: string
+        email:
+          description: Email of the person
+          example: abc@efg.com
+          nullable: true
+          type: string
+        clientId:
+          description: User defined person id provided when matched with FactSet person.
+          example: abc-123
+          nullable: true
+          type: string
         entity:
           description: Full name corresponding to the matched entity.
           example: FACTSET RESEARCH SYSTEMS INC.
           nullable: true
           type: string
         mapStatus:
-          description: |
-            Concordance status of the submitted, where -
-              * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
-              * UNMAPPED - The requested Entity Name is unmapped by FactSet.
-              * INDETERMINATE - The requested Entity Name has unable to make a mapping.
+          description: "Concordance status of the submitted, where - \n  * MAPPED\
+            \ - The requested Entity Name is successfully mapped to a FactSet Entity\
+            \ Id (-E)\n  * UNMAPPED - The requested Entity Name is unmapped by FactSet.\n\
+            \  * INDETERMINATE - The requested Entity Name has unable to make a mapping.\n"
           enum:
           - MAPPED
           - UNMAPPED
@@ -6664,42 +8198,11 @@ components:
           example: 1
           nullable: true
           type: integer
-        taskId:
-          description: |
-            Identifier denoting a specific Concordance task submitted by the user. This value will be null for /people-match endpoint responses and is only available when using the "Bulk" workflow.
-          example: 31
-          nullable: true
-          type: integer
-        suffix:
-          description: The suffix in the name of the person
-          example: III
-          nullable: true
-          type: string
-        salutation:
-          description: Title of a person's name
-          example: Mr.
-          nullable: true
-          type: string
-        personName:
-          description: Full name of the person matched
-          example: GATES WILLIAM H III
-          nullable: true
-          type: string
-        email:
-          description: Email of the person
-          example: abc@efg.com
-          nullable: true
-          type: string
-        clientId:
-          description: User defined person id provided when matched with FactSet person.
-          example: abc-123
-          nullable: true
-          type: string
       title: People Match
       type: object
     PeopleTask:
       description: |
-        Concordance People Task object. Shows task related metadata and some statistics on the matches.
+        Concordance People Task object. Shows the settings and status of a taskId and some statistics on the matches.
       example:
         clientIdColumn: id1
         personNameColumn: Phil Snow
@@ -6726,8 +8229,8 @@ components:
         priorityColumn: priorityColumn
         tryCount: 3
         taskSubmitTime: 2020-06-24T22:02:21Z
-        taskName: Analysis1
         processDuration: 1.51603
+        taskName: Analysis1
         lastNameColumn: Snow
         taskId: 31
         status: PENDING
@@ -6814,16 +8317,6 @@ components:
           format: date-time
           nullable: true
           type: string
-        taskId:
-          description: The task identifier
-          example: 31
-          nullable: true
-          type: integer
-        taskName:
-          description: The task name
-          example: Analysis1
-          nullable: true
-          type: string
         unmappedCount:
           description: Number of records with status of UNMAPPED the Input File.
           example: 2
@@ -6878,6 +8371,16 @@ components:
           example: 1
           nullable: true
           type: integer
+        taskId:
+          description: The task identifier
+          example: 31
+          nullable: true
+          type: integer
+        taskName:
+          description: The task name
+          example: Analysis1
+          nullable: true
+          type: string
         universeId:
           description: The universe identifier
           example: 1
@@ -6920,8 +8423,8 @@ components:
         errorTitle: errorTitle
         decisionRate: 0
         mappedCount: 8
-        salutationColumn: Salutation
         unmappedCount: 2
+        salutationColumn: Salutation
         universeName: Jane Smith
         indeterminateCount: 1
         entityColumn: Entity
@@ -6989,6 +8492,21 @@ components:
           example: 8
           nullable: true
           type: integer
+        unmappedCount:
+          description: Number of records with status of UNMAPPED the Input File.
+          example: 2
+          nullable: true
+          type: integer
+        tryCount:
+          description: Number of tries made so far for the request.
+          example: 3
+          nullable: true
+          type: integer
+        message:
+          description: Textual message for the status.
+          example: Waiting for the input file
+          nullable: true
+          type: string
         middleNameColumn:
           description: |
             Name of the column in the input file that contains the middle name.
@@ -7019,6 +8537,17 @@ components:
           format: double
           nullable: true
           type: number
+        error:
+          nullable: true
+          type: string
+        errorTitle:
+          nullable: true
+          type: string
+        indeterminateCount:
+          description: Number of records with status of INDETERMINATE the Input File.
+          example: 1
+          nullable: true
+          type: integer
         salutationColumn:
           description: |
             Name of the column in the input file that contains the person's salutation.
@@ -7060,32 +8589,6 @@ components:
           example: test31
           nullable: true
           type: string
-        unmappedCount:
-          description: Number of records with status of UNMAPPED the Input File.
-          example: 2
-          nullable: true
-          type: integer
-        tryCount:
-          description: Number of tries made so far for the request.
-          example: 3
-          nullable: true
-          type: integer
-        message:
-          description: Textual message for the status.
-          example: Waiting for the input file
-          nullable: true
-          type: string
-        error:
-          nullable: true
-          type: string
-        errorTitle:
-          nullable: true
-          type: string
-        indeterminateCount:
-          description: Number of records with status of INDETERMINATE the Input File.
-          example: 1
-          nullable: true
-          type: integer
         taskSubmitTime:
           description: Time the Task was submitted in UTC.
           example: 2020-06-24T22:02:21Z
@@ -7118,7 +8621,7 @@ components:
       type: object
     PeopleDecisions:
       description: |
-        Concordance People Decisions object. Returned to show the Decision reached for each Entity
+        Concordance People Decisions object. Returned to show the Decision reached for each Entity.
       example:
         lastName: lastName
         matchFlag: true
@@ -7218,11 +8721,10 @@ components:
           nullable: true
           type: string
         mapStatus:
-          description: |
-            Concordance status of the submitted, where -
-              * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)
-              * UNMAPPED - The requested Entity Name is unmapped by FactSet.
-              * INDETERMINATE - The requested Entity Name has unable to make a mapping.
+          description: "Concordance status of the submitted, where - \n  * MAPPED\
+            \ - The requested Entity Name is successfully mapped to a FactSet Entity\
+            \ Id (-E)\n  * UNMAPPED - The requested Entity Name is unmapped by FactSet.\n\
+            \  * INDETERMINATE - The requested Entity Name has unable to make a mapping.\n"
           enum:
           - MAPPED
           - UNMAPPED
@@ -7270,10 +8772,6 @@ components:
           example: factset
           nullable: true
           type: string
-        matchFlag:
-          description: |
-            Flag denoting if the row is a match.
-          type: boolean
         personName:
           description: |
             Name of the column in the input file that contains the person name.
@@ -7293,6 +8791,10 @@ components:
           format: double
           nullable: true
           type: number
+        matchFlag:
+          description: |
+            Flag denoting if the row is a match.
+          type: boolean
         rowIndex:
           description: Row number for match in the request or input file.
           nullable: true
@@ -7357,6 +8859,95 @@ components:
           description: |
             Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.
           example: STATE
+          type: string
+        priorityColumn:
+          description: |
+            Header Name of the column in the inputfile that contains the priority for the client id.
+          example: Priority
+          type: string
+        bicColumn:
+          description: |
+            Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type
+          type: string
+        bbgTickerColumn:
+          description: Header Name of the column in the input file for the Bloomberg
+            `Listing and Regional Ticker` symbol type
+          type: string
+        cikColumn:
+          description: Header Name of the column in the input file for the CIK, `Edgar
+            Central Index Keys` symbol type
+          type: string
+        crdColumn:
+          description: Header Name of the column in the input file for the CRD, `Central
+            Registration Depository` symbol type
+          type: string
+        cusipColumn:
+          description: Header Name of the column in the input file for the `CUSIP`
+            symbol type
+          type: string
+        dunsColumn:
+          description: Header Name of the column in the input file for the DUNS, `Dun&Bradstreet`
+            symbol type
+          type: string
+        einColumn:
+          description: Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber`
+            symbol type
+          type: string
+        rssdColumn:
+          description: Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier`
+            symbol type
+          type: string
+        fitchColumn:
+          description: Header Name of the column in the input file for the FitchCreditRating,
+            `Fitch Ratings Identifier` symbol type
+          type: string
+        isinColumn:
+          description: Header Name of the column in the input file for the `ISIN`symbol
+            type
+          type: string
+        leiColumn:
+          description: Header Name of the column in the input file for the LEI, `LegalEntityIdentifier`
+            symbol type
+          type: string
+        bbgFigiColumn:
+          description: Header Name of the column in the input file for the `Bloomberg
+            Listing/Regional/Security ID` symbol type
+          type: string
+        mdColumn:
+          description: Header Name of the column in the input file for the MoodysIssuer,
+            `Moody's Ratings Identifier` symbol type
+          type: string
+        tickerColumn:
+          description: Header Name of the column in the input file for the `PriceTicker`
+            symbol type
+          type: string
+        sprColumn:
+          description: Header Name of the column in the input file for the S&PRating,
+            `S&P Ratings Identifier` symbol type
+          type: string
+        sedolColumn:
+          description: Header Name of the column in the input file for the `SEDOL`
+            symbol type
+          type: string
+        tickerExchangeColumn:
+          description: Header Name of the column in the input file for the `TickerExchange`
+            symbol type
+          type: string
+        tickerRegionColumn:
+          description: Header Name of the column in the input file for the `TickerRegion`
+            symbol type
+          type: string
+        ukchColumn:
+          description: Header Name of the column in the input file for the `UKCompanyHouse`
+            symbol type
+          type: string
+        valorenColumn:
+          description: Header Name of the column in the input file for the VALOR,
+            `Valoren ("Valor") Identification` symbol type
+          type: string
+        wknColumn:
+          description: Header Name of the column in the input file for the WKN, `German
+            Securities Identification` symbol type
           type: string
         includeEntityType:
           description: |
@@ -7434,8 +9025,8 @@ components:
           example: Microsoft
           type: string
         firstNameColumn:
-          description: |
-            First name of the person.**Do not include with `personNameColumn`**.
+          description: "First name of the person.**Do not include with `personNameColumn`**.\
+            \ \n"
           example: Bill
           type: string
         lastNameColumn:
@@ -7478,10 +9069,32 @@ components:
     EntityMatchRequest_input:
       example:
         country: US
-        clientId: abc-123
-        name: Amazon
+        cusip: 02079K305
+        cik: "100331"
+        bbgTicker: GOOGL UW
+        bbgFigi: BBG009S39JY5
+        tickerRegion: GOOGL-US
+        ein: "953540776"
+        ukch: CE012494
+        lei: 549300A6K7JX8EX2QZ33
+        crd: "149722"
+        md: "823736553"
         state: CT
+        wkn: A0MU9T
+        tickerExchange: GOOGL-NAS
+        ticker: PriceTicker
+        clientId: abc-123
+        valoren: "685558"
+        rssd: "1139297"
+        priority: HIGH
+        sedol: BYZ5YB6
         url: www.amazon.com
+        spr: "301939"
+        name: Amazon
+        fitch: "47504"
+        duns: "621513451"
+        bic: ABXXHKH1
+        isin: US02079K305
       properties:
         name:
           description: The Name of the entity to match.
@@ -7510,6 +9123,99 @@ components:
           description: |
             URL corresponding to the entity name that is used when evaluating candidates for a match.
           example: www.amazon.com
+          type: string
+        priority:
+          description: Priority associated to the id.
+          enum:
+          - CRITICAL
+          - HIGH
+          - MEDIUM
+          - LOW
+          example: HIGH
+          type: string
+        bic:
+          description: Name for type BICCode, bank indentification code
+          example: ABXXHKH1
+          type: string
+        bbgTicker:
+          description: Name for the type Bloomberg Listing and Regional Ticker.
+          example: GOOGL UW
+          type: string
+        cik:
+          description: Name for the type CIK, Edgar Central Index Keys
+          example: "100331"
+          type: string
+        crd:
+          description: Name for the type CRD, Central Registration Depository
+          example: "149722"
+          type: string
+        cusip:
+          description: Name for the type CUSIP.
+          example: 02079K305
+          type: string
+        duns:
+          description: Name for the type DUNS, Dun&Bradstreet.
+          example: "621513451"
+          type: string
+        ein:
+          description: Name for the type EmployerIdentificationNumber, EIN.
+          example: "953540776"
+          type: string
+        rssd:
+          description: Name for the type FederalReserveRSSDIdentifier, RSSD.
+          example: "1139297"
+          type: string
+        fitch:
+          description: Name for the type FitchCreditRating, Fitch Ratings Identifier.
+          example: "47504"
+          type: string
+        isin:
+          description: Name for the type ISIN.
+          example: US02079K305
+          type: string
+        lei:
+          description: Name for the type LegalEntityIdentifier, LEI.
+          example: 549300A6K7JX8EX2QZ33
+          type: string
+        bbgFigi:
+          description: Name for the type Bloomberg Listing/Regional/Security ID.
+          example: BBG009S39JY5
+          type: string
+        md:
+          description: Name for the type MoodysIssuer, Moody's Ratings Identifier.
+          example: "823736553"
+          type: string
+        ticker:
+          description: Name for the type PriceTicker.
+          example: PriceTicker
+          type: string
+        spr:
+          description: Name for the type S&PRating, S&P Ratings Identifier.
+          example: "301939"
+          type: string
+        sedol:
+          description: Name for the type SEDOL.
+          example: BYZ5YB6
+          type: string
+        tickerExchange:
+          description: Name for the type TickerExch.
+          example: GOOGL-NAS
+          type: string
+        tickerRegion:
+          description: Name for the type TickerRegion
+          example: GOOGL-US
+          type: string
+        ukch:
+          description: Name for the type UKCompanyHouse
+          example: CE012494
+          type: string
+        valoren:
+          description: Name for the type VALOR, Valoren ("Valor") Identification.
+          example: "685558"
+          type: string
+        wkn:
+          description: Name for the type WKN, German Securities Identification.
+          example: A0MU9T
           type: string
       required:
       - name

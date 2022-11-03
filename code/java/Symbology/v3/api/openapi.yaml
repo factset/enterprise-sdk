@@ -35,10 +35,10 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bbgSecurityId (input only)\n* bbgTickerComposite (input only)\n\n**These\
-        \ symbol types require additional subscriptions. If you would like to gain\
-        \ access to these symbol types, please contact your FactSet Account Team or\
-        \ \"Report Issue\" above and our support teams can assist.*\n"
+        * bloombergFigi (input only)\n* bloombergTicker (input only)\n\n**These symbol\
+        \ types require additional subscriptions. If you would like to gain access\
+        \ to these symbol types, please contact your FactSet Account Team or \"Report\
+        \ Issue\" above and our support teams can assist.*\n"
       operationId: identifierResolution
       parameters:
       - description: |
@@ -101,8 +101,8 @@ paths:
           - ISIN
           - tickerExchange
           - tickerRegion
-          - bbgSecurityId
-          - bbgTickerComposite
+          - bloombergFigi
+          - bloombergTicker
           type: string
         style: form
       - description: The type of symbols being outputted. Multiple types of symbols
@@ -239,10 +239,10 @@ paths:
         \ Id\n* fsymSecurityId - FactSet security level permanent identifier\n* fsymRegionalId\
         \ - FactSet regional level permanent identifier\n* fsymListingId - FactSet\
         \ listing level permanent identifier\n* ISIN*\n* tickerExchange\n* tickerRegion\n\
-        * bbgSecurityId (input only)\n* bbgTickerComposite (input only)\n\n**These\
-        \ symbol types require additional subscriptions. If you would like to gain\
-        \ access to these symbol types, please contact your FactSet Account Team or\
-        \ \"Report Issue\" above and our support teams can assist.*\n"
+        * bloombergFigi (input only)\n* bloombergTicker (input only)\n\n**These symbol\
+        \ types require additional subscriptions. If you would like to gain access\
+        \ to these symbol types, please contact your FactSet Account Team or \"Report\
+        \ Issue\" above and our support teams can assist.*\n"
       operationId: batchIdentifierResolution
       requestBody:
         content:
@@ -586,8 +586,8 @@ components:
         - ISIN
         - tickerExchange
         - tickerRegion
-        - bbgSecurityId
-        - bbgTickerComposite
+        - bloombergFigi
+        - bloombergTicker
         type: string
       style: form
     getOutputSymbolTypes:
@@ -702,7 +702,7 @@ components:
           description: Requested market securities or entities. All requested identifiers
             must be of the same type. Accepted identifiers include all FactSet Permanent
             Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value
-            is sent back in the response as, 'requestId'.
+            is sent back in the response as, `requestId'.
           example:
           - GOOGL-US
           items:
@@ -820,7 +820,7 @@ components:
       description: Requested market securities or entities. All requested identifiers
         must be of the same type. Accepted identifiers include all FactSet Permanent
         Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is
-        sent back in the response as, 'requestId'.
+        sent back in the response as, `requestId'.
       example:
       - GOOGL-US
       items:
@@ -856,8 +856,8 @@ components:
       - ISIN
       - tickerExchange
       - tickerRegion
-      - bbgSecurityId
-      - bbgTickerComposite
+      - bloombergFigi
+      - bloombergTicker
       maxItems: 1
       title: Input Symbol Type
       type: string

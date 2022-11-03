@@ -174,17 +174,17 @@ export default class GetInputSymbolType {
 
     
         /**
-         * value: "bbgSecurityId"
+         * value: "bloombergFigi"
          * @const
          */
-        "bbgSecurityId" = "bbgSecurityId";
+        "bloombergFigi" = "bloombergFigi";
 
     
         /**
-         * value: "bbgTickerComposite"
+         * value: "bloombergTicker"
          * @const
          */
-        "bbgTickerComposite" = "bbgTickerComposite";
+        "bloombergTicker" = "bloombergTicker";
 
     
 

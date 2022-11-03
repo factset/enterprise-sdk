@@ -80,9 +80,9 @@ paths:
 
         * tickerRegion
 
-        * bbgSecurityId (input only)
+        * bloombergFigi (input only)
 
-        * bbgTickerComposite (input only)
+        * bloombergTicker (input only)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -197,9 +197,9 @@ paths:
 
         * tickerRegion
 
-        * bbgSecurityId (input only)
+        * bloombergFigi (input only)
 
-        * bbgTickerComposite (input only)
+        * bloombergTicker (input only)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -335,8 +335,8 @@ components:
           - ISIN
           - tickerExchange
           - tickerRegion
-          - bbgSecurityId
-          - bbgTickerComposite
+          - bloombergFigi
+          - bloombergTicker
         default: tickerRegion
       required: true
       description: >
@@ -479,7 +479,7 @@ components:
         Requested market securities or entities. All requested identifiers must
         be of the same type. Accepted identifiers include all FactSet Permanent
         Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value
-        is sent back in the response as, 'requestId'.
+        is sent back in the response as, `requestId'.
       example:
         - GOOGL-US
     getInputSymbolType:
@@ -512,8 +512,8 @@ components:
         - ISIN
         - tickerExchange
         - tickerRegion
-        - bbgSecurityId
-        - bbgTickerComposite
+        - bloombergFigi
+        - bloombergTicker
       default: tickerRegion
     getOutputSymbolTypes:
       title: Output Symbol Types

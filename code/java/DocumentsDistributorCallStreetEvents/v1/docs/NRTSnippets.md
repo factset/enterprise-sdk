@@ -2,7 +2,7 @@
 
 # NRTSnippets
 
-Transcript snippet metadata of active calls happening at that moment are returned
+Transcript snippet metadata of active calls happening at that moment are returned.
 
 ## Properties
 

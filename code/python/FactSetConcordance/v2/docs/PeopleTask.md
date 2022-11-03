@@ -1,6 +1,6 @@
 # PeopleTask
 
-Concordance People Task object. Shows task related metadata and some statistics on the matches. 
+Concordance People Task object. Shows the settings and status of a taskId and some statistics on the matches. 
 
 ## Properties
 Name | Type | Description | Notes
@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **status** | **str, none_type** | Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results. | [optional] 
 **suffix_column** | **str, none_type** | Name of the column in the input file that contains the person&#39;s suffix.  | [optional] 
 **task_submit_time** | **datetime, none_type** | Time the Task was submitted in UTC. | [optional] 
-**task_id** | **int, none_type** | The task identifier | [optional] 
-**task_name** | **str, none_type** | The task name | [optional] 
 **unmapped_count** | **int, none_type** | Number of records with status of UNMAPPED the Input File. | [optional] 
 **try_count** | **int, none_type** | Number of tries made so far for the request. | [optional] 
 **decision_rate** | **float, none_type** | Percentage of mapped entities in the Input File. | [optional] 
@@ -32,6 +30,8 @@ Name | Type | Description | Notes
 **error_title** | **str, none_type** |  | [optional] 
 **input_count** | **int, none_type** | Number of records in the Input File. | [optional] 
 **indeterminate_count** | **int, none_type** | Number of records with status of INDETERMINATE the Input File. | [optional] 
+**task_id** | **int, none_type** | The task identifier | [optional] 
+**task_name** | **str, none_type** | The task name | [optional] 
 **universe_id** | **int, none_type** | The universe identifier | [optional] 
 **universe_name** | **str, none_type** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 
 **user_full_name** | **str, none_type** | Full name of the person associated with the &#x60;userSerial&#x60;.  | [optional] 

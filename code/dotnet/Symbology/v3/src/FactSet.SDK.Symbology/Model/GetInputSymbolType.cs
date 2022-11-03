@@ -166,16 +166,16 @@ namespace FactSet.SDK.Symbology.Model
         TickerRegion = 22,
 
         /// <summary>
-        /// Enum BbgSecurityId for value: bbgSecurityId
+        /// Enum BloombergFigi for value: bloombergFigi
         /// </summary>
-        [EnumMember(Value = "bbgSecurityId")]
-        BbgSecurityId = 23,
+        [EnumMember(Value = "bloombergFigi")]
+        BloombergFigi = 23,
 
         /// <summary>
-        /// Enum BbgTickerComposite for value: bbgTickerComposite
+        /// Enum BloombergTicker for value: bloombergTicker
         /// </summary>
-        [EnumMember(Value = "bbgTickerComposite")]
-        BbgTickerComposite = 24
+        [EnumMember(Value = "bloombergTicker")]
+        BloombergTicker = 24
 
     }
 

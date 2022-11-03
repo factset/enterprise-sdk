@@ -79,7 +79,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
       "https://api.factset.com",
-      "No description provided",
+      "Production",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -122,7 +122,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/DocumentsDistributorCallStreetEvents/0.21.2");
+    setUserAgent("fds-sdk/java/DocumentsDistributorCallStreetEvents/0.21.3");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();

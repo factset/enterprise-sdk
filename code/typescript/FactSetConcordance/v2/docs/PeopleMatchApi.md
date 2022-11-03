@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Find potential people matches given a person&#39;s name.People matches can be retrieved using person&#39;s name and other attributes like firstname, middlename and lastname.
 
-Finds the best people candidates matching the given name. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to  names. Otherwise, use the \&quot;People Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; 
+Finds the best people candidates matching the given name. &lt;p&gt;**Max of 1 Name permitted in a single GET request.** Use the POST method for /people-match to fetch up to 25 names. Otherwise, use the \&quot;People Match - Bulk\&quot; workflow to submit larger universes of names to be concorded via a file.&lt;/p&gt;&lt;p&gt; 
 
 ### Example
 

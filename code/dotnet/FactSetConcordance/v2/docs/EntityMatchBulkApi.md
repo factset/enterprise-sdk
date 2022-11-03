@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new EntityMatchBulkApi(config);
 
-            var taskId = 31589;  // int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+            var taskId = 31589;  // int | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
 
@@ -78,7 +78,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **int**| Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | 
+ **taskId** | **int**| Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | 
  **offset** | **int?**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **int?**| Limits the number of records in the response. | [optional] 
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 <a name="getentitytaskforlist"></a>
 # **GetEntityTaskForList**
-> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null)
+> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bicColumn = null, string bbgTickerColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string dunsColumn = null, string einColumn = null, string rssdColumn = null, string fitchColumn = null, string isinColumn = null, string leiColumn = null, string bbgFigiColumn = null, string mdColumn = null, string tickerColumn = null, string sprColumn = null, string sedolColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -159,6 +159,28 @@ namespace Example
             var countryColumn = "countryColumn_example";  // string | Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision.  (optional) 
             var urlColumn = "urlColumn_example";  // string | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional) 
             var stateColumn = "stateColumn_example";  // string | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional) 
+            var priorityColumn = "priorityColumn_example";  // string | Header Name of the column in the inputfile that contains the priority for the client id.  (optional) 
+            var bicColumn = "bicColumn_example";  // string | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type  (optional) 
+            var bbgTickerColumn = "bbgTickerColumn_example";  // string | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type (optional) 
+            var cikColumn = "cikColumn_example";  // string | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type (optional) 
+            var crdColumn = "crdColumn_example";  // string | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type (optional) 
+            var cusipColumn = "cusipColumn_example";  // string | Header Name of the column in the input file for the `CUSIP` symbol type (optional) 
+            var dunsColumn = "dunsColumn_example";  // string | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type (optional) 
+            var einColumn = "einColumn_example";  // string | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type (optional) 
+            var rssdColumn = "rssdColumn_example";  // string | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type (optional) 
+            var fitchColumn = "fitchColumn_example";  // string | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type (optional) 
+            var isinColumn = "isinColumn_example";  // string | Header Name of the column in the input file for the `ISIN`symbol type (optional) 
+            var leiColumn = "leiColumn_example";  // string | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type (optional) 
+            var bbgFigiColumn = "bbgFigiColumn_example";  // string | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type (optional) 
+            var mdColumn = "mdColumn_example";  // string | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type (optional) 
+            var tickerColumn = "tickerColumn_example";  // string | Header Name of the column in the input file for the `PriceTicker` symbol type (optional) 
+            var sprColumn = "sprColumn_example";  // string | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type (optional) 
+            var sedolColumn = "sedolColumn_example";  // string | Header Name of the column in the input file for the `SEDOL` symbol type (optional) 
+            var tickerExchangeColumn = "tickerExchangeColumn_example";  // string | Header Name of the column in the input file for the `TickerExchange` symbol type (optional) 
+            var tickerRegionColumn = "tickerRegionColumn_example";  // string | Header Name of the column in the input file for the `TickerRegion` symbol type (optional) 
+            var ukchColumn = "ukchColumn_example";  // string | Header Name of the column in the input file for the `UKCompanyHouse` symbol type (optional) 
+            var valorenColumn = "valorenColumn_example";  // string | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type (optional) 
+            var wknColumn = "wknColumn_example";  // string | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type (optional) 
             var includeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
             var excludeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.**  (optional) 
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
@@ -167,7 +189,7 @@ namespace Example
             try
             {
                 // Input a file with names and attributes, creating a taskId.
-                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
+                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -193,6 +215,28 @@ Name | Type | Description  | Notes
  **countryColumn** | **string**| Header Name of the column in the input file that contains the country&#39;s ISO Code. This is used to filter the candidates before taking a match decision.  | [optional] 
  **urlColumn** | **string**| Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional] 
  **stateColumn** | **string**| Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  | [optional] 
+ **priorityColumn** | **string**| Header Name of the column in the inputfile that contains the priority for the client id.  | [optional] 
+ **bicColumn** | **string**| Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  | [optional] 
+ **bbgTickerColumn** | **string**| Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type | [optional] 
+ **cikColumn** | **string**| Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type | [optional] 
+ **crdColumn** | **string**| Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type | [optional] 
+ **cusipColumn** | **string**| Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type | [optional] 
+ **dunsColumn** | **string**| Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type | [optional] 
+ **einColumn** | **string**| Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type | [optional] 
+ **rssdColumn** | **string**| Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type | [optional] 
+ **fitchColumn** | **string**| Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type | [optional] 
+ **isinColumn** | **string**| Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type | [optional] 
+ **leiColumn** | **string**| Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type | [optional] 
+ **bbgFigiColumn** | **string**| Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type | [optional] 
+ **mdColumn** | **string**| Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type | [optional] 
+ **tickerColumn** | **string**| Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type | [optional] 
+ **sprColumn** | **string**| Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type | [optional] 
+ **sedolColumn** | **string**| Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type | [optional] 
+ **tickerExchangeColumn** | **string**| Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type | [optional] 
+ **tickerRegionColumn** | **string**| Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type | [optional] 
+ **ukchColumn** | **string**| Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type | [optional] 
+ **valorenColumn** | **string**| Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type | [optional] 
+ **wknColumn** | **string**| Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type | [optional] 
  **includeEntityType** | [**List&lt;string&gt;**](string.md)| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **excludeEntityType** | [**List&lt;string&gt;**](string.md)| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
  **includeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
@@ -267,7 +311,7 @@ namespace Example
 
             var apiInstance = new EntityMatchBulkApi(config);
 
-            var taskId = 31589;  // int? | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional) 
+            var taskId = 31589;  // int? | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional) 
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
             var status = new List<string>(); // List<string> | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional) 
@@ -293,7 +337,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **int?**| Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | [optional] 
+ **taskId** | **int?**| Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | [optional] 
  **offset** | **int?**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **int?**| Limits the number of records in the response. | [optional] 
  **status** | [**List&lt;string&gt;**](string.md)| Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  | [optional] 

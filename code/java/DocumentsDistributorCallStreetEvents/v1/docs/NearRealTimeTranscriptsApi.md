@@ -4,18 +4,18 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getBulkDocumentsNrtV1Calls**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1Calls) | **GET** /bulk-documents/nrt/v1/calls | Returns the active calls happening at the moment
+[**getBulkDocumentsNrtV1Calls**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1Calls) | **GET** /bulk-documents/nrt/v1/calls | Returns the active calls happening at the moment.
 [**getBulkDocumentsNrtV1IndexedNrt**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1IndexedNrt) | **GET** /bulk-documents/nrt/v1/indexed-nrt | Returns the  indexed transcript data  in small increments throughout the duration of an active call.
-[**getBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1ListSnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest transcript snippets from an active call
+[**getBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1ListSnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest transcript snippets from an active call.
 [**getBulkDocumentsNrtV1Speakerids**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1Speakerids) | **GET** /bulk-documents/nrt/v1/speakerids | Returns the latest speakerIds with the confidence scores generated for an active call.
 
 
 
 ## getBulkDocumentsNrtV1Calls
 
-> NRTCalls getBulkDocumentsNrtV1Calls(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset)
+> NRTCalls getBulkDocumentsNrtV1Calls(paginationLimit, paginationOffset, audioSourceId, reportId, sort, entityId, ticker, callStatus)
 
-Returns the active calls happening at the moment
+Returns the active calls happening at the moment.
 
 Returns the active calls happening at the moment
 
@@ -53,16 +53,16 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NearRealTimeTranscriptsApi apiInstance = new NearRealTimeTranscriptsApi(defaultClient);
-        String sort = "startDate"; // String | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used
-        Integer reportId = 56; // Integer | Unique identifier for an event
-        Integer audioSourceId = 56; // Integer | Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids.
-        String entityId = "entityId_example"; // String | Factset entity level identifier for the company hosting the event
-        String ticker = "ticker_example"; // String | Ticker-region identifier for the company hosting the event
-        String callStatus = "inProgress"; // String | Status of the call i.e. ended or inProgress or ewn or issueAtSource
-        Integer paginationLimit = 56; // Integer | Specifies the number of results to return per page.[ Min=0 ; Max=500 ]
-        Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+        Integer paginationLimit = 200; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=500]
+        Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
+        Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        Integer reportId = 2683372; // Integer | Unique identifier for an event.
+        String sort = "startDate"; // String | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used.
+        String entityId = "000CGP-E"; // String | Factset entity level identifier for the company hosting the event.
+        String ticker = "AZZ-US"; // String | Ticker-region identifier for the company hosting the event.
+        String callStatus = "inProgress"; // String | Status of the call i.e. ended or inProgress or ewn or issueAtSource.
         try {
-            NRTCalls result = apiInstance.getBulkDocumentsNrtV1Calls(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset);
+            NRTCalls result = apiInstance.getBulkDocumentsNrtV1Calls(paginationLimit, paginationOffset, audioSourceId, reportId, sort, entityId, ticker, callStatus);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -81,14 +81,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | **String**| Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used | [optional] [default to -startDate] [enum: startDate, -startDate]
- **reportId** | **Integer**| Unique identifier for an event | [optional]
- **audioSourceId** | **Integer**| Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids. | [optional]
- **entityId** | **String**| Factset entity level identifier for the company hosting the event | [optional]
- **ticker** | **String**| Ticker-region identifier for the company hosting the event | [optional]
- **callStatus** | **String**| Status of the call i.e. ended or inProgress or ewn or issueAtSource | [optional] [enum: inProgress, ended, ewn, issueAtSource]
- **paginationLimit** | **Integer**| Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] | [optional]
- **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
+ **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional]
+ **reportId** | **Integer**| Unique identifier for an event. | [optional]
+ **sort** | **String**| Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used. | [optional] [default to -startDate] [enum: startDate, -startDate]
+ **entityId** | **String**| Factset entity level identifier for the company hosting the event. | [optional]
+ **ticker** | **String**| Ticker-region identifier for the company hosting the event. | [optional]
+ **callStatus** | **String**| Status of the call i.e. ended or inProgress or ewn or issueAtSource. | [optional] [enum: inProgress, ended, ewn, issueAtSource]
 
 ### Return type
 
@@ -108,14 +108,14 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 
 ## getBulkDocumentsNrtV1IndexedNrt
 
-> IndexedNRT getBulkDocumentsNrtV1IndexedNrt(audioSourceId, reportId, paginationLimit, paginationOffset)
+> IndexedNRT getBulkDocumentsNrtV1IndexedNrt(audioSourceId, paginationLimit, paginationOffset, reportId)
 
 Returns the  indexed transcript data  in small increments throughout the duration of an active call.
 
@@ -155,12 +155,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NearRealTimeTranscriptsApi apiInstance = new NearRealTimeTranscriptsApi(defaultClient);
-        Integer audioSourceId = 56; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
-        Integer reportId = 56; // Integer | Unique identifier for an event
-        Integer paginationLimit = 56; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=50 ]
-        Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+        Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        Integer paginationLimit = 25; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=50 ]
+        Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
+        Integer reportId = 2683372; // Integer | Unique identifier for an event.
         try {
-            IndexedNRT result = apiInstance.getBulkDocumentsNrtV1IndexedNrt(audioSourceId, reportId, paginationLimit, paginationOffset);
+            IndexedNRT result = apiInstance.getBulkDocumentsNrtV1IndexedNrt(audioSourceId, paginationLimit, paginationOffset, reportId);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -179,10 +179,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids. |
- **reportId** | **Integer**| Unique identifier for an event | [optional]
- **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] | [optional]
- **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
+ **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. |
+ **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] | [optional] [default to 25]
+ **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **reportId** | **Integer**| Unique identifier for an event. | [optional]
 
 ### Return type
 
@@ -202,16 +202,16 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 
 ## getBulkDocumentsNrtV1ListSnippets
 
-> NRTSnippets getBulkDocumentsNrtV1ListSnippets(audioSourceId, reportId, paginationLimit, paginationOffset)
+> NRTSnippets getBulkDocumentsNrtV1ListSnippets(audioSourceId, paginationLimit, paginationOffset, reportId)
 
-Returns the latest transcript snippets from an active call
+Returns the latest transcript snippets from an active call.
 
 Returns the latest snippets from an active call
 
@@ -249,12 +249,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NearRealTimeTranscriptsApi apiInstance = new NearRealTimeTranscriptsApi(defaultClient);
-        Integer audioSourceId = 56; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
-        Integer reportId = 56; // Integer | Unique identifier for an event
-        Integer paginationLimit = 56; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=500 ]
-        Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+        Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        Integer paginationLimit = 200; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=500]
+        Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
+        Integer reportId = 2683372; // Integer | Unique identifier for an event.
         try {
-            NRTSnippets result = apiInstance.getBulkDocumentsNrtV1ListSnippets(audioSourceId, reportId, paginationLimit, paginationOffset);
+            NRTSnippets result = apiInstance.getBulkDocumentsNrtV1ListSnippets(audioSourceId, paginationLimit, paginationOffset, reportId);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -273,10 +273,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids. |
- **reportId** | **Integer**| Unique identifier for an event | [optional]
- **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] | [optional]
- **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
+ **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. |
+ **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **reportId** | **Integer**| Unique identifier for an event. | [optional]
 
 ### Return type
 
@@ -296,14 +296,14 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 
 ## getBulkDocumentsNrtV1Speakerids
 
-> NRTSpeakerids getBulkDocumentsNrtV1Speakerids(audioSourceId, sort, paginationLimit, paginationOffset)
+> NRTSpeakerids getBulkDocumentsNrtV1Speakerids(audioSourceId, paginationLimit, paginationOffset, sort)
 
 Returns the latest speakerIds with the confidence scores generated for an active call.
 
@@ -343,12 +343,12 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         NearRealTimeTranscriptsApi apiInstance = new NearRealTimeTranscriptsApi(defaultClient);
-        Integer audioSourceId = 56; // Integer | The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids. 
-        String sort = "startDate"; // String | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used
-        Integer paginationLimit = 56; // Integer | Specifies the number of results to return per page.[ Min=0 ; Max=500 ]
-        Integer paginationOffset = 56; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+        Integer audioSourceId = 471849; // Integer | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+        Integer paginationLimit = 200; // Integer | Specifies the  number of results to return per page. [ Min=0; Max=500]
+        Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
+        String sort = "startDate"; // String | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used.
         try {
-            NRTSpeakerids result = apiInstance.getBulkDocumentsNrtV1Speakerids(audioSourceId, sort, paginationLimit, paginationOffset);
+            NRTSpeakerids result = apiInstance.getBulkDocumentsNrtV1Speakerids(audioSourceId, paginationLimit, paginationOffset, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -367,10 +367,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **Integer**| The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids.  |
- **sort** | **String**| Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used | [optional] [default to startDate] [enum: startDate, -startDate]
- **paginationLimit** | **Integer**| Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] | [optional]
- **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional]
+ **audioSourceId** | **Integer**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. |
+ **paginationLimit** | **Integer**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **sort** | **String**| Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used. | [optional] [default to startDate] [enum: startDate, -startDate]
 
 ### Return type
 
@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 

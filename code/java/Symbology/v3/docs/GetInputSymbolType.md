@@ -49,9 +49,9 @@
 
 * `TICKERREGION` (value: `"tickerRegion"`)
 
-* `BBGSECURITYID` (value: `"bbgSecurityId"`)
+* `BLOOMBERGFIGI` (value: `"bloombergFigi"`)
 
-* `BBGTICKERCOMPOSITE` (value: `"bbgTickerComposite"`)
+* `BLOOMBERGTICKER` (value: `"bloombergTicker"`)
 
 
 

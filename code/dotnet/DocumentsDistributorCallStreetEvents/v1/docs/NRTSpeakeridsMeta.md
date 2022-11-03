@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Sort** | **List&lt;string&gt;** | The value in _sort parameter if used in the request | [optional] 
+**Sort** | **List&lt;string&gt;** | The value in _sort parameter if used in the request. | [optional] 
 **Pagination** | [**NRTSpeakeridsMetaPagination**](NRTSpeakeridsMetaPagination.md) |  | [optional] 
 **Partial** | [**NRTSnippetsMetaPartial**](NRTSnippetsMetaPartial.md) |  | [optional] 
 

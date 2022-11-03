@@ -1,5 +1,5 @@
 # FactSet.SDK.DocumentsDistributorCallStreetEvents.Model.NRTCalls
-   Metadata of active calls happening at that moment are returned 
+   Metadata of active calls happening at that moment are returned. 
 
 ## Properties
 

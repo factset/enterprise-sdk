@@ -2,7 +2,7 @@
 
 # NRTSpeakerids
 
-Speaker metadata and the cosine scores(confidence scores ) generated for an active  call are returned
+Speaker metadata and the cosine scores(confidence scores ) generated for an active  call are returned.
 
 ## Properties
 

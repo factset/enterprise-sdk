@@ -4,17 +4,17 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetBulkDocumentsNrtV1Calls**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1calls) | **GET** /bulk-documents/nrt/v1/calls | Returns the active calls happening at the moment
+[**GetBulkDocumentsNrtV1Calls**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1calls) | **GET** /bulk-documents/nrt/v1/calls | Returns the active calls happening at the moment.
 [**GetBulkDocumentsNrtV1IndexedNrt**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1indexednrt) | **GET** /bulk-documents/nrt/v1/indexed-nrt | Returns the  indexed transcript data  in small increments throughout the duration of an active call.
-[**GetBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1listsnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest transcript snippets from an active call
+[**GetBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1listsnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest transcript snippets from an active call.
 [**GetBulkDocumentsNrtV1Speakerids**](NearRealTimeTranscriptsApi.md#getbulkdocumentsnrtv1speakerids) | **GET** /bulk-documents/nrt/v1/speakerids | Returns the latest speakerIds with the confidence scores generated for an active call.
 
 
 <a name="getbulkdocumentsnrtv1calls"></a>
 # **GetBulkDocumentsNrtV1Calls**
-> NRTCalls GetBulkDocumentsNrtV1Calls (string sort = null, int? reportId = null, int? audioSourceId = null, string entityId = null, string ticker = null, string callStatus = null, int? paginationLimit = null, int? paginationOffset = null)
+> NRTCalls GetBulkDocumentsNrtV1Calls (int? paginationLimit = null, int? paginationOffset = null, int? audioSourceId = null, int? reportId = null, string sort = null, string entityId = null, string ticker = null, string callStatus = null)
 
-Returns the active calls happening at the moment
+Returns the active calls happening at the moment.
 
 Returns the active calls happening at the moment
 
@@ -54,19 +54,19 @@ namespace Example
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
-            var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used (optional)  (default to -startDate)
-            var reportId = 56;  // int? | Unique identifier for an event (optional) 
-            var audioSourceId = 56;  // int? | Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids. (optional) 
-            var entityId = "entityId_example";  // string | Factset entity level identifier for the company hosting the event (optional) 
-            var ticker = "ticker_example";  // string | Ticker-region identifier for the company hosting the event (optional) 
-            var callStatus = "inProgress";  // string | Status of the call i.e. ended or inProgress or ewn or issueAtSource (optional) 
-            var paginationLimit = 56;  // int? | Specifies the number of results to return per page.[ Min=0 ; Max=500 ] (optional) 
-            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
+            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
+            var audioSourceId = 471849;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional) 
+            var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
+            var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used. (optional)  (default to -startDate)
+            var entityId = 000CGP-E;  // string | Factset entity level identifier for the company hosting the event. (optional) 
+            var ticker = AZZ-US;  // string | Ticker-region identifier for the company hosting the event. (optional) 
+            var callStatus = "inProgress";  // string | Status of the call i.e. ended or inProgress or ewn or issueAtSource. (optional) 
 
             try
             {
-                // Returns the active calls happening at the moment
-                NRTCalls result = apiInstance.GetBulkDocumentsNrtV1Calls(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset);
+                // Returns the active calls happening at the moment.
+                NRTCalls result = apiInstance.GetBulkDocumentsNrtV1Calls(paginationLimit, paginationOffset, audioSourceId, reportId, sort, entityId, ticker, callStatus);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -84,14 +84,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | **string**| Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used | [optional] [default to -startDate]
- **reportId** | **int?**| Unique identifier for an event | [optional] 
- **audioSourceId** | **int?**| Unique Id for an internal recording specific to reportId. For example, reportId X would have multiple recordings from different source (dial-in or webcast).One reportId can have multiple audiosource ids. | [optional] 
- **entityId** | **string**| Factset entity level identifier for the company hosting the event | [optional] 
- **ticker** | **string**| Ticker-region identifier for the company hosting the event | [optional] 
- **callStatus** | **string**| Status of the call i.e. ended or inProgress or ewn or issueAtSource | [optional] 
- **paginationLimit** | **int?**| Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] | [optional] 
- **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
+ **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **audioSourceId** | **int?**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | [optional] 
+ **reportId** | **int?**| Unique identifier for an event. | [optional] 
+ **sort** | **string**| Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used. | [optional] [default to -startDate]
+ **entityId** | **string**| Factset entity level identifier for the company hosting the event. | [optional] 
+ **ticker** | **string**| Ticker-region identifier for the company hosting the event. | [optional] 
+ **callStatus** | **string**| Status of the call i.e. ended or inProgress or ewn or issueAtSource. | [optional] 
 
 ### Return type
 [**NRTCalls**](NRTCalls.md)
@@ -111,15 +111,15 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getbulkdocumentsnrtv1indexednrt"></a>
 # **GetBulkDocumentsNrtV1IndexedNrt**
-> IndexedNRT GetBulkDocumentsNrtV1IndexedNrt (int audioSourceId, int? reportId = null, int? paginationLimit = null, int? paginationOffset = null)
+> IndexedNRT GetBulkDocumentsNrtV1IndexedNrt (int audioSourceId, int? paginationLimit = null, int? paginationOffset = null, int? reportId = null)
 
 Returns the  indexed transcript data  in small increments throughout the duration of an active call.
 
@@ -161,15 +161,15 @@ namespace Example
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
-            var audioSourceId = 56;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
-            var reportId = 56;  // int? | Unique identifier for an event (optional) 
-            var paginationLimit = 56;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional) 
-            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
+            var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional)  (default to 25)
+            var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
+            var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
 
             try
             {
                 // Returns the  indexed transcript data  in small increments throughout the duration of an active call.
-                IndexedNRT result = apiInstance.GetBulkDocumentsNrtV1IndexedNrt(audioSourceId, reportId, paginationLimit, paginationOffset);
+                IndexedNRT result = apiInstance.GetBulkDocumentsNrtV1IndexedNrt(audioSourceId, paginationLimit, paginationOffset, reportId);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -187,10 +187,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids. | 
- **reportId** | **int?**| Unique identifier for an event | [optional] 
- **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] | [optional] 
- **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
+ **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | 
+ **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] | [optional] [default to 25]
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **reportId** | **int?**| Unique identifier for an event. | [optional] 
 
 ### Return type
 [**IndexedNRT**](IndexedNRT.md)
@@ -210,17 +210,17 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getbulkdocumentsnrtv1listsnippets"></a>
 # **GetBulkDocumentsNrtV1ListSnippets**
-> NRTSnippets GetBulkDocumentsNrtV1ListSnippets (int audioSourceId, int? reportId = null, int? paginationLimit = null, int? paginationOffset = null)
+> NRTSnippets GetBulkDocumentsNrtV1ListSnippets (int audioSourceId, int? paginationLimit = null, int? paginationOffset = null, int? reportId = null)
 
-Returns the latest transcript snippets from an active call
+Returns the latest transcript snippets from an active call.
 
 Returns the latest snippets from an active call
 
@@ -260,15 +260,15 @@ namespace Example
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
-            var audioSourceId = 56;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
-            var reportId = 56;  // int? | Unique identifier for an event (optional) 
-            var paginationLimit = 56;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500 ] (optional) 
-            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
+            var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
+            var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
 
             try
             {
-                // Returns the latest transcript snippets from an active call
-                NRTSnippets result = apiInstance.GetBulkDocumentsNrtV1ListSnippets(audioSourceId, reportId, paginationLimit, paginationOffset);
+                // Returns the latest transcript snippets from an active call.
+                NRTSnippets result = apiInstance.GetBulkDocumentsNrtV1ListSnippets(audioSourceId, paginationLimit, paginationOffset, reportId);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -286,10 +286,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids. | 
- **reportId** | **int?**| Unique identifier for an event | [optional] 
- **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] | [optional] 
- **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
+ **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | 
+ **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **reportId** | **int?**| Unique identifier for an event. | [optional] 
 
 ### Return type
 [**NRTSnippets**](NRTSnippets.md)
@@ -309,15 +309,15 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getbulkdocumentsnrtv1speakerids"></a>
 # **GetBulkDocumentsNrtV1Speakerids**
-> NRTSpeakerids GetBulkDocumentsNrtV1Speakerids (int audioSourceId, string sort = null, int? paginationLimit = null, int? paginationOffset = null)
+> NRTSpeakerids GetBulkDocumentsNrtV1Speakerids (int audioSourceId, int? paginationLimit = null, int? paginationOffset = null, string sort = null)
 
 Returns the latest speakerIds with the confidence scores generated for an active call.
 
@@ -359,15 +359,15 @@ namespace Example
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
-            var audioSourceId = 56;  // int | The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids. 
-            var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used (optional)  (default to startDate)
-            var paginationLimit = 56;  // int? | Specifies the number of results to return per page.[ Min=0 ; Max=500 ] (optional) 
-            var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
+            var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
+            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
+            var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used. (optional)  (default to startDate)
 
             try
             {
                 // Returns the latest speakerIds with the confidence scores generated for an active call.
-                NRTSpeakerids result = apiInstance.GetBulkDocumentsNrtV1Speakerids(audioSourceId, sort, paginationLimit, paginationOffset);
+                NRTSpeakerids result = apiInstance.GetBulkDocumentsNrtV1Speakerids(audioSourceId, paginationLimit, paginationOffset, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -385,10 +385,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audioSourceId** | **int**| The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids.  | 
- **sort** | **string**| Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used | [optional] [default to startDate]
- **paginationLimit** | **int?**| Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] | [optional] 
- **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
+ **audioSourceId** | **int**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. | 
+ **paginationLimit** | **int?**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500] | [optional] [default to 200]
+ **paginationOffset** | **int?**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
+ **sort** | **string**| Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used. | [optional] [default to startDate]
 
 ### Return type
 [**NRTSpeakerids**](NRTSpeakerids.md)
@@ -408,8 +408,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

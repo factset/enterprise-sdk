@@ -2,7 +2,7 @@
 
 # PeopleTask
 
-Concordance People Task object. Shows task related metadata and some statistics on the matches. 
+Concordance People Task object. Shows the settings and status of a taskId and some statistics on the matches. 
 
 ## Properties
 
@@ -22,8 +22,6 @@ Name | Type | Description | Notes
 **status** | [**StatusEnum**](#StatusEnum) | Status of the Concordance Task. If the value is \&quot;SUCCESS\&quot;, you can move to the subsequent /entity-decisions endpoint to retrieve the results. |  [optional]
 **suffixColumn** | **String** | Name of the column in the input file that contains the person&#39;s suffix.  |  [optional]
 **taskSubmitTime** | **OffsetDateTime** | Time the Task was submitted in UTC. |  [optional]
-**taskId** | **Integer** | The task identifier |  [optional]
-**taskName** | **String** | The task name |  [optional]
 **unmappedCount** | **Integer** | Number of records with status of UNMAPPED the Input File. |  [optional]
 **tryCount** | **Integer** | Number of tries made so far for the request. |  [optional]
 **decisionRate** | **Double** | Percentage of mapped entities in the Input File. |  [optional]
@@ -35,6 +33,8 @@ Name | Type | Description | Notes
 **errorTitle** | **String** |  |  [optional]
 **inputCount** | **Integer** | Number of records in the Input File. |  [optional]
 **indeterminateCount** | **Integer** | Number of records with status of INDETERMINATE the Input File. |  [optional]
+**taskId** | **Integer** | The task identifier |  [optional]
+**taskName** | **String** | The task name |  [optional]
 **universeId** | **Integer** | The universe identifier |  [optional]
 **universeName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]
 **userFullName** | **String** | Full name of the person associated with the &#x60;userSerial&#x60;.  |  [optional]

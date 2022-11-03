@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetConcordance",
-  "packageVersion": "0.21.2",
+  "packageVersion": "0.21.3",
   "packageGuid": "{ae88e08d-fed6-5c17-a8b6-271bb6acffca}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetConcordance/0.21.2",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetConcordance/0.21.3",
   "files": {
     "LICENSE": {}
   },

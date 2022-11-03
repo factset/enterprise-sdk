@@ -8,7 +8,7 @@ Request object for Identifier Resolution endpoint.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **java.util.List&lt;String&gt;** | Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#39;requestId&#39;. | 
+**ids** | **java.util.List&lt;String&gt;** | Requested market securities or entities. All requested identifiers must be of the same type. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. | 
 **inputSymbolType** | **GetInputSymbolType** |  | 
 **outputSymbolTypes** | [**java.util.List&lt;OutputSymbolTypesEnum&gt;**](#java.util.List&lt;OutputSymbolTypesEnum&gt;) | Requested identifiers to be returned. Multiple identifier types can be requested with each request. | 
 

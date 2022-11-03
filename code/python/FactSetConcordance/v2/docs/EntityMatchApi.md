@@ -72,12 +72,33 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         "HF",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
     include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) if omitted the server will use the default value of False
+    bic = "bic_example" # str | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
+    bbg_ticker = "bbgTicker_example" # str | Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type (optional)
+    cik = "cik_example" # str | Input identifiers for the CIK - Edgar Central Index Keys symbol type (optional)
+    crd = "crd_example" # str | Input identifiers for the CRD - Central Registration Depository symbol type (optional)
+    cusip = "cusip_example" # str | Input identifiers for the CUSIP symbol type (optional)
+    duns = "duns_example" # str | Input identifiers for the DUNS - Dun & Bradstreet Data Universal Numbering System symbol type (optional)
+    ein = "ein_example" # str | Input identifiers for the EIN - Employer Identification Number symbol type (optional)
+    rssd = "rssd_example" # str | Input identifiers for the RSSD - Federal Reserve RSSD symbol type (optional)
+    fitch = "fitch_example" # str | Input identifiers for the Fitch - Fitch Ratings symbol type (optional)
+    isin = "isin_example" # str | Input identifiers for the ISIN - International Securities Identification Number symbol type (optional)
+    lei = "lei_example" # str | Input identifiers for the LEI - Legal Entity Identifier symbol type (optional)
+    bbg_figi = "bbgFigi_example" # str | Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type (optional)
+    md = "md_example" # str | Input identifiers for the Moody's Ratings Identifier type (optional)
+    ticker = "ticker_example" # str | Input identifiers for the Price Ticker symbol type (optional)
+    spr = "spr_example" # str | Input identifiers for the S&PRating - S&P Ratings Identifier symbol type (optional)
+    sedol = "sedol_example" # str | Input identifiers for the SEDOL symbol type (optional)
+    ticker_exchange = "tickerExchange_example" # str | Input identifiers for the TickerExchange (optional)
+    ticker_region = "TickerRegion" # str | Input identifiers for the TickerRegion. (optional)
+    ukch = "UKCompanyHouse" # str | Input identifiers for the UKCH - UK Company House symbol type (optional)
+    valoren = "valoren_example" # str | Input identifiers for the Valoren (\"Valor\") symbol type (optional)
+    wkn = "wkn_example" # str | Input identifiers for the WKN - German Securities symbol type (optional)
 
     try:
         # Get Entity Candidates and Matches for a single name and attributes.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent)
+        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bic=bic, bbg_ticker=bbg_ticker, cik=cik, crd=crd, cusip=cusip, duns=duns, ein=ein, rssd=rssd, fitch=fitch, isin=isin, lei=lei, bbg_figi=bbg_figi, md=md, ticker=ticker, spr=spr, sedol=sedol, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn)
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -98,6 +119,27 @@ Name | Type | Description  | Notes
  **include_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking|  | [optional]
  **exclude_entity_sub_type** | **[str]**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  | [optional]
  **include_parent** | **bool**| Flag to include parent entities in the list of candidates. This parameter does not influence the match result. | [optional] if omitted the server will use the default value of False
+ **bic** | **str**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional]
+ **bbg_ticker** | **str**| Input identifiers for the Bloomberg Listing and Regional Ticker symbol Type | [optional]
+ **cik** | **str**| Input identifiers for the CIK - Edgar Central Index Keys symbol type | [optional]
+ **crd** | **str**| Input identifiers for the CRD - Central Registration Depository symbol type | [optional]
+ **cusip** | **str**| Input identifiers for the CUSIP symbol type | [optional]
+ **duns** | **str**| Input identifiers for the DUNS - Dun &amp; Bradstreet Data Universal Numbering System symbol type | [optional]
+ **ein** | **str**| Input identifiers for the EIN - Employer Identification Number symbol type | [optional]
+ **rssd** | **str**| Input identifiers for the RSSD - Federal Reserve RSSD symbol type | [optional]
+ **fitch** | **str**| Input identifiers for the Fitch - Fitch Ratings symbol type | [optional]
+ **isin** | **str**| Input identifiers for the ISIN - International Securities Identification Number symbol type | [optional]
+ **lei** | **str**| Input identifiers for the LEI - Legal Entity Identifier symbol type | [optional]
+ **bbg_figi** | **str**| Input identifiers for the Bloomberg Listing/Regional/Security ID symbol type | [optional]
+ **md** | **str**| Input identifiers for the Moody&#39;s Ratings Identifier type | [optional]
+ **ticker** | **str**| Input identifiers for the Price Ticker symbol type | [optional]
+ **spr** | **str**| Input identifiers for the S&amp;PRating - S&amp;P Ratings Identifier symbol type | [optional]
+ **sedol** | **str**| Input identifiers for the SEDOL symbol type | [optional]
+ **ticker_exchange** | **str**| Input identifiers for the TickerExchange | [optional]
+ **ticker_region** | **str**| Input identifiers for the TickerRegion. | [optional]
+ **ukch** | **str**| Input identifiers for the UKCH - UK Company House symbol type | [optional]
+ **valoren** | **str**| Input identifiers for the Valoren (\&quot;Valor\&quot;) symbol type | [optional]
+ **wkn** | **str**| Input identifiers for the WKN - German Securities symbol type | [optional]
 
 ### Return type
 
@@ -131,7 +173,7 @@ Name | Type | Description  | Notes
 
 Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
 
-Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. <p>**Max of 25 Names inputted.** Use the \"Entity Match - Bulk\" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p> 
+Finds the best candidate entities matching the given entity name. If a `universeId` is provided, any match for an input including a `clientId` will be saved to that universe. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search.  <p>**Max of 25 Names inputted.** Use the \"Entity Match - Bulk\" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p> 
 
 ### Example
 
@@ -181,6 +223,28 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 country="US",
                 state="CT",
                 url="www.amazon.com",
+                priority="HIGH",
+                bic="ABXXHKH1",
+                bbg_ticker="GOOGL UW",
+                cik="100331",
+                crd="149722",
+                cusip="02079K305",
+                duns="621513451",
+                ein="953540776",
+                rssd="1139297",
+                fitch="47504",
+                isin="US02079K305",
+                lei="549300A6K7JX8EX2QZ33",
+                bbg_figi="BBG009S39JY5",
+                md="823736553",
+                ticker="PriceTicker",
+                spr="301939",
+                sedol="BYZ5YB6",
+                ticker_exchange="GOOGL-NAS",
+                ticker_region="GOOGL-US",
+                ukch="CE012494",
+                valoren="685558",
+                wkn="A0MU9T",
             ),
         ],
         include_entity_type=[

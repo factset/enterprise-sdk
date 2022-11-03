@@ -53,7 +53,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EntityMatchBulkApi apiInstance = new EntityMatchBulkApi(defaultClient);
-        Integer taskId = 31589; // Integer | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+        Integer taskId = 31589; // Integer | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
         Integer offset = 0; // Integer | Starting row for records to return or rows to skip.
         Integer limit = 10; // Integer | Limits the number of records in the response.
         try {
@@ -76,7 +76,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **Integer**| Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. |
+ **taskId** | **Integer**| Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. |
  **offset** | **Integer**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **Integer**| Limits the number of records in the response. | [optional]
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## getEntityTaskForList
 
-> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType)
+> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -156,12 +156,34 @@ public class Example {
         String countryColumn = "countryColumn_example"; // String | Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision. 
         String urlColumn = "urlColumn_example"; // String | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match. 
         String stateColumn = "stateColumn_example"; // String | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported. 
+        String priorityColumn = "priorityColumn_example"; // String | Header Name of the column in the inputfile that contains the priority for the client id. 
+        String bicColumn = "bicColumn_example"; // String | Header Name of the column in the input file for the BICCode, `bank indentification code` symbol type 
+        String bbgTickerColumn = "bbgTickerColumn_example"; // String | Header Name of the column in the input file for the Bloomberg `Listing and Regional Ticker` symbol type
+        String cikColumn = "cikColumn_example"; // String | Header Name of the column in the input file for the CIK, `Edgar Central Index Keys` symbol type
+        String crdColumn = "crdColumn_example"; // String | Header Name of the column in the input file for the CRD, `Central Registration Depository` symbol type
+        String cusipColumn = "cusipColumn_example"; // String | Header Name of the column in the input file for the `CUSIP` symbol type
+        String dunsColumn = "dunsColumn_example"; // String | Header Name of the column in the input file for the DUNS, `Dun&Bradstreet` symbol type
+        String einColumn = "einColumn_example"; // String | Header Name of the column in the input file for the EIN, `EmployerIdentificationNumber` symbol type
+        String rssdColumn = "rssdColumn_example"; // String | Header Name of the column in the input file for the RSSD, `FederalReserveRSSDIdentifier` symbol type
+        String fitchColumn = "fitchColumn_example"; // String | Header Name of the column in the input file for the FitchCreditRating, `Fitch Ratings Identifier` symbol type
+        String isinColumn = "isinColumn_example"; // String | Header Name of the column in the input file for the `ISIN`symbol type
+        String leiColumn = "leiColumn_example"; // String | Header Name of the column in the input file for the LEI, `LegalEntityIdentifier` symbol type
+        String bbgFigiColumn = "bbgFigiColumn_example"; // String | Header Name of the column in the input file for the `Bloomberg Listing/Regional/Security ID` symbol type
+        String mdColumn = "mdColumn_example"; // String | Header Name of the column in the input file for the MoodysIssuer, `Moody's Ratings Identifier` symbol type
+        String tickerColumn = "tickerColumn_example"; // String | Header Name of the column in the input file for the `PriceTicker` symbol type
+        String sprColumn = "sprColumn_example"; // String | Header Name of the column in the input file for the S&PRating, `S&P Ratings Identifier` symbol type
+        String sedolColumn = "sedolColumn_example"; // String | Header Name of the column in the input file for the `SEDOL` symbol type
+        String tickerExchangeColumn = "tickerExchangeColumn_example"; // String | Header Name of the column in the input file for the `TickerExchange` symbol type
+        String tickerRegionColumn = "tickerRegionColumn_example"; // String | Header Name of the column in the input file for the `TickerRegion` symbol type
+        String ukchColumn = "ukchColumn_example"; // String | Header Name of the column in the input file for the `UKCompanyHouse` symbol type
+        String valorenColumn = "valorenColumn_example"; // String | Header Name of the column in the input file for the VALOR, `Valoren (\\\"Valor\\\") Identification` symbol type
+        String wknColumn = "wknColumn_example"; // String | Header Name of the column in the input file for the WKN, `German Securities Identification` symbol type
         java.util.List<String> includeEntityType = Arrays.asList(); // java.util.List<String> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         java.util.List<String> excludeEntityType = Arrays.asList(); // java.util.List<String> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** 
         java.util.List<String> includeEntitySubType = Arrays.asList(); // java.util.List<String> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         java.util.List<String> excludeEntitySubType = Arrays.asList(); // java.util.List<String> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
         try {
-            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
+            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bicColumn, bbgTickerColumn, cikColumn, crdColumn, cusipColumn, dunsColumn, einColumn, rssdColumn, fitchColumn, isinColumn, leiColumn, bbgFigiColumn, mdColumn, tickerColumn, sprColumn, sedolColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -188,6 +210,28 @@ Name | Type | Description  | Notes
  **countryColumn** | **String**| Header Name of the column in the input file that contains the country&#39;s ISO Code. This is used to filter the candidates before taking a match decision.  | [optional]
  **urlColumn** | **String**| Header Name of the column in the input file that contains the Entity&#39;s URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  | [optional]
  **stateColumn** | **String**| Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  | [optional]
+ **priorityColumn** | **String**| Header Name of the column in the inputfile that contains the priority for the client id.  | [optional]
+ **bicColumn** | **String**| Header Name of the column in the input file for the BICCode, &#x60;bank indentification code&#x60; symbol type  | [optional]
+ **bbgTickerColumn** | **String**| Header Name of the column in the input file for the Bloomberg &#x60;Listing and Regional Ticker&#x60; symbol type | [optional]
+ **cikColumn** | **String**| Header Name of the column in the input file for the CIK, &#x60;Edgar Central Index Keys&#x60; symbol type | [optional]
+ **crdColumn** | **String**| Header Name of the column in the input file for the CRD, &#x60;Central Registration Depository&#x60; symbol type | [optional]
+ **cusipColumn** | **String**| Header Name of the column in the input file for the &#x60;CUSIP&#x60; symbol type | [optional]
+ **dunsColumn** | **String**| Header Name of the column in the input file for the DUNS, &#x60;Dun&amp;Bradstreet&#x60; symbol type | [optional]
+ **einColumn** | **String**| Header Name of the column in the input file for the EIN, &#x60;EmployerIdentificationNumber&#x60; symbol type | [optional]
+ **rssdColumn** | **String**| Header Name of the column in the input file for the RSSD, &#x60;FederalReserveRSSDIdentifier&#x60; symbol type | [optional]
+ **fitchColumn** | **String**| Header Name of the column in the input file for the FitchCreditRating, &#x60;Fitch Ratings Identifier&#x60; symbol type | [optional]
+ **isinColumn** | **String**| Header Name of the column in the input file for the &#x60;ISIN&#x60;symbol type | [optional]
+ **leiColumn** | **String**| Header Name of the column in the input file for the LEI, &#x60;LegalEntityIdentifier&#x60; symbol type | [optional]
+ **bbgFigiColumn** | **String**| Header Name of the column in the input file for the &#x60;Bloomberg Listing/Regional/Security ID&#x60; symbol type | [optional]
+ **mdColumn** | **String**| Header Name of the column in the input file for the MoodysIssuer, &#x60;Moody&#39;s Ratings Identifier&#x60; symbol type | [optional]
+ **tickerColumn** | **String**| Header Name of the column in the input file for the &#x60;PriceTicker&#x60; symbol type | [optional]
+ **sprColumn** | **String**| Header Name of the column in the input file for the S&amp;PRating, &#x60;S&amp;P Ratings Identifier&#x60; symbol type | [optional]
+ **sedolColumn** | **String**| Header Name of the column in the input file for the &#x60;SEDOL&#x60; symbol type | [optional]
+ **tickerExchangeColumn** | **String**| Header Name of the column in the input file for the &#x60;TickerExchange&#x60; symbol type | [optional]
+ **tickerRegionColumn** | **String**| Header Name of the column in the input file for the &#x60;TickerRegion&#x60; symbol type | [optional]
+ **ukchColumn** | **String**| Header Name of the column in the input file for the &#x60;UKCompanyHouse&#x60; symbol type | [optional]
+ **valorenColumn** | **String**| Header Name of the column in the input file for the VALOR, &#x60;Valoren (\\\&quot;Valor\\\&quot;) Identification&#x60; symbol type | [optional]
+ **wknColumn** | **String**| Header Name of the column in the input file for the WKN, &#x60;German Securities Identification&#x60; symbol type | [optional]
  **includeEntityType** | **List&lt;String&gt;**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **excludeEntityType** | **List&lt;String&gt;**| Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
  **includeEntitySubType** | **List&lt;String&gt;**| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional]
@@ -266,7 +310,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         EntityMatchBulkApi apiInstance = new EntityMatchBulkApi(defaultClient);
-        Integer taskId = 31589; // Integer | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+        Integer taskId = 31589; // Integer | Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
         Integer offset = 0; // Integer | Starting row for records to return or rows to skip.
         Integer limit = 10; // Integer | Limits the number of records in the response.
         java.util.List<String> status = Arrays.asList(); // java.util.List<String> | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. 
@@ -290,7 +334,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **Integer**| Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | [optional]
+ **taskId** | **Integer**| Name of the column for the type Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. | [optional]
  **offset** | **Integer**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **Integer**| Limits the number of records in the response. | [optional]
  **status** | **List&lt;String&gt;**| Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  | [optional] [enum: PENDING, IN_PROGRESS, SUCCESS, FAILURE, BAD_REQUEST, ABORTED]
