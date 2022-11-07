@@ -6,7 +6,11 @@ LICENSE
 README.md
 docs/Adjust.md
 docs/Batch.md
+docs/BatchDataRequest.md
+docs/BatchDataResponse.md
+docs/BatchProcessingApi.md
 docs/BatchStatus.md
+docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
 docs/Calendar.md
 docs/DatabaseRolloverApi.md
@@ -64,6 +68,7 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
+src/api/BatchProcessingApi.js
 src/api/DatabaseRolloverApi.js
 src/api/DividendsApi.js
 src/api/HighLowApi.js
@@ -76,7 +81,10 @@ src/api/SplitsApi.js
 src/index.js
 src/model/Adjust.js
 src/model/Batch.js
+src/model/BatchDataRequest.js
+src/model/BatchDataResponse.js
 src/model/BatchStatus.js
+src/model/BatchStatusRequest.js
 src/model/BatchStatusResponse.js
 src/model/Calendar.js
 src/model/Dividend.js

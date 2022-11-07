@@ -6,7 +6,7 @@ info:
   description: |
     Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p>
   title: FactSet Prices API
-  version: 1.2.1
+  version: 1.3.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -19,7 +19,7 @@ paths:
       description: |
         Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)
 
-        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
+        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
       operationId: getSecurityPrices
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
@@ -194,9 +194,9 @@ paths:
       - description: |
           Enables the ability to asynchronously "batch" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
 
-          **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
+          **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
 
-          Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.
+          Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.
 
           When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
         explode: true
@@ -319,7 +319,7 @@ paths:
 
         Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.
 
-        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
+        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
       operationId: getSecurityPricesForList
       requestBody:
         content:
@@ -3322,6 +3322,246 @@ paths:
       tags:
       - Database Rollover
       x-accepts: application/json
+  /batch/v1/status:
+    get:
+      deprecated: false
+      description: Return the status for the underlying batch request that is specified
+        by the id.
+      operationId: getBatchStatus
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the status for a Batch Request
+      tags:
+      - Batch Processing
+      x-accepts: application/json
+    post:
+      deprecated: false
+      description: 'Return the status for the underlying batch request that is specified
+        by the id. '
+      operationId: getBatchStatusWithPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Batch Status Request:
+                $ref: '#/components/examples/BatchStatusRequest'
+            schema:
+              $ref: '#/components/schemas/BatchStatusRequest'
+        description: Batch Status Request Post Body
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              example: batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the status for a Batch Request
+      tags:
+      - Batch Processing
+      x-contentType: application/json
+      x-accepts: application/json
+  /batch/v1/result:
+    get:
+      deprecated: false
+      description: Returns the response data for the underlying batch request that
+        is specified by the id.
+      operationId: getBatchData
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Price of AAPL as of March 29 2019:
+                  $ref: '#/components/examples/singleSecurityPrices'
+                Prices for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/twoSecuritiesPrices'
+                One Month of Daily Prices for AAPL in March 2019:
+                  $ref: '#/components/examples/oneMonthSecurityPrices'
+              schema:
+                $ref: '#/components/schemas/BatchDataResponse'
+          description: Request Response Object when batch request has completed and
+            response is created
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the response for a Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+    post:
+      deprecated: false
+      description: 'Return the response data for the underlying batch request that
+        is specified by the id. '
+      operationId: getBatchDataWithPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Batch Data Request:
+                $ref: '#/components/examples/BatchDataRequest'
+            schema:
+              $ref: '#/components/schemas/BatchDataRequest'
+        description: Batch Data Request Post Body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Price of AAPL as of March 29 2019:
+                  $ref: '#/components/examples/singleSecurityPrices'
+                Prices for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/twoSecuritiesPrices'
+                One Month of Daily Prices for AAPL in March 2019:
+                  $ref: '#/components/examples/oneMonthSecurityPrices'
+              schema:
+                $ref: '#/components/schemas/BatchDataResponse'
+          description: Request Response Object when batch request has completed and
+            response is created.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Batch Request Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Resource not found.
+      summary: Returns the response for a Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
+      x-contentType: application/json
+      x-accepts: application/json
 components:
   examples:
     singleSecurityPrices:
@@ -4771,6 +5011,59 @@ components:
           startTime: 2021-06-29T18:34:52.168Z
           endTime: null
           error: null
+    BatchDataRequest:
+      description: Batch Data Request
+      value:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+    BatchStatusRequest:
+      description: Batch Status Request
+      value:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+    BatchStatusQueuedResponse:
+      description: Batch Status Queued Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: QUEUED
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusExecutingResponse:
+      description: Batch Status Executing Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: EXECUTING
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: null
+          error: null
+    BatchStatusDoneResponse:
+      description: Batch Status Done Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: DONE
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error: null
+    BatchStatusFailedResponse:
+      description: Batch Status Failed Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: FAILED
+          startTime: 2021-06-29T18:34:52.168Z
+          endTime: 2021-06-29T18:34:55.402Z
+          error: Invalid format for startDate
+    notFound:
+      description: The requested item was not found.
+      summary: Not Found
+      value:
+        status: Not Found
+        timestamp: 2020-06-12T16:08:51.731Z
+        path: /batch/v1/status
+        message: The Batch Request was not found. It has probably expired.
+        subErrors: null
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -4894,6 +5187,17 @@ components:
         message: Unexpected error
         subErrors: null
   parameters:
+    batchId:
+      allowEmptyValue: false
+      description: Batch Request identifier.
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+      style: form
     idsBatchMax5000:
       description: The requested list of security identifiers. Accepted ID types include
         Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit**
@@ -5365,9 +5669,9 @@ components:
       description: |
         Enables the ability to asynchronously "batch" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.
 
-        **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
+        **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
 
-        Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.
+        Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.
 
         When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
       explode: true
@@ -5425,6 +5729,15 @@ components:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Batch Request Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Resource not found.
     "415":
       content:
         application/json:
@@ -7109,44 +7422,6 @@ components:
           type: string
       title: Rollover Object
       type: object
-    BatchStatusResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/BatchStatus'
-      title: Batch Status Response
-      type: object
-    BatchStatus:
-      properties:
-        id:
-          description: the id of batch request.
-          format: uuid
-          type: string
-        startTime:
-          description: Time when the batch request is started. This is in Eastern
-            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
-            following ISO 8601.
-          format: date-time
-          type: string
-        endTime:
-          description: Time when the batch request is ended. This is in Eastern Time
-            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following
-            ISO 8601.
-          format: date-time
-          type: string
-        status:
-          enum:
-          - QUEUED
-          - EXECUTING
-          - DONE
-          - FAILED
-          type: string
-        error:
-          description: Error message.
-          example: 'Invalid Parameter (s): curr. Please modify your request to use
-            parameters outlined in the specification for this endpoint.'
-          type: string
-      title: Batch Status
-      type: object
     errorResponse:
       properties:
         status:
@@ -7398,11 +7673,108 @@ components:
     batch:
       default: "N"
       description: |
-        Enables the ability to asynchronously "batch" the request, supporting a long-running request up to 10 minutes. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202. Once a batch request is submitted, use the `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. <p>**`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.** Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
+        Enables the ability to asynchronously "batch" the request, supporting a long-running request up to 10 minutes. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202. Once a batch request is submitted, use the `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. <p>**Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.** Upon requesting "batch": "Y", the service will respond back with an HTTP Status Code of 202.
       enum:
       - "Y"
       - "N"
       type: string
+    BatchDataRequest:
+      example:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+      properties:
+        id:
+          description: Batch Request identifier.
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          format: uuid
+          type: string
+      required:
+      - id
+      title: Batch Data Request
+      type: object
+    BatchDataResponse:
+      example:
+        data: '{}'
+      properties:
+        data:
+          description: |
+            The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
+            Please see the schema for that endpoint for the definition.
+          title: Batch Data
+          type: object
+      title: Batch Data Response
+      type: object
+    BatchData:
+      description: |
+        The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
+        Please see the schema for that endpoint for the definition.
+      title: Batch Data
+      type: object
+    BatchStatusRequest:
+      example:
+        id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+      properties:
+        id:
+          description: Batch Request identifier.
+          example: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          format: uuid
+          type: string
+      required:
+      - id
+      title: Batch Status Request
+      type: object
+    BatchStatusResponse:
+      example:
+        data:
+          startTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          endTime: 2000-01-23T04:56:07.000+00:00
+          error: Invalid Parameter (s)- curr. Please modify your request to use parameters
+            outlined in the specification for this endpoint.
+          status: QUEUED
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+      title: Batch Status Response
+      type: object
+    BatchStatus:
+      example:
+        startTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endTime: 2000-01-23T04:56:07.000+00:00
+        error: Invalid Parameter (s)- curr. Please modify your request to use parameters
+          outlined in the specification for this endpoint.
+        status: QUEUED
+      properties:
+        id:
+          description: the id of batch request.
+          format: uuid
+          type: string
+        startTime:
+          description: Time when the batch request is started. This is in Eastern
+            Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS],
+            following ISO 8601.
+          format: date-time
+          type: string
+        endTime:
+          description: Time when the batch request is ended. This is in Eastern Time
+            Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following
+            ISO 8601.
+          format: date-time
+          type: string
+        status:
+          enum:
+          - QUEUED
+          - EXECUTING
+          - DONE
+          - FAILED
+          type: string
+        error:
+          description: Error message.
+          example: Invalid Parameter (s)- curr. Please modify your request to use
+            parameters outlined in the specification for this endpoint.
+          type: string
+      title: Batch Status
+      type: object
     errorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.
       properties:

@@ -6,7 +6,11 @@ LICENSE
 README.md
 docs/Adjust.md
 docs/Batch.md
+docs/BatchDataRequest.md
+docs/BatchDataResponse.md
+docs/BatchProcessingApi.md
 docs/BatchStatus.md
+docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
 docs/Calendar.md
 docs/DatabaseRolloverApi.md
@@ -67,6 +71,7 @@ docs/SplitsResponse.md
 fds/__init__.py
 fds/sdk/FactSetPrices/__init__.py
 fds/sdk/FactSetPrices/api/__init__.py
+fds/sdk/FactSetPrices/api/batch_processing_api.py
 fds/sdk/FactSetPrices/api/database_rollover_api.py
 fds/sdk/FactSetPrices/api/dividends_api.py
 fds/sdk/FactSetPrices/api/high_low_api.py
@@ -83,7 +88,10 @@ fds/sdk/FactSetPrices/exceptions.py
 fds/sdk/FactSetPrices/model/__init__.py
 fds/sdk/FactSetPrices/model/adjust.py
 fds/sdk/FactSetPrices/model/batch.py
+fds/sdk/FactSetPrices/model/batch_data_request.py
+fds/sdk/FactSetPrices/model/batch_data_response.py
 fds/sdk/FactSetPrices/model/batch_status.py
+fds/sdk/FactSetPrices/model/batch_status_request.py
 fds/sdk/FactSetPrices/model/batch_status_response.py
 fds/sdk/FactSetPrices/model/calendar.py
 fds/sdk/FactSetPrices/model/dividend.py

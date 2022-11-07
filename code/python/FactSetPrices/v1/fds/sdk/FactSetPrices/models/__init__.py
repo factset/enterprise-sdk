@@ -11,7 +11,10 @@
 
 from fds.sdk.FactSetPrices.model.adjust import Adjust
 from fds.sdk.FactSetPrices.model.batch import Batch
+from fds.sdk.FactSetPrices.model.batch_data_request import BatchDataRequest
+from fds.sdk.FactSetPrices.model.batch_data_response import BatchDataResponse
 from fds.sdk.FactSetPrices.model.batch_status import BatchStatus
+from fds.sdk.FactSetPrices.model.batch_status_request import BatchStatusRequest
 from fds.sdk.FactSetPrices.model.batch_status_response import BatchStatusResponse
 from fds.sdk.FactSetPrices.model.calendar import Calendar
 from fds.sdk.FactSetPrices.model.dividend import Dividend

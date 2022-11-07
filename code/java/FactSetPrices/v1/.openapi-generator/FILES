@@ -8,7 +8,11 @@ build.gradle
 build.sbt
 docs/Adjust.md
 docs/Batch.md
+docs/BatchDataRequest.md
+docs/BatchDataResponse.md
+docs/BatchProcessingApi.md
 docs/BatchStatus.md
+docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
 docs/Calendar.md
 docs/DatabaseRolloverApi.md
@@ -82,6 +86,7 @@ src/main/java/com/factset/sdk/FactSetPrices/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetPrices/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetPrices/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetPrices/StringUtil.java
+src/main/java/com/factset/sdk/FactSetPrices/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetPrices/api/DatabaseRolloverApi.java
 src/main/java/com/factset/sdk/FactSetPrices/api/DividendsApi.java
 src/main/java/com/factset/sdk/FactSetPrices/api/HighLowApi.java
@@ -101,7 +106,10 @@ src/main/java/com/factset/sdk/FactSetPrices/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/FactSetPrices/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/FactSetPrices/models/Adjust.java
 src/main/java/com/factset/sdk/FactSetPrices/models/Batch.java
+src/main/java/com/factset/sdk/FactSetPrices/models/BatchDataRequest.java
+src/main/java/com/factset/sdk/FactSetPrices/models/BatchDataResponse.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatus.java
+src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatusRequest.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatusResponse.java
 src/main/java/com/factset/sdk/FactSetPrices/models/Calendar.java
 src/main/java/com/factset/sdk/FactSetPrices/models/Dividend.java

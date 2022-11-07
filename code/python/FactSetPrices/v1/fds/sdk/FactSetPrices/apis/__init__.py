@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.database_rollover_api import DatabaseRolloverApi
+#   from .api.batch_processing_api import BatchProcessingApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.FactSetPrices.api.batch_processing_api import BatchProcessingApi
 from fds.sdk.FactSetPrices.api.database_rollover_api import DatabaseRolloverApi
 from fds.sdk.FactSetPrices.api.dividends_api import DividendsApi
 from fds.sdk.FactSetPrices.api.high_low_api import HighLowApi

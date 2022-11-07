@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 Gets end-of-day Open, High, Low, Close for a list of securities.
 
-Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
+Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
 ```csharp
@@ -256,7 +256,7 @@ namespace Example
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional)  (default to FIVEDAY)
             var currency = USD;  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) 
             var adjust = SPLIT;  // string | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (optional)  (default to SPLIT)
-            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
 
             try
             {
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
  **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities&#39; trading calendar which excludes date records for respective holiday periods. | [optional] [default to FIVEDAY]
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
  **adjust** | **string**| Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  | [optional] [default to SPLIT]
- **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
+ **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
 GetSecurityPricesResponseWrapper
@@ -317,7 +317,7 @@ GetSecurityPricesResponseWrapper
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of security prices open, high, low, close, and volume. |  -  |
-| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -332,7 +332,7 @@ GetSecurityPricesResponseWrapper
 
 Requests end-of-day Open, High, Low, Close for a large list of securities.
 
- Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
+ Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
 
 ### Example
 ```csharp
@@ -425,7 +425,7 @@ GetSecurityPricesForListResponseWrapper
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of security prices |  -  |
-| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

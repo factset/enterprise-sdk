@@ -6,7 +6,11 @@ README.md
 appveyor.yml
 docs/Adjust.md
 docs/Batch.md
+docs/BatchDataRequest.md
+docs/BatchDataResponse.md
+docs/BatchProcessingApi.md
 docs/BatchStatus.md
+docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
 docs/Calendar.md
 docs/DatabaseRolloverApi.md
@@ -61,6 +65,7 @@ docs/SplitsApi.md
 docs/SplitsRequest.md
 docs/SplitsResponse.md
 git_push.sh
+src/FactSet.SDK.FactSetPrices/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetPrices/Api/DatabaseRolloverApi.cs
 src/FactSet.SDK.FactSetPrices/Api/DividendsApi.cs
 src/FactSet.SDK.FactSetPrices/Api/HighLowApi.cs
@@ -90,7 +95,10 @@ src/FactSet.SDK.FactSetPrices/FactSet.SDK.FactSetPrices.csproj
 src/FactSet.SDK.FactSetPrices/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.FactSetPrices/Model/Adjust.cs
 src/FactSet.SDK.FactSetPrices/Model/Batch.cs
+src/FactSet.SDK.FactSetPrices/Model/BatchDataRequest.cs
+src/FactSet.SDK.FactSetPrices/Model/BatchDataResponse.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchStatus.cs
+src/FactSet.SDK.FactSetPrices/Model/BatchStatusRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchStatusResponse.cs
 src/FactSet.SDK.FactSetPrices/Model/Calendar.cs
 src/FactSet.SDK.FactSetPrices/Model/Dividend.cs
