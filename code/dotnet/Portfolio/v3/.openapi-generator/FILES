@@ -4,11 +4,14 @@ FactSet.SDK.Portfolio.sln
 LICENSE
 README.md
 appveyor.yml
+docs/ClientErrorResponse.md
+docs/DataAndMetaModel.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
 docs/ModelAccountsApi.md
-docs/ProblemDetails.md
 git_push.sh
 src/FactSet.SDK.Portfolio/Api/ModelAccountsApi.cs
 src/FactSet.SDK.Portfolio/Client/ApiClient.cs
@@ -29,7 +32,10 @@ src/FactSet.SDK.Portfolio/Client/RequestOptions.cs
 src/FactSet.SDK.Portfolio/Client/RetryConfiguration.cs
 src/FactSet.SDK.Portfolio/FactSet.SDK.Portfolio.csproj
 src/FactSet.SDK.Portfolio/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.Portfolio/Model/ClientErrorResponse.cs
+src/FactSet.SDK.Portfolio/Model/DataAndMetaModel.cs
+src/FactSet.SDK.Portfolio/Model/Error.cs
+src/FactSet.SDK.Portfolio/Model/ErrorSource.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountAdditionalField.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountFields.cs
 src/FactSet.SDK.Portfolio/Model/ModelAccountFieldsRoot.cs
-src/FactSet.SDK.Portfolio/Model/ProblemDetails.cs

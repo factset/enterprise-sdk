@@ -92,23 +92,31 @@ class Fdc3Context(ModelComposed):
         """
         lazy_import()
         return {
+            'type': (str,),  # noqa: E501
             'exchange_mic': (str,),  # noqa: E501
             'exchange_mic_fds': (str,),  # noqa: E501
             'id': (CountryID,),  # noqa: E501
-            'type': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
         }
 
     @cached_property
     def discriminator():
-        return None
-
+        lazy_import()
+        val = {
+            'Fdc3Country': Fdc3Country,
+            'Fdc3Instrument': Fdc3Instrument,
+            'fdc3.country': Fdc3Country,
+            'fdc3.instrument': Fdc3Instrument,
+        }
+        if not val:
+            return None
+        return {'type': val}
 
     attribute_map = {
+        'type': 'type',  # noqa: E501
         'exchange_mic': 'exchangeMic',  # noqa: E501
         'exchange_mic_fds': 'exchangeMicFds',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'name': 'name',  # noqa: E501
     }
 
@@ -121,6 +129,7 @@ class Fdc3Context(ModelComposed):
         """Fdc3Context - a model defined in OpenAPI
 
         Keyword Args:
+            type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -154,7 +163,6 @@ class Fdc3Context(ModelComposed):
             exchange_mic (str): [optional]  # noqa: E501
             exchange_mic_fds (str): [optional]  # noqa: E501
             id (CountryID): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 
@@ -225,6 +233,7 @@ class Fdc3Context(ModelComposed):
         """Fdc3Context - a model defined in OpenAPI
 
         Keyword Args:
+            type (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -258,7 +267,6 @@ class Fdc3Context(ModelComposed):
             exchange_mic (str): [optional]  # noqa: E501
             exchange_mic_fds (str): [optional]  # noqa: E501
             id (CountryID): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
         """
 

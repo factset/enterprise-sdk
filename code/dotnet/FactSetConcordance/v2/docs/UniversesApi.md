@@ -331,7 +331,7 @@ namespace Example
             var apiInstance = new UniversesApi(config);
 
             var universeId = 1;  // int? | Universe identifier. *To create a universe, use the `/universe' endpoint.* (optional) 
-            var universeType = ENTITY;  // string | Universe Type. (optional) 
+            var universeType = "ENTITY";  // string | Universe Type. (optional) 
 
             try
             {

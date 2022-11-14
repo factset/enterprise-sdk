@@ -92,6 +92,7 @@ class AnswerWithoutData(ModelComposed):
         """
         lazy_import()
         return {
+            'template': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'template_data': (AnswerWithoutDataAllOfTemplateData,),  # noqa: E501
@@ -103,6 +104,7 @@ class AnswerWithoutData(ModelComposed):
 
 
     attribute_map = {
+        'template': 'template',  # noqa: E501
         'message': 'message',  # noqa: E501
         'title': 'title',  # noqa: E501
         'template_data': 'templateData',  # noqa: E501
@@ -117,6 +119,7 @@ class AnswerWithoutData(ModelComposed):
         """AnswerWithoutData - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             message (str):
             title (str):
             template_data (AnswerWithoutDataAllOfTemplateData):
@@ -219,6 +222,7 @@ class AnswerWithoutData(ModelComposed):
         """AnswerWithoutData - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             message (str):
             title (str):
             template_data (AnswerWithoutDataAllOfTemplateData):

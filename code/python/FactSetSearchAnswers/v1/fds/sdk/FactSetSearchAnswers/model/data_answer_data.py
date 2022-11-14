@@ -31,14 +31,38 @@ from fds.sdk.FactSetSearchAnswers.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.FactSetSearchAnswers.model.answer import Answer
     from fds.sdk.FactSetSearchAnswers.model.answer_without_data import AnswerWithoutData
+    from fds.sdk.FactSetSearchAnswers.model.answer_without_data_all_of_template_data import AnswerWithoutDataAllOfTemplateData
+    from fds.sdk.FactSetSearchAnswers.model.colored_value_label_date_answer import ColoredValueLabelDateAnswer
+    from fds.sdk.FactSetSearchAnswers.model.label_value_change_label_value_change_answer import LabelValueChangeLabelValueChangeAnswer
+    from fds.sdk.FactSetSearchAnswers.model.link_text_block_answer import LinkTextBlockAnswer
     from fds.sdk.FactSetSearchAnswers.model.no_answers_found import NoAnswersFound
-    from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of_template_data import NoAnswersFoundAllOfTemplateData
-    globals()['Answer'] = Answer
+    from fds.sdk.FactSetSearchAnswers.model.percent_change_label_answer import PercentChangeLabelAnswer
+    from fds.sdk.FactSetSearchAnswers.model.ranked_table_answer import RankedTableAnswer
+    from fds.sdk.FactSetSearchAnswers.model.table_answer import TableAnswer
+    from fds.sdk.FactSetSearchAnswers.model.table_table_answer import TableTableAnswer
+    from fds.sdk.FactSetSearchAnswers.model.text_block_footing_answer import TextBlockFootingAnswer
+    from fds.sdk.FactSetSearchAnswers.model.value_change_date_label_answer import ValueChangeDateLabelAnswer
+    from fds.sdk.FactSetSearchAnswers.model.value_label_answer import ValueLabelAnswer
+    from fds.sdk.FactSetSearchAnswers.model.value_label_date_answer import ValueLabelDateAnswer
+    from fds.sdk.FactSetSearchAnswers.model.value_label_date_data_pair_list_answer import ValueLabelDateDataPairListAnswer
+    from fds.sdk.FactSetSearchAnswers.model.value_label_date_text_block_answer import ValueLabelDateTextBlockAnswer
     globals()['AnswerWithoutData'] = AnswerWithoutData
+    globals()['AnswerWithoutDataAllOfTemplateData'] = AnswerWithoutDataAllOfTemplateData
+    globals()['ColoredValueLabelDateAnswer'] = ColoredValueLabelDateAnswer
+    globals()['LabelValueChangeLabelValueChangeAnswer'] = LabelValueChangeLabelValueChangeAnswer
+    globals()['LinkTextBlockAnswer'] = LinkTextBlockAnswer
     globals()['NoAnswersFound'] = NoAnswersFound
-    globals()['NoAnswersFoundAllOfTemplateData'] = NoAnswersFoundAllOfTemplateData
+    globals()['PercentChangeLabelAnswer'] = PercentChangeLabelAnswer
+    globals()['RankedTableAnswer'] = RankedTableAnswer
+    globals()['TableAnswer'] = TableAnswer
+    globals()['TableTableAnswer'] = TableTableAnswer
+    globals()['TextBlockFootingAnswer'] = TextBlockFootingAnswer
+    globals()['ValueChangeDateLabelAnswer'] = ValueChangeDateLabelAnswer
+    globals()['ValueLabelAnswer'] = ValueLabelAnswer
+    globals()['ValueLabelDateAnswer'] = ValueLabelDateAnswer
+    globals()['ValueLabelDateDataPairListAnswer'] = ValueLabelDateDataPairListAnswer
+    globals()['ValueLabelDateTextBlockAnswer'] = ValueLabelDateTextBlockAnswer
 
 
 class DataAnswerData(ModelComposed):
@@ -94,18 +118,54 @@ class DataAnswerData(ModelComposed):
         """
         lazy_import()
         return {
+            'template': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
-            'template_data': (NoAnswersFoundAllOfTemplateData,),  # noqa: E501
+            'template_data': (AnswerWithoutDataAllOfTemplateData,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'query_suggestions': ([str],),  # noqa: E501
         }
 
     @cached_property
     def discriminator():
-        return None
-
+        lazy_import()
+        val = {
+            'AnswerWithoutData': AnswerWithoutData,
+            'AnswerWithoutDataTemplate': AnswerWithoutData,
+            'ColoredValueLabelDateAnswer': ColoredValueLabelDateAnswer,
+            'ColoredValueLabelDateTemplate': ColoredValueLabelDateAnswer,
+            'LabelValueChangeLabelValueChangeAnswer': LabelValueChangeLabelValueChangeAnswer,
+            'LabelValueChangeLabelValueChangeTemplate': LabelValueChangeLabelValueChangeAnswer,
+            'LinkTextBlockAnswer': LinkTextBlockAnswer,
+            'LinkTextBlockTemplate': LinkTextBlockAnswer,
+            'NoAnswerTemplate': NoAnswersFound,
+            'NoAnswersFound': NoAnswersFound,
+            'PercentChangeLabelAnswer': PercentChangeLabelAnswer,
+            'PercentChangeLabelTemplate': PercentChangeLabelAnswer,
+            'RankedTableAnswer': RankedTableAnswer,
+            'RankedTableTemplate': RankedTableAnswer,
+            'TableAnswer': TableAnswer,
+            'TableTableAnswer': TableTableAnswer,
+            'TableTableTemplate': TableTableAnswer,
+            'TableTemplate': TableAnswer,
+            'TextBlockFootingAnswer': TextBlockFootingAnswer,
+            'TextBlockFootingTemplate': TextBlockFootingAnswer,
+            'ValueChangeDateLabelAnswer': ValueChangeDateLabelAnswer,
+            'ValueChangeDateLabelTemplate': ValueChangeDateLabelAnswer,
+            'ValueLabelAnswer': ValueLabelAnswer,
+            'ValueLabelDateAnswer': ValueLabelDateAnswer,
+            'ValueLabelDateDataPairListAnswer': ValueLabelDateDataPairListAnswer,
+            'ValueLabelDateDataPairListTemplate': ValueLabelDateDataPairListAnswer,
+            'ValueLabelDateTemplate': ValueLabelDateAnswer,
+            'ValueLabelDateTextBlockAnswer': ValueLabelDateTextBlockAnswer,
+            'ValueLabelDateTextBlockTemplate': ValueLabelDateTextBlockAnswer,
+            'ValueLabelTemplate': ValueLabelAnswer,
+        }
+        if not val:
+            return None
+        return {'template': val}
 
     attribute_map = {
+        'template': 'template',  # noqa: E501
         'title': 'title',  # noqa: E501
         'template_data': 'templateData',  # noqa: E501
         'message': 'message',  # noqa: E501
@@ -121,6 +181,7 @@ class DataAnswerData(ModelComposed):
         """DataAnswerData - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,7 +213,7 @@ class DataAnswerData(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             title (str): [optional]  # noqa: E501
-            template_data (NoAnswersFoundAllOfTemplateData): [optional]  # noqa: E501
+            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
             message (str): [optional]  # noqa: E501
             query_suggestions ([str]): [optional]  # noqa: E501
         """
@@ -224,6 +285,7 @@ class DataAnswerData(ModelComposed):
         """DataAnswerData - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -255,7 +317,7 @@ class DataAnswerData(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             title (str): [optional]  # noqa: E501
-            template_data (NoAnswersFoundAllOfTemplateData): [optional]  # noqa: E501
+            template_data (AnswerWithoutDataAllOfTemplateData): [optional]  # noqa: E501
             message (str): [optional]  # noqa: E501
             query_suggestions ([str]): [optional]  # noqa: E501
         """
@@ -325,8 +387,20 @@ class DataAnswerData(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              Answer,
               AnswerWithoutData,
+              ColoredValueLabelDateAnswer,
+              LabelValueChangeLabelValueChangeAnswer,
+              LinkTextBlockAnswer,
               NoAnswersFound,
+              PercentChangeLabelAnswer,
+              RankedTableAnswer,
+              TableAnswer,
+              TableTableAnswer,
+              TextBlockFootingAnswer,
+              ValueChangeDateLabelAnswer,
+              ValueLabelAnswer,
+              ValueLabelDateAnswer,
+              ValueLabelDateDataPairListAnswer,
+              ValueLabelDateTextBlockAnswer,
           ],
         }

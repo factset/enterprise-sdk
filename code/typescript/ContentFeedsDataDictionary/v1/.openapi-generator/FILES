@@ -12,6 +12,7 @@ docs/DataItem.md
 docs/NavigatorApi.md
 docs/NavigatorSourcesResponse.md
 docs/Product.md
+docs/ReferenceGroup.md
 docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
@@ -29,6 +30,7 @@ src/model/BasicSearchResponseResults.js
 src/model/DataItem.js
 src/model/NavigatorSourcesResponse.js
 src/model/Product.js
+src/model/ReferenceGroup.js
 src/model/Table.js
 src/model/TableCodeFieldInfoResponse.js
 src/model/TableCodeInfo.js

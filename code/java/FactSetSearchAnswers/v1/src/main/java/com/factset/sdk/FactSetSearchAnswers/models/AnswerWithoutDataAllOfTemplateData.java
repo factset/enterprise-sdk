@@ -34,55 +34,17 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * AnswerWithoutDataAllOfTemplateData
  */
 @JsonPropertyOrder({
-  AnswerWithoutDataAllOfTemplateData.JSON_PROPERTY_TEMPLATE_NAME,
   AnswerWithoutDataAllOfTemplateData.JSON_PROPERTY_FDC3_CONTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnswerWithoutDataAllOfTemplateData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
-  private String templateName;
-
   public static final String JSON_PROPERTY_FDC3_CONTEXT = "fdc3Context";
   private Fdc3Context fdc3Context;
 
   public AnswerWithoutDataAllOfTemplateData() { 
   }
-
-  @JsonCreator
-  public AnswerWithoutDataAllOfTemplateData(
-    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName
-  ) {
-    this();
-    this.templateName = templateName;
-  }
-
-  public AnswerWithoutDataAllOfTemplateData templateName(String templateName) {
-    this.templateName = templateName;
-    return this;
-  }
-
-   /**
-   * Get templateName
-   * @return templateName
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTemplateName() {
-    return templateName;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplateName(String templateName) {
-    this.templateName = templateName;
-  }
-
 
   public AnswerWithoutDataAllOfTemplateData fdc3Context(Fdc3Context fdc3Context) {
     this.fdc3Context = fdc3Context;
@@ -122,20 +84,18 @@ public class AnswerWithoutDataAllOfTemplateData implements Serializable {
       return false;
     }
     AnswerWithoutDataAllOfTemplateData answerWithoutDataAllOfTemplateData = (AnswerWithoutDataAllOfTemplateData) o;
-    return Objects.equals(this.templateName, answerWithoutDataAllOfTemplateData.templateName) &&
-        Objects.equals(this.fdc3Context, answerWithoutDataAllOfTemplateData.fdc3Context);
+    return Objects.equals(this.fdc3Context, answerWithoutDataAllOfTemplateData.fdc3Context);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateName, fdc3Context);
+    return Objects.hash(fdc3Context);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnswerWithoutDataAllOfTemplateData {\n");
-    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");
     sb.append("}");
     return sb.toString();

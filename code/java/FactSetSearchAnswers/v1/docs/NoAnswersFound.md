@@ -7,9 +7,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**template** | **String** |  | 
 **message** | **String** |  | 
 **querySuggestions** | **java.util.List&lt;String&gt;** |  | 
-**templateData** | [**NoAnswersFoundAllOfTemplateData**](NoAnswersFoundAllOfTemplateData.md) |  | 
 
 
 ## Implemented Interfaces

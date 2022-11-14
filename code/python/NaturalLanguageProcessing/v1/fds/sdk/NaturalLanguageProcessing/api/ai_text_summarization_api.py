@@ -280,7 +280,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> SummarizationResultID:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize and generate a headline from text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
 
@@ -321,7 +321,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> typing.Tuple[SummarizationResultID, int, typing.MutableMapping]:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize and generate a headline from text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
@@ -366,7 +366,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[SummarizationResultID]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize and generate a headline from text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
@@ -406,7 +406,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SummarizationResultID, int, typing.MutableMapping]]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize and generate a headline from text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
@@ -446,7 +446,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> SummarizationResultID:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to generate a headline from text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
 
@@ -487,7 +487,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> typing.Tuple[SummarizationResultID, int, typing.MutableMapping]:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to generate a headline from text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
@@ -532,7 +532,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[SummarizationResultID]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to generate a headline from text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
@@ -572,7 +572,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SummarizationResultID, int, typing.MutableMapping]]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to generate a headline from text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
@@ -613,7 +613,7 @@ class AITextSummarizationApi(object):
         result_id,
         **kwargs
     ) -> SummarizationResult:
-        """GET request for obtaining response of a particular processing job  # noqa: E501
+        """Endpoint to obtain result of a particular summarization job  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
 
@@ -658,7 +658,7 @@ class AITextSummarizationApi(object):
         result_id,
         **kwargs
     ) -> typing.Tuple[SummarizationResult, int, typing.MutableMapping]:
-        """GET request for obtaining response of a particular processing job  # noqa: E501
+        """Endpoint to obtain result of a particular summarization job  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
@@ -707,7 +707,7 @@ class AITextSummarizationApi(object):
         result_id,
         **kwargs
     ) -> "ApplyResult[SummarizationResult]":
-        """GET request for obtaining response of a particular processing job  # noqa: E501
+        """Endpoint to obtain result of a particular summarization job  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
@@ -751,7 +751,7 @@ class AITextSummarizationApi(object):
         result_id,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SummarizationResult, int, typing.MutableMapping]]":
-        """GET request for obtaining response of a particular processing job  # noqa: E501
+        """Endpoint to obtain result of a particular summarization job  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
@@ -794,7 +794,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> SummarizationResultID:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns the http data only
 
@@ -835,7 +835,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> typing.Tuple[SummarizationResultID, int, typing.MutableMapping]:
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize text  # noqa: E501
 
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
@@ -880,7 +880,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[SummarizationResultID]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
@@ -920,7 +920,7 @@ class AITextSummarizationApi(object):
         self,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[SummarizationResultID, int, typing.MutableMapping]]":
-        """POST request for summarizing an input text  # noqa: E501
+        """Endpoint to summarize text  # noqa: E501
 
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 

@@ -82,10 +82,12 @@ class DataItem(ModelNormal):
         """
         return {
             'id': (int,),  # noqa: E501
-            'source': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'entitled': (bool,),  # noqa: E501
+            'data_feed': (bool,),  # noqa: E501
+            'api': (bool,),  # noqa: E501
+            'reference_data_feed': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +97,12 @@ class DataItem(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'source': 'source',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'entitled': 'entitled',  # noqa: E501
+        'data_feed': 'dataFeed',  # noqa: E501
+        'api': 'api',  # noqa: E501
+        'reference_data_feed': 'referenceDataFeed',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,10 +147,12 @@ class DataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (int): Unique identifier for the data item. [optional]  # noqa: E501
-            source (str): Unique identifier for the product source. [optional]  # noqa: E501
             name (str): Name of the data item. [optional]  # noqa: E501
             description (str): Description of the data item. [optional]  # noqa: E501
             entitled (bool): Flag indicating if the user is entitled to access the data in their subscriptions. [optional]  # noqa: E501
+            data_feed (bool): Flag indicating if this item is available in a data feed. [optional]  # noqa: E501
+            api (bool): Flag indicating if this item is available in an api. [optional]  # noqa: E501
+            reference_data_feed (bool): Flag indicating if this product is maintained by RDF/UCF. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,10 +235,12 @@ class DataItem(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (int): Unique identifier for the data item. [optional]  # noqa: E501
-            source (str): Unique identifier for the product source. [optional]  # noqa: E501
             name (str): Name of the data item. [optional]  # noqa: E501
             description (str): Description of the data item. [optional]  # noqa: E501
             entitled (bool): Flag indicating if the user is entitled to access the data in their subscriptions. [optional]  # noqa: E501
+            data_feed (bool): Flag indicating if this item is available in a data feed. [optional]  # noqa: E501
+            api (bool): Flag indicating if this item is available in an api. [optional]  # noqa: E501
+            reference_data_feed (bool): Flag indicating if this product is maintained by RDF/UCF. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

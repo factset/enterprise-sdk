@@ -70,7 +70,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **str**| Document Name | defaults to "Client:Foo"
+ **document** | **str**| Document Name | defaults to "Client:"
 
 ### Return type
 

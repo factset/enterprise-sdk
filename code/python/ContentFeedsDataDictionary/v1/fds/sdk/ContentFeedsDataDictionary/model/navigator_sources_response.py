@@ -31,8 +31,10 @@ from fds.sdk.ContentFeedsDataDictionary.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.ContentFeedsDataDictionary.model.api_endpoint import ApiEndpoint
+    from fds.sdk.ContentFeedsDataDictionary.model.reference_group import ReferenceGroup
     from fds.sdk.ContentFeedsDataDictionary.model.table import Table
     globals()['ApiEndpoint'] = ApiEndpoint
+    globals()['ReferenceGroup'] = ReferenceGroup
     globals()['Table'] = Table
 
 
@@ -91,6 +93,7 @@ class NavigatorSourcesResponse(ModelNormal):
         return {
             'sdf': ([Table],),  # noqa: E501
             'content_api': ([ApiEndpoint],),  # noqa: E501
+            'reference': ([ReferenceGroup],),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +104,7 @@ class NavigatorSourcesResponse(ModelNormal):
     attribute_map = {
         'sdf': 'sdf',  # noqa: E501
         'content_api': 'contentApi',  # noqa: E501
+        'reference': 'reference',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +152,7 @@ class NavigatorSourcesResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             content_api ([ApiEndpoint]): [optional]  # noqa: E501
+            reference ([ReferenceGroup]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +239,7 @@ class NavigatorSourcesResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             content_api ([ApiEndpoint]): [optional]  # noqa: E501
+            reference ([ReferenceGroup]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

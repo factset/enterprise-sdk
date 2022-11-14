@@ -15,17 +15,21 @@ import ApiClient from './ApiClient';
 import AdaptiveCardAnswerSuccessResponse from './model/AdaptiveCardAnswerSuccessResponse';
 import AdaptiveCardDataItem from './model/AdaptiveCardDataItem';
 import AdaptiveCardWithThumbnail from './model/AdaptiveCardWithThumbnail';
-import Answer from './model/Answer';
 import AnswerFailureResponse from './model/AnswerFailureResponse';
+import AnswerWithTitle from './model/AnswerWithTitle';
+import AnswerWithTitleAllOf from './model/AnswerWithTitleAllOf';
 import AnswerWithoutData from './model/AnswerWithoutData';
 import AnswerWithoutDataAllOf from './model/AnswerWithoutDataAllOf';
 import AnswerWithoutDataAllOfTemplateData from './model/AnswerWithoutDataAllOfTemplateData';
 import ApplicationLink from './model/ApplicationLink';
 import ChangeColor from './model/ChangeColor';
 import ColoredValue from './model/ColoredValue';
-import ColoredValueLabelDateTemplate from './model/ColoredValueLabelDateTemplate';
-import ColoredValueLabelDateTemplateAllOf from './model/ColoredValueLabelDateTemplateAllOf';
+import ColoredValueLabelDateAnswer from './model/ColoredValueLabelDateAnswer';
+import ColoredValueLabelDateAnswerAllOf from './model/ColoredValueLabelDateAnswerAllOf';
+import ColoredValueLabelDateTemplateData from './model/ColoredValueLabelDateTemplateData';
+import ColoredValueLabelDateTemplateDataAllOf from './model/ColoredValueLabelDateTemplateDataAllOf';
 import CountryID from './model/CountryID';
+import DataAnswer from './model/DataAnswer';
 import DataAnswerData from './model/DataAnswerData';
 import DataAnswerSuccessResponse from './model/DataAnswerSuccessResponse';
 import DataPair from './model/DataPair';
@@ -36,46 +40,69 @@ import Fdc3Context from './model/Fdc3Context';
 import Fdc3Country from './model/Fdc3Country';
 import Fdc3Instrument from './model/Fdc3Instrument';
 import InstrumentID from './model/InstrumentID';
-import LabelValueChangeLabelValueChangeTemplate from './model/LabelValueChangeLabelValueChangeTemplate';
-import LabelValueChangeLabelValueChangeTemplateAllOf from './model/LabelValueChangeLabelValueChangeTemplateAllOf';
-import LinkTextBlockTemplate from './model/LinkTextBlockTemplate';
-import LinkTextBlockTemplateAllOf from './model/LinkTextBlockTemplateAllOf';
+import LabelValueChangeLabelValueChangeAnswer from './model/LabelValueChangeLabelValueChangeAnswer';
+import LabelValueChangeLabelValueChangeAnswerAllOf from './model/LabelValueChangeLabelValueChangeAnswerAllOf';
+import LabelValueChangeLabelValueChangeTemplateData from './model/LabelValueChangeLabelValueChangeTemplateData';
+import LabelValueChangeLabelValueChangeTemplateDataAllOf from './model/LabelValueChangeLabelValueChangeTemplateDataAllOf';
+import LinkTextBlockAnswer from './model/LinkTextBlockAnswer';
+import LinkTextBlockAnswerAllOf from './model/LinkTextBlockAnswerAllOf';
+import LinkTextBlockTemplateData from './model/LinkTextBlockTemplateData';
+import LinkTextBlockTemplateDataAllOf from './model/LinkTextBlockTemplateDataAllOf';
 import NoAnswersBase from './model/NoAnswersBase';
+import NoAnswersBaseAllOf from './model/NoAnswersBaseAllOf';
 import NoAnswersFound from './model/NoAnswersFound';
 import NoAnswersFoundAllOf from './model/NoAnswersFoundAllOf';
-import NoAnswersFoundAllOfTemplateData from './model/NoAnswersFoundAllOfTemplateData';
 import PercentChange from './model/PercentChange';
-import PercentChangeLabelTemplate from './model/PercentChangeLabelTemplate';
-import PercentChangeLabelTemplateAllOf from './model/PercentChangeLabelTemplateAllOf';
+import PercentChangeLabelAnswer from './model/PercentChangeLabelAnswer';
+import PercentChangeLabelAnswerAllOf from './model/PercentChangeLabelAnswerAllOf';
+import PercentChangeLabelTemplateData from './model/PercentChangeLabelTemplateData';
+import PercentChangeLabelTemplateDataAllOf from './model/PercentChangeLabelTemplateDataAllOf';
 import RankedTable from './model/RankedTable';
+import RankedTableAnswer from './model/RankedTableAnswer';
+import RankedTableAnswerAllOf from './model/RankedTableAnswerAllOf';
 import RankedTableEntity from './model/RankedTableEntity';
 import RankedTableRow from './model/RankedTableRow';
-import RankedTableTemplate from './model/RankedTableTemplate';
-import RankedTableTemplateAllOf from './model/RankedTableTemplateAllOf';
+import RankedTableTemplateData from './model/RankedTableTemplateData';
+import RankedTableTemplateDataAllOf from './model/RankedTableTemplateDataAllOf';
 import Table from './model/Table';
-import TableTableTemplate from './model/TableTableTemplate';
-import TableTableTemplateAllOf from './model/TableTableTemplateAllOf';
-import TableTemplate from './model/TableTemplate';
-import TableTemplateAllOf from './model/TableTemplateAllOf';
+import TableAnswer from './model/TableAnswer';
+import TableAnswerAllOf from './model/TableAnswerAllOf';
+import TableTableAnswer from './model/TableTableAnswer';
+import TableTableAnswerAllOf from './model/TableTableAnswerAllOf';
+import TableTableTemplateData from './model/TableTableTemplateData';
+import TableTableTemplateDataAllOf from './model/TableTableTemplateDataAllOf';
+import TableTemplateData from './model/TableTemplateData';
+import TableTemplateDataAllOf from './model/TableTemplateDataAllOf';
 import Template from './model/Template';
-import TemplateData from './model/TemplateData';
 import TemplateWithLinks from './model/TemplateWithLinks';
 import TemplateWithLinksAllOf from './model/TemplateWithLinksAllOf';
-import TextBlockFootingTemplate from './model/TextBlockFootingTemplate';
-import TextBlockFootingTemplateAllOf from './model/TextBlockFootingTemplateAllOf';
+import TextBlockFootingAnswer from './model/TextBlockFootingAnswer';
+import TextBlockFootingAnswerAllOf from './model/TextBlockFootingAnswerAllOf';
+import TextBlockFootingTemplateData from './model/TextBlockFootingTemplateData';
+import TextBlockFootingTemplateDataAllOf from './model/TextBlockFootingTemplateDataAllOf';
 import TitledTextBlock from './model/TitledTextBlock';
 import ValueChange from './model/ValueChange';
-import ValueChangeDateLabelTemplate from './model/ValueChangeDateLabelTemplate';
-import ValueChangeDateLabelTemplateAllOf from './model/ValueChangeDateLabelTemplateAllOf';
+import ValueChangeDateLabelAnswer from './model/ValueChangeDateLabelAnswer';
+import ValueChangeDateLabelAnswerAllOf from './model/ValueChangeDateLabelAnswerAllOf';
+import ValueChangeDateLabelTemplateData from './model/ValueChangeDateLabelTemplateData';
+import ValueChangeDateLabelTemplateDataAllOf from './model/ValueChangeDateLabelTemplateDataAllOf';
 import ValueColor from './model/ValueColor';
-import ValueLabelDateDataPairListTemplate from './model/ValueLabelDateDataPairListTemplate';
-import ValueLabelDateDataPairListTemplateAllOf from './model/ValueLabelDateDataPairListTemplateAllOf';
-import ValueLabelDateTemplate from './model/ValueLabelDateTemplate';
-import ValueLabelDateTemplateAllOf from './model/ValueLabelDateTemplateAllOf';
-import ValueLabelDateTextBlockTemplate from './model/ValueLabelDateTextBlockTemplate';
-import ValueLabelDateTextBlockTemplateAllOf from './model/ValueLabelDateTextBlockTemplateAllOf';
-import ValueLabelTemplate from './model/ValueLabelTemplate';
-import ValueLabelTemplateAllOf from './model/ValueLabelTemplateAllOf';
+import ValueLabelAnswer from './model/ValueLabelAnswer';
+import ValueLabelAnswerAllOf from './model/ValueLabelAnswerAllOf';
+import ValueLabelDateAnswer from './model/ValueLabelDateAnswer';
+import ValueLabelDateAnswerAllOf from './model/ValueLabelDateAnswerAllOf';
+import ValueLabelDateDataPairListAnswer from './model/ValueLabelDateDataPairListAnswer';
+import ValueLabelDateDataPairListAnswerAllOf from './model/ValueLabelDateDataPairListAnswerAllOf';
+import ValueLabelDateDataPairListTemplateData from './model/ValueLabelDateDataPairListTemplateData';
+import ValueLabelDateDataPairListTemplateDataAllOf from './model/ValueLabelDateDataPairListTemplateDataAllOf';
+import ValueLabelDateTemplateData from './model/ValueLabelDateTemplateData';
+import ValueLabelDateTemplateDataAllOf from './model/ValueLabelDateTemplateDataAllOf';
+import ValueLabelDateTextBlockAnswer from './model/ValueLabelDateTextBlockAnswer';
+import ValueLabelDateTextBlockAnswerAllOf from './model/ValueLabelDateTextBlockAnswerAllOf';
+import ValueLabelDateTextBlockTemplateData from './model/ValueLabelDateTextBlockTemplateData';
+import ValueLabelDateTextBlockTemplateDataAllOf from './model/ValueLabelDateTextBlockTemplateDataAllOf';
+import ValueLabelTemplateData from './model/ValueLabelTemplateData';
+import ValueLabelTemplateDataAllOf from './model/ValueLabelTemplateDataAllOf';
 
 import AnswersApi from './api/AnswersApi';
 
@@ -136,16 +163,22 @@ export {
     AdaptiveCardWithThumbnail,
 
     /**
-     * The Answer model constructor.
-     * @property {module:model/Answer}
-     */
-    Answer,
-
-    /**
      * The AnswerFailureResponse model constructor.
      * @property {module:model/AnswerFailureResponse}
      */
     AnswerFailureResponse,
+
+    /**
+     * The AnswerWithTitle model constructor.
+     * @property {module:model/AnswerWithTitle}
+     */
+    AnswerWithTitle,
+
+    /**
+     * The AnswerWithTitleAllOf model constructor.
+     * @property {module:model/AnswerWithTitleAllOf}
+     */
+    AnswerWithTitleAllOf,
 
     /**
      * The AnswerWithoutData model constructor.
@@ -184,22 +217,40 @@ export {
     ColoredValue,
 
     /**
-     * The ColoredValueLabelDateTemplate model constructor.
-     * @property {module:model/ColoredValueLabelDateTemplate}
+     * The ColoredValueLabelDateAnswer model constructor.
+     * @property {module:model/ColoredValueLabelDateAnswer}
      */
-    ColoredValueLabelDateTemplate,
+    ColoredValueLabelDateAnswer,
 
     /**
-     * The ColoredValueLabelDateTemplateAllOf model constructor.
-     * @property {module:model/ColoredValueLabelDateTemplateAllOf}
+     * The ColoredValueLabelDateAnswerAllOf model constructor.
+     * @property {module:model/ColoredValueLabelDateAnswerAllOf}
      */
-    ColoredValueLabelDateTemplateAllOf,
+    ColoredValueLabelDateAnswerAllOf,
+
+    /**
+     * The ColoredValueLabelDateTemplateData model constructor.
+     * @property {module:model/ColoredValueLabelDateTemplateData}
+     */
+    ColoredValueLabelDateTemplateData,
+
+    /**
+     * The ColoredValueLabelDateTemplateDataAllOf model constructor.
+     * @property {module:model/ColoredValueLabelDateTemplateDataAllOf}
+     */
+    ColoredValueLabelDateTemplateDataAllOf,
 
     /**
      * The CountryID model constructor.
      * @property {module:model/CountryID}
      */
     CountryID,
+
+    /**
+     * The DataAnswer model constructor.
+     * @property {module:model/DataAnswer}
+     */
+    DataAnswer,
 
     /**
      * The DataAnswerData model constructor.
@@ -262,34 +313,64 @@ export {
     InstrumentID,
 
     /**
-     * The LabelValueChangeLabelValueChangeTemplate model constructor.
-     * @property {module:model/LabelValueChangeLabelValueChangeTemplate}
+     * The LabelValueChangeLabelValueChangeAnswer model constructor.
+     * @property {module:model/LabelValueChangeLabelValueChangeAnswer}
      */
-    LabelValueChangeLabelValueChangeTemplate,
+    LabelValueChangeLabelValueChangeAnswer,
 
     /**
-     * The LabelValueChangeLabelValueChangeTemplateAllOf model constructor.
-     * @property {module:model/LabelValueChangeLabelValueChangeTemplateAllOf}
+     * The LabelValueChangeLabelValueChangeAnswerAllOf model constructor.
+     * @property {module:model/LabelValueChangeLabelValueChangeAnswerAllOf}
      */
-    LabelValueChangeLabelValueChangeTemplateAllOf,
+    LabelValueChangeLabelValueChangeAnswerAllOf,
 
     /**
-     * The LinkTextBlockTemplate model constructor.
-     * @property {module:model/LinkTextBlockTemplate}
+     * The LabelValueChangeLabelValueChangeTemplateData model constructor.
+     * @property {module:model/LabelValueChangeLabelValueChangeTemplateData}
      */
-    LinkTextBlockTemplate,
+    LabelValueChangeLabelValueChangeTemplateData,
 
     /**
-     * The LinkTextBlockTemplateAllOf model constructor.
-     * @property {module:model/LinkTextBlockTemplateAllOf}
+     * The LabelValueChangeLabelValueChangeTemplateDataAllOf model constructor.
+     * @property {module:model/LabelValueChangeLabelValueChangeTemplateDataAllOf}
      */
-    LinkTextBlockTemplateAllOf,
+    LabelValueChangeLabelValueChangeTemplateDataAllOf,
+
+    /**
+     * The LinkTextBlockAnswer model constructor.
+     * @property {module:model/LinkTextBlockAnswer}
+     */
+    LinkTextBlockAnswer,
+
+    /**
+     * The LinkTextBlockAnswerAllOf model constructor.
+     * @property {module:model/LinkTextBlockAnswerAllOf}
+     */
+    LinkTextBlockAnswerAllOf,
+
+    /**
+     * The LinkTextBlockTemplateData model constructor.
+     * @property {module:model/LinkTextBlockTemplateData}
+     */
+    LinkTextBlockTemplateData,
+
+    /**
+     * The LinkTextBlockTemplateDataAllOf model constructor.
+     * @property {module:model/LinkTextBlockTemplateDataAllOf}
+     */
+    LinkTextBlockTemplateDataAllOf,
 
     /**
      * The NoAnswersBase model constructor.
      * @property {module:model/NoAnswersBase}
      */
     NoAnswersBase,
+
+    /**
+     * The NoAnswersBaseAllOf model constructor.
+     * @property {module:model/NoAnswersBaseAllOf}
+     */
+    NoAnswersBaseAllOf,
 
     /**
      * The NoAnswersFound model constructor.
@@ -304,34 +385,52 @@ export {
     NoAnswersFoundAllOf,
 
     /**
-     * The NoAnswersFoundAllOfTemplateData model constructor.
-     * @property {module:model/NoAnswersFoundAllOfTemplateData}
-     */
-    NoAnswersFoundAllOfTemplateData,
-
-    /**
      * The PercentChange model constructor.
      * @property {module:model/PercentChange}
      */
     PercentChange,
 
     /**
-     * The PercentChangeLabelTemplate model constructor.
-     * @property {module:model/PercentChangeLabelTemplate}
+     * The PercentChangeLabelAnswer model constructor.
+     * @property {module:model/PercentChangeLabelAnswer}
      */
-    PercentChangeLabelTemplate,
+    PercentChangeLabelAnswer,
 
     /**
-     * The PercentChangeLabelTemplateAllOf model constructor.
-     * @property {module:model/PercentChangeLabelTemplateAllOf}
+     * The PercentChangeLabelAnswerAllOf model constructor.
+     * @property {module:model/PercentChangeLabelAnswerAllOf}
      */
-    PercentChangeLabelTemplateAllOf,
+    PercentChangeLabelAnswerAllOf,
+
+    /**
+     * The PercentChangeLabelTemplateData model constructor.
+     * @property {module:model/PercentChangeLabelTemplateData}
+     */
+    PercentChangeLabelTemplateData,
+
+    /**
+     * The PercentChangeLabelTemplateDataAllOf model constructor.
+     * @property {module:model/PercentChangeLabelTemplateDataAllOf}
+     */
+    PercentChangeLabelTemplateDataAllOf,
 
     /**
      * The RankedTable model constructor.
      * @property {module:model/RankedTable}
      */
     RankedTable,
+
+    /**
+     * The RankedTableAnswer model constructor.
+     * @property {module:model/RankedTableAnswer}
+     */
+    RankedTableAnswer,
+
+    /**
+     * The RankedTableAnswerAllOf model constructor.
+     * @property {module:model/RankedTableAnswerAllOf}
+     */
+    RankedTableAnswerAllOf,
 
     /**
      * The RankedTableEntity model constructor.
@@ -346,16 +445,16 @@ export {
     RankedTableRow,
 
     /**
-     * The RankedTableTemplate model constructor.
-     * @property {module:model/RankedTableTemplate}
+     * The RankedTableTemplateData model constructor.
+     * @property {module:model/RankedTableTemplateData}
      */
-    RankedTableTemplate,
+    RankedTableTemplateData,
 
     /**
-     * The RankedTableTemplateAllOf model constructor.
-     * @property {module:model/RankedTableTemplateAllOf}
+     * The RankedTableTemplateDataAllOf model constructor.
+     * @property {module:model/RankedTableTemplateDataAllOf}
      */
-    RankedTableTemplateAllOf,
+    RankedTableTemplateDataAllOf,
 
     /**
      * The Table model constructor.
@@ -364,40 +463,58 @@ export {
     Table,
 
     /**
-     * The TableTableTemplate model constructor.
-     * @property {module:model/TableTableTemplate}
+     * The TableAnswer model constructor.
+     * @property {module:model/TableAnswer}
      */
-    TableTableTemplate,
+    TableAnswer,
 
     /**
-     * The TableTableTemplateAllOf model constructor.
-     * @property {module:model/TableTableTemplateAllOf}
+     * The TableAnswerAllOf model constructor.
+     * @property {module:model/TableAnswerAllOf}
      */
-    TableTableTemplateAllOf,
+    TableAnswerAllOf,
 
     /**
-     * The TableTemplate model constructor.
-     * @property {module:model/TableTemplate}
+     * The TableTableAnswer model constructor.
+     * @property {module:model/TableTableAnswer}
      */
-    TableTemplate,
+    TableTableAnswer,
 
     /**
-     * The TableTemplateAllOf model constructor.
-     * @property {module:model/TableTemplateAllOf}
+     * The TableTableAnswerAllOf model constructor.
+     * @property {module:model/TableTableAnswerAllOf}
      */
-    TableTemplateAllOf,
+    TableTableAnswerAllOf,
+
+    /**
+     * The TableTableTemplateData model constructor.
+     * @property {module:model/TableTableTemplateData}
+     */
+    TableTableTemplateData,
+
+    /**
+     * The TableTableTemplateDataAllOf model constructor.
+     * @property {module:model/TableTableTemplateDataAllOf}
+     */
+    TableTableTemplateDataAllOf,
+
+    /**
+     * The TableTemplateData model constructor.
+     * @property {module:model/TableTemplateData}
+     */
+    TableTemplateData,
+
+    /**
+     * The TableTemplateDataAllOf model constructor.
+     * @property {module:model/TableTemplateDataAllOf}
+     */
+    TableTemplateDataAllOf,
 
     /**
      * The Template model constructor.
      * @property {module:model/Template}
      */
     Template,
-
-    /**
-     * The TemplateData model constructor.
-     * @property {module:model/TemplateData}
-     */
-    TemplateData,
 
     /**
      * The TemplateWithLinks model constructor.
@@ -412,16 +529,28 @@ export {
     TemplateWithLinksAllOf,
 
     /**
-     * The TextBlockFootingTemplate model constructor.
-     * @property {module:model/TextBlockFootingTemplate}
+     * The TextBlockFootingAnswer model constructor.
+     * @property {module:model/TextBlockFootingAnswer}
      */
-    TextBlockFootingTemplate,
+    TextBlockFootingAnswer,
 
     /**
-     * The TextBlockFootingTemplateAllOf model constructor.
-     * @property {module:model/TextBlockFootingTemplateAllOf}
+     * The TextBlockFootingAnswerAllOf model constructor.
+     * @property {module:model/TextBlockFootingAnswerAllOf}
      */
-    TextBlockFootingTemplateAllOf,
+    TextBlockFootingAnswerAllOf,
+
+    /**
+     * The TextBlockFootingTemplateData model constructor.
+     * @property {module:model/TextBlockFootingTemplateData}
+     */
+    TextBlockFootingTemplateData,
+
+    /**
+     * The TextBlockFootingTemplateDataAllOf model constructor.
+     * @property {module:model/TextBlockFootingTemplateDataAllOf}
+     */
+    TextBlockFootingTemplateDataAllOf,
 
     /**
      * The TitledTextBlock model constructor.
@@ -436,16 +565,28 @@ export {
     ValueChange,
 
     /**
-     * The ValueChangeDateLabelTemplate model constructor.
-     * @property {module:model/ValueChangeDateLabelTemplate}
+     * The ValueChangeDateLabelAnswer model constructor.
+     * @property {module:model/ValueChangeDateLabelAnswer}
      */
-    ValueChangeDateLabelTemplate,
+    ValueChangeDateLabelAnswer,
 
     /**
-     * The ValueChangeDateLabelTemplateAllOf model constructor.
-     * @property {module:model/ValueChangeDateLabelTemplateAllOf}
+     * The ValueChangeDateLabelAnswerAllOf model constructor.
+     * @property {module:model/ValueChangeDateLabelAnswerAllOf}
      */
-    ValueChangeDateLabelTemplateAllOf,
+    ValueChangeDateLabelAnswerAllOf,
+
+    /**
+     * The ValueChangeDateLabelTemplateData model constructor.
+     * @property {module:model/ValueChangeDateLabelTemplateData}
+     */
+    ValueChangeDateLabelTemplateData,
+
+    /**
+     * The ValueChangeDateLabelTemplateDataAllOf model constructor.
+     * @property {module:model/ValueChangeDateLabelTemplateDataAllOf}
+     */
+    ValueChangeDateLabelTemplateDataAllOf,
 
     /**
      * The ValueColor model constructor.
@@ -454,52 +595,100 @@ export {
     ValueColor,
 
     /**
-     * The ValueLabelDateDataPairListTemplate model constructor.
-     * @property {module:model/ValueLabelDateDataPairListTemplate}
+     * The ValueLabelAnswer model constructor.
+     * @property {module:model/ValueLabelAnswer}
      */
-    ValueLabelDateDataPairListTemplate,
+    ValueLabelAnswer,
 
     /**
-     * The ValueLabelDateDataPairListTemplateAllOf model constructor.
-     * @property {module:model/ValueLabelDateDataPairListTemplateAllOf}
+     * The ValueLabelAnswerAllOf model constructor.
+     * @property {module:model/ValueLabelAnswerAllOf}
      */
-    ValueLabelDateDataPairListTemplateAllOf,
+    ValueLabelAnswerAllOf,
 
     /**
-     * The ValueLabelDateTemplate model constructor.
-     * @property {module:model/ValueLabelDateTemplate}
+     * The ValueLabelDateAnswer model constructor.
+     * @property {module:model/ValueLabelDateAnswer}
      */
-    ValueLabelDateTemplate,
+    ValueLabelDateAnswer,
 
     /**
-     * The ValueLabelDateTemplateAllOf model constructor.
-     * @property {module:model/ValueLabelDateTemplateAllOf}
+     * The ValueLabelDateAnswerAllOf model constructor.
+     * @property {module:model/ValueLabelDateAnswerAllOf}
      */
-    ValueLabelDateTemplateAllOf,
+    ValueLabelDateAnswerAllOf,
 
     /**
-     * The ValueLabelDateTextBlockTemplate model constructor.
-     * @property {module:model/ValueLabelDateTextBlockTemplate}
+     * The ValueLabelDateDataPairListAnswer model constructor.
+     * @property {module:model/ValueLabelDateDataPairListAnswer}
      */
-    ValueLabelDateTextBlockTemplate,
+    ValueLabelDateDataPairListAnswer,
 
     /**
-     * The ValueLabelDateTextBlockTemplateAllOf model constructor.
-     * @property {module:model/ValueLabelDateTextBlockTemplateAllOf}
+     * The ValueLabelDateDataPairListAnswerAllOf model constructor.
+     * @property {module:model/ValueLabelDateDataPairListAnswerAllOf}
      */
-    ValueLabelDateTextBlockTemplateAllOf,
+    ValueLabelDateDataPairListAnswerAllOf,
 
     /**
-     * The ValueLabelTemplate model constructor.
-     * @property {module:model/ValueLabelTemplate}
+     * The ValueLabelDateDataPairListTemplateData model constructor.
+     * @property {module:model/ValueLabelDateDataPairListTemplateData}
      */
-    ValueLabelTemplate,
+    ValueLabelDateDataPairListTemplateData,
 
     /**
-     * The ValueLabelTemplateAllOf model constructor.
-     * @property {module:model/ValueLabelTemplateAllOf}
+     * The ValueLabelDateDataPairListTemplateDataAllOf model constructor.
+     * @property {module:model/ValueLabelDateDataPairListTemplateDataAllOf}
      */
-    ValueLabelTemplateAllOf,
+    ValueLabelDateDataPairListTemplateDataAllOf,
+
+    /**
+     * The ValueLabelDateTemplateData model constructor.
+     * @property {module:model/ValueLabelDateTemplateData}
+     */
+    ValueLabelDateTemplateData,
+
+    /**
+     * The ValueLabelDateTemplateDataAllOf model constructor.
+     * @property {module:model/ValueLabelDateTemplateDataAllOf}
+     */
+    ValueLabelDateTemplateDataAllOf,
+
+    /**
+     * The ValueLabelDateTextBlockAnswer model constructor.
+     * @property {module:model/ValueLabelDateTextBlockAnswer}
+     */
+    ValueLabelDateTextBlockAnswer,
+
+    /**
+     * The ValueLabelDateTextBlockAnswerAllOf model constructor.
+     * @property {module:model/ValueLabelDateTextBlockAnswerAllOf}
+     */
+    ValueLabelDateTextBlockAnswerAllOf,
+
+    /**
+     * The ValueLabelDateTextBlockTemplateData model constructor.
+     * @property {module:model/ValueLabelDateTextBlockTemplateData}
+     */
+    ValueLabelDateTextBlockTemplateData,
+
+    /**
+     * The ValueLabelDateTextBlockTemplateDataAllOf model constructor.
+     * @property {module:model/ValueLabelDateTextBlockTemplateDataAllOf}
+     */
+    ValueLabelDateTextBlockTemplateDataAllOf,
+
+    /**
+     * The ValueLabelTemplateData model constructor.
+     * @property {module:model/ValueLabelTemplateData}
+     */
+    ValueLabelTemplateData,
+
+    /**
+     * The ValueLabelTemplateDataAllOf model constructor.
+     * @property {module:model/ValueLabelTemplateDataAllOf}
+     */
+    ValueLabelTemplateDataAllOf,
 
     /**
     * The AnswersApi service constructor.

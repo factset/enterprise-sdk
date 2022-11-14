@@ -51,7 +51,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         AccountsApi apiInstance = new AccountsApi(defaultClient);
-        String path = "Client:Foo/Bar"; // String | The directory to get the accounts and sub-directories in
+        String path = "Client:"; // String | The directory to get the accounts and sub-directories in
         try {
             AccountDirectoriesRoot result = apiInstance.getAccounts(path);
             System.out.println(result);
@@ -72,7 +72,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the accounts and sub-directories in | [default to Client:Foo/Bar]
+ **path** | **String**| The directory to get the accounts and sub-directories in | [default to Client:]
 
 ### Return type
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 Get SPAR account returns type details
 
-This endpoint returns the returns type of account associated with an account
+This endpoint returns the returns type of account associated with SPAR
 
 ### Example
 

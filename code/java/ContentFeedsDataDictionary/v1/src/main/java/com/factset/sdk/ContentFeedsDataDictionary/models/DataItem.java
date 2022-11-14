@@ -34,10 +34,12 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
  */
 @JsonPropertyOrder({
   DataItem.JSON_PROPERTY_ID,
-  DataItem.JSON_PROPERTY_SOURCE,
   DataItem.JSON_PROPERTY_NAME,
   DataItem.JSON_PROPERTY_DESCRIPTION,
-  DataItem.JSON_PROPERTY_ENTITLED
+  DataItem.JSON_PROPERTY_ENTITLED,
+  DataItem.JSON_PROPERTY_DATA_FEED,
+  DataItem.JSON_PROPERTY_API,
+  DataItem.JSON_PROPERTY_REFERENCE_DATA_FEED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DataItem implements Serializable {
@@ -45,9 +47,6 @@ public class DataItem implements Serializable {
 
   public static final String JSON_PROPERTY_ID = "id";
   private Integer id;
-
-  public static final String JSON_PROPERTY_SOURCE = "source";
-  private String source;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -57,6 +56,15 @@ public class DataItem implements Serializable {
 
   public static final String JSON_PROPERTY_ENTITLED = "entitled";
   private Boolean entitled;
+
+  public static final String JSON_PROPERTY_DATA_FEED = "dataFeed";
+  private Boolean dataFeed;
+
+  public static final String JSON_PROPERTY_API = "api";
+  private Boolean api;
+
+  public static final String JSON_PROPERTY_REFERENCE_DATA_FEED = "referenceDataFeed";
+  private Boolean referenceDataFeed;
 
   public DataItem() { 
   }
@@ -84,32 +92,6 @@ public class DataItem implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Integer id) {
     this.id = id;
-  }
-
-
-  public DataItem source(String source) {
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Unique identifier for the product source
-   * @return source
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "SDF", value = "Unique identifier for the product source")
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSource() {
-    return source;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSource(String source) {
-    this.source = source;
   }
 
 
@@ -191,6 +173,84 @@ public class DataItem implements Serializable {
   }
 
 
+  public DataItem dataFeed(Boolean dataFeed) {
+    this.dataFeed = dataFeed;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this item is available in a data feed
+   * @return dataFeed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Flag indicating if this item is available in a data feed")
+  @JsonProperty(JSON_PROPERTY_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDataFeed() {
+    return dataFeed;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDataFeed(Boolean dataFeed) {
+    this.dataFeed = dataFeed;
+  }
+
+
+  public DataItem api(Boolean api) {
+    this.api = api;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this item is available in an api
+   * @return api
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Flag indicating if this item is available in an api")
+  @JsonProperty(JSON_PROPERTY_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApi() {
+    return api;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApi(Boolean api) {
+    this.api = api;
+  }
+
+
+  public DataItem referenceDataFeed(Boolean referenceDataFeed) {
+    this.referenceDataFeed = referenceDataFeed;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this product is maintained by RDF/UCF
+   * @return referenceDataFeed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "Flag indicating if this product is maintained by RDF/UCF")
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReferenceDataFeed() {
+    return referenceDataFeed;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReferenceDataFeed(Boolean referenceDataFeed) {
+    this.referenceDataFeed = referenceDataFeed;
+  }
+
+
   /**
    * Return true if this DataItem object is equal to o.
    */
@@ -204,15 +264,17 @@ public class DataItem implements Serializable {
     }
     DataItem dataItem = (DataItem) o;
     return Objects.equals(this.id, dataItem.id) &&
-        Objects.equals(this.source, dataItem.source) &&
         Objects.equals(this.name, dataItem.name) &&
         Objects.equals(this.description, dataItem.description) &&
-        Objects.equals(this.entitled, dataItem.entitled);
+        Objects.equals(this.entitled, dataItem.entitled) &&
+        Objects.equals(this.dataFeed, dataItem.dataFeed) &&
+        Objects.equals(this.api, dataItem.api) &&
+        Objects.equals(this.referenceDataFeed, dataItem.referenceDataFeed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, source, name, description, entitled);
+    return Objects.hash(id, name, description, entitled, dataFeed, api, referenceDataFeed);
   }
 
   @Override
@@ -220,10 +282,12 @@ public class DataItem implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    entitled: ").append(toIndentedString(entitled)).append("\n");
+    sb.append("    dataFeed: ").append(toIndentedString(dataFeed)).append("\n");
+    sb.append("    api: ").append(toIndentedString(api)).append("\n");
+    sb.append("    referenceDataFeed: ").append(toIndentedString(referenceDataFeed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

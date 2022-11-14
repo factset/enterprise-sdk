@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **ofm_product_id** | **str** | The id defining a product in the Open:FactSet Marketplace | [optional] 
 **entitled** | **bool** | Flag indicating if the user is entitled to access the data in their subscriptions | [optional] 
 **provider_name** | **str** | Name of the Data Provider for the product | [optional] 
+**data_feed** | **bool** | Flag indicating if this product is available in a data feed | [optional] 
+**api** | **bool** | Flag indicating if this product is available in an api | [optional] 
+**reference_data_feed** | **bool** | Flag indicating if this product is maintained by RDF/UCF | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Template** | **string** |  | 
 **Message** | **string** |  | 
 **Title** | **string** |  | 
 **TemplateData** | [**AnswerWithoutDataAllOfTemplateData**](AnswerWithoutDataAllOfTemplateData.md) |  | 

@@ -11,15 +11,14 @@ servers:
   - url: https://api.factset.com
 tags:
   - name: AI Text Summarization
-    description: AI Text Summarization Endpoints
   - name: AI Themes
-    description: AI Themes Endpoint
+  - name: Named Entity Recognition
 paths:
   /cognitive/nlp/v1/themes:
     post:
       tags:
         - AI Themes
-      summary: POST request to extract themes from text
+      summary: Endpoint to extract themes from text
       description: >
         This endpoint extracts themes from unstructured text. Each theme
         (`themeText`) is also given a score (`themeScore`). This score shows the
@@ -166,7 +165,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPError'
           description: Internal Server Error
-      summary: POST request for summarizing an input text
+      summary: Endpoint to generate a headline from text
       tags:
         - AI Text Summarization
   /cognitive/nlp/v1/summarization/headline-and-summary:
@@ -202,7 +201,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPError'
           description: Internal Server Error
-      summary: POST request for summarizing an input text
+      summary: Endpoint to summarize and generate a headline from text
       tags:
         - AI Text Summarization
   /cognitive/nlp/v1/summarization/summary:
@@ -238,9 +237,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPError'
           description: Internal Server Error
-      summary: POST request for summarizing an input text
+      summary: Endpoint to summarize text
       tags:
         - AI Text Summarization
+  /cognitive/nlp/v1/ner/entities:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NERInputSchema'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NERResponseSchema'
+          description: Successful response
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NERValidationError'
+          description: Validation error
+      summary: Endpoint to detect entities from text
+      tags:
+        - Named Entity Recognition
   /cognitive/nlp/v1/summarization/result/{result_id}:
     get:
       parameters:
@@ -280,7 +303,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPError'
           description: Internal Server Error
-      summary: GET request for obtaining response of a particular processing job
+      summary: Endpoint to obtain result of a particular summarization job
       tags:
         - AI Text Summarization
 security:
@@ -475,6 +498,159 @@ components:
           type: object
         message:
           type: string
+      type: object
+    NERResponseSchema:
+      properties:
+        data:
+          $ref: '#/components/schemas/NEREntityList'
+        errors:
+          items:
+            $ref: '#/components/schemas/NERErrorSchema'
+          type: array
+      type: object
+    NERValidationError:
+      properties:
+        detail:
+          properties:
+            <location>:
+              properties:
+                <field_name>:
+                  items:
+                    type: string
+                  type: array
+              type: object
+          type: object
+        message:
+          type: string
+      type: object
+    NEREntity:
+      properties:
+        associatedOrgs:
+          description: Organizations that are associated with this entity
+          items:
+            $ref: '#/components/schemas/NEROrganization'
+          title: Associated Organizations
+          type: array
+        endChar:
+          description: The index of the last character of the entity text
+          example: '11'
+          title: End Character
+          type: integer
+        entityId:
+          description: The FactSet Entity ID that is linked to this text.
+          example: 0016YD-E
+          title: Entity ID
+          type: string
+        lookupText:
+          description: Name of the FactSet entity that is linked to this text.
+          example: FactSet Research Systems
+          title: Lookup Text
+          type: string
+        lookupUrl:
+          description: A link to the information page for the given entity
+          example: https://....
+          title: Lookp URL
+          type: string
+        startChar:
+          description: The index of the starting character of the entity text
+          example: '5'
+          title: Start Character
+          type: integer
+        text:
+          description: The substring of the source text that ws found as an entity
+          example: FactSet
+          title: Text
+          type: string
+        type:
+          description: The type of entity (organization, person, etc.) that was found
+          enum:
+            - NE_GPE
+            - NE_ORG
+            - NE_PERSON
+            - NE_NUMBER
+            - NE_MONEY
+            - NE_DATETIME
+            - NE_DRUG
+            - NE_HEALTH_INDICATION
+          example: NE_ORG
+          title: Type
+          type: string
+      required:
+        - endChar
+        - startChar
+        - text
+        - type
+      type: object
+    NERErrorSchema:
+      properties:
+        code:
+          description: NER-specific error code of the problem
+          example: INTERNAL_TIMEOUT
+          title: Error Code
+          type: string
+        id:
+          description: Unique ID for the occurance of the problem
+          example: 123e4567-e89b-12d3-a456-426614174000
+          title: ID
+          type: string
+        title:
+          description: A short summary of the problem
+          example: >-
+            A subservice of NER experienced a delay. We have returned the data
+            obtained prior to the timeout.
+          title: Title
+          type: string
+      type: object
+    NERInputDataSchema:
+      properties:
+        enableIdLookup:
+          description: Retrieve Entity IDs using FactSet concordance systems.
+          title: Enable Entity ID Lookup
+          type: boolean
+        filterEntities:
+          description: Drop potentially spurious entities based on filtering rules
+          title: Filter Entities
+          type: boolean
+        text:
+          description: English plain-text from which entities should be retrieved
+          example: >-
+            Phil Snow is the CEO of FactSet Research Systems Inc. (NYSE:FDS),
+            with its headquarter at NORWALK, Conn., Sept. 22, 2015 (GLOBE
+            NEWSWIRE).
+          title: Text
+          type: string
+      required:
+        - text
+      type: object
+    NERInputSchema:
+      properties:
+        data:
+          $ref: '#/components/schemas/NERInputDataSchema'
+      type: object
+    NEROrganization:
+      properties:
+        entityId:
+          description: The FactSet Entity ID that is linked to this organization.
+          example: 0016YD-E
+          title: Entity ID
+          type: string
+        lookupUrl:
+          description: A link to the information page for the given organization
+          example: https://....
+          title: Lookp URL
+          type: string
+        name:
+          description: The name this organization.
+          example: FactSet Research Systems
+          title: Name
+          type: string
+      type: object
+    NEREntityList:
+      properties:
+        entities:
+          items:
+            $ref: '#/components/schemas/NEREntity'
+          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

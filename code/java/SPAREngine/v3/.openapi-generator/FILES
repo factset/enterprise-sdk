@@ -16,6 +16,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -32,6 +34,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/ReturnType.md
 docs/SPARAccounts.md
 docs/SPARAccountsRoot.md
@@ -85,6 +89,8 @@ src/main/java/com/factset/sdk/SPAREngine/models/CalculationStatusMeta.java
 src/main/java/com/factset/sdk/SPAREngine/models/CalculationStatusRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/CalculationUnitStatus.java
 src/main/java/com/factset/sdk/SPAREngine/models/CalculationUnitStatusMeta.java
+src/main/java/com/factset/sdk/SPAREngine/models/CalculationsSummary.java
+src/main/java/com/factset/sdk/SPAREngine/models/CalculationsSummaryRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/ClientErrorResponse.java
 src/main/java/com/factset/sdk/SPAREngine/models/ComponentSummary.java
 src/main/java/com/factset/sdk/SPAREngine/models/ComponentSummaryRoot.java
@@ -97,6 +103,8 @@ src/main/java/com/factset/sdk/SPAREngine/models/ErrorSource.java
 src/main/java/com/factset/sdk/SPAREngine/models/Frequency.java
 src/main/java/com/factset/sdk/SPAREngine/models/FrequencyRoot.java
 src/main/java/com/factset/sdk/SPAREngine/models/ObjectRoot.java
+src/main/java/com/factset/sdk/SPAREngine/models/PaginationInfo.java
+src/main/java/com/factset/sdk/SPAREngine/models/PaginationMeta.java
 src/main/java/com/factset/sdk/SPAREngine/models/ReturnType.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARAccounts.java
 src/main/java/com/factset/sdk/SPAREngine/models/SPARAccountsRoot.java

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitive_nlp_v1_summarization_headline_and_summary_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_headline_and_summary_post) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | POST request for summarizing an input text
-[**cognitive_nlp_v1_summarization_headline_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_headline_post) | **POST** /cognitive/nlp/v1/summarization/headline | POST request for summarizing an input text
-[**cognitive_nlp_v1_summarization_result_result_id_get**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_result_result_id_get) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | GET request for obtaining response of a particular processing job
-[**cognitive_nlp_v1_summarization_summary_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_summary_post) | **POST** /cognitive/nlp/v1/summarization/summary | POST request for summarizing an input text
+[**cognitive_nlp_v1_summarization_headline_and_summary_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_headline_and_summary_post) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**cognitive_nlp_v1_summarization_headline_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_headline_post) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
+[**cognitive_nlp_v1_summarization_result_result_id_get**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_result_result_id_get) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
+[**cognitive_nlp_v1_summarization_summary_post**](AITextSummarizationApi.md#cognitive_nlp_v1_summarization_summary_post) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
 
 
 # **cognitive_nlp_v1_summarization_headline_and_summary_post**
 > SummarizationResultID cognitive_nlp_v1_summarization_headline_and_summary_post()
 
-POST request for summarizing an input text
+Endpoint to summarize and generate a headline from text
 
 ### Example
 
@@ -60,7 +60,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     ) # SummarizationRequest |  (optional)
 
     try:
-        # POST request for summarizing an input text
+        # Endpoint to summarize and generate a headline from text
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.cognitive_nlp_v1_summarization_headline_and_summary_post(summarization_request=summarization_request)
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 # **cognitive_nlp_v1_summarization_headline_post**
 > SummarizationResultID cognitive_nlp_v1_summarization_headline_post()
 
-POST request for summarizing an input text
+Endpoint to generate a headline from text
 
 ### Example
 
@@ -152,7 +152,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     ) # SummarizationRequest |  (optional)
 
     try:
-        # POST request for summarizing an input text
+        # Endpoint to generate a headline from text
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.cognitive_nlp_v1_summarization_headline_post(summarization_request=summarization_request)
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 # **cognitive_nlp_v1_summarization_result_result_id_get**
 > SummarizationResult cognitive_nlp_v1_summarization_result_result_id_get(result_id)
 
-GET request for obtaining response of a particular processing job
+Endpoint to obtain result of a particular summarization job
 
 ### Example
 
@@ -242,7 +242,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     result_id = "result_id_example" # str | 
 
     try:
-        # GET request for obtaining response of a particular processing job
+        # Endpoint to obtain result of a particular summarization job
         # example passing only required values which don't have defaults set
         api_response = api_instance.cognitive_nlp_v1_summarization_result_result_id_get(result_id)
         pprint(api_response)
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 # **cognitive_nlp_v1_summarization_summary_post**
 > SummarizationResultID cognitive_nlp_v1_summarization_summary_post()
 
-POST request for summarizing an input text
+Endpoint to summarize text
 
 ### Example
 
@@ -334,7 +334,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     ) # SummarizationRequest |  (optional)
 
     try:
-        # POST request for summarizing an input text
+        # Endpoint to summarize text
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.cognitive_nlp_v1_summarization_summary_post(summarization_request=summarization_request)

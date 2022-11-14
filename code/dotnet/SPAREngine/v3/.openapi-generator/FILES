@@ -14,6 +14,8 @@ docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
+docs/CalculationsSummary.md
+docs/CalculationsSummaryRoot.md
 docs/ClientErrorResponse.md
 docs/ComponentSummary.md
 docs/ComponentSummaryRoot.md
@@ -30,6 +32,8 @@ docs/FrequenciesApi.md
 docs/Frequency.md
 docs/FrequencyRoot.md
 docs/ObjectRoot.md
+docs/PaginationInfo.md
+docs/PaginationMeta.md
 docs/ReturnType.md
 docs/SPARAccounts.md
 docs/SPARAccountsRoot.md
@@ -74,6 +78,8 @@ src/FactSet.SDK.SPAREngine/Model/CalculationStatusMeta.cs
 src/FactSet.SDK.SPAREngine/Model/CalculationStatusRoot.cs
 src/FactSet.SDK.SPAREngine/Model/CalculationUnitStatus.cs
 src/FactSet.SDK.SPAREngine/Model/CalculationUnitStatusMeta.cs
+src/FactSet.SDK.SPAREngine/Model/CalculationsSummary.cs
+src/FactSet.SDK.SPAREngine/Model/CalculationsSummaryRoot.cs
 src/FactSet.SDK.SPAREngine/Model/ClientErrorResponse.cs
 src/FactSet.SDK.SPAREngine/Model/ComponentSummary.cs
 src/FactSet.SDK.SPAREngine/Model/ComponentSummaryRoot.cs
@@ -86,6 +92,8 @@ src/FactSet.SDK.SPAREngine/Model/ErrorSource.cs
 src/FactSet.SDK.SPAREngine/Model/Frequency.cs
 src/FactSet.SDK.SPAREngine/Model/FrequencyRoot.cs
 src/FactSet.SDK.SPAREngine/Model/ObjectRoot.cs
+src/FactSet.SDK.SPAREngine/Model/PaginationInfo.cs
+src/FactSet.SDK.SPAREngine/Model/PaginationMeta.cs
 src/FactSet.SDK.SPAREngine/Model/ReturnType.cs
 src/FactSet.SDK.SPAREngine/Model/SPARAccounts.cs
 src/FactSet.SDK.SPAREngine/Model/SPARAccountsRoot.cs

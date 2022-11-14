@@ -54,13 +54,13 @@ namespace Example
 
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
-            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationLimit = 200;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
             var audioSourceId = 471849;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs. (optional) 
             var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
             var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used. (optional)  (default to -startDate)
-            var entityId = 000CGP-E;  // string | Factset entity level identifier for the company hosting the event. (optional) 
-            var ticker = AZZ-US;  // string | Ticker-region identifier for the company hosting the event. (optional) 
+            var entityId = "000CGP-E";  // string | Factset entity level identifier for the company hosting the event. (optional) 
+            var ticker = "AZZ-US";  // string | Ticker-region identifier for the company hosting the event. (optional) 
             var callStatus = "inProgress";  // string | Status of the call i.e. ended or inProgress or ewn or issueAtSource. (optional) 
 
             try
@@ -162,7 +162,7 @@ namespace Example
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
             var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
-            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional)  (default to 25)
+            var paginationLimit = 25;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=50 ] (optional)  (default to 25)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
             var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
 
@@ -261,7 +261,7 @@ namespace Example
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
             var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
-            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationLimit = 200;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
             var reportId = 2683372;  // int? | Unique identifier for an event. (optional) 
 
@@ -360,7 +360,7 @@ namespace Example
             var apiInstance = new NearRealTimeTranscriptsApi(config);
 
             var audioSourceId = 471849;  // int | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.
-            var paginationLimit = 5;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
+            var paginationLimit = 200;  // int? | Specifies the  number of results to return per page. [ Min=0; Max=500] (optional)  (default to 200)
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
             var sort = "startDate";  // string | Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used. (optional)  (default to startDate)
 

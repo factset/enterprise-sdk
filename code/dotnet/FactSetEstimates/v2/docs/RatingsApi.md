@@ -55,9 +55,9 @@ namespace Example
             var apiInstance = new RatingsApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
-            var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = 2020-07-30;  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var frequency = D;  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to D)
+            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = "2020-07-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to D)
 
             try
             {
@@ -249,8 +249,8 @@ namespace Example
             var apiInstance = new RatingsApi(config);
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
-            var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = 2020-07-30;  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var startDate = "2019-07-30";  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var endDate = "2020-07-30";  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
 
             try
             {

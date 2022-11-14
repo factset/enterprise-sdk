@@ -50,7 +50,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
-        String document = "Client:Foo"; // String | Document Name
+        String document = "Client:"; // String | Document Name
         try {
             ComponentSummaryRoot result = apiInstance.getSPARComponents(document);
             System.out.println(result);
@@ -71,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name | [default to Client:Foo]
+ **document** | **String**| Document Name | [default to Client:]
 
 ### Return type
 

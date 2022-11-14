@@ -38,7 +38,10 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
   Product.JSON_PROPERTY_OFM_LINK,
   Product.JSON_PROPERTY_OFM_PRODUCT_ID,
   Product.JSON_PROPERTY_ENTITLED,
-  Product.JSON_PROPERTY_PROVIDER_NAME
+  Product.JSON_PROPERTY_PROVIDER_NAME,
+  Product.JSON_PROPERTY_DATA_FEED,
+  Product.JSON_PROPERTY_API,
+  Product.JSON_PROPERTY_REFERENCE_DATA_FEED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Product implements Serializable {
@@ -61,6 +64,15 @@ public class Product implements Serializable {
 
   public static final String JSON_PROPERTY_PROVIDER_NAME = "providerName";
   private String providerName;
+
+  public static final String JSON_PROPERTY_DATA_FEED = "dataFeed";
+  private Boolean dataFeed;
+
+  public static final String JSON_PROPERTY_API = "api";
+  private Boolean api;
+
+  public static final String JSON_PROPERTY_REFERENCE_DATA_FEED = "referenceDataFeed";
+  private Boolean referenceDataFeed;
 
   public Product() { 
   }
@@ -221,6 +233,84 @@ public class Product implements Serializable {
   }
 
 
+  public Product dataFeed(Boolean dataFeed) {
+    this.dataFeed = dataFeed;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this product is available in a data feed
+   * @return dataFeed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Flag indicating if this product is available in a data feed")
+  @JsonProperty(JSON_PROPERTY_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDataFeed() {
+    return dataFeed;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDataFeed(Boolean dataFeed) {
+    this.dataFeed = dataFeed;
+  }
+
+
+  public Product api(Boolean api) {
+    this.api = api;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this product is available in an api
+   * @return api
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Flag indicating if this product is available in an api")
+  @JsonProperty(JSON_PROPERTY_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApi() {
+    return api;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApi(Boolean api) {
+    this.api = api;
+  }
+
+
+  public Product referenceDataFeed(Boolean referenceDataFeed) {
+    this.referenceDataFeed = referenceDataFeed;
+    return this;
+  }
+
+   /**
+   * Flag indicating if this product is maintained by RDF/UCF
+   * @return referenceDataFeed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "Flag indicating if this product is maintained by RDF/UCF")
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getReferenceDataFeed() {
+    return referenceDataFeed;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REFERENCE_DATA_FEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReferenceDataFeed(Boolean referenceDataFeed) {
+    this.referenceDataFeed = referenceDataFeed;
+  }
+
+
   /**
    * Return true if this Product object is equal to o.
    */
@@ -238,12 +328,15 @@ public class Product implements Serializable {
         Objects.equals(this.ofmLink, product.ofmLink) &&
         Objects.equals(this.ofmProductId, product.ofmProductId) &&
         Objects.equals(this.entitled, product.entitled) &&
-        Objects.equals(this.providerName, product.providerName);
+        Objects.equals(this.providerName, product.providerName) &&
+        Objects.equals(this.dataFeed, product.dataFeed) &&
+        Objects.equals(this.api, product.api) &&
+        Objects.equals(this.referenceDataFeed, product.referenceDataFeed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, ofmLink, ofmProductId, entitled, providerName);
+    return Objects.hash(id, name, ofmLink, ofmProductId, entitled, providerName, dataFeed, api, referenceDataFeed);
   }
 
   @Override
@@ -256,6 +349,9 @@ public class Product implements Serializable {
     sb.append("    ofmProductId: ").append(toIndentedString(ofmProductId)).append("\n");
     sb.append("    entitled: ").append(toIndentedString(entitled)).append("\n");
     sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
+    sb.append("    dataFeed: ").append(toIndentedString(dataFeed)).append("\n");
+    sb.append("    api: ").append(toIndentedString(api)).append("\n");
+    sb.append("    referenceDataFeed: ").append(toIndentedString(referenceDataFeed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

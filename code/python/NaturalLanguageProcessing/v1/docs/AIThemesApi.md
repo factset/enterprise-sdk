@@ -4,13 +4,13 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitive_nlp_v1_themes_post**](AIThemesApi.md#cognitive_nlp_v1_themes_post) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**cognitive_nlp_v1_themes_post**](AIThemesApi.md#cognitive_nlp_v1_themes_post) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
 
 
 # **cognitive_nlp_v1_themes_post**
 > ThemesRoot cognitive_nlp_v1_themes_post(theme_parameters_root)
 
-POST request to extract themes from text
+Endpoint to extract themes from text
 
 This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
 
@@ -62,7 +62,7 @@ with fds.sdk.NaturalLanguageProcessing.ApiClient(configuration) as api_client:
     ) # ThemeParametersRoot | 
 
     try:
-        # POST request to extract themes from text
+        # Endpoint to extract themes from text
         # example passing only required values which don't have defaults set
         api_response = api_instance.cognitive_nlp_v1_themes_post(theme_parameters_root)
         pprint(api_response)

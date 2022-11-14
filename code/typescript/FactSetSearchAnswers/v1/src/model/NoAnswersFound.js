@@ -14,7 +14,6 @@
 import ApiClient from '../ApiClient';
 import NoAnswersBase from './NoAnswersBase';
 import NoAnswersFoundAllOf from './NoAnswersFoundAllOf';
-import NoAnswersFoundAllOfTemplateData from './NoAnswersFoundAllOfTemplateData';
 
 /**
  * The NoAnswersFound model module.
@@ -26,13 +25,13 @@ class NoAnswersFound {
      * @alias module:model/NoAnswersFound
      * @implements module:model/NoAnswersBase
      * @implements module:model/NoAnswersFoundAllOf
+     * @param template {String} 
      * @param message {String} 
      * @param querySuggestions {Array.<String>} 
-     * @param templateData {module:model/NoAnswersFoundAllOfTemplateData} 
      */
-    constructor(message, querySuggestions, templateData) { 
-        NoAnswersBase.initialize(this, message);NoAnswersFoundAllOf.initialize(this, querySuggestions, templateData);
-        NoAnswersFound.initialize(this, message, querySuggestions, templateData);
+    constructor(template, message, querySuggestions) { 
+        NoAnswersBase.initialize(this, template, message);NoAnswersFoundAllOf.initialize(this, querySuggestions);
+        NoAnswersFound.initialize(this, template, message, querySuggestions);
     }
 
     /**
@@ -40,10 +39,10 @@ class NoAnswersFound {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, message, querySuggestions, templateData) { 
+    static initialize(obj, template, message, querySuggestions) { 
+        obj['template'] = template;
         obj['message'] = message;
         obj['querySuggestions'] = querySuggestions;
-        obj['templateData'] = templateData;
     }
 
     /**
@@ -59,14 +58,14 @@ class NoAnswersFound {
             NoAnswersBase.constructFromObject(data, obj);
             NoAnswersFoundAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = ApiClient.convertToType(data['template'], 'String');
+            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
             if (data.hasOwnProperty('querySuggestions')) {
                 obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
-            }
-            if (data.hasOwnProperty('templateData')) {
-                obj['templateData'] = NoAnswersFoundAllOfTemplateData.constructFromObject(data['templateData']);
             }
         }
         return obj;
@@ -74,6 +73,11 @@ class NoAnswersFound {
 
 
 }
+
+/**
+ * @member {String} template
+ */
+NoAnswersFound.prototype['template'] = undefined;
 
 /**
  * @member {String} message
@@ -85,13 +89,12 @@ NoAnswersFound.prototype['message'] = undefined;
  */
 NoAnswersFound.prototype['querySuggestions'] = undefined;
 
-/**
- * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
- */
-NoAnswersFound.prototype['templateData'] = undefined;
-
 
 // Implement NoAnswersBase interface:
+/**
+ * @member {String} template
+ */
+NoAnswersBase.prototype['template'] = undefined;
 /**
  * @member {String} message
  */
@@ -101,10 +104,6 @@ NoAnswersBase.prototype['message'] = undefined;
  * @member {Array.<String>} querySuggestions
  */
 NoAnswersFoundAllOf.prototype['querySuggestions'] = undefined;
-/**
- * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
- */
-NoAnswersFoundAllOf.prototype['templateData'] = undefined;
 
 
 

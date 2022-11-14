@@ -118,7 +118,7 @@ class AIThemesApi(object):
         theme_parameters_root,
         **kwargs
     ) -> ThemesRoot:
-        """POST request to extract themes from text  # noqa: E501
+        """Endpoint to extract themes from text  # noqa: E501
 
         This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
@@ -164,7 +164,7 @@ class AIThemesApi(object):
         theme_parameters_root,
         **kwargs
     ) -> typing.Tuple[ThemesRoot, int, typing.MutableMapping]:
-        """POST request to extract themes from text  # noqa: E501
+        """Endpoint to extract themes from text  # noqa: E501
 
         This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
@@ -214,7 +214,7 @@ class AIThemesApi(object):
         theme_parameters_root,
         **kwargs
     ) -> "ApplyResult[ThemesRoot]":
-        """POST request to extract themes from text  # noqa: E501
+        """Endpoint to extract themes from text  # noqa: E501
 
         This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
@@ -259,7 +259,7 @@ class AIThemesApi(object):
         theme_parameters_root,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[ThemesRoot, int, typing.MutableMapping]]":
-        """POST request to extract themes from text  # noqa: E501
+        """Endpoint to extract themes from text  # noqa: E501
 
         This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ```   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult

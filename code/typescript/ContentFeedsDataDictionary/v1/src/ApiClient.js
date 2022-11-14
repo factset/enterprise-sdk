@@ -62,7 +62,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/ContentFeedsDataDictionary/0.21.1'
+            'User-Agent': 'fds-sdk/javascript/ContentFeedsDataDictionary/0.21.2'
         };
 
         /**

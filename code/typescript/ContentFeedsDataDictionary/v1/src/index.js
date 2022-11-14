@@ -19,6 +19,7 @@ import BasicSearchResponseResults from './model/BasicSearchResponseResults';
 import DataItem from './model/DataItem';
 import NavigatorSourcesResponse from './model/NavigatorSourcesResponse';
 import Product from './model/Product';
+import ReferenceGroup from './model/ReferenceGroup';
 import Table from './model/Table';
 import TableCodeFieldInfoResponse from './model/TableCodeFieldInfoResponse';
 import TableCodeInfo from './model/TableCodeInfo';
@@ -105,6 +106,12 @@ export {
      * @property {module:model/Product}
      */
     Product,
+
+    /**
+     * The ReferenceGroup model constructor.
+     * @property {module:model/ReferenceGroup}
+     */
+    ReferenceGroup,
 
     /**
      * The Table model constructor.

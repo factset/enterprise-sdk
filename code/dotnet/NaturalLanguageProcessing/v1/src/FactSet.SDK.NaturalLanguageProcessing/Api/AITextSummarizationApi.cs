@@ -29,7 +29,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize and generate a headline from text
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -37,7 +37,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         SummarizationResultID CognitiveNlpV1SummarizationHeadlineAndSummaryPost(SummarizationRequest summarizationRequest = default(SummarizationRequest));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize and generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -47,7 +47,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>ApiResponse of SummarizationResultID</returns>
         ApiResponse<SummarizationResultID> CognitiveNlpV1SummarizationHeadlineAndSummaryPostWithHttpInfo(SummarizationRequest summarizationRequest = default(SummarizationRequest));
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to generate a headline from text
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -55,7 +55,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         SummarizationResultID CognitiveNlpV1SummarizationHeadlinePost(SummarizationRequest summarizationRequest = default(SummarizationRequest));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -65,7 +65,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>ApiResponse of SummarizationResultID</returns>
         ApiResponse<SummarizationResultID> CognitiveNlpV1SummarizationHeadlinePostWithHttpInfo(SummarizationRequest summarizationRequest = default(SummarizationRequest));
         /// <summary>
-        /// GET request for obtaining response of a particular processing job
+        /// Endpoint to obtain result of a particular summarization job
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
@@ -73,7 +73,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         SummarizationResult CognitiveNlpV1SummarizationResultResultIdGet(string resultId);
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job
+        /// Endpoint to obtain result of a particular summarization job
         /// </summary>
         /// <remarks>
         /// 
@@ -83,7 +83,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>ApiResponse of SummarizationResult</returns>
         ApiResponse<SummarizationResult> CognitiveNlpV1SummarizationResultResultIdGetWithHttpInfo(string resultId);
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize text
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -91,7 +91,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         SummarizationResultID CognitiveNlpV1SummarizationSummaryPost(SummarizationRequest summarizationRequest = default(SummarizationRequest));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize text
         /// </summary>
         /// <remarks>
         /// 
@@ -110,7 +110,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize and generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -122,7 +122,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         System.Threading.Tasks.Task<SummarizationResultID> CognitiveNlpV1SummarizationHeadlineAndSummaryPostAsync(SummarizationRequest summarizationRequest = default(SummarizationRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize and generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -133,7 +133,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>Task of ApiResponse (SummarizationResultID)</returns>
         System.Threading.Tasks.Task<ApiResponse<SummarizationResultID>> CognitiveNlpV1SummarizationHeadlineAndSummaryPostWithHttpInfoAsync(SummarizationRequest summarizationRequest = default(SummarizationRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -145,7 +145,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         System.Threading.Tasks.Task<SummarizationResultID> CognitiveNlpV1SummarizationHeadlinePostAsync(SummarizationRequest summarizationRequest = default(SummarizationRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to generate a headline from text
         /// </summary>
         /// <remarks>
         /// 
@@ -156,7 +156,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>Task of ApiResponse (SummarizationResultID)</returns>
         System.Threading.Tasks.Task<ApiResponse<SummarizationResultID>> CognitiveNlpV1SummarizationHeadlinePostWithHttpInfoAsync(SummarizationRequest summarizationRequest = default(SummarizationRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// GET request for obtaining response of a particular processing job
+        /// Endpoint to obtain result of a particular summarization job
         /// </summary>
         /// <remarks>
         /// 
@@ -168,7 +168,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         System.Threading.Tasks.Task<SummarizationResult> CognitiveNlpV1SummarizationResultResultIdGetAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job
+        /// Endpoint to obtain result of a particular summarization job
         /// </summary>
         /// <remarks>
         /// 
@@ -179,7 +179,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         /// <returns>Task of ApiResponse (SummarizationResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<SummarizationResult>> CognitiveNlpV1SummarizationResultResultIdGetWithHttpInfoAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize text
         /// </summary>
         /// <remarks>
         /// 
@@ -191,7 +191,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         System.Threading.Tasks.Task<SummarizationResultID> CognitiveNlpV1SummarizationSummaryPostAsync(SummarizationRequest summarizationRequest = default(SummarizationRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// POST request for summarizing an input text
+        /// Endpoint to summarize text
         /// </summary>
         /// <remarks>
         /// 
@@ -360,7 +360,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize and generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -372,7 +372,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize and generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -441,7 +441,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize and generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -454,7 +454,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize and generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -527,7 +527,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -539,7 +539,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -608,7 +608,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -621,7 +621,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to generate a headline from text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -694,7 +694,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job 
+        /// Endpoint to obtain result of a particular summarization job 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
@@ -706,7 +706,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job 
+        /// Endpoint to obtain result of a particular summarization job 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
@@ -780,7 +780,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job 
+        /// Endpoint to obtain result of a particular summarization job 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
@@ -793,7 +793,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// GET request for obtaining response of a particular processing job 
+        /// Endpoint to obtain result of a particular summarization job 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
@@ -871,7 +871,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -883,7 +883,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -952,7 +952,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>
@@ -965,7 +965,7 @@ namespace FactSet.SDK.NaturalLanguageProcessing.Api
         }
 
         /// <summary>
-        /// POST request for summarizing an input text 
+        /// Endpoint to summarize text 
         /// </summary>
         /// <exception cref="FactSet.SDK.NaturalLanguageProcessing.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summarizationRequest"> (optional)</param>

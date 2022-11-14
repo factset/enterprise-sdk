@@ -12,6 +12,7 @@ docs/DataItem.md
 docs/NavigatorApi.md
 docs/NavigatorSourcesResponse.md
 docs/Product.md
+docs/ReferenceGroup.md
 docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
@@ -32,6 +33,7 @@ fds/sdk/ContentFeedsDataDictionary/model/basic_search_response_results.py
 fds/sdk/ContentFeedsDataDictionary/model/data_item.py
 fds/sdk/ContentFeedsDataDictionary/model/navigator_sources_response.py
 fds/sdk/ContentFeedsDataDictionary/model/product.py
+fds/sdk/ContentFeedsDataDictionary/model/reference_group.py
 fds/sdk/ContentFeedsDataDictionary/model/table.py
 fds/sdk/ContentFeedsDataDictionary/model/table_code_field_info_response.py
 fds/sdk/ContentFeedsDataDictionary/model/table_code_info.py

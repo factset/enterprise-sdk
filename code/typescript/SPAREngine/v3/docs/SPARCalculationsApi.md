@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelCalculationById**](SPARCalculationsApi.md#cancelCalculationById) | **DELETE** /analytics/engines/spar/v3/calculations/{id} | Cancel SPAR calculation
+[**getAllCalculations**](SPARCalculationsApi.md#getAllCalculations) | **GET** /analytics/engines/spar/v3/calculations | Get all calculations
 [**getCalculationParameters**](SPARCalculationsApi.md#getCalculationParameters) | **GET** /analytics/engines/spar/v3/calculations/{id} | Get SPAR calculation parameters by id
 [**getCalculationStatusById**](SPARCalculationsApi.md#getCalculationStatusById) | **GET** /analytics/engines/spar/v3/calculations/{id}/status | Get SPAR calculation status by id
 [**getCalculationUnitResultById**](SPARCalculationsApi.md#getCalculationUnitResultById) | **GET** /analytics/engines/spar/v3/calculations/{id}/units/{unitId}/result | Get SPAR calculation result by id
@@ -81,6 +82,78 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+
+## getAllCalculations
+
+> CalculationsSummaryRoot getAllCalculations(pageNumber)
+
+Get all calculations
+
+This endpoints returns all calculation requests.
+
+### Example
+
+```javascript
+const { ApiClient, SPARCalculationsApi } = require('@factset/sdk-sparengine');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new SPARCalculationsApi();
+const pageNumber = 1; // Number | 
+
+// Call api endpoint
+apiInstance.getAllCalculations(pageNumber).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageNumber** | **Number**|  | [default to 1]
+
+### Return type
+
+[**CalculationsSummaryRoot**](CalculationsSummaryRoot.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getCalculationParameters
@@ -338,7 +411,7 @@ const apiInstance = new SPARCalculationsApi();
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the POST body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"8DB4D9629C65705DEC03B0796FCC39DB1ADBBE0BD1F00D3BD46CC7E6BEEF2872","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"FB2C22B16A3B85F228B1B13CF83C0AC5721B5C143F511B1F1471A6BB644AF916","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -435,7 +508,7 @@ const id = "id_example"; // String | from url, provided from the location header
 const opts = {
   'xFactSetApiLongRunningDeadline': 56, // Number | Long running deadline in seconds when only one unit is passed in the PUT body.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"8DB4D9629C65705DEC03B0796FCC39DB1ADBBE0BD1F00D3BD46CC7E6BEEF2872","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"FB2C22B16A3B85F228B1B13CF83C0AC5721B5C143F511B1F1471A6BB644AF916","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
+  'sPARCalculationParametersRoot': {"data":{"1":{"componentid":"067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"},"dates":{"startdate":"-2M","enddate":"0","frequency":"Monthly"}},"2":{"componentid":"E3238ADBD61A8D52D680131D813BACF68A10149881CC88FC1E2401247812FC02","accounts":[{"id":"R.1000","returntype":"GTR","prefix":"RUSSELL"},{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}],"benchmark":{"id":"R.2000","returntype":"GTR","prefix":"RUSSELL"}}},"meta":{"stachContentorganization":"SimplifiedRow","format":"JsonStach"}} // SPARCalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint

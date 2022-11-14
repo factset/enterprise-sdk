@@ -224,7 +224,7 @@ namespace Example
 
             var apiInstance = new MetadataApi(config);
 
-            var signalId = dilutionTrigger;  // string | 
+            var signalId = "dilutionTrigger";  // string | 
 
             try
             {

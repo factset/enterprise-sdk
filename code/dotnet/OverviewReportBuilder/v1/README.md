@@ -75,7 +75,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CompanyApi(config);
-            var id = FDS;  // string | Company ticker
+            var id = "FDS";  // string | Company ticker
 
             try
             {

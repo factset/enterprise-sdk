@@ -1,0 +1,10 @@
+# factsetsearchanswers.TextBlockFootingTemplateDataAllOf
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**body** | **String** |  | [optional] 
+**footing** | [**TitledTextBlock**](TitledTextBlock.md) |  | [optional] 
+
+

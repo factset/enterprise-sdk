@@ -40,7 +40,10 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// <param name="ofmProductId">The id defining a product in the Open:FactSet Marketplace.</param>
         /// <param name="entitled">Flag indicating if the user is entitled to access the data in their subscriptions.</param>
         /// <param name="providerName">Name of the Data Provider for the product.</param>
-        public Product(string id = default(string), string name = default(string), string ofmLink = default(string), string ofmProductId = default(string), bool entitled = default(bool), string providerName = default(string))
+        /// <param name="dataFeed">Flag indicating if this product is available in a data feed.</param>
+        /// <param name="api">Flag indicating if this product is available in an api.</param>
+        /// <param name="referenceDataFeed">Flag indicating if this product is maintained by RDF/UCF.</param>
+        public Product(string id = default(string), string name = default(string), string ofmLink = default(string), string ofmProductId = default(string), bool entitled = default(bool), string providerName = default(string), bool dataFeed = default(bool), bool api = default(bool), bool referenceDataFeed = default(bool))
         {
             this.Id = id;
             this.Name = name;
@@ -48,6 +51,9 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             this.OfmProductId = ofmProductId;
             this.Entitled = entitled;
             this.ProviderName = providerName;
+            this.DataFeed = dataFeed;
+            this.Api = api;
+            this.ReferenceDataFeed = referenceDataFeed;
         }
 
         /// <summary>
@@ -93,6 +99,27 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         public string ProviderName { get; set; }
 
         /// <summary>
+        /// Flag indicating if this product is available in a data feed
+        /// </summary>
+        /// <value>Flag indicating if this product is available in a data feed</value>
+        [DataMember(Name = "dataFeed", EmitDefaultValue = true)]
+        public bool DataFeed { get; set; }
+
+        /// <summary>
+        /// Flag indicating if this product is available in an api
+        /// </summary>
+        /// <value>Flag indicating if this product is available in an api</value>
+        [DataMember(Name = "api", EmitDefaultValue = true)]
+        public bool Api { get; set; }
+
+        /// <summary>
+        /// Flag indicating if this product is maintained by RDF/UCF
+        /// </summary>
+        /// <value>Flag indicating if this product is maintained by RDF/UCF</value>
+        [DataMember(Name = "referenceDataFeed", EmitDefaultValue = true)]
+        public bool ReferenceDataFeed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +133,9 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             sb.Append("  OfmProductId: ").Append(OfmProductId).Append("\n");
             sb.Append("  Entitled: ").Append(Entitled).Append("\n");
             sb.Append("  ProviderName: ").Append(ProviderName).Append("\n");
+            sb.Append("  DataFeed: ").Append(DataFeed).Append("\n");
+            sb.Append("  Api: ").Append(Api).Append("\n");
+            sb.Append("  ReferenceDataFeed: ").Append(ReferenceDataFeed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +199,18 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                     this.ProviderName == input.ProviderName ||
                     (this.ProviderName != null &&
                     this.ProviderName.Equals(input.ProviderName))
+                ) && 
+                (
+                    this.DataFeed == input.DataFeed ||
+                    this.DataFeed.Equals(input.DataFeed)
+                ) && 
+                (
+                    this.Api == input.Api ||
+                    this.Api.Equals(input.Api)
+                ) && 
+                (
+                    this.ReferenceDataFeed == input.ReferenceDataFeed ||
+                    this.ReferenceDataFeed.Equals(input.ReferenceDataFeed)
                 );
         }
 
@@ -202,6 +244,9 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                 {
                     hashCode = (hashCode * 59) + this.ProviderName.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.DataFeed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Api.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReferenceDataFeed.GetHashCode();
                 return hashCode;
             }
         }

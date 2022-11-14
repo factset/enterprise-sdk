@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**template** | **String** |  | 
 **title** | **String** |  | 
-**templateData** | [**NoAnswersFoundAllOfTemplateData**](NoAnswersFoundAllOfTemplateData.md) |  | 
+**templateData** | [**AnswerWithoutDataAllOfTemplateData**](AnswerWithoutDataAllOfTemplateData.md) |  | 
 **message** | **String** |  | 
 **querySuggestions** | **[String]** |  | 
 

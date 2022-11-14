@@ -34,7 +34,6 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * Template
  */
 @JsonPropertyOrder({
-  Template.JSON_PROPERTY_TEMPLATE_NAME,
   Template.JSON_PROPERTY_HEADLINE,
   Template.JSON_PROPERTY_FOOTER,
   Template.JSON_PROPERTY_FDC3_CONTEXT
@@ -42,9 +41,6 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Template implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  public static final String JSON_PROPERTY_TEMPLATE_NAME = "templateName";
-  private String templateName;
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
@@ -60,39 +56,11 @@ public class Template implements Serializable {
 
   @JsonCreator
   public Template(
-    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_NAME, required=true) String templateName, 
     @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
   ) {
     this();
-    this.templateName = templateName;
     this.headline = headline;
   }
-
-  public Template templateName(String templateName) {
-    this.templateName = templateName;
-    return this;
-  }
-
-   /**
-   * Get templateName
-   * @return templateName
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTemplateName() {
-    return templateName;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplateName(String templateName) {
-    this.templateName = templateName;
-  }
-
 
   public Template headline(String headline) {
     this.headline = headline;
@@ -184,22 +152,20 @@ public class Template implements Serializable {
       return false;
     }
     Template template = (Template) o;
-    return Objects.equals(this.templateName, template.templateName) &&
-        Objects.equals(this.headline, template.headline) &&
+    return Objects.equals(this.headline, template.headline) &&
         Objects.equals(this.footer, template.footer) &&
         Objects.equals(this.fdc3Context, template.fdc3Context);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateName, headline, footer, fdc3Context);
+    return Objects.hash(headline, footer, fdc3Context);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Template {\n");
-    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
     sb.append("    footer: ").append(toIndentedString(footer)).append("\n");
     sb.append("    fdc3Context: ").append(toIndentedString(fdc3Context)).append("\n");

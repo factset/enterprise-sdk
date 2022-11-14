@@ -50,7 +50,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         DocumentsApi apiInstance = new DocumentsApi(defaultClient);
-        String path = "Client:folder1/folder2"; // String | The directory to get the documents in
+        String path = "SPAR_DOCUMENTS:Factset Default Document"; // String | The directory to get the documents in
         try {
             DocumentDirectoriesRoot result = apiInstance.getSPAR3Documents(path);
             System.out.println(result);
@@ -71,7 +71,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The directory to get the documents in | [default to Client:folder1/folder2]
+ **path** | **String**| The directory to get the documents in | [default to SPAR_DOCUMENTS:Factset Default Document]
 
 ### Return type
 

@@ -42,7 +42,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ComponentsApi();
-const document = "'Client:Foo'"; // String | Document Name
+const document = "'Client:'"; // String | Document Name
 
 // Call api endpoint
 apiInstance.getSPARComponents(document).then(
@@ -64,7 +64,7 @@ apiInstance.getSPARComponents(document).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **String**| Document Name | [default to &#39;Client:Foo&#39;]
+ **document** | **String**| Document Name | [default to &#39;Client:&#39;]
 
 ### Return type
 

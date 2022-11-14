@@ -1,14 +1,14 @@
 {
   "packageName": "fds.sdk.ContentFeedsDataDictionary",
   "projectName": "fds.sdk.ContentFeedsDataDictionary",
-  "packageVersion": "0.21.1",
+  "packageVersion": "0.21.2",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache License, Version 2.0",
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "packageDescription": "Content Feeds Data Dictionary client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ContentFeedsDataDictionary/v1",
-  "httpUserAgent": "fds-sdk/python/ContentFeedsDataDictionary/0.21.1",
+  "httpUserAgent": "fds-sdk/python/ContentFeedsDataDictionary/0.21.2",
   "files": {
     "LICENSE": {}
   }

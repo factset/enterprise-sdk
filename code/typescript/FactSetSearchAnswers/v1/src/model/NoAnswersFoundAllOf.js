@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import NoAnswersFoundAllOfTemplateData from './NoAnswersFoundAllOfTemplateData';
 
 /**
  * The NoAnswersFoundAllOf model module.
@@ -23,11 +22,10 @@ class NoAnswersFoundAllOf {
      * Constructs a new <code>NoAnswersFoundAllOf</code>.
      * @alias module:model/NoAnswersFoundAllOf
      * @param querySuggestions {Array.<String>} 
-     * @param templateData {module:model/NoAnswersFoundAllOfTemplateData} 
      */
-    constructor(querySuggestions, templateData) { 
+    constructor(querySuggestions) { 
         
-        NoAnswersFoundAllOf.initialize(this, querySuggestions, templateData);
+        NoAnswersFoundAllOf.initialize(this, querySuggestions);
     }
 
     /**
@@ -35,9 +33,8 @@ class NoAnswersFoundAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, querySuggestions, templateData) { 
+    static initialize(obj, querySuggestions) { 
         obj['querySuggestions'] = querySuggestions;
-        obj['templateData'] = templateData;
     }
 
     /**
@@ -54,9 +51,6 @@ class NoAnswersFoundAllOf {
             if (data.hasOwnProperty('querySuggestions')) {
                 obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
             }
-            if (data.hasOwnProperty('templateData')) {
-                obj['templateData'] = NoAnswersFoundAllOfTemplateData.constructFromObject(data['templateData']);
-            }
         }
         return obj;
     }
@@ -68,11 +62,6 @@ class NoAnswersFoundAllOf {
  * @member {Array.<String>} querySuggestions
  */
 NoAnswersFoundAllOf.prototype['querySuggestions'] = undefined;
-
-/**
- * @member {module:model/NoAnswersFoundAllOfTemplateData} templateData
- */
-NoAnswersFoundAllOf.prototype['templateData'] = undefined;
 
 
 

@@ -15,6 +15,14 @@ import ApiClient from './ApiClient';
 import Error from './model/Error';
 import ErrorsRoot from './model/ErrorsRoot';
 import HTTPError from './model/HTTPError';
+import NEREntity from './model/NEREntity';
+import NEREntityList from './model/NEREntityList';
+import NERErrorSchema from './model/NERErrorSchema';
+import NERInputDataSchema from './model/NERInputDataSchema';
+import NERInputSchema from './model/NERInputSchema';
+import NEROrganization from './model/NEROrganization';
+import NERResponseSchema from './model/NERResponseSchema';
+import NERValidationError from './model/NERValidationError';
 import SummarizationRequest from './model/SummarizationRequest';
 import SummarizationResult from './model/SummarizationResult';
 import SummarizationResultID from './model/SummarizationResultID';
@@ -28,6 +36,7 @@ import ValidationErrorDetailLocation from './model/ValidationErrorDetailLocation
 
 import AITextSummarizationApi from './api/AITextSummarizationApi';
 import AIThemesApi from './api/AIThemesApi';
+import NamedEntityRecognitionApi from './api/NamedEntityRecognitionApi';
 
 
 /**
@@ -84,6 +93,54 @@ export {
      * @property {module:model/HTTPError}
      */
     HTTPError,
+
+    /**
+     * The NEREntity model constructor.
+     * @property {module:model/NEREntity}
+     */
+    NEREntity,
+
+    /**
+     * The NEREntityList model constructor.
+     * @property {module:model/NEREntityList}
+     */
+    NEREntityList,
+
+    /**
+     * The NERErrorSchema model constructor.
+     * @property {module:model/NERErrorSchema}
+     */
+    NERErrorSchema,
+
+    /**
+     * The NERInputDataSchema model constructor.
+     * @property {module:model/NERInputDataSchema}
+     */
+    NERInputDataSchema,
+
+    /**
+     * The NERInputSchema model constructor.
+     * @property {module:model/NERInputSchema}
+     */
+    NERInputSchema,
+
+    /**
+     * The NEROrganization model constructor.
+     * @property {module:model/NEROrganization}
+     */
+    NEROrganization,
+
+    /**
+     * The NERResponseSchema model constructor.
+     * @property {module:model/NERResponseSchema}
+     */
+    NERResponseSchema,
+
+    /**
+     * The NERValidationError model constructor.
+     * @property {module:model/NERValidationError}
+     */
+    NERValidationError,
 
     /**
      * The SummarizationRequest model constructor.
@@ -156,5 +213,11 @@ export {
     * @property {module:api/AIThemesApi}
     */
     AIThemesApi,
+
+    /**
+    * The NamedEntityRecognitionApi service constructor.
+    * @property {module:api/NamedEntityRecognitionApi}
+    */
+    NamedEntityRecognitionApi,
 
 };

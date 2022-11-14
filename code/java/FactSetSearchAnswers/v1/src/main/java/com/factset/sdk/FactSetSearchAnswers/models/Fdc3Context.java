@@ -23,6 +23,8 @@ import com.factset.sdk.FactSetSearchAnswers.models.Fdc3Instrument;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
@@ -92,6 +94,30 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
         public Fdc3Context deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
+            Fdc3Context newFdc3Context = new Fdc3Context();
+            Map<String,Object> result2 = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
+            String discriminatorValue = (String)result2.get("type");
+            switch (discriminatorValue) {
+                case "Fdc3Country":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Country.class);
+                    newFdc3Context.setActualInstance(deserialized);
+                    return newFdc3Context;
+                case "Fdc3Instrument":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Instrument.class);
+                    newFdc3Context.setActualInstance(deserialized);
+                    return newFdc3Context;
+                case "fdc3.country":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Country.class);
+                    newFdc3Context.setActualInstance(deserialized);
+                    return newFdc3Context;
+                case "fdc3.instrument":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Fdc3Instrument.class);
+                    newFdc3Context.setActualInstance(deserialized);
+                    return newFdc3Context;
+                default:
+                    log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for Fdc3Context. Possible values: Fdc3Country Fdc3Instrument fdc3.country fdc3.instrument", discriminatorValue));
+            }
+
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
@@ -185,6 +211,14 @@ public class Fdc3Context extends AbstractOpenApiSchema implements Serializable {
         schemas.put("Fdc3Instrument", new GenericType<Fdc3Instrument>() {
         });
         JSON.registerDescendants(Fdc3Context.class, Collections.unmodifiableMap(schemas));
+        // Initialize and register the discriminator mappings.
+        Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
+        mappings.put("Fdc3Country", Fdc3Country.class);
+        mappings.put("Fdc3Instrument", Fdc3Instrument.class);
+        mappings.put("fdc3.country", Fdc3Country.class);
+        mappings.put("fdc3.instrument", Fdc3Instrument.class);
+        mappings.put("Fdc3Context", Fdc3Context.class);
+        JSON.registerDiscriminator(Fdc3Context.class, "type", mappings);
     }
 
     @Override

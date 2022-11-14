@@ -88,10 +88,10 @@ namespace Example
 
             var apiInstance = new FundFlowsAUMApi(config);
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-            var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
+            var startDate = "2018-12-31";  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
+            var endDate = "2019-12-31";  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var frequency = "MTD";  // string | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional)  (default to M)
-            var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
+            var currency = "\"LOCAL\"";  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
             var dataType = "ROLL";  // string | The Data Type of the NAV expressed as Raw or Rolled values. (optional)  (default to ROLL)
 
             try

@@ -51,8 +51,8 @@ namespace Example
 
             var apiInstance = new EstimateTablesApi(config);
 
-            var id = FDS;  // string | Company Ticker
-            var metric = EPS;  // string | Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional) 
+            var id = "FDS";  // string | Company Ticker
+            var metric = "EPS";  // string | Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional) 
 
             try
             {

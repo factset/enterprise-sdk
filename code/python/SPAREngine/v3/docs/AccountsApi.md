@@ -71,7 +71,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the accounts and sub-directories in | defaults to "Client:Foo/Bar"
+ **path** | **str**| The directory to get the accounts and sub-directories in | defaults to "Client:"
 
 ### Return type
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 Get SPAR account returns type details
 
-This endpoint returns the returns type of account associated with an account
+This endpoint returns the returns type of account associated with SPAR
 
 ### Example
 

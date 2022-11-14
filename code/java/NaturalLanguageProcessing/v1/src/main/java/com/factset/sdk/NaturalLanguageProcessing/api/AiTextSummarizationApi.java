@@ -81,7 +81,7 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * POST request for summarizing an input text
+   * Endpoint to summarize and generate a headline from text
    * 
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
@@ -100,7 +100,7 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * POST request for summarizing an input text
+   * Endpoint to summarize and generate a headline from text
    * 
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;
@@ -155,7 +155,7 @@ public class AiTextSummarizationApi {
 
   }
   /**
-   * POST request for summarizing an input text
+   * Endpoint to generate a headline from text
    * 
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
@@ -174,7 +174,7 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * POST request for summarizing an input text
+   * Endpoint to generate a headline from text
    * 
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;
@@ -229,7 +229,7 @@ public class AiTextSummarizationApi {
 
   }
   /**
-   * GET request for obtaining response of a particular processing job
+   * Endpoint to obtain result of a particular summarization job
    * 
    * @param resultId  (required)
    * @return SummarizationResult
@@ -249,7 +249,7 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * GET request for obtaining response of a particular processing job
+   * Endpoint to obtain result of a particular summarization job
    * 
    * @param resultId  (required)
    * @return ApiResponse&lt;SummarizationResult&gt;
@@ -311,7 +311,7 @@ public class AiTextSummarizationApi {
 
   }
   /**
-   * POST request for summarizing an input text
+   * Endpoint to summarize text
    * 
    * @param summarizationRequest  (optional)
    * @return SummarizationResultID
@@ -330,7 +330,7 @@ public class AiTextSummarizationApi {
   }
 
   /**
-   * POST request for summarizing an input text
+   * Endpoint to summarize text
    * 
    * @param summarizationRequest  (optional)
    * @return ApiResponse&lt;SummarizationResultID&gt;

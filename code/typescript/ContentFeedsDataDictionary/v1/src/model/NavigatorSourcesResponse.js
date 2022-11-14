@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import ApiEndpoint from './ApiEndpoint';
+import ReferenceGroup from './ReferenceGroup';
 import Table from './Table';
 
 /**
@@ -56,6 +57,9 @@ class NavigatorSourcesResponse {
             if (data.hasOwnProperty('contentApi')) {
                 obj['contentApi'] = ApiClient.convertToType(data['contentApi'], [ApiEndpoint]);
             }
+            if (data.hasOwnProperty('reference')) {
+                obj['reference'] = ApiClient.convertToType(data['reference'], [ReferenceGroup]);
+            }
         }
         return obj;
     }
@@ -72,6 +76,11 @@ NavigatorSourcesResponse.prototype['sdf'] = undefined;
  * @member {Array.<module:model/ApiEndpoint>} contentApi
  */
 NavigatorSourcesResponse.prototype['contentApi'] = undefined;
+
+/**
+ * @member {Array.<module:model/ReferenceGroup>} reference
+ */
+NavigatorSourcesResponse.prototype['reference'] = undefined;
 
 
 

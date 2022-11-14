@@ -4,10 +4,10 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlineAndSummaryPost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | POST request for summarizing an input text
-[**cognitiveNlpV1SummarizationHeadlinePost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlinePost) | **POST** /cognitive/nlp/v1/summarization/headline | POST request for summarizing an input text
-[**cognitiveNlpV1SummarizationResultResultIdGet**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationResultResultIdGet) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | GET request for obtaining response of a particular processing job
-[**cognitiveNlpV1SummarizationSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationSummaryPost) | **POST** /cognitive/nlp/v1/summarization/summary | POST request for summarizing an input text
+[**cognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlineAndSummaryPost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**cognitiveNlpV1SummarizationHeadlinePost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationHeadlinePost) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
+[**cognitiveNlpV1SummarizationResultResultIdGet**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationResultResultIdGet) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
+[**cognitiveNlpV1SummarizationSummaryPost**](AiTextSummarizationApi.md#cognitiveNlpV1SummarizationSummaryPost) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > SummarizationResultID cognitiveNlpV1SummarizationHeadlineAndSummaryPost(summarizationRequest)
 
-POST request for summarizing an input text
+Endpoint to summarize and generate a headline from text
 
 ### Example
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 > SummarizationResultID cognitiveNlpV1SummarizationHeadlinePost(summarizationRequest)
 
-POST request for summarizing an input text
+Endpoint to generate a headline from text
 
 ### Example
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 > SummarizationResult cognitiveNlpV1SummarizationResultResultIdGet(resultId)
 
-GET request for obtaining response of a particular processing job
+Endpoint to obtain result of a particular summarization job
 
 ### Example
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 > SummarizationResultID cognitiveNlpV1SummarizationSummaryPost(summarizationRequest)
 
-POST request for summarizing an input text
+Endpoint to summarize text
 
 ### Example
 

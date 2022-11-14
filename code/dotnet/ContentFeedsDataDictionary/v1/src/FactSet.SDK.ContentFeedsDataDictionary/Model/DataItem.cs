@@ -35,17 +35,21 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// Initializes a new instance of the <see cref="DataItem" /> class.
         /// </summary>
         /// <param name="id">Unique identifier for the data item.</param>
-        /// <param name="source">Unique identifier for the product source.</param>
         /// <param name="name">Name of the data item.</param>
         /// <param name="description">Description of the data item.</param>
         /// <param name="entitled">Flag indicating if the user is entitled to access the data in their subscriptions.</param>
-        public DataItem(int id = default(int), string source = default(string), string name = default(string), string description = default(string), bool entitled = default(bool))
+        /// <param name="dataFeed">Flag indicating if this item is available in a data feed.</param>
+        /// <param name="api">Flag indicating if this item is available in an api.</param>
+        /// <param name="referenceDataFeed">Flag indicating if this product is maintained by RDF/UCF.</param>
+        public DataItem(int id = default(int), string name = default(string), string description = default(string), bool entitled = default(bool), bool dataFeed = default(bool), bool api = default(bool), bool referenceDataFeed = default(bool))
         {
             this.Id = id;
-            this.Source = source;
             this.Name = name;
             this.Description = description;
             this.Entitled = entitled;
+            this.DataFeed = dataFeed;
+            this.Api = api;
+            this.ReferenceDataFeed = referenceDataFeed;
         }
 
         /// <summary>
@@ -54,13 +58,6 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// <value>Unique identifier for the data item</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
-
-        /// <summary>
-        /// Unique identifier for the product source
-        /// </summary>
-        /// <value>Unique identifier for the product source</value>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
-        public string Source { get; set; }
 
         /// <summary>
         /// Name of the data item
@@ -84,6 +81,27 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         public bool Entitled { get; set; }
 
         /// <summary>
+        /// Flag indicating if this item is available in a data feed
+        /// </summary>
+        /// <value>Flag indicating if this item is available in a data feed</value>
+        [DataMember(Name = "dataFeed", EmitDefaultValue = true)]
+        public bool DataFeed { get; set; }
+
+        /// <summary>
+        /// Flag indicating if this item is available in an api
+        /// </summary>
+        /// <value>Flag indicating if this item is available in an api</value>
+        [DataMember(Name = "api", EmitDefaultValue = true)]
+        public bool Api { get; set; }
+
+        /// <summary>
+        /// Flag indicating if this product is maintained by RDF/UCF
+        /// </summary>
+        /// <value>Flag indicating if this product is maintained by RDF/UCF</value>
+        [DataMember(Name = "referenceDataFeed", EmitDefaultValue = true)]
+        public bool ReferenceDataFeed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,10 +110,12 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class DataItem {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Entitled: ").Append(Entitled).Append("\n");
+            sb.Append("  DataFeed: ").Append(DataFeed).Append("\n");
+            sb.Append("  Api: ").Append(Api).Append("\n");
+            sb.Append("  ReferenceDataFeed: ").Append(ReferenceDataFeed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,11 +156,6 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -153,6 +168,18 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                 (
                     this.Entitled == input.Entitled ||
                     this.Entitled.Equals(input.Entitled)
+                ) && 
+                (
+                    this.DataFeed == input.DataFeed ||
+                    this.DataFeed.Equals(input.DataFeed)
+                ) && 
+                (
+                    this.Api == input.Api ||
+                    this.Api.Equals(input.Api)
+                ) && 
+                (
+                    this.ReferenceDataFeed == input.ReferenceDataFeed ||
+                    this.ReferenceDataFeed.Equals(input.ReferenceDataFeed)
                 );
         }
 
@@ -166,10 +193,6 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                if (this.Source != null)
-                {
-                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
-                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -179,6 +202,9 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Entitled.GetHashCode();
+                hashCode = (hashCode * 59) + this.DataFeed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Api.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReferenceDataFeed.GetHashCode();
                 return hashCode;
             }
         }

@@ -153,7 +153,7 @@ public class AccountsApi {
   }
   /**
    * Get SPAR account returns type details
-   * This endpoint returns the returns type of account associated with an account
+   * This endpoint returns the returns type of account associated with SPAR
    * @param accountPath URL encoded account path (required)
    * @return SPARAccountsRoot
    * @throws ApiException if fails to make API call
@@ -177,7 +177,7 @@ public class AccountsApi {
 
   /**
    * Get SPAR account returns type details
-   * This endpoint returns the returns type of account associated with an account
+   * This endpoint returns the returns type of account associated with SPAR
    * @param accountPath URL encoded account path (required)
    * @return ApiResponse&lt;SPARAccountsRoot&gt;
    * @throws ApiException if fails to make API call

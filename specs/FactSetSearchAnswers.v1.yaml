@@ -138,9 +138,39 @@ components:
           $ref: '#/components/schemas/DataAnswerData'
     DataAnswerData:
       oneOf:
-        - $ref: '#/components/schemas/Answer'
+        - $ref: '#/components/schemas/LinkTextBlockAnswer'
+        - $ref: '#/components/schemas/TextBlockFootingAnswer'
+        - $ref: '#/components/schemas/PercentChangeLabelAnswer'
+        - $ref: '#/components/schemas/ValueChangeDateLabelAnswer'
+        - $ref: '#/components/schemas/RankedTableAnswer'
+        - $ref: '#/components/schemas/TableAnswer'
+        - $ref: '#/components/schemas/TableTableAnswer'
+        - $ref: '#/components/schemas/ValueLabelAnswer'
+        - $ref: '#/components/schemas/ValueLabelDateAnswer'
+        - $ref: '#/components/schemas/ColoredValueLabelDateAnswer'
+        - $ref: '#/components/schemas/ValueLabelDateTextBlockAnswer'
+        - $ref: '#/components/schemas/ValueLabelDateDataPairListAnswer'
+        - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeAnswer'
         - $ref: '#/components/schemas/AnswerWithoutData'
         - $ref: '#/components/schemas/NoAnswersFound'
+      discriminator:
+        propertyName: template
+        mapping:
+          LinkTextBlockTemplate: '#/components/schemas/LinkTextBlockAnswer'
+          TextBlockFootingTemplate: '#/components/schemas/TextBlockFootingAnswer'
+          PercentChangeLabelTemplate: '#/components/schemas/PercentChangeLabelAnswer'
+          ValueChangeDateLabelTemplate: '#/components/schemas/ValueChangeDateLabelAnswer'
+          RankedTableTemplate: '#/components/schemas/RankedTableAnswer'
+          TableTemplate: '#/components/schemas/TableAnswer'
+          TableTableTemplate: '#/components/schemas/TableTableAnswer'
+          ValueLabelTemplate: '#/components/schemas/ValueLabelAnswer'
+          ValueLabelDateTemplate: '#/components/schemas/ValueLabelDateAnswer'
+          ColoredValueLabelDateTemplate: '#/components/schemas/ColoredValueLabelDateAnswer'
+          ValueLabelDateTextBlockTemplate: '#/components/schemas/ValueLabelDateTextBlockAnswer'
+          ValueLabelDateDataPairListTemplate: '#/components/schemas/ValueLabelDateDataPairListAnswer'
+          LabelValueChangeLabelValueChangeTemplate: '#/components/schemas/LabelValueChangeLabelValueChangeAnswer'
+          AnswerWithoutDataTemplate: '#/components/schemas/AnswerWithoutData'
+          NoAnswerTemplate: '#/components/schemas/NoAnswersFound'
     AnswerFailureResponse:
       type: object
       required:
@@ -183,23 +213,31 @@ components:
           type: string
         parameter:
           type: string
-    Answer:
+    DataAnswer:
       type: object
       required:
-        - title
-        - templateData
+        - template
       properties:
-        title:
+        template:
           type: string
-        templateData:
-          $ref: '#/components/schemas/TemplateData'
+    AnswerWithTitle:
+      allOf:
+        - $ref: '#/components/schemas/DataAnswer'
+        - type: object
+          required:
+            - title
+          properties:
+            title:
+              type: string
     NoAnswersBase:
-      type: object
-      required:
-        - message
-      properties:
-        message:
-          type: string
+      allOf:
+        - $ref: '#/components/schemas/DataAnswer'
+        - type: object
+          required:
+            - message
+          properties:
+            message:
+              type: string
     AnswerWithoutData:
       allOf:
         - $ref: '#/components/schemas/NoAnswersBase'
@@ -212,11 +250,7 @@ components:
               type: string
             templateData:
               type: object
-              required:
-                - templateName
               properties:
-                templateName:
-                  type: string
                 fdc3Context:
                   $ref: '#/components/schemas/Fdc3Context'
     NoAnswersFound:
@@ -225,19 +259,11 @@ components:
         - type: object
           required:
             - querySuggestions
-            - templateData
           properties:
             querySuggestions:
               type: array
               items:
                 type: string
-            templateData:
-              type: object
-              required:
-                - templateName
-              properties:
-                templateName:
-                  type: string
     Fdc3Country:
       type: object
       required:
@@ -270,6 +296,11 @@ components:
       oneOf:
         - $ref: '#/components/schemas/Fdc3Instrument'
         - $ref: '#/components/schemas/Fdc3Country'
+      discriminator:
+        propertyName: type
+        mapping:
+          fdc3.instrument: '#/components/schemas/Fdc3Instrument'
+          fdc3.country: '#/components/schemas/Fdc3Country'
     CountryID:
       type: object
       properties:
@@ -304,10 +335,7 @@ components:
       type: object
       required:
         - headline
-        - templateName
       properties:
-        templateName:
-          type: string
         headline:
           type: string
         footer:
@@ -325,7 +353,125 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/ApplicationLink'
-    LinkTextBlockTemplate:
+    LinkTextBlockAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/LinkTextBlockTemplateData'
+    TextBlockFootingAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/TextBlockFootingTemplateData'
+    PercentChangeLabelAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/PercentChangeLabelTemplateData'
+    ValueChangeDateLabelAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ValueChangeDateLabelTemplateData'
+    RankedTableAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/RankedTableTemplateData'
+    TableAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/TableTemplateData'
+    TableTableAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/TableTableTemplateData'
+    ValueLabelAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ValueLabelTemplateData'
+    ValueLabelDateAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ValueLabelDateTemplateData'
+    ColoredValueLabelDateAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ColoredValueLabelDateTemplateData'
+    ValueLabelDateTextBlockAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ValueLabelDateTextBlockTemplateData'
+    ValueLabelDateDataPairListAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: '#/components/schemas/ValueLabelDateDataPairListTemplateData'
+    LabelValueChangeLabelValueChangeAnswer:
+      allOf:
+        - $ref: '#/components/schemas/AnswerWithTitle'
+        - type: object
+          required:
+            - templateData
+          properties:
+            templateData:
+              $ref: >-
+                #/components/schemas/LabelValueChangeLabelValueChangeTemplateData
+    LinkTextBlockTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -334,7 +480,7 @@ components:
               type: string
             text:
               type: string
-    TextBlockFootingTemplate:
+    TextBlockFootingTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -343,7 +489,7 @@ components:
               type: string
             footing:
               $ref: '#/components/schemas/TitledTextBlock'
-    PercentChangeLabelTemplate:
+    PercentChangeLabelTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -352,7 +498,7 @@ components:
               $ref: '#/components/schemas/PercentChange'
             label:
               type: string
-    ValueChangeDateLabelTemplate:
+    ValueChangeDateLabelTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -365,21 +511,21 @@ components:
               type: string
             label:
               type: string
-    RankedTableTemplate:
+    RankedTableTemplateData:
       allOf:
         - $ref: '#/components/schemas/Template'
         - type: object
           properties:
             table:
               $ref: '#/components/schemas/RankedTable'
-    TableTemplate:
+    TableTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
           properties:
             table:
               $ref: '#/components/schemas/Table'
-    TableTableTemplate:
+    TableTableTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -388,7 +534,7 @@ components:
               $ref: '#/components/schemas/Table'
             table2:
               $ref: '#/components/schemas/Table'
-    ValueLabelTemplate:
+    ValueLabelTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -397,7 +543,7 @@ components:
               type: string
             label:
               type: string
-    ValueLabelDateTemplate:
+    ValueLabelDateTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -408,7 +554,7 @@ components:
               type: string
             date:
               type: string
-    ColoredValueLabelDateTemplate:
+    ColoredValueLabelDateTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -419,7 +565,7 @@ components:
               type: string
             date:
               type: string
-    ValueLabelDateTextBlockTemplate:
+    ValueLabelDateTextBlockTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -432,7 +578,7 @@ components:
               type: string
             text:
               type: string
-    ValueLabelDateDataPairListTemplate:
+    ValueLabelDateDataPairListTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -447,7 +593,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/DataPair'
-    LabelValueChangeLabelValueChangeTemplate:
+    LabelValueChangeLabelValueChangeTemplateData:
       allOf:
         - $ref: '#/components/schemas/TemplateWithLinks'
         - type: object
@@ -462,23 +608,6 @@ components:
               type: string
             label2:
               type: string
-    TemplateData:
-      oneOf:
-        - $ref: '#/components/schemas/LinkTextBlockTemplate'
-        - $ref: '#/components/schemas/TextBlockFootingTemplate'
-        - $ref: '#/components/schemas/PercentChangeLabelTemplate'
-        - $ref: '#/components/schemas/ValueChangeDateLabelTemplate'
-        - $ref: '#/components/schemas/RankedTableTemplate'
-        - $ref: '#/components/schemas/TableTemplate'
-        - $ref: '#/components/schemas/TableTableTemplate'
-        - $ref: '#/components/schemas/ValueLabelTemplate'
-        - $ref: '#/components/schemas/ValueLabelDateTemplate'
-        - $ref: '#/components/schemas/ColoredValueLabelDateTemplate'
-        - $ref: '#/components/schemas/ValueLabelDateTextBlockTemplate'
-        - $ref: '#/components/schemas/ValueLabelDateDataPairListTemplate'
-        - $ref: '#/components/schemas/LabelValueChangeLabelValueChangeTemplate'
-      discriminator:
-        propertyName: templateName
     TitledTextBlock:
       type: object
       properties:

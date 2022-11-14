@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.ContentFeedsDataDictionary.models.ApiEndpoint;
+import com.factset.sdk.ContentFeedsDataDictionary.models.ReferenceGroup;
 import com.factset.sdk.ContentFeedsDataDictionary.models.Table;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,7 +37,8 @@ import com.factset.sdk.ContentFeedsDataDictionary.JSON;
  */
 @JsonPropertyOrder({
   NavigatorSourcesResponse.JSON_PROPERTY_SDF,
-  NavigatorSourcesResponse.JSON_PROPERTY_CONTENT_API
+  NavigatorSourcesResponse.JSON_PROPERTY_CONTENT_API,
+  NavigatorSourcesResponse.JSON_PROPERTY_REFERENCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NavigatorSourcesResponse implements Serializable {
@@ -47,6 +49,9 @@ public class NavigatorSourcesResponse implements Serializable {
 
   public static final String JSON_PROPERTY_CONTENT_API = "contentApi";
   private java.util.List<ApiEndpoint> contentApi = null;
+
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
+  private java.util.List<ReferenceGroup> reference = null;
 
   public NavigatorSourcesResponse() { 
   }
@@ -124,6 +129,40 @@ public class NavigatorSourcesResponse implements Serializable {
   }
 
 
+  public NavigatorSourcesResponse reference(java.util.List<ReferenceGroup> reference) {
+    this.reference = reference;
+    return this;
+  }
+
+  public NavigatorSourcesResponse addReferenceItem(ReferenceGroup referenceItem) {
+    if (this.reference == null) {
+      this.reference = new java.util.ArrayList<>();
+    }
+    this.reference.add(referenceItem);
+    return this;
+  }
+
+   /**
+   * Get reference
+   * @return reference
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<ReferenceGroup> getReference() {
+    return reference;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReference(java.util.List<ReferenceGroup> reference) {
+    this.reference = reference;
+  }
+
+
   /**
    * Return true if this NavigatorSourcesResponse object is equal to o.
    */
@@ -137,12 +176,13 @@ public class NavigatorSourcesResponse implements Serializable {
     }
     NavigatorSourcesResponse navigatorSourcesResponse = (NavigatorSourcesResponse) o;
     return Objects.equals(this.sdf, navigatorSourcesResponse.sdf) &&
-        Objects.equals(this.contentApi, navigatorSourcesResponse.contentApi);
+        Objects.equals(this.contentApi, navigatorSourcesResponse.contentApi) &&
+        Objects.equals(this.reference, navigatorSourcesResponse.reference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sdf, contentApi);
+    return Objects.hash(sdf, contentApi, reference);
   }
 
   @Override
@@ -151,6 +191,7 @@ public class NavigatorSourcesResponse implements Serializable {
     sb.append("class NavigatorSourcesResponse {\n");
     sb.append("    sdf: ").append(toIndentedString(sdf)).append("\n");
     sb.append("    contentApi: ").append(toIndentedString(contentApi)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();
   }

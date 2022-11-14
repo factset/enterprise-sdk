@@ -52,7 +52,7 @@ namespace Example
 
             var apiInstance = new OperationsApi(config);
 
-            var version = v1;  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             var calculateFromHoldingsRequestBody = new CalculateFromHoldingsRequestBody(); // CalculateFromHoldingsRequestBody | 
 
             try
@@ -149,7 +149,7 @@ namespace Example
 
             var apiInstance = new OperationsApi(config);
 
-            var version = v1;  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
             var generateIDMappingRequestBody = new GenerateIDMappingRequestBody(); // GenerateIDMappingRequestBody | 
 
             try

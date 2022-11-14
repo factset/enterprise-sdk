@@ -51,11 +51,11 @@ namespace Example
 
             var apiInstance = new RequestFilesApi(config);
 
-            var startDate = 2021-01-01;  // DateTime | The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
-            var endDate = 2021-01-31;  // DateTime | The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
-            var ticker = IBM,F,AAPL,GOOG;  // string | any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional) 
-            var isoCode = USA;  // string | iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p> (optional) 
-            var fields = *;  // string | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional)  (default to "*")
+            var startDate = DateTime.Parse("2021-01-01");  // DateTime | The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
+            var endDate = DateTime.Parse("2021-01-31");  // DateTime | The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
+            var ticker = "IBM,F,AAPL,GOOG";  // string | any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional) 
+            var isoCode = "USA";  // string | iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p> (optional) 
+            var fields = "\"*\"";  // string | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional)  (default to "*")
 
             try
             {

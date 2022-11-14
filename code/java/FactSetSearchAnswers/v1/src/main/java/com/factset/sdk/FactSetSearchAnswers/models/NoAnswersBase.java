@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.FactSetSearchAnswers.models.DataAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.NoAnswersBaseAllOf;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,11 +35,15 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * NoAnswersBase
  */
 @JsonPropertyOrder({
+  NoAnswersBase.JSON_PROPERTY_TEMPLATE,
   NoAnswersBase.JSON_PROPERTY_MESSAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NoAnswersBase implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private String template;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -47,11 +53,39 @@ public class NoAnswersBase implements Serializable {
 
   @JsonCreator
   public NoAnswersBase(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
     @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message
   ) {
     this();
+    this.template = template;
     this.message = message;
   }
+
+  public NoAnswersBase template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
 
   public NoAnswersBase message(String message) {
     this.message = message;
@@ -91,18 +125,20 @@ public class NoAnswersBase implements Serializable {
       return false;
     }
     NoAnswersBase noAnswersBase = (NoAnswersBase) o;
-    return Objects.equals(this.message, noAnswersBase.message);
+    return Objects.equals(this.template, noAnswersBase.template) &&
+        Objects.equals(this.message, noAnswersBase.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(template, message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NoAnswersBase {\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();

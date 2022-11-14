@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new CompanyApi(config);
 
-            var id = FDS;  // string | Company ticker
+            var id = "FDS";  // string | Company ticker
 
             try
             {
@@ -146,7 +146,7 @@ namespace Example
 
             var apiInstance = new CompanyApi(config);
 
-            var id = FDS;  // string | Company ticker
+            var id = "FDS";  // string | Company ticker
 
             try
             {
@@ -239,7 +239,7 @@ namespace Example
 
             var apiInstance = new CompanyApi(config);
 
-            var id = FDS;  // string | Company ticker
+            var id = "FDS";  // string | Company ticker
 
             try
             {
@@ -332,8 +332,8 @@ namespace Example
 
             var apiInstance = new CompanyApi(config);
 
-            var id = FDS;  // string | Company ticker
-            var topn = 5;  // decimal? | Limits the number of peers returned. (optional) 
+            var id = "FDS";  // string | Company ticker
+            var topn = 5D;  // decimal? | Limits the number of peers returned. (optional) 
 
             try
             {
@@ -427,9 +427,9 @@ namespace Example
 
             var apiInstance = new CompanyApi(config);
 
-            var id = FDS;  // string | Company ticker
-            var transactionType = ACQUISITION_MERGER;  // string | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional) 
-            var financingType = EQUITY;  // string | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional) 
+            var id = "FDS";  // string | Company ticker
+            var transactionType = "ACQUISITION_MERGER";  // string | Filters response to return only this type of transaction. If not specified, returns all transactions. Values are not case sensitive. (optional) 
+            var financingType = "DEBT";  // string | Filters response to return transactions of this financing type. If not specified, returns all transactions. Values are not case sensitive (optional) 
 
             try
             {

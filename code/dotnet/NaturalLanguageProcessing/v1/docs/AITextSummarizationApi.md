@@ -4,17 +4,17 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlineandsummarypost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | POST request for summarizing an input text
-[**CognitiveNlpV1SummarizationHeadlinePost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlinepost) | **POST** /cognitive/nlp/v1/summarization/headline | POST request for summarizing an input text
-[**CognitiveNlpV1SummarizationResultResultIdGet**](AITextSummarizationApi.md#cognitivenlpv1summarizationresultresultidget) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | GET request for obtaining response of a particular processing job
-[**CognitiveNlpV1SummarizationSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationsummarypost) | **POST** /cognitive/nlp/v1/summarization/summary | POST request for summarizing an input text
+[**CognitiveNlpV1SummarizationHeadlineAndSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlineandsummarypost) | **POST** /cognitive/nlp/v1/summarization/headline-and-summary | Endpoint to summarize and generate a headline from text
+[**CognitiveNlpV1SummarizationHeadlinePost**](AITextSummarizationApi.md#cognitivenlpv1summarizationheadlinepost) | **POST** /cognitive/nlp/v1/summarization/headline | Endpoint to generate a headline from text
+[**CognitiveNlpV1SummarizationResultResultIdGet**](AITextSummarizationApi.md#cognitivenlpv1summarizationresultresultidget) | **GET** /cognitive/nlp/v1/summarization/result/{result_id} | Endpoint to obtain result of a particular summarization job
+[**CognitiveNlpV1SummarizationSummaryPost**](AITextSummarizationApi.md#cognitivenlpv1summarizationsummarypost) | **POST** /cognitive/nlp/v1/summarization/summary | Endpoint to summarize text
 
 
 <a name="cognitivenlpv1summarizationheadlineandsummarypost"></a>
 # **CognitiveNlpV1SummarizationHeadlineAndSummaryPost**
 > SummarizationResultID CognitiveNlpV1SummarizationHeadlineAndSummaryPost (SummarizationRequest summarizationRequest = null)
 
-POST request for summarizing an input text
+Endpoint to summarize and generate a headline from text
 
 ### Example
 ```csharp
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // POST request for summarizing an input text
+                // Endpoint to summarize and generate a headline from text
                 SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationHeadlineAndSummaryPost(summarizationRequest);
                 Console.WriteLine(result.ToJson());
             }
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 # **CognitiveNlpV1SummarizationHeadlinePost**
 > SummarizationResultID CognitiveNlpV1SummarizationHeadlinePost (SummarizationRequest summarizationRequest = null)
 
-POST request for summarizing an input text
+Endpoint to generate a headline from text
 
 ### Example
 ```csharp
@@ -146,7 +146,7 @@ namespace Example
 
             try
             {
-                // POST request for summarizing an input text
+                // Endpoint to generate a headline from text
                 SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationHeadlinePost(summarizationRequest);
                 Console.WriteLine(result.ToJson());
             }
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 # **CognitiveNlpV1SummarizationResultResultIdGet**
 > SummarizationResult CognitiveNlpV1SummarizationResultResultIdGet (string resultId)
 
-GET request for obtaining response of a particular processing job
+Endpoint to obtain result of a particular summarization job
 
 ### Example
 ```csharp
@@ -236,7 +236,7 @@ namespace Example
 
             try
             {
-                // GET request for obtaining response of a particular processing job
+                // Endpoint to obtain result of a particular summarization job
                 SummarizationResult result = apiInstance.CognitiveNlpV1SummarizationResultResultIdGet(resultId);
                 Console.WriteLine(result.ToJson());
             }
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 # **CognitiveNlpV1SummarizationSummaryPost**
 > SummarizationResultID CognitiveNlpV1SummarizationSummaryPost (SummarizationRequest summarizationRequest = null)
 
-POST request for summarizing an input text
+Endpoint to summarize text
 
 ### Example
 ```csharp
@@ -327,7 +327,7 @@ namespace Example
 
             try
             {
-                // POST request for summarizing an input text
+                // Endpoint to summarize text
                 SummarizationResultID result = apiInstance.CognitiveNlpV1SummarizationSummaryPost(summarizationRequest);
                 Console.WriteLine(result.ToJson());
             }

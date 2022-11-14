@@ -150,13 +150,13 @@ namespace Example
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
             var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
-            var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
-            var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
+            var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
+            var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
-            var sort = -userRelevanceScore,-eventDate;  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
 
             try
             {
@@ -346,13 +346,13 @@ namespace Example
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
             var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
-            var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
-            var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
+            var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
+            var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
-            var sort = -userRelevanceScore,-eventDate;  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
 
             try
             {
@@ -452,7 +452,7 @@ namespace Example
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
             var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
-            var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
+            var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
@@ -552,13 +552,13 @@ namespace Example
 
             var created = new DateTimeInterval(); // DateTimeInterval | A date/time (UTC) interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted. (optional) 
             var updated = new DateTimeInterval(); // DateTimeInterval | A date/time interval (UTC) for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted. (optional) 
-            var signalIds = dilutionTrigger,freeCashFlow;  // string |  (optional) 
-            var ids = FDS-US,AMZN-US;  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
+            var signalIds = "dilutionTrigger,freeCashFlow";  // string |  (optional) 
+            var ids = "FDS-US,AMZN-US";  // string | Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used. (optional) 
             var portfolios = "portfolios_example";  // string | Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb (optional) 
             var themes = "themes_example";  // string | Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes. (optional) 
             var categories = "categories_example";  // string | Comma delimited string of category ids. Full list of signal categories can be viewed at /categories. (optional) 
             var userRelevanceScore = new RelevanceScoreRange(); // RelevanceScoreRange | A range for filtering signal events based on their relevancy score. (optional) 
-            var sort = -userRelevanceScore,-eventDate;  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
+            var sort = "-userRelevanceScore,-eventDate";  // string | Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order). (optional) 
 
             try
             {

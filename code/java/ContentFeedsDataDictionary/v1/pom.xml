@@ -5,7 +5,7 @@
     <artifactId>contentfeedsdatadictionary</artifactId>
     <packaging>jar</packaging>
     <name>contentfeedsdatadictionary</name>
-    <version>0.21.2</version>
+    <version>0.21.3</version>
     <url>https://github.com/FactSet/enterprise-sdk</url>
     <description>Content Feeds Data Dictionary client library for Java</description>
     <scm>

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cognitiveNlpV1ThemesPost**](AiThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**cognitiveNlpV1ThemesPost**](AiThemesApi.md#cognitiveNlpV1ThemesPost) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ThemesRoot cognitiveNlpV1ThemesPost(themeParametersRoot)
 
-POST request to extract themes from text
+Endpoint to extract themes from text
 
 This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text.
 Example Output:

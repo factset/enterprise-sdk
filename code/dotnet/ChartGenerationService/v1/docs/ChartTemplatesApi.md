@@ -138,7 +138,7 @@ namespace Example
             var apiInstance = new ChartTemplatesApi(config);
 
             var categories = "categories_example";  // string | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional) 
-            var type = json;  // string | return type of the response (optional) 
+            var type = "json";  // string | return type of the response (optional) 
 
             try
             {
@@ -227,21 +227,21 @@ namespace Example
 
             var apiInstance = new ChartTemplatesApi(config);
 
-            var chart = Equity/RSI;  // string | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
-            var ids = FDS,AAPL;  // string | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional) 
-            var sd = -1Y;  // string | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
-            var ed = 0;  // string | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
-            var width = 600;  // long? | Option for setting the width of the image (optional)  (default to 1056)
-            var height = 500;  // long? | Option for setting the height of the image (optional)  (default to 816)
-            var freq = D;  // string | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional) 
-            var ccy = USD;  // string | Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time. (optional) 
-            var split = SPLIT;  // string | Option to specify the splits adjustment (optional) 
-            var spin = 1;  // decimal? | Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments) (optional) 
+            var chart = "Equity/RSI";  // string | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
+            var ids = "FDS,AAPL";  // string | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional) 
+            var sd = "-1Y";  // string | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
+            var ed = "0";  // string | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional) 
+            var width = 1056L;  // long? | Option for setting the width of the image (optional)  (default to 1056)
+            var height = 816L;  // long? | Option for setting the height of the image (optional)  (default to 816)
+            var freq = "D";  // string | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional) 
+            var ccy = "USD";  // string | Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time. (optional) 
+            var split = "SPLIT";  // string | Option to specify the splits adjustment (optional) 
+            var spin = 0D;  // decimal? | Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments) (optional) 
             var cal = "local";  // string | Option for the calendarType of the chart (optional)  (default to local)
             var title = "title_example";  // string | Option to customize the title. If you don't customize the title, then it displays by default the security name. (optional) 
-            var fontSize = 10;  // decimal? | Option to adjust chart's fontSize (optional) 
+            var fontSize = 10D;  // decimal? | Option to adjust chart's fontSize (optional) 
             var type = "png";  // string | The type of image to be generated by the service (optional)  (default to png)
-            var gridLines = false;  // bool? | Option to toggle gridLines on/off on the chart (optional)  (default to true)
+            var gridLines = true;  // bool? | Option to toggle gridLines on/off on the chart (optional)  (default to true)
 
             try
             {

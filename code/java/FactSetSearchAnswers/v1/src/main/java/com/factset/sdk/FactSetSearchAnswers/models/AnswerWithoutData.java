@@ -36,6 +36,7 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
  * AnswerWithoutData
  */
 @JsonPropertyOrder({
+  AnswerWithoutData.JSON_PROPERTY_TEMPLATE,
   AnswerWithoutData.JSON_PROPERTY_MESSAGE,
   AnswerWithoutData.JSON_PROPERTY_TITLE,
   AnswerWithoutData.JSON_PROPERTY_TEMPLATE_DATA
@@ -43,6 +44,9 @@ import com.factset.sdk.FactSetSearchAnswers.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnswerWithoutData implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private String template;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -58,15 +62,43 @@ public class AnswerWithoutData implements Serializable {
 
   @JsonCreator
   public AnswerWithoutData(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
     @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message, 
     @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title, 
     @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) AnswerWithoutDataAllOfTemplateData templateData
   ) {
     this();
+    this.template = template;
     this.message = message;
     this.title = title;
     this.templateData = templateData;
   }
+
+  public AnswerWithoutData template(String template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
 
   public AnswerWithoutData message(String message) {
     this.message = message;
@@ -158,20 +190,22 @@ public class AnswerWithoutData implements Serializable {
       return false;
     }
     AnswerWithoutData answerWithoutData = (AnswerWithoutData) o;
-    return Objects.equals(this.message, answerWithoutData.message) &&
+    return Objects.equals(this.template, answerWithoutData.template) &&
+        Objects.equals(this.message, answerWithoutData.message) &&
         Objects.equals(this.title, answerWithoutData.title) &&
         Objects.equals(this.templateData, answerWithoutData.templateData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, title, templateData);
+    return Objects.hash(template, message, title, templateData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnswerWithoutData {\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    templateData: ").append(toIndentedString(templateData)).append("\n");

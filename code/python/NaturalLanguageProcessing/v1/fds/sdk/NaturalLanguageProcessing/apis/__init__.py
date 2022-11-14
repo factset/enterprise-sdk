@@ -16,3 +16,4 @@
 # Import APIs into API package:
 from fds.sdk.NaturalLanguageProcessing.api.ai_text_summarization_api import AITextSummarizationApi
 from fds.sdk.NaturalLanguageProcessing.api.ai_themes_api import AIThemesApi
+from fds.sdk.NaturalLanguageProcessing.api.named_entity_recognition_api import NamedEntityRecognitionApi

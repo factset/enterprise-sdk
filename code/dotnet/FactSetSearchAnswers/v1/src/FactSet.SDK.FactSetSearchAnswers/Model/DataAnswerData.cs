@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.SDK.FactSetSearchAnswers.Client.OpenAPIDateConverter;
 using System.Reflection;
@@ -37,8 +38,140 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DataAnswerData" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Answer.</param>
-        public DataAnswerData(Answer actualInstance)
+        /// <param name="actualInstance">An instance of LinkTextBlockAnswer.</param>
+        public DataAnswerData(LinkTextBlockAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TextBlockFootingAnswer.</param>
+        public DataAnswerData(TextBlockFootingAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of PercentChangeLabelAnswer.</param>
+        public DataAnswerData(PercentChangeLabelAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueChangeDateLabelAnswer.</param>
+        public DataAnswerData(ValueChangeDateLabelAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of RankedTableAnswer.</param>
+        public DataAnswerData(RankedTableAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TableAnswer.</param>
+        public DataAnswerData(TableAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TableTableAnswer.</param>
+        public DataAnswerData(TableTableAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueLabelAnswer.</param>
+        public DataAnswerData(ValueLabelAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueLabelDateAnswer.</param>
+        public DataAnswerData(ValueLabelDateAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ColoredValueLabelDateAnswer.</param>
+        public DataAnswerData(ColoredValueLabelDateAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueLabelDateTextBlockAnswer.</param>
+        public DataAnswerData(ValueLabelDateTextBlockAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueLabelDateDataPairListAnswer.</param>
+        public DataAnswerData(ValueLabelDateDataPairListAnswer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataAnswerData" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of LabelValueChangeLabelValueChangeAnswer.</param>
+        public DataAnswerData(LabelValueChangeLabelValueChangeAnswer actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -81,7 +214,55 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value is Answer)
+                if (value is LinkTextBlockAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is TextBlockFootingAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is PercentChangeLabelAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueChangeDateLabelAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is RankedTableAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is TableAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is TableTableAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelDateAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ColoredValueLabelDateAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelDateTextBlockAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is ValueLabelDateDataPairListAnswer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value is LabelValueChangeLabelValueChangeAnswer)
                 {
                     this._actualInstance = value;
                 }
@@ -95,19 +276,139 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Answer, AnswerWithoutData, NoAnswersFound");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: LinkTextBlockAnswer, TextBlockFootingAnswer, PercentChangeLabelAnswer, ValueChangeDateLabelAnswer, RankedTableAnswer, TableAnswer, TableTableAnswer, ValueLabelAnswer, ValueLabelDateAnswer, ColoredValueLabelDateAnswer, ValueLabelDateTextBlockAnswer, ValueLabelDateDataPairListAnswer, LabelValueChangeLabelValueChangeAnswer, AnswerWithoutData, NoAnswersFound");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `Answer`. If the actual instance is not `Answer`,
+        /// Get the actual instance of `LinkTextBlockAnswer`. If the actual instance is not `LinkTextBlockAnswer`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Answer</returns>
-        public Answer GetAnswer()
+        /// <returns>An instance of LinkTextBlockAnswer</returns>
+        public LinkTextBlockAnswer GetLinkTextBlockAnswer()
         {
-            return (Answer)this.ActualInstance;
+            return (LinkTextBlockAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TextBlockFootingAnswer`. If the actual instance is not `TextBlockFootingAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TextBlockFootingAnswer</returns>
+        public TextBlockFootingAnswer GetTextBlockFootingAnswer()
+        {
+            return (TextBlockFootingAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `PercentChangeLabelAnswer`. If the actual instance is not `PercentChangeLabelAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of PercentChangeLabelAnswer</returns>
+        public PercentChangeLabelAnswer GetPercentChangeLabelAnswer()
+        {
+            return (PercentChangeLabelAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueChangeDateLabelAnswer`. If the actual instance is not `ValueChangeDateLabelAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueChangeDateLabelAnswer</returns>
+        public ValueChangeDateLabelAnswer GetValueChangeDateLabelAnswer()
+        {
+            return (ValueChangeDateLabelAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `RankedTableAnswer`. If the actual instance is not `RankedTableAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of RankedTableAnswer</returns>
+        public RankedTableAnswer GetRankedTableAnswer()
+        {
+            return (RankedTableAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TableAnswer`. If the actual instance is not `TableAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TableAnswer</returns>
+        public TableAnswer GetTableAnswer()
+        {
+            return (TableAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TableTableAnswer`. If the actual instance is not `TableTableAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TableTableAnswer</returns>
+        public TableTableAnswer GetTableTableAnswer()
+        {
+            return (TableTableAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueLabelAnswer`. If the actual instance is not `ValueLabelAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueLabelAnswer</returns>
+        public ValueLabelAnswer GetValueLabelAnswer()
+        {
+            return (ValueLabelAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueLabelDateAnswer`. If the actual instance is not `ValueLabelDateAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueLabelDateAnswer</returns>
+        public ValueLabelDateAnswer GetValueLabelDateAnswer()
+        {
+            return (ValueLabelDateAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ColoredValueLabelDateAnswer`. If the actual instance is not `ColoredValueLabelDateAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ColoredValueLabelDateAnswer</returns>
+        public ColoredValueLabelDateAnswer GetColoredValueLabelDateAnswer()
+        {
+            return (ColoredValueLabelDateAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueLabelDateTextBlockAnswer`. If the actual instance is not `ValueLabelDateTextBlockAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueLabelDateTextBlockAnswer</returns>
+        public ValueLabelDateTextBlockAnswer GetValueLabelDateTextBlockAnswer()
+        {
+            return (ValueLabelDateTextBlockAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueLabelDateDataPairListAnswer`. If the actual instance is not `ValueLabelDateDataPairListAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueLabelDateDataPairListAnswer</returns>
+        public ValueLabelDateDataPairListAnswer GetValueLabelDateDataPairListAnswer()
+        {
+            return (ValueLabelDateDataPairListAnswer)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `LabelValueChangeLabelValueChangeAnswer`. If the actual instance is not `LabelValueChangeLabelValueChangeAnswer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of LabelValueChangeLabelValueChangeAnswer</returns>
+        public LabelValueChangeLabelValueChangeAnswer GetLabelValueChangeLabelValueChangeAnswer()
+        {
+            return (LabelValueChangeLabelValueChangeAnswer)this.ActualInstance;
         }
 
         /// <summary>
@@ -165,24 +466,335 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 return newDataAnswerData;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["template"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "AnswerWithoutData":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<AnswerWithoutData>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "AnswerWithoutDataTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<AnswerWithoutData>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ColoredValueLabelDateAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ColoredValueLabelDateAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ColoredValueLabelDateTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ColoredValueLabelDateAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "LabelValueChangeLabelValueChangeAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<LabelValueChangeLabelValueChangeAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "LabelValueChangeLabelValueChangeTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<LabelValueChangeLabelValueChangeAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "LinkTextBlockAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<LinkTextBlockAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "LinkTextBlockTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<LinkTextBlockAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "NoAnswerTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<NoAnswersFound>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "NoAnswersFound":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<NoAnswersFound>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "PercentChangeLabelAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<PercentChangeLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "PercentChangeLabelTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<PercentChangeLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "RankedTableAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<RankedTableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "RankedTableTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<RankedTableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TableAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TableTableAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TableTableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TableTableTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TableTableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TableTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TableAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TextBlockFootingAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TextBlockFootingAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "TextBlockFootingTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<TextBlockFootingAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueChangeDateLabelAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueChangeDateLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueChangeDateLabelTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueChangeDateLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateDataPairListAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateDataPairListAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateDataPairListTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateDataPairListAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateTextBlockAnswer":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateTextBlockAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelDateTextBlockTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelDateTextBlockAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    case "ValueLabelTemplate":
+                        newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<ValueLabelAnswer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
+                        return newDataAnswerData;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for DataAnswerData. Possible values: AnswerWithoutData AnswerWithoutDataTemplate ColoredValueLabelDateAnswer ColoredValueLabelDateTemplate LabelValueChangeLabelValueChangeAnswer LabelValueChangeLabelValueChangeTemplate LinkTextBlockAnswer LinkTextBlockTemplate NoAnswerTemplate NoAnswersFound PercentChangeLabelAnswer PercentChangeLabelTemplate RankedTableAnswer RankedTableTemplate TableAnswer TableTableAnswer TableTableTemplate TableTemplate TextBlockFootingAnswer TextBlockFootingTemplate ValueChangeDateLabelAnswer ValueChangeDateLabelTemplate ValueLabelAnswer ValueLabelDateAnswer ValueLabelDateDataPairListAnswer ValueLabelDateDataPairListTemplate ValueLabelDateTemplate ValueLabelDateTextBlockAnswer ValueLabelDateTextBlockTemplate ValueLabelTemplate", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 
             try
             {
-                var hasAdditionalProperties = !(typeof(Answer).GetProperty("AdditionalProperties") is null);
-                var parsedValue = JsonConvert.DeserializeObject<Answer>(
+                var hasAdditionalProperties = !(typeof(LinkTextBlockAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<LinkTextBlockAnswer>(
                     jsonString,
                     hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
                 );
                 newDataAnswerData = new DataAnswerData(parsedValue);
-                matchedTypes.Add("Answer");
+                matchedTypes.Add("LinkTextBlockAnswer");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Answer: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LinkTextBlockAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(TextBlockFootingAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<TextBlockFootingAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("TextBlockFootingAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TextBlockFootingAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(PercentChangeLabelAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<PercentChangeLabelAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("PercentChangeLabelAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PercentChangeLabelAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ValueChangeDateLabelAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueChangeDateLabelAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ValueChangeDateLabelAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueChangeDateLabelAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(RankedTableAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<RankedTableAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("RankedTableAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RankedTableAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(TableAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<TableAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("TableAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TableAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(TableTableAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<TableTableAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("TableTableAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TableTableAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ValueLabelAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueLabelAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ValueLabelAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueLabelAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ValueLabelDateAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ValueLabelDateAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueLabelDateAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ColoredValueLabelDateAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ColoredValueLabelDateAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ColoredValueLabelDateAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ColoredValueLabelDateAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ValueLabelDateTextBlockAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateTextBlockAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ValueLabelDateTextBlockAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueLabelDateTextBlockAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(ValueLabelDateDataPairListAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueLabelDateDataPairListAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("ValueLabelDateDataPairListAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueLabelDateDataPairListAnswer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(LabelValueChangeLabelValueChangeAnswer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<LabelValueChangeLabelValueChangeAnswer>(
+                    jsonString,
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
+                matchedTypes.Add("LabelValueChangeLabelValueChangeAnswer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LabelValueChangeLabelValueChangeAnswer: {1}", jsonString, exception.ToString()));
             }
 
             try

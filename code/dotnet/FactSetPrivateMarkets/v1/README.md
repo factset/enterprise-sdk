@@ -76,7 +76,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DataItemsApi(config);
-            var category = FINANCIALS;  // string | Filters the list of available fields per endpoint  -   * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA.   * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.  (optional) 
+            var category = "FINANCIALS";  // string | Filters the list of available fields per endpoint  -   * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA.   * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.  (optional) 
 
             try
             {

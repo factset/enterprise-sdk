@@ -4,13 +4,13 @@
     "title": "ModelAccounts API",
     "description": "Allow clients to fetch ModelAccounts Analytics through APIs.",
     "contact": {
-      "name": "Analytics API Support",
+      "name": "FactSet Research Systems",
       "url": "https://developer.factset.com/contact",
-      "email": "analytics.api.support@factset.com"
+      "email": "api@factset.com"
     },
     "license": {
-      "name": "Apache License 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
     "version": "3"
   },
@@ -242,6 +242,13 @@
                   "type": "string"
                 }
               }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
             }
           },
           "401": {
@@ -265,6 +272,87 @@
           },
           "403": {
             "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request body too large",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
@@ -468,6 +556,13 @@
                   "type": "string"
                 }
               }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
             }
           },
           "401": {
@@ -491,6 +586,1499 @@
           },
           "403": {
             "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ModelAccounts"
+        ],
+        "summary": "Get account endpoint, takes an account name and returns underlying data",
+        "operationId": "getAccount",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The path and filename of the account to get",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The path and filename of the account to get"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+            "schema": {
+              "type": "string",
+              "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+              "default": "JsonStach"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns JSON representation of the account's dates, symbols and  other fields.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataAndMetaModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid account name or type parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided account name does not exist at the location provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/accounts/v3/models/{name}/symbols/{symbol}": {
+      "delete": {
+        "tags": [
+          "ModelAccounts"
+        ],
+        "summary": "Delete all entries for a symbol or specific date entries for a symbol from a previously created account.",
+        "operationId": "deleteModelAccountBySymbol",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The filename of model account to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The filename of model account to delete"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "The symbol from the given file name to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The symbol from the given file name to delete"
+            }
+          },
+          {
+            "name": "dates",
+            "in": "query",
+            "description": "The dates from the given file name and symbol to delete (Maximum 10 dates are allowed)",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The dates from the given file name and symbol to delete (Maximum 10 dates are allowed)"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Expected response, no content",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid model account name or symbol parameter provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided account name does not exist at the location provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ModelAccounts"
+        ],
+        "summary": "Get account endpoint, takes an account name, symbol and returns underlying data for that symbol",
+        "operationId": "getAccountForSymbol",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The path and filename of the account to get",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The path and filename of the account to get"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "The symbol for which data needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The symbol for which data needs to be updated"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+            "schema": {
+              "type": "string",
+              "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+              "default": "JsonStach"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns JSON representation of the account's dates, symbols and  other fields.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataAndMetaModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid account name or type parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided account name does not exist at the location provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analytics/accounts/v3/models/{name}/dates/{date}": {
+      "delete": {
+        "tags": [
+          "ModelAccounts"
+        ],
+        "summary": "Delete all entries for a date or specific symbol entries for a date from a previously created account.",
+        "operationId": "deleteModelAccountByDate",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The filename of model account to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The filename of model account to delete"
+            }
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The date from the given file name to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The date from the given file name to delete"
+            }
+          },
+          {
+            "name": "symbols",
+            "in": "query",
+            "description": "The symbols from the given file name and date to delete (Maximum 10 symbols are allowed)",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The symbols from the given file name and date to delete (Maximum 10 symbols are allowed)"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Expected response, no content",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid model account name or date parameter provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided account name does not exist at the location provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ModelAccounts"
+        ],
+        "summary": "Get account endpoint, takes an account name, date and returns underlying data for that date",
+        "operationId": "getAccountForDate",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The path and filename of the account to get",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The path and filename of the account to get"
+            }
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "description": "The date for which data needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The date for which data needs to be updated"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+            "schema": {
+              "type": "string",
+              "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
+              "default": "JsonStach"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns JSON representation of the account's dates, symbols and  other fields.",
+            "headers": {
+              "Content-Encoding": {
+                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
+                }
+              },
+              "Content-Type": {
+                "description": "Standard HTTP header.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header."
+                }
+              },
+              "Transfer-Encoding": {
+                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
+                "schema": {
+                  "type": "string",
+                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
+                }
+              },
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataAndMetaModel"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid account name or type parameter provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The provided account name does not exist at the location provided.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
@@ -677,7 +2265,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/DataAndMetaModel"
                 }
               }
             }
@@ -685,275 +2273,6 @@
           "400": {
             "description": "Invalid account name or type parameter provided.",
             "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing or invalid authentication.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "User is forbidden with current credentials",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The provided account name does not exist at the location provided.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Unsupported Accept header. Header needs to be set to application/json.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request timed out. Retry the request in sometime.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/analytics/accounts/v3/models/{name}/dates/{date}": {
-      "get": {
-        "tags": [
-          "ModelAccounts"
-        ],
-        "summary": "Get account endpoint, takes an account name, date and returns underlying data for that date",
-        "operationId": "getAccountForDate",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "description": "The path and filename of the account to get",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The path and filename of the account to get"
-            }
-          },
-          {
-            "name": "date",
-            "in": "path",
-            "description": "The date for which data needs to be updated",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The date for which data needs to be updated"
-            }
-          },
-          {
-            "name": "format",
-            "in": "query",
-            "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
-            "schema": {
-              "type": "string",
-              "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
-              "default": "JsonStach"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Expected response, returns JSON representation of the account's dates, symbols and  other fields.",
-            "headers": {
-              "Content-Encoding": {
-                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
-                }
-              },
-              "Content-Type": {
-                "description": "Standard HTTP header.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header."
-                }
-              },
-              "Transfer-Encoding": {
-                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
-                }
-              },
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
                 "schema": {
@@ -990,44 +2309,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid account name or type parameter provided.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             }
@@ -1091,182 +2373,6 @@
           "404": {
             "description": "The provided account name does not exist at the location provided.",
             "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Unsupported Accept header. Header needs to be set to application/json.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Request timed out. Retry the request in sometime.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/analytics/accounts/v3/models/{name}/symbols/{symbol}": {
-      "get": {
-        "tags": [
-          "ModelAccounts"
-        ],
-        "summary": "Get account endpoint, takes an account name, symbol and returns underlying data for that symbol",
-        "operationId": "getAccountForSymbol",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "description": "The path and filename of the account to get",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The path and filename of the account to get"
-            }
-          },
-          {
-            "name": "symbol",
-            "in": "path",
-            "description": "The symbol for which data needs to be updated",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The symbol for which data needs to be updated"
-            }
-          },
-          {
-            "name": "format",
-            "in": "query",
-            "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
-            "schema": {
-              "type": "string",
-              "description": "Optional format for the response, supported formats are JsonStach and AccountModel",
-              "default": "JsonStach"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Expected response, returns JSON representation of the account's dates, symbols and  other fields.",
-            "headers": {
-              "Content-Encoding": {
-                "description": "Standard HTTP header. Header value based on Accept-Encoding Request header.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header. Header value based on Accept-Encoding Request header."
-                }
-              },
-              "Content-Type": {
-                "description": "Standard HTTP header.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header."
-                }
-              },
-              "Transfer-Encoding": {
-                "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified.",
-                "schema": {
-                  "type": "string",
-                  "description": "Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified."
-                }
-              },
               "X-DataDirect-Request-Key": {
                 "description": "FactSet's request key header.",
                 "schema": {
@@ -1303,137 +2409,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid account name or type parameter provided.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing or invalid authentication.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "User is forbidden with current credentials",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The provided account name does not exist at the location provided.",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "description": "FactSet's request key header.",
-                "schema": {
-                  "type": "string",
-                  "description": "FactSet's request key header."
-                }
-              },
-              "X-FactSet-Api-Request-Key": {
-                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
-                "schema": {
-                  "type": "string",
-                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
-                }
-              },
-              "X-FactSet-Api-RateLimit-Limit": {
-                "description": "Number of allowed requests for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Remaining": {
-                "description": "Number of requests left for the time window.",
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "X-FactSet-Api-RateLimit-Reset": {
-                "description": "Number of seconds remaining till rate limit resets.",
-                "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             }
@@ -1596,7 +2572,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/DataAndMetaModel"
                 }
               }
             }
@@ -1634,6 +2610,13 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             }
@@ -1727,6 +2710,13 @@
                 "description": "Number of seconds remaining till rate limit resets.",
                 "schema": {
                   "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             }
@@ -1852,7 +2842,7 @@
               "additionalProperties": {
                 "type": "object",
                 "additionalProperties": {
-                  "type": "object"
+                  "type": "string"
                 }
               }
             }
@@ -1862,7 +2852,7 @@
             "additionalProperties": {
               "type": "object",
               "additionalProperties": {
-                "type": "object"
+                "type": "string"
               }
             }
           },
@@ -1891,28 +2881,50 @@
           }
         }
       },
-      "ProblemDetails": {
+      "ErrorSource": {
         "type": "object",
         "properties": {
-          "type": {
+          "pointer": {
             "type": "string"
           },
-          "title": {
+          "parameter": {
             "type": "string"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
           },
           "detail": {
             "type": "string"
           },
-          "instance": {
-            "type": "string"
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
           }
-        },
-        "additionalProperties": {
-          "type": "object"
+        }
+      },
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "DataAndMetaModel": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {},
+          "meta": {}
         }
       }
     },
@@ -1939,5 +2951,9 @@
     {
       "FactSetOAuth2": []
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
 }

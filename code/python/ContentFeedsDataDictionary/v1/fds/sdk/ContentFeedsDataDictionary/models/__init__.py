@@ -16,6 +16,7 @@ from fds.sdk.ContentFeedsDataDictionary.model.basic_search_response_results impo
 from fds.sdk.ContentFeedsDataDictionary.model.data_item import DataItem
 from fds.sdk.ContentFeedsDataDictionary.model.navigator_sources_response import NavigatorSourcesResponse
 from fds.sdk.ContentFeedsDataDictionary.model.product import Product
+from fds.sdk.ContentFeedsDataDictionary.model.reference_group import ReferenceGroup
 from fds.sdk.ContentFeedsDataDictionary.model.table import Table
 from fds.sdk.ContentFeedsDataDictionary.model.table_code_field_info_response import TableCodeFieldInfoResponse
 from fds.sdk.ContentFeedsDataDictionary.model.table_code_info import TableCodeInfo

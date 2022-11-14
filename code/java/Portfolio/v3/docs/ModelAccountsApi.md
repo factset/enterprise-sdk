@@ -6,6 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createOrUpdateModelAccount**](ModelAccountsApi.md#createOrUpdateModelAccount) | **PUT** /analytics/accounts/v3/models/{name} | Create or update an existing model account
 [**deleteAModelAccount**](ModelAccountsApi.md#deleteAModelAccount) | **DELETE** /analytics/accounts/v3/models/{name} | Delete model account, takes an account path and name and deletes it.
+[**deleteModelAccountByDate**](ModelAccountsApi.md#deleteModelAccountByDate) | **DELETE** /analytics/accounts/v3/models/{name}/dates/{date} | Delete all entries for a date or specific symbol entries for a date from a previously created account.
+[**deleteModelAccountBySymbol**](ModelAccountsApi.md#deleteModelAccountBySymbol) | **DELETE** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
+[**getAccount**](ModelAccountsApi.md#getAccount) | **GET** /analytics/accounts/v3/models/{name} | Get account endpoint, takes an account name and returns underlying data
 [**getAccountForDate**](ModelAccountsApi.md#getAccountForDate) | **GET** /analytics/accounts/v3/models/{name}/dates/{date} | Get account endpoint, takes an account name, date and returns underlying data for that date
 [**getAccountForDateAndSymbol**](ModelAccountsApi.md#getAccountForDateAndSymbol) | **GET** /analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol} | Get account endpoint, takes an account name and returns underlying data
 [**getAccountForSymbol**](ModelAccountsApi.md#getAccountForSymbol) | **GET** /analytics/accounts/v3/models/{name}/symbols/{symbol} | Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
@@ -88,7 +91,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -99,6 +102,8 @@ null (empty response body)
 | **400** | Invalid POST body. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **404** | Not Found |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **413** | Request body too large |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
@@ -177,7 +182,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -190,9 +195,282 @@ null (empty response body)
 | **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 
 
+## deleteModelAccountByDate
+
+> deleteModelAccountByDate(name, date, symbols)
+
+Delete all entries for a date or specific symbol entries for a date from a previously created account.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.Portfolio.ApiClient;
+import com.factset.sdk.Portfolio.ApiException;
+import com.factset.sdk.Portfolio.Configuration;
+import com.factset.sdk.Portfolio.auth.*;
+import com.factset.sdk.Portfolio.models.*;
+import com.factset.sdk.Portfolio.api.ModelAccountsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
+        String name = "name_example"; // String | The filename of model account to delete
+        String date = "date_example"; // String | The date from the given file name to delete
+        java.util.List<String> symbols = Arrays.asList(); // java.util.List<String> | The symbols from the given file name and date to delete (Maximum 10 symbols are allowed)
+        try {
+            apiInstance.deleteModelAccountByDate(name, date, symbols);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ModelAccountsApi#deleteModelAccountByDate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The filename of model account to delete |
+ **date** | **String**| The date from the given file name to delete |
+ **symbols** | **List&lt;String&gt;**| The symbols from the given file name and date to delete (Maximum 10 symbols are allowed) | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Expected response, no content |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **400** | Invalid model account name or date parameter provided |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **401** | Missing or invalid authentication |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **404** | The provided account name does not exist at the location provided. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+
+
+## deleteModelAccountBySymbol
+
+> deleteModelAccountBySymbol(name, symbol, dates)
+
+Delete all entries for a symbol or specific date entries for a symbol from a previously created account.
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.Portfolio.ApiClient;
+import com.factset.sdk.Portfolio.ApiException;
+import com.factset.sdk.Portfolio.Configuration;
+import com.factset.sdk.Portfolio.auth.*;
+import com.factset.sdk.Portfolio.models.*;
+import com.factset.sdk.Portfolio.api.ModelAccountsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
+        String name = "name_example"; // String | The filename of model account to delete
+        String symbol = "symbol_example"; // String | The symbol from the given file name to delete
+        java.util.List<String> dates = Arrays.asList(); // java.util.List<String> | The dates from the given file name and symbol to delete (Maximum 10 dates are allowed)
+        try {
+            apiInstance.deleteModelAccountBySymbol(name, symbol, dates);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ModelAccountsApi#deleteModelAccountBySymbol");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The filename of model account to delete |
+ **symbol** | **String**| The symbol from the given file name to delete |
+ **dates** | **List&lt;String&gt;**| The dates from the given file name and symbol to delete (Maximum 10 dates are allowed) | [optional]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Expected response, no content |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **400** | Invalid model account name or symbol parameter provided |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **401** | Missing or invalid authentication |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **404** | The provided account name does not exist at the location provided. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+
+
+## getAccount
+
+> DataAndMetaModel getAccount(name, format)
+
+Get account endpoint, takes an account name and returns underlying data
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.Portfolio.ApiClient;
+import com.factset.sdk.Portfolio.ApiException;
+import com.factset.sdk.Portfolio.Configuration;
+import com.factset.sdk.Portfolio.auth.*;
+import com.factset.sdk.Portfolio.models.*;
+import com.factset.sdk.Portfolio.api.ModelAccountsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
+        String name = "name_example"; // String | The path and filename of the account to get
+        String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
+        try {
+            DataAndMetaModel result = apiInstance.getAccount(name, format);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ModelAccountsApi#getAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The path and filename of the account to get |
+ **format** | **String**| Optional format for the response, supported formats are JsonStach and AccountModel | [optional] [default to JsonStach]
+
+### Return type
+
+[**DataAndMetaModel**](DataAndMetaModel.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Expected response, returns JSON representation of the account&#39;s dates, symbols and  other fields. |  * Content-Encoding - Standard HTTP header. Header value based on Accept-Encoding Request header. <br>  * Content-Type - Standard HTTP header. <br>  * Transfer-Encoding - Standard HTTP header. Header value will be set to Chunked if Accept-Encoding header is specified. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **400** | Invalid account name or type parameter provided. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **404** | The provided account name does not exist at the location provided. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **406** | Unsupported Accept header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+| **503** | Request timed out. Retry the request in sometime. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
+
+
 ## getAccountForDate
 
-> String getAccountForDate(name, date, format)
+> DataAndMetaModel getAccountForDate(name, date, format)
 
 Get account endpoint, takes an account name, date and returns underlying data for that date
 
@@ -234,7 +512,7 @@ public class Example {
         String date = "date_example"; // String | The date for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
-            String result = apiInstance.getAccountForDate(name, date, format);
+            DataAndMetaModel result = apiInstance.getAccountForDate(name, date, format);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -259,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**DataAndMetaModel**](DataAndMetaModel.md)
 
 ### Authorization
 
@@ -285,7 +563,7 @@ Name | Type | Description  | Notes
 
 ## getAccountForDateAndSymbol
 
-> String getAccountForDateAndSymbol(name, symbol, date, format)
+> DataAndMetaModel getAccountForDateAndSymbol(name, symbol, date, format)
 
 Get account endpoint, takes an account name and returns underlying data
 
@@ -328,7 +606,7 @@ public class Example {
         String date = "date_example"; // String | The date for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
-            String result = apiInstance.getAccountForDateAndSymbol(name, symbol, date, format);
+            DataAndMetaModel result = apiInstance.getAccountForDateAndSymbol(name, symbol, date, format);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -354,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**DataAndMetaModel**](DataAndMetaModel.md)
 
 ### Authorization
 
@@ -380,7 +658,7 @@ Name | Type | Description  | Notes
 
 ## getAccountForSymbol
 
-> String getAccountForSymbol(name, symbol, format)
+> DataAndMetaModel getAccountForSymbol(name, symbol, format)
 
 Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
 
@@ -422,7 +700,7 @@ public class Example {
         String symbol = "symbol_example"; // String | The symbol for which data needs to be updated
         String format = "JsonStach"; // String | Optional format for the response, supported formats are JsonStach and AccountModel
         try {
-            String result = apiInstance.getAccountForSymbol(name, symbol, format);
+            DataAndMetaModel result = apiInstance.getAccountForSymbol(name, symbol, format);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -447,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**DataAndMetaModel**](DataAndMetaModel.md)
 
 ### Authorization
 
@@ -473,7 +751,7 @@ Name | Type | Description  | Notes
 
 ## getAccountSchema
 
-> String getAccountSchema(name)
+> DataAndMetaModel getAccountSchema(name)
 
 Get account schema endpoint, takes an account name and returns its schema
 
@@ -513,7 +791,7 @@ public class Example {
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the account to get its schema
         try {
-            String result = apiInstance.getAccountSchema(name);
+            DataAndMetaModel result = apiInstance.getAccountSchema(name);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -536,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+[**DataAndMetaModel**](DataAndMetaModel.md)
 
 ### Authorization
 

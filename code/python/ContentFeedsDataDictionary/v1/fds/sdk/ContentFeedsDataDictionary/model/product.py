@@ -87,6 +87,9 @@ class Product(ModelNormal):
             'ofm_product_id': (str,),  # noqa: E501
             'entitled': (bool,),  # noqa: E501
             'provider_name': (str,),  # noqa: E501
+            'data_feed': (bool,),  # noqa: E501
+            'api': (bool,),  # noqa: E501
+            'reference_data_feed': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +104,9 @@ class Product(ModelNormal):
         'ofm_product_id': 'ofmProductId',  # noqa: E501
         'entitled': 'entitled',  # noqa: E501
         'provider_name': 'providerName',  # noqa: E501
+        'data_feed': 'dataFeed',  # noqa: E501
+        'api': 'api',  # noqa: E501
+        'reference_data_feed': 'referenceDataFeed',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +156,9 @@ class Product(ModelNormal):
             ofm_product_id (str): The id defining a product in the Open:FactSet Marketplace. [optional]  # noqa: E501
             entitled (bool): Flag indicating if the user is entitled to access the data in their subscriptions. [optional]  # noqa: E501
             provider_name (str): Name of the Data Provider for the product. [optional]  # noqa: E501
+            data_feed (bool): Flag indicating if this product is available in a data feed. [optional]  # noqa: E501
+            api (bool): Flag indicating if this product is available in an api. [optional]  # noqa: E501
+            reference_data_feed (bool): Flag indicating if this product is maintained by RDF/UCF. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,6 +246,9 @@ class Product(ModelNormal):
             ofm_product_id (str): The id defining a product in the Open:FactSet Marketplace. [optional]  # noqa: E501
             entitled (bool): Flag indicating if the user is entitled to access the data in their subscriptions. [optional]  # noqa: E501
             provider_name (str): Name of the Data Provider for the product. [optional]  # noqa: E501
+            data_feed (bool): Flag indicating if this product is available in a data feed. [optional]  # noqa: E501
+            api (bool): Flag indicating if this product is available in an api. [optional]  # noqa: E501
+            reference_data_feed (bool): Flag indicating if this product is maintained by RDF/UCF. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

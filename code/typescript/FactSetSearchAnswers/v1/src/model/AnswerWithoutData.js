@@ -26,13 +26,14 @@ class AnswerWithoutData {
      * @alias module:model/AnswerWithoutData
      * @implements module:model/NoAnswersBase
      * @implements module:model/AnswerWithoutDataAllOf
+     * @param template {String} 
      * @param message {String} 
      * @param title {String} 
      * @param templateData {module:model/AnswerWithoutDataAllOfTemplateData} 
      */
-    constructor(message, title, templateData) { 
-        NoAnswersBase.initialize(this, message);AnswerWithoutDataAllOf.initialize(this, title, templateData);
-        AnswerWithoutData.initialize(this, message, title, templateData);
+    constructor(template, message, title, templateData) { 
+        NoAnswersBase.initialize(this, template, message);AnswerWithoutDataAllOf.initialize(this, title, templateData);
+        AnswerWithoutData.initialize(this, template, message, title, templateData);
     }
 
     /**
@@ -40,7 +41,8 @@ class AnswerWithoutData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, message, title, templateData) { 
+    static initialize(obj, template, message, title, templateData) { 
+        obj['template'] = template;
         obj['message'] = message;
         obj['title'] = title;
         obj['templateData'] = templateData;
@@ -59,6 +61,9 @@ class AnswerWithoutData {
             NoAnswersBase.constructFromObject(data, obj);
             AnswerWithoutDataAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = ApiClient.convertToType(data['template'], 'String');
+            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
@@ -74,6 +79,11 @@ class AnswerWithoutData {
 
 
 }
+
+/**
+ * @member {String} template
+ */
+AnswerWithoutData.prototype['template'] = undefined;
 
 /**
  * @member {String} message
@@ -92,6 +102,10 @@ AnswerWithoutData.prototype['templateData'] = undefined;
 
 
 // Implement NoAnswersBase interface:
+/**
+ * @member {String} template
+ */
+NoAnswersBase.prototype['template'] = undefined;
 /**
  * @member {String} message
  */

@@ -33,10 +33,8 @@ from fds.sdk.FactSetSearchAnswers.exceptions import ApiAttributeError
 def lazy_import():
     from fds.sdk.FactSetSearchAnswers.model.no_answers_base import NoAnswersBase
     from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of import NoAnswersFoundAllOf
-    from fds.sdk.FactSetSearchAnswers.model.no_answers_found_all_of_template_data import NoAnswersFoundAllOfTemplateData
     globals()['NoAnswersBase'] = NoAnswersBase
     globals()['NoAnswersFoundAllOf'] = NoAnswersFoundAllOf
-    globals()['NoAnswersFoundAllOfTemplateData'] = NoAnswersFoundAllOfTemplateData
 
 
 class NoAnswersFound(ModelComposed):
@@ -92,9 +90,9 @@ class NoAnswersFound(ModelComposed):
         """
         lazy_import()
         return {
+            'template': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'query_suggestions': ([str],),  # noqa: E501
-            'template_data': (NoAnswersFoundAllOfTemplateData,),  # noqa: E501
         }
 
     @cached_property
@@ -103,9 +101,9 @@ class NoAnswersFound(ModelComposed):
 
 
     attribute_map = {
+        'template': 'template',  # noqa: E501
         'message': 'message',  # noqa: E501
         'query_suggestions': 'querySuggestions',  # noqa: E501
-        'template_data': 'templateData',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,9 +115,9 @@ class NoAnswersFound(ModelComposed):
         """NoAnswersFound - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             message (str):
             query_suggestions ([str]):
-            template_data (NoAnswersFoundAllOfTemplateData):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -219,9 +217,9 @@ class NoAnswersFound(ModelComposed):
         """NoAnswersFound - a model defined in OpenAPI
 
         Keyword Args:
+            template (str):
             message (str):
             query_suggestions ([str]):
-            template_data (NoAnswersFoundAllOfTemplateData):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

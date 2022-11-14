@@ -70,7 +70,7 @@ with fds.sdk.SPAREngine.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **str**| The directory to get the documents in | defaults to "Client:folder1/folder2"
+ **path** | **str**| The directory to get the documents in | defaults to "SPAR_DOCUMENTS:Factset Default Document"
 
 ### Return type
 

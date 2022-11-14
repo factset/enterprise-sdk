@@ -17,6 +17,8 @@ from fds.sdk.SPAREngine.model.calculation_status_meta import CalculationStatusMe
 from fds.sdk.SPAREngine.model.calculation_status_root import CalculationStatusRoot
 from fds.sdk.SPAREngine.model.calculation_unit_status import CalculationUnitStatus
 from fds.sdk.SPAREngine.model.calculation_unit_status_meta import CalculationUnitStatusMeta
+from fds.sdk.SPAREngine.model.calculations_summary import CalculationsSummary
+from fds.sdk.SPAREngine.model.calculations_summary_root import CalculationsSummaryRoot
 from fds.sdk.SPAREngine.model.client_error_response import ClientErrorResponse
 from fds.sdk.SPAREngine.model.component_summary import ComponentSummary
 from fds.sdk.SPAREngine.model.component_summary_root import ComponentSummaryRoot
@@ -29,6 +31,8 @@ from fds.sdk.SPAREngine.model.error_source import ErrorSource
 from fds.sdk.SPAREngine.model.frequency import Frequency
 from fds.sdk.SPAREngine.model.frequency_root import FrequencyRoot
 from fds.sdk.SPAREngine.model.object_root import ObjectRoot
+from fds.sdk.SPAREngine.model.pagination_info import PaginationInfo
+from fds.sdk.SPAREngine.model.pagination_meta import PaginationMeta
 from fds.sdk.SPAREngine.model.return_type import ReturnType
 from fds.sdk.SPAREngine.model.spar_accounts import SPARAccounts
 from fds.sdk.SPAREngine.model.spar_accounts_root import SPARAccountsRoot

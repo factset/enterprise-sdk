@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.SDK.FactSetSearchAnswers.Client.OpenAPIDateConverter;
 using System.Reflection;
@@ -140,6 +141,35 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 return newFdc3Context;
             }
+
+            try
+            {
+                var discriminatorObj = JObject.Parse(jsonString)["type"];
+                string discriminatorValue =  discriminatorObj == null ?string.Empty :discriminatorObj.ToString();
+                switch (discriminatorValue)
+                {
+                    case "Fdc3Country":
+                        newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Country>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
+                        return newFdc3Context;
+                    case "Fdc3Instrument":
+                        newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Instrument>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
+                        return newFdc3Context;
+                    case "fdc3.country":
+                        newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Country>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
+                        return newFdc3Context;
+                    case "fdc3.instrument":
+                        newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Instrument>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
+                        return newFdc3Context;
+                    default:
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for Fdc3Context. Possible values: Fdc3Country Fdc3Instrument fdc3.country fdc3.instrument", discriminatorValue));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to parse the json data : `{0}` {1}", jsonString, ex.ToString()));
+            }
+
             int match = 0;
             List<string> matchedTypes = new List<string>();
 

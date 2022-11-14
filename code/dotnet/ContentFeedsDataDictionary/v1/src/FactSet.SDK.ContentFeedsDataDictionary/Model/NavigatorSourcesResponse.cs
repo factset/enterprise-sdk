@@ -41,7 +41,8 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         /// </summary>
         /// <param name="sdf">sdf (required).</param>
         /// <param name="contentApi">contentApi.</param>
-        public NavigatorSourcesResponse(List<Table> sdf,List<ApiEndpoint> contentApi = default(List<ApiEndpoint>))
+        /// <param name="reference">reference.</param>
+        public NavigatorSourcesResponse(List<Table> sdf,List<ApiEndpoint> contentApi = default(List<ApiEndpoint>), List<ReferenceGroup> reference = default(List<ReferenceGroup>))
         {
             // to ensure "sdf" is required (not null)
             if (sdf == null) {
@@ -49,6 +50,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             }
             this.Sdf = sdf;
             this.ContentApi = contentApi;
+            this.Reference = reference;
         }
 
         /// <summary>
@@ -64,6 +66,12 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
         public List<ApiEndpoint> ContentApi { get; set; }
 
         /// <summary>
+        /// Gets or Sets Reference
+        /// </summary>
+        [DataMember(Name = "reference", EmitDefaultValue = false)]
+        public List<ReferenceGroup> Reference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
             sb.Append("class NavigatorSourcesResponse {\n");
             sb.Append("  Sdf: ").Append(Sdf).Append("\n");
             sb.Append("  ContentApi: ").Append(ContentApi).Append("\n");
+            sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +128,12 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                     this.ContentApi != null &&
                     input.ContentApi != null &&
                     this.ContentApi.SequenceEqual(input.ContentApi)
+                ) && 
+                (
+                    this.Reference == input.Reference ||
+                    this.Reference != null &&
+                    input.Reference != null &&
+                    this.Reference.SequenceEqual(input.Reference)
                 );
         }
 
@@ -138,6 +153,10 @@ namespace FactSet.SDK.ContentFeedsDataDictionary.Model
                 if (this.ContentApi != null)
                 {
                     hashCode = (hashCode * 59) + this.ContentApi.GetHashCode();
+                }
+                if (this.Reference != null)
+                {
+                    hashCode = (hashCode * 59) + this.Reference.GetHashCode();
                 }
                 return hashCode;
             }

@@ -52,26 +52,11 @@ class Fdc3Context {
      * @return {module:model/Fdc3Context} The populated <code>Fdc3Context</code> instance.
      */
     static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new Fdc3Context();
-            Fdc3Instrument.constructFromObject(data, obj);
-            Fdc3Country.constructFromObject(data, obj);
-
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'String');
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('exchangeMic')) {
-                obj['exchangeMic'] = ApiClient.convertToType(data['exchangeMic'], 'String');
-            }
-            if (data.hasOwnProperty('exchangeMicFds')) {
-                obj['exchangeMicFds'] = ApiClient.convertToType(data['exchangeMicFds'], 'String');
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = CountryID.constructFromObject(data['id']);
-            }
+        switch (data['type']) {
+            case 'fdc3.country':
+              return Fdc3Country.constructFromObject(data, obj);
+            case 'fdc3.instrument':
+              return Fdc3Instrument.constructFromObject(data, obj);
         }
         return obj;
     }

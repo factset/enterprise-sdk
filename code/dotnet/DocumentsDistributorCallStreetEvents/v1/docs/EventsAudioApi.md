@@ -151,14 +151,14 @@ namespace Example
 
             var sort = "-startDate";  // string | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional)  (default to -startDate)
             var paginationLimit = 25;  // int? | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional)  (default to 25)
-            var startDate = 2022-01-01T00:00:00.000Z;  // string | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday). (optional) 
+            var startDate = "2022-01-01T00:00:00.000Z";  // string | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday). (optional) 
             var paginationOffset = 0;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)  (default to 0)
-            var endDate = 2022-06-01T00:00:00.000Z;  // string | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today). (optional) 
+            var endDate = "2022-06-01T00:00:00.000Z";  // string | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today). (optional) 
             var reportId = 2666621;  // int? | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event. (optional) 
             var audioSourceId = 56;  // int? | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSourceIDs. (optional) 
             var ids = new List<string>(); // List<string> | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier. (optional) 
             var sourceCode = "P";  // string | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay) (optional) 
-            var fileName = 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3;  // string | This parameter is used to filter the data on based on the file name. (optional) 
+            var fileName = "835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3";  // string | This parameter is used to filter the data on based on the file name. (optional) 
             var trimmed = true;  // bool? | This parameters helps to search trimmed audio files. (optional) 
             var uploadTime = 56;  // int? | This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime= -1  Maximum is 1 week/168 hours i.e., uploadTime=-168  While using uploadTime, the startDate and endDate parameters will be ignored. (optional) 
 

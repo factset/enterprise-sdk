@@ -214,10 +214,6 @@ components:
           type: integer
           example: 35
           description: Unique identifier for the data item
-        source:
-          type: string
-          example: SDF
-          description: Unique identifier for the product source
         name:
           type: string
           example: fsym_id
@@ -232,6 +228,35 @@ components:
           description: >-
             Flag indicating if the user is entitled to access the data in their
             subscriptions
+        dataFeed:
+          type: boolean
+          example: true
+          description: Flag indicating if this item is available in a data feed
+        api:
+          type: boolean
+          example: true
+          description: Flag indicating if this item is available in an api
+        referenceDataFeed:
+          type: boolean
+          example: false
+          description: Flag indicating if this product is maintained by RDF/UCF
+    NavigatorSourcesResponse:
+      type: object
+      properties:
+        sdf:
+          type: array
+          items:
+            $ref: '#/components/schemas/Table'
+        contentApi:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiEndpoint'
+        reference:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferenceGroup'
+      required:
+        - sdf
     Product:
       type: object
       properties:
@@ -261,19 +286,38 @@ components:
           type: string
           example: Estimize
           description: Name of the Data Provider for the product
-    NavigatorSourcesResponse:
-      type: object
+        dataFeed:
+          type: boolean
+          example: true
+          description: Flag indicating if this product is available in a data feed
+        api:
+          type: boolean
+          example: true
+          description: Flag indicating if this product is available in an api
+        referenceDataFeed:
+          type: boolean
+          example: false
+          description: Flag indicating if this product is maintained by RDF/UCF
+    ReferenceGroup:
       properties:
-        sdf:
-          type: array
-          items:
-            $ref: '#/components/schemas/Table'
-        contentApi:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiEndpoint'
-      required:
-        - sdf
+        id:
+          type: string
+          example: 180443
+          description: Unique identifier for the api endpoint
+        name:
+          type: string
+          example: /symbology/v1/bloomberg
+          description: API endpoint path
+        description:
+          type: string
+          example: Translate FactSet symbols into Bloomberg Identifiers.
+          description: A description of the endpoint
+        entitled:
+          type: string
+          example: true
+          description: >-
+            Flag indicating if the user is entitled to access the data in their
+            subscriptions
     Table:
       properties:
         id:

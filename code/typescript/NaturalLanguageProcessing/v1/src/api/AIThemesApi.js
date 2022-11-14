@@ -37,7 +37,7 @@ export default class AIThemesApi {
 
 
     /**
-     * POST request to extract themes from text
+     * Endpoint to extract themes from text
      * This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
      * @param {module:model/ThemeParametersRoot} themeParametersRoot 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ThemesRoot} and HTTP response
@@ -73,7 +73,7 @@ export default class AIThemesApi {
     }
 
     /**
-     * POST request to extract themes from text
+     * Endpoint to extract themes from text
      * This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
      * @param {module:model/ThemeParametersRoot} themeParametersRoot 
      * @return { Promise.< module:model/ThemesRoot > } a Promise, with data of type {@link module:model/ThemesRoot }

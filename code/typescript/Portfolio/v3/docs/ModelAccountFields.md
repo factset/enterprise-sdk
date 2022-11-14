@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**iterative** | **{String: {String: {String: Object}}}** |  | 
-**nonIterative** | **{String: {String: Object}}** |  | [optional] 
+**iterative** | **{String: {String: {String: String}}}** |  | 
+**nonIterative** | **{String: {String: String}}** |  | [optional] 
 **additionalFields** | [**[ModelAccountAdditionalField]**](ModelAccountAdditionalField.md) |  | [optional] 
 
 

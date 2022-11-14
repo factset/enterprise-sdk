@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**iterative** | **Map&lt;String, java.util.Map&lt;String, java.util.Map&lt;String, Object&gt;&gt;&gt;** |  | 
-**nonIterative** | **Map&lt;String, java.util.Map&lt;String, Object&gt;&gt;** |  |  [optional]
+**iterative** | **Map&lt;String, java.util.Map&lt;String, java.util.Map&lt;String, String&gt;&gt;&gt;** |  | 
+**nonIterative** | **Map&lt;String, java.util.Map&lt;String, String&gt;&gt;** |  |  [optional]
 **additionalFields** | [**java.util.List&lt;ModelAccountAdditionalField&gt;**](ModelAccountAdditionalField.md) |  |  [optional]
 
 

@@ -51,7 +51,7 @@ namespace Example
 
             var apiInstance = new DocumentsApi(config);
 
-            var path = "\"Client:folder1/folder2\"";  // string | The directory to get the documents in (default to "Client:folder1/folder2")
+            var path = "\"SPAR_DOCUMENTS:Factset Default Document\"";  // string | The directory to get the documents in (default to "SPAR_DOCUMENTS:Factset Default Document")
 
             try
             {
@@ -74,7 +74,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;Client:folder1/folder2&quot;]
+ **path** | **string**| The directory to get the documents in | [default to &quot;SPAR_DOCUMENTS:Factset Default Document&quot;]
 
 ### Return type
 [**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)

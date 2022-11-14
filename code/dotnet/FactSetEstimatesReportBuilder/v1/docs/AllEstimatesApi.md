@@ -58,7 +58,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -158,7 +158,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -258,7 +258,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -358,7 +358,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -458,7 +458,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -558,7 +558,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -658,7 +658,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 
@@ -758,7 +758,7 @@ namespace Example
 
             var apiInstance = new AllEstimatesApi(config);
 
-            var id = FDS;  // string | Company Ticker
+            var id = "FDS";  // string | Company Ticker
             var periodicity = "ANN";  // string | Periodicity or frequency of the fiscal periods. (optional)  (default to ANN)
             var schema = "table_group_level";  // string | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional)  (default to table_parent_child_columns)
 

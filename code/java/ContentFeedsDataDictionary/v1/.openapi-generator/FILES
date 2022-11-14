@@ -14,6 +14,7 @@ docs/DataItem.md
 docs/NavigatorApi.md
 docs/NavigatorSourcesResponse.md
 docs/Product.md
+docs/ReferenceGroup.md
 docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
@@ -54,6 +55,7 @@ src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/BasicSearchRespo
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/DataItem.java
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/NavigatorSourcesResponse.java
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/Product.java
+src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/ReferenceGroup.java
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/Table.java
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/TableCodeFieldInfoResponse.java
 src/main/java/com/factset/sdk/ContentFeedsDataDictionary/models/TableCodeInfo.java

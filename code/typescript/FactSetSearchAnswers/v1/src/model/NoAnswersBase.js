@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import DataAnswer from './DataAnswer';
+import NoAnswersBaseAllOf from './NoAnswersBaseAllOf';
 
 /**
  * The NoAnswersBase model module.
@@ -21,11 +23,14 @@ class NoAnswersBase {
     /**
      * Constructs a new <code>NoAnswersBase</code>.
      * @alias module:model/NoAnswersBase
+     * @implements module:model/DataAnswer
+     * @implements module:model/NoAnswersBaseAllOf
+     * @param template {String} 
      * @param message {String} 
      */
-    constructor(message) { 
-        
-        NoAnswersBase.initialize(this, message);
+    constructor(template, message) { 
+        DataAnswer.initialize(this, template);NoAnswersBaseAllOf.initialize(this, message);
+        NoAnswersBase.initialize(this, template, message);
     }
 
     /**
@@ -33,7 +38,8 @@ class NoAnswersBase {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, message) { 
+    static initialize(obj, template, message) { 
+        obj['template'] = template;
         obj['message'] = message;
     }
 
@@ -47,7 +53,12 @@ class NoAnswersBase {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NoAnswersBase();
+            DataAnswer.constructFromObject(data, obj);
+            NoAnswersBaseAllOf.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = ApiClient.convertToType(data['template'], 'String');
+            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
@@ -59,11 +70,26 @@ class NoAnswersBase {
 }
 
 /**
+ * @member {String} template
+ */
+NoAnswersBase.prototype['template'] = undefined;
+
+/**
  * @member {String} message
  */
 NoAnswersBase.prototype['message'] = undefined;
 
 
+// Implement DataAnswer interface:
+/**
+ * @member {String} template
+ */
+DataAnswer.prototype['template'] = undefined;
+// Implement NoAnswersBaseAllOf interface:
+/**
+ * @member {String} message
+ */
+NoAnswersBaseAllOf.prototype['message'] = undefined;
 
 
 

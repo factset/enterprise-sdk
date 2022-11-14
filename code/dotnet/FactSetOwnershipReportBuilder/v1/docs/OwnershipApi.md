@@ -51,11 +51,11 @@ namespace Example
 
             var apiInstance = new OwnershipApi(config);
 
-            var id = FDS;  // string | Company or Fund Identifier
+            var id = "FDS";  // string | Company or Fund Identifier
             var assetType = "EQUITY";  // string | Controls the Asset Type of the data returned (optional)  (default to EQUITY)
             var holderType = "ALL_HOLDERS";  // string | Controls the Holder Type of the data returned (optional)  (default to INSTITUTIONS)
-            var topn = ALL;  // string | Limits the number of holders returned based on their Market Value position in the security.   Default is ALL, otherwise use a valid number above 0.  (optional) 
-            var date = 2019-12-31;  // string | Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates. (optional) 
+            var topn = "ALL";  // string | Limits the number of holders returned based on their Market Value position in the security.   Default is ALL, otherwise use a valid number above 0.  (optional) 
+            var date = "2019-12-31";  // string | Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates. (optional) 
 
             try
             {

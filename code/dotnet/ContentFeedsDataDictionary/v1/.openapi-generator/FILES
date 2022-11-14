@@ -12,6 +12,7 @@ docs/DataItem.md
 docs/NavigatorApi.md
 docs/NavigatorSourcesResponse.md
 docs/Product.md
+docs/ReferenceGroup.md
 docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
@@ -43,6 +44,7 @@ src/FactSet.SDK.ContentFeedsDataDictionary/Model/BasicSearchResponseResults.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/DataItem.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/NavigatorSourcesResponse.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/Product.cs
+src/FactSet.SDK.ContentFeedsDataDictionary/Model/ReferenceGroup.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/Table.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/TableCodeFieldInfoResponse.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Model/TableCodeInfo.cs

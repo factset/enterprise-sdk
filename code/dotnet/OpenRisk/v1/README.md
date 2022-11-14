@@ -75,7 +75,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AboutApi(config);
-            var version = v1;  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
+            var version = "v1";  // string | Semantic version number. See [this link here](https://regexr.com/47b7t) to test validate patterns.
 
             try
             {

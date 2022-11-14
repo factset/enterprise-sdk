@@ -6,11 +6,14 @@ README.md
 api/openapi.yaml
 build.gradle
 build.sbt
+docs/ClientErrorResponse.md
+docs/DataAndMetaModel.md
+docs/Error.md
+docs/ErrorSource.md
 docs/ModelAccountAdditionalField.md
 docs/ModelAccountFields.md
 docs/ModelAccountFieldsRoot.md
 docs/ModelAccountsApi.md
-docs/ProblemDetails.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -40,7 +43,10 @@ src/main/java/com/factset/sdk/Portfolio/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/Portfolio/auth/OAuth.java
 src/main/java/com/factset/sdk/Portfolio/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/Portfolio/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/Portfolio/models/ClientErrorResponse.java
+src/main/java/com/factset/sdk/Portfolio/models/DataAndMetaModel.java
+src/main/java/com/factset/sdk/Portfolio/models/Error.java
+src/main/java/com/factset/sdk/Portfolio/models/ErrorSource.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountAdditionalField.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountFields.java
 src/main/java/com/factset/sdk/Portfolio/models/ModelAccountFieldsRoot.java
-src/main/java/com/factset/sdk/Portfolio/models/ProblemDetails.java

@@ -94,7 +94,6 @@ class TemplateWithLinks(ModelComposed):
         """
         lazy_import()
         return {
-            'template_name': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
             'footer': (str,),  # noqa: E501
             'fdc3_context': (Fdc3Context,),  # noqa: E501
@@ -107,7 +106,6 @@ class TemplateWithLinks(ModelComposed):
 
 
     attribute_map = {
-        'template_name': 'templateName',  # noqa: E501
         'headline': 'headline',  # noqa: E501
         'footer': 'footer',  # noqa: E501
         'fdc3_context': 'fdc3Context',  # noqa: E501
@@ -123,7 +121,6 @@ class TemplateWithLinks(ModelComposed):
         """TemplateWithLinks - a model defined in OpenAPI
 
         Keyword Args:
-            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -227,7 +224,6 @@ class TemplateWithLinks(ModelComposed):
         """TemplateWithLinks - a model defined in OpenAPI
 
         Keyword Args:
-            template_name (str):
             headline (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

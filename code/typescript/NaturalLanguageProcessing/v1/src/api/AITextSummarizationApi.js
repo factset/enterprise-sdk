@@ -39,7 +39,7 @@ export default class AITextSummarizationApi {
 
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to summarize and generate a headline from text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummarizationResultID} and HTTP response
@@ -72,7 +72,7 @@ export default class AITextSummarizationApi {
     }
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to summarize and generate a headline from text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return { Promise.< module:model/SummarizationResultID > } a Promise, with data of type {@link module:model/SummarizationResultID }
@@ -86,7 +86,7 @@ export default class AITextSummarizationApi {
 
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to generate a headline from text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummarizationResultID} and HTTP response
@@ -119,7 +119,7 @@ export default class AITextSummarizationApi {
     }
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to generate a headline from text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return { Promise.< module:model/SummarizationResultID > } a Promise, with data of type {@link module:model/SummarizationResultID }
@@ -133,7 +133,7 @@ export default class AITextSummarizationApi {
 
 
     /**
-     * GET request for obtaining response of a particular processing job
+     * Endpoint to obtain result of a particular summarization job
      * @param {String} resultId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummarizationResult} and HTTP response
      */
@@ -169,7 +169,7 @@ export default class AITextSummarizationApi {
     }
 
     /**
-     * GET request for obtaining response of a particular processing job
+     * Endpoint to obtain result of a particular summarization job
      * @param {String} resultId 
      * @return { Promise.< module:model/SummarizationResult > } a Promise, with data of type {@link module:model/SummarizationResult }
      */
@@ -182,7 +182,7 @@ export default class AITextSummarizationApi {
 
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to summarize text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SummarizationResultID} and HTTP response
@@ -215,7 +215,7 @@ export default class AITextSummarizationApi {
     }
 
     /**
-     * POST request for summarizing an input text
+     * Endpoint to summarize text
      * @param {Object} opts Optional parameters
      * @param {module:model/SummarizationRequest} opts.summarizationRequest 
      * @return { Promise.< module:model/SummarizationResultID > } a Promise, with data of type {@link module:model/SummarizationResultID }

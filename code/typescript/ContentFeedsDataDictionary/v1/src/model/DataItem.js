@@ -49,9 +49,6 @@ class DataItem {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], 'String');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -60,6 +57,15 @@ class DataItem {
             }
             if (data.hasOwnProperty('entitled')) {
                 obj['entitled'] = ApiClient.convertToType(data['entitled'], 'Boolean');
+            }
+            if (data.hasOwnProperty('dataFeed')) {
+                obj['dataFeed'] = ApiClient.convertToType(data['dataFeed'], 'Boolean');
+            }
+            if (data.hasOwnProperty('api')) {
+                obj['api'] = ApiClient.convertToType(data['api'], 'Boolean');
+            }
+            if (data.hasOwnProperty('referenceDataFeed')) {
+                obj['referenceDataFeed'] = ApiClient.convertToType(data['referenceDataFeed'], 'Boolean');
             }
         }
         return obj;
@@ -73,12 +79,6 @@ class DataItem {
  * @member {Number} id
  */
 DataItem.prototype['id'] = undefined;
-
-/**
- * Unique identifier for the product source
- * @member {String} source
- */
-DataItem.prototype['source'] = undefined;
 
 /**
  * Name of the data item
@@ -97,6 +97,24 @@ DataItem.prototype['description'] = undefined;
  * @member {Boolean} entitled
  */
 DataItem.prototype['entitled'] = undefined;
+
+/**
+ * Flag indicating if this item is available in a data feed
+ * @member {Boolean} dataFeed
+ */
+DataItem.prototype['dataFeed'] = undefined;
+
+/**
+ * Flag indicating if this item is available in an api
+ * @member {Boolean} api
+ */
+DataItem.prototype['api'] = undefined;
+
+/**
+ * Flag indicating if this product is maintained by RDF/UCF
+ * @member {Boolean} referenceDataFeed
+ */
+DataItem.prototype['referenceDataFeed'] = undefined;
 
 
 

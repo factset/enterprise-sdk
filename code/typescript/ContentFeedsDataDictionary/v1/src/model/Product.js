@@ -64,6 +64,15 @@ class Product {
             if (data.hasOwnProperty('providerName')) {
                 obj['providerName'] = ApiClient.convertToType(data['providerName'], 'String');
             }
+            if (data.hasOwnProperty('dataFeed')) {
+                obj['dataFeed'] = ApiClient.convertToType(data['dataFeed'], 'Boolean');
+            }
+            if (data.hasOwnProperty('api')) {
+                obj['api'] = ApiClient.convertToType(data['api'], 'Boolean');
+            }
+            if (data.hasOwnProperty('referenceDataFeed')) {
+                obj['referenceDataFeed'] = ApiClient.convertToType(data['referenceDataFeed'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -106,6 +115,24 @@ Product.prototype['entitled'] = undefined;
  * @member {String} providerName
  */
 Product.prototype['providerName'] = undefined;
+
+/**
+ * Flag indicating if this product is available in a data feed
+ * @member {Boolean} dataFeed
+ */
+Product.prototype['dataFeed'] = undefined;
+
+/**
+ * Flag indicating if this product is available in an api
+ * @member {Boolean} api
+ */
+Product.prototype['api'] = undefined;
+
+/**
+ * Flag indicating if this product is maintained by RDF/UCF
+ * @member {Boolean} referenceDataFeed
+ */
+Product.prototype['referenceDataFeed'] = undefined;
 
 
 

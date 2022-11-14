@@ -40,11 +40,16 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NoAnswersFound" /> class.
         /// </summary>
+        /// <param name="template">template (required).</param>
         /// <param name="message">message (required).</param>
         /// <param name="querySuggestions">querySuggestions (required).</param>
-        /// <param name="templateData">templateData (required).</param>
-        public NoAnswersFound(string message, List<string> querySuggestions, NoAnswersFoundAllOfTemplateData templateData)
+        public NoAnswersFound(string template, string message, List<string> querySuggestions)
         {
+            // to ensure "template" is required (not null)
+            if (template == null) {
+                throw new ArgumentNullException("template is a required property for NoAnswersFound and cannot be null");
+            }
+            this.Template = template;
             // to ensure "message" is required (not null)
             if (message == null) {
                 throw new ArgumentNullException("message is a required property for NoAnswersFound and cannot be null");
@@ -55,12 +60,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 throw new ArgumentNullException("querySuggestions is a required property for NoAnswersFound and cannot be null");
             }
             this.QuerySuggestions = querySuggestions;
-            // to ensure "templateData" is required (not null)
-            if (templateData == null) {
-                throw new ArgumentNullException("templateData is a required property for NoAnswersFound and cannot be null");
-            }
-            this.TemplateData = templateData;
         }
+
+        /// <summary>
+        /// Gets or Sets Template
+        /// </summary>
+        [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = false)]
+        public string Template { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
@@ -75,12 +81,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public List<string> QuerySuggestions { get; set; }
 
         /// <summary>
-        /// Gets or Sets TemplateData
-        /// </summary>
-        [DataMember(Name = "templateData", IsRequired = true, EmitDefaultValue = false)]
-        public NoAnswersFoundAllOfTemplateData TemplateData { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,9 +88,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class NoAnswersFound {\n");
+            sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  QuerySuggestions: ").Append(QuerySuggestions).Append("\n");
-            sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,6 +127,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
+                    this.Template == input.Template ||
+                    (this.Template != null &&
+                    this.Template.Equals(input.Template))
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -136,11 +141,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                     this.QuerySuggestions != null &&
                     input.QuerySuggestions != null &&
                     this.QuerySuggestions.SequenceEqual(input.QuerySuggestions)
-                ) && 
-                (
-                    this.TemplateData == input.TemplateData ||
-                    (this.TemplateData != null &&
-                    this.TemplateData.Equals(input.TemplateData))
                 );
         }
 
@@ -153,6 +153,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Template != null)
+                {
+                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                }
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
@@ -160,10 +164,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
                 if (this.QuerySuggestions != null)
                 {
                     hashCode = (hashCode * 59) + this.QuerySuggestions.GetHashCode();
-                }
-                if (this.TemplateData != null)
-                {
-                    hashCode = (hashCode * 59) + this.TemplateData.GetHashCode();
                 }
                 return hashCode;
             }

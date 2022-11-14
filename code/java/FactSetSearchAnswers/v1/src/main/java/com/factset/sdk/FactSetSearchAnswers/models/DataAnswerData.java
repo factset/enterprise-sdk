@@ -17,13 +17,27 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.FactSetSearchAnswers.models.Answer;
 import com.factset.sdk.FactSetSearchAnswers.models.AnswerWithoutData;
+import com.factset.sdk.FactSetSearchAnswers.models.AnswerWithoutDataAllOfTemplateData;
+import com.factset.sdk.FactSetSearchAnswers.models.ColoredValueLabelDateAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.LabelValueChangeLabelValueChangeAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.LinkTextBlockAnswer;
 import com.factset.sdk.FactSetSearchAnswers.models.NoAnswersFound;
-import com.factset.sdk.FactSetSearchAnswers.models.NoAnswersFoundAllOfTemplateData;
+import com.factset.sdk.FactSetSearchAnswers.models.PercentChangeLabelAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.RankedTableAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.TableAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.TableTableAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.TextBlockFootingAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.ValueChangeDateLabelAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.ValueLabelAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.ValueLabelDateAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.ValueLabelDateDataPairListAnswer;
+import com.factset.sdk.FactSetSearchAnswers.models.ValueLabelDateTextBlockAnswer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
@@ -93,33 +107,473 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
         public DataAnswerData deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
+            DataAnswerData newDataAnswerData = new DataAnswerData();
+            Map<String,Object> result2 = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
+            String discriminatorValue = (String)result2.get("template");
+            switch (discriminatorValue) {
+                case "AnswerWithoutData":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AnswerWithoutData.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "AnswerWithoutDataTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(AnswerWithoutData.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ColoredValueLabelDateAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ColoredValueLabelDateAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ColoredValueLabelDateTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ColoredValueLabelDateAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "LabelValueChangeLabelValueChangeAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LabelValueChangeLabelValueChangeAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "LabelValueChangeLabelValueChangeTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LabelValueChangeLabelValueChangeAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "LinkTextBlockAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LinkTextBlockAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "LinkTextBlockTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LinkTextBlockAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "NoAnswerTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(NoAnswersFound.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "NoAnswersFound":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(NoAnswersFound.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "PercentChangeLabelAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(PercentChangeLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "PercentChangeLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(PercentChangeLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "RankedTableAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(RankedTableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "RankedTableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(RankedTableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TableAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TableTableAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableTableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TableTableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableTableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TextBlockFootingAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TextBlockFootingAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "TextBlockFootingTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TextBlockFootingAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueChangeDateLabelAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueChangeDateLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueChangeDateLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueChangeDateLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateDataPairListAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateDataPairListAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateDataPairListTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateDataPairListAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateTextBlockAnswer":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateTextBlockAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelDateTextBlockTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateTextBlockAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                case "ValueLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelAnswer.class);
+                    newDataAnswerData.setActualInstance(deserialized);
+                    return newDataAnswerData;
+                default:
+                    log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for DataAnswerData. Possible values: AnswerWithoutData AnswerWithoutDataTemplate ColoredValueLabelDateAnswer ColoredValueLabelDateTemplate LabelValueChangeLabelValueChangeAnswer LabelValueChangeLabelValueChangeTemplate LinkTextBlockAnswer LinkTextBlockTemplate NoAnswerTemplate NoAnswersFound PercentChangeLabelAnswer PercentChangeLabelTemplate RankedTableAnswer RankedTableTemplate TableAnswer TableTableAnswer TableTableTemplate TableTemplate TextBlockFootingAnswer TextBlockFootingTemplate ValueChangeDateLabelAnswer ValueChangeDateLabelTemplate ValueLabelAnswer ValueLabelDateAnswer ValueLabelDateDataPairListAnswer ValueLabelDateDataPairListTemplate ValueLabelDateTemplate ValueLabelDateTextBlockAnswer ValueLabelDateTextBlockTemplate ValueLabelTemplate", discriminatorValue));
+            }
+
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize Answer
+            // deserialize LinkTextBlockAnswer
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (Answer.class.equals(Integer.class) || Answer.class.equals(Long.class) || Answer.class.equals(Float.class) || Answer.class.equals(Double.class) || Answer.class.equals(Boolean.class) || Answer.class.equals(String.class)) {
+                if (LinkTextBlockAnswer.class.equals(Integer.class) || LinkTextBlockAnswer.class.equals(Long.class) || LinkTextBlockAnswer.class.equals(Float.class) || LinkTextBlockAnswer.class.equals(Double.class) || LinkTextBlockAnswer.class.equals(Boolean.class) || LinkTextBlockAnswer.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((Answer.class.equals(Integer.class) || Answer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((Answer.class.equals(Float.class) || Answer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (Answer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (Answer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((LinkTextBlockAnswer.class.equals(Integer.class) || LinkTextBlockAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LinkTextBlockAnswer.class.equals(Float.class) || LinkTextBlockAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LinkTextBlockAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LinkTextBlockAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Answer>() { });
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<LinkTextBlockAnswer>() { });
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'Answer'");
+                    log.log(Level.FINER, "Input data matches schema 'LinkTextBlockAnswer'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Answer'", e);
+                log.log(Level.FINER, "Input data does not match schema 'LinkTextBlockAnswer'", e);
+            }
+
+            // deserialize TextBlockFootingAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TextBlockFootingAnswer.class.equals(Integer.class) || TextBlockFootingAnswer.class.equals(Long.class) || TextBlockFootingAnswer.class.equals(Float.class) || TextBlockFootingAnswer.class.equals(Double.class) || TextBlockFootingAnswer.class.equals(Boolean.class) || TextBlockFootingAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TextBlockFootingAnswer.class.equals(Integer.class) || TextBlockFootingAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TextBlockFootingAnswer.class.equals(Float.class) || TextBlockFootingAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TextBlockFootingAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TextBlockFootingAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TextBlockFootingAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TextBlockFootingAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TextBlockFootingAnswer'", e);
+            }
+
+            // deserialize PercentChangeLabelAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (PercentChangeLabelAnswer.class.equals(Integer.class) || PercentChangeLabelAnswer.class.equals(Long.class) || PercentChangeLabelAnswer.class.equals(Float.class) || PercentChangeLabelAnswer.class.equals(Double.class) || PercentChangeLabelAnswer.class.equals(Boolean.class) || PercentChangeLabelAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((PercentChangeLabelAnswer.class.equals(Integer.class) || PercentChangeLabelAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((PercentChangeLabelAnswer.class.equals(Float.class) || PercentChangeLabelAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (PercentChangeLabelAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (PercentChangeLabelAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<PercentChangeLabelAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'PercentChangeLabelAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'PercentChangeLabelAnswer'", e);
+            }
+
+            // deserialize ValueChangeDateLabelAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueChangeDateLabelAnswer.class.equals(Integer.class) || ValueChangeDateLabelAnswer.class.equals(Long.class) || ValueChangeDateLabelAnswer.class.equals(Float.class) || ValueChangeDateLabelAnswer.class.equals(Double.class) || ValueChangeDateLabelAnswer.class.equals(Boolean.class) || ValueChangeDateLabelAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueChangeDateLabelAnswer.class.equals(Integer.class) || ValueChangeDateLabelAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueChangeDateLabelAnswer.class.equals(Float.class) || ValueChangeDateLabelAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueChangeDateLabelAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueChangeDateLabelAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueChangeDateLabelAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueChangeDateLabelAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueChangeDateLabelAnswer'", e);
+            }
+
+            // deserialize RankedTableAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (RankedTableAnswer.class.equals(Integer.class) || RankedTableAnswer.class.equals(Long.class) || RankedTableAnswer.class.equals(Float.class) || RankedTableAnswer.class.equals(Double.class) || RankedTableAnswer.class.equals(Boolean.class) || RankedTableAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((RankedTableAnswer.class.equals(Integer.class) || RankedTableAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((RankedTableAnswer.class.equals(Float.class) || RankedTableAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (RankedTableAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (RankedTableAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<RankedTableAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'RankedTableAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'RankedTableAnswer'", e);
+            }
+
+            // deserialize TableAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TableAnswer.class.equals(Integer.class) || TableAnswer.class.equals(Long.class) || TableAnswer.class.equals(Float.class) || TableAnswer.class.equals(Double.class) || TableAnswer.class.equals(Boolean.class) || TableAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TableAnswer.class.equals(Integer.class) || TableAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TableAnswer.class.equals(Float.class) || TableAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TableAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TableAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TableAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TableAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TableAnswer'", e);
+            }
+
+            // deserialize TableTableAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (TableTableAnswer.class.equals(Integer.class) || TableTableAnswer.class.equals(Long.class) || TableTableAnswer.class.equals(Float.class) || TableTableAnswer.class.equals(Double.class) || TableTableAnswer.class.equals(Boolean.class) || TableTableAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((TableTableAnswer.class.equals(Integer.class) || TableTableAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((TableTableAnswer.class.equals(Float.class) || TableTableAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (TableTableAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (TableTableAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<TableTableAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'TableTableAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'TableTableAnswer'", e);
+            }
+
+            // deserialize ValueLabelAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueLabelAnswer.class.equals(Integer.class) || ValueLabelAnswer.class.equals(Long.class) || ValueLabelAnswer.class.equals(Float.class) || ValueLabelAnswer.class.equals(Double.class) || ValueLabelAnswer.class.equals(Boolean.class) || ValueLabelAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueLabelAnswer.class.equals(Integer.class) || ValueLabelAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueLabelAnswer.class.equals(Float.class) || ValueLabelAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueLabelAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueLabelAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueLabelAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueLabelAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueLabelAnswer'", e);
+            }
+
+            // deserialize ValueLabelDateAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueLabelDateAnswer.class.equals(Integer.class) || ValueLabelDateAnswer.class.equals(Long.class) || ValueLabelDateAnswer.class.equals(Float.class) || ValueLabelDateAnswer.class.equals(Double.class) || ValueLabelDateAnswer.class.equals(Boolean.class) || ValueLabelDateAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueLabelDateAnswer.class.equals(Integer.class) || ValueLabelDateAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueLabelDateAnswer.class.equals(Float.class) || ValueLabelDateAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueLabelDateAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueLabelDateAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueLabelDateAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueLabelDateAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueLabelDateAnswer'", e);
+            }
+
+            // deserialize ColoredValueLabelDateAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ColoredValueLabelDateAnswer.class.equals(Integer.class) || ColoredValueLabelDateAnswer.class.equals(Long.class) || ColoredValueLabelDateAnswer.class.equals(Float.class) || ColoredValueLabelDateAnswer.class.equals(Double.class) || ColoredValueLabelDateAnswer.class.equals(Boolean.class) || ColoredValueLabelDateAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ColoredValueLabelDateAnswer.class.equals(Integer.class) || ColoredValueLabelDateAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ColoredValueLabelDateAnswer.class.equals(Float.class) || ColoredValueLabelDateAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ColoredValueLabelDateAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ColoredValueLabelDateAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ColoredValueLabelDateAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ColoredValueLabelDateAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ColoredValueLabelDateAnswer'", e);
+            }
+
+            // deserialize ValueLabelDateTextBlockAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueLabelDateTextBlockAnswer.class.equals(Integer.class) || ValueLabelDateTextBlockAnswer.class.equals(Long.class) || ValueLabelDateTextBlockAnswer.class.equals(Float.class) || ValueLabelDateTextBlockAnswer.class.equals(Double.class) || ValueLabelDateTextBlockAnswer.class.equals(Boolean.class) || ValueLabelDateTextBlockAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueLabelDateTextBlockAnswer.class.equals(Integer.class) || ValueLabelDateTextBlockAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueLabelDateTextBlockAnswer.class.equals(Float.class) || ValueLabelDateTextBlockAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueLabelDateTextBlockAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueLabelDateTextBlockAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueLabelDateTextBlockAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueLabelDateTextBlockAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueLabelDateTextBlockAnswer'", e);
+            }
+
+            // deserialize ValueLabelDateDataPairListAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (ValueLabelDateDataPairListAnswer.class.equals(Integer.class) || ValueLabelDateDataPairListAnswer.class.equals(Long.class) || ValueLabelDateDataPairListAnswer.class.equals(Float.class) || ValueLabelDateDataPairListAnswer.class.equals(Double.class) || ValueLabelDateDataPairListAnswer.class.equals(Boolean.class) || ValueLabelDateDataPairListAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((ValueLabelDateDataPairListAnswer.class.equals(Integer.class) || ValueLabelDateDataPairListAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((ValueLabelDateDataPairListAnswer.class.equals(Float.class) || ValueLabelDateDataPairListAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (ValueLabelDateDataPairListAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (ValueLabelDateDataPairListAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<ValueLabelDateDataPairListAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'ValueLabelDateDataPairListAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'ValueLabelDateDataPairListAnswer'", e);
+            }
+
+            // deserialize LabelValueChangeLabelValueChangeAnswer
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (LabelValueChangeLabelValueChangeAnswer.class.equals(Integer.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Long.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Float.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Double.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Boolean.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((LabelValueChangeLabelValueChangeAnswer.class.equals(Integer.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((LabelValueChangeLabelValueChangeAnswer.class.equals(Float.class) || LabelValueChangeLabelValueChangeAnswer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (LabelValueChangeLabelValueChangeAnswer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (LabelValueChangeLabelValueChangeAnswer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<LabelValueChangeLabelValueChangeAnswer>() { });
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'LabelValueChangeLabelValueChangeAnswer'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'LabelValueChangeLabelValueChangeAnswer'", e);
             }
 
             // deserialize AnswerWithoutData
@@ -198,7 +652,55 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
         super("oneOf", Boolean.FALSE);
     }
 
-    public DataAnswerData(Answer o) {
+    public DataAnswerData(LinkTextBlockAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(TextBlockFootingAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(PercentChangeLabelAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ValueChangeDateLabelAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(RankedTableAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(TableAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(TableTableAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ValueLabelAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ValueLabelDateAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ColoredValueLabelDateAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ValueLabelDateTextBlockAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(ValueLabelDateDataPairListAnswer o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+    public DataAnswerData(LabelValueChangeLabelValueChangeAnswer o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -211,13 +713,71 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
         setActualInstance(o);
     }
     static {
-        schemas.put("Answer", new GenericType<Answer>() {
-        });
         schemas.put("AnswerWithoutData", new GenericType<AnswerWithoutData>() {
+        });
+        schemas.put("ColoredValueLabelDateAnswer", new GenericType<ColoredValueLabelDateAnswer>() {
+        });
+        schemas.put("LabelValueChangeLabelValueChangeAnswer", new GenericType<LabelValueChangeLabelValueChangeAnswer>() {
+        });
+        schemas.put("LinkTextBlockAnswer", new GenericType<LinkTextBlockAnswer>() {
         });
         schemas.put("NoAnswersFound", new GenericType<NoAnswersFound>() {
         });
+        schemas.put("PercentChangeLabelAnswer", new GenericType<PercentChangeLabelAnswer>() {
+        });
+        schemas.put("RankedTableAnswer", new GenericType<RankedTableAnswer>() {
+        });
+        schemas.put("TableAnswer", new GenericType<TableAnswer>() {
+        });
+        schemas.put("TableTableAnswer", new GenericType<TableTableAnswer>() {
+        });
+        schemas.put("TextBlockFootingAnswer", new GenericType<TextBlockFootingAnswer>() {
+        });
+        schemas.put("ValueChangeDateLabelAnswer", new GenericType<ValueChangeDateLabelAnswer>() {
+        });
+        schemas.put("ValueLabelAnswer", new GenericType<ValueLabelAnswer>() {
+        });
+        schemas.put("ValueLabelDateAnswer", new GenericType<ValueLabelDateAnswer>() {
+        });
+        schemas.put("ValueLabelDateDataPairListAnswer", new GenericType<ValueLabelDateDataPairListAnswer>() {
+        });
+        schemas.put("ValueLabelDateTextBlockAnswer", new GenericType<ValueLabelDateTextBlockAnswer>() {
+        });
         JSON.registerDescendants(DataAnswerData.class, Collections.unmodifiableMap(schemas));
+        // Initialize and register the discriminator mappings.
+        Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
+        mappings.put("AnswerWithoutData", AnswerWithoutData.class);
+        mappings.put("AnswerWithoutDataTemplate", AnswerWithoutData.class);
+        mappings.put("ColoredValueLabelDateAnswer", ColoredValueLabelDateAnswer.class);
+        mappings.put("ColoredValueLabelDateTemplate", ColoredValueLabelDateAnswer.class);
+        mappings.put("LabelValueChangeLabelValueChangeAnswer", LabelValueChangeLabelValueChangeAnswer.class);
+        mappings.put("LabelValueChangeLabelValueChangeTemplate", LabelValueChangeLabelValueChangeAnswer.class);
+        mappings.put("LinkTextBlockAnswer", LinkTextBlockAnswer.class);
+        mappings.put("LinkTextBlockTemplate", LinkTextBlockAnswer.class);
+        mappings.put("NoAnswerTemplate", NoAnswersFound.class);
+        mappings.put("NoAnswersFound", NoAnswersFound.class);
+        mappings.put("PercentChangeLabelAnswer", PercentChangeLabelAnswer.class);
+        mappings.put("PercentChangeLabelTemplate", PercentChangeLabelAnswer.class);
+        mappings.put("RankedTableAnswer", RankedTableAnswer.class);
+        mappings.put("RankedTableTemplate", RankedTableAnswer.class);
+        mappings.put("TableAnswer", TableAnswer.class);
+        mappings.put("TableTableAnswer", TableTableAnswer.class);
+        mappings.put("TableTableTemplate", TableTableAnswer.class);
+        mappings.put("TableTemplate", TableAnswer.class);
+        mappings.put("TextBlockFootingAnswer", TextBlockFootingAnswer.class);
+        mappings.put("TextBlockFootingTemplate", TextBlockFootingAnswer.class);
+        mappings.put("ValueChangeDateLabelAnswer", ValueChangeDateLabelAnswer.class);
+        mappings.put("ValueChangeDateLabelTemplate", ValueChangeDateLabelAnswer.class);
+        mappings.put("ValueLabelAnswer", ValueLabelAnswer.class);
+        mappings.put("ValueLabelDateAnswer", ValueLabelDateAnswer.class);
+        mappings.put("ValueLabelDateDataPairListAnswer", ValueLabelDateDataPairListAnswer.class);
+        mappings.put("ValueLabelDateDataPairListTemplate", ValueLabelDateDataPairListAnswer.class);
+        mappings.put("ValueLabelDateTemplate", ValueLabelDateAnswer.class);
+        mappings.put("ValueLabelDateTextBlockAnswer", ValueLabelDateTextBlockAnswer.class);
+        mappings.put("ValueLabelDateTextBlockTemplate", ValueLabelDateTextBlockAnswer.class);
+        mappings.put("ValueLabelTemplate", ValueLabelAnswer.class);
+        mappings.put("DataAnswerData", DataAnswerData.class);
+        JSON.registerDiscriminator(DataAnswerData.class, "template", mappings);
     }
 
     @Override
@@ -228,15 +788,87 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Answer, AnswerWithoutData, NoAnswersFound
+     * AnswerWithoutData, ColoredValueLabelDateAnswer, LabelValueChangeLabelValueChangeAnswer, LinkTextBlockAnswer, NoAnswersFound, PercentChangeLabelAnswer, RankedTableAnswer, TableAnswer, TableTableAnswer, TextBlockFootingAnswer, ValueChangeDateLabelAnswer, ValueLabelAnswer, ValueLabelDateAnswer, ValueLabelDateDataPairListAnswer, ValueLabelDateTextBlockAnswer
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
      */
     @Override
     public void setActualInstance(Object instance) {
-        // Answer
-        if (JSON.isInstanceOf(Answer.class, instance, new HashSet<Class<?>>())) {
+        // LinkTextBlockAnswer
+        if (JSON.isInstanceOf(LinkTextBlockAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // TextBlockFootingAnswer
+        if (JSON.isInstanceOf(TextBlockFootingAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // PercentChangeLabelAnswer
+        if (JSON.isInstanceOf(PercentChangeLabelAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ValueChangeDateLabelAnswer
+        if (JSON.isInstanceOf(ValueChangeDateLabelAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // RankedTableAnswer
+        if (JSON.isInstanceOf(RankedTableAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // TableAnswer
+        if (JSON.isInstanceOf(TableAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // TableTableAnswer
+        if (JSON.isInstanceOf(TableTableAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ValueLabelAnswer
+        if (JSON.isInstanceOf(ValueLabelAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ValueLabelDateAnswer
+        if (JSON.isInstanceOf(ValueLabelDateAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ColoredValueLabelDateAnswer
+        if (JSON.isInstanceOf(ColoredValueLabelDateAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ValueLabelDateTextBlockAnswer
+        if (JSON.isInstanceOf(ValueLabelDateTextBlockAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // ValueLabelDateDataPairListAnswer
+        if (JSON.isInstanceOf(ValueLabelDateDataPairListAnswer.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        // LabelValueChangeLabelValueChangeAnswer
+        if (JSON.isInstanceOf(LabelValueChangeLabelValueChangeAnswer.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -253,14 +885,14 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Answer, AnswerWithoutData, NoAnswersFound");
+        throw new RuntimeException("Invalid instance type. Must be AnswerWithoutData, ColoredValueLabelDateAnswer, LabelValueChangeLabelValueChangeAnswer, LinkTextBlockAnswer, NoAnswersFound, PercentChangeLabelAnswer, RankedTableAnswer, TableAnswer, TableTableAnswer, TextBlockFootingAnswer, ValueChangeDateLabelAnswer, ValueLabelAnswer, ValueLabelDateAnswer, ValueLabelDateDataPairListAnswer, ValueLabelDateTextBlockAnswer");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Answer, AnswerWithoutData, NoAnswersFound
+     * AnswerWithoutData, ColoredValueLabelDateAnswer, LabelValueChangeLabelValueChangeAnswer, LinkTextBlockAnswer, NoAnswersFound, PercentChangeLabelAnswer, RankedTableAnswer, TableAnswer, TableTableAnswer, TextBlockFootingAnswer, ValueChangeDateLabelAnswer, ValueLabelAnswer, ValueLabelDateAnswer, ValueLabelDateDataPairListAnswer, ValueLabelDateTextBlockAnswer
      *
-     * @return The actual instance (Answer, AnswerWithoutData, NoAnswersFound)
+     * @return The actual instance (AnswerWithoutData, ColoredValueLabelDateAnswer, LabelValueChangeLabelValueChangeAnswer, LinkTextBlockAnswer, NoAnswersFound, PercentChangeLabelAnswer, RankedTableAnswer, TableAnswer, TableTableAnswer, TextBlockFootingAnswer, ValueChangeDateLabelAnswer, ValueLabelAnswer, ValueLabelDateAnswer, ValueLabelDateDataPairListAnswer, ValueLabelDateTextBlockAnswer)
      */
     @Override
     public Object getActualInstance() {
@@ -268,14 +900,146 @@ public class DataAnswerData extends AbstractOpenApiSchema implements Serializabl
     }
 
     /**
-     * Get the actual instance of `Answer`. If the actual instance is not `Answer`,
+     * Get the actual instance of `LinkTextBlockAnswer`. If the actual instance is not `LinkTextBlockAnswer`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Answer`
-     * @throws ClassCastException if the instance is not `Answer`
+     * @return The actual instance of `LinkTextBlockAnswer`
+     * @throws ClassCastException if the instance is not `LinkTextBlockAnswer`
      */
-    public Answer getAnswer() throws ClassCastException {
-        return (Answer)super.getActualInstance();
+    public LinkTextBlockAnswer getLinkTextBlockAnswer() throws ClassCastException {
+        return (LinkTextBlockAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `TextBlockFootingAnswer`. If the actual instance is not `TextBlockFootingAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TextBlockFootingAnswer`
+     * @throws ClassCastException if the instance is not `TextBlockFootingAnswer`
+     */
+    public TextBlockFootingAnswer getTextBlockFootingAnswer() throws ClassCastException {
+        return (TextBlockFootingAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `PercentChangeLabelAnswer`. If the actual instance is not `PercentChangeLabelAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `PercentChangeLabelAnswer`
+     * @throws ClassCastException if the instance is not `PercentChangeLabelAnswer`
+     */
+    public PercentChangeLabelAnswer getPercentChangeLabelAnswer() throws ClassCastException {
+        return (PercentChangeLabelAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ValueChangeDateLabelAnswer`. If the actual instance is not `ValueChangeDateLabelAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ValueChangeDateLabelAnswer`
+     * @throws ClassCastException if the instance is not `ValueChangeDateLabelAnswer`
+     */
+    public ValueChangeDateLabelAnswer getValueChangeDateLabelAnswer() throws ClassCastException {
+        return (ValueChangeDateLabelAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `RankedTableAnswer`. If the actual instance is not `RankedTableAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `RankedTableAnswer`
+     * @throws ClassCastException if the instance is not `RankedTableAnswer`
+     */
+    public RankedTableAnswer getRankedTableAnswer() throws ClassCastException {
+        return (RankedTableAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `TableAnswer`. If the actual instance is not `TableAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TableAnswer`
+     * @throws ClassCastException if the instance is not `TableAnswer`
+     */
+    public TableAnswer getTableAnswer() throws ClassCastException {
+        return (TableAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `TableTableAnswer`. If the actual instance is not `TableTableAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TableTableAnswer`
+     * @throws ClassCastException if the instance is not `TableTableAnswer`
+     */
+    public TableTableAnswer getTableTableAnswer() throws ClassCastException {
+        return (TableTableAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ValueLabelAnswer`. If the actual instance is not `ValueLabelAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ValueLabelAnswer`
+     * @throws ClassCastException if the instance is not `ValueLabelAnswer`
+     */
+    public ValueLabelAnswer getValueLabelAnswer() throws ClassCastException {
+        return (ValueLabelAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ValueLabelDateAnswer`. If the actual instance is not `ValueLabelDateAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ValueLabelDateAnswer`
+     * @throws ClassCastException if the instance is not `ValueLabelDateAnswer`
+     */
+    public ValueLabelDateAnswer getValueLabelDateAnswer() throws ClassCastException {
+        return (ValueLabelDateAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ColoredValueLabelDateAnswer`. If the actual instance is not `ColoredValueLabelDateAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ColoredValueLabelDateAnswer`
+     * @throws ClassCastException if the instance is not `ColoredValueLabelDateAnswer`
+     */
+    public ColoredValueLabelDateAnswer getColoredValueLabelDateAnswer() throws ClassCastException {
+        return (ColoredValueLabelDateAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ValueLabelDateTextBlockAnswer`. If the actual instance is not `ValueLabelDateTextBlockAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ValueLabelDateTextBlockAnswer`
+     * @throws ClassCastException if the instance is not `ValueLabelDateTextBlockAnswer`
+     */
+    public ValueLabelDateTextBlockAnswer getValueLabelDateTextBlockAnswer() throws ClassCastException {
+        return (ValueLabelDateTextBlockAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `ValueLabelDateDataPairListAnswer`. If the actual instance is not `ValueLabelDateDataPairListAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ValueLabelDateDataPairListAnswer`
+     * @throws ClassCastException if the instance is not `ValueLabelDateDataPairListAnswer`
+     */
+    public ValueLabelDateDataPairListAnswer getValueLabelDateDataPairListAnswer() throws ClassCastException {
+        return (ValueLabelDateDataPairListAnswer)super.getActualInstance();
+    }
+    
+    /**
+     * Get the actual instance of `LabelValueChangeLabelValueChangeAnswer`. If the actual instance is not `LabelValueChangeLabelValueChangeAnswer`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `LabelValueChangeLabelValueChangeAnswer`
+     * @throws ClassCastException if the instance is not `LabelValueChangeLabelValueChangeAnswer`
+     */
+    public LabelValueChangeLabelValueChangeAnswer getLabelValueChangeLabelValueChangeAnswer() throws ClassCastException {
+        return (LabelValueChangeLabelValueChangeAnswer)super.getActualInstance();
     }
     
     /**

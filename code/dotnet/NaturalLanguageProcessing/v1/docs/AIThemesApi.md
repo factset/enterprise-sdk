@@ -4,14 +4,14 @@ All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitivenlpv1themespost) | **POST** /cognitive/nlp/v1/themes | POST request to extract themes from text
+[**CognitiveNlpV1ThemesPost**](AIThemesApi.md#cognitivenlpv1themespost) | **POST** /cognitive/nlp/v1/themes | Endpoint to extract themes from text
 
 
 <a name="cognitivenlpv1themespost"></a>
 # **CognitiveNlpV1ThemesPost**
 > ThemesRoot CognitiveNlpV1ThemesPost (ThemeParametersRoot themeParametersRoot)
 
-POST request to extract themes from text
+Endpoint to extract themes from text
 
 This endpoint extracts themes from unstructured text. Each theme (`themeText`) is also given a score (`themeScore`). This score shows the relevancy of the theme within the text. Example Output: ```json {   \"data\": [   {     \"themeText\": \"home entertainment results\",     \"themeScore\": 0.92   },   {     \"themeText\": \".....\",     \"themeScore\": .....   }] } ``` 
 
@@ -55,7 +55,7 @@ namespace Example
 
             try
             {
-                // POST request to extract themes from text
+                // Endpoint to extract themes from text
                 ThemesRoot result = apiInstance.CognitiveNlpV1ThemesPost(themeParametersRoot);
                 Console.WriteLine(result.ToJson());
             }

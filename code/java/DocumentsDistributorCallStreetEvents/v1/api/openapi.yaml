@@ -17,7 +17,7 @@ info:
     \ analysis through natural language processing or machine learning. It can also\
     \ be used to complement analysis using FactSet's transcripts service.\n"
   title: Documents Distributor - CallStreet Events
-  version: 1.7.0
+  version: 1.8.0
 servers:
 - description: Production
   url: https://api.factset.com
@@ -100,9 +100,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: parameterError
-                    title: yr is not a valid parameter
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: parameterError
+                    title: '[''yr''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
@@ -110,7 +110,7 @@ paths:
                         _paginationOffset:
                         - positive integer
                         year:
-                        - positive integer
+                        - positive integer greater than 2010
               schema:
                 $ref: '#/components/schemas/Events-Audio-History-400-Response'
           description: Bad Request. This can occur for several reasons. Please review
@@ -121,9 +121,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -137,9 +138,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Forbidden
-                    title: USERNAME-SERIAL does not have permission
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -152,9 +154,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error
@@ -426,9 +428,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -442,9 +445,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Forbidden
-                    title: USERNAME-SERIAL does not have permission
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -457,9 +461,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error
@@ -603,7 +607,8 @@ paths:
                 example-1:
                   value:
                     id: f815da1a-da7e-4b66-a4a4-59b5b7c9bea2
-                    error_message: parameterError:_paginatioLimit is not a valid parameter.
+                    code: parameterError
+                    title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _sort:
@@ -635,9 +640,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -652,7 +658,9 @@ paths:
                 example-1:
                   value:
                     id: 7af3d86ca5954503b9244f2620fcf5eb
-                    error_message: 'You are not subscribed to this product: nrt'
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/NRT403Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -665,9 +673,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error
@@ -808,8 +816,8 @@ paths:
                 example-1:
                   value:
                     id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
-                    error_message: parameterError:['_paginationLmit'] is not a valid
-                      parameter(s),
+                    code: parameterError
+                    title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
@@ -829,9 +837,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -846,7 +855,9 @@ paths:
                 example-1:
                   value:
                     id: 7af3d86ca5954503b9244f2620fcf5eb
-                    error_message: 'You are not subscribed to this product: nrt'
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/NRT403Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -859,9 +870,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error
@@ -973,7 +984,8 @@ paths:
                 example-1:
                   value:
                     id: caccf853-a448-4a14-b44f-ffbb962730f3
-                    error_message: parameterError:audioSourcId is not a valid parameter
+                    code: parameterError
+                    title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _sort:
@@ -994,9 +1006,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -1011,7 +1024,9 @@ paths:
                 example-1:
                   value:
                     id: 7af3d86ca5954503b9244f2620fcf5eb
-                    error_message: 'You are not subscribed to this product: nrt'
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/NRT403Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -1024,9 +1039,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error
@@ -1665,8 +1680,8 @@ paths:
                 example-1:
                   value:
                     id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
-                    error_message: parameterError:['_paginationLmit'] is not a valid
-                      parameter(s),
+                    code: parameterError
+                    title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
@@ -1686,9 +1701,10 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Not Authenticated
-                    title: Unauthenticated USERNAME-SERIAL
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: notAuthenticated
+                    title: There were either no, invalid, or expired credentials present
+                      in the request.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
@@ -1703,7 +1719,9 @@ paths:
                 example-1:
                   value:
                     id: 7af3d86ca5954503b9244f2620fcf5eb
-                    error_message: 'You are not subscribed to this product: nrt'
+                    code: notAuthorized
+                    title: ' {USERNAME}-{SERIAL} does not have permission to use this
+                      endpoint.'
               schema:
                 $ref: '#/components/schemas/NRT403Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
@@ -1716,9 +1734,9 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: Internal server error
-                    title: An unexpected error happened
                     id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: genericServerError
+                    title: An unexpected error happened.
               schema:
                 $ref: '#/components/schemas/Error'
           description: Internal Server Error

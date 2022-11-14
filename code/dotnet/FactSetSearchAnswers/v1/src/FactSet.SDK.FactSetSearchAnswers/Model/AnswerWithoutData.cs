@@ -40,11 +40,17 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnswerWithoutData" /> class.
         /// </summary>
+        /// <param name="template">template (required).</param>
         /// <param name="message">message (required).</param>
         /// <param name="title">title (required).</param>
         /// <param name="templateData">templateData (required).</param>
-        public AnswerWithoutData(string message, string title, AnswerWithoutDataAllOfTemplateData templateData)
+        public AnswerWithoutData(string template, string message, string title, AnswerWithoutDataAllOfTemplateData templateData)
         {
+            // to ensure "template" is required (not null)
+            if (template == null) {
+                throw new ArgumentNullException("template is a required property for AnswerWithoutData and cannot be null");
+            }
+            this.Template = template;
             // to ensure "message" is required (not null)
             if (message == null) {
                 throw new ArgumentNullException("message is a required property for AnswerWithoutData and cannot be null");
@@ -61,6 +67,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             this.TemplateData = templateData;
         }
+
+        /// <summary>
+        /// Gets or Sets Template
+        /// </summary>
+        [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = false)]
+        public string Template { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
@@ -88,6 +100,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnswerWithoutData {\n");
+            sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
@@ -127,6 +140,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             return 
                 (
+                    this.Template == input.Template ||
+                    (this.Template != null &&
+                    this.Template.Equals(input.Template))
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -152,6 +170,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Template != null)
+                {
+                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                }
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();

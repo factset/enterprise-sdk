@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetSearchAnswers",
-  "packageVersion": "0.21.3",
+  "packageVersion": "0.21.4",
   "packageGuid": "{2753be90-b059-56be-9b20-5beecda03e14}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -17,7 +17,7 @@
   "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetSearchAnswers/0.21.3",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetSearchAnswers/0.21.4",
   "files": {
     "LICENSE": {}
   },

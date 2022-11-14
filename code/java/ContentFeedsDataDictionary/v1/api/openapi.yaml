@@ -226,28 +226,38 @@ components:
         results:
         - dataItem:
             entitled: true
+            dataFeed: true
             name: fsym_id
             description: Factset Perm Id
             id: 35
-            source: SDF
+            api: true
+            referenceDataFeed: false
           product:
             entitled: true
+            dataFeed: true
             ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
             name: Estimize US Equities
             id: "3210"
+            api: true
+            referenceDataFeed: false
             providerName: Estimize
             ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
         - dataItem:
             entitled: true
+            dataFeed: true
             name: fsym_id
             description: Factset Perm Id
             id: 35
-            source: SDF
+            api: true
+            referenceDataFeed: false
           product:
             entitled: true
+            dataFeed: true
             ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
             name: Estimize US Equities
             id: "3210"
+            api: true
+            referenceDataFeed: false
             providerName: Estimize
             ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
       properties:
@@ -258,19 +268,17 @@ components:
     DataItem:
       example:
         entitled: true
+        dataFeed: true
         name: fsym_id
         description: Factset Perm Id
         id: 35
-        source: SDF
+        api: true
+        referenceDataFeed: false
       properties:
         id:
           description: Unique identifier for the data item
           example: 35
           type: integer
-        source:
-          description: Unique identifier for the product source
-          example: SDF
-          type: string
         name:
           description: Name of the data item
           example: fsym_id
@@ -284,44 +292,30 @@ components:
             in their subscriptions
           example: true
           type: boolean
-      type: object
-    Product:
-      example:
-        entitled: true
-        ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
-        name: Estimize US Equities
-        id: "3210"
-        providerName: Estimize
-        ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
-      properties:
-        id:
-          description: Unique identifier for the product
-          example: "3210"
-          type: string
-        name:
-          description: Name of the product
-          example: Estimize US Equities
-          type: string
-        ofmLink:
-          description: URL to the product page on the Open:FactSet Marketplace
-          example: https://open.factset.com/products/estimize-us-equities/en-us
-          type: string
-        ofmProductId:
-          description: The id defining a product in the Open:FactSet Marketplace
-          example: 168e9bf8-108c-4912-beca-b658083c7c86
-          type: string
-        entitled:
-          description: Flag indicating if the user is entitled to access the data
-            in their subscriptions
+        dataFeed:
+          description: Flag indicating if this item is available in a data feed
           example: true
           type: boolean
-        providerName:
-          description: Name of the Data Provider for the product
-          example: Estimize
-          type: string
+        api:
+          description: Flag indicating if this item is available in an api
+          example: true
+          type: boolean
+        referenceDataFeed:
+          description: Flag indicating if this product is maintained by RDF/UCF
+          example: false
+          type: boolean
       type: object
     NavigatorSourcesResponse:
       example:
+        reference:
+        - entitled: "true"
+          name: /symbology/v1/bloomberg
+          description: Translate FactSet symbols into Bloomberg Identifiers.
+          id: "180443"
+        - entitled: "true"
+          name: /symbology/v1/bloomberg
+          description: Translate FactSet symbols into Bloomberg Identifiers.
+          id: "180443"
         sdf:
         - dbSchema: gr_v2
           entitled: true
@@ -355,9 +349,87 @@ components:
           items:
             $ref: '#/components/schemas/ApiEndpoint'
           type: array
+        reference:
+          items:
+            $ref: '#/components/schemas/ReferenceGroup'
+          type: array
       required:
       - sdf
       type: object
+    Product:
+      example:
+        entitled: true
+        dataFeed: true
+        ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
+        name: Estimize US Equities
+        id: "3210"
+        api: true
+        referenceDataFeed: false
+        providerName: Estimize
+        ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
+      properties:
+        id:
+          description: Unique identifier for the product
+          example: "3210"
+          type: string
+        name:
+          description: Name of the product
+          example: Estimize US Equities
+          type: string
+        ofmLink:
+          description: URL to the product page on the Open:FactSet Marketplace
+          example: https://open.factset.com/products/estimize-us-equities/en-us
+          type: string
+        ofmProductId:
+          description: The id defining a product in the Open:FactSet Marketplace
+          example: 168e9bf8-108c-4912-beca-b658083c7c86
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: true
+          type: boolean
+        providerName:
+          description: Name of the Data Provider for the product
+          example: Estimize
+          type: string
+        dataFeed:
+          description: Flag indicating if this product is available in a data feed
+          example: true
+          type: boolean
+        api:
+          description: Flag indicating if this product is available in an api
+          example: true
+          type: boolean
+        referenceDataFeed:
+          description: Flag indicating if this product is maintained by RDF/UCF
+          example: false
+          type: boolean
+      type: object
+    ReferenceGroup:
+      example:
+        entitled: "true"
+        name: /symbology/v1/bloomberg
+        description: Translate FactSet symbols into Bloomberg Identifiers.
+        id: "180443"
+      properties:
+        id:
+          description: Unique identifier for the api endpoint
+          example: "180443"
+          type: string
+        name:
+          description: API endpoint path
+          example: /symbology/v1/bloomberg
+          type: string
+        description:
+          description: A description of the endpoint
+          example: Translate FactSet symbols into Bloomberg Identifiers.
+          type: string
+        entitled:
+          description: Flag indicating if the user is entitled to access the data
+            in their subscriptions
+          example: "true"
+          type: string
     Table:
       example:
         dbSchema: gr_v2
@@ -528,15 +600,20 @@ components:
       example:
         dataItem:
           entitled: true
+          dataFeed: true
           name: fsym_id
           description: Factset Perm Id
           id: 35
-          source: SDF
+          api: true
+          referenceDataFeed: false
         product:
           entitled: true
+          dataFeed: true
           ofmLink: https://open.factset.com/products/estimize-us-equities/en-us
           name: Estimize US Equities
           id: "3210"
+          api: true
+          referenceDataFeed: false
           providerName: Estimize
           ofmProductId: 168e9bf8-108c-4912-beca-b658083c7c86
       properties:

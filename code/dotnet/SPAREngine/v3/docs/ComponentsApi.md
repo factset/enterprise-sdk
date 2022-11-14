@@ -51,7 +51,7 @@ namespace Example
 
             var apiInstance = new ComponentsApi(config);
 
-            var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
+            var document = "\"Client:\"";  // string | Document Name (default to "Client:")
 
             try
             {
@@ -74,7 +74,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **string**| Document Name | [default to &quot;Client:Foo&quot;]
+ **document** | **string**| Document Name | [default to &quot;Client:&quot;]
 
 ### Return type
 [**ComponentSummaryRoot**](ComponentSummaryRoot.md)
