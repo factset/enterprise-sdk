@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetESG
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetESG
 from fds.sdk.FactSetESG.api import sasb_api

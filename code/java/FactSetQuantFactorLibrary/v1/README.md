@@ -70,7 +70,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetQuantFactorLibrary.*;
 import com.factset.sdk.FactSetQuantFactorLibrary.auth.*;
 import com.factset.sdk.FactSetQuantFactorLibrary.models.*;

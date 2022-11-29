@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.AITextSummarization
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.AITextSummarization
 from fds.sdk.AITextSummarization.api import default_api

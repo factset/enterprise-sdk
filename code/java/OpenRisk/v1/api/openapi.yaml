@@ -6,7 +6,7 @@ info:
   description: Service to calculate parametric linear risk statistics and generate
     risk model asset identifier mappings.
   title: Open:Risk API
-  version: 1.21.0
+  version: 1.23.0
 servers:
 - url: https://api.factset.com/analytics/openrisk
 security:
@@ -3033,6 +3033,7 @@ components:
           - InterestRateFuture
           - InterestRateOption
           - InterestRateSwap
+          - InterestRateCapFloor
           - JapaneseMbsBond
           - Liability
           - MbsBond

@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetPeople
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetPeople
 from fds.sdk.FactSetPeople.api import company_api

@@ -82,7 +82,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.BondsAPIforDigitalPortals.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.models.*;

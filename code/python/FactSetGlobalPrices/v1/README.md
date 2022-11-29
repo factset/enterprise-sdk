@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetGlobalPrices
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetGlobalPrices
 from fds.sdk.FactSetGlobalPrices.api import corporate_actions_api

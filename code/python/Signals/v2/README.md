@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.Signals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Signals
 from fds.sdk.Signals.api import events_api

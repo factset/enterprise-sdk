@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.OverviewReportBuilder
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OverviewReportBuilder
 from fds.sdk.OverviewReportBuilder.api import company_api

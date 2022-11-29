@@ -103,6 +103,8 @@ Name | Type | Description | Notes
 
 * `InterestRateSwap` (value: `"InterestRateSwap"`)
 
+* `InterestRateCapFloor` (value: `"InterestRateCapFloor"`)
+
 * `JapaneseMbsBond` (value: `"JapaneseMbsBond"`)
 
 * `Liability` (value: `"Liability"`)

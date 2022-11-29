@@ -63,6 +63,7 @@ INTERESTRATECOLLAR | &quot;InterestRateCollar&quot;
 INTERESTRATEFUTURE | &quot;InterestRateFuture&quot;
 INTERESTRATEOPTION | &quot;InterestRateOption&quot;
 INTERESTRATESWAP | &quot;InterestRateSwap&quot;
+INTERESTRATECAPFLOOR | &quot;InterestRateCapFloor&quot;
 JAPANESEMBSBOND | &quot;JapaneseMbsBond&quot;
 LIABILITY | &quot;Liability&quot;
 MBSBOND | &quot;MbsBond&quot;

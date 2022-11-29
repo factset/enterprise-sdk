@@ -63,7 +63,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetGeoRev.*;
 import com.factset.sdk.FactSetGeoRev.auth.*;
 import com.factset.sdk.FactSetGeoRev.models.*;

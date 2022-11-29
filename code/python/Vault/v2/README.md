@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.Vault
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Vault
 from fds.sdk.Vault.api import accounts_api

@@ -65,7 +65,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetIntradayTickHistory.*;
 import com.factset.sdk.FactSetIntradayTickHistory.auth.*;
 import com.factset.sdk.FactSetIntradayTickHistory.models.*;

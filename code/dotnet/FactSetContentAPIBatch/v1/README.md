@@ -43,7 +43,6 @@ nuget install FactSet.SDK.FactSetContentAPIBatch
 4. Run the following:
 
 ```csharp
-
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -107,7 +106,6 @@ namespace Example
         }
     }
 }
-
 ```
 
 ### Using a Proxy

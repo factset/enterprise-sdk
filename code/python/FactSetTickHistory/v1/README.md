@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.FactSetTickHistory
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTickHistory
 from fds.sdk.FactSetTickHistory.api import get_files_api

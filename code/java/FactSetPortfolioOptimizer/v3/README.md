@@ -64,7 +64,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetPortfolioOptimizer.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.models.*;

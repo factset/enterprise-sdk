@@ -66,7 +66,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.WatchlistAPIforDigitalPortals.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;

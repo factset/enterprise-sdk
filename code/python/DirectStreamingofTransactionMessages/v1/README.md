@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.DirectStreamingofTransactionMessages
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DirectStreamingofTransactionMessages
 from fds.sdk.DirectStreamingofTransactionMessages.api import dsotm_api

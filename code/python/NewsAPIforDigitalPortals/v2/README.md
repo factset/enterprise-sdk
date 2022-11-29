@@ -75,7 +75,6 @@ pip install fds.sdk.utils fds.sdk.NewsAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NewsAPIforDigitalPortals
 from fds.sdk.NewsAPIforDigitalPortals.api import news_api

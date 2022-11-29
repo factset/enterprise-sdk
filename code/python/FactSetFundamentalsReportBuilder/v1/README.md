@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.FactSetFundamentalsReportBuilder
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentalsReportBuilder
 from fds.sdk.FactSetFundamentalsReportBuilder.api import financials_api

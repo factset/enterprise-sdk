@@ -67,7 +67,6 @@ pip install fds.sdk.utils fds.sdk.BondsAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BondsAPIforDigitalPortals
 from fds.sdk.BondsAPIforDigitalPortals.api import debt_instrument_api

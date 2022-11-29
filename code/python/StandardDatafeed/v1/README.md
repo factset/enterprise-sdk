@@ -60,7 +60,6 @@ pip install fds.sdk.utils fds.sdk.StandardDatafeed
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StandardDatafeed
 from fds.sdk.StandardDatafeed.api import sdf_and_qfl_content_library_api

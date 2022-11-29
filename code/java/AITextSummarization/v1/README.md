@@ -62,7 +62,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.AITextSummarization.*;
 import com.factset.sdk.AITextSummarization.auth.*;
 import com.factset.sdk.AITextSummarization.models.*;

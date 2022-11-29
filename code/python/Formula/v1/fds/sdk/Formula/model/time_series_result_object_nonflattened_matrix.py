@@ -61,18 +61,6 @@ class TimeSeriesResultObjectNonflattenedMatrix(ModelComposed):
     """
 
     allowed_values = {
-        ('data_type',): {
-            'None': None,
-            'STRING': "STRING",
-            'INTEGER': "INTEGER",
-            'DOUBLE': "DOUBLE",
-        },
-        ('object_type',): {
-            'SCALAR': "SCALAR",
-            'ARRAY': "ARRAY",
-            'MATRIX': "MATRIX",
-            'TIMESERIES': "TIMESERIES",
-        },
     }
 
     validations = {

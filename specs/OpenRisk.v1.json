@@ -3,7 +3,7 @@
   "info": {
     "title": "Open:Risk API",
     "description": "Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.",
-    "version": "1.21.0",
+    "version": "1.23.0",
     "contact": {
       "name": "Parametric Risk Analytics Development",
       "email": "ParametricRiskAnalyticsDevelopment@factset.com"
@@ -1587,6 +1587,7 @@
               "InterestRateFuture",
               "InterestRateOption",
               "InterestRateSwap",
+              "InterestRateCapFloor",
               "JapaneseMbsBond",
               "Liability",
               "MbsBond",

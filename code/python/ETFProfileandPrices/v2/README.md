@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.ETFProfileandPrices
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ETFProfileandPrices
 from fds.sdk.ETFProfileandPrices.api import factset_api

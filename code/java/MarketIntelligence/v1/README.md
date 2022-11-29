@@ -62,7 +62,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.MarketIntelligence.*;
 import com.factset.sdk.MarketIntelligence.auth.*;
 import com.factset.sdk.MarketIntelligence.models.*;

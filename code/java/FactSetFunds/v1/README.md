@@ -74,7 +74,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetFunds.*;
 import com.factset.sdk.FactSetFunds.auth.*;
 import com.factset.sdk.FactSetFunds.models.*;

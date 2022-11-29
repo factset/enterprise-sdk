@@ -67,7 +67,6 @@ pip install fds.sdk.utils fds.sdk.DocumentsDistributorDocuments
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorDocuments
 from fds.sdk.DocumentsDistributorDocuments.api import global_filings_api_api

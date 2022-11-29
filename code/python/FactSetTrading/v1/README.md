@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.FactSetTrading
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTrading
 from fds.sdk.FactSetTrading.api import orders_api

@@ -64,7 +64,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.Vault.*;
 import com.factset.sdk.Vault.auth.*;
 import com.factset.sdk.Vault.models.*;

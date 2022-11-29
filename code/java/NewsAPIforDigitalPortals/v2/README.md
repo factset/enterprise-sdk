@@ -90,7 +90,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.NewsAPIforDigitalPortals.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.*;

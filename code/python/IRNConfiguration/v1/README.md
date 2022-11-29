@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.IRNConfiguration
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNConfiguration
 from fds.sdk.IRNConfiguration.api import contacts___custom_fields_api

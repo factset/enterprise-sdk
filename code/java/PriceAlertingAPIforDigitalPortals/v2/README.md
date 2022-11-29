@@ -75,7 +75,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.PriceAlertingAPIforDigitalPortals.*;
 import com.factset.sdk.PriceAlertingAPIforDigitalPortals.auth.*;
 import com.factset.sdk.PriceAlertingAPIforDigitalPortals.models.*;

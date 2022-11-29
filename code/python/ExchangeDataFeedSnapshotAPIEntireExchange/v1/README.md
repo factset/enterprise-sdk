@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange
 from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.api import snapshot_api

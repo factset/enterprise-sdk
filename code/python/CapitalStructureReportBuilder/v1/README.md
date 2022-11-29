@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.CapitalStructureReportBuilder
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.CapitalStructureReportBuilder
 from fds.sdk.CapitalStructureReportBuilder.api import capital_structure_api

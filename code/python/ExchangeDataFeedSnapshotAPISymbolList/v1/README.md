@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.ExchangeDataFeedSnapshotAPISymbolList
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ExchangeDataFeedSnapshotAPISymbolList
 from fds.sdk.ExchangeDataFeedSnapshotAPISymbolList.api import snapshot_api

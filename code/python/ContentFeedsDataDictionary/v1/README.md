@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.ContentFeedsDataDictionary
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.ContentFeedsDataDictionary
 from fds.sdk.ContentFeedsDataDictionary.api import navigator_api

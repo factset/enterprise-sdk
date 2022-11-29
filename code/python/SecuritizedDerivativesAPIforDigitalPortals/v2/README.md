@@ -83,7 +83,6 @@ pip install fds.sdk.utils fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.SecuritizedDerivativesAPIforDigitalPortals
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.api import securitized_derivative_api

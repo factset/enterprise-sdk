@@ -63,7 +63,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.UniversalScreening.*;
 import com.factset.sdk.UniversalScreening.auth.*;
 import com.factset.sdk.UniversalScreening.models.*;

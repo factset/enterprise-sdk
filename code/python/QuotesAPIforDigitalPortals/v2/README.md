@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.QuotesAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.QuotesAPIforDigitalPortals
 from fds.sdk.QuotesAPIforDigitalPortals.api import basic_api

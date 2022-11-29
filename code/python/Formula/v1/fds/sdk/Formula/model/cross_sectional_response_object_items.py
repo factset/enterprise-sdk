@@ -65,11 +65,6 @@ class CrossSectionalResponseObjectItems(ModelComposed):
     """
 
     allowed_values = {
-        ('data_type',): {
-            'STRING': "STRING",
-            'INTEGER': "INTEGER",
-            'DOUBLE': "DOUBLE",
-        },
     }
 
     validations = {

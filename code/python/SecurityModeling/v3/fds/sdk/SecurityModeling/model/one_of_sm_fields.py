@@ -60,9 +60,6 @@ class OneOfSMFields(ModelComposed):
     """
 
     allowed_values = {
-        ('security_type',): {
-            'BOND': "Bond",
-        },
     }
 
     validations = {

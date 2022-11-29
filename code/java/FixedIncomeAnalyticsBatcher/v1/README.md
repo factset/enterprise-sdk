@@ -64,7 +64,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.*;
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.auth.*;
 import com.factset.sdk.FixedIncomeAnalyticsBatcher.models.*;

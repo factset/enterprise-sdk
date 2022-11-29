@@ -56,7 +56,6 @@ pip install fds.sdk.utils fds.sdk.DocumentsDistributorCallStreetEvents
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.DocumentsDistributorCallStreetEvents
 from fds.sdk.DocumentsDistributorCallStreetEvents.api import events_audio_api

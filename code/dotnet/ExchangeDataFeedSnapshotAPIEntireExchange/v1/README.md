@@ -41,7 +41,6 @@ nuget install FactSet.SDK.ExchangeDataFeedSnapshotAPIEntireExchange
 4. Run the following:
 
 ```csharp
-
 using System;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
@@ -97,7 +96,6 @@ namespace Example
         }
     }
 }
-
 ```
 
 ### Using a Proxy

@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.UniversalScreening
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.UniversalScreening
 from fds.sdk.UniversalScreening.api import job_management_api

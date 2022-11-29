@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.Classifications
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Classifications
 from fds.sdk.Classifications.api import gics_api

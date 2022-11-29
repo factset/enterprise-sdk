@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.Publisher
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Publisher
 from fds.sdk.Publisher.api import accounts_api

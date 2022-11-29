@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetFundamentals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetFundamentals
 from fds.sdk.FactSetFundamentals.api import data_items_api

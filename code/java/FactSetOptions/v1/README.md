@@ -66,7 +66,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetOptions.*;
 import com.factset.sdk.FactSetOptions.auth.*;
 import com.factset.sdk.FactSetOptions.models.*;

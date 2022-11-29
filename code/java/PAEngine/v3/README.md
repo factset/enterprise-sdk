@@ -70,7 +70,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.PAEngine.*;
 import com.factset.sdk.PAEngine.auth.*;
 import com.factset.sdk.PAEngine.models.*;

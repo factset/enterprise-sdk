@@ -82,7 +82,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.DocumentsDistributorDocuments.*;
 import com.factset.sdk.DocumentsDistributorDocuments.auth.*;
 import com.factset.sdk.DocumentsDistributorDocuments.models.*;

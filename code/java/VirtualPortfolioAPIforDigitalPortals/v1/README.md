@@ -83,7 +83,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;

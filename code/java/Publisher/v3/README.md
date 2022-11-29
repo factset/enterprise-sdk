@@ -64,7 +64,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.Publisher.*;
 import com.factset.sdk.Publisher.auth.*;
 import com.factset.sdk.Publisher.models.*;

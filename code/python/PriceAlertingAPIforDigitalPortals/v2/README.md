@@ -60,7 +60,6 @@ pip install fds.sdk.utils fds.sdk.PriceAlertingAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.PriceAlertingAPIforDigitalPortals
 from fds.sdk.PriceAlertingAPIforDigitalPortals.api import alerting_api

@@ -62,7 +62,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetNER.*;
 import com.factset.sdk.FactSetNER.auth.*;
 import com.factset.sdk.FactSetNER.models.*;

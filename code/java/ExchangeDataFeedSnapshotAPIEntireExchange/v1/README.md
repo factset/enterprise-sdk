@@ -62,7 +62,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.*;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.auth.*;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.models.*;

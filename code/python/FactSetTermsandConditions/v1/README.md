@@ -50,7 +50,6 @@ pip install fds.sdk.utils fds.sdk.FactSetTermsandConditions
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetTermsandConditions
 from fds.sdk.FactSetTermsandConditions.api import agents_api

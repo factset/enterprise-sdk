@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.NaturalLanguageProcessing
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.NaturalLanguageProcessing
 from fds.sdk.NaturalLanguageProcessing.api import ai_text_summarization_api

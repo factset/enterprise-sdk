@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.Portfolio
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.Portfolio
 from fds.sdk.Portfolio.api import model_accounts_api

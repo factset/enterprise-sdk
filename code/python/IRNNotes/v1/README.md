@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.IRNNotes
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IRNNotes
 from fds.sdk.IRNNotes.api import attachments_api

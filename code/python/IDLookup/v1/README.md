@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.IDLookup
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.IDLookup
 from fds.sdk.IDLookup.api import fact_set_id_lookup_api

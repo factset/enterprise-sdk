@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.FixedIncomeCalculation
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FixedIncomeCalculation
 from fds.sdk.FixedIncomeCalculation.api import fi_calculations_api

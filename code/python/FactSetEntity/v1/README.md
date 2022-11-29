@@ -51,7 +51,6 @@ pip install fds.sdk.utils fds.sdk.FactSetEntity
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetEntity
 from fds.sdk.FactSetEntity.api import entity_reference_api

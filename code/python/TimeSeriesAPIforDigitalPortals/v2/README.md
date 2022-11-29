@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.TimeSeriesAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.TimeSeriesAPIforDigitalPortals
 from fds.sdk.TimeSeriesAPIforDigitalPortals.api import prices_api

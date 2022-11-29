@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.OptimizationEngineAPIMultiperiod
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.OptimizationEngineAPIMultiperiod
 from fds.sdk.OptimizationEngineAPIMultiperiod.api import default_api

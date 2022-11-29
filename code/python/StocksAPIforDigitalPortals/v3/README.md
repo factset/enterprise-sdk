@@ -59,7 +59,6 @@ pip install fds.sdk.utils fds.sdk.StocksAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.StocksAPIforDigitalPortals
 from fds.sdk.StocksAPIforDigitalPortals.api import stock_api

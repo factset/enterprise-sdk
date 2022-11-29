@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetBenchmarks
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetBenchmarks
 from fds.sdk.FactSetBenchmarks.api import benchmark_constituents_api

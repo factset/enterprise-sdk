@@ -48,7 +48,6 @@ pip install fds.sdk.utils fds.sdk.FactSetOwnership
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetOwnership
 from fds.sdk.FactSetOwnership.api import fund_holdings_api

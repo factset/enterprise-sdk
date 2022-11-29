@@ -47,7 +47,6 @@ pip install fds.sdk.utils fds.sdk.FactSetNER
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.FactSetNER
 from fds.sdk.FactSetNER.api import entities_api

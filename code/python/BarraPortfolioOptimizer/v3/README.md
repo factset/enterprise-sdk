@@ -49,7 +49,6 @@ pip install fds.sdk.utils fds.sdk.BarraPortfolioOptimizer
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.BarraPortfolioOptimizer
 from fds.sdk.BarraPortfolioOptimizer.api import accounts_api

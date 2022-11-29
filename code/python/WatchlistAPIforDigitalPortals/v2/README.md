@@ -51,7 +51,6 @@ pip install fds.sdk.utils fds.sdk.WatchlistAPIforDigitalPortals
 4. Run the following:
 
 ```python
-
 from fds.sdk.utils.authentication import ConfidentialClient
 import fds.sdk.WatchlistAPIforDigitalPortals
 from fds.sdk.WatchlistAPIforDigitalPortals.api import watchlist_api

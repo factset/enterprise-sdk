@@ -62,7 +62,6 @@ Add these dependencies to your project's build file:
 4. Run the following:
 
 ```java
-
 import com.factset.sdk.FactSetEntityReportBuilder.*;
 import com.factset.sdk.FactSetEntityReportBuilder.auth.*;
 import com.factset.sdk.FactSetEntityReportBuilder.models.*;
