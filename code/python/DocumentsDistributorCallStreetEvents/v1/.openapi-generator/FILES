@@ -22,7 +22,6 @@ docs/EventsAudioMetaPagination.md
 docs/IndexedNRT.md
 docs/IndexedNRTMeta.md
 docs/IndexedNRTMetaPagination.md
-docs/NRT403Error.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -74,7 +73,6 @@ fds/sdk/DocumentsDistributorCallStreetEvents/model/events_audio_meta_pagination.
 fds/sdk/DocumentsDistributorCallStreetEvents/model/indexed_nrt.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/indexed_nrt_meta.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/indexed_nrt_meta_pagination.py
-fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt403_error.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls400_response.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls400_response_details.py

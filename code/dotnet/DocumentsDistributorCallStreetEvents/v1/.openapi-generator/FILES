@@ -22,7 +22,6 @@ docs/EventsAudioMetaPagination.md
 docs/IndexedNRT.md
 docs/IndexedNRTMeta.md
 docs/IndexedNRTMetaPagination.md
-docs/NRT403Error.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -85,7 +84,6 @@ src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/EventsAudioMetaPagina
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/IndexedNRT.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/IndexedNRTMeta.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/IndexedNRTMetaPagination.cs
-src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRT403Error.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls400Response.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls400ResponseDetails.cs

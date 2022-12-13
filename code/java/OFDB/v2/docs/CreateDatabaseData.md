@@ -1,0 +1,17 @@
+
+
+# CreateDatabaseData
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**path** | **String** | path of the newly created database. |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

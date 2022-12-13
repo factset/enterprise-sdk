@@ -5,9 +5,9 @@ All URIs are relative to *https://api.factset.com/analytics/ofdb*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetDatabase**](ViewApi.md#getdatabase) | **GET** /v1/database/{path} | 
-[**V1DatabasePathDatesGet**](ViewApi.md#v1databasepathdatesget) | **GET** /v1/database/{path}/dates | 
-[**V1DatabasePathFieldsGet**](ViewApi.md#v1databasepathfieldsget) | **GET** /v1/database/{path}/fields | 
-[**V1DatabasePathSymbolsGet**](ViewApi.md#v1databasepathsymbolsget) | **GET** /v1/database/{path}/symbols | 
+[**GetDates**](ViewApi.md#getdates) | **GET** /v1/database/{path}/dates | 
+[**GetFields**](ViewApi.md#getfields) | **GET** /v1/database/{path}/fields | 
+[**GetSymbols**](ViewApi.md#getsymbols) | **GET** /v1/database/{path}/symbols | 
 
 
 <a name="getdatabase"></a>
@@ -126,9 +126,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1databasepathdatesget"></a>
-# **V1DatabasePathDatesGet**
-> List&lt;int&gt; V1DatabasePathDatesGet (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
+<a name="getdates"></a>
+# **GetDates**
+> List&lt;int&gt; GetDates (string path, string between = null, string equals = null, string before = null, string after = null, string orderBy = null)
 
 
 
@@ -145,7 +145,7 @@ using FactSet.SDK.OFDB.Model;
 
 namespace Example
 {
-    public class V1DatabasePathDatesGetExample
+    public class GetDatesExample
     {
         public static async Task Main()
         {
@@ -179,12 +179,12 @@ namespace Example
 
             try
             {
-                List<int> result = apiInstance.V1DatabasePathDatesGet(path, between, equals, before, after, orderBy);
+                List<int> result = apiInstance.GetDates(path, between, equals, before, after, orderBy);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling ViewApi.V1DatabasePathDatesGet: " + e.Message );
+                Console.WriteLine("Exception when calling ViewApi.GetDates: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -231,9 +231,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1databasepathfieldsget"></a>
-# **V1DatabasePathFieldsGet**
-> List&lt;Object&gt; V1DatabasePathFieldsGet (string path)
+<a name="getfields"></a>
+# **GetFields**
+> List&lt;Object&gt; GetFields (string path)
 
 
 
@@ -250,7 +250,7 @@ using FactSet.SDK.OFDB.Model;
 
 namespace Example
 {
-    public class V1DatabasePathFieldsGetExample
+    public class GetFieldsExample
     {
         public static async Task Main()
         {
@@ -279,12 +279,12 @@ namespace Example
 
             try
             {
-                List<Object> result = apiInstance.V1DatabasePathFieldsGet(path);
+                List<Object> result = apiInstance.GetFields(path);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling ViewApi.V1DatabasePathFieldsGet: " + e.Message );
+                Console.WriteLine("Exception when calling ViewApi.GetFields: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of fields |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | List of fields within the database |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -326,9 +326,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="v1databasepathsymbolsget"></a>
-# **V1DatabasePathSymbolsGet**
-> List&lt;string&gt; V1DatabasePathSymbolsGet (string path, string startsWith = null, string endsWith = null, string contains = null, string equals = null, string orderBy = null)
+<a name="getsymbols"></a>
+# **GetSymbols**
+> List&lt;string&gt; GetSymbols (string path, string startsWith = null, string endsWith = null, string contains = null, string equals = null, string orderBy = null)
 
 
 
@@ -345,7 +345,7 @@ using FactSet.SDK.OFDB.Model;
 
 namespace Example
 {
-    public class V1DatabasePathSymbolsGetExample
+    public class GetSymbolsExample
     {
         public static async Task Main()
         {
@@ -379,12 +379,12 @@ namespace Example
 
             try
             {
-                List<string> result = apiInstance.V1DatabasePathSymbolsGet(path, startsWith, endsWith, contains, equals, orderBy);
+                List<string> result = apiInstance.GetSymbols(path, startsWith, endsWith, contains, equals, orderBy);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling ViewApi.V1DatabasePathSymbolsGet: " + e.Message );
+                Console.WriteLine("Exception when calling ViewApi.GetSymbols: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful symbols array |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | Successful symbols array within OFDB |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

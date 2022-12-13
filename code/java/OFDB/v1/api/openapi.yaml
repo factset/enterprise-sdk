@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   contact:
-    email: cpd-hyd-engineering@factset.com
+    email: client.portfolio.data.engineering@factset.com
   description: OFDB api
   license:
     name: Apache 2.0
@@ -19,6 +19,7 @@ paths:
   /v1/database/{path}/fields:
     get:
       description: Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetFields
       parameters:
       - description: Encode database path
         explode: false
@@ -34,7 +35,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fields'
-          description: List of fields
+          description: List of fields within the database
           headers:
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -50,12 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -74,27 +70,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -111,20 +87,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -141,20 +104,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -171,20 +121,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -233,6 +170,7 @@ paths:
   /v1/database/{path}/symbols:
     get:
       description: Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetSymbols
       parameters:
       - description: Encode database path
         explode: false
@@ -292,7 +230,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Symbols'
-          description: successful symbols array
+          description: Successful symbols array within OFDB
           headers:
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -308,12 +246,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -332,27 +265,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -369,20 +282,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -399,20 +299,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -429,20 +316,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -491,6 +365,7 @@ paths:
     post:
       description: Creates a new symbol with single/multiple dates for 3d database(OFDB).
         Creates a symbol for 2d database(OFDB)
+      operationId: AddSymbols
       parameters:
       - description: Encode database path
         explode: false
@@ -508,19 +383,20 @@ paths:
                 description: Object in data is mandatory and must contain date with
                   atleast one iterative field
                 value:
-                  symbol: FACTSET
+                  symbol: FDS
                   data:
-                  - date: 20200202
-                    field: value
+                  - date: "20220106"
+                    price: "333"
               "2dOFDB":
                 description: Object in data is optional and should contain fields
                   of the OFDB
                 value:
-                  symbol: FACTSET
+                  symbol: FDS
                   data:
-                  - field: value
+                  - description: Your desired information
+                    price: "200"
             schema:
-              $ref: '#/components/schemas/createSymbols'
+              $ref: '#/components/schemas/AddSymbols'
         description: Data for creating symbol in the database
         required: true
       responses:
@@ -532,7 +408,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -547,12 +423,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -571,27 +442,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -608,20 +459,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -638,20 +476,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -668,20 +493,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: payloadTooLarge
-                          example: payloadTooLarge
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_413'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -698,20 +510,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -762,6 +561,7 @@ paths:
     delete:
       description: Deletes all data specific to the symbol in both 2d and 3d database(OFDB).
         This includes all the dates related to that symbols in 3d database(OFDB)
+      operationId: DeleteSymbols
       parameters:
       - description: Encode database path
         explode: false
@@ -784,12 +584,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -821,27 +616,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -858,20 +633,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -888,20 +650,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -918,20 +667,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -982,6 +718,7 @@ paths:
         or adds a new symbol/date within a symbol if not present in 3d database(OFDB).
         Updates an existing symbol field value or adds a new symbol if not present
         in the 2d database(OFDB)
+      operationId: UpdateSymbols
       parameters:
       - description: Encode database path
         explode: false
@@ -1004,20 +741,20 @@ paths:
           application/json:
             examples:
               "3dOFDB":
-                description: Object in data is mandatory and must contain date with
-                  atleast one iterative field
+                description: Object in data is mandatory and must contain the field
+                  date and at least one iterative field
                 value:
                   data:
-                  - date: 20200202
-                    field: value
+                  - date: "20200202"
+                    price: "999"
               "2dOFDB":
-                description: Object in data is optional and should contain fields
-                  of the OFDB
+                description: Object in data is OPTIONAL and should contain fields
+                  already existing within your OFDB
                 value:
                   data:
-                  - field: value
+                  - country: USA
             schema:
-              $ref: '#/components/schemas/modifySymbols'
+              $ref: '#/components/schemas/UpdateSymbols'
         description: Data for updating symbol in the database
         required: true
       responses:
@@ -1029,7 +766,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -1044,12 +781,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -1068,27 +800,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -1105,20 +817,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -1135,20 +834,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1165,20 +851,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: payloadTooLarge
-                          example: payloadTooLarge
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_413'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -1195,20 +868,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1258,6 +918,7 @@ paths:
   /v1/database/{path}/dates:
     get:
       description: Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetDates
       parameters:
       - description: Encode database path
         explode: false
@@ -1334,12 +995,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -1358,27 +1014,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -1395,20 +1031,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -1425,20 +1048,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1455,20 +1065,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1516,6 +1113,7 @@ paths:
       x-accepts: application/json
     post:
       description: Creates a new date with single/multiple symbols for a 3d database(OFDB).
+      operationId: AddSymbolDate
       parameters:
       - description: Encode database path
         explode: false
@@ -1529,7 +1127,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postDatesymbol'
+              $ref: '#/components/schemas/AddSymbolDate'
         description: Required data for creating date in the database. At least one
           iterative field is required otherwise it will throw 400.
         required: true
@@ -1542,7 +1140,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -1557,12 +1155,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -1581,27 +1174,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -1618,20 +1191,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -1648,20 +1208,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1678,20 +1225,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: payloadTooLarge
-                          example: payloadTooLarge
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_413'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -1708,20 +1242,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1772,6 +1293,7 @@ paths:
     delete:
       description: Deletes all data specific to the date in 3d database(OFDB). This
         includes all the symbols related to that date
+      operationId: DeleteDates
       parameters:
       - description: Encode database path
         explode: false
@@ -1794,12 +1316,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -1831,27 +1348,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -1868,20 +1365,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -1898,20 +1382,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -1928,20 +1399,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -1990,6 +1448,7 @@ paths:
     put:
       description: Updates an existing date field value for single/multiple symbols
         or adds a new date/symbol within a date if not present in 3d database(OFDB).
+      operationId: UpdateSymbolDate
       parameters:
       - description: Encode database path
         explode: false
@@ -2011,7 +1470,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/modifydatespecific'
+              $ref: '#/components/schemas/UpdateSymbolDate'
         description: Required data for updating date in the database
         required: true
       responses:
@@ -2023,7 +1482,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -2038,12 +1497,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -2062,27 +1516,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -2099,20 +1533,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -2129,20 +1550,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2159,20 +1567,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: payloadTooLarge
-                          example: payloadTooLarge
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_413'
           description: Post body too large
           headers:
             X-DataDirect-Request-Key:
@@ -2189,20 +1584,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2252,6 +1634,7 @@ paths:
   /v1/database/{path}/dates/{date}/symbols:
     post:
       description: Creates a new symbol for a given date in 3d database(OFDB)
+      operationId: AddSymbolDate3D
       parameters:
       - description: Encode database path
         explode: false
@@ -2273,7 +1656,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/postnewsymboldate'
+              $ref: '#/components/schemas/AddSymbolDate3D'
         description: Data for creating symbol specific to a date in the database.
           At least one 3d field is required along with symbol.
         required: true
@@ -2286,7 +1669,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -2301,12 +1684,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -2325,27 +1703,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -2362,20 +1720,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -2392,20 +1737,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2422,20 +1754,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2485,6 +1804,7 @@ paths:
   /v1/database/{path}/dates/{date}/symbols/{symbol}:
     delete:
       description: Deletes data specific to the symbol and date from a 3d database(OFDB).
+      operationId: DeleteSymbolDate3D
       parameters:
       - description: Encode database path
         explode: false
@@ -2515,12 +1835,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -2552,27 +1867,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -2589,20 +1884,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -2619,20 +1901,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2649,20 +1918,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -2710,6 +1966,7 @@ paths:
       x-accepts: application/json
     put:
       description: Updates a symbol field value for a given date of 3d database(OFDB)
+      operationId: UpdateSymbolDate3D
       parameters:
       - description: Encode database path
         explode: false
@@ -2739,7 +1996,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/modifysymboldate'
+              $ref: '#/components/schemas/UpdateSymbolDate3D'
         description: Data for updating symbol in the database
         required: true
       responses:
@@ -2751,7 +2008,7 @@ paths:
           description: Status message of creation
           headers:
             Location:
-              $ref: '#/components/schemas/ResponseLocationHeader'
+              $ref: '#/components/headers/ResponseLocationHeader'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
@@ -2766,12 +2023,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -2790,27 +2042,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -2827,20 +2059,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -2857,20 +2076,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -2887,20 +2093,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3146,12 +2339,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -3170,27 +2358,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -3207,20 +2375,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -3237,20 +2392,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3267,20 +2409,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3340,7 +2469,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_201'
+                $ref: '#/components/schemas/AddDatabase'
           description: Creates and responds with ofdb path
           headers:
             X-DataDirect-Request-Key:
@@ -3364,12 +2493,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  id:
-                    type: string
-                  status:
-                    description: Current Status of the job
-                    type: string
+                $ref: '#/components/schemas/inline_response_202'
           description: Returns when the request is moved to long running mode.
           headers:
             Location:
@@ -3388,27 +2512,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: parameterError
-                          example: parameterError
-                          type: string
-                        source:
-                          properties:
-                            location:
-                              type: string
-                            param:
-                              type: string
-                          type: object
-                    type: array
+                $ref: '#/components/schemas/inline_response_400'
           description: Invalid query parameter or value provided
           headers:
             X-DataDirect-Request-Key:
@@ -3425,20 +2529,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: notAuthorized
-                          example: notAuthorized
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_403'
           description: User is forbidden with current credentials
           headers:
             X-DataDirect-Request-Key:
@@ -3455,20 +2546,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: endPointNotFound
-                          example: endPointNotFound
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_404'
           description: Path not found
           headers:
             X-DataDirect-Request-Key:
@@ -3485,20 +2563,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  errors:
-                    description: An array containing errors
-                    items:
-                      properties:
-                        id:
-                          type: string
-                        title:
-                          type: string
-                        code:
-                          default: rateLimitExceeded
-                          example: rateLimitExceeded
-                          type: string
-                    type: array
+                $ref: '#/components/schemas/inline_response_429'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -3547,6 +2612,12 @@ paths:
       x-accepts: application/json
 components:
   headers:
+    ResponseLocationHeader:
+      description: url of the newly created resource
+      explode: false
+      schema:
+        type: string
+      style: simple
     Long-Running-Location:
       description: location to poll for the status of the job.
       explode: false
@@ -3620,7 +2691,7 @@ components:
         type: string
       style: simple
   responses:
-    PostRequestsSuccessCompleteRespones:
+    PostRequestsSuccessCompleteResponse:
       content:
         application/json:
           schema:
@@ -3628,7 +2699,7 @@ components:
       description: Status message of creation
       headers:
         Location:
-          $ref: '#/components/schemas/ResponseLocationHeader'
+          $ref: '#/components/headers/ResponseLocationHeader'
         X-DataDirect-Request-Key:
           $ref: '#/components/headers/X-DataDirect-Request-Key'
         X-FactSet-Api-Request-Key:
@@ -3643,28 +2714,72 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              errors:
-                description: An array containing errors
-                items:
-                  properties:
-                    id:
-                      type: string
-                    title:
-                      type: string
-                    code:
-                      default: parameterError
-                      example: parameterError
-                      type: string
-                    source:
-                      properties:
-                        location:
-                          type: string
-                        param:
-                          type: string
-                      type: object
-                type: array
+            $ref: '#/components/schemas/inline_response_400'
       description: Invalid query parameter or value provided
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetFields":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Fields'
+      description: List of fields within the database
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetSymbols":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Symbols'
+      description: Successful symbols array within OFDB
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetDates":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Dates'
+      description: Successful output
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetData":
+      description: successful output
       headers:
         X-DataDirect-Request-Key:
           $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -3680,12 +2795,7 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              id:
-                type: string
-              status:
-                description: Current Status of the job
-                type: string
+            $ref: '#/components/schemas/inline_response_202'
       description: Returns when the request is moved to long running mode.
       headers:
         Location:
@@ -3717,20 +2827,7 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              errors:
-                description: An array containing errors
-                items:
-                  properties:
-                    id:
-                      type: string
-                    title:
-                      type: string
-                    code:
-                      default: notAuthorized
-                      example: notAuthorized
-                      type: string
-                type: array
+            $ref: '#/components/schemas/inline_response_403'
       description: User is forbidden with current credentials
       headers:
         X-DataDirect-Request-Key:
@@ -3747,20 +2844,7 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              errors:
-                description: An array containing errors
-                items:
-                  properties:
-                    id:
-                      type: string
-                    title:
-                      type: string
-                    code:
-                      default: endPointNotFound
-                      example: endPointNotFound
-                      type: string
-                type: array
+            $ref: '#/components/schemas/inline_response_404'
       description: Path not found
       headers:
         X-DataDirect-Request-Key:
@@ -3790,7 +2874,9 @@ components:
                       default: notAcceptable
                       example: notAcceptable
                       type: string
+                  type: object
                 type: array
+            type: object
       description: Unsupported Accept header. Header needs to be set to application/json
       headers:
         X-DataDirect-Request-Key:
@@ -3807,20 +2893,7 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              errors:
-                description: An array containing errors
-                items:
-                  properties:
-                    id:
-                      type: string
-                    title:
-                      type: string
-                    code:
-                      default: payloadTooLarge
-                      example: payloadTooLarge
-                      type: string
-                type: array
+            $ref: '#/components/schemas/inline_response_413'
       description: Post body too large
       headers:
         X-DataDirect-Request-Key:
@@ -3837,20 +2910,7 @@ components:
       content:
         application/json:
           schema:
-            properties:
-              errors:
-                description: An array containing errors
-                items:
-                  properties:
-                    id:
-                      type: string
-                    title:
-                      type: string
-                    code:
-                      default: rateLimitExceeded
-                      example: rateLimitExceeded
-                      type: string
-                type: array
+            $ref: '#/components/schemas/inline_response_429'
       description: Rate limit reached. Wait till the time specified in Retry-After
         header value to make further requests.
       headers:
@@ -3894,65 +2954,111 @@ components:
         X-RateLimit-Reset:
           $ref: '#/components/headers/X-RateLimit-Reset'
   schemas:
-    createSymbols:
+    AddSymbols:
+      example:
+        symbol: symbol
+        data:
+        - field_1: 0
+          field_2: field_2
+        - field_1: 0
+          field_2: field_2
       properties:
         symbol:
           description: Names of the symbol and unique to this database
           type: string
         data:
-          description: date has to be provide in case 3d OFDB with date and atleast
+          description: date must be provided in the case of a 3d ofdb with atleast
             one iterative field
-          items: {}
+          items:
+            $ref: '#/components/schemas/AddSymbols_data'
           type: array
       type: object
-    postDatesymbol:
+    AddDatabase:
+      example:
+        path: path
+      properties:
+        path:
+          description: path of the newly created database.
+          type: string
+      type: object
+    AddSymbolDate:
+      example:
+        date: "20220202"
+        data:
+          symbol: FSA
+          price: "999"
       properties:
         date:
           description: Date unique to the database.
-          example: "20200730"
+          example: "20220202"
           type: string
         data:
           description: symbol has to be provided to save the date with atleast one
             iterative field.
-          items: {}
+          example:
+            symbol: FSA
+            price: "999"
+          items:
+            $ref: '#/components/schemas/AddSymbolDate_data'
           type: array
       type: object
-    modifydatespecific:
+    UpdateSymbolDate:
       description: Set of fields along with symbol is mandatory to update the date.
+      example:
+        data:
+          symbol: FSA
+          price: "100"
       properties:
         data:
           description: date has to be provide in case 3d OFDB with date and atleast
             one iterative field
-          items: {}
+          example:
+            symbol: FSA
+            price: "100"
+          items:
+            $ref: '#/components/schemas/AddSymbolDate_data'
           type: array
       type: object
-    postnewsymboldate:
+    AddSymbolDate3D:
+      example:
+        symbol: FSA
+        data:
+          price: "555"
       properties:
         symbol:
           description: Name of the symbol and unique to this database
-          example: FACTSET
+          example: FSA
           type: string
         data:
-          description: At least one iterative field is required
-          example:
-            field1: value
-          type: object
+          $ref: '#/components/schemas/AddSymbolDate3D_data'
       type: object
-    modifysymboldate:
+    UpdateSymbolDate3D:
       description: Any arbitary set of fields that are provided while creating the
         ofdb and their values.
+      example:
+        data:
+          price: "777"
       properties:
         data:
-          type: object
+          $ref: '#/components/schemas/UpdateSymbolDate3D_data'
       type: object
-    modifySymbols:
+    UpdateSymbols:
       description: Any arbitary set of fields that are provided while creating the
-        ofdb and their values date field is important for 3d ofdbs.
+        ofdb and their values.
+      example:
+        data:
+        - date: 0
+          field_1: 6
+          field_2: field_2
+        - date: 0
+          field_1: 6
+          field_2: field_2
       properties:
         data:
-          description: date has to be provide in case 3d OFDB with date and atleast
+          description: date must be provided in the case of a 3d ofdb with at least
             one iterative field
-          items: {}
+          items:
+            $ref: '#/components/schemas/UpdateSymbols_data'
           type: array
       type: object
     Symbols:
@@ -3997,15 +3103,17 @@ components:
       type: array
     DatabaseSchema:
       example:
-        path: path
-        description: description
+        path: CLIENT:this_is_a_test_.OFDB
+        description: A user would fill this with relevant information
         fields:
         - '{}'
         - '{}'
       properties:
         path:
+          example: CLIENT:this_is_a_test_.OFDB
           type: string
         description:
+          example: A user would fill this with relevant information
           type: string
         fields:
           items:
@@ -4040,9 +3148,6 @@ components:
             type: object
           type: array
       type: object
-    ResponseLocationHeader:
-      description: url of the newly created resource
-      type: string
     SuccessPostResponse:
       description: Response format of any kind of post response
       example:
@@ -4052,12 +3157,164 @@ components:
           description: id of the newly created resource
           type: string
       type: object
-    inline_response_201:
+    inline_response_202:
       example:
-        path: path
+        id: id
+        status: status
       properties:
-        path:
-          description: path of the newly created database.
+        id:
+          type: string
+        status:
+          description: Current Status of the job
+          type: string
+      type: object
+    inline_response_400_source:
+      properties:
+        location:
+          type: string
+        param:
+          type: string
+      type: object
+    inline_response_400_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: parameterError
+          example: parameterError
+          type: string
+        source:
+          $ref: '#/components/schemas/inline_response_400_source'
+      type: object
+    inline_response_400:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_400_errors'
+          type: array
+      type: object
+    inline_response_403_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: notAuthorized
+          example: notAuthorized
+          type: string
+      type: object
+    inline_response_403:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_403_errors'
+          type: array
+      type: object
+    inline_response_404_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: endPointNotFound
+          example: endPointNotFound
+          type: string
+      type: object
+    inline_response_404:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_404_errors'
+          type: array
+      type: object
+    inline_response_429_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: rateLimitExceeded
+          example: rateLimitExceeded
+          type: string
+      type: object
+    inline_response_429:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_429_errors'
+          type: array
+      type: object
+    inline_response_413_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: payloadTooLarge
+          example: payloadTooLarge
+          type: string
+      type: object
+    inline_response_413:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_413_errors'
+          type: array
+      type: object
+    AddSymbols_data:
+      example:
+        field_1: 0
+        field_2: field_2
+      properties:
+        field_1:
+          type: integer
+        field_2:
+          type: string
+      type: object
+    AddSymbolDate_data:
+      properties:
+        field_1:
+          type: string
+        field_2:
+          type: integer
+      type: object
+    AddSymbolDate3D_data:
+      description: At least one iterative field is required
+      example:
+        price: "555"
+      properties:
+        field_1:
+          type: string
+      type: object
+    UpdateSymbolDate3D_data:
+      example:
+        price: "777"
+      properties:
+        field_1:
+          type: string
+      type: object
+    UpdateSymbols_data:
+      example:
+        date: 0
+        field_1: 6
+        field_2: field_2
+      properties:
+        date:
+          type: integer
+        field_1:
+          type: integer
+        field_2:
           type: string
       type: object
   securitySchemes:

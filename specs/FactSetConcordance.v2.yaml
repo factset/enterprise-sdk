@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.4.0
+  version: 2.5.0
   title: FactSet Concordance API
   description: >
     The FactSet Concordance API provides the ability to programmatically look up
@@ -517,6 +517,7 @@ paths:
         - $ref: '#/components/parameters/mapStatus'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/sortEntity'
       responses:
         '200':
           $ref: '#/components/responses/EntityUniverseResponse'
@@ -569,6 +570,7 @@ paths:
         - $ref: '#/components/parameters/mapStatus'
         - $ref: '#/components/parameters/peopleOffset'
         - $ref: '#/components/parameters/peopleLimit'
+        - $ref: '#/components/parameters/sortPeople'
       responses:
         '200':
           $ref: '#/components/responses/PeopleUniverseResponse'
@@ -1555,6 +1557,38 @@ components:
       schema:
         type: integer
       example: 1
+    sortEntity:
+      name: sort
+      description: >-
+        Sort clientId, createdTime, updatedTime, clientName, entityId fields in
+        ascending or descending order with asc and desc to indicate the order.
+        Example (clientId:asc)
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: clientId:asc
+      explode: false
+      example:
+        - clientId:asc
+        - clientName:desc
+    sortPeople:
+      name: sort
+      description: >-
+        Sort clientId, createdTime, updatedTime, clientPersonName, personId
+        fields in ascending or descending order with asc and desc to indicate
+        the order. Example (clientId:asc)
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        example: clientPersonName:desc
+      explode: false
+      example:
+        - clientId:asc
+        - clientPersonName:desc
     universeStatisticsRequired:
       name: universeId
       required: true

@@ -11,11 +11,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.factset.sdk.OFDB.models.CreateSymbols;
+import com.factset.sdk.OFDB.models.AddDatabase;
+import com.factset.sdk.OFDB.models.AddSymbolDate;
+import com.factset.sdk.OFDB.models.AddSymbolDate3D;
+import com.factset.sdk.OFDB.models.AddSymbols;
 import com.factset.sdk.OFDB.models.DatabaseSchema;
-import com.factset.sdk.OFDB.models.InlineResponse201;
-import com.factset.sdk.OFDB.models.PostDatesymbol;
-import com.factset.sdk.OFDB.models.Postnewsymboldate;
+import com.factset.sdk.OFDB.models.InlineResponse202;
+import com.factset.sdk.OFDB.models.InlineResponse400;
+import com.factset.sdk.OFDB.models.InlineResponse403;
+import com.factset.sdk.OFDB.models.InlineResponse404;
+import com.factset.sdk.OFDB.models.InlineResponse413;
+import com.factset.sdk.OFDB.models.InlineResponse429;
 import com.factset.sdk.OFDB.models.SuccessPostResponse;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -30,43 +36,43 @@ public class CreateApi {
     this.apiClient = apiClient;
   }
 
-    private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
+    private static final Map<Integer, GenericType> addSymbolDateResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    createDatabaseResponseTypeMap.put(201, new GenericType<InlineResponse201>(){});
-    createDatabaseResponseTypeMap.put(202, new GenericType<Object>(){});
-    createDatabaseResponseTypeMap.put(400, new GenericType<Object>(){});
-    createDatabaseResponseTypeMap.put(403, new GenericType<Object>(){});
-    createDatabaseResponseTypeMap.put(404, new GenericType<Object>(){});
-    createDatabaseResponseTypeMap.put(429, new GenericType<Object>(){});
+    addSymbolDateResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    addSymbolDateResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    addSymbolDateResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    addSymbolDateResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    addSymbolDateResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    addSymbolDateResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
+    addSymbolDateResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
-  private static final Map<Integer, GenericType> v1DatabasePathDatesDateSymbolsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> addSymbolDate3DResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(429, new GenericType<Object>(){});
+    addSymbolDate3DResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    addSymbolDate3DResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    addSymbolDate3DResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    addSymbolDate3DResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    addSymbolDate3DResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    addSymbolDate3DResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
-  private static final Map<Integer, GenericType> v1DatabasePathDatesPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> addSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathDatesPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(413, new GenericType<Object>(){});
-    v1DatabasePathDatesPostResponseTypeMap.put(429, new GenericType<Object>(){});
+    addSymbolsResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    addSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    addSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    addSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    addSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    addSymbolsResponseTypeMap.put(413, new GenericType<InlineResponse413>(){});
+    addSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
-  private static final Map<Integer, GenericType> v1DatabasePathSymbolsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathSymbolsPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(413, new GenericType<Object>(){});
-    v1DatabasePathSymbolsPostResponseTypeMap.put(429, new GenericType<Object>(){});
+    createDatabaseResponseTypeMap.put(201, new GenericType<AddDatabase>(){});
+    createDatabaseResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    createDatabaseResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    createDatabaseResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    createDatabaseResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    createDatabaseResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
    
@@ -92,51 +98,66 @@ public class CreateApi {
 
   /**
    * 
-   * Creates a 2d or 3d database(OFDB)
-   * @param databaseSchema  (optional)
-   * @return InlineResponse201
+   * Creates a new date with single/multiple symbols for a 3d database(OFDB).
+   * @param path Encode database path (required)
+   * @param addSymbolDate Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
+   * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 413 </td><td> Post body too large </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public InlineResponse201 createDatabase(DatabaseSchema databaseSchema) throws ApiException {
-    return createDatabaseWithHttpInfo(databaseSchema).getData();
+  public SuccessPostResponse addSymbolDate(String path, AddSymbolDate addSymbolDate) throws ApiException {
+    return addSymbolDateWithHttpInfo(path, addSymbolDate).getData();
   }
 
   /**
    * 
-   * Creates a 2d or 3d database(OFDB)
-   * @param databaseSchema  (optional)
-   * @return ApiResponse&lt;InlineResponse201&gt;
+   * Creates a new date with single/multiple symbols for a 3d database(OFDB).
+   * @param path Encode database path (required)
+   * @param addSymbolDate Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
+   * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 413 </td><td> Post body too large </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<InlineResponse201> createDatabaseWithHttpInfo(DatabaseSchema databaseSchema) throws ApiException {
-    Object localVarPostBody = databaseSchema;
+  public ApiResponse<SuccessPostResponse> addSymbolDateWithHttpInfo(String path, AddSymbolDate addSymbolDate) throws ApiException {
+    Object localVarPostBody = addSymbolDate;
+    
+    // verify the required parameter 'path' is set
+    if (path == null) {
+      throw new ApiException(400, "Missing the required parameter 'path' when calling addSymbolDate");
+    }
+    
+    // verify the required parameter 'addSymbolDate' is set
+    if (addSymbolDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'addSymbolDate' when calling addSymbolDate");
+    }
     
     // create path and map variables
-    String localVarPath = "/v1/database/";
+    String localVarPath = "/v1/database/{path}/dates"
+      .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(path.toString()));
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -163,11 +184,11 @@ public class CreateApi {
 
     ApiResponse<
         
-        InlineResponse201
+        SuccessPostResponse
       
-    > apiResponse = apiClient.invokeAPI("CreateApi.createDatabase", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CreateApi.addSymbolDate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, createDatabaseResponseTypeMap, false);
+                               localVarAuthNames, addSymbolDateResponseTypeMap, false);
 
     return apiResponse;
 
@@ -177,7 +198,7 @@ public class CreateApi {
    * Creates a new symbol for a given date in 3d database(OFDB)
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
+   * @param addSymbolDate3D Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -193,8 +214,8 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesDateSymbolsPost(String path, Integer date, Postnewsymboldate postnewsymboldate) throws ApiException {
-    return v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, postnewsymboldate).getData();
+  public SuccessPostResponse addSymbolDate3D(String path, Integer date, AddSymbolDate3D addSymbolDate3D) throws ApiException {
+    return addSymbolDate3DWithHttpInfo(path, date, addSymbolDate3D).getData();
   }
 
   /**
@@ -202,7 +223,7 @@ public class CreateApi {
    * Creates a new symbol for a given date in 3d database(OFDB)
    * @param path Encode database path (required)
    * @param date Date in YYYYMMDD format (required)
-   * @param postnewsymboldate Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
+   * @param addSymbolDate3D Data for creating symbol specific to a date in the database. At least one 3d field is required along with symbol. (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -218,22 +239,22 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesDateSymbolsPostWithHttpInfo(String path, Integer date, Postnewsymboldate postnewsymboldate) throws ApiException {
-    Object localVarPostBody = postnewsymboldate;
+  public ApiResponse<SuccessPostResponse> addSymbolDate3DWithHttpInfo(String path, Integer date, AddSymbolDate3D addSymbolDate3D) throws ApiException {
+    Object localVarPostBody = addSymbolDate3D;
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathDatesDateSymbolsPost");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling addSymbolDate3D");
     }
     
     // verify the required parameter 'date' is set
     if (date == null) {
-      throw new ApiException(400, "Missing the required parameter 'date' when calling v1DatabasePathDatesDateSymbolsPost");
+      throw new ApiException(400, "Missing the required parameter 'date' when calling addSymbolDate3D");
     }
     
-    // verify the required parameter 'postnewsymboldate' is set
-    if (postnewsymboldate == null) {
-      throw new ApiException(400, "Missing the required parameter 'postnewsymboldate' when calling v1DatabasePathDatesDateSymbolsPost");
+    // verify the required parameter 'addSymbolDate3D' is set
+    if (addSymbolDate3D == null) {
+      throw new ApiException(400, "Missing the required parameter 'addSymbolDate3D' when calling addSymbolDate3D");
     }
     
     // create path and map variables
@@ -268,18 +289,18 @@ public class CreateApi {
         
         SuccessPostResponse
       
-    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathDatesDateSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CreateApi.addSymbolDate3D", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathDatesDateSymbolsPostResponseTypeMap, false);
+                               localVarAuthNames, addSymbolDate3DResponseTypeMap, false);
 
     return apiResponse;
 
   }
   /**
    * 
-   * Creates a new date with single/multiple symbols for a 3d database(OFDB).
+   * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
-   * @param postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
+   * @param addSymbols Data for creating symbol in the database (required)
    * @return SuccessPostResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -296,15 +317,15 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public SuccessPostResponse v1DatabasePathDatesPost(String path, PostDatesymbol postDatesymbol) throws ApiException {
-    return v1DatabasePathDatesPostWithHttpInfo(path, postDatesymbol).getData();
+  public SuccessPostResponse addSymbols(String path, AddSymbols addSymbols) throws ApiException {
+    return addSymbolsWithHttpInfo(path, addSymbols).getData();
   }
 
   /**
    * 
-   * Creates a new date with single/multiple symbols for a 3d database(OFDB).
+   * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
    * @param path Encode database path (required)
-   * @param postDatesymbol Required data for creating date in the database. At least one iterative field is required otherwise it will throw 400. (required)
+   * @param addSymbols Data for creating symbol in the database (required)
    * @return ApiResponse&lt;SuccessPostResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -321,114 +342,17 @@ public class CreateApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathDatesPostWithHttpInfo(String path, PostDatesymbol postDatesymbol) throws ApiException {
-    Object localVarPostBody = postDatesymbol;
+  public ApiResponse<SuccessPostResponse> addSymbolsWithHttpInfo(String path, AddSymbols addSymbols) throws ApiException {
+    Object localVarPostBody = addSymbols;
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathDatesPost");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling addSymbols");
     }
     
-    // verify the required parameter 'postDatesymbol' is set
-    if (postDatesymbol == null) {
-      throw new ApiException(400, "Missing the required parameter 'postDatesymbol' when calling v1DatabasePathDatesPost");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/v1/database/{path}/dates"
-      .replaceAll("\\{" + "path" + "\\}", apiClient.escapeString(path.toString()));
-
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-
-    ApiResponse<
-        
-        SuccessPostResponse
-      
-    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathDatesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathDatesPostResponseTypeMap, false);
-
-    return apiResponse;
-
-  }
-  /**
-   * 
-   * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
-   * @param path Encode database path (required)
-   * @param createSymbols Data for creating symbol in the database (required)
-   * @return SuccessPostResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 413 </td><td> Post body too large </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-     </table>
-   */
-  public SuccessPostResponse v1DatabasePathSymbolsPost(String path, CreateSymbols createSymbols) throws ApiException {
-    return v1DatabasePathSymbolsPostWithHttpInfo(path, createSymbols).getData();
-  }
-
-  /**
-   * 
-   * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
-   * @param path Encode database path (required)
-   * @param createSymbols Data for creating symbol in the database (required)
-   * @return ApiResponse&lt;SuccessPostResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Status message of creation </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 413 </td><td> Post body too large </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
-       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
-     </table>
-   */
-  public ApiResponse<SuccessPostResponse> v1DatabasePathSymbolsPostWithHttpInfo(String path, CreateSymbols createSymbols) throws ApiException {
-    Object localVarPostBody = createSymbols;
-    
-    // verify the required parameter 'path' is set
-    if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathSymbolsPost");
-    }
-    
-    // verify the required parameter 'createSymbols' is set
-    if (createSymbols == null) {
-      throw new ApiException(400, "Missing the required parameter 'createSymbols' when calling v1DatabasePathSymbolsPost");
+    // verify the required parameter 'addSymbols' is set
+    if (addSymbols == null) {
+      throw new ApiException(400, "Missing the required parameter 'addSymbols' when calling addSymbols");
     }
     
     // create path and map variables
@@ -462,9 +386,91 @@ public class CreateApi {
         
         SuccessPostResponse
       
-    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("CreateApi.addSymbols", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathSymbolsPostResponseTypeMap, false);
+                               localVarAuthNames, addSymbolsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * 
+   * Creates a 2d or 3d database(OFDB)
+   * @param databaseSchema  (optional)
+   * @return AddDatabase
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+     </table>
+   */
+  public AddDatabase createDatabase(DatabaseSchema databaseSchema) throws ApiException {
+    return createDatabaseWithHttpInfo(databaseSchema).getData();
+  }
+
+  /**
+   * 
+   * Creates a 2d or 3d database(OFDB)
+   * @param databaseSchema  (optional)
+   * @return ApiResponse&lt;AddDatabase&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Creates and responds with ofdb path </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 404 </td><td> Path not found </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 429 </td><td> Rate limit reached. Wait till the time specified in Retry-After header value to make further requests. </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  * Retry-After -  <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<AddDatabase> createDatabaseWithHttpInfo(DatabaseSchema databaseSchema) throws ApiException {
+    Object localVarPostBody = databaseSchema;
+    
+    // create path and map variables
+    String localVarPath = "/v1/database/";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        AddDatabase
+      
+    > apiResponse = apiClient.invokeAPI("CreateApi.createDatabase", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, createDatabaseResponseTypeMap, false);
 
     return apiResponse;
 

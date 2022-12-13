@@ -67,6 +67,9 @@ from fds.sdk.OpenRisk.model.risk_model_code import RiskModelCode
 from fds.sdk.OpenRisk.model.risk_model_factor import RiskModelFactor
 from fds.sdk.OpenRisk.model.security_group import SecurityGroup
 from fds.sdk.OpenRisk.model.security_index_mapping import SecurityIndexMapping
+from fds.sdk.OpenRisk.model.security_only_labels import SecurityOnlyLabels
+from fds.sdk.OpenRisk.model.security_only_labels_security import SecurityOnlyLabelsSecurity
+from fds.sdk.OpenRisk.model.security_only_success_response_meta import SecurityOnlySuccessResponseMeta
 from fds.sdk.OpenRisk.model.stat import Stat
 from fds.sdk.OpenRisk.model.stat_calculation_level import StatCalculationLevel
 from fds.sdk.OpenRisk.model.stat_calculation_settings import StatCalculationSettings

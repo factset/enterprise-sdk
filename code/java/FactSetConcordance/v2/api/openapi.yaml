@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Concordance API provides the ability to programmatically look up several types of entities by their name and other attributes. It attempts to match attributes that you supply for the entity and returns as many match candidates as it can find. The result is a "concorded" FactSet Entity Permanent identifier.  The Entity Identifier can then be used as input throughout FactSet's Content soultions, such as Content APIs and Standard DataFeeds.<p> There are two types of workflows supported in the API. The first workflow type follows traditional API conventions in that a request is accepted and a response is returned synchronously. The second workflow type involves a background task. With this workflow, a task is created for uploading a set of queries, and then the client polls for the task to complete. Once the task has completed, the client retrieves the concordance results throught the decisions endpoint.</p>
   title: FactSet Concordance API
-  version: 2.4.0
+  version: 2.5.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -1259,6 +1259,22 @@ paths:
           maximum: 10000
           type: integer
         style: form
+      - description: Sort clientId, createdTime, updatedTime, clientName, entityId
+          fields in ascending or descending order with asc and desc to indicate the
+          order. Example (clientId:asc)
+        example:
+        - clientId:asc
+        - clientName:desc
+        explode: false
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: clientId:asc
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
@@ -1491,6 +1507,22 @@ paths:
         schema:
           maximum: 10000
           type: integer
+        style: form
+      - description: Sort clientId, createdTime, updatedTime, clientPersonName, personId
+          fields in ascending or descending order with asc and desc to indicate the
+          order. Example (clientId:asc)
+        example:
+        - clientId:asc
+        - clientPersonName:desc
+        explode: false
+        in: query
+        name: sort
+        required: false
+        schema:
+          example: clientPersonName:desc
+          items:
+            type: string
+          type: array
         style: form
       responses:
         "200":
@@ -4266,6 +4298,40 @@ components:
       required: true
       schema:
         type: integer
+      style: form
+    sortEntity:
+      description: Sort clientId, createdTime, updatedTime, clientName, entityId fields
+        in ascending or descending order with asc and desc to indicate the order.
+        Example (clientId:asc)
+      example:
+      - clientId:asc
+      - clientName:desc
+      explode: false
+      in: query
+      name: sort
+      required: false
+      schema:
+        example: clientId:asc
+        items:
+          type: string
+        type: array
+      style: form
+    sortPeople:
+      description: Sort clientId, createdTime, updatedTime, clientPersonName, personId
+        fields in ascending or descending order with asc and desc to indicate the
+        order. Example (clientId:asc)
+      example:
+      - clientId:asc
+      - clientPersonName:desc
+      explode: false
+      in: query
+      name: sort
+      required: false
+      schema:
+        example: clientPersonName:desc
+        items:
+          type: string
+        type: array
       style: form
     universeStatisticsRequired:
       description: Universe identifier. *To create a universe, use the `/universe'

@@ -64,6 +64,9 @@ docs/RiskModelCode.md
 docs/RiskModelFactor.md
 docs/SecurityGroup.md
 docs/SecurityIndexMapping.md
+docs/SecurityOnlyLabels.md
+docs/SecurityOnlyLabelsSecurity.md
+docs/SecurityOnlySuccessResponseMeta.md
 docs/Stat.md
 docs/StatCalculationLevel.md
 docs/StatCalculationSettings.md
@@ -151,6 +154,9 @@ fds/sdk/OpenRisk/model/risk_model_code.py
 fds/sdk/OpenRisk/model/risk_model_factor.py
 fds/sdk/OpenRisk/model/security_group.py
 fds/sdk/OpenRisk/model/security_index_mapping.py
+fds/sdk/OpenRisk/model/security_only_labels.py
+fds/sdk/OpenRisk/model/security_only_labels_security.py
+fds/sdk/OpenRisk/model/security_only_success_response_meta.py
 fds/sdk/OpenRisk/model/stat.py
 fds/sdk/OpenRisk/model/stat_calculation_level.py
 fds/sdk/OpenRisk/model/stat_calculation_settings.py

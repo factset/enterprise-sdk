@@ -58,6 +58,9 @@ docs/RiskModelAppendDataValue.md
 docs/RiskModelFactor.md
 docs/SecurityGroup.md
 docs/SecurityIndexMapping.md
+docs/SecurityOnlyLabels.md
+docs/SecurityOnlyLabelsSecurity.md
+docs/SecurityOnlySuccessResponseMeta.md
 docs/Stat.md
 docs/StatCalculationLevel.md
 docs/StatCalculationSettings.md
@@ -143,6 +146,9 @@ src/FactSet.SDK.OpenRisk/Model/RiskModelAppendDataValue.cs
 src/FactSet.SDK.OpenRisk/Model/RiskModelFactor.cs
 src/FactSet.SDK.OpenRisk/Model/SecurityGroup.cs
 src/FactSet.SDK.OpenRisk/Model/SecurityIndexMapping.cs
+src/FactSet.SDK.OpenRisk/Model/SecurityOnlyLabels.cs
+src/FactSet.SDK.OpenRisk/Model/SecurityOnlyLabelsSecurity.cs
+src/FactSet.SDK.OpenRisk/Model/SecurityOnlySuccessResponseMeta.cs
 src/FactSet.SDK.OpenRisk/Model/Stat.cs
 src/FactSet.SDK.OpenRisk/Model/StatCalculationLevel.cs
 src/FactSet.SDK.OpenRisk/Model/StatCalculationSettings.cs

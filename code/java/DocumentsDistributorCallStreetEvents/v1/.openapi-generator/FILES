@@ -24,7 +24,6 @@ docs/EventsAudioMetaPagination.md
 docs/IndexedNRT.md
 docs/IndexedNRTMeta.md
 docs/IndexedNRTMetaPagination.md
-docs/NRT403Error.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -96,7 +95,6 @@ src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/Events
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/IndexedNRT.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/IndexedNRTMeta.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/IndexedNRTMetaPagination.java
-src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRT403Error.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls400Response.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls400ResponseDetails.java

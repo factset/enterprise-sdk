@@ -1,0 +1,4549 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: OFDB API
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  termsOfService: TOS
+  title: OFDB API
+  version: 2.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com/analytics/ofdb/v2
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Add new data to a database
+  name: Add
+- description: Create a new database
+  name: Create
+- description: Delete data from a database
+  name: Delete
+- description: Get data from a database
+  name: Get
+- description: Update existing data in a database
+  name: Update
+paths:
+  /database/{path}/audit:
+    get:
+      description: Returns a list of the most recent "modificationTimes" in long datetime
+        format
+      operationId: GetAudit
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Returns a list of the most recent "modificationTimes" in long
+            datetime format
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+  /database/{path}/stats:
+    get:
+      description: Returns a summary of OFDB metadata and data points
+      operationId: GetStats
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Returns an object with key OFDB stats
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+  /database/{path}/fields:
+    get:
+      description: Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetFields
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: List of fields within the database
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+    post:
+      description: Allows users to add fields to existing OFDBs
+      operationId: AddFields
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              OFDB:
+                description: The field schemas to be added
+                value:
+                  data:
+                  - description: string
+                    iteration: 2D
+                    name: string
+                    size: 0
+                    splitDirection: NONE
+                    type: INT
+                    codePageFlag: ASCII
+            schema:
+              $ref: '#/components/schemas/AddFields'
+        description: Data for creating fields in the database.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Add
+      x-contentType: application/json
+      x-accepts: application/json
+  /database/{path}/symbols:
+    get:
+      description: Returns all the symbols in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetSymbols
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Returns list of symbols which starts with mentioned string
+        explode: true
+        in: query
+        name: startsWith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns list of symbols which ends with mentioned string
+        explode: true
+        in: query
+        name: endsWith
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns list of symbols which contains mentioned string
+        explode: true
+        in: query
+        name: contains
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns symbol which matches mentioned string
+        explode: true
+        in: query
+        name: equals
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns symbols in the mentioned sorted order, should provide
+          asc or desc
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful symbols array within OFDB
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+    post:
+      description: Creates a new symbol with single/multiple dates for 3d database(OFDB).
+        Creates a symbol for 2d database(OFDB)
+      operationId: AddSymbols
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              "3dOFDB":
+                description: Object in content is mandatory and must contain date
+                  with atleast one iterative field
+                value:
+                  data:
+                  - symbol: FDS
+                    content:
+                    - date: 20220106
+                      price: "333"
+              "2dOFDB":
+                description: Object in content is optional and should contain fields
+                  of the OFDB
+                value:
+                  data:
+                  - symbol: FDS
+                    content:
+                    - description: Your desired information
+                      price: "200"
+            schema:
+              $ref: '#/components/schemas/AddSymbols'
+        description: Data for creating symbol in the database
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Add
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      description: Updates existing symbols for single/multiple dates or adds a new
+        symbol/date within a symbol if not present in 3d database(OFDB). Updates an
+        existing symbol field value or adds a new symbol if not present in the 2d
+        database(OFDB)
+      operationId: UpdateSymbols
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              "3dOFDB":
+                description: Object in content is mandatory and must contain the field
+                  date and at least one iterative field
+                value:
+                  data:
+                  - symbol: FDS
+                    content:
+                    - date: 20200202
+                      price: "999"
+              "2dOFDB":
+                description: Object in content is OPTIONAL and should contain fields
+                  already existing within your OFDB
+                value:
+                  data:
+                  - symbol: FDS
+                    content:
+                    - country: USA
+            schema:
+              $ref: '#/components/schemas/UpdateSymbols'
+        description: Data for updating symbol in the database
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Update
+      x-contentType: application/json
+      x-accepts: application/json
+  /database/{path}/symbols/{symbol}:
+    delete:
+      description: Deletes all data specific to the symbol in both 2d and 3d database(OFDB).
+        This includes all the dates related to that symbols in 3d database(OFDB)
+      operationId: DeleteSymbol
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Symbol with in the ofdb
+        explode: false
+        in: path
+        name: symbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "204":
+          description: Resource is deleted successfully
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Delete
+      x-accepts: application/json
+    put:
+      description: Updates an existing symbol field value for single/multiple dates
+        or adds a new symbol/date within a symbol if not present in 3d database(OFDB).
+        Updates an existing symbol field value or adds a new symbol if not present
+        in the 2d database(OFDB)
+      operationId: UpdateSymbol
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Symbol with in the ofdb
+        explode: false
+        in: path
+        name: symbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              "3dOFDB":
+                description: Object in content is mandatory and must contain the field
+                  date and at least one iterative field
+                value:
+                  data:
+                  - content:
+                    - date: 20200202
+                      price: "999"
+              "2dOFDB":
+                description: Object in content is OPTIONAL and should contain fields
+                  already existing within your OFDB
+                value:
+                  data:
+                  - content:
+                    - country: USA
+            schema:
+              $ref: '#/components/schemas/UpdateSymbol'
+        description: Data for updating symbol in the database
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Update
+      x-contentType: application/json
+      x-accepts: application/json
+  /database/{path}/dates:
+    get:
+      description: Returns all the dates in the database(OFDB, OMS_OFDB, ECONOFDB)
+      operationId: GetDates
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Returns list of dates which are between [start,end], dates should
+          be in the respective order of start and end
+        explode: false
+        in: query
+        name: between
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns the date which matches given date
+        explode: true
+        in: query
+        name: equals
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns list of dates which are before mentioned date
+        explode: true
+        in: query
+        name: before
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns list of dates which are after mentioned date
+        explode: true
+        in: query
+        name: after
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Returns dates in the mentioned sorted order, should provide asc
+          or desc
+        explode: true
+        in: query
+        name: orderBy
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_4'
+          description: Successful output
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+    post:
+      description: Creates a new date with single/multiple symbols for a 3d database(OFDB).
+      operationId: AddDates
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            example:
+              symbol: FDS
+              data:
+              - date: 20220107
+                price: "444"
+            schema:
+              $ref: '#/components/schemas/AddDates'
+        description: Required data for creating date in the database. At least one
+          iterative field is required otherwise it will throw 400.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Add
+      x-contentType: application/json
+      x-accepts: application/json
+    put:
+      description: Updates existing dates for single/multiple symbols or adds a new
+        date/symbol within a date if not present in 3d database(OFDB).
+      operationId: UpdateDates
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDates'
+        description: Required data for updating date in the database
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Update
+      x-contentType: application/json
+      x-accepts: application/json
+  /database/{path}/dates/{date}:
+    delete:
+      description: Deletes all data specific to the date in 3d database(OFDB). This
+        includes all the symbols related to that date
+      operationId: DeleteDate
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Date in YYYYMMDD format
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "204":
+          description: Resource is deleted successfully
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Delete
+      x-accepts: application/json
+    put:
+      description: Updates an existing date field value for single/multiple symbols
+        or adds a new date/symbol within a date if not present in 3d database(OFDB).
+      operationId: UpdateDate
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Date in YYYYMMDD format
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDate'
+        description: Required data for updating date in the database
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessPostResponse'
+          description: Status message of creation
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "413":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_413'
+          description: Post body too large
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Update
+      x-contentType: application/json
+      x-accepts: application/json
+  /database/{path}/dates/{date}/symbols/{symbol}:
+    delete:
+      description: Deletes data specific to the symbol and date from a 3d database(OFDB).
+      operationId: DeleteDateFromSymbol
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Date in YYYYMMDD format
+        explode: false
+        in: path
+        name: date
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: Symbol with in the ofdb
+        explode: false
+        in: path
+        name: symbol
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "204":
+          description: Resource is deleted successfully
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Delete
+      x-accepts: application/json
+  /database/{path}:
+    get:
+      description: Returns the data in the database(OFDB, OMS_OFDB, ECONOFDB) for
+        the mentioned Symbol or Date. Atleast one parameter(Symbol/Date) is required.
+        For a range of dates symbol parameter is mandatory.
+      operationId: GetData
+      parameters:
+      - description: Encode database path
+        explode: false
+        in: path
+        name: path
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Returns data for the symbol mentioned. e.g:sym1
+        explode: true
+        in: query
+        name: symbol
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return data for the specific date or range of dates mentioned.e.g:[date1,date2]
+        explode: false
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the fields on which you want to perform field filter\
+          \ operations e.g: [\"PRICE\",\"SECTOR\"]\n\nNote:\n\nThe request will respond\
+          \ with 400\n1. If fields which are not present on OFDB are given.\n2. If\
+          \ filterOps or filterValues query parameters are missing\n   when filterFields\
+          \ is present.\n3. If number of values given for filterOps, \n    filterFields,\
+          \ filterValues are different\n4. If exactly one of symbol or date query\
+          \ parameter is not provided.\n"
+        explode: false
+        in: query
+        name: filterFields
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the field filter operations which you want to perform\
+          \ e.g: [\"LT\", \"GTEQ\", \"CT\"]\nin respective order of values in filterFields\
+          \ query parameter.\n\nThe available field filter operations are :\n\nFor\
+          \ CHAR type fields:\n\n\"CT\" : contains\n\n\"SW\" : starts-with\n\n\"EW\"\
+          \ : ends-with \n\n\"EQ\" : equals\n\nFor NUMERIC type fields:\n\n\"GT\"\
+          \ : greater than\n\n\"GTEQ\" : greater than or equals\n\n\"LT\" : lesser\
+          \ than\n\n\"LTEQ\" : lesser than or equals\n\n\"EQ\" : equals\n\nNote:\n\
+          \nThe request will respond with 400 \n1. If operations other than the above\
+          \ mentioned are provided.\n2. If numeric operations are given to char type\
+          \ fields instead of char operations.\n3. If char operations are given to\
+          \ numeric type fields instead of numeric operations.\n4. If filterFields\
+          \ or filterValues query parameters are missing\n   when filterOps is present.\n\
+          5. If number of values given for filterOps, \n    filterFields, filterValues\
+          \ are different\n6. If exactly one of symbol or date query parameter is\
+          \ not provided.\n"
+        explode: false
+        in: query
+        name: filterOps
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the field filter values of the field filter operations\
+          \ e.g: [100, 20, \"AB\"]\nin respective order of values in filterFields\
+          \ and filterOps query parameters .\n\nNote: \n\nThe request will respond\
+          \ with 400\n1. If char values are given to numeric type fields.\n2. If filterFields\
+          \ or filterOps query parameters are missing\n   when filterValues is present.\n\
+          3. If number of values given for filterOps, \n    filterFields, filterValues\
+          \ are different\n4. If exactly one of symbol or date query parameter is\
+          \ not provided.\n"
+        explode: false
+        in: query
+        name: filterValues
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the date filter operations which you want to perform\
+          \ e.g: [\"LT\", \"GTEQ\"].\n\nThe available date filter operations are :\n\
+          \n\"GT\" : after\n\n\"GTEQ\" : after or equals\n\n\"LT\" : before\n\n\"\
+          LTEQ\" : before or equals\n\n\"EQ\" : equals\"\n\nNote:\n\nThe request will\
+          \ respond with 400 \n1. If operations other than the above mentioned are\
+          \ given.\n2. If filterDatesValues query parameter is missing when filterDatesOps\
+          \ is present.\n3. If number of values given for filterDatesOps and filterDatesValues\
+          \ differ.\n4. If symbol query parameter is not provided.\n"
+        explode: false
+        in: query
+        name: filterDatesOps
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Can specify the date filter values of the date filter operations e.g: [20200505, 20200303]
+          in respective order of values in filterDatesOps query parameter.
+
+          Note:
+
+          The request will respond with 400
+          1. If invalid date values are given
+          2. If filterDatesOps query parameter is missing when filterDatesValues is present.
+          3. If number of values given for filterDatesOps and filterDatesValues differ.
+          4. If symbol query parameter is not provided.
+        explode: false
+        in: query
+        name: filterDatesValues
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Can specify the symbol filter operations which you want to perform e.g: ["CT", "SW"].
+
+          The available symbol filter operations are:
+
+          "SW" : starts-with
+
+          "EW" : ends-with
+
+          "CT" : contains
+
+          "EQ" : equals
+
+          Note:
+
+          The request will respond with 400
+          1. If operations other than the above mentioned are given.
+          2. If filterSymbolsValues query parameter is missing when filterSymbolsOps is present.
+          3. If number of values given for filterSymbolsOps and filterSymbolsValues differ.
+          4. If date query parameter is not provided.
+        explode: false
+        in: query
+        name: filterSymbolsOps
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Can specify the symbol filter values of the date filter operations e.g: ["ab", "xy"]
+          in respective order of values in filterSymbolsOps query parameter.
+
+          Note:
+          The request will respond with 400
+          1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present.
+          2. If number of values given for filterSymbolsOps and filterSymbolsValues differ.
+          3. If date query parameter is not provided.
+        explode: false
+        in: query
+        name: filterSymbolsValues
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the name of field with respect to which user wants\
+          \ to sort data \n\nNote:\nThe request will respond with 400, If a field\
+          \ which doesn't exist in the OFDB is requested"
+        explode: false
+        in: query
+        name: sortFieldName
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Can specify the order in which user wants to sort data with\
+          \ respect to sortFieldName query parameter \n\nNote:\nThe request will respond\
+          \ with 400, If value other than asc or desc is requested"
+        explode: true
+        in: query
+        name: sortFieldOrder
+        required: false
+        schema:
+          enum:
+          - ASC
+          - DESC
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_5'
+          description: successful output
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Get
+      x-accepts: application/json
+  /database:
+    post:
+      description: Creates a 2d or 3d database(OFDB)
+      operationId: CreateDatabase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabaseSchema'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateDatabase'
+          description: Creates and responds with ofdb path
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+          links:
+            GetDataByPath:
+              description: |
+                The `path` value returned in the response can be used as the `path` parameter in `GET /v1/database/{path}/data`.
+              operationId: GetData
+              parameters:
+                path: $response.body#/path
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_202'
+          description: Returns when the request is moved to long running mode.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: Invalid query parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: Path not found
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/X-RateLimit-Reset'
+      tags:
+      - Create
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  headers:
+    ResponseLocationHeader:
+      description: url of the newly created resource
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Long-Running-Location:
+      description: location to poll for the status of the job.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-DataDirect-Request-Key:
+      description: FactSet's request key header.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-Request-Key:
+      description: Key to uniquely identify an Analytics API request. Only available
+        after successful authentication.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-RateLimit-Limit:
+      description: Number of allowed requests for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-RateLimit-Remaining:
+      description: Number of requests left for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-RateLimit-Reset:
+      description: Number of seconds remaining till rate limit resets.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Retry-After:
+      description: Time to wait in seconds before making a new request as the rate
+        limit has reached.
+      explode: false
+      schema:
+        type: string
+      style: simple
+  parameters:
+    databaseLocationPathParam:
+      description: Encode database path
+      explode: false
+      in: path
+      name: path
+      required: true
+      schema:
+        type: string
+      style: simple
+    datePathParam:
+      description: Date in YYYYMMDD format
+      explode: false
+      in: path
+      name: date
+      required: true
+      schema:
+        type: integer
+      style: simple
+    symbolPathParam:
+      description: Symbol with in the ofdb
+      explode: false
+      in: path
+      name: symbol
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    PostRequestsSuccessCompleteResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessPostResponse'
+      description: Status message of creation
+      headers:
+        Location:
+          $ref: '#/components/headers/ResponseLocationHeader'
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "400Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_400'
+      description: Invalid query parameter or value provided
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetStats":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_1'
+      description: Returns an object with key OFDB stats
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetAudit":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Returns a list of the most recent "modificationTimes" in long datetime
+        format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetFields":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_2'
+      description: List of fields within the database
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetSymbols":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_3'
+      description: Successful symbols array within OFDB
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetDates":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_4'
+      description: Successful output
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "200GetData":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200_5'
+      description: successful output
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "202LongRunningResponse":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_202'
+      description: Returns when the request is moved to long running mode.
+      headers:
+        Location:
+          $ref: '#/components/headers/Long-Running-Location'
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "204Response":
+      description: Resource is deleted successfully
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "403Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_403'
+      description: User is forbidden with current credentials
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "404Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_404'
+      description: Path not found
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "406Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_406'
+      description: Unsupported Accept header. Header needs to be set to application/json
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "413Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_413'
+      description: Post body too large
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "429Response":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_429'
+      description: Rate limit reached. Wait till the time specified in Retry-After
+        header value to make further requests.
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+        Retry-After:
+          $ref: '#/components/headers/Retry-After'
+    "500Response":
+      description: Server error. Log the X-DataDirect-Request-Key header to assist
+        in troubleshooting
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+    "503Response":
+      description: Request timed out. Retry the request in some time
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/X-DataDirect-Request-Key'
+        X-FactSet-Api-Request-Key:
+          $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        X-RateLimit-Limit:
+          $ref: '#/components/headers/X-RateLimit-Limit'
+        X-RateLimit-Remaining:
+          $ref: '#/components/headers/X-RateLimit-Remaining'
+        X-RateLimit-Reset:
+          $ref: '#/components/headers/X-RateLimit-Reset'
+  schemas:
+    AddSymbols:
+      example:
+        data:
+        - symbol: symbol
+          content:
+          - date: 0
+            field_1: field_1
+          - date: 0
+            field_1: field_1
+        - symbol: symbol
+          content:
+          - date: 0
+            field_1: field_1
+          - date: 0
+            field_1: field_1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AddSymbols_data'
+          type: array
+      type: object
+    CreateDatabase:
+      example:
+        data:
+          path: path
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateDatabase_data'
+      type: object
+    AddDates:
+      example:
+        data:
+        - date: 20220202
+          content:
+          - symbol: symbol
+            field_1: 0
+          - symbol: symbol
+            field_1: 0
+        - date: 20220202
+          content:
+          - symbol: symbol
+            field_1: 0
+          - symbol: symbol
+            field_1: 0
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AddDates_data'
+          type: array
+      type: object
+    AddFields:
+      example:
+        data:
+        - '{}'
+        - '{}'
+      properties:
+        data:
+          items:
+            properties:
+              description:
+                type: string
+              iteration:
+                enum:
+                - 2D
+                - 3D
+                type: string
+              name:
+                type: string
+              size:
+                type: integer
+              splitDirection:
+                enum:
+                - NONE
+                - NORMAL
+                - REVERSE
+                type: string
+              type:
+                enum:
+                - INT
+                - FLOAT
+                - DOUBLE
+                - CHAR
+                - LONG_CHAR
+                - STRING
+                - DATE
+                type: string
+              codePageFlag:
+                enum:
+                - ASCII
+                type: string
+            type: object
+          type: array
+      type: object
+    UpdateDate:
+      description: Set of fields along with symbol is mandatory to update the date.
+      example:
+        data:
+        - content:
+          - symbol: FDS
+            price: 100
+      properties:
+        data:
+          description: date has to be provide in case 3d OFDB with date and atleast
+            one iterative field
+          example:
+          - content:
+            - symbol: FDS
+              price: 100
+          items:
+            $ref: '#/components/schemas/UpdateDate_data'
+          type: array
+      type: object
+    UpdateDates:
+      description: Set of fields along with symbol is mandatory to update the date.
+      example:
+        data:
+        - date: 20220202
+          content:
+          - symbol: FDS
+            price: 100
+      properties:
+        data:
+          description: date has to be provide in case 3d OFDB with date and atleast
+            one iterative field
+          example:
+          - date: 20220202
+            content:
+            - symbol: FDS
+              price: 100
+          items:
+            $ref: '#/components/schemas/UpdateDates_data'
+          type: array
+      type: object
+    UpdateSymbol:
+      description: Any arbitary set of fields that are provided while creating the
+        ofdb and their values.
+      example:
+        data:
+        - content:
+          - date: 0
+            field_1: 6
+            field_2: field_2
+          - date: 0
+            field_1: 6
+            field_2: field_2
+        - content:
+          - date: 0
+            field_1: 6
+            field_2: field_2
+          - date: 0
+            field_1: 6
+            field_2: field_2
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UpdateSymbol_data'
+          type: array
+      type: object
+    UpdateSymbols:
+      description: Any arbitary set of fields that are provided while creating the
+        ofdb and their values.
+      example:
+        data:
+        - symbol: symbol
+          content:
+          - date: 0
+            field_1: 6
+            field_2: field_2
+          - date: 0
+            field_1: 6
+            field_2: field_2
+        - symbol: symbol
+          content:
+          - date: 0
+            field_1: 6
+            field_2: field_2
+          - date: 0
+            field_1: 6
+            field_2: field_2
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UpdateSymbols_data'
+          type: array
+      type: object
+    Symbols:
+      items:
+        example: FDS
+        type: string
+      type: array
+    Dates:
+      items:
+        example: 20220202
+        type: integer
+      type: array
+    Fields:
+      items:
+        properties:
+          description:
+            type: string
+          iteration:
+            enum:
+            - 2D
+            - 3D
+            type: string
+          name:
+            type: string
+          size:
+            type: integer
+          splitDirection:
+            enum:
+            - NONE
+            - NORMAL
+            - REVERSE
+            type: string
+          type:
+            enum:
+            - INT
+            - FLOAT
+            - DOUBLE
+            - CHAR
+            - LONG_CHAR
+            - STRING
+            - DATE
+            type: string
+          codePageFlag:
+            enum:
+            - ASCII
+            type: string
+        type: object
+      type: array
+    DatabaseSchema:
+      example:
+        data:
+          path: CLIENT:this_is_a_test_.OFDB
+          description: A user would fill this with relevant information
+          fields:
+          - '{}'
+          - '{}'
+      properties:
+        data:
+          $ref: '#/components/schemas/DatabaseSchema_data'
+      type: object
+    SuccessPostResponse:
+      description: Response format of any kind of post response
+      example:
+        data:
+          id: id
+      properties:
+        data:
+          $ref: '#/components/schemas/SuccessPostResponse_data'
+      type: object
+    inline_response_200_data:
+      example:
+        modificationTimes:
+        - 20-Oct-2022  14:25:33 (EDT)
+        - 20-Oct-2022  14:25:33 (EDT)
+      properties:
+        modificationTimes:
+          items:
+            example: 20-Oct-2022  14:25:33 (EDT)
+            type: string
+          type: array
+      type: object
+    inline_response_200:
+      example:
+        data:
+          modificationTimes:
+          - 20-Oct-2022  14:25:33 (EDT)
+          - 20-Oct-2022  14:25:33 (EDT)
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+      type: object
+    inline_response_202_data:
+      example:
+        id: id
+        status: status
+      properties:
+        id:
+          type: string
+        status:
+          description: Current Status of the job
+          type: string
+      type: object
+    inline_response_202:
+      example:
+        data:
+          id: id
+          status: status
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_202_data'
+      type: object
+    inline_response_400_source:
+      properties:
+        location:
+          type: string
+        param:
+          type: string
+      type: object
+    inline_response_400_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: parameterError
+          example: parameterError
+          type: string
+        source:
+          $ref: '#/components/schemas/inline_response_400_source'
+      type: object
+    inline_response_400:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_400_errors'
+          type: array
+      type: object
+    inline_response_403_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: notAuthorized
+          example: notAuthorized
+          type: string
+      type: object
+    inline_response_403:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_403_errors'
+          type: array
+      type: object
+    inline_response_404_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: endPointNotFound
+          example: endPointNotFound
+          type: string
+      type: object
+    inline_response_404:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_404_errors'
+          type: array
+      type: object
+    inline_response_406_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: notAcceptable
+          example: notAcceptable
+          type: string
+      type: object
+    inline_response_406:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_406_errors'
+          type: array
+      type: object
+    inline_response_429_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: rateLimitExceeded
+          example: rateLimitExceeded
+          type: string
+      type: object
+    inline_response_429:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_429_errors'
+          type: array
+      type: object
+    inline_response_200_1_data:
+      example:
+        nonIteratedFields: 1
+        totalFields: 3
+        iteratedFields: 2
+        dates: 1
+        symbols: 1
+      properties:
+        symbols:
+          example: 1
+          type: integer
+        iteratedFields:
+          example: 2
+          type: integer
+        nonIteratedFields:
+          example: 1
+          type: integer
+        totalFields:
+          example: 3
+          type: integer
+        dates:
+          example: 1
+          type: integer
+      type: object
+    inline_response_200_1:
+      example:
+        data:
+          nonIteratedFields: 1
+          totalFields: 3
+          iteratedFields: 2
+          dates: 1
+          symbols: 1
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_1_data'
+      type: object
+    inline_response_200_2:
+      example:
+        data:
+        - '{}'
+        - '{}'
+      properties:
+        data:
+          items:
+            properties:
+              description:
+                type: string
+              iteration:
+                enum:
+                - 2D
+                - 3D
+                type: string
+              name:
+                type: string
+              size:
+                type: integer
+              splitDirection:
+                enum:
+                - NONE
+                - NORMAL
+                - REVERSE
+                type: string
+              type:
+                enum:
+                - INT
+                - FLOAT
+                - DOUBLE
+                - CHAR
+                - LONG_CHAR
+                - STRING
+                - DATE
+                type: string
+              codePageFlag:
+                enum:
+                - ASCII
+                type: string
+            type: object
+          type: array
+      type: object
+    inline_response_200_3:
+      example:
+        data:
+        - FDS
+        - FDS
+      properties:
+        data:
+          items:
+            example: FDS
+            type: string
+          type: array
+      type: object
+    inline_response_413_errors:
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        code:
+          default: payloadTooLarge
+          example: payloadTooLarge
+          type: string
+      type: object
+    inline_response_413:
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/inline_response_413_errors'
+          type: array
+      type: object
+    inline_response_200_4:
+      example:
+        data:
+        - 20220202
+        - 20220202
+      properties:
+        data:
+          items:
+            example: 20220202
+            type: integer
+          type: array
+      type: object
+    inline_response_200_5_data:
+      example:
+        symbol: FDS
+        field_1: 1
+      properties:
+        symbol:
+          example: FDS
+          type: string
+        field_1:
+          example: 1
+          type: integer
+      type: object
+    inline_response_200_5:
+      example:
+        data:
+        - symbol: FDS
+          field_1: 1
+        - symbol: FDS
+          field_1: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/inline_response_200_5_data'
+          type: array
+      type: object
+    AddSymbols_content:
+      example:
+        date: 0
+        field_1: field_1
+      properties:
+        date:
+          type: integer
+        field_1:
+          type: string
+      type: object
+    AddSymbols_data:
+      example:
+        symbol: symbol
+        content:
+        - date: 0
+          field_1: field_1
+        - date: 0
+          field_1: field_1
+      properties:
+        symbol:
+          description: Names of the symbol and unique to this database
+          type: string
+        content:
+          description: date must be provided in the case of a 3d ofdb with atleast
+            one iterative field
+          items:
+            $ref: '#/components/schemas/AddSymbols_content'
+          type: array
+      type: object
+    CreateDatabase_data:
+      example:
+        path: path
+      properties:
+        path:
+          description: path of the newly created database.
+          type: string
+      type: object
+    AddDates_content:
+      example:
+        symbol: symbol
+        field_1: 0
+      properties:
+        symbol:
+          type: string
+        field_1:
+          type: integer
+      type: object
+    AddDates_data:
+      example:
+        date: 20220202
+        content:
+        - symbol: symbol
+          field_1: 0
+        - symbol: symbol
+          field_1: 0
+      properties:
+        date:
+          description: Date unique to the database.
+          example: 20220202
+          type: integer
+        content:
+          items:
+            $ref: '#/components/schemas/AddDates_content'
+          type: array
+      type: object
+    UpdateDate_data:
+      properties:
+        content:
+          items:
+            $ref: '#/components/schemas/AddDates_content'
+          type: array
+      type: object
+    UpdateDates_data:
+      properties:
+        date:
+          type: integer
+        content:
+          items:
+            $ref: '#/components/schemas/AddDates_content'
+          type: array
+      type: object
+    UpdateSymbol_content:
+      example:
+        date: 0
+        field_1: 6
+        field_2: field_2
+      properties:
+        date:
+          type: integer
+        field_1:
+          type: integer
+        field_2:
+          type: string
+      type: object
+    UpdateSymbol_data:
+      example:
+        content:
+        - date: 0
+          field_1: 6
+          field_2: field_2
+        - date: 0
+          field_1: 6
+          field_2: field_2
+      properties:
+        content:
+          description: date must be provided in the case of a 3d ofdb with at least
+            one iterative field
+          items:
+            $ref: '#/components/schemas/UpdateSymbol_content'
+          type: array
+      type: object
+    UpdateSymbols_data:
+      example:
+        symbol: symbol
+        content:
+        - date: 0
+          field_1: 6
+          field_2: field_2
+        - date: 0
+          field_1: 6
+          field_2: field_2
+      properties:
+        symbol:
+          type: string
+        content:
+          description: date must be provided in the case of a 3d ofdb with at least
+            one iterative field
+          items:
+            $ref: '#/components/schemas/UpdateSymbol_content'
+          type: array
+      type: object
+    DatabaseSchema_data:
+      example:
+        path: CLIENT:this_is_a_test_.OFDB
+        description: A user would fill this with relevant information
+        fields:
+        - '{}'
+        - '{}'
+      properties:
+        path:
+          example: CLIENT:this_is_a_test_.OFDB
+          type: string
+        description:
+          example: A user would fill this with relevant information
+          type: string
+        fields:
+          items:
+            properties:
+              description:
+                type: string
+              iteration:
+                enum:
+                - 2D
+                - 3D
+                type: string
+              name:
+                type: string
+              size:
+                type: integer
+              splitDirection:
+                enum:
+                - NONE
+                - NORMAL
+                - REVERSE
+                type: string
+              type:
+                enum:
+                - INT
+                - FLOAT
+                - DOUBLE
+                - CHAR
+                - LONG_CHAR
+                - STRING
+                - DATE
+                type: string
+              codePageFlag:
+                enum:
+                - ASCII
+                type: string
+            type: object
+          type: array
+      type: object
+    SuccessPostResponse_data:
+      example:
+        id: id
+      properties:
+        id:
+          description: id of the newly created resource
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

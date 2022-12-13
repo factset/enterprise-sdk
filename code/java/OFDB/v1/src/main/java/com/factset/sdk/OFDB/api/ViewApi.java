@@ -11,6 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.OFDB.models.InlineResponse202;
+import com.factset.sdk.OFDB.models.InlineResponse400;
+import com.factset.sdk.OFDB.models.InlineResponse403;
+import com.factset.sdk.OFDB.models.InlineResponse404;
+import com.factset.sdk.OFDB.models.InlineResponse429;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ViewApi {
@@ -25,32 +30,32 @@ public class ViewApi {
   }
 
     private static final Map<Integer, GenericType> getDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
-  private static final Map<Integer, GenericType> v1DatabasePathDatesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getDatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathDatesGetResponseTypeMap.put(200, new GenericType<java.util.List<Integer>>(){});
-    v1DatabasePathDatesGetResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathDatesGetResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathDatesGetResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathDatesGetResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathDatesGetResponseTypeMap.put(429, new GenericType<Object>(){});
+    getDatesResponseTypeMap.put(200, new GenericType<java.util.List<Integer>>(){});
+    getDatesResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    getDatesResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    getDatesResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    getDatesResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    getDatesResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
-  private static final Map<Integer, GenericType> v1DatabasePathFieldsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathFieldsGetResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
-    v1DatabasePathFieldsGetResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathFieldsGetResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathFieldsGetResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathFieldsGetResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathFieldsGetResponseTypeMap.put(429, new GenericType<Object>(){});
+    getFieldsResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
+    getFieldsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    getFieldsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    getFieldsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    getFieldsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    getFieldsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
-  private static final Map<Integer, GenericType> v1DatabasePathSymbolsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getSymbolsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
-    v1DatabasePathSymbolsGetResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
-    v1DatabasePathSymbolsGetResponseTypeMap.put(202, new GenericType<Object>(){});
-    v1DatabasePathSymbolsGetResponseTypeMap.put(400, new GenericType<Object>(){});
-    v1DatabasePathSymbolsGetResponseTypeMap.put(403, new GenericType<Object>(){});
-    v1DatabasePathSymbolsGetResponseTypeMap.put(404, new GenericType<Object>(){});
-    v1DatabasePathSymbolsGetResponseTypeMap.put(429, new GenericType<Object>(){});
+    getSymbolsResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
+    getSymbolsResponseTypeMap.put(202, new GenericType<InlineResponse202>(){});
+    getSymbolsResponseTypeMap.put(400, new GenericType<InlineResponse400>(){});
+    getSymbolsResponseTypeMap.put(403, new GenericType<InlineResponse403>(){});
+    getSymbolsResponseTypeMap.put(404, new GenericType<InlineResponse404>(){});
+    getSymbolsResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
   }
 
    
@@ -216,8 +221,8 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public java.util.List<Integer> v1DatabasePathDatesGet(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
-    return v1DatabasePathDatesGetWithHttpInfo(path, between, equals, before, after, orderBy).getData();
+  public java.util.List<Integer> getDates(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
+    return getDatesWithHttpInfo(path, between, equals, before, after, orderBy).getData();
   }
 
   /**
@@ -244,12 +249,12 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<Integer>> v1DatabasePathDatesGetWithHttpInfo(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
+  public ApiResponse<java.util.List<Integer>> getDatesWithHttpInfo(String path, String between, String equals, String before, String after, String orderBy) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathDatesGet");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling getDates");
     }
     
     // create path and map variables
@@ -288,9 +293,9 @@ public class ViewApi {
         
         java.util.List<Integer>
       
-    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathDatesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("ViewApi.getDates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathDatesGetResponseTypeMap, false);
+                               localVarAuthNames, getDatesResponseTypeMap, false);
 
     return apiResponse;
 
@@ -304,7 +309,7 @@ public class ViewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> List of fields </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> List of fields within the database </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -314,8 +319,8 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public java.util.List<Object> v1DatabasePathFieldsGet(String path) throws ApiException {
-    return v1DatabasePathFieldsGetWithHttpInfo(path).getData();
+  public java.util.List<Object> getFields(String path) throws ApiException {
+    return getFieldsWithHttpInfo(path).getData();
   }
 
   /**
@@ -327,7 +332,7 @@ public class ViewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> List of fields </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> List of fields within the database </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -337,12 +342,12 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<Object>> v1DatabasePathFieldsGetWithHttpInfo(String path) throws ApiException {
+  public ApiResponse<java.util.List<Object>> getFieldsWithHttpInfo(String path) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathFieldsGet");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling getFields");
     }
     
     // create path and map variables
@@ -376,9 +381,9 @@ public class ViewApi {
         
         java.util.List<Object>
       
-    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathFieldsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("ViewApi.getFields", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathFieldsGetResponseTypeMap, false);
+                               localVarAuthNames, getFieldsResponseTypeMap, false);
 
     return apiResponse;
 
@@ -397,7 +402,7 @@ public class ViewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful symbols array </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> Successful symbols array within OFDB </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -407,8 +412,8 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public java.util.List<String> v1DatabasePathSymbolsGet(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
-    return v1DatabasePathSymbolsGetWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy).getData();
+  public java.util.List<String> getSymbols(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
+    return getSymbolsWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy).getData();
   }
 
   /**
@@ -425,7 +430,7 @@ public class ViewApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful symbols array </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
+       <tr><td> 200 </td><td> Successful symbols array within OFDB </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 202 </td><td> Returns when the request is moved to long running mode. </td><td>  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid query parameter or value provided </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
        <tr><td> 403 </td><td> User is forbidden with current credentials </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
@@ -435,12 +440,12 @@ public class ViewApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in some time </td><td>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<String>> v1DatabasePathSymbolsGetWithHttpInfo(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
+  public ApiResponse<java.util.List<String>> getSymbolsWithHttpInfo(String path, String startsWith, String endsWith, String contains, String equals, String orderBy) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'path' is set
     if (path == null) {
-      throw new ApiException(400, "Missing the required parameter 'path' when calling v1DatabasePathSymbolsGet");
+      throw new ApiException(400, "Missing the required parameter 'path' when calling getSymbols");
     }
     
     // create path and map variables
@@ -479,9 +484,9 @@ public class ViewApi {
         
         java.util.List<String>
       
-    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathSymbolsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    > apiResponse = apiClient.invokeAPI("ViewApi.getSymbols", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, v1DatabasePathSymbolsGetResponseTypeMap, false);
+                               localVarAuthNames, getSymbolsResponseTypeMap, false);
 
     return apiResponse;
 

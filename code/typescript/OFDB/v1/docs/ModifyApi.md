@@ -4,18 +4,18 @@ All URIs are relative to *https://api.factset.com/analytics/ofdb*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1DatabasePathDatesDateDelete**](ModifyApi.md#v1DatabasePathDatesDateDelete) | **DELETE** /v1/database/{path}/dates/{date} | 
-[**v1DatabasePathDatesDatePut**](ModifyApi.md#v1DatabasePathDatesDatePut) | **PUT** /v1/database/{path}/dates/{date} | 
-[**v1DatabasePathDatesDateSymbolsSymbolDelete**](ModifyApi.md#v1DatabasePathDatesDateSymbolsSymbolDelete) | **DELETE** /v1/database/{path}/dates/{date}/symbols/{symbol} | 
-[**v1DatabasePathDatesDateSymbolsSymbolPut**](ModifyApi.md#v1DatabasePathDatesDateSymbolsSymbolPut) | **PUT** /v1/database/{path}/dates/{date}/symbols/{symbol} | 
-[**v1DatabasePathSymbolsSymbolDelete**](ModifyApi.md#v1DatabasePathSymbolsSymbolDelete) | **DELETE** /v1/database/{path}/symbols/{symbol} | 
-[**v1DatabasePathSymbolsSymbolPut**](ModifyApi.md#v1DatabasePathSymbolsSymbolPut) | **PUT** /v1/database/{path}/symbols/{symbol} | 
+[**deleteDates**](ModifyApi.md#deleteDates) | **DELETE** /v1/database/{path}/dates/{date} | 
+[**deleteSymbolDate3D**](ModifyApi.md#deleteSymbolDate3D) | **DELETE** /v1/database/{path}/dates/{date}/symbols/{symbol} | 
+[**deleteSymbols**](ModifyApi.md#deleteSymbols) | **DELETE** /v1/database/{path}/symbols/{symbol} | 
+[**updateSymbolDate**](ModifyApi.md#updateSymbolDate) | **PUT** /v1/database/{path}/dates/{date} | 
+[**updateSymbolDate3D**](ModifyApi.md#updateSymbolDate3D) | **PUT** /v1/database/{path}/dates/{date}/symbols/{symbol} | 
+[**updateSymbols**](ModifyApi.md#updateSymbols) | **PUT** /v1/database/{path}/symbols/{symbol} | 
 
 
 
-## v1DatabasePathDatesDateDelete
+## deleteDates
 
-> Object v1DatabasePathDatesDateDelete(path, date)
+> InlineResponse202 deleteDates(path, date)
 
 
 
@@ -51,7 +51,7 @@ const path = "path_example"; // String | Encode database path
 const date = 56; // Number | Date in YYYYMMDD format
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesDateDelete(path, date).then(
+apiInstance.deleteDates(path, date).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -87,85 +87,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1DatabasePathDatesDatePut
+## deleteSymbolDate3D
 
-> SuccessPostResponse v1DatabasePathDatesDatePut(path, date, modifydatespecific)
-
-
-
-Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
-
-### Example
-
-```javascript
-const { ApiClient, ModifyApi } = require('@factset/sdk-ofdb');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new ModifyApi();
-const path = "path_example"; // String | Encode database path
-const date = 56; // Number | Date in YYYYMMDD format
-const modifydatespecific = new ofdb.Modifydatespecific(); // Modifydatespecific | Required data for updating date in the database
-
-// Call api endpoint
-apiInstance.v1DatabasePathDatesDatePut(path, date, modifydatespecific).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **String**| Encode database path | 
- **date** | **Number**| Date in YYYYMMDD format | 
- **modifydatespecific** | [**Modifydatespecific**](Modifydatespecific.md)| Required data for updating date in the database | 
-
-### Return type
-
-[**SuccessPostResponse**](SuccessPostResponse.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## v1DatabasePathDatesDateSymbolsSymbolDelete
-
-> Object v1DatabasePathDatesDateSymbolsSymbolDelete(path, date, symbol)
+> InlineResponse202 deleteSymbolDate3D(path, date, symbol)
 
 
 
@@ -202,7 +126,7 @@ const date = 56; // Number | Date in YYYYMMDD format
 const symbol = "symbol_example"; // String | Symbol with in the ofdb
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesDateSymbolsSymbolDelete(path, date, symbol).then(
+apiInstance.deleteSymbolDate3D(path, date, symbol).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -227,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -239,87 +163,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1DatabasePathDatesDateSymbolsSymbolPut
+## deleteSymbols
 
-> SuccessPostResponse v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate)
-
-
-
-Updates a symbol field value for a given date of 3d database(OFDB)
-
-### Example
-
-```javascript
-const { ApiClient, ModifyApi } = require('@factset/sdk-ofdb');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new ModifyApi();
-const path = "path_example"; // String | Encode database path
-const date = 56; // Number | Date in YYYYMMDD format
-const symbol = "symbol_example"; // String | Symbol with in the ofdb
-const modifysymboldate = new ofdb.Modifysymboldate(); // Modifysymboldate | Data for updating symbol in the database
-
-// Call api endpoint
-apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, modifysymboldate).then(
-  data => {
-
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **path** | **String**| Encode database path | 
- **date** | **Number**| Date in YYYYMMDD format | 
- **symbol** | **String**| Symbol with in the ofdb | 
- **modifysymboldate** | [**Modifysymboldate**](Modifysymboldate.md)| Data for updating symbol in the database | 
-
-### Return type
-
-[**SuccessPostResponse**](SuccessPostResponse.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## v1DatabasePathSymbolsSymbolDelete
-
-> Object v1DatabasePathSymbolsSymbolDelete(path, symbol)
+> InlineResponse202 deleteSymbols(path, symbol)
 
 
 
@@ -355,7 +201,7 @@ const path = "path_example"; // String | Encode database path
 const symbol = "symbol_example"; // String | Symbol with in the ofdb
 
 // Call api endpoint
-apiInstance.v1DatabasePathSymbolsSymbolDelete(path, symbol).then(
+apiInstance.deleteSymbols(path, symbol).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -379,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**InlineResponse202**](InlineResponse202.md)
 
 ### Authorization
 
@@ -391,9 +237,163 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1DatabasePathSymbolsSymbolPut
+## updateSymbolDate
 
-> SuccessPostResponse v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols)
+> SuccessPostResponse updateSymbolDate(path, date, updateSymbolDate)
+
+
+
+Updates an existing date field value for single/multiple symbols or adds a new date/symbol within a date if not present in 3d database(OFDB).
+
+### Example
+
+```javascript
+const { ApiClient, ModifyApi } = require('@factset/sdk-ofdb');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new ModifyApi();
+const path = "path_example"; // String | Encode database path
+const date = 56; // Number | Date in YYYYMMDD format
+const updateSymbolDate = new ofdb.UpdateSymbolDate(); // UpdateSymbolDate | Required data for updating date in the database
+
+// Call api endpoint
+apiInstance.updateSymbolDate(path, date, updateSymbolDate).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **String**| Encode database path | 
+ **date** | **Number**| Date in YYYYMMDD format | 
+ **updateSymbolDate** | [**UpdateSymbolDate**](UpdateSymbolDate.md)| Required data for updating date in the database | 
+
+### Return type
+
+[**SuccessPostResponse**](SuccessPostResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateSymbolDate3D
+
+> SuccessPostResponse updateSymbolDate3D(path, date, symbol, updateSymbolDate3D)
+
+
+
+Updates a symbol field value for a given date of 3d database(OFDB)
+
+### Example
+
+```javascript
+const { ApiClient, ModifyApi } = require('@factset/sdk-ofdb');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new ModifyApi();
+const path = "path_example"; // String | Encode database path
+const date = 56; // Number | Date in YYYYMMDD format
+const symbol = "symbol_example"; // String | Symbol with in the ofdb
+const updateSymbolDate3D = new ofdb.UpdateSymbolDate3D(); // UpdateSymbolDate3D | Data for updating symbol in the database
+
+// Call api endpoint
+apiInstance.updateSymbolDate3D(path, date, symbol, updateSymbolDate3D).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **String**| Encode database path | 
+ **date** | **Number**| Date in YYYYMMDD format | 
+ **symbol** | **String**| Symbol with in the ofdb | 
+ **updateSymbolDate3D** | [**UpdateSymbolDate3D**](UpdateSymbolDate3D.md)| Data for updating symbol in the database | 
+
+### Return type
+
+[**SuccessPostResponse**](SuccessPostResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateSymbols
+
+> SuccessPostResponse updateSymbols(path, symbol, updateSymbols)
 
 
 
@@ -427,10 +427,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new ModifyApi();
 const path = "path_example"; // String | Encode database path
 const symbol = "symbol_example"; // String | Symbol with in the ofdb
-const modifySymbols = {"data":[{"date":20200202,"field":"value"}]}; // ModifySymbols | Data for updating symbol in the database
+const updateSymbols = {"data":[{"date":"20200202","price":"999"}]}; // UpdateSymbols | Data for updating symbol in the database
 
 // Call api endpoint
-apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, modifySymbols).then(
+apiInstance.updateSymbols(path, symbol, updateSymbols).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **path** | **String**| Encode database path | 
  **symbol** | **String**| Symbol with in the ofdb | 
- **modifySymbols** | [**ModifySymbols**](ModifySymbols.md)| Data for updating symbol in the database | 
+ **updateSymbols** | [**UpdateSymbols**](UpdateSymbols.md)| Data for updating symbol in the database | 
 
 ### Return type
 

@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 <a name="getpeopleuniverse"></a>
 # **GetPeopleUniverse**
-> PeopleUniverseResponse GetPeopleUniverse (int universeId, List<string> clientId = null, List<string> mapStatus = null, int? offset = null, int? limit = null)
+> PeopleUniverseResponse GetPeopleUniverse (int universeId, List<string> clientId = null, List<string> mapStatus = null, int? offset = null, int? limit = null, List<string> sort = null)
 
 Retrieve all saved mappings within a requested universe
 
@@ -247,11 +247,12 @@ namespace Example
             var mapStatus = new List<string>(); // List<string> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional) 
             var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
+            var sort = new List<string>(); // List<string> | Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) (optional) 
 
             try
             {
                 // Retrieve all saved mappings within a requested universe
-                PeopleUniverseResponse result = apiInstance.GetPeopleUniverse(universeId, clientId, mapStatus, offset, limit);
+                PeopleUniverseResponse result = apiInstance.GetPeopleUniverse(universeId, clientId, mapStatus, offset, limit, sort);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -274,6 +275,7 @@ Name | Type | Description  | Notes
  **mapStatus** | [**List&lt;string&gt;**](string.md)| Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  | [optional] 
  **offset** | **int?**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **int?**| Limits the number of records in the response. | [optional] 
+ **sort** | [**List&lt;string&gt;**](string.md)| Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) | [optional] 
 
 ### Return type
 [**PeopleUniverseResponse**](PeopleUniverseResponse.md)

@@ -265,12 +265,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     ] # [str] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
     offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
     limit = 10 # int | Limits the number of records in the response. (optional)
+    sort = ["clientId:asc","clientPersonName:desc"] # [str] | Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) (optional)
 
     try:
         # Retrieve all saved mappings within a requested universe
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_people_universe(universe_id, client_id=client_id, map_status=map_status, offset=offset, limit=limit)
+        api_response = api_instance.get_people_universe(universe_id, client_id=client_id, map_status=map_status, offset=offset, limit=limit, sort=sort)
         pprint(api_response)
 
     except fds.sdk.FactSetConcordance.ApiException as e:
@@ -287,6 +288,7 @@ Name | Type | Description  | Notes
  **map_status** | **[str]**| Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  | [optional]
  **offset** | **int**| Starting row for records to return or rows to skip. | [optional] if omitted the server will use the default value of 0
  **limit** | **int**| Limits the number of records in the response. | [optional]
+ **sort** | **[str]**| Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) | [optional]
 
 ### Return type
 

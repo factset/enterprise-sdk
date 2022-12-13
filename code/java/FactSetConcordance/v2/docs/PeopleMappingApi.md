@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ## getPeopleUniverse
 
-> PeopleUniverseResponse getPeopleUniverse(universeId, clientId, mapStatus, offset, limit)
+> PeopleUniverseResponse getPeopleUniverse(universeId, clientId, mapStatus, offset, limit, sort)
 
 Retrieve all saved mappings within a requested universe
 
@@ -239,8 +239,9 @@ public class Example {
         java.util.List<String> mapStatus = Arrays.asList(); // java.util.List<String> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
         Integer offset = 0; // Integer | Starting row for records to return or rows to skip.
         Integer limit = 10; // Integer | Limits the number of records in the response.
+        java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc)
         try {
-            PeopleUniverseResponse result = apiInstance.getPeopleUniverse(universeId, clientId, mapStatus, offset, limit);
+            PeopleUniverseResponse result = apiInstance.getPeopleUniverse(universeId, clientId, mapStatus, offset, limit, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -264,6 +265,7 @@ Name | Type | Description  | Notes
  **mapStatus** | **List&lt;String&gt;**| Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  | [optional] [enum: MAPPED, UNMAPPED, INDETERMINATE]
  **offset** | **Integer**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **Integer**| Limits the number of records in the response. | [optional]
+ **sort** | **List&lt;String&gt;**| Sort clientId, createdTime, updatedTime, clientPersonName, personId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) | [optional]
 
 ### Return type
 

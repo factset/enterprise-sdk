@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   title: Documents Distributor - CallStreet Events
-  version: 1.8.0
+  version: 1.8.1
   contact:
     name: FactSet Research Systems
-    email: api@factset.com
+    email: teamustang@factset.com
   description: >
     CallStreet Events contains all the Documents Distributor APIs that offer
     events data such as Events Audio and Near Real-Time Transcripts.
@@ -543,7 +543,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
               examples:
                 example-1:
                   value:
@@ -704,7 +704,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
               examples:
                 example-1:
                   value:
@@ -829,7 +829,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
               examples:
                 example-1:
                   value:
@@ -1487,7 +1487,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
               examples:
                 example-1:
                   value:
@@ -1921,6 +1921,9 @@ components:
                 description: >-
                   The trimmed attribute helps identify if the audio is the
                   trimmed version.
+
+                  Note:- All the vendor generated files are trimmed regardless
+                  of the ‘trimmed’ attribute value in the response.
               sampleRate:
                 type: number
                 nullable: true
@@ -1948,6 +1951,14 @@ components:
                   example, ReportID X would have multiple recordings from
                   different source (Phone or Webcast or Vendor or Replay). One
                   ReportID can have multiple AudioSourceIDs.
+
+
+                  The audioSourceId identifier is available for audio calls
+                  since November 29, 2022.
+
+                  Note:- Only un-trimmed audio files contain an audioSourceId
+                  value. All the vendor and trimmed audio files will have an
+                  audioSourceId value of null.
         meta:
           type: object
           properties:
@@ -2262,13 +2273,6 @@ components:
         title:
           type: string
         id:
-          type: string
-    NRT403Error:
-      type: object
-      properties:
-        id:
-          type: string
-        error_message:
           type: string
     Indexed-NRT:
       description: >-

@@ -20,10 +20,10 @@ Name | Type | Description | Notes
 **reportId** | **Integer** | The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables. |  [optional]
 **ticker** | **String** | Ticker-region identifier for the company hosting the event.  Note:- This field can have N/A value when the company is a private(non-equity company) |  [optional]
 **entityId** | **String** | Factset entity level identifier for the company hosting the event. |  [optional]
-**trimmed** | **Boolean** | The trimmed attribute helps identify if the audio is the trimmed version. |  [optional]
+**trimmed** | **Boolean** | The trimmed attribute helps identify if the audio is the trimmed version. Note:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response. |  [optional]
 **sampleRate** | **BigDecimal** | The number of samples of audio carried per second in Kbps.  Note:- The field can have value as -1 for the audio files without sampleRate metadata |  [optional]
 **bitrate** | **BigDecimal** | The total number of bits of information stored per second of sound in Kbps.  Note:- The field can have value as -1 for the audio files without bitrate metadata |  [optional]
-**audioSourceId** | **Integer** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs. |  [optional]
+**audioSourceId** | **Integer** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.  The audioSourceId identifier is available for audio calls since November 29, 2022. Note:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null. |  [optional]
 
 
 ## Implemented Interfaces

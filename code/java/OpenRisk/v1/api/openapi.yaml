@@ -6,7 +6,7 @@ info:
   description: Service to calculate parametric linear risk statistics and generate
     risk model asset identifier mappings.
   title: Open:Risk API
-  version: 1.23.0
+  version: 1.22.0
 servers:
 - url: https://api.factset.com/analytics/openrisk
 security:
@@ -2861,6 +2861,41 @@ components:
         factorGroup:
           $ref: '#/components/schemas/GroupsLabels'
       type: object
+    SecurityOnlyLabels:
+      description: Labeling and index information to be able to reconstruct the calculated
+        data results to the provided inputs from the request. Only contains items
+        relevant to results.
+      example:
+        security:
+          indicesResultToInput:
+            market:
+            - 2
+            - 2
+            portfolio:
+            - 5
+            - 5
+            benchmark:
+            - 5
+            - 5
+          ids:
+          - ids
+          - ids
+          indicesInputToResult:
+            market:
+            - 1
+            - 1
+            portfolio:
+            - 0
+            - 0
+            benchmark:
+            - 6
+            - 6
+      properties:
+        security:
+          $ref: '#/components/schemas/SecurityOnlyLabels_security'
+      required:
+      - security
+      type: object
     StatResultValueScalar:
       format: double
       nullable: true
@@ -3204,6 +3239,61 @@ components:
           minItems: 1
           type: array
       required:
+      - resolvedDates
+      type: object
+    SecurityOnlySuccessResponseMeta:
+      description: The 'meta' object in HTTP 200 success responses
+      example:
+        warnings:
+        - code: requestBodyExtraData
+          id: id
+          detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
+          title: Factor grouping contains extra factor(s).
+        - code: requestBodyExtraData
+          id: id
+          detail: 'Extra Factors: [*EF2, *EF1, *EF3]'
+          title: Factor grouping contains extra factor(s).
+        resolvedDates:
+          ssrDate: 2019-01-26T00:00:00.000+0000
+          covarianceDate: 2019-01-26T00:00:00.000+0000
+          universeDate: 2019-01-26T00:00:00.000+0000
+        labels:
+          security:
+            indicesResultToInput:
+              market:
+              - 2
+              - 2
+              portfolio:
+              - 5
+              - 5
+              benchmark:
+              - 5
+              - 5
+            ids:
+            - ids
+            - ids
+            indicesInputToResult:
+              market:
+              - 1
+              - 1
+              portfolio:
+              - 0
+              - 0
+              benchmark:
+              - 6
+              - 6
+      properties:
+        labels:
+          $ref: '#/components/schemas/SecurityOnlyLabels'
+        resolvedDates:
+          $ref: '#/components/schemas/ResolvedDates'
+        warnings:
+          items:
+            $ref: '#/components/schemas/WarningItem'
+          minItems: 1
+          type: array
+      required:
+      - labels
       - resolvedDates
       type: object
     SupportedStats:
@@ -4407,28 +4497,9 @@ components:
                 benchmark:
                 - 6
                 - 6
-            securityGroup:
-              name: name
-              index: 7
-              groups:
-              - null
-              - null
-            factor:
-              names:
-              - names
-              - names
-              ids:
-              - ids
-              - ids
-            factorGroup:
-              name: name
-              index: 7
-              groups:
-              - null
-              - null
       properties:
         meta:
-          $ref: '#/components/schemas/SuccessResponseMeta'
+          $ref: '#/components/schemas/SecurityOnlySuccessResponseMeta'
         data:
           items:
             $ref: '#/components/schemas/RiskMappingEntry'
@@ -4565,6 +4636,48 @@ components:
       required:
       - ids
       - names
+      type: object
+    SecurityOnlyLabels_security:
+      description: Security IDs
+      example:
+        indicesResultToInput:
+          market:
+          - 2
+          - 2
+          portfolio:
+          - 5
+          - 5
+          benchmark:
+          - 5
+          - 5
+        ids:
+        - ids
+        - ids
+        indicesInputToResult:
+          market:
+          - 1
+          - 1
+          portfolio:
+          - 0
+          - 0
+          benchmark:
+          - 6
+          - 6
+      properties:
+        ids:
+          description: Security IDs aligned to the calculated output. Often this will
+            merge the individual holdings arrays into a single array.
+          items:
+            minLength: 1
+            type: string
+          minItems: 1
+          type: array
+        indicesInputToResult:
+          $ref: '#/components/schemas/InputToResultSecurityIndexMapping'
+        indicesResultToInput:
+          $ref: '#/components/schemas/ResultToInputSecurityIndexMapping'
+      required:
+      - ids
       type: object
     RiskExclusionInfo_exclusionInfo:
       properties:

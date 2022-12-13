@@ -13,7 +13,6 @@ import java.util.Objects;
 
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.Error;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.IndexedNRT;
-import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRT403Error;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTCalls;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTCalls400Response;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTSnippets;
@@ -38,7 +37,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(200, new GenericType<NRTCalls>(){});
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(400, new GenericType<NRTCalls400Response>(){});
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(401, new GenericType<Error>(){});
-    getBulkDocumentsNrtV1CallsResponseTypeMap.put(403, new GenericType<NRT403Error>(){});
+    getBulkDocumentsNrtV1CallsResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1CallsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1IndexedNrtResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -46,7 +45,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(200, new GenericType<IndexedNRT>(){});
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(400, new GenericType<NRTSnippets400Response>(){});
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(401, new GenericType<Error>(){});
-    getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(403, new GenericType<NRT403Error>(){});
+    getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1IndexedNrtResponseTypeMap.put(500, new GenericType<Error>(){});
   }
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1ListSnippetsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -54,7 +53,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(200, new GenericType<NRTSnippets>(){});
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(400, new GenericType<NRTSnippets400Response>(){});
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(401, new GenericType<Error>(){});
-    getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(403, new GenericType<NRT403Error>(){});
+    getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1ListSnippetsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
   private static final Map<Integer, GenericType> getBulkDocumentsNrtV1SpeakeridsResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -62,7 +61,7 @@ public class NearRealTimeTranscriptsApi {
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(200, new GenericType<NRTSpeakerids>(){});
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(400, new GenericType<NRTSpeakerids400Response>(){});
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(401, new GenericType<Error>(){});
-    getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(403, new GenericType<NRT403Error>(){});
+    getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(403, new GenericType<Error>(){});
     getBulkDocumentsNrtV1SpeakeridsResponseTypeMap.put(500, new GenericType<Error>(){});
   }
 

@@ -58,6 +58,9 @@ docs/RiskModelAppendDataValue.md
 docs/RiskModelFactor.md
 docs/SecurityGroup.md
 docs/SecurityIndexMapping.md
+docs/SecurityOnlyLabels.md
+docs/SecurityOnlyLabelsSecurity.md
+docs/SecurityOnlySuccessResponseMeta.md
 docs/Stat.md
 docs/StatCalculationLevel.md
 docs/StatCalculationSettings.md
@@ -129,6 +132,9 @@ src/model/RiskModelAppendDataValue.js
 src/model/RiskModelFactor.js
 src/model/SecurityGroup.js
 src/model/SecurityIndexMapping.js
+src/model/SecurityOnlyLabels.js
+src/model/SecurityOnlyLabelsSecurity.js
+src/model/SecurityOnlySuccessResponseMeta.js
 src/model/Stat.js
 src/model/StatCalculationLevel.js
 src/model/StatCalculationSettings.js

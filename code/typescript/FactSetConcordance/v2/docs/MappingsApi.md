@@ -194,7 +194,8 @@ const opts = {
   'clientId': ["abc-123","def-456"], // [String] | Filter by the clientId(s) created by the user in a previous mapping. 
   'mapStatus': MAPPED, // [String] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
   'offset': 0, // Number | Starting row for records to return or rows to skip.
-  'limit': 10 // Number | Limits the number of records in the response.
+  'limit': 10, // Number | Limits the number of records in the response.
+  'sort': ["clientId:asc","clientName:desc"] // [String] | Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc)
 };
 
 // Call api endpoint
@@ -222,6 +223,7 @@ Name | Type | Description  | Notes
  **mapStatus** | [**[String]**](String.md)| Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  | [optional] 
  **offset** | **Number**| Starting row for records to return or rows to skip. | [optional] [default to 0]
  **limit** | **Number**| Limits the number of records in the response. | [optional] 
+ **sort** | [**[String]**](String.md)| Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) | [optional] 
 
 ### Return type
 

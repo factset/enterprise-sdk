@@ -60,6 +60,9 @@ docs/RiskModelAppendDataValue.md
 docs/RiskModelFactor.md
 docs/SecurityGroup.md
 docs/SecurityIndexMapping.md
+docs/SecurityOnlyLabels.md
+docs/SecurityOnlyLabelsSecurity.md
+docs/SecurityOnlySuccessResponseMeta.md
 docs/Stat.md
 docs/StatCalculationLevel.md
 docs/StatCalculationSettings.md
@@ -154,6 +157,9 @@ src/main/java/com/factset/sdk/OpenRisk/models/RiskModelAppendDataValue.java
 src/main/java/com/factset/sdk/OpenRisk/models/RiskModelFactor.java
 src/main/java/com/factset/sdk/OpenRisk/models/SecurityGroup.java
 src/main/java/com/factset/sdk/OpenRisk/models/SecurityIndexMapping.java
+src/main/java/com/factset/sdk/OpenRisk/models/SecurityOnlyLabels.java
+src/main/java/com/factset/sdk/OpenRisk/models/SecurityOnlyLabelsSecurity.java
+src/main/java/com/factset/sdk/OpenRisk/models/SecurityOnlySuccessResponseMeta.java
 src/main/java/com/factset/sdk/OpenRisk/models/Stat.java
 src/main/java/com/factset/sdk/OpenRisk/models/StatCalculationLevel.java
 src/main/java/com/factset/sdk/OpenRisk/models/StatCalculationSettings.java

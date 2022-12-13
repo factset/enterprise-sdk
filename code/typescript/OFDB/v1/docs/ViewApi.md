@@ -5,9 +5,9 @@ All URIs are relative to *https://api.factset.com/analytics/ofdb*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDatabase**](ViewApi.md#getDatabase) | **GET** /v1/database/{path} | 
-[**v1DatabasePathDatesGet**](ViewApi.md#v1DatabasePathDatesGet) | **GET** /v1/database/{path}/dates | 
-[**v1DatabasePathFieldsGet**](ViewApi.md#v1DatabasePathFieldsGet) | **GET** /v1/database/{path}/fields | 
-[**v1DatabasePathSymbolsGet**](ViewApi.md#v1DatabasePathSymbolsGet) | **GET** /v1/database/{path}/symbols | 
+[**getDates**](ViewApi.md#getDates) | **GET** /v1/database/{path}/dates | 
+[**getFields**](ViewApi.md#getFields) | **GET** /v1/database/{path}/fields | 
+[**getSymbols**](ViewApi.md#getSymbols) | **GET** /v1/database/{path}/symbols | 
 
 
 
@@ -105,9 +105,9 @@ null (empty response body)
 - **Accept**: application/json
 
 
-## v1DatabasePathDatesGet
+## getDates
 
-> [Number] v1DatabasePathDatesGet(path, opts)
+> [Number] getDates(path, opts)
 
 
 
@@ -149,7 +149,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.v1DatabasePathDatesGet(path, opts).then(
+apiInstance.getDates(path, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -189,9 +189,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1DatabasePathFieldsGet
+## getFields
 
-> [Object] v1DatabasePathFieldsGet(path)
+> [Object] getFields(path)
 
 
 
@@ -226,7 +226,7 @@ const apiInstance = new ViewApi();
 const path = "path_example"; // String | Encode database path
 
 // Call api endpoint
-apiInstance.v1DatabasePathFieldsGet(path).then(
+apiInstance.getFields(path).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -261,9 +261,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1DatabasePathSymbolsGet
+## getSymbols
 
-> [String] v1DatabasePathSymbolsGet(path, opts)
+> [String] getSymbols(path, opts)
 
 
 
@@ -305,7 +305,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.v1DatabasePathSymbolsGet(path, opts).then(
+apiInstance.getSymbols(path, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');

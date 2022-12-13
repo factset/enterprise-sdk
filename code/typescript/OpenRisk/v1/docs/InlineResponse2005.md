@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**SuccessResponseMeta**](SuccessResponseMeta.md) |  | 
+**meta** | [**SecurityOnlySuccessResponseMeta**](SecurityOnlySuccessResponseMeta.md) |  | 
 **data** | [**[RiskMappingEntry]**](RiskMappingEntry.md) |  | 
 
 

@@ -3,7 +3,7 @@
   "info": {
     "title": "Open:Risk API",
     "description": "Service to calculate parametric linear risk statistics and generate risk model asset identifier mappings.",
-    "version": "1.23.0",
+    "version": "1.22.0",
     "contact": {
       "name": "Parametric Risk Analytics Development",
       "email": "ParametricRiskAnalyticsDevelopment@factset.com"
@@ -1391,6 +1391,39 @@
           }
         }
       },
+      "SecurityOnlyLabels": {
+        "description": "Labeling and index information to be able to reconstruct the calculated data results to the provided inputs from the request. Only contains items relevant to results.",
+        "type": "object",
+        "required": [
+          "security"
+        ],
+        "properties": {
+          "security": {
+            "description": "Security IDs",
+            "type": "object",
+            "required": [
+              "ids"
+            ],
+            "properties": {
+              "ids": {
+                "description": "Security IDs aligned to the calculated output. Often this will merge the individual holdings arrays into a single array.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "indicesInputToResult": {
+                "$ref": "#/components/schemas/InputToResultSecurityIndexMapping"
+              },
+              "indicesResultToInput": {
+                "$ref": "#/components/schemas/ResultToInputSecurityIndexMapping"
+              }
+            }
+          }
+        }
+      },
       "StatResultValueScalar": {
         "type": "number",
         "format": "double",
@@ -1736,6 +1769,25 @@
         "properties": {
           "labels": {
             "$ref": "#/components/schemas/Labels"
+          },
+          "resolvedDates": {
+            "$ref": "#/components/schemas/ResolvedDates"
+          },
+          "warnings": {
+            "$ref": "#/components/schemas/Warnings"
+          }
+        }
+      },
+      "SecurityOnlySuccessResponseMeta": {
+        "description": "The 'meta' object in HTTP 200 success responses",
+        "type": "object",
+        "required": [
+          "labels",
+          "resolvedDates"
+        ],
+        "properties": {
+          "labels": {
+            "$ref": "#/components/schemas/SecurityOnlyLabels"
           },
           "resolvedDates": {
             "$ref": "#/components/schemas/ResolvedDates"
@@ -2547,7 +2599,7 @@
               ],
               "properties": {
                 "meta": {
-                  "$ref": "#/components/schemas/SuccessResponseMeta"
+                  "$ref": "#/components/schemas/SecurityOnlySuccessResponseMeta"
                 },
                 "data": {
                   "type": "array",

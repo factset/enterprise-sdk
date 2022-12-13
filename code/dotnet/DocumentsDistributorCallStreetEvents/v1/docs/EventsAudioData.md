@@ -17,10 +17,10 @@ Name | Type | Description | Notes
 **ReportId** | **int** | The unique ID of the audio file for an event. The same ID is used for the transcript of the same event. This report ID can also be used to map to the Event details in SDF tables. | [optional] 
 **Ticker** | **string** | Ticker-region identifier for the company hosting the event.  Note:- This field can have N/A value when the company is a private(non-equity company) | [optional] 
 **EntityId** | **string** | Factset entity level identifier for the company hosting the event. | [optional] 
-**Trimmed** | **bool** | The trimmed attribute helps identify if the audio is the trimmed version. | [optional] 
+**Trimmed** | **bool** | The trimmed attribute helps identify if the audio is the trimmed version. Note:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response. | [optional] 
 **SampleRate** | **decimal?** | The number of samples of audio carried per second in Kbps.  Note:- The field can have value as -1 for the audio files without sampleRate metadata | [optional] 
 **Bitrate** | **decimal?** | The total number of bits of information stored per second of sound in Kbps.  Note:- The field can have value as -1 for the audio files without bitrate metadata | [optional] 
-**AudioSourceId** | **int?** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs. | [optional] 
+**AudioSourceId** | **int?** | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.  The audioSourceId identifier is available for audio calls since November 29, 2022. Note:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

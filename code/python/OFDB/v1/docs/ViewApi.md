@@ -5,9 +5,9 @@ All URIs are relative to *https://api.factset.com/analytics/ofdb*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_database**](ViewApi.md#get_database) | **GET** /v1/database/{path} | 
-[**v1_database_path_dates_get**](ViewApi.md#v1_database_path_dates_get) | **GET** /v1/database/{path}/dates | 
-[**v1_database_path_fields_get**](ViewApi.md#v1_database_path_fields_get) | **GET** /v1/database/{path}/fields | 
-[**v1_database_path_symbols_get**](ViewApi.md#v1_database_path_symbols_get) | **GET** /v1/database/{path}/symbols | 
+[**get_dates**](ViewApi.md#get_dates) | **GET** /v1/database/{path}/dates | 
+[**get_fields**](ViewApi.md#get_fields) | **GET** /v1/database/{path}/fields | 
+[**get_symbols**](ViewApi.md#get_symbols) | **GET** /v1/database/{path}/symbols | 
 
 
 # **get_database**
@@ -126,8 +126,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_database_path_dates_get**
-> Dates v1_database_path_dates_get(path)
+# **get_dates**
+> Dates get_dates(path)
 
 
 
@@ -183,11 +183,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.v1_database_path_dates_get(path, between=between, equals=equals, before=before, after=after, order_by=order_by)
+        api_response = api_instance.get_dates(path, between=between, equals=equals, before=before, after=after, order_by=order_by)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->v1_database_path_dates_get: %s\n" % e)
+        print("Exception when calling ViewApi->get_dates: %s\n" % e)
 ```
 
 
@@ -231,8 +231,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_database_path_fields_get**
-> Fields v1_database_path_fields_get(path)
+# **get_fields**
+> Fields get_fields(path)
 
 
 
@@ -282,11 +282,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
 
     try:
         # example passing only required values which don't have defaults set
-        api_response = api_instance.v1_database_path_fields_get(path)
+        api_response = api_instance.get_fields(path)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->v1_database_path_fields_get: %s\n" % e)
+        print("Exception when calling ViewApi->get_fields: %s\n" % e)
 ```
 
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List of fields |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**200** | List of fields within the database |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -325,8 +325,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_database_path_symbols_get**
-> Symbols v1_database_path_symbols_get(path)
+# **get_symbols**
+> Symbols get_symbols(path)
 
 
 
@@ -382,11 +382,11 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     try:
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.v1_database_path_symbols_get(path, starts_with=starts_with, ends_with=ends_with, contains=contains, equals=equals, order_by=order_by)
+        api_response = api_instance.get_symbols(path, starts_with=starts_with, ends_with=ends_with, contains=contains, equals=equals, order_by=order_by)
         pprint(api_response)
 
     except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->v1_database_path_symbols_get: %s\n" % e)
+        print("Exception when calling ViewApi->get_symbols: %s\n" % e)
 ```
 
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | successful symbols array |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+**200** | Successful symbols array within OFDB |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

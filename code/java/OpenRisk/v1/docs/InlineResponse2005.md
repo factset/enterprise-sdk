@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**SuccessResponseMeta**](SuccessResponseMeta.md) |  | 
+**meta** | [**SecurityOnlySuccessResponseMeta**](SecurityOnlySuccessResponseMeta.md) |  | 
 **data** | [**java.util.List&lt;RiskMappingEntry&gt;**](RiskMappingEntry.md) |  | 
 
 

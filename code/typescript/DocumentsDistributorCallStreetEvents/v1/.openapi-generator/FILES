@@ -22,7 +22,6 @@ docs/EventsAudioMetaPagination.md
 docs/IndexedNRT.md
 docs/IndexedNRTMeta.md
 docs/IndexedNRTMetaPagination.md
-docs/NRT403Error.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -71,7 +70,6 @@ src/model/EventsAudioMetaPagination.js
 src/model/IndexedNRT.js
 src/model/IndexedNRTMeta.js
 src/model/IndexedNRTMetaPagination.js
-src/model/NRT403Error.js
 src/model/NRTCalls.js
 src/model/NRTCalls400Response.js
 src/model/NRTCalls400ResponseDetails.js

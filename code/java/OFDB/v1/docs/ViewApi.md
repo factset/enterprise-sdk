@@ -5,9 +5,9 @@ All URIs are relative to *https://api.factset.com/analytics/ofdb*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDatabase**](ViewApi.md#getDatabase) | **GET** /v1/database/{path} | 
-[**v1DatabasePathDatesGet**](ViewApi.md#v1DatabasePathDatesGet) | **GET** /v1/database/{path}/dates | 
-[**v1DatabasePathFieldsGet**](ViewApi.md#v1DatabasePathFieldsGet) | **GET** /v1/database/{path}/fields | 
-[**v1DatabasePathSymbolsGet**](ViewApi.md#v1DatabasePathSymbolsGet) | **GET** /v1/database/{path}/symbols | 
+[**getDates**](ViewApi.md#getDates) | **GET** /v1/database/{path}/dates | 
+[**getFields**](ViewApi.md#getFields) | **GET** /v1/database/{path}/fields | 
+[**getSymbols**](ViewApi.md#getSymbols) | **GET** /v1/database/{path}/symbols | 
 
 
 
@@ -123,9 +123,9 @@ null (empty response body)
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 
-## v1DatabasePathDatesGet
+## getDates
 
-> java.util.List<Integer> v1DatabasePathDatesGet(path, between, equals, before, after, orderBy)
+> java.util.List<Integer> getDates(path, between, equals, before, after, orderBy)
 
 
 
@@ -172,11 +172,11 @@ public class Example {
         String after = "after_example"; // String | Returns list of dates which are after mentioned date
         String orderBy = "asc"; // String | Returns dates in the mentioned sorted order, should provide asc or desc
         try {
-            java.util.List<Integer> result = apiInstance.v1DatabasePathDatesGet(path, between, equals, before, after, orderBy);
+            java.util.List<Integer> result = apiInstance.getDates(path, between, equals, before, after, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling ViewApi#v1DatabasePathDatesGet");
+            System.err.println("Exception when calling ViewApi#getDates");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -224,9 +224,9 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 
-## v1DatabasePathFieldsGet
+## getFields
 
-> java.util.List<Object> v1DatabasePathFieldsGet(path)
+> java.util.List<Object> getFields(path)
 
 
 
@@ -268,11 +268,11 @@ public class Example {
         ViewApi apiInstance = new ViewApi(defaultClient);
         String path = "path_example"; // String | Encode database path
         try {
-            java.util.List<Object> result = apiInstance.v1DatabasePathFieldsGet(path);
+            java.util.List<Object> result = apiInstance.getFields(path);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling ViewApi#v1DatabasePathFieldsGet");
+            System.err.println("Exception when calling ViewApi#getFields");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of fields |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | List of fields within the database |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
@@ -315,9 +315,9 @@ Name | Type | Description  | Notes
 | **503** | Request timed out. Retry the request in some time |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 
 
-## v1DatabasePathSymbolsGet
+## getSymbols
 
-> java.util.List<String> v1DatabasePathSymbolsGet(path, startsWith, endsWith, contains, equals, orderBy)
+> java.util.List<String> getSymbols(path, startsWith, endsWith, contains, equals, orderBy)
 
 
 
@@ -364,11 +364,11 @@ public class Example {
         String equals = "equals_example"; // String | Returns symbol which matches mentioned string
         String orderBy = "asc"; // String | Returns symbols in the mentioned sorted order, should provide asc or desc
         try {
-            java.util.List<String> result = apiInstance.v1DatabasePathSymbolsGet(path, startsWith, endsWith, contains, equals, orderBy);
+            java.util.List<String> result = apiInstance.getSymbols(path, startsWith, endsWith, contains, equals, orderBy);
             System.out.println(result);
 
         } catch (ApiException e) {
-            System.err.println("Exception when calling ViewApi#v1DatabasePathSymbolsGet");
+            System.err.println("Exception when calling ViewApi#getSymbols");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful symbols array |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
+| **200** | Successful symbols array within OFDB |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **202** | Returns when the request is moved to long running mode. |  * Location -  <br>  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **400** | Invalid query parameter or value provided |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key -  <br>  * X-FactSet-Api-Request-Key -  <br>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-RateLimit-Reset -  <br>  |

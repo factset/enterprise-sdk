@@ -6,7 +6,7 @@
     "title": "OFDB API",
     "termsOfService": "TOS",
     "contact": {
-      "email": "cpd-hyd-engineering@factset.com"
+      "email": "client.portfolio.data.engineering@factset.com"
     },
     "license": {
       "name": "Apache 2.0",
@@ -30,6 +30,7 @@
   "paths": {
     "/v1/database/{path}/fields": {
       "get": {
+        "operationId": "GetFields",
         "tags": [
           "View"
         ],
@@ -41,31 +42,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of fields",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "$ref": "#/components/headers/X-DataDirect-Request-Key"
-              },
-              "X-FactSet-Api-Request-Key": {
-                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-              },
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fields"
-                }
-              }
-            }
+            "$ref": "#/components/responses/200GetFields"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -93,6 +70,7 @@
     },
     "/v1/database/{path}/symbols": {
       "get": {
+        "operationId": "GetSymbols",
         "tags": [
           "View"
         ],
@@ -148,31 +126,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful symbols array",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "$ref": "#/components/headers/X-DataDirect-Request-Key"
-              },
-              "X-FactSet-Api-Request-Key": {
-                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-              },
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Symbols"
-                }
-              }
-            }
+            "$ref": "#/components/responses/200GetSymbols"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -198,6 +152,7 @@
         }
       },
       "post": {
+        "operationId": "AddSymbols",
         "tags": [
           "Create"
         ],
@@ -213,17 +168,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createSymbols"
+                "$ref": "#/components/schemas/AddSymbols"
               },
               "examples": {
                 "3dOFDB": {
                   "description": "Object in data is mandatory and must contain date with atleast one iterative field",
                   "value": {
-                    "symbol": "FACTSET",
+                    "symbol": "FDS",
                     "data": [
                       {
-                        "date": 20200202,
-                        "field": "value"
+                        "date": "20220106",
+                        "price": "333"
                       }
                     ]
                   }
@@ -231,10 +186,11 @@
                 "2dOFDB": {
                   "description": "Object in data is optional and should contain fields of the OFDB",
                   "value": {
-                    "symbol": "FACTSET",
+                    "symbol": "FDS",
                     "data": [
                       {
-                        "field": "value"
+                        "description": "Your desired information",
+                        "price": "200"
                       }
                     ]
                   }
@@ -245,7 +201,7 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -276,6 +232,7 @@
     },
     "/v1/database/{path}/symbols/{symbol}": {
       "put": {
+        "operationId": "UpdateSymbols",
         "tags": [
           "Modify"
         ],
@@ -294,26 +251,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/modifySymbols"
+                "$ref": "#/components/schemas/UpdateSymbols"
               },
               "examples": {
                 "3dOFDB": {
-                  "description": "Object in data is mandatory and must contain date with atleast one iterative field",
+                  "description": "Object in data is mandatory and must contain the field date and at least one iterative field",
                   "value": {
                     "data": [
                       {
-                        "date": 20200202,
-                        "field": "value"
+                        "date": "20200202",
+                        "price": "999"
                       }
                     ]
                   }
                 },
                 "2dOFDB": {
-                  "description": "Object in data is optional and should contain fields of the OFDB",
+                  "description": "Object in data is OPTIONAL and should contain fields already existing within your OFDB",
                   "value": {
                     "data": [
                       {
-                        "field": "value"
+                        "country": "USA"
                       }
                     ]
                   }
@@ -324,7 +281,7 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -353,6 +310,7 @@
         }
       },
       "delete": {
+        "operationId": "DeleteSymbols",
         "tags": [
           "Modify"
         ],
@@ -395,6 +353,7 @@
     },
     "/v1/database/{path}/dates": {
       "get": {
+        "operationId": "GetDates",
         "tags": [
           "View"
         ],
@@ -452,31 +411,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful output",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "$ref": "#/components/headers/X-DataDirect-Request-Key"
-              },
-              "X-FactSet-Api-Request-Key": {
-                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-              },
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Dates"
-                }
-              }
-            }
+            "$ref": "#/components/responses/200GetDates"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -502,6 +437,7 @@
         }
       },
       "post": {
+        "operationId": "AddSymbolDate",
         "tags": [
           "Create"
         ],
@@ -517,20 +453,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/postDatesymbol",
-                "example": [
-                  {
-                    "symbol": "FACTSET",
-                    "field": "VALUE"
-                  }
-                ]
+                "$ref": "#/components/schemas/AddSymbolDate"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -561,6 +491,7 @@
     },
     "/v1/database/{path}/dates/{date}": {
       "put": {
+        "operationId": "UpdateSymbolDate",
         "tags": [
           "Modify"
         ],
@@ -579,20 +510,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/modifydatespecific",
-                "example": [
-                  {
-                    "symbol": "FACTSET",
-                    "field1": "VALUE"
-                  }
-                ]
+                "$ref": "#/components/schemas/UpdateSymbolDate"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -621,6 +546,7 @@
         }
       },
       "delete": {
+        "operationId": "DeleteDates",
         "tags": [
           "Modify"
         ],
@@ -663,6 +589,7 @@
     },
     "/v1/database/{path}/dates/{date}/symbols": {
       "post": {
+        "operationId": "AddSymbolDate3D",
         "tags": [
           "Create"
         ],
@@ -681,14 +608,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/postnewsymboldate"
+                "$ref": "#/components/schemas/AddSymbolDate3D"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -716,6 +643,7 @@
     },
     "/v1/database/{path}/dates/{date}/symbols/{symbol}": {
       "put": {
+        "operationId": "UpdateSymbolDate3D",
         "tags": [
           "Modify"
         ],
@@ -737,14 +665,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/modifysymboldate"
+                "$ref": "#/components/schemas/UpdateSymbolDate3D"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/PostRequestsSuccessCompleteRespones"
+            "$ref": "#/components/responses/PostRequestsSuccessCompleteResponse"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -770,6 +698,7 @@
         }
       },
       "delete": {
+        "operationId": "DeleteSymbolDate3D",
         "tags": [
           "Modify"
         ],
@@ -937,24 +866,7 @@
         ],
         "responses": {
           "200": {
-            "description": "successful output",
-            "headers": {
-              "X-DataDirect-Request-Key": {
-                "$ref": "#/components/headers/X-DataDirect-Request-Key"
-              },
-              "X-FactSet-Api-Request-Key": {
-                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
-              },
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              }
-            }
+            "$ref": "#/components/responses/200GetData"
           },
           "202": {
             "$ref": "#/components/responses/202LongRunningResponse"
@@ -1019,13 +931,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "path": {
-                      "type": "string",
-                      "description": "path of the newly created database."
-                    }
-                  }
+                  "$ref": "#/components/schemas/AddDatabase"
                 }
               }
             },
@@ -1081,7 +987,7 @@
       }
     },
     "schemas": {
-      "createSymbols": {
+      "AddSymbols": {
         "type": "object",
         "properties": {
           "symbol": {
@@ -1090,71 +996,144 @@
           },
           "data": {
             "type": "array",
-            "items": {},
-            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
+            "items": {
+              "type": "object",
+              "properties": {
+                "field_1": {
+                  "type": "integer"
+                },
+                "field_2": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "date must be provided in the case of a 3d ofdb with atleast one iterative field"
           }
         }
       },
-      "postDatesymbol": {
+      "AddDatabase": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "path of the newly created database."
+          }
+        }
+      },
+      "AddSymbolDate": {
         "type": "object",
         "properties": {
           "date": {
             "type": "string",
             "description": "Date unique to the database.",
-            "example": 20200730
+            "example": "20220202"
           },
           "data": {
             "type": "array",
-            "items": {},
-            "description": "symbol has to be provided to save the date with atleast one iterative field."
+            "items": {
+              "type": "object",
+              "properties": {
+                "field_1": {
+                  "type": "string"
+                },
+                "field_2": {
+                  "type": "integer"
+                }
+              }
+            },
+            "description": "symbol has to be provided to save the date with atleast one iterative field.",
+            "example": {
+              "symbol": "FSA",
+              "price": "999"
+            }
           }
         }
       },
-      "modifydatespecific": {
+      "UpdateSymbolDate": {
         "type": "object",
         "description": "Set of fields along with symbol is mandatory to update the date.",
         "properties": {
           "data": {
             "type": "array",
-            "items": {},
-            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
+            "items": {
+              "type": "object",
+              "properties": {
+                "field_1": {
+                  "type": "string"
+                },
+                "field_2": {
+                  "type": "integer"
+                }
+              }
+            },
+            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field",
+            "example": {
+              "symbol": "FSA",
+              "price": "100"
+            }
           }
         }
       },
-      "postnewsymboldate": {
+      "AddSymbolDate3D": {
         "type": "object",
         "properties": {
           "symbol": {
             "type": "string",
             "description": "Name of the symbol and unique to this database",
-            "example": "FACTSET"
+            "example": "FSA"
           },
           "data": {
             "type": "object",
+            "properties": {
+              "field_1": {
+                "type": "string"
+              }
+            },
             "description": "At least one iterative field is required",
             "example": {
-              "field1": "value"
+              "price": "555"
             }
           }
         }
       },
-      "modifysymboldate": {
+      "UpdateSymbolDate3D": {
         "type": "object",
         "description": "Any arbitary set of fields that are provided while creating the ofdb and their values.",
         "properties": {
           "data": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "field_1": {
+                "type": "string"
+              }
+            },
+            "example": {
+              "price": "777"
+            }
           }
         }
       },
-      "modifySymbols": {
+      "UpdateSymbols": {
         "type": "object",
-        "description": "Any arbitary set of fields that are provided while creating the ofdb and their values date field is important for 3d ofdbs.",
+        "description": "Any arbitary set of fields that are provided while creating the ofdb and their values.",
         "properties": {
           "data": {
             "type": "array",
-            "items": {},
-            "description": "date has to be provide in case 3d OFDB with date and atleast one iterative field"
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "integer"
+                },
+                "field_1": {
+                  "type": "integer"
+                },
+                "field_2": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "date must be provided in the case of a 3d ofdb with at least one iterative field"
           }
         }
       },
@@ -1219,19 +1198,17 @@
         "type": "object",
         "properties": {
           "path": {
-            "type": "string"
+            "type": "string",
+            "example": "CLIENT:this_is_a_test_.OFDB"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "example": "A user would fill this with relevant information"
           },
           "fields": {
             "$ref": "#/components/schemas/Fields"
           }
         }
-      },
-      "ResponseLocationHeader": {
-        "type": "string",
-        "description": "url of the newly created resource"
       },
       "SuccessPostResponse": {
         "type": "object",
@@ -1274,6 +1251,12 @@
       }
     },
     "headers": {
+      "ResponseLocationHeader": {
+        "description": "url of the newly created resource",
+        "schema": {
+          "type": "string"
+        }
+      },
       "Long-Running-Location": {
         "description": "location to poll for the status of the job.",
         "schema": {
@@ -1318,11 +1301,11 @@
       }
     },
     "responses": {
-      "PostRequestsSuccessCompleteRespones": {
+      "PostRequestsSuccessCompleteResponse": {
         "description": "Status message of creation",
         "headers": {
           "Location": {
-            "$ref": "#/components/schemas/ResponseLocationHeader"
+            "$ref": "#/components/headers/ResponseLocationHeader"
           },
           "X-DataDirect-Request-Key": {
             "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -1370,11 +1353,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -1406,6 +1391,107 @@
           }
         }
       },
+      "200GetFields": {
+        "description": "List of fields within the database",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Fields"
+            }
+          }
+        }
+      },
+      "200GetSymbols": {
+        "description": "Successful symbols array within OFDB",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Symbols"
+            }
+          }
+        }
+      },
+      "200GetDates": {
+        "description": "Successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Dates"
+            }
+          }
+        }
+      },
+      "200GetData": {
+        "description": "successful output",
+        "headers": {
+          "X-DataDirect-Request-Key": {
+            "$ref": "#/components/headers/X-DataDirect-Request-Key"
+          },
+          "X-FactSet-Api-Request-Key": {
+            "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+          },
+          "X-RateLimit-Limit": {
+            "$ref": "#/components/headers/X-RateLimit-Limit"
+          },
+          "X-RateLimit-Remaining": {
+            "$ref": "#/components/headers/X-RateLimit-Remaining"
+          },
+          "X-RateLimit-Reset": {
+            "$ref": "#/components/headers/X-RateLimit-Reset"
+          }
+        }
+      },
       "202LongRunningResponse": {
         "description": "Returns when the request is moved to long running mode.",
         "headers": {
@@ -1431,6 +1517,7 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "id": {
                   "type": "string"
@@ -1486,11 +1573,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -1533,11 +1622,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -1580,11 +1671,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -1627,11 +1720,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"
@@ -1677,11 +1772,13 @@
         "content": {
           "application/json": {
             "schema": {
+              "type": "object",
               "properties": {
                 "errors": {
                   "type": "array",
                   "description": "An array containing errors",
                   "items": {
+                    "type": "object",
                     "properties": {
                       "id": {
                         "type": "string"

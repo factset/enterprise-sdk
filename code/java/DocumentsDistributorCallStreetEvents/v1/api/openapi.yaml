@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   contact:
-    email: api@factset.com
+    email: teamustang@factset.com
     name: FactSet Research Systems
   description: "CallStreet Events contains all the Documents Distributor APIs that\
     \ offer events data such as Events Audio and Near Real-Time Transcripts.\n\nThe\
@@ -17,7 +17,7 @@ info:
     \ analysis through natural language processing or machine learning. It can also\
     \ be used to complement analysis using FactSet's transcripts service.\n"
   title: Documents Distributor - CallStreet Events
-  version: 1.8.0
+  version: 1.8.1
 servers:
 - description: Production
   url: https://api.factset.com
@@ -662,7 +662,7 @@ paths:
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this
                       endpoint.'
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -859,7 +859,7 @@ paths:
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this
                       endpoint.'
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -1028,7 +1028,7 @@ paths:
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this
                       endpoint.'
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -1723,7 +1723,7 @@ paths:
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this
                       endpoint.'
               schema:
-                $ref: '#/components/schemas/NRT403Error'
+                $ref: '#/components/schemas/Error'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -2176,13 +2176,6 @@ components:
         title:
           type: string
         id:
-          type: string
-      type: object
-    NRT403Error:
-      properties:
-        id:
-          type: string
-        error_message:
           type: string
       type: object
     Indexed-NRT:
@@ -2663,8 +2656,9 @@ components:
             event.
           type: string
         trimmed:
-          description: The trimmed attribute helps identify if the audio is the trimmed
-            version.
+          description: |-
+            The trimmed attribute helps identify if the audio is the trimmed version.
+            Note:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response.
           type: boolean
         sampleRate:
           description: |-
@@ -2681,10 +2675,11 @@ components:
           nullable: true
           type: number
         audioSourceId:
-          description: Unique ID for an Internal recording specific to reportID. For
-            example, ReportID X would have multiple recordings from different source
-            (Phone or Webcast or Vendor or Replay). One ReportID can have multiple
-            AudioSourceIDs.
+          description: |-
+            Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.
+
+            The audioSourceId identifier is available for audio calls since November 29, 2022.
+            Note:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null.
           nullable: true
           type: integer
       type: object

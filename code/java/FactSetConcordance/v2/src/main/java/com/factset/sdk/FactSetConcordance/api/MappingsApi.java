@@ -263,6 +263,7 @@ public class MappingsApi {
    * @param mapStatus Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
+   * @param sort Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) (optional)
    * @return EntityUniverseResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -276,8 +277,8 @@ public class MappingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityUniverseResponse getEntityUniverse(Integer universeId, java.util.List<String> clientId, java.util.List<String> mapStatus, Integer offset, Integer limit) throws ApiException {
-    return getEntityUniverseWithHttpInfo(universeId, clientId, mapStatus, offset, limit).getData();
+  public EntityUniverseResponse getEntityUniverse(Integer universeId, java.util.List<String> clientId, java.util.List<String> mapStatus, Integer offset, Integer limit, java.util.List<String> sort) throws ApiException {
+    return getEntityUniverseWithHttpInfo(universeId, clientId, mapStatus, offset, limit, sort).getData();
   }
 
   /**
@@ -288,6 +289,7 @@ public class MappingsApi {
    * @param mapStatus Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
    * @param offset Starting row for records to return or rows to skip. (optional, default to 0)
    * @param limit Limits the number of records in the response. (optional)
+   * @param sort Sort clientId, createdTime, updatedTime, clientName, entityId fields in ascending or descending order with asc and desc to indicate the order. Example (clientId:asc) (optional)
    * @return ApiResponse&lt;EntityUniverseResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -301,7 +303,7 @@ public class MappingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityUniverseResponse> getEntityUniverseWithHttpInfo(Integer universeId, java.util.List<String> clientId, java.util.List<String> mapStatus, Integer offset, Integer limit) throws ApiException {
+  public ApiResponse<EntityUniverseResponse> getEntityUniverseWithHttpInfo(Integer universeId, java.util.List<String> clientId, java.util.List<String> mapStatus, Integer offset, Integer limit, java.util.List<String> sort) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'universeId' is set
@@ -323,6 +325,7 @@ public class MappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "mapStatus", mapStatus));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
 
     
     
